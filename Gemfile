@@ -8,7 +8,7 @@ gem 'jquery-rails', '~> 3.0'
 gem 'twitter-bootstrap-rails'
 gem 'nokogiri'
 gem 'jbuilder', '~> 1.2'
-gem 'devise', '~> 3.0'
+gem 'devise', '3.1.0'
 gem 'turbolinks'
 
 group :doc do
