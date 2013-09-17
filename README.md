@@ -1,7 +1,6 @@
-SHYNE
-=====
+# SHYNE
 
-##First-time install
+## First-time install
 
 ``git clone git@github.com:shyneinc/Shyne.git``
 
@@ -13,11 +12,11 @@ SHYNE
 
 ``rails s``
 
-##Git development workflow
+## Git development workflow
 
 Install git-flow: See the Wiki for up-to-date [Installation Instructions](https://github.com/nvie/gitflow/wiki/Installation).
 
-Start
+### Start
 
 ``git fetch origin``
 
@@ -27,7 +26,7 @@ Start
 
 ``hack hack hack``
 
-Finish
+### Finish
 
 ``git rebase origin/develop develop``
 
