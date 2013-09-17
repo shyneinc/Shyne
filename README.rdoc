@@ -1,28 +1,38 @@
-== README
+SHYNE
+=====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##First-time install
 
-Things you may want to cover:
+``git clone git@github.com:shyneinc/Shyne.git``
 
-* Ruby version
+``cd Shyne``
 
-* System dependencies
+``bundle install``
 
-* Configuration
+``bundle exec rake db:setup``
 
-* Database creation
+``rails s``
 
-* Database initialization
+##Git development workflow
 
-* How to run the test suite
+Install git-flow: See the Wiki for up-to-date [Installation Instructions](https://github.com/nvie/gitflow/wiki/Installation).
 
-* Services (job queues, cache servers, search engines, etc.)
+Start
 
-* Deployment instructions
+``git fetch origin``
 
-* ...
+``git rebase origin/develop develop``
 
+``git flow feature start name-of-feature``
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+``hack hack hack``
+
+Finish
+
+``git rebase origin/develop develop``
+
+``git flow feature rebase new_feature``
+
+``git flow feature finish name-of-feature``
+
+``git push origin develop``
