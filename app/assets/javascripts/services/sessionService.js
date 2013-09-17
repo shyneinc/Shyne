@@ -7,7 +7,7 @@ angular.module('sessionService', [])
         }
         var service = {
             login: function(email, password) {
-                return $http.post('/login', {user: {email: email, password: password} })
+                return $http.post('/api/login', {user: {email: email, password: password} })
                     .then(function(response) {
                         service.currentUser = response.data.user;
                         if (service.isAuthenticated()) {
@@ -18,7 +18,7 @@ angular.module('sessionService', [])
             },
 
             logout: function(redirectTo) {
-                $http.post('/logout').then(function() {
+                $http.post('/api/logout').then(function() {
                     service.currentUser = null;
                     redirect(redirectTo);
                 });
@@ -37,7 +37,7 @@ angular.module('sessionService', [])
                 if (service.isAuthenticated()) {
                     return $q.when(service.currentUser);
                 } else {
-                    return $http.get('/current_user').then(function(response) {
+                    return $http.get('/api/current_user').then(function(response) {
                         service.currentUser = response.data.user;
                         return service.currentUser;
                     });

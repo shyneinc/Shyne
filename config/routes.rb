@@ -53,13 +53,16 @@ Shyne::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :home
+  resources :home, only: [:index]
   root :to => "home#index"
   devise_for :users
-  devise_scope :user do
-    post 'login' => 'sessions#create', :as => 'login'
-    post 'logout' => 'sessions#destroy', :as => 'logout'
-    get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
+
+  namespace :api, defaults: {format: :json} do
+    devise_scope :user do
+      post 'login' => 'sessions#create', :as => 'login'
+      post 'logout' => 'sessions#destroy', :as => 'logout'
+      get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
+    end
   end
 end
 
