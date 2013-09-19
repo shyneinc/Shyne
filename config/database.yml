@@ -4,3 +4,10 @@ development:
   database: shyne_development
   username: shyne
   password: 4shyne!
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: shyne_test
+  username: shyne
+  password: 4shyne!
