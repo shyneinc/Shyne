@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Shyne::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -58,10 +60,12 @@ Shyne::Application.routes.draw do
   devise_for :users
 
   namespace :api, defaults: {format: :json} do
-    devise_scope :user do
-      post 'login' => 'sessions#create', :as => 'login'
-      post 'logout' => 'sessions#destroy', :as => 'logout'
-      get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      devise_scope :user do
+        post 'login' => 'sessions#create', :as => 'login'
+        post 'logout' => 'sessions#destroy', :as => 'logout'
+        get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
+      end
     end
   end
 end
