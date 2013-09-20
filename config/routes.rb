@@ -66,6 +66,7 @@ Shyne::Application.routes.draw do
         post 'logout' => 'sessions#destroy', :as => 'logout'
         get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
       end
+      resources :mentors
     end
   end
 end
