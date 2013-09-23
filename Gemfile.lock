@@ -133,6 +133,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  coffee-rails
   devise (= 3.1.0)
   jbuilder (~> 1.2)
   jquery-rails (~> 3.0)

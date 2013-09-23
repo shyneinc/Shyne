@@ -9,6 +9,7 @@ gem 'twitter-bootstrap-rails'
 gem 'nokogiri'
 gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.1.0'
+gem 'coffee-rails'
 gem 'turbolinks'
 
 group :doc do
