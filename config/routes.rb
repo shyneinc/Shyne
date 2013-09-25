@@ -67,6 +67,7 @@ Shyne::Application.routes.draw do
         get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
       end
       resources :mentors
+      resources :members
     end
   end
 end
