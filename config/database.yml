@@ -1,13 +1,19 @@
 development:
   adapter: postgresql
   encoding: utf8
+  template: template0
   database: shyne_development
   username: shyne
   password: 4shyne!
+  host: localhost
+  pool: 5
 
 test:
   adapter: postgresql
   encoding: utf8
+  template: template0
   database: shyne_test
   username: shyne
   password: 4shyne!
+  host: localhost
+  pool: 5
