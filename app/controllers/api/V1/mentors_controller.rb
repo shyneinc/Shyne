@@ -10,7 +10,13 @@ class Api::V1::MentorsController < ApplicationController
   end
 
   def create
-    respond_with :api, Mentor.create(mentor_params)
+    @user = User.new(user_params)
+    @mentor = Mentor.new(mentor_params)
+    @user.role = @mentor
+    @user.save!
+    @mentor.user_id = @user.id
+    @mentor.save!
+    respond_with :api, @mentor
   end
 
   def update
@@ -24,6 +30,10 @@ class Api::V1::MentorsController < ApplicationController
   private
 
   def mentor_params
-    params.require(:mentor).permit(:first_name, :last_name)
+    params.require(:mentor).permit(:first_name, :last_name, user_attributes: [:email, :password])
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password)
   end
 end
