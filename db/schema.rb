@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927233105) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "admins", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "admins", ["user_id"], name: "index_admins_on_user_id", using: :btree
+ActiveRecord::Schema.define(version: 20130930210659) do
 
   create_table "casein_users", force: true do |t|
     t.string   "login",                           null: false
