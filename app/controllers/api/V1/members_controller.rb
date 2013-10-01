@@ -10,11 +10,9 @@ class Api::V1::MembersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
     @member = Member.new(member_params)
-    @user.role = @member
-    @user.save!
-    @member.user_id = @user.id
+    @member.user.save!
+    @member.user_id = @member.user.id
     @member.save!
     respond_with :api, @member
   end
@@ -30,10 +28,6 @@ class Api::V1::MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:first_name, :last_name)
-  end
-
-  def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:member).permit(:first_name, :last_name, user_attributes: [:email, :password])
   end
 end
