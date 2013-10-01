@@ -19,7 +19,16 @@ group :assets do
   gem 'sass'
 end
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails', '4.2.1'
+end
+
+group :test do
+  gem 'faker', '~> 1.1.2'
+  gem 'rack-test'
+  gem 'turn', :require => false
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '>=0.3.0'
 end
