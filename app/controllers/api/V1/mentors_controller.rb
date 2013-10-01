@@ -11,9 +11,9 @@ class Api::V1::MentorsController < ApplicationController
 
   def create
     @mentor = Mentor.new(mentor_params)
-    @mentor.user.save!
+    @mentor.user.save
     @mentor.user_id = @mentor.user.id
-    @mentor.save!
+    @mentor.save
     respond_with :api, @mentor
   end
 

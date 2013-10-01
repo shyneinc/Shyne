@@ -11,9 +11,9 @@ class Api::V1::MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
-    @member.user.save!
+    @member.user.save
     @member.user_id = @member.user.id
-    @member.save!
+    @member.save
     respond_with :api, @member
   end
 
