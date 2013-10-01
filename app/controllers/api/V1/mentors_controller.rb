@@ -1,6 +1,4 @@
-class Api::V1::MentorsController < ApplicationController
-  respond_to :json
-
+class Api::V1::MentorsController < Api::V1::BaseController
   def index
     respond_with :api, Mentor.all
   end

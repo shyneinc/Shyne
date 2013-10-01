@@ -1,6 +1,4 @@
-class Api::V1::MembersController < ApplicationController
-  respond_to :json
-
+class Api::V1::MembersController < Api::V1::BaseController
   def index
     respond_with :api, Member.all
   end
