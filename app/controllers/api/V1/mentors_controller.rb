@@ -26,6 +26,7 @@ class Api::V1::MentorsController < Api::V1::BaseController
   private
 
   def mentor_params
-    params.require(:mentor).permit(:first_name, :last_name, user_attributes: [:email, :password])
+    params.require(:mentor).permit(:first_name, :last_name, :headline, :years_of_experience, :phone_number,
+                                   :availability, user_attributes: [:email, :password, :password_confirmation])
   end
 end
