@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002224906) do
+ActiveRecord::Schema.define(version: 20131002235646) do
 
   create_table "casein_users", force: true do |t|
     t.string   "login",                           null: false
@@ -64,6 +64,12 @@ ActiveRecord::Schema.define(version: 20131002224906) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.text     "headline"
+    t.integer  "years_of_experience"
+    t.string   "phone_number"
+    t.text     "availability"
+    t.boolean  "approved"
+    t.datetime "approved_at"
   end
 
   add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
