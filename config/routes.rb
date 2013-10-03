@@ -75,6 +75,7 @@ Shyne::Application.routes.draw do
       resources :mentors
       resources :members
       resources :industries, only: [:index]
+      resources :experties, only: [:show, :create, :destroy]
     end
   end
 end
