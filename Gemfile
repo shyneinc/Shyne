@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.1.0'
 gem 'turbolinks'
 gem 'casein'
+gem 'json'
 
 gem 'jquery-rails', '~> 3.0'
 gem 'twitter-bootstrap-rails'

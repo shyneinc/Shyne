@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+industries_json = JSON.parse(open("#{Rails.root}/public/seeds/industries.json").read)
+industries_json.each do |industry|
+  Industry.create!(:title => industry)
+end
