@@ -1,12 +1,6 @@
 require 'api_constraints'
 
 Shyne::Application.routes.draw do
-
-	#Casein routes
-	namespace :casein do
-		resources :mentors
-	end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
