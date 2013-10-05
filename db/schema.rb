@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004183146) do
+ActiveRecord::Schema.define(version: 20131005001815) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 20131004183146) do
 
   add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
 
+  create_table "mentor_statuses", force: true do |t|
+    t.string "title"
+  end
+
   create_table "mentors", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -81,10 +85,11 @@ ActiveRecord::Schema.define(version: 20131004183146) do
     t.integer  "years_of_experience"
     t.string   "phone_number"
     t.text     "availability"
-    t.boolean  "approved"
-    t.datetime "approved_at"
+    t.integer  "mentor_status_id"
+    t.datetime "status_changed_at"
   end
 
+  add_index "mentors", ["mentor_status_id"], name: "index_mentors_on_mentor_status_id", using: :btree
   add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

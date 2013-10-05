@@ -2,12 +2,12 @@ ActiveAdmin.register Mentor do
   menu :priority => 2
 
   index do
+    selectable_column
     column :first_name
     column :last_name
     column :headline
     column :years_of_experience
-    column :approved
-    column :approved_at
+    column :mentor_status
     default_actions
   end
 
@@ -19,7 +19,7 @@ ActiveAdmin.register Mentor do
       f.input :years_of_experience
       f.input :phone_number
       f.input :availability
-      f.input :approved
+      f.input :mentor_status
     end
     f.actions
   end
@@ -27,7 +27,7 @@ ActiveAdmin.register Mentor do
   controller do
     def permitted_params
       params.permit mentor: [:first_name, :last_name, :headline, :years_of_experience, :phone_number,
-                             :availability, :approved]
+                             :availability, :mentor_status_id]
     end
   end
 end
