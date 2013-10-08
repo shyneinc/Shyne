@@ -1,0 +1,27 @@
+@import "typography";
+
+header{
+  .logo {
+    background: url(/assets/logo.svg) -6px -18px;
+    background-size: 180px 130px;
+    display: block;
+    width: 180px;
+    height: 90px;
+    text-indent: -99999999px;
+  }
+  .nav {
+    margin-top: 15px;
+    li > a {
+      color: #000;
+      font-size: 16px;
+      text-decoration: none;
+    }
+  }
+}
+
+footer {
+  margin: 30px 0;
+  border-top: 1px solid #f3f3f3;
+  padding-top: 20px;
+  color: #666;
+}

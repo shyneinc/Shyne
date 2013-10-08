@@ -7,19 +7,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <p>
                     Get expert interview advice from people that have worked in positions you're interested in.  Schedule a call with any of our mentions in just minutes.
                 </p>
             </div>
         </div>
-        <form class="form-inline" role="form">
-            <div class="form-group">
-                <label class="sr-only" for="home-search"></label>
-                <input type="text" class="form-control" id="home-search" placeholder="Search for a company or position you're interested in.">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline search-form" role="form">
+                    <div class="form-group">
+                        <label class="sr-only" for="home-search"></label>
+                        <input type="text" class="form-control search-box" id="home-search" placeholder="Search for a company or position you're interested in.">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <div class="arrow"></div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-default">Search</button>
-        </form>
+        </div>
     </section>
 
     <section class="banner">
@@ -35,21 +40,29 @@
             <h2 class="text-center">Featured Mentors</h2>
         </div>
         <div class="row">
-            <div class="col-md-1">&lt;</div>
+            <div class="col-md-1">
+                <a href="#" class="circle">
+                    <div class="arrow left">&nbsp;</div>
+                </a>
+            </div>
             <div class="col-md-2"  ng-repeat="mentor in mentors">
                 <figure>
-                    <div class="picture-frame">&nbsp;</div>
+                    <img class="img-rounded" ng-src="{{mentor.photoUrl}}"/>
                     <figcaption>
                         <div class="text-center">
-                            {{mentor.name}} @ {{mentor.company}}
-                            <div class="role">{{mentor.role}}</div>
+                            {{mentor.name}}
+                            <div class="role">{{mentor.role}} @ {{mentor.company}}</div>
                             ${{mentor.ratePerMinute}} / minute
-                            <button class="btn btn-default">Schedule Call</button>
+                            <button class="btn btn-primary">Schedule Call</button>
                         </div>
                     </figcaption>
                 </figure>
             </div>
-            <div class="col-md-1 text-right">&gt;</div>
+            <div class="col-md-1 text-right">
+                <a href="#" class="circle">
+                    <div class="arrow right">&nbsp;</div>
+                </a>
+            </div>
         </div>
     </section>
 
