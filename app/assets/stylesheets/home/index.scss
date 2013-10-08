@@ -1,0 +1,86 @@
+@import "typography";
+
+.home.index {
+  .hero {
+    height: 320px;
+    background: url(/assets/homepage-hero.jpg) no-repeat 100% 0;
+    h1 {
+      font-weight: bold;
+    }
+    .search-form {
+      background-color: $blue;
+      padding: 15px 10px;
+      @include round-corners(5px);
+      .search-box {
+        width: 450px;
+      }
+      .arrow {
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 32px 0 32px 21px;
+        border-color: transparent transparent transparent #5fabe7;
+        float: right;
+        margin: -15px -29px 0 0;
+      }
+    }
+  }
+  .banner {
+    background-color: #f7f7f7;
+    .container {
+      padding: 10px 50px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #777;
+    }
+  }
+  .mentors {
+    .picture-frame {
+      width: 160px;
+      height: 160px;
+      background-color: #999;
+      @include round-corners(5px);
+    }
+    .img-rounded {
+      width: 160px;
+      height: 160px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    figcaption {
+      margin-top: 5px;
+    }
+    .role {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .btn-primary {
+      margin-top: 5px;
+    }
+    .circle {
+      width: 45px;
+      height: 45px;
+      display: block;
+      background-color: #f9f9f9;
+      @include round-corners(45px);
+      margin-top: 60px;
+    }
+    .arrow {
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+
+      &.left {
+        border-width: 11px 11px 11px 0;
+        border-color: transparent #e7e5e5 transparent transparent;
+        margin: 11px 0 0 15px;
+      }
+      &.right {
+        border-width: 11px 0 11px 11px;
+        border-color: transparent transparent transparent #e7e5e5;
+        margin: 11px 15px 0 0;
+      }
+    }
+  }
+}
