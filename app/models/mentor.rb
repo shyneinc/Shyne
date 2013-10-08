@@ -1,9 +1,13 @@
 class Mentor < ActiveRecord::Base
   has_one :user, as: :role
+  accepts_nested_attributes_for :user
+
   belongs_to :mentor_status
+
   has_many :experty
   has_many :industries, :through => :experty
-  accepts_nested_attributes_for :user
+
+  has_many :calls
 
   after_update :send_status_email, :if => :mentor_status_id_changed?
 
