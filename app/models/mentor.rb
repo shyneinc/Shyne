@@ -22,4 +22,8 @@ class Mentor < ActiveRecord::Base
   def self.featured
     where(featured: true).to_a
   end
+
+  def display_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

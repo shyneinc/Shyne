@@ -3,4 +3,8 @@ class Member < ActiveRecord::Base
   accepts_nested_attributes_for :user
 
   has_many :calls
+
+  def display_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
