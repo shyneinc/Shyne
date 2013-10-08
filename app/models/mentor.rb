@@ -14,4 +14,8 @@ class Mentor < ActiveRecord::Base
       MentorMailer.declined_email(self).deliver
     end
   end
+
+  def self.featured
+    where(featured: true).to_a
+  end
 end

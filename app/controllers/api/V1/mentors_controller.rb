@@ -1,6 +1,10 @@
 class Api::V1::MentorsController < Api::V1::BaseController
   def index
-    respond_with :api, Mentor.all
+    if(params[:featured].present? && params[:featured] == 'true')
+      respond_with :api, Mentor.featured
+    else
+      respond_with :api, Mentor.all
+    end
   end
 
   def show

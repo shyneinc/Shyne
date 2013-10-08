@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131005001815) do
+ActiveRecord::Schema.define(version: 20131008000528) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20131005001815) do
     t.text     "availability"
     t.integer  "mentor_status_id"
     t.datetime "status_changed_at"
+    t.boolean  "featured"
   end
 
   add_index "mentors", ["mentor_status_id"], name: "index_mentors_on_mentor_status_id", using: :btree
