@@ -12,7 +12,7 @@ gem 'json'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'jquery-rails', '~> 3.0'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass-rails'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'

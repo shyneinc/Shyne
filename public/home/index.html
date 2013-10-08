@@ -1,11 +1,56 @@
-<div class="jumbotron">
-    <h1>Shyne</h1>
-    <p class="lead">Shyne base.</p>
-    <a class="btn btn-large btn-success" href="/#/profile">Login</a>
-</div>
+<div class="home index">
 
-<hr>
+    <section class="hero container">
+        <div class="row">
+            <div class="col-md-5">
+                <h1>The fastest way to accelerate your career.</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>
+                    Get expert interview advice from people that have worked in positions you're interested in.  Schedule a call with any of our mentions in just minutes.
+                </p>
+            </div>
+        </div>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="home-search"></label>
+                <input type="text" class="form-control" id="home-search" placeholder="Search for a company or position you're interested in.">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </section>
 
-<div class="footer">
-    <p>&copy; Shyne, Inc 2013</p>
+    <section class="banner">
+        <div class="container">
+            <p class="text-center">
+                We have mentors from Facebook. Google. Goldman Sachs, KPMG, PwC, Square, Dropbox, and many more companies!  Pick their brains on how they advanced to get to where they are in their careers.
+            </p>
+        </div>
+    </section>
+
+    <section class="mentors container">
+        <div class="row">
+            <h2 class="text-center">Featured Mentors</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-1">&lt;</div>
+            <div class="col-md-2"  ng-repeat="mentor in mentors">
+                <figure>
+                    <div class="picture-frame">&nbsp;</div>
+                    <figcaption>
+                        <div class="text-center">
+                            {{mentor.name}} @ {{mentor.company}}
+                            <div class="role">{{mentor.role}}</div>
+                            ${{mentor.ratePerMinute}} / minute
+                            <button class="btn btn-default">Schedule Call</button>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-1 text-right">&gt;</div>
+        </div>
+    </section>
+
 </div>

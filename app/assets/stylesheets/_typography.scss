@@ -1,0 +1,16 @@
+$blue: #5fabe7;
+$green: #23e94e;
+
+a {
+  color: $blue;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+@mixin round-corners($radius) {
+  -moz-border-radius: $radius;    // firefox
+  -webkit-border-radius: $radius; // safari/chrome
+  border-radius: $radius;         // CSS3, works in IE9
+}

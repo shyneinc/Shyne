@@ -1,0 +1,18 @@
+@import "typography";
+
+.home.index {
+  .hero {
+    height: 300px;
+  }
+  .banner {
+    background-color: #f7f7f7;
+  }
+  .mentors {
+    .picture-frame {
+      width: 160px;
+      height: 160px;
+      background-color: #999;
+      @include round-corners(5px);
+    }
+  }
+}

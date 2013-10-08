@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html ng-app="Shyne" ng-controller="AppCtrl">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shyne</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= csrf_meta_tags %>
+<html ng-app="Shyne">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyne</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#"><i class="icon-globe"></i>&nbsp;Shyne</a>
-          <div class="navbar-content">
-            <ul class="nav  pull-right"></ul>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container-narrow">
-        <%= bootstrap_flash %>
-        <div ng-view></div>
-    </div>
+<header class="container">
+  <nav class="masthead">
+    <ul class="nav nav-pills pull-right">
+      <li><a href="#">Our Mission</a></li>
+      <li><a href="#">Mentors</a></li>
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Sign up</a></li>
+    </ul>
+  </nav>
+  <h3>Shyne</h3>
+</header>
 
-    <%= javascript_include_tag "application" %>
+<setion ng-view></setion>
+
+<footer>
+  <div class="container">
+    <p>&copy; Shyne, Inc 2013</p>
+  </div>
+</footer>
+
+<%= javascript_include_tag "application" %>
 </body>
 </html>
