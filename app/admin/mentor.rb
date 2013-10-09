@@ -8,6 +8,7 @@ ActiveAdmin.register Mentor do
     column :headline
     column :years_of_experience
     column :mentor_status
+    column :featured
     default_actions
   end
 
@@ -20,6 +21,7 @@ ActiveAdmin.register Mentor do
       f.input :phone_number
       f.input :availability
       f.input :mentor_status
+      f.input :featured
     end
     f.actions
   end
@@ -27,7 +29,7 @@ ActiveAdmin.register Mentor do
   controller do
     def permitted_params
       params.permit mentor: [:first_name, :last_name, :headline, :years_of_experience, :phone_number,
-                             :availability, :mentor_status_id]
+                             :availability, :mentor_status_id, :featured]
     end
   end
 end

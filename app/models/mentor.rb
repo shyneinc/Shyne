@@ -1,9 +1,13 @@
 class Mentor < ActiveRecord::Base
   has_one :user, as: :role
+  accepts_nested_attributes_for :user
+
   belongs_to :mentor_status
+
   has_many :experty
   has_many :industries, :through => :experty
-  accepts_nested_attributes_for :user
+
+  has_many :calls
 
   after_update :send_status_email, :if => :mentor_status_id_changed?
 
@@ -13,5 +17,13 @@ class Mentor < ActiveRecord::Base
     else self.mentor_status.title == 'Declined'
       MentorMailer.declined_email(self).deliver
     end
+  end
+
+  def self.featured
+    where(featured: true).to_a
+  end
+
+  def display_name
+    "#{self.first_name} #{self.last_name}"
   end
 end

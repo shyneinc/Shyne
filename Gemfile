@@ -13,6 +13,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'
+gem 'just-datetime-picker'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'
