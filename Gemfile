@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'letter_opener'
+  gem 'rspec_api_documentation'
 end
 
 group :test do
@@ -34,4 +35,5 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '>=0.3.0'
+  gem 'spork-rails'
 end
