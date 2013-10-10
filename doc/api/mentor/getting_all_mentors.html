@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mentor API</title>
+    <meta charset="utf-8">
+    <style>
+      td.required .name:after {
+        float: right;
+        content: "required";
+        font-weight: normal;
+        color: #F08080;
+      }
+
+      p {
+        padding: 15px;
+        font-size: 130%;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      body {
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mentor API</h1>
+
+      <div class="article">
+        <h2>Getting all mentors</h2>
+        <h3>GET /api/mentors</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="name">featured</span>
+                </td>
+                <td>
+                  <span class="description">Featured mentors or not</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Request</h3>
+
+          <h4>Headers</h4>
+          <pre class="request headers">Accept: application/json
+Content-Type: application/json
+Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /api/mentors</pre>
+
+
+
+
+            <h3>Response</h3>
+            <h4>Headers</h4>
+            <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+Content-Type: application/json; charset=utf-8
+ETag: &quot;4e34c23d9bd86ccb2ae188c6af38e934&quot;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: request_method=GET; path=/
+X-Request-Id: 82520124-3feb-45fe-b52c-d7f0bb2c0bf3
+X-Runtime: 0.639648
+Content-Length: 591</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">[{"id":36,"first_name":"Sibyl","last_name":"Kohler","created_at":"2013-10-10T01:14:22.435Z","updated_at":"2013-10-10T01:14:22.435Z","user_id":null,"headline":null,"years_of_experience":null,"phone_number":null,"availability":null,"mentor_status_id":null,"status_changed_at":null,"featured":null},{"id":37,"first_name":"Sibyl","last_name":"Kohler","created_at":"2013-10-10T01:14:22.590Z","updated_at":"2013-10-10T01:14:22.590Z","user_id":null,"headline":null,"years_of_experience":null,"phone_number":null,"availability":null,"mentor_status_id":null,"status_changed_at":null,"featured":null}]</pre>
+      </div>
+    </div>
+  </body>
+</html>
