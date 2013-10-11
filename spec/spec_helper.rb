@@ -50,8 +50,7 @@ Spork.prefork do
     config.order = "random"
 
     config.include FactoryGirl::Syntax::Methods
-    config.include Requests::JsonHelpers, type: :request
-
+    config.include JsonSpec::Helpers
   end
 end
 
