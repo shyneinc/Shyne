@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < Devise::SessionsController
+    protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/vnd.shyne.v1' }
+
     def create
       resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
       render :status => 200,
