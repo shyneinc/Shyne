@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mentor API</title>
+    <meta charset="utf-8">
+    <style>
+      td.required .name:after {
+        float: right;
+        content: "required";
+        font-weight: normal;
+        color: #F08080;
+      }
+
+      p {
+        padding: 15px;
+        font-size: 130%;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      body {
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mentor API</h1>
+
+      <div class="article">
+        <h2>Deleting a mentor</h2>
+        <h3>DELETE /api/mentors/:id</h3>
+
+
+          <h3>Request</h3>
+
+          <h4>Headers</h4>
+          <pre class="request headers">Accept: application/vnd.shyne.v1
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">DELETE /api/mentors/1826</pre>
+
+
+
+
+            <h3>Response</h3>
+            <h4>Headers</h4>
+            <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+Cache-Control: no-cache
+Set-Cookie: request_method=DELETE; path=/
+X-Request-Id: 3c7d57db-4b00-4007-a269-a450fb0851f0
+X-Runtime: 0.027344</pre>
+            <h4>Status</h4>
+            <pre class="response status">204 No Content</pre>
+      </div>
+    </div>
+  </body>
+</html>

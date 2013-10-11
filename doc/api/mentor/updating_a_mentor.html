@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mentor API</title>
+    <meta charset="utf-8">
+    <style>
+      td.required .name:after {
+        float: right;
+        content: "required";
+        font-weight: normal;
+        color: #F08080;
+      }
+
+      p {
+        padding: 15px;
+        font-size: 130%;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      body {
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mentor API</h1>
+
+      <div class="article">
+        <h2>Updating a mentor</h2>
+        <h3>PUT /api/mentors/:id</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                  <span class="name">first_name</span>
+                </td>
+                <td>
+                  <span class="description">First name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">last_name</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">headline</span>
+                </td>
+                <td>
+                  <span class="description">Headline</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">years_of_experience</span>
+                </td>
+                <td>
+                  <span class="description">Headline</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">phone_number</span>
+                </td>
+                <td>
+                  <span class="description">Phone Number</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">availability</span>
+                </td>
+                <td>
+                  <span class="description">Availability</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Request</h3>
+
+          <h4>Headers</h4>
+          <pre class="request headers">Accept: application/vnd.shyne.v1
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PUT /api/mentors/1827</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">mentor[first_name]=Danial&mentor[last_name]=Kihn&mentor[headline]=Vel+quis+cum+eius+aspernatur+voluptatibus+fugiat+nulla+ut+sit+iure.&mentor[years_of_experience]=4&mentor[phone_number]=997.545.1797+x8221&mentor[availability]=Iste+omnis+unde+dolorem+iusto+voluptatem+error+esse+cum+aut+provident+perspiciatis+et+nulla.&mentor[featured]</pre>
+
+
+            <h3>Response</h3>
+            <h4>Headers</h4>
+            <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+Cache-Control: no-cache
+Set-Cookie: request_method=PUT; path=/
+X-Request-Id: e9fcc00a-daa9-4a46-ab0a-32532777cba8
+X-Runtime: 0.030273</pre>
+            <h4>Status</h4>
+            <pre class="response status">204 No Content</pre>
+      </div>
+    </div>
+  </body>
+</html>

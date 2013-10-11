@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mentor API</title>
+    <meta charset="utf-8">
+    <style>
+      td.required .name:after {
+        float: right;
+        content: "required";
+        font-weight: normal;
+        color: #F08080;
+      }
+
+      p {
+        padding: 15px;
+        font-size: 130%;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      body {
+        margin-left: auto;
+        margin-right: auto;
+        width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mentor API</h1>
+
+      <div class="article">
+        <h2>Registering a mentor</h2>
+        <h3>POST /api/mentors</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                  <span class="name">first_name</span>
+                </td>
+                <td>
+                  <span class="description">First name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">last_name</span>
+                </td>
+                <td>
+                  <span class="description">Last name</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">headline</span>
+                </td>
+                <td>
+                  <span class="description">Headline</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">years_of_experience</span>
+                </td>
+                <td>
+                  <span class="description">Headline</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">phone_number</span>
+                </td>
+                <td>
+                  <span class="description">Phone Number</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                  <span class="name">availability</span>
+                </td>
+                <td>
+                  <span class="description">Availability</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="name">email</span>
+                </td>
+                <td>
+                  <span class="description">Email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="name">password</span>
+                </td>
+                <td>
+                  <span class="description">Password</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="name">password_confirmation</span>
+                </td>
+                <td>
+                  <span class="description">Password Confirmation</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Request</h3>
+
+          <h4>Headers</h4>
+          <pre class="request headers">Accept: application/vnd.shyne.v1
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /api/mentors</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">mentor[first_name]=Danial&mentor[last_name]=Kihn&mentor[headline]=Vel+quis+cum+eius+aspernatur+voluptatibus+fugiat+nulla+ut+sit+iure.&mentor[years_of_experience]=29&mentor[phone_number]=997.545.1797+x8221&mentor[availability]=Iste+omnis+unde+dolorem+iusto+voluptatem+error+esse+cum+aut+provident+perspiciatis+et+nulla.&mentor[featured]&mentor[user_attributes][email]=william%40daugherty.com&mentor[user_attributes][password]=password&mentor[user_attributes][password_confirmation]=password</pre>
+
+
+            <h3>Response</h3>
+            <h4>Headers</h4>
+            <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+Location: http://example.org/api/mentors/1824
+Content-Type: application/json; charset=utf-8
+ETag: &quot;e53f496fdfd8df0f51ff24e016655670&quot;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: request_method=POST; path=/
+X-Request-Id: faeeaaf9-0004-4460-8eb5-4b4ef150e447
+X-Runtime: 0.335938
+Content-Length: 461</pre>
+            <h4>Status</h4>
+            <pre class="response status">201 Created</pre>
+              <h4>Body</h4>
+              <pre class="response body">{"id":1824,"first_name":"Danial","last_name":"Kihn","created_at":"2013-10-11T21:35:01.905Z","updated_at":"2013-10-11T21:35:01.905Z","user_id":43,"headline":"Vel quis cum eius aspernatur voluptatibus fugiat nulla ut sit iure.","years_of_experience":29,"phone_number":"997.545.1797 x8221","availability":"Iste omnis unde dolorem iusto voluptatem error esse cum aut provident perspiciatis et nulla.","mentor_status_id":553,"status_changed_at":null,"featured":null}</pre>
+      </div>
+    </div>
+  </body>
+</html>
