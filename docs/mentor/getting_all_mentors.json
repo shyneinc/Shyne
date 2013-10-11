@@ -1,0 +1,34 @@
+{
+  "resource": "Mentor",
+  "http_method": "GET",
+  "route": "/api/mentors",
+  "description": "Getting all mentors",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "featured",
+      "description": "Only list featured mentors"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":2094,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.103Z\",\"updated_at\":\"2013-10-11T22:13:16.103Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":9,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2095,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.109Z\",\"updated_at\":\"2013-10-11T22:13:16.109Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":24,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2096,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.115Z\",\"updated_at\":\"2013-10-11T22:13:16.115Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":0,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2097,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.120Z\",\"updated_at\":\"2013-10-11T22:13:16.120Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":23,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2098,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.193Z\",\"updated_at\":\"2013-10-11T22:13:16.193Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":5,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2099,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.199Z\",\"updated_at\":\"2013-10-11T22:13:16.199Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":10,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2100,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.204Z\",\"updated_at\":\"2013-10-11T22:13:16.204Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":12,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2101,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.210Z\",\"updated_at\":\"2013-10-11T22:13:16.210Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":29,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2102,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.215Z\",\"updated_at\":\"2013-10-11T22:13:16.215Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":7,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true},{\"id\":2103,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:16.220Z\",\"updated_at\":\"2013-10-11T22:13:16.220Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":2,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"3e43f5892101a601b182cb948f43d06d\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"0a55728c-b49f-4016-9cf9-bb021ec9aef0","X-Runtime":"0.048829","Content-Length":"4826"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "resource": "Mentor",
+  "http_method": "GET",
+  "route": "/api/mentors/:id",
+  "description": "Getting a specific mentor",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors/2093",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":2093,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:15.383Z\",\"updated_at\":\"2013-10-11T22:13:15.383Z\",\"user_id\":null,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":3,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"af359f15412ea0b9bf4ab95307a7667c\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"ff60b149-d283-448b-acc8-726f9c4eb2f8","X-Runtime":"0.031250","Content-Length":"481"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

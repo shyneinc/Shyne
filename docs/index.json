@@ -1,0 +1,39 @@
+{
+  "resources": [
+    {
+      "name": "Mentor",
+      "examples": [
+        {
+          "description": "Deleting a mentor",
+          "link": "mentor/deleting_a_mentor.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting a specific mentor",
+          "link": "mentor/getting_a_specific_mentor.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all mentors",
+          "link": "mentor/getting_all_mentors.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting featured mentors",
+          "link": "mentor/getting_featured_mentors.json",
+          "groups": "all"
+        },
+        {
+          "description": "Registering a mentor",
+          "link": "mentor/registering_a_mentor.json",
+          "groups": "all"
+        },
+        {
+          "description": "Updating a mentor",
+          "link": "mentor/updating_a_mentor.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}

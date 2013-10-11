@@ -51,6 +51,10 @@ Spork.prefork do
 
     config.include FactoryGirl::Syntax::Methods
     config.include JsonSpec::Helpers
+    RspecApiDocumentation.configure do |config|
+      config.format = :json
+      config.docs_dir = Rails.root.join("docs", "")
+    end
   end
 end
 

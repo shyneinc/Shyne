@@ -10,6 +10,7 @@ gem 'devise', '3.1.0'
 gem 'turbolinks'
 gem 'json'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'raddocs'
 
 gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'

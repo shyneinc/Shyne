@@ -1,0 +1,32 @@
+{
+  "resource": "Mentor",
+  "http_method": "DELETE",
+  "route": "/api/mentors/:id",
+  "description": "Deleting a mentor",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/mentors/2092",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/","X-Request-Id":"ee7c5410-9cb5-430d-9e75-ae61e4292e4a","X-Runtime":"0.797851"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

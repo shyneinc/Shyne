@@ -1,0 +1,67 @@
+{
+  "resource": "Mentor",
+  "http_method": "PUT",
+  "route": "/api/mentors/:id",
+  "description": "Updating a mentor",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "headline",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "years_of_experience",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "phone_number",
+      "description": "Phone Number"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "availability",
+      "description": "Availability"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/mentors/2114",
+      "request_body": "mentor[first_name]=Ernestina&mentor[last_name]=Marvin&mentor[headline]=Architecto+facilis+placeat+nesciunt+quibusdam+iste+deserunt+et+excepturi+nihil+ea+velit+quia+qui+nostrum.&mentor[years_of_experience]=18&mentor[phone_number]=949-530-4272&mentor[availability]=Mollitia+qui+qui+sapiente+maiores+officia+consequuntur+dolor+tenetur+rem.&mentor[featured]",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"1131d731-53d1-4b2c-a8b9-3507bb437c08","X-Runtime":"0.036132"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

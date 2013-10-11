@@ -1,0 +1,82 @@
+{
+  "resource": "Mentor",
+  "http_method": "POST",
+  "route": "/api/mentors",
+  "description": "Registering a mentor",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "headline",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "years_of_experience",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "phone_number",
+      "description": "Phone Number"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "availability",
+      "description": "Availability"
+    },
+    {
+      "scope": "user",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "scope": "user",
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "scope": "user",
+      "name": "password_confirmation",
+      "description": "Password Confirmation"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/mentors",
+      "request_body": "mentor[first_name]=Ernestina&mentor[last_name]=Marvin&mentor[headline]=Architecto+facilis+placeat+nesciunt+quibusdam+iste+deserunt+et+excepturi+nihil+ea+velit+quia+qui+nostrum.&mentor[years_of_experience]=3&mentor[phone_number]=949-530-4272&mentor[availability]=Mollitia+qui+qui+sapiente+maiores+officia+consequuntur+dolor+tenetur+rem.&mentor[featured]&mentor[user_attributes][email]=trenton.hoeger%40okeefeharvey.com&mentor[user_attributes][password]=password&mentor[user_attributes][password_confirmation]=password",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":2115,\"first_name\":\"Ernestina\",\"last_name\":\"Marvin\",\"created_at\":\"2013-10-11T22:13:18.952Z\",\"updated_at\":\"2013-10-11T22:13:18.952Z\",\"user_id\":55,\"headline\":\"Architecto facilis placeat nesciunt quibusdam iste deserunt et excepturi nihil ea velit quia qui nostrum.\",\"years_of_experience\":3,\"phone_number\":\"949-530-4272\",\"availability\":\"Mollitia qui qui sapiente maiores officia consequuntur dolor tenetur rem.\",\"mentor_status_id\":853,\"status_changed_at\":null,\"featured\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/2115","Content-Type":"application/json; charset=utf-8","ETag":"\"8f731f7f0da645c36459be00832436c4\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/","X-Request-Id":"f3fbf9cf-92c3-4d2c-aa00-5878f67a1a5b","X-Runtime":"0.372070","Content-Length":"478"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

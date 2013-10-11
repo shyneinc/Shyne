@@ -4,6 +4,7 @@ Shyne::Application.routes.draw do
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get '/admin', to: redirect('/active_admin')
+  mount Raddocs::App => "/docs"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
