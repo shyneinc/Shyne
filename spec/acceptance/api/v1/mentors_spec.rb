@@ -48,8 +48,12 @@ resource 'Mentor' do
       mentor[:user_attributes] = FactoryGirl.attributes_for(:user).except(:id)
       do_request(mentor: mentor)
 
-      #TODO: Fix this
-      #response_body.should be_json_eql(mentor.except(:user_attributes).to_json)
+      hash = JSON.parse(response_body)
+      hash.delete('user_id')
+      hash.delete('mentor_status_id')
+      hash.delete('status_changed_at')
+
+      hash.to_json.should be_json_eql(mentor.except(:user_attributes).to_json)
 
       status.should == 201
     end
