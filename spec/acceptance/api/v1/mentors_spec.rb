@@ -39,9 +39,9 @@ resource 'Mentor' do
     parameter :years_of_experience, "Headline", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
-    parameter :email, "Email", :scope => :user
-    parameter :password, "Password", :scope => :user
-    parameter :password_confirmation, "Password Confirmation", :scope => :user
+    parameter :email, "Email", :scope => :user_attributes
+    parameter :password, "Password", :scope => :user_attributes
+    parameter :password_confirmation, "Password Confirmation", :scope => :user_attributes
 
     example "Registering a mentor" do
       mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
