@@ -34,6 +34,26 @@
           "groups": "all"
         }
       ]
+    },
+    {
+      "name": "Session",
+      "examples": [
+        {
+          "description": "Logging in",
+          "link": "session/logging_in.json",
+          "groups": "all"
+        },
+        {
+          "description": "Logging out",
+          "link": "session/logging_out.json",
+          "groups": "all"
+        },
+        {
+          "description": "Show current user",
+          "link": "session/show_current_user.json",
+          "groups": "all"
+        }
+      ]
     }
   ]
 }

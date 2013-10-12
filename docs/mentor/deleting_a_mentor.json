@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/mentors/2092",
+      "request_path": "/api/mentors/2741",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -24,7 +24,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/","X-Request-Id":"ee7c5410-9cb5-430d-9e75-ae61e4292e4a","X-Runtime":"0.797851"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/","X-Request-Id":"c9748742-239d-4da2-92c5-e12233a3b1c8","X-Runtime":"0.029296"},
       "response_content_type": null,
       "curl": null
 }

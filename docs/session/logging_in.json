@@ -1,0 +1,43 @@
+{
+  "resource": "Session",
+  "http_method": "POST",
+  "route": "/api/login",
+  "description": "Logging in",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "user",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "Password"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/login",
+      "request_body": "user[email]=dario%40adams.org&user[password]=password",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"success\":true,\"info\":\"Logged in\",\"user\":{\"id\":111,\"email\":\"dario@adams.org\",\"created_at\":\"2013-10-12T00:20:17.818Z\",\"updated_at\":\"2013-10-12T00:20:17.890Z\",\"role_id\":null,\"role_type\":null}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"a784fea7609ce72310a34c2eec7e60d1\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=SlBkUmpoY2p1TTR4UFNyd3BwaW9odDVBdnR4SVRZVEJXZTY2ZE0vbythc0pSUzdranhrMjEvNVBhUXRJcHdFVm5kc3hDd0UwLzJxTDJOSTExVE5yUlBTYVArUHpWeWl2WjN0aUdhV2tZWXlvdk8xdUtYS1JhZFlmQnMrOW1iODc3WUVqVjZ4dHpMdjRLelhpL3dUeGlCRjlKSW13WlJabk9MR096UDFKSDJMZ1N1aG9oSzI2aG1Fem9aMk9mOEdILS1uNmdjbkYzV3l5WG52OVFtbUhTeVZRPT0%3D--4bbd728353f2f68e41c1c43aa2d01738ebf59832; path=/; HttpOnly","X-Request-Id":"08ede2a8-16db-47b3-8ce8-d6bf32fa8a2c","X-Runtime":"0.084961","Content-Length":"191"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

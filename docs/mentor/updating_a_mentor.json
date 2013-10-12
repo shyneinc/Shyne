@@ -45,8 +45,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/2114",
-      "request_body": "mentor[first_name]=Ernestina&mentor[last_name]=Marvin&mentor[headline]=Architecto+facilis+placeat+nesciunt+quibusdam+iste+deserunt+et+excepturi+nihil+ea+velit+quia+qui+nostrum.&mentor[years_of_experience]=18&mentor[phone_number]=949-530-4272&mentor[availability]=Mollitia+qui+qui+sapiente+maiores+officia+consequuntur+dolor+tenetur+rem.&mentor[featured]",
+      "request_path": "/api/mentors/2740",
+      "request_body": "mentor[first_name]=Winifred&mentor[last_name]=Cummings&mentor[headline]=Et+quaerat+consectetur+ab+cumque+est+ipsum+aut+et+officia+veniam+et+est.&mentor[years_of_experience]=28&mentor[phone_number]=%28307%29811-7919&mentor[availability]=Non+aut+animi+dolores+porro+ea+voluptatem+nemo+qui+eligendi+explicabo+laborum+numquam.&mentor[featured]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +59,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"1131d731-53d1-4b2c-a8b9-3507bb437c08","X-Runtime":"0.036132"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"3e2d0fa7-52d5-4e14-a51d-ba586b4662a7","X-Runtime":"0.751953"},
       "response_content_type": null,
       "curl": null
 }

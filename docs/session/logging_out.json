@@ -1,0 +1,32 @@
+{
+  "resource": "Session",
+  "http_method": "POST",
+  "route": "/api/logout",
+  "description": "Logging out",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/logout",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"success\":true,\"info\":\"Logged out\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"cf32f17519fbac327c654064aa32bd53\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=Qy9VUkFYbUVVMGZUTnRVQlgyNCtkaHF4QXhTR3d0dTI5a1dRS0ZleVJ1WGlsRXBvOHJjZ3BUMmhkTnhoSzUxOXhPQkZrbUZ2MSszNG1SKzFFMEdmY3c9PS0tSE16c0NkV05UQ0dERUUybjZGZnB1dz09--01954f4373dcbbd61c91e7fa5eaabdb335b98f32; path=/; HttpOnly","X-Request-Id":"5abce018-8865-4290-85f3-4dedee0d706b","X-Runtime":"0.051758","Content-Length":"36"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}
