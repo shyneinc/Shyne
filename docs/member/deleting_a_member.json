@@ -1,8 +1,8 @@
 {
-  "resource": "Mentor",
+  "resource": "Member",
   "http_method": "DELETE",
-  "route": "/api/mentors/:id",
-  "description": "Deleting a mentor",
+  "route": "/api/members/:id",
+  "description": "Deleting a member",
   "explanation": null,
   "parameters": [
 
@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/mentors/3027",
+      "request_path": "/api/members/95",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -24,7 +24,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/","X-Request-Id":"9dab3f3e-b9ae-4216-bb34-7bd38fcf3218","X-Runtime":"0.018555"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/","X-Request-Id":"425ad9f9-4dc1-4ea4-bc09-7e264a1a0782","X-Runtime":"0.080078"},
       "response_content_type": null,
       "curl": null
 }

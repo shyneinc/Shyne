@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/mentors/2762",
+      "request_path": "/api/mentors/3006",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -22,8 +22,8 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"id\":2762,\"first_name\":\"Winifred\",\"last_name\":\"Cummings\",\"created_at\":\"2013-10-12T00:20:16.567Z\",\"updated_at\":\"2013-10-12T00:20:16.567Z\",\"user_id\":null,\"headline\":\"Et quaerat consectetur ab cumque est ipsum aut et officia veniam et est.\",\"years_of_experience\":17,\"phone_number\":\"(307)811-7919\",\"availability\":\"Non aut animi dolores porro ea voluptatem nemo qui eligendi explicabo laborum numquam.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":false}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"796c9455b00435d78e7a6ba823bbbc6b\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"45a8cc27-0069-40c4-a423-7de17d39cf1d","X-Runtime":"0.026367","Content-Length":"465"},
+      "response_body": "{\"id\":3006,\"first_name\":\"Mariano\",\"last_name\":\"Witting\",\"created_at\":\"2013-10-12T16:34:11.618Z\",\"updated_at\":\"2013-10-12T16:34:11.618Z\",\"user_id\":null,\"headline\":\"Maiores nihil est ut et id aliquam dolor ab quia sequi consequatur.\",\"years_of_experience\":20,\"phone_number\":\"995.554.4216 x8005\",\"availability\":\"Iste odit cumque reprehenderit optio nostrum sed quo reiciendis ad.\",\"mentor_status_id\":null,\"status_changed_at\":null,\"featured\":true}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"da70e12368d7ad4cb09b9017a418ff65\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"e26a004c-d028-47bd-ab79-c591c2397497","X-Runtime":"0.019531","Content-Length":"443"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

@@ -1,0 +1,43 @@
+{
+  "resource": "Member",
+  "http_method": "PUT",
+  "route": "/api/members/:id",
+  "description": "Updating a member",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "member",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "member",
+      "name": "last_name",
+      "description": "Last name"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/members/91",
+      "request_body": "member[first_name]=Flavio&member[last_name]=Bernhard",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"a6665bf3-f34f-4a70-b238-dbf095d39377","X-Runtime":"1.035157"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

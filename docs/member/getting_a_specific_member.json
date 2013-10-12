@@ -1,0 +1,31 @@
+{
+  "resource": "Member",
+  "http_method": "GET",
+  "route": "/api/members/:id",
+  "description": "Getting a specific member",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/members/93",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":93,\"first_name\":\"Flavio\",\"last_name\":\"Bernhard\",\"created_at\":\"2013-10-12T16:34:05.620Z\",\"updated_at\":\"2013-10-12T16:34:05.620Z\",\"user_id\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"9fe9625fa3c175f0cd86e906e4d2ba17\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"78f08eb5-a230-49e2-a1f3-ae59eacdf5b4","X-Runtime":"0.084961","Content-Length":"149"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

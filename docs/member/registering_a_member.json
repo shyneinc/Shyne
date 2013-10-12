@@ -1,0 +1,58 @@
+{
+  "resource": "Member",
+  "http_method": "POST",
+  "route": "/api/members",
+  "description": "Registering a member",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "member",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "member",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "scope": "user_attributes",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "scope": "user_attributes",
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "scope": "user_attributes",
+      "name": "password_confirmation",
+      "description": "Password Confirmation"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/members",
+      "request_body": "member[first_name]=Flavio&member[last_name]=Bernhard&member[user_attributes][email]=adriana_hyatt%40kirlinstreich.biz&member[user_attributes][password]=password&member[user_attributes][password_confirmation]=password",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":92,\"first_name\":\"Flavio\",\"last_name\":\"Bernhard\",\"created_at\":\"2013-10-12T16:34:05.238Z\",\"updated_at\":\"2013-10-12T16:34:05.238Z\",\"user_id\":165}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/92","Content-Type":"application/json; charset=utf-8","ETag":"\"1b67f6d7b09d4d15d88d9efa48b50239\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/","X-Request-Id":"bd2b7922-458c-4b27-b4a9-32ada634b8bb","X-Runtime":"0.077149","Content-Length":"148"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

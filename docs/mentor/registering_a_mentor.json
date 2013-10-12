@@ -42,17 +42,17 @@
       "description": "Availability"
     },
     {
-      "scope": "user",
+      "scope": "user_attributes",
       "name": "email",
       "description": "Email"
     },
     {
-      "scope": "user",
+      "scope": "user_attributes",
       "name": "password",
       "description": "Password"
     },
     {
-      "scope": "user",
+      "scope": "user_attributes",
       "name": "password_confirmation",
       "description": "Password Confirmation"
     }
@@ -61,7 +61,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/mentors",
-      "request_body": "mentor[first_name]=Winifred&mentor[last_name]=Cummings&mentor[headline]=Et+quaerat+consectetur+ab+cumque+est+ipsum+aut+et+officia+veniam+et+est.&mentor[years_of_experience]=6&mentor[phone_number]=%28307%29811-7919&mentor[availability]=Non+aut+animi+dolores+porro+ea+voluptatem+nemo+qui+eligendi+explicabo+laborum+numquam.&mentor[featured]&mentor[user_attributes][email]=dario%40adams.org&mentor[user_attributes][password]=password&mentor[user_attributes][password_confirmation]=password",
+      "request_body": "mentor[first_name]=Mariano&mentor[last_name]=Witting&mentor[headline]=Maiores+nihil+est+ut+et+id+aliquam+dolor+ab+quia+sequi+consequatur.&mentor[years_of_experience]=19&mentor[phone_number]=995.554.4216+x8005&mentor[availability]=Iste+odit+cumque+reprehenderit+optio+nostrum+sed+quo+reiciendis+ad.&mentor[featured]&mentor[user_attributes][email]=adriana_hyatt%40kirlinstreich.biz&mentor[user_attributes][password]=password&mentor[user_attributes][password_confirmation]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -73,8 +73,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":2763,\"first_name\":\"Winifred\",\"last_name\":\"Cummings\",\"created_at\":\"2013-10-12T00:20:17.549Z\",\"updated_at\":\"2013-10-12T00:20:17.549Z\",\"user_id\":108,\"headline\":\"Et quaerat consectetur ab cumque est ipsum aut et officia veniam et est.\",\"years_of_experience\":6,\"phone_number\":\"(307)811-7919\",\"availability\":\"Non aut animi dolores porro ea voluptatem nemo qui eligendi explicabo laborum numquam.\",\"mentor_status_id\":1501,\"status_changed_at\":null,\"featured\":null}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/2763","Content-Type":"application/json; charset=utf-8","ETag":"\"928876a56874192afdaa102ce8fddac2\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/","X-Request-Id":"1879207f-5786-4bb1-8be9-968f6a70bad9","X-Runtime":"0.380859","Content-Length":"462"},
+      "response_body": "{\"id\":3005,\"first_name\":\"Mariano\",\"last_name\":\"Witting\",\"created_at\":\"2013-10-12T16:34:10.336Z\",\"updated_at\":\"2013-10-12T16:34:10.336Z\",\"user_id\":172,\"headline\":\"Maiores nihil est ut et id aliquam dolor ab quia sequi consequatur.\",\"years_of_experience\":19,\"phone_number\":\"995.554.4216 x8005\",\"availability\":\"Iste odit cumque reprehenderit optio nostrum sed quo reiciendis ad.\",\"mentor_status_id\":1893,\"status_changed_at\":null,\"featured\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/3005","Content-Type":"application/json; charset=utf-8","ETag":"\"8ba8ee521f00f94ff1ba23f8af8a277c\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/","X-Request-Id":"c20bac5f-6050-4932-951c-24fdff9ab746","X-Runtime":"0.092774","Content-Length":"442"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

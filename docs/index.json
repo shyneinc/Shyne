@@ -1,6 +1,36 @@
 {
   "resources": [
     {
+      "name": "Member",
+      "examples": [
+        {
+          "description": "Deleting a member",
+          "link": "member/deleting_a_member.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting a specific member",
+          "link": "member/getting_a_specific_member.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all members",
+          "link": "member/getting_all_members.json",
+          "groups": "all"
+        },
+        {
+          "description": "Registering a member",
+          "link": "member/registering_a_member.json",
+          "groups": "all"
+        },
+        {
+          "description": "Updating a member",
+          "link": "member/updating_a_member.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Mentor",
       "examples": [
         {
