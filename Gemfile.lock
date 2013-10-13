@@ -44,6 +44,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
+    angularstrap-rails (0.7.6)
     ansi (1.4.3)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
@@ -87,7 +88,6 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    ffi (1.9.0)
     ffi (1.9.0-x86-mingw32)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
@@ -254,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  angularstrap-rails (~> 0.7.6)
   bootstrap-sass-rails
   coffee-rails
   database_cleaner

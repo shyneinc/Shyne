@@ -1,5 +1,10 @@
 Shyne.controller('ProfileCtrl', ($scope, Session) ->
-  $scope.user = Session.requestCurrentUser()
+
+  Session.requestCurrentUser().then((user)->
+    $scope.user =  user
+  )
+
   $scope.logout = ->
     Session.logout()
+
 )

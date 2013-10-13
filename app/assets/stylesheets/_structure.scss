@@ -1,6 +1,6 @@
 @import "typography";
 
-header{
+header {
   .logo {
     background: url(/assets/logo.svg) -6px -18px;
     background-size: 180px 130px;
@@ -24,4 +24,8 @@ footer {
   border-top: 1px solid #f3f3f3;
   padding-top: 20px;
   color: #666;
+}
+
+.hidden {
+  display: none;
 }

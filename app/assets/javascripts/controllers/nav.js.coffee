@@ -1,0 +1,3 @@
+Shyne.controller('NavCtrl', ($scope) ->
+
+)

@@ -2,10 +2,11 @@
 #= require suggest.min
 #= require angular
 #= require twitter/bootstrap
-#= require angular-strap.min
 #= require angular-resource
 #= require setup
-#= require_tree .
+#= require_directory ./controllers
+#= require_directory ./services
+#= require directives/bootstrapDirectives
 
 Shyne.config(["$httpProvider", ($httpProvider) ->
   $httpProvider.defaults.headers.common["X-CSRF-Token"] = $("meta[name=csrf-token]").attr("content")
@@ -31,11 +32,5 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/profile",
     templateUrl: "/profile/index.html"
     controller: 'ProfileCtrl'
-  ).when("/users/login",
-    templateUrl: "/users/login.html"
-    controller: 'UsersCtrl'
-  ).when "/users/register",
-    templateUrl: "/users/register.html"
-    controller: 'UsersCtrl'
-
+  )
 ]
