@@ -8,15 +8,13 @@ resource 'Mentor' do
     load "#{Rails.root}/db/seeds.rb"
   end
 
-  let(:mentor) { Mentor.create(FactoryGirl.attributes_for(:mentor)) }
+  let(:mentor) { FactoryGirl.create(:mentor) }
 
   get "/api/mentors" do
     parameter :featured, "Only list featured mentors"
 
     before do
-      10.times do |i|
-        Mentor.create(FactoryGirl.attributes_for(:mentor))
-      end
+        FactoryGirl.create_list(:mentor, 10)
     end
 
     example "Getting all mentors" do

@@ -5,20 +5,15 @@ resource 'Member' do
   header "Accept", "application/vnd.shyne.v1"
 
   let(:member) {
-    member = FactoryGirl.attributes_for(:member).except(:id)
-    Member.create(member)
+    FactoryGirl.create(:member)
   }
 
   get "/api/members" do
     before do
-      10.times do |i|
-        member = FactoryGirl.attributes_for(:member).except(:id)
-        Member.create(member)
-      end
+      FactoryGirl.create_list(:member, 10)
     end
 
-    example "Getting all members" do
-      do_request
+    example_request "Getting all members" do
       response_body.should == Member.all.to_json
       status.should == 200
     end

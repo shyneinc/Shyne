@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/login",
-      "request_body": "user[email]=adriana_hyatt%40kirlinstreich.biz&user[password]=password",
+      "request_body": "user[email]=user39%40shyne.io&user[password]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -34,8 +34,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"success\":true,\"info\":\"Logged in\",\"user\":{\"id\":169,\"email\":\"adriana_hyatt@kirlinstreich.biz\",\"created_at\":\"2013-10-12T16:34:06.335Z\",\"updated_at\":\"2013-10-12T16:34:06.586Z\",\"role_id\":null,\"role_type\":null}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"85cffc6eeb2d6685b0841b130df98603\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=ckhYUXU0eGU2MnkxdWNxQUdyUnYyY3FyYzhHMTVOVEhZQ0hzaU5TSVhhZFljR0luZVVEdHJER2hWMm16bmlwcWMyby9XVkpySmJnUllUeWg4NFBBZm4xQk1uUmJONk9HZWNyWnV1TURnWnBOOFUwU25Uc2FLN3hid0Jtamp1TmF2TU16RFgvcXlUeVRITmpqSmFOOEd1dzV6R3RKZTJtZGFpa243QVRjTURMUFVnb2IvMTQ0dENJSTVKaWxkNXF5LS0vaDhxcDc3bzdCSW9lUXEyMHZUY1F3PT0%3D--b095be1d56ab6402a3293897fdd158e6d2c7ed7b; path=/; HttpOnly","X-Request-Id":"4983f0b0-9425-4de9-bc0e-6ed16c5c21dc","X-Runtime":"0.239258","Content-Length":"207"},
+      "response_body": "{\"success\":true,\"info\":\"Logged in\",\"user\":{\"id\":740,\"email\":\"user39@shyne.io\",\"created_at\":\"2013-10-13T19:54:19.700Z\",\"updated_at\":\"2013-10-13T19:54:19.788Z\",\"role_id\":null,\"role_type\":null}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"ae1dd46c6375cf5803892871949037bd\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=dTdBc3ROMWtqeVFmUVpJcm83aTYwVXZLMm83YUo5Nk1YU01kTE54bWlYcmVvZXJ2ZEU1Ymo5cHBCaG03UXN2bFBhQUZ6dkN2VGdXeHgxU3YxTGFjc3F4NmZyUXVrQ1MxcXRrRDZwRStuTjFDVm9BeGV5Y2x1VGxUOVBRWVp1SktsekFheHRDK0ZDTDdhMHc3akYvRXZIQ1dtanlSamM5b0F5ejBOS1hYVmtpQzI3ZDZIYW5KS2FtUzJLVXI3U0xwLS1lQXVLU2VqNXdjRWhXMnJNNktUbDN3PT0%3D--43166316e7c0b10f9535d8209a1506c18ac2a60b; path=/; HttpOnly","X-Request-Id":"d3e2142c-7a85-457f-9d41-0c7cddf1bdca","X-Runtime":"0.083984","Content-Length":"191"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

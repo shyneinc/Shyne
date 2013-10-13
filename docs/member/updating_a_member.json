@@ -21,8 +21,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/members/91",
-      "request_body": "member[first_name]=Flavio&member[last_name]=Bernhard",
+      "request_path": "/api/members/366",
+      "request_body": "member[first_name]=Edmund&member[last_name]=Block",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -35,7 +35,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"a6665bf3-f34f-4a70-b238-dbf095d39377","X-Runtime":"1.035157"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"9215a850-2733-43ab-b8cc-3218e3bdb892","X-Runtime":"0.100586"},
       "response_content_type": null,
       "curl": null
 }
