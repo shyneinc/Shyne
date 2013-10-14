@@ -12,26 +12,37 @@ class Api::V1::MentorsController < Api::V1::BaseController
   end
 
   def create
-    @mentor = Mentor.new(mentor_params)
-    @mentor.user.save
-    @mentor.user_id = @mentor.user.id
-    @mentor.mentor_status_id = MentorStatus.by_status('Applied').id
-    @mentor.save
-    respond_with :api, @mentor
+    if current_user && current_user.role_id == nil
+      @mentor = Mentor.new(mentor_params)
+      @mentor.user = current_user
+      @mentor.user_id = current_user.id
+      @mentor.mentor_status_id = MentorStatus.by_status('Applied').id
+      @mentor.save
+      respond_with :api, @mentor
+    else
+      render :json => {:error => 'User already has a profile or not logged in'}, :status => 401
+    end
   end
 
   def update
-    respond_with :api, Mentor.update(params[:id], mentor_params)
+    if current_user && current_user.role_type == 'Mentor'
+      respond_with :api, Mentor.update(current_user.role_id, mentor_params)
+    else
+      render :json => {:error => 'User is not a mentor or not logged in'}, :status => 401
+    end
   end
 
   def destroy
-    respond_with :api, Mentor.destroy(params[:id])
+    if current_user && current_user.role_type == 'Mentor'
+      respond_with :api, Mentor.destroy(current_user.role_id)
+    else
+      render :json => {:error => 'User is not a mentor or not logged in'}, :status => 401
+    end
   end
 
   private
 
   def mentor_params
-    params.require(:mentor).permit(:first_name, :last_name, :headline, :years_of_experience, :phone_number,
-                                   :availability, user_attributes: [:email, :password, :password_confirmation])
+    params.require(:mentor).permit(:first_name, :last_name, :headline, :years_of_experience, :phone_number, :availability)
   end
 end

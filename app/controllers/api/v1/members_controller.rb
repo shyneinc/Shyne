@@ -8,24 +8,36 @@ class Api::V1::MembersController < Api::V1::BaseController
   end
 
   def create
-    @member = Member.new(member_params)
-    @member.user.save
-    @member.user_id = @member.user.id
-    @member.save
-    respond_with :api, @member
+    if current_user && current_user.role_id == nil
+      @member = Member.new(member_params)
+      @member.user = current_user
+      @member.user_id = current_user.id
+      @member.save
+      respond_with :api, @member
+    else
+      render :json => {:error => 'User already has a profile or not logged in'}, :status => 401
+    end
   end
 
   def update
-    respond_with :api, Member.update(params[:id], member_params)
+    if current_user && current_user.role_type == 'Member'
+      respond_with :api, Member.update(current_user.role_id, member_params)
+    else
+      render :json => {:error => 'User is not a member or not logged in'}, :status => 401
+    end
   end
 
   def destroy
-    respond_with :api, Member.destroy(params[:id])
+    if current_user && current_user.role_type == 'Member'
+      respond_with :api, Member.destroy(current_user.role_id)
+    else
+      render :json => {:error => 'User is not a member or not logged in'}, :status => 401
+    end
   end
 
   private
 
   def member_params
-    params.require(:member).permit(:first_name, :last_name, user_attributes: [:email, :password])
+    params.require(:member).permit(:first_name, :last_name)
   end
 end
