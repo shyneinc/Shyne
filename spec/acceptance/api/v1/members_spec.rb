@@ -4,9 +4,7 @@ require 'rspec_api_documentation/dsl'
 resource 'Member' do
   header "Accept", "application/vnd.shyne.v1"
 
-  let(:member) {
-    FactoryGirl.create(:member)
-  }
+  let(:member) { FactoryGirl.create(:member) }
 
   get "/api/members" do
     before do
@@ -20,21 +18,24 @@ resource 'Member' do
   end
 
   post "/api/members" do
+    include Warden::Test::Helpers
+
+    before do
+      user = FactoryGirl.create(:user)
+      login_as user, scope: :user
+    end
+
     parameter :first_name, "First name", :required => true, :scope => :member
     parameter :last_name, "Last name", :required => true, :scope => :member
-    parameter :email, "Email", :scope => :user_attributes
-    parameter :password, "Password", :scope => :user_attributes
-    parameter :password_confirmation, "Password Confirmation", :scope => :user_attributes
 
-    example "Registering a member" do
+    example "Creating a member" do
       member = FactoryGirl.attributes_for(:member).except(:id)
-      member[:user_attributes] = FactoryGirl.attributes_for(:user).except(:id)
       do_request(member: member)
 
       hash = JSON.parse(response_body)
       hash.delete('user_id')
 
-      hash.to_json.should be_json_eql(member.except(:user_attributes).to_json)
+      hash.to_json.should be_json_eql(member.to_json)
 
       status.should == 201
     end
@@ -49,7 +50,14 @@ resource 'Member' do
     end
   end
 
-  put "/api/members/:id" do
+  put "/api/members" do
+    include Warden::Test::Helpers
+
+    before do
+      user = FactoryGirl.create(:member_user)
+      login_as user, scope: :user
+    end
+
     parameter :first_name, "First name", :required => true, :scope => :member
     parameter :last_name, "Last name", :required => true, :scope => :member
 
@@ -63,8 +71,13 @@ resource 'Member' do
     end
   end
 
-  delete "/api/members/:id" do
-    let(:id) { member.id }
+  delete "/api/members" do
+    include Warden::Test::Helpers
+
+    before do
+      user = FactoryGirl.create(:member_user)
+      login_as user, scope: :user
+    end
 
     example_request "Deleting a member" do
       status.should == 204

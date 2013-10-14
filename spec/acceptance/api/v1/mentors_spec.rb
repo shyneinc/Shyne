@@ -14,7 +14,7 @@ resource 'Mentor' do
     parameter :featured, "Only list featured mentors"
 
     before do
-        FactoryGirl.create_list(:mentor, 10)
+      FactoryGirl.create_list(:mentor, 10)
     end
 
     example "Getting all mentors" do
@@ -31,19 +31,22 @@ resource 'Mentor' do
   end
 
   post "/api/mentors" do
+    include Warden::Test::Helpers
+
+    before do
+      user = FactoryGirl.create(:user)
+      login_as user, scope: :user
+    end
+
     parameter :first_name, "First name", :required => true, :scope => :mentor
     parameter :last_name, "Last name", :required => true, :scope => :mentor
     parameter :headline, "Headline", :required => true, :scope => :mentor
     parameter :years_of_experience, "Headline", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
-    parameter :email, "Email", :scope => :user_attributes
-    parameter :password, "Password", :scope => :user_attributes
-    parameter :password_confirmation, "Password Confirmation", :scope => :user_attributes
 
-    example "Registering a mentor" do
+    example "Creating a mentor" do
       mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
-      mentor[:user_attributes] = FactoryGirl.attributes_for(:user).except(:id)
       do_request(mentor: mentor)
 
       hash = JSON.parse(response_body)
@@ -51,7 +54,7 @@ resource 'Mentor' do
       hash.delete('mentor_status_id')
       hash.delete('status_changed_at')
 
-      hash.to_json.should be_json_eql(mentor.except(:user_attributes).to_json)
+      hash.to_json.should be_json_eql(mentor.to_json)
 
       status.should == 201
     end
@@ -66,7 +69,14 @@ resource 'Mentor' do
     end
   end
 
-  put "/api/mentors/:id" do
+  put "/api/mentors" do
+    include Warden::Test::Helpers
+
+    before do
+      user = FactoryGirl.create(:mentor_user)
+      login_as user, scope: :user
+    end
+
     parameter :first_name, "First name", :required => true, :scope => :mentor
     parameter :last_name, "Last name", :required => true, :scope => :mentor
     parameter :headline, "Headline", :required => true, :scope => :mentor
@@ -74,18 +84,22 @@ resource 'Mentor' do
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
 
-    let(:id) { mentor.id }
-
     example "Updating a mentor" do
       mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
+
       do_request(mentor: mentor)
 
       status.should == 204
     end
   end
 
-  delete "/api/mentors/:id" do
-    let(:id) { mentor.id }
+  delete "/api/mentors" do
+    include Warden::Test::Helpers
+
+    before do
+      user = FactoryGirl.create(:mentor_user)
+      login_as user, scope: :user
+    end
 
     example_request "Deleting a mentor" do
       status.should == 204
