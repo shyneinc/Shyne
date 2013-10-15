@@ -26,8 +26,14 @@
     {
       "required": true,
       "scope": "mentor",
+      "name": "experties",
+      "description": "Experties (eg. '{Accounting, Finance}')"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
       "name": "years_of_experience",
-      "description": "Headline"
+      "description": "Years of Experience"
     },
     {
       "required": true,
@@ -46,7 +52,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/mentors",
-      "request_body": "mentor[first_name]=Isobel&mentor[last_name]=McCullough&mentor[headline]=Qui+occaecati+quibusdam+repudiandae+eos+voluptas+labore+odio+voluptatibus+odit.&mentor[years_of_experience]=26&mentor[phone_number]=1-490-146-0844+x473&mentor[availability]=Temporibus+facere+dolorem+autem+sed+sint+doloribus+quidem+nam+ut.&mentor[featured]",
+      "request_body": "mentor[first_name]=Sydnee&mentor[last_name]=Ankunding&mentor[headline]=Ratione+asperiores+nesciunt+veritatis+accusantium+facere+reprehenderit+modi+soluta+in.&mentor[experties]=%7BLegal+Services%7D&mentor[years_of_experience]=10&mentor[phone_number]=%28910%29310-2412+x374&mentor[availability]=Iusto+vero+velit+vitae+qui+delectus+ipsum+voluptatem+fugiat+commodi+eligendi+officiis+sapiente+reprehenderit+nostrum.&mentor[featured]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -58,8 +64,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":708,\"first_name\":\"Isobel\",\"last_name\":\"McCullough\",\"created_at\":\"2013-10-15T00:20:52.994Z\",\"updated_at\":\"2013-10-15T00:20:52.994Z\",\"user_id\":1148,\"headline\":\"Qui occaecati quibusdam repudiandae eos voluptas labore odio voluptatibus odit.\",\"years_of_experience\":26,\"phone_number\":\"1-490-146-0844 x473\",\"availability\":\"Temporibus facere dolorem autem sed sint doloribus quidem nam ut.\",\"mentor_status_id\":821,\"status_changed_at\":null,\"featured\":null}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/708","Content-Type":"application/json; charset=utf-8","ETag":"\"50019731568290a40a8c541a5aad1412\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=TlhhVWszSTBPUFZqRG9XZUhQRFRBUWpxRlJJR3lXcWlMaFhGczczOVFtSmt5c1pkVFZwUWtqaWg2bjd3ZzlXc3pxd2NsZllkd0UrYWxsR2dTNHBBanJUaHp4aHJHSEgrNEdLQnZwRjFRUWliQnhyNnJwdWxqdjNJWEgxOC9IcU9yUnNSSHBHbVdxWmtzZjdSVTkwRHFCY0V1QVlyc0xpVFVkQUhWNE11RHhjPS0tRCt6T05RMER5Z2c3M3pIRS9rUUp6UT09--1adf022865e403b07074b563f906623fb084b755; path=/; HttpOnly","X-Request-Id":"5a699a86-542c-40a7-9fd5-bc43e0d6672e","X-Runtime":"0.037109","Content-Length":"454"},
+      "response_body": "{\"id\":1319,\"first_name\":\"Sydnee\",\"last_name\":\"Ankunding\",\"created_at\":\"2013-10-15T22:55:19.700Z\",\"updated_at\":\"2013-10-15T22:55:19.700Z\",\"user_id\":2118,\"headline\":\"Ratione asperiores nesciunt veritatis accusantium facere reprehenderit modi soluta in.\",\"years_of_experience\":10,\"phone_number\":\"(910)310-2412 x374\",\"availability\":\"Iusto vero velit vitae qui delectus ipsum voluptatem fugiat commodi eligendi officiis sapiente reprehenderit nostrum.\",\"mentor_status_id\":1393,\"status_changed_at\":null,\"featured\":null,\"experties\":[\"Legal Services\"]}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/1319","Content-Type":"application/json; charset=utf-8","ETag":"\"b5716759aae0d9097cf353188364e3d4\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=ZEQ4TVVOZE9ubkpKSlBSZStnN2RjVStUZTd0cU1EaEhlUXduTlpITW11UHhhWXlQcGpYZXIvaUNhMmJrWFF1Rm4rMSthbzBmV2RaUjZIeU9lS29TWnFxenVsRDRDT3RvMmZ3ZnZWZWE5a0Ztd0g0QWNNTWNsUEdISVZOYVdJOG9taHBxSGlRMENUK1IwTGZndjJWTVhzTEhsdGlwcHNpUkw4ak01TW5DaElnPS0tSStJaUxONkJXWXozcjNUdXZFZXdNUT09--84659eb9f4cbb51704b6d4218932b8ae155e110f; path=/; HttpOnly","X-Request-Id":"b04b98c5-cdf5-428d-b42a-43c4c0d908d3","X-Runtime":"0.206055","Content-Length":"544"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

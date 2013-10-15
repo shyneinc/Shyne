@@ -1,6 +1,16 @@
 {
   "resources": [
     {
+      "name": "Industry",
+      "examples": [
+        {
+          "description": "Show available industries",
+          "link": "industry/show_available_industries.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Member",
       "examples": [
         {
@@ -56,6 +66,11 @@
         {
           "description": "Getting featured mentors",
           "link": "mentor/getting_featured_mentors.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting mentors with specific experties",
+          "link": "mentor/getting_mentors_with_specific_experties.json",
           "groups": "all"
         },
         {

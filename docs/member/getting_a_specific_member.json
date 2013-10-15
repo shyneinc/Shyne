@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/members/246",
+      "request_path": "/api/members/444",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -22,8 +22,8 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"id\":246,\"first_name\":\"Haleigh\",\"last_name\":\"Pfeffer\",\"created_at\":\"2013-10-15T00:20:51.342Z\",\"updated_at\":\"2013-10-15T00:20:51.342Z\",\"user_id\":null}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"e3463aaa80c4fad646655fcd6b9a4a55\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"d70f7d26-927d-4ee0-a1af-4a6cc586c586","X-Runtime":"0.028321","Content-Length":"150"},
+      "response_body": "{\"id\":444,\"first_name\":\"D'angelo\",\"last_name\":\"Ward\",\"created_at\":\"2013-10-15T22:55:17.791Z\",\"updated_at\":\"2013-10-15T22:55:17.791Z\",\"user_id\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"b352ad1c0d23ee7ed8189022510343d1\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"29465ca9-96cc-417f-9f07-2442b0a3c84a","X-Runtime":"0.118164","Content-Length":"148"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }
