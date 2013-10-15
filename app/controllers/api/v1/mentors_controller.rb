@@ -34,7 +34,10 @@ class Api::V1::MentorsController < Api::V1::BaseController
 
   def destroy
     if current_user && current_user.role_type == 'Mentor'
-      respond_with :api, Mentor.destroy(current_user.role_id)
+      @mentor = Mentor.find(current_user.role_id)
+      @mentor.user.role = nil
+      @mentor.user.save
+      respond_with :api, @mentor.destroy
     else
       render :json => {:error => 'User is not a mentor or not logged in'}, :status => 401
     end

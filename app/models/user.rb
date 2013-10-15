@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :role, :dependent => :destroy,  :polymorphic => true
+  belongs_to :role, :dependent => :destroy, :polymorphic => true
 end

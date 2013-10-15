@@ -1,5 +1,5 @@
 class Mentor < ActiveRecord::Base
-  has_one :user, as: :role
+  has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
   belongs_to :mentor_status

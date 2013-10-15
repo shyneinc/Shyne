@@ -29,7 +29,10 @@ class Api::V1::MembersController < Api::V1::BaseController
 
   def destroy
     if current_user && current_user.role_type == 'Member'
-      respond_with :api, Member.destroy(current_user.role_id)
+      @member = Member.find(current_user.role_id)
+      @member.user.role = nil
+      @member.user.save
+      respond_with :api, @member.destroy
     else
       render :json => {:error => 'User is not a member or not logged in'}, :status => 401
     end
