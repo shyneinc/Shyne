@@ -14,6 +14,7 @@ resource 'Mentor' do
 
   get "/api/mentors" do
     parameter :featured, "Only list featured mentors"
+    parameter :experties, "Only list mentors with specified experties"
 
     before do
       FactoryGirl.create_list(:mentor, 10)
@@ -28,6 +29,12 @@ resource 'Mentor' do
     example "Getting featured mentors" do
       do_request(:featured => true)
       response_body.should == Mentor.featured.to_json
+      status.should == 200
+    end
+
+    example "Getting mentors with specific experties" do
+      do_request(:experties => 'Accounting')
+      response_body.should == Mentor.experties('Accounting').to_json
       status.should == 200
     end
   end

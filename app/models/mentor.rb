@@ -23,6 +23,10 @@ class Mentor < ActiveRecord::Base
     where(featured: true).to_a
   end
 
+  def self.experties(experties)
+    where("? = ANY (experties)", experties).to_a
+  end
+
   def display_name
     "#{self.first_name} #{self.last_name}"
   end
