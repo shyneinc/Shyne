@@ -1,5 +1,7 @@
 # SHYNE
 
+***
+
 ## First-time install
 
 ``git clone git@github.com:shyneinc/Shyne.git``
@@ -11,6 +13,8 @@
 ``bundle exec rake db:setup``
 
 ``rails s``
+
+***
 
 ## Git development workflow
 
@@ -28,6 +32,8 @@ Install git-flow: See the Wiki for up-to-date [Installation Instructions](https:
 
 ### Finish
 
+``git fetch origin``
+
 ``git rebase origin/develop develop``
 
 ``git flow feature rebase new_feature``
@@ -35,3 +41,17 @@ Install git-flow: See the Wiki for up-to-date [Installation Instructions](https:
 ``git flow feature finish name-of-feature``
 
 ``git push origin develop``
+
+***
+
+## Testing
+
+Run this to execute the API test suite: ``rspec spec``
+
+***
+
+## Documentation
+
+API documentation is located at `/docs` and is generated using passing acceptance tests.
+
+Run this to regenerate the docs: `rake docs:generate`
