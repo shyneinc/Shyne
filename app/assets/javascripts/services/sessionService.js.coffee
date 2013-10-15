@@ -3,14 +3,18 @@ ShyneService.factory('Session', ($location, $http, $q) ->
   _currentUser = null
 
   login: (email, password) ->
+    deferred = $q.defer()
     $http.post('/api/login',
       user:
         email: email
         password: password
     ).success((data)->
       _currentUser = data.user
-      $location.path '/profile'
+      deferred.resolve(_currentUser)
+    ).error((data) ->
+      deferred.reject(data.error)
     )
+    deferred.promise
 
   logout: (redirectTo) ->
     $http.post("/api/logout").then ->
@@ -18,18 +22,20 @@ ShyneService.factory('Session', ($location, $http, $q) ->
       $location.path redirectTo
 
 
-  register: (firstName, lastName, email, password) ->
-    $http.post('/api/members',
-      member:
-        first_name: firstName
-        last_name: lastName
-        user_attributes:
-          email: email
-          password: password
-    ).success((data)->
-      _currentUser = data.user
-      $location.path '/profile'
+  register: (email, password, confirmPassword) ->
+    deferred = $q.defer()
+    $http.post('/api/users',
+      user:
+        email: email
+        password: password
+        password_confirmation: confirmPassword
+    ).success((data) ->
+      _currentUser = data
+      deferred.resolve(_currentUser)
+    ).error((data) ->
+      deferred.reject(data.error)
     )
+    deferred.promise
 
   requestCurrentUser: () ->
     deferred = $q.defer()

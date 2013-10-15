@@ -5,6 +5,7 @@ ShyneDirectives.directive('btModal', () ->
       e.preventDefault()
       $content.on('shown.bs.modal', ()->
         $content.find('form').find('.auto-focus').focus().end().submit( () ->
+
           $content.modal('hide')
         )
       ).modal()

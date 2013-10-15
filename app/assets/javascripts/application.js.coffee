@@ -16,9 +16,7 @@ Shyne.config(["$httpProvider", ($httpProvider) ->
     error = (response) ->
       if response.status is 401
         $rootScope.$broadcast "event:unauthorized"
-        $location.path "/users/login"
-        return response
-      $q.reject response
+        $q.reject response
     (promise) ->
       promise.then success, error
   ]

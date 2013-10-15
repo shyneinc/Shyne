@@ -48,6 +48,7 @@
             <label for="loginPassword">Password</label>
             <input name="password" ng-model="user.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
           </div>
+          <p class="text-danger">{{error}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default">Close</button>
@@ -69,21 +70,18 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input name="firstName" ng-model="user.firstName" type="text" class="form-control auto-focus" id="firstName" placeholder="First Name" required="">
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input name="lastName" ng-model="user.lastName" type="text" class="form-control" id="lastName" placeholder="Last Name" required="">
-          </div>
-          <div class="form-group">
             <label for="loginEmail">Email Address</label>
-            <input name="email" ng-model="user.email" type="email" class="form-control" id="loginEmail" placeholder="Enter email" required="">
+            <input name="email" ng-model="user.email" type="email" class="form-control auto-focus" id="loginEmail" placeholder="Enter email" required="">
           </div>
           <div class="form-group">
             <label for="loginPassword">Password</label>
             <input name="password" ng-model="user.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
           </div>
+          <div class="form-group">
+            <label for="loginConfirmPassword">Confirm Password</label>
+            <input name="password" ng-model="user.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm password" required="">
+          </div>
+          <p class="text-danger">{{error}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

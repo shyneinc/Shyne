@@ -1,13 +1,11 @@
 ShyneDirectives.directive('confirmField', () ->
-  {
-    require: 'ngModel',
-    link: (scope, elm, attrs, ctrl) ->
-      field = '#' + attrs.confirmField
-      elem.add(field).on('keyup', () ->
-        scope.$apply(()->
-          v = elm.val() == $(field).val()
-          ctrl.$setValidity('fieldMatch', v)
-        )
+  (scope, element, attrs, ctrl) ->
+    field = '#' + attrs.confirmField
+    element.add(field).on('keyup', () ->
+      scope.$apply(()->
+        v = element.val() == $(field).val()
+        console.log(v)
+#        ctrl.$setValidity('fieldMatch', v)
       )
-  }
+    )
 )
