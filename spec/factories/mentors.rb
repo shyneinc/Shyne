@@ -4,7 +4,7 @@ FactoryGirl.define do
 
   factory :mentor_user, class: "User" do
     association :role, factory: :mentor
-    sequence(:email) {|n| "user#{n}@shyne.io" }
+    sequence(:email) {|n| "mentor_user#{n}@shyne.io" }
     password "password"
     password_confirmation "password"
   end
