@@ -46,7 +46,11 @@ Install git-flow: See the Wiki for up-to-date [Installation Instructions](https:
 
 ## Testing
 
-Run this to execute the API test suite: ``rspec spec``
+Run this to execute the API test suite:
+
+``rake db:migrate RAILS_ENV=test``
+
+``rspec spec``
 
 ***
 

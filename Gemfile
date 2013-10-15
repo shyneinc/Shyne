@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.1.0'
 gem 'turbolinks'
 gem 'json'
+gem 'pg_array_parser'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'raddocs'
 

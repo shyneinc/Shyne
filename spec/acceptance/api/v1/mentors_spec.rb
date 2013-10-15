@@ -1,5 +1,7 @@
 require 'spec_helper'
 require 'rspec_api_documentation/dsl'
+require 'pg_array_parser'
+include PgArrayParser
 
 resource 'Mentor' do
   header "Accept", "application/vnd.shyne.v1"
@@ -41,7 +43,8 @@ resource 'Mentor' do
     parameter :first_name, "First name", :required => true, :scope => :mentor
     parameter :last_name, "Last name", :required => true, :scope => :mentor
     parameter :headline, "Headline", :required => true, :scope => :mentor
-    parameter :years_of_experience, "Headline", :required => true, :scope => :mentor
+    parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
+    parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
 
@@ -54,6 +57,7 @@ resource 'Mentor' do
       hash.delete('user_id')
       hash.delete('mentor_status_id')
       hash.delete('status_changed_at')
+      mentor[:experties] = parse_pg_array mentor[:experties]
 
       hash.to_json.should be_json_eql(mentor.to_json)
 
@@ -81,7 +85,8 @@ resource 'Mentor' do
     parameter :first_name, "First name", :required => true, :scope => :mentor
     parameter :last_name, "Last name", :required => true, :scope => :mentor
     parameter :headline, "Headline", :required => true, :scope => :mentor
-    parameter :years_of_experience, "Headline", :required => true, :scope => :mentor
+    parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
+    parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
 

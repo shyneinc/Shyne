@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008162932) do
+ActiveRecord::Schema.define(version: 20131015200242) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -60,13 +60,6 @@ ActiveRecord::Schema.define(version: 20131008162932) do
   add_index "calls", ["member_id"], name: "index_calls_on_member_id", using: :btree
   add_index "calls", ["mentor_id"], name: "index_calls_on_mentor_id", using: :btree
 
-  create_table "experties", force: true do |t|
-    t.integer  "mentor_id"
-    t.integer  "industry_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "industries", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -100,8 +93,10 @@ ActiveRecord::Schema.define(version: 20131008162932) do
     t.integer  "mentor_status_id"
     t.datetime "status_changed_at"
     t.boolean  "featured"
+    t.string   "experties",           default: [], array: true
   end
 
+  add_index "mentors", ["experties"], name: "index_mentors_on_experties", using: :gin
   add_index "mentors", ["mentor_status_id"], name: "index_mentors_on_mentor_status_id", using: :btree
   add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
 
