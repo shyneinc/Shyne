@@ -70,7 +70,8 @@ Shyne::Application.routes.draw do
         post 'logout' => 'sessions#destroy', :as => 'logout'
         get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
       end
-      resources :users, only: [:create, :update]
+      resources :users, only: [:create]
+      match '/users' => 'users#update', :via => :put
 
       resources :mentors, except: [:update, :destroy]
       match '/mentors' => 'mentors#update', :via => :put
