@@ -1,16 +1,16 @@
 {
   "resource": "Member",
   "http_method": "DELETE",
-  "route": "/api/members/:id",
+  "route": "/api/members",
   "description": "Deleting a member",
-  "explanation": null,
+  "explanation": "Delete current user's member profile",
   "parameters": [
 
   ],
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/members/367",
+      "request_path": "/api/members",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -24,7 +24,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/","X-Request-Id":"e41f6519-5ab4-4efd-9fc9-533f82f6e036","X-Runtime":"0.036133"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/\n_Shyne_session=aWw1andTdDRndTVZVi9BV2hhZHczODRuelFvMXdudDVTWEhSdmJ2eGpVNHYzbXRTK1B3dmlwVDh5VHIzMWpMeUtXcXlXL0MydXN0WDYwWW9WSVJHYVY3cFNMS29EV0RkazhmZnVubkozMGdtMWJjOUpyM252THJ5UDZ3QXdFQVNrclIxa1VCUHhKWTB5Y1V3eUpubzVVV21qbnJyb2NWUkZoNVU1WVg0anNFPS0tMGE0WlFLcnhMckFOd2FQTkRsVG1BZz09--37d8bdef21b07928357ff3bb8a45dceeb3f9cda3; path=/; HttpOnly","X-Request-Id":"e502d5e1-7f19-4b42-83b1-f1e94edb1c80","X-Runtime":"0.047851"},
       "response_content_type": null,
       "curl": null
 }

@@ -4,6 +4,11 @@
       "name": "Member",
       "examples": [
         {
+          "description": "Creating a member",
+          "link": "member/creating_a_member.json",
+          "groups": "all"
+        },
+        {
           "description": "Deleting a member",
           "link": "member/deleting_a_member.json",
           "groups": "all"
@@ -19,11 +24,6 @@
           "groups": "all"
         },
         {
-          "description": "Registering a member",
-          "link": "member/registering_a_member.json",
-          "groups": "all"
-        },
-        {
           "description": "Updating a member",
           "link": "member/updating_a_member.json",
           "groups": "all"
@@ -33,6 +33,11 @@
     {
       "name": "Mentor",
       "examples": [
+        {
+          "description": "Creating a mentor",
+          "link": "mentor/creating_a_mentor.json",
+          "groups": "all"
+        },
         {
           "description": "Deleting a mentor",
           "link": "mentor/deleting_a_mentor.json",
@@ -51,11 +56,6 @@
         {
           "description": "Getting featured mentors",
           "link": "mentor/getting_featured_mentors.json",
-          "groups": "all"
-        },
-        {
-          "description": "Registering a mentor",
-          "link": "mentor/registering_a_mentor.json",
           "groups": "all"
         },
         {
@@ -81,6 +81,21 @@
         {
           "description": "Show current user",
           "link": "session/show_current_user.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "examples": [
+        {
+          "description": "Registering a user",
+          "link": "user/registering_a_user.json",
+          "groups": "all"
+        },
+        {
+          "description": "Updating a user",
+          "link": "user/updating_a_user.json",
           "groups": "all"
         }
       ]

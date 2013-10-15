@@ -1,0 +1,67 @@
+{
+  "resource": "Mentor",
+  "http_method": "POST",
+  "route": "/api/mentors",
+  "description": "Creating a mentor",
+  "explanation": "Once the user is registered and logged in, create a mentor profile",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "headline",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "years_of_experience",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "phone_number",
+      "description": "Phone Number"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "availability",
+      "description": "Availability"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/mentors",
+      "request_body": "mentor[first_name]=Isobel&mentor[last_name]=McCullough&mentor[headline]=Qui+occaecati+quibusdam+repudiandae+eos+voluptas+labore+odio+voluptatibus+odit.&mentor[years_of_experience]=26&mentor[phone_number]=1-490-146-0844+x473&mentor[availability]=Temporibus+facere+dolorem+autem+sed+sint+doloribus+quidem+nam+ut.&mentor[featured]",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":708,\"first_name\":\"Isobel\",\"last_name\":\"McCullough\",\"created_at\":\"2013-10-15T00:20:52.994Z\",\"updated_at\":\"2013-10-15T00:20:52.994Z\",\"user_id\":1148,\"headline\":\"Qui occaecati quibusdam repudiandae eos voluptas labore odio voluptatibus odit.\",\"years_of_experience\":26,\"phone_number\":\"1-490-146-0844 x473\",\"availability\":\"Temporibus facere dolorem autem sed sint doloribus quidem nam ut.\",\"mentor_status_id\":821,\"status_changed_at\":null,\"featured\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/708","Content-Type":"application/json; charset=utf-8","ETag":"\"50019731568290a40a8c541a5aad1412\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=TlhhVWszSTBPUFZqRG9XZUhQRFRBUWpxRlJJR3lXcWlMaFhGczczOVFtSmt5c1pkVFZwUWtqaWg2bjd3ZzlXc3pxd2NsZllkd0UrYWxsR2dTNHBBanJUaHp4aHJHSEgrNEdLQnZwRjFRUWliQnhyNnJwdWxqdjNJWEgxOC9IcU9yUnNSSHBHbVdxWmtzZjdSVTkwRHFCY0V1QVlyc0xpVFVkQUhWNE11RHhjPS0tRCt6T05RMER5Z2c3M3pIRS9rUUp6UT09--1adf022865e403b07074b563f906623fb084b755; path=/; HttpOnly","X-Request-Id":"5a699a86-542c-40a7-9fd5-bc43e0d6672e","X-Runtime":"0.037109","Content-Length":"454"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

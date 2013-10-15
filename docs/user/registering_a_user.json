@@ -1,0 +1,49 @@
+{
+  "resource": "User",
+  "http_method": "POST",
+  "route": "/api/users",
+  "description": "Registering a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "user",
+      "name": "email",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password_confirmation",
+      "description": "Last name"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/users",
+      "request_body": "user[email]=user3%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":1126,\"email\":\"user3@shyne.io\",\"created_at\":\"2013-10-15T00:20:49.367Z\",\"updated_at\":\"2013-10-15T00:20:49.367Z\",\"role_id\":null,\"role_type\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/current_user","Content-Type":"application/json; charset=utf-8","ETag":"\"d9a57e132c9cbc4b228fc2c0c197c612\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/","X-Request-Id":"eb061ba3-7b8a-499e-89ae-c07d337821b1","X-Runtime":"0.041016","Content-Length":"148"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resource": "User",
+  "http_method": "PUT",
+  "route": "/api/users",
+  "description": "Updating a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "user",
+      "name": "email",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password_confirmation",
+      "description": "Last name"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/users",
+      "request_body": "user[email]=user2%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=ZGI0WThDdWRaV3ltbXRrdjc4aTJhaS9GNE00cUo2OUV1QzRmZ2hqOStWTVUrdGhvV1BvSXdJcVNzTU9RbHluRGFkbzhlSVdvLy9UWk1wL2p3KzZwZkI5TUowRE4xVU90Y2YvaE1ORENBdWQ0N1ljdTVncEcvU0J5U0krM2oxa3hiVzNCZ29HVWlXV21kSm5mMThpbURxWGVYVzFqRC83WUhyQnAyeWVZWEh3PS0tZDVWY3NNZTJlR1NMSjZxeTNYR29IQT09--66781a469934505ccdf9c04de01e897d504c09d0; path=/; HttpOnly","X-Request-Id":"d86da468-6a2e-4e18-af90-b0b0680a5b52","X-Runtime":"0.740234"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

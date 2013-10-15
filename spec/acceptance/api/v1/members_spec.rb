@@ -29,6 +29,7 @@ resource 'Member' do
     parameter :last_name, "Last name", :required => true, :scope => :member
 
     example "Creating a member" do
+      explanation "Once the user is registered and logged in, create a member profile"
       member = FactoryGirl.attributes_for(:member).except(:id)
       do_request(member: member)
 
@@ -64,6 +65,7 @@ resource 'Member' do
     let(:id) { member.id }
 
     example "Updating a member" do
+      explanation "Update current user's member profile"
       member = FactoryGirl.attributes_for(:member).except(:id)
       do_request(member: member)
 
@@ -80,6 +82,7 @@ resource 'Member' do
     end
 
     example_request "Deleting a member" do
+      explanation "Delete current user's member profile"
       status.should == 204
     end
   end

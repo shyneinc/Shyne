@@ -1,9 +1,9 @@
 {
   "resource": "Mentor",
   "http_method": "PUT",
-  "route": "/api/mentors/:id",
+  "route": "/api/mentors",
   "description": "Updating a mentor",
-  "explanation": null,
+  "explanation": "Update current user's mentor profile",
   "parameters": [
     {
       "required": true,
@@ -45,8 +45,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/3662",
-      "request_body": "mentor[first_name]=Quinton&mentor[last_name]=Cormier&mentor[headline]=Accusantium+consequatur+accusamus+voluptate+quisquam+sit+eveniet+provident+temporibus+voluptatem+quasi+repellat+ipsa.&mentor[years_of_experience]=21&mentor[phone_number]=%28346%29064-0325&mentor[availability]=Maiores+rem+aperiam+ipsam+optio+at+et+adipisci+sapiente+molestias+aut+iusto+est.&mentor[featured]",
+      "request_path": "/api/mentors",
+      "request_body": "mentor[first_name]=Donna&mentor[last_name]=Stokes&mentor[headline]=Dolore+sapiente+quaerat+quia+quod+ut+sed+blanditiis+hic+consequatur+nostrum+praesentium+voluptatum+necessitatibus+nihil.&mentor[years_of_experience]=3&mentor[phone_number]=598-427-7445+x478&mentor[availability]=Non+nulla+autem+eum+enim+error+aut+omnis+consequatur+ducimus+vel+consequatur+et+voluptatem+repellendus.&mentor[featured]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +59,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/","X-Request-Id":"cdc249e8-fb94-4e7d-80f9-01c2b82795ed","X-Runtime":"0.022461"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=ZmhPVmdNaVNYSmdqRDA1YUJQbzZTU2RaSi9ZejZQK1lkVWlSanUzdmlWczNJQktTQ2M2VCtnTVZ0WkY5ZUVZOVV3SHFOQVJRRHJsUVZ4amxod3F5c2NVaDAwSW5sNUluUEw4b0QyR01wM1RWcnBXc29WdlRSdXNieURzNFBoYU9YcGFjeHhsekNoZkJ1MXBIaTY1MVpPRk51SmFZMXdXc3pWQWlZdHdic1FRPS0temY4SjgzSmduOGJtWlJaLy9SN25JUT09--414ef4c2456c452bea87881f0a3ff19db075afec; path=/; HttpOnly","X-Request-Id":"3a56dad5-4664-42eb-96cc-119c73ace82a","X-Runtime":"0.026367"},
       "response_content_type": null,
       "curl": null
 }

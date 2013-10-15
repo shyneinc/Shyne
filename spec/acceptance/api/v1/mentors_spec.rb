@@ -46,6 +46,7 @@ resource 'Mentor' do
     parameter :availability, "Availability", :required => true, :scope => :mentor
 
     example "Creating a mentor" do
+      explanation "Once the user is registered and logged in, create a mentor profile"
       mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
       do_request(mentor: mentor)
 
@@ -85,6 +86,7 @@ resource 'Mentor' do
     parameter :availability, "Availability", :required => true, :scope => :mentor
 
     example "Updating a mentor" do
+      explanation "Update current user's mentor profile"
       mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
 
       do_request(mentor: mentor)
@@ -102,6 +104,7 @@ resource 'Mentor' do
     end
 
     example_request "Deleting a mentor" do
+      explanation "Delete current user's mentor profile"
       status.should == 204
     end
   end
