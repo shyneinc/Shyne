@@ -6,7 +6,7 @@ include PgArrayParser
 resource 'Mentor' do
   header "Accept", "application/vnd.shyne.v1"
 
-  before(:each) do
+  before(:all) do
     load "#{Rails.root}/db/seeds.rb"
   end
 
@@ -16,7 +16,7 @@ resource 'Mentor' do
     parameter :featured, "Only list featured mentors"
     parameter :experties, "Only list mentors with specified experties"
 
-    before do
+    before :all do
       FactoryGirl.create_list(:mentor, 10)
     end
 
@@ -36,6 +36,10 @@ resource 'Mentor' do
       do_request(:experties => 'Accounting')
       response_body.should == Mentor.approved.experties('Accounting').to_json
       status.should == 200
+    end
+
+    after :all do
+      Mentor.delete_all
     end
   end
 
@@ -61,8 +65,6 @@ resource 'Mentor' do
       do_request(mentor: mentor)
 
       hash = JSON.parse(response_body)
-      hash.delete('mentor_status_id')
-      hash.delete('status_changed_at')
       mentor[:user_id] = @user.id
       mentor[:experties] = parse_pg_array mentor[:experties]
       mentor[:phone_number] = PhonyRails.normalize_number(mentor[:phone_number], :country_code => 'US')

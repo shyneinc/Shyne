@@ -18,7 +18,8 @@ FactoryGirl.define do
     phone_number { (rand(899) + 100).to_s + "-" + (rand(899) + 100).to_s + "-" + (rand(8999) + 1000).to_s }
     availability { Faker::Lorem.sentence(10) }
     featured { [true, false].sample }
-    mentor_status
+    mentor_status_id { MentorStatus.by_status('Applied').id }
+    status_changed_at nil
     user
   end
 end
