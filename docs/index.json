@@ -59,18 +59,18 @@
           "groups": "all"
         },
         {
-          "description": "Getting all mentors",
-          "link": "mentor/getting_all_mentors.json",
+          "description": "Getting all approved mentors",
+          "link": "mentor/getting_all_approved_mentors.json",
           "groups": "all"
         },
         {
-          "description": "Getting featured mentors",
-          "link": "mentor/getting_featured_mentors.json",
+          "description": "Getting approved & featured mentors",
+          "link": "mentor/getting_approved__featured_mentors.json",
           "groups": "all"
         },
         {
-          "description": "Getting mentors with specific experties",
-          "link": "mentor/getting_mentors_with_specific_experties.json",
+          "description": "Getting approved mentors with specific experties",
+          "link": "mentor/getting_approved_mentors_with_specific_experties.json",
           "groups": "all"
         },
         {

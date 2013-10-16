@@ -1,0 +1,38 @@
+{
+  "resource": "Mentor",
+  "http_method": "GET",
+  "route": "/api/mentors",
+  "description": "Getting all approved mentors",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "featured",
+      "description": "Only list featured mentors"
+    },
+    {
+      "name": "experties",
+      "description": "Only list mentors with specified experties"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"7c381d03-f699-40b9-a3f0-6071cae925b3","X-Runtime":"0.032226","Content-Length":"2"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}
