@@ -1,4 +1,9 @@
 class Mentor < ActiveRecord::Base
+  validates :first_name, :last_name, :headline, :experties, :years_of_experience, :availability, :phone_number, presence: true
+  validates :years_of_experience, :numericality => { :greater_than_or_equal_to => 0 }
+  phony_normalize :phone_number, :default_country_code => 'US'
+  validates :phone_number, :phony_plausible => true
+
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
