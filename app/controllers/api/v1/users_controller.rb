@@ -1,6 +1,8 @@
 class Api::V1::UsersController < Api::V1::BaseController
   def create
-    respond_with User.create(user_params), :location => api_show_current_user_path
+    @user = User.create(user_params)
+    sign_in(@user)
+    respond_with @user, :location => api_show_current_user_path
   end
 
   def update
