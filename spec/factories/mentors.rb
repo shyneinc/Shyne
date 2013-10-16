@@ -15,7 +15,7 @@ FactoryGirl.define do
     headline { Faker::Lorem.sentence(10) }
     experties { ['{Accounting,Finance}','{Banking}','{Legal Services}','{Internet,E-learning}'].sample }
     years_of_experience { rand(30) }
-    phone_number { Faker::PhoneNumber.phone_number }
+    phone_number { (rand(899) + 100).to_s + "-" + (rand(899) + 100).to_s + "-" + (rand(8999) + 1000).to_s }
     availability { Faker::Lorem.sentence(10) }
     featured { [true, false].sample }
     mentor_status
