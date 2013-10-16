@@ -1,11 +1,11 @@
 class Api::V1::MentorsController < Api::V1::BaseController
   def index
     if(params[:featured].present? && params[:featured] == 'true')
-      respond_with :api, Mentor.featured
+      respond_with :api, Mentor.approved.featured
     elsif(params[:experties].present?)
-      respond_with :api, Mentor.experties(params[:experties])
+      respond_with :api, Mentor.approved.experties(params[:experties])
     else
-      respond_with :api, Mentor.all
+      respond_with :api, Mentor.approved
     end
   end
 

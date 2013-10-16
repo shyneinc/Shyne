@@ -24,12 +24,16 @@ class Mentor < ActiveRecord::Base
     end
   end
 
+  def self.approved
+    where(mentor_status_id: MentorStatus.by_status('Approved').id)
+  end
+
   def self.featured
-    where(featured: true).to_a
+    where(featured: true)
   end
 
   def self.experties(experties)
-    where("? = ANY (experties)", experties).to_a
+    where("? = ANY (experties)", experties)
   end
 
   def display_name

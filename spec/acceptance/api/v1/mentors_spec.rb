@@ -20,21 +20,21 @@ resource 'Mentor' do
       FactoryGirl.create_list(:mentor, 10)
     end
 
-    example "Getting all mentors" do
+    example "Getting all approved mentors" do
       do_request
-      response_body.should == Mentor.all.to_json
+      response_body.should == Mentor.approved.to_json
       status.should == 200
     end
 
-    example "Getting featured mentors" do
+    example "Getting approved & featured mentors" do
       do_request(:featured => true)
-      response_body.should == Mentor.featured.to_json
+      response_body.should == Mentor.approved.featured.to_json
       status.should == 200
     end
 
-    example "Getting mentors with specific experties" do
+    example "Getting approved mentors with specific experties" do
       do_request(:experties => 'Accounting')
-      response_body.should == Mentor.experties('Accounting').to_json
+      response_body.should == Mentor.approved.experties('Accounting').to_json
       status.should == 200
     end
   end
