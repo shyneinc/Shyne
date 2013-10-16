@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :industry do
-    title "MyString"
+    title { Faker::Lorem.word }
   end
 end

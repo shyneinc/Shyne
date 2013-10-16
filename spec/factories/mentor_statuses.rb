@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :mentor_status do
-    title "MyString"
+    title { ['Applied','Reapplied','Approved','Declined'].sample }
   end
 end

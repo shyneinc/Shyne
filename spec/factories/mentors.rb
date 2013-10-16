@@ -18,6 +18,7 @@ FactoryGirl.define do
     phone_number { Faker::PhoneNumber.phone_number }
     availability { Faker::Lorem.sentence(10) }
     featured { [true, false].sample }
+    mentor_status
     user
   end
 end

@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Industry do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    expect(build(:industry)).to be_valid
+  end
+
+  let(:industry_instance) { create(:industry) }
 end
