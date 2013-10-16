@@ -65,6 +65,7 @@ resource 'Mentor' do
       hash.delete('status_changed_at')
       mentor[:user_id] = @user.id
       mentor[:experties] = parse_pg_array mentor[:experties]
+      mentor[:phone_number] = PhonyRails.normalize_number(mentor[:phone_number], :country_code => 'US')
 
       hash.to_json.should be_json_eql(mentor.to_json)
       status.should == 201
