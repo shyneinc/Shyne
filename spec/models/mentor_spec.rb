@@ -23,26 +23,20 @@ describe Mentor do
   end
 
   describe "filter by featured mentors" do
-    before :all do
-      @mentor1 = create(:mentor, featured: true)
-      @mentor2 = create(:mentor, featured: false)
-      @mentor3 = create(:mentor, featured: true)
-    end
+    let!(:mentor1) { create(:mentor, featured: true) }
+    let!(:mentor2) { create(:mentor, featured: false) }
+    let!(:mentor3) { create(:mentor, featured: true) }
 
     context "matching mentors" do
       it "returns an array of results that match" do
-        expect(Mentor.featured).to eq [@mentor1, @mentor3]
+        expect(Mentor.featured).to eq [mentor1, mentor3]
       end
     end
 
     context "non-matching mentors" do
       it "returns an array of results that match" do
-        expect(Mentor.featured).to_not include @mentor2
+        expect(Mentor.featured).to_not include mentor2
       end
-    end
-
-    after :all do
-      Mentor.delete_all
     end
   end
 end

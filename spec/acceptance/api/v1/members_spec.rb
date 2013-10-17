@@ -12,8 +12,8 @@ resource 'Member' do
     end
 
     example_request "Getting all members" do
-      response_body.should == Member.all.to_json
-      status.should == 200
+      expect(response_body).to eq Member.all.to_json
+      expect(status).to eq 200
     end
   end
 
@@ -36,9 +36,8 @@ resource 'Member' do
       hash = JSON.parse(response_body)
       hash.delete('user_id')
 
-      hash.to_json.should be_json_eql(member.to_json)
-
-      status.should == 201
+      expect(hash.to_json).to be_json_eql(member.to_json)
+      expect(status).to eq 201
     end
   end
 
@@ -46,8 +45,8 @@ resource 'Member' do
     let(:id) { member.id }
 
     example_request "Getting a specific member" do
-      response_body.should == member.to_json
-      status.should == 200
+      expect(response_body).to eq member.to_json
+      expect(status).to eq 200
     end
   end
 
@@ -69,7 +68,7 @@ resource 'Member' do
       member = FactoryGirl.attributes_for(:member).except(:id)
       do_request(member: member)
 
-      status.should == 204
+      expect(status).to eq 204
     end
   end
 
@@ -83,7 +82,7 @@ resource 'Member' do
 
     example_request "Deleting a member" do
       explanation "Delete current user's member profile"
-      status.should == 204
+      expect(status).to eq 204
     end
   end
 end

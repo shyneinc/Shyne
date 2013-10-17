@@ -6,8 +6,8 @@ resource 'Industry' do
 
   get "/api/industries" do
     example_request "Show available industries" do
-      response_body.should == Industry.select(:id, :title).to_json
-      status.should == 200
+      expect(response_body).to eq Industry.select(:id, :title).to_json
+      expect(status).to eq 200
     end
   end
 end

@@ -19,7 +19,7 @@ resource 'User' do
 
       hash.to_json.should be_json_eql(user.except(:password, :password_confirmation).to_json)
 
-      status.should == 201
+      expect(status).to eq 201
     end
   end
 
@@ -39,7 +39,7 @@ resource 'User' do
       user_attrs = FactoryGirl.attributes_for(:user).except(:id)
       do_request(user: user_attrs)
 
-      status.should == 204
+      expect(status).to eq 204
     end
   end
 end

@@ -14,11 +14,11 @@ resource 'Session' do
     let(:password) { user.password }
 
     example_request "Logging in" do
-      response_body.should be_json_eql({ :success => true,
+      expect(response_body).to be_json_eql({ :success => true,
                                          :info => "Logged in",
                                          :user => user
                                        }.to_json)
-      status.should == 200
+      expect(status).to eq 200
     end
   end
 
@@ -30,10 +30,10 @@ resource 'Session' do
     end
 
     example_request "Logging out" do
-      response_body.should be_json_eql({ :success => true,
+      expect(response_body).to be_json_eql({ :success => true,
                                          :info => "Logged out"
                                        }.to_json)
-      status.should == 200
+      expect(status).to eq 200
     end
   end
 
@@ -45,11 +45,11 @@ resource 'Session' do
     end
 
     example_request "Show current user" do
-      response_body.should be_json_eql({ :success => true,
+      expect(response_body).to be_json_eql({ :success => true,
                                          :info => "Current User",
                                          :user => user
                                        }.to_json)
-      status.should == 200
+      expect(status).to eq 200
     end
   end
 end

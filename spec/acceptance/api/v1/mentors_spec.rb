@@ -10,32 +10,35 @@ resource 'Mentor' do
     load "#{Rails.root}/db/seeds.rb"
   end
 
-  let(:mentor) { FactoryGirl.create(:mentor) }
+  let(:mentor) { create(:mentor) }
 
   get "/api/mentors" do
     parameter :featured, "Only list featured mentors"
     parameter :experties, "Only list mentors with specified experties"
 
     before :all do
-      FactoryGirl.create_list(:mentor, 10)
+      create_list(:mentor, 10)
     end
 
     example "Getting all approved mentors" do
       do_request
-      response_body.should == Mentor.approved.to_json
-      status.should == 200
+
+      expect(response_body).to eq Mentor.approved.to_json
+      expect(status).to eq 200
     end
 
     example "Getting approved & featured mentors" do
       do_request(:featured => true)
-      response_body.should == Mentor.approved.featured.to_json
-      status.should == 200
+
+      expect(response_body).to eq Mentor.approved.featured.to_json
+      expect(status).to eq 200
     end
 
     example "Getting approved mentors with specific experties" do
       do_request(:experties => 'Accounting')
-      response_body.should == Mentor.approved.experties('Accounting').to_json
-      status.should == 200
+
+      expect(response_body).to eq Mentor.approved.experties('Accounting').to_json
+      expect(status).to eq 200
     end
 
     after :all do
@@ -47,7 +50,7 @@ resource 'Mentor' do
     include Warden::Test::Helpers
 
     before do
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
       login_as @user, scope: :user
     end
 
@@ -61,7 +64,7 @@ resource 'Mentor' do
 
     example "Creating a mentor" do
       explanation "Once the user is registered and logged in, create a mentor profile"
-      mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
+      mentor = attributes_for(:mentor, :featured => nil).except(:id)
       do_request(mentor: mentor)
 
       hash = JSON.parse(response_body)
@@ -69,8 +72,8 @@ resource 'Mentor' do
       mentor[:experties] = parse_pg_array mentor[:experties]
       mentor[:phone_number] = PhonyRails.normalize_number(mentor[:phone_number], :country_code => 'US')
 
-      hash.to_json.should be_json_eql(mentor.to_json)
-      status.should == 201
+      expect(hash.to_json).to be_json_eql mentor.to_json
+      expect(status).to eq 201
     end
   end
 
@@ -78,8 +81,8 @@ resource 'Mentor' do
     let(:id) { mentor.id }
 
     example_request "Getting a specific mentor" do
-      response_body.should == mentor.to_json
-      status.should == 200
+      expect(response_body).to eq mentor.to_json
+      expect(status).to eq 200
     end
   end
 
@@ -87,7 +90,7 @@ resource 'Mentor' do
     include Warden::Test::Helpers
 
     before do
-      user = FactoryGirl.create(:mentor_user)
+      user = create(:mentor_user)
       login_as user, scope: :user
     end
 
@@ -105,7 +108,7 @@ resource 'Mentor' do
 
       do_request(mentor: mentor)
 
-      status.should == 204
+      expect(status).to eq 204
     end
   end
 
@@ -113,13 +116,14 @@ resource 'Mentor' do
     include Warden::Test::Helpers
 
     before do
-      user = FactoryGirl.create(:mentor_user)
+      user = create(:mentor_user)
       login_as user, scope: :user
     end
 
     example_request "Deleting a mentor" do
       explanation "Delete current user's mentor profile"
-      status.should == 204
+
+      expect(status).to eq 204
     end
   end
 end
