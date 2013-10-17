@@ -55,6 +55,7 @@ Spork.prefork do
       config.format = :json
       config.docs_dir = Rails.root.join("docs", "")
     end
+    Faker::Config.locale = 'en-us'
   end
 end
 
