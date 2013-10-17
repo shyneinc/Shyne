@@ -1,10 +1,14 @@
 class Api::V1::CallsController < Api::V1::BaseController
-  def index
-    respond_with :api, Call.all
-  end
+  before_filter :authenticate_user!
 
   def show
-    respond_with :api, Call.find(params[:id])
+    if current_user.role_type == 'Member'
+      respond_with :api, Call.find_by_member_id(current_user.role_id)
+    elsif current_user.role_type == 'Mentor'
+      respond_with :api, Call.find_by_mentor_id(current_user.role_id)
+    else
+      render :json => {:error => 'User does not have a profile'}, :status => 401
+    end
   end
 
   def create

@@ -1,4 +1,6 @@
 class Api::V1::UsersController < Api::V1::BaseController
+  before_filter :authenticate_user!, :except => [:create]
+
   def create
     @user = User.create(user_params)
     sign_in(@user)
@@ -6,11 +8,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def update
-    if current_user
-      respond_with :api, User.update(current_user.id, user_params)
-    else
-      render :json => {:error => 'User is not logged in'}, :status => 401
-    end
+    respond_with :api, User.update(current_user.id, user_params)
   end
 
   private
