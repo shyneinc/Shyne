@@ -16,11 +16,12 @@ ShyneService.factory('Session', ($location, $http, $q) ->
     )
     deferred.promise
 
-  logout: (redirectTo) ->
+  logout: () ->
+    deferred = $q.defer()
     $http.post("/api/logout").then ->
       _currentUser = null
-      $location.path redirectTo
-
+      deferred.resolve()
+    deferred.promise
 
   register: (email, password, confirmPassword) ->
     deferred = $q.defer()
