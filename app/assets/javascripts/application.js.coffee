@@ -7,6 +7,8 @@
 #= require_directory ./controllers
 #= require_directory ./services
 #= require directives/bootstrapDirectives
+#= require directives/formDirectives
+#= require directives/jQueryDirectives
 
 Shyne.config(["$httpProvider", ($httpProvider) ->
   $httpProvider.defaults.headers.common["X-CSRF-Token"] = $("meta[name=csrf-token]").attr("content")
@@ -24,11 +26,14 @@ Shyne.config(["$httpProvider", ($httpProvider) ->
 ])
 
 Shyne.config ["$routeProvider", ($routeProvider) ->
-  $routeProvider.when("/",
-    controller: 'HomeCtrl'
-    templateUrl: "/home/index.html"
-  ).when("/profile",
+  $routeProvider.when("/profile",
     templateUrl: "/profile/index.html"
     controller: 'ProfileCtrl'
+  ).when("/login",
+    templateUrl: "/home/login.html"
+    controller: 'HomeCtrl'
+  ).when("/signup",
+    templateUrl: "/home/signup.html"
+    controller: 'HomeCtrl'
   )
 ]

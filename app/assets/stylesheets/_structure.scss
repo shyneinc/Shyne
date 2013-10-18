@@ -1,29 +1,221 @@
 @import "typography";
 
 header {
+  background-color: $black;
+  padding: 10px 0;
   .logo {
-    background: url(/assets/logo.svg) -6px -18px;
-    background-size: 180px 130px;
     display: block;
-    width: 180px;
-    height: 90px;
+    width: 103px;
+    height: 40px;
+    background-color: $black;
+    background-image: url('data:image/png;base64,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');
     text-indent: -99999999px;
   }
   .nav {
-    margin-top: 15px;
+    background-color: $black;
+    li {
+      background-color: $black;
+      &:hover, &:focus, &:active {
+        background-color: $black;
+      }
+    }
     li > a {
-      color: #000;
+      color: #fff;
       font-size: 16px;
       text-decoration: none;
+      padding: 10px 25px;
+      background-color: $black;
+      &:hover, &:focus, &:active {
+        background-color: $black;
+        color: $blue;
+      }
     }
   }
 }
 
+.hero {
+  background: $black url(green-path.jpg) top center no-repeat;
+  background-size: cover;
+  min-height: 550px;
+  position: relative;
+  color: $white;
+  .top-shadow {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(72, 85, 94, 0.2)), to(rgba(0, 0, 0, 0)));
+    background-image: -webkit-linear-gradient(rgba(72, 85, 94, 0.2), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(top, rgba(72, 85, 94, 0.2), rgba(0, 0, 0, 0));
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#3348555E', endColorstr='#00000000')";
+    background-image: -ms-linear-gradient(rgba(72, 85, 94, 0.2), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(rgba(72, 85, 94, 0.2), rgba(0, 0, 0, 0));
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+  }
+  .container {
+    h1 {
+      margin-top: 1em;
+      margin-bottom: 0.2em;
+      font-size: 4em;
+    }
+  }
+  .text-shadow {
+    text-shadow: $black .1em .1em .4em;
+    color: $white;
+  }
+  .search-box {
+    width: 550px;
+    font-size: 14px;
+  }
+  .signup {
+    display: block;
+    background-color: $red;
+    @include round-corners(10px);
+    color: $white;
+    padding: 15px 20px;
+    font-size: 2em;
+    margin: 43px 40px 0 0;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      background-color: $blue;
+    }
+  }
+  .message {
+    margin-top: 20px;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    @include round-corners(10px);
+  }
+}
+
+.mentors {
+  background-color: $green;
+  color: $white;
+  padding-bottom: 40px;
+  h2 {
+    margin: 40px 0;
+    font-size: 2.5em;
+    color: $white;
+  }
+  .inner {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding-bottom: 20px;
+    @include round-corners(10px);
+    .graphic {
+      padding: 20px 0 30px 0;
+      font-size: 3em;
+    }
+    .question {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    .question-body {
+      line-height: 1.5em;
+      font-size: 1.2em;
+      padding: 20px;
+    }
+  }
+}
+
+.works {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: $gray;
+  padding-bottom: 40px;
+  h2 {
+    margin: 40px 0;
+    font-size: 2.5em;
+    color: $gray;
+  }
+  .inner {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-bottom: 20px;
+    @include round-corners(10px);
+    .graphic {
+      padding: 20px 0 0 0;
+      font-size: 3em;
+    }
+    .step {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 20px;
+      line-height: 1.5em;
+    }
+  }
+}
+
+.top-mentors {
+  background-color: $gray;
+  padding-bottom: 40px;
+  h2 {
+    margin: 40px 0;
+    font-size: 2.5em;
+    color: $white;
+  }
+  .inner {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    color: $white;
+    @include round-corners(10px);
+    .name {
+      font-size: 1.5em;
+      text-decoration: none;
+      color: $white;
+      display: block;
+      padding: 20px;
+      &:hover {
+        color: $blue;
+      }
+    }
+    .pic {
+      width: 100%;
+    }
+    .info {
+      padding: 20px 0;
+      font-size: 1.3em;
+      .btn-default {
+        margin-top: 10px;
+        text-decoration: none;
+        background-color: $white;
+      }
+    }
+  }
+  .apply {
+    margin-top: 20px;
+    color: $white;
+    background-color: $red;
+    display: block;
+    @include round-corners(10px);
+    width: 200px;
+    margin: 20px auto;
+    padding: 15px 0;
+    font-size: 2em;
+    text-decoration: none;
+    &:hover{
+      background-color: $blue;
+    }
+  }
+}
+.mission {
+  background-color: $black;
+  color: $white;
+  h2 {
+    color: $white;
+    margin-top: 40px;
+    font-size: 2.5em;
+  }
+  .message{
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+}
+
 footer {
-  margin: 30px 0;
-  border-top: 1px solid #f3f3f3;
-  padding-top: 20px;
-  color: #666;
+  padding: 20px 0;
+  color: #c6c6c6;
 }
 
 .hidden {
