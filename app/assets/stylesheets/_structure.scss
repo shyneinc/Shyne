@@ -12,6 +12,13 @@ header {
     text-indent: -99999999px;
   }
   .nav {
+    background-color: $black;
+    li {
+      background-color: $black;
+      &:hover, &:focus, &:active {
+        background-color: $black;
+      }
+    }
     li > a {
       color: #fff;
       font-size: 16px;
@@ -27,7 +34,7 @@ header {
 }
 
 .hero {
-  background: url(green-path.jpg) top center no-repeat;
+  background: $black url(green-path.jpg) top center no-repeat;
   background-size: cover;
   min-height: 550px;
   position: relative;
@@ -90,7 +97,7 @@ header {
   color: $white;
   padding-bottom: 40px;
   h2 {
-    margin-top: 40px;
+    margin: 40px 0;
     font-size: 2.5em;
     color: $white;
   }
@@ -103,7 +110,7 @@ header {
       font-size: 3em;
     }
     .question {
-      font-size: 1.5em;
+      font-size: 1.3em;
       font-weight: bold;
     }
     .question-body {
@@ -119,7 +126,7 @@ header {
   color: $gray;
   padding-bottom: 40px;
   h2 {
-    margin-top: 40px;
+    margin: 40px 0;
     font-size: 2.5em;
     color: $gray;
   }
@@ -132,7 +139,7 @@ header {
       font-size: 3em;
     }
     .step {
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: bold;
       padding: 20px;
       line-height: 1.5em;
@@ -144,12 +151,13 @@ header {
   background-color: $gray;
   padding-bottom: 40px;
   h2 {
-    margin-top: 40px;
+    margin: 40px 0;
     font-size: 2.5em;
     color: $white;
   }
   .inner {
     background-color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
     color: $white;
     @include round-corners(10px);
     .name {
@@ -203,6 +211,11 @@ header {
     font-size: 1.2em;
     line-height: 1.5em;
   }
+}
+
+footer {
+  padding: 20px 0;
+  color: #c6c6c6;
 }
 
 .hidden {

@@ -9,24 +9,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="wrap">
-  <header ng-controller="HeaderCtrl">
+<div id="wrap" ng-controller="IndexCtrl">
+  <header>
     <div class="container">
         <nav class="masthead">
           <ul class="nav nav-pills pull-right">
             <li><a href="#mentors" scroll-to>Become Mentors</a></li>
             <li><a href="#works" scroll-to>How It Works</a></li>
             <li><a href="#mission" scroll-to>Our Mission</a></li>
-            <li><a href="#/login">Sign in</a></li>
+            <li><a href="#/login">Sign In</a></li>
           </ul>
         </nav>
         <a class="logo" href="#" ng-click="home()">Shyne</a>
     </div>
   </header>
-  <div class="hero">
+  <div class="hero" ng-show="showIndex">
     <div class="top-shadow"></div>
     <div class="container">
-      <a href="#" class="pull-right signup text-center"><span class="glyphicon glyphicon-user"></span> Join Now</a>
+      <a href="#/signup" class="pull-right signup text-center"><span class="glyphicon glyphicon-user"></span> Join Now</a>
       <h1 class="text-shadow">Got a clear path?</h1>
       <h2 class="text-shadow">Find the quickest way to accelerate your career.</h2>
       <form class="form-inline search-form" role="form">
@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  <div class="mentors">
+  <div class="mentors" ng-show="showIndex">
     <div class="container text-center">
       <a id="mentors-mark" name="mentors"></a>
       <h2>Why Should You Become a Mentor?</h2>
@@ -74,7 +74,7 @@
       </div>
     </div>
   </div>
-  <div class="works">
+  <div class="works" ng-show="showIndex">
     <div class="container text-center">
       <a id="works-mark" name="works"></a>
       <h2>How It Works?</h2>
@@ -100,7 +100,7 @@
       </div>
     </div>
   </div>
-  <div class="top-mentors" ng-controller="MentorsCtrl">
+  <div class="top-mentors" ng-show="showIndex">
     <div class="container text-center">
       <h2>Our mentors make $60-180/hr.  Interested in joining?</h2>
       <div class="row">
@@ -116,10 +116,10 @@
             </div>
         </div>
       </div>
-      <a href="#" class="apply">Apply Now</a>
+      <a href="#/signup" class="apply">Apply Now</a>
     </div>
   </div>
-  <div class="mission">
+  <div class="mission" ng-show="showIndex">
     <div class="container">
       <a id="mission-mark" name="mission"></a>
       <h2>Our Mission</h2>
@@ -130,7 +130,13 @@
     </div>
   </div>
   <div ng-view></div>
+  <footer ng-hide="showIndex">
+    <div class="container text-center">
+        <p>&copy; Shyne, Inc 2013</p>
+    </div>
+  </footer>
 </div>
+
 <%= javascript_include_tag "application" %>
 </body>
 </html>

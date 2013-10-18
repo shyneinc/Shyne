@@ -7,6 +7,7 @@
 #= require_directory ./controllers
 #= require_directory ./services
 #= require directives/bootstrapDirectives
+#= require directives/formDirectives
 #= require directives/jQueryDirectives
 
 Shyne.config(["$httpProvider", ($httpProvider) ->
@@ -30,6 +31,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
     controller: 'ProfileCtrl'
   ).when("/login",
     templateUrl: "/home/login.html"
+    controller: 'HomeCtrl'
+  ).when("/signup",
+    templateUrl: "/home/signup.html"
     controller: 'HomeCtrl'
   )
 ]
