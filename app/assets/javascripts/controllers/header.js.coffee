@@ -1,4 +1,4 @@
-Shyne.controller('NavCtrl', ($location, $scope, Session) ->
+Shyne.controller('HeaderCtrl', ($location, $scope, Session) ->
 
   $scope.isLoggedIn = false
 

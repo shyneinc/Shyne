@@ -1,5 +1,13 @@
-$blue: #5fabe7;
-$green: #23e94e;
+$blue: #3DA0FC;
+$black: #333;
+$gray: #4A5763;
+$green: #45C9C3;
+$white: #F7F9FA;
+$red: #FF493E;
+
+body {
+  background-color: $white;
+}
 
 a {
   color: $blue;
@@ -34,5 +42,14 @@ input.ng-valid.ng-dirty {
     border-color: #356635;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+  }
+}
+
+.btn-primary {
+  background-color: $gray;
+  border-color: #39434F;
+  &:hover, &:focus, &:active {
+    background-color: #63758C;
+    border-color: #57677D;
   }
 }

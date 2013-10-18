@@ -9,95 +9,128 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<header class="container" ng-controller="NavCtrl">
-
-  <nav class="masthead">
-    <ul class="nav nav-pills pull-right">
-      <li><a href="#">Our Mission</a></li>
-      <li><a href="#">Mentors</a></li>
-      <li><a href="#">Help</a></li>
-      <li ng-hide="isLoggedIn"><a href="#loginModal" bt-modal="isLoggedIn">Sign in</a></li>
-      <li ng-show="isLoggedIn"><a href="#" ng-click="signout()">Sign out</a></li>
-      <li class="active"><a href="#signupModal" bt-modal="isLoggedIn">Sign up</a></li>
-    </ul>
-  </nav>
-
-  <a href="/" class="logo">Shyne</a>
-
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form novalidate role="form" name="loginForm" class="css-form" ng-submit="signin()">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Log in</h4>
+<div id="wrap">
+  <header ng-controller="HeaderCtrl">
+    <div class="container">
+        <nav class="masthead">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="#mentors" scroll-to>Become Mentors</a></li>
+            <li><a href="#works" scroll-to>How It Works</a></li>
+            <li><a href="#mission" scroll-to>Our Mission</a></li>
+            <li><a href="#/login">Sign in</a></li>
+          </ul>
+        </nav>
+        <a class="logo" href="#" ng-click="home()">Shyne</a>
+    </div>
+  </header>
+  <div class="hero">
+    <div class="top-shadow"></div>
+    <div class="container">
+      <a href="#" class="pull-right signup text-center"><span class="glyphicon glyphicon-user"></span> Join Now</a>
+      <h1 class="text-shadow">Got a clear path?</h1>
+      <h2 class="text-shadow">Find the quickest way to accelerate your career.</h2>
+      <form class="form-inline search-form" role="form">
+          <label class="sr-only" for="home-search"></label>
+          <input type="text" class="form-control search-box" id="home-search" placeholder="Search for a company or position you're interested in.">
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-shadow message">
+            <p>Get expert interview advice from people that have worked in positions you're interested in. Schedule a call with any of our mentions in just minutes.</p>
+            <p>We have mentors from Facebook, Google, Goldman Sachs, KPMG, PwC, Square, Dropbox, and many more companies!  Pick their brains on what they did to land their jobs.</p>
           </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="loginEmail">Email Address</label>
-              <input name="email" ng-model="login.email" type="email" class="form-control auto-focus" id="loginEmail" placeholder="Enter email" required="">
-            </div>
-            <div class="form-group">
-              <label for="loginPassword">Password</label>
-              <input name="password" ng-model="login.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
-            </div>
-            <p class="text-danger">{{error}}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid" ng-click="signin()">Sign in</button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form novalidate role="form" name="signupForm" class="css-form" ng-submit="signup()">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Sign Up</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="loginEmail">Email Address</label>
-              <input name="email" ng-model="signup.email" type="email" class="form-control auto-focus" id="loginEmail" placeholder="Enter email" required="">
+  <div class="mentors">
+    <div class="container text-center">
+      <a id="mentors-mark" name="mentors"></a>
+      <h2>Why Should You Become a Mentor?</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="inner">
+            <div class="graphic">
+              <span class="glyphicon glyphicon-user"></span> <span class="glyphicon glyphicon-resize-horizontal"></span> <span class="glyphicon glyphicon-user"></span>
             </div>
-            <div class="form-group">
-              <label for="loginPassword">Password</label>
-              <input name="password" ng-model="signup.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
+            <div class="question">HAVE YOU EVER BEEN IN THE FOLLOWING SITUATION?</div>
+            <div class="question-body">
+              One of your friends messages you and says, "Hey, a friend of mine needs some interview advice and I thought you'd be able to help him.  I was wondering if I could intro you and maybe you could talk to him?"
             </div>
-            <div class="form-group">
-              <label for="loginConfirmPassword">Confirm Password</label>
-              <input name="password" ng-model="signup.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm password" required="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="inner">
+            <div class="graphic">
+              <span class="glyphicon glyphicon-phone-alt"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-refresh"></span> <span class="glyphicon glyphicon-usd"></span>
             </div>
-            <p class="text-danger">{{error}}</p>
+            <div class="question">WHAT IF YOU COULD GET PAID GIVING ADVICE?</div>
+            <div class="question-body">
+                This is exactly what Shyne does!  Just apply to become a mentor and our users will contact you to  schedule calls when they need a simple yet effective advice about your background and work experience.
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign up</button>
-          </div>
-          <div class="hidden"><input type="submit"/></div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-
-
-</header>
-
-<setion ng-view></setion>
-
-<footer>
-  <div class="container">
-    <p>&copy; Shyne, Inc 2013</p>
+  <div class="works">
+    <div class="container text-center">
+      <a id="works-mark" name="works"></a>
+      <h2>How It Works?</h2>
+      <div class="row">
+        <div class="col-md-4">
+            <div class="inner">
+              <div class="graphic"><span class="glyphicon glyphicon-list-alt"></span></div>
+              <div class="step">Apply to become a mentor</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="inner">
+            <div class="graphic"><span class="glyphicon glyphicon-info-sign"></span></div>
+            <div class="step">Create a profile so our users can contact you to schedule a call</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="inner">
+            <div class="graphic"><span class="glyphicon glyphicon-phone-alt"></span></div>
+            <div class="step">Take calls at your convenience. Money transferred straight to your bank account within 48 hours of the call</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
-
-
+  <div class="top-mentors" ng-controller="MentorsCtrl">
+    <div class="container text-center">
+      <h2>Our mentors make $60-180/hr.  Interested in joining?</h2>
+      <div class="row">
+        <div class="col-md-2" ng-repeat="mentor in mentors">
+            <div class="inner">
+              <a href="#" class="name">{{mentor.name}}</a>
+              <a href="#"><img class="pic" ng-src="{{mentor.photoUrl}}"/></a>
+              <div class="info">
+                {{mentor.role}} at {{mentor.company}}<br/>
+                Rate: ${{mentor.ratePerMinute}} / minute<br/>
+                <a href="#" class="btn btn-default">Schedule Call</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <a href="#" class="apply">Apply Now</a>
+    </div>
+  </div>
+  <div class="mission">
+    <div class="container">
+      <a id="mission-mark" name="mission"></a>
+      <h2>Our Mission</h2>
+      <p class="message">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>&copy; Shyne, Inc 2013</p>
+    </div>
+  </div>
+  <div ng-view></div>
+</div>
 <%= javascript_include_tag "application" %>
 </body>
 </html>
