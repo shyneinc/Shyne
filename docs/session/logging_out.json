@@ -1,7 +1,7 @@
 {
   "resource": "Session",
-  "http_method": "POST",
-  "route": "/api/logout",
+  "http_method": "DELETE",
+  "route": "/api/sessions",
   "description": "Logging out",
   "explanation": null,
   "parameters": [
@@ -9,8 +9,8 @@
   ],
   "requests": [
     {
-      "request_method": "POST",
-      "request_path": "/api/logout",
+      "request_method": "DELETE",
+      "request_path": "/api/sessions",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -24,7 +24,7 @@
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "{\"info\":\"Logged out\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f823f07bd01dac27d5545b4869081a3a\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=OTRLeWNaL3RESGVUcjZrT0VSbUQ0dFE2OEsybmxxWEdTZUZsdXNxOGxPbHJkbXpKemViZjRTRDFWMjZ2NG5ERU0vTGJlaHpOdnJwZHl4NHIxeFB5V3c9PS0tY0l6eGRlRlRRcWxDeGQ4bzJQUGVRQT09--42879b1f8a2863747d4bd21511ad1b5a20c21e76; path=/; HttpOnly","X-Request-Id":"183edce1-ead7-4bea-ae56-f5a488e918c6","X-Runtime":"0.058594","Content-Length":"21"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f823f07bd01dac27d5545b4869081a3a\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=DELETE; path=/\n_Shyne_session=U0NXcWxLbmlsQTU5K0xRc0RvS1Z3R0FJQW5keFA0R2thOWFZYWdMWkRwL29hTThVOGpsRWcrcjdpMjgrRVlCZ0E5MzhuT2oyMENnYVlyVlJaOVNpa1E9PS0tNTRlTXFDbmdHaTJrUFJKQlVDekZEdz09--de955bf6060523388e2142b046a1e3df6771c234; path=/; HttpOnly","X-Request-Id":"7e16c0ce-72c6-43d5-8598-f99370641c12","X-Runtime":"0.148438","Content-Length":"21"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

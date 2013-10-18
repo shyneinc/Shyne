@@ -6,7 +6,7 @@ resource 'Session' do
 
   let!(:user) { User.create(FactoryGirl.attributes_for(:user)) }
 
-  post "/api/login" do
+  post "/api/sessions" do
     parameter :email, "Email", :required => true, :scope => :user
     parameter :password, "Password", :required => true, :scope => :user
 
@@ -21,7 +21,7 @@ resource 'Session' do
     end
   end
 
-  post "/api/logout" do
+  delete "/api/sessions" do
     include Warden::Test::Helpers
 
     before (:each) do

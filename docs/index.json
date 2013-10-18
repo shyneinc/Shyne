@@ -1,6 +1,21 @@
 {
   "resources": [
     {
+      "name": "Confirmation",
+      "examples": [
+        {
+          "description": "Confirm user",
+          "link": "confirmation/confirm_user.json",
+          "groups": "all"
+        },
+        {
+          "description": "Resend confirmation email",
+          "link": "confirmation/resend_confirmation_email.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Industry",
       "examples": [
         {

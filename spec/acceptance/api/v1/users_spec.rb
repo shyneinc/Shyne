@@ -6,7 +6,7 @@ resource 'User' do
 
   let!(:user) { User.create(FactoryGirl.attributes_for(:user)) }
 
-  get "/api/current_user" do
+  get "/api/users" do
     include Warden::Test::Helpers
 
     before (:each) do
