@@ -4,7 +4,7 @@ ShyneService.factory('Session', ($location, $http, $q) ->
 
   login: (email, password) ->
     deferred = $q.defer()
-    $http.post('/api/login',
+    $http.post('/api/sessions',
       user:
         email: email
         password: password
@@ -18,7 +18,7 @@ ShyneService.factory('Session', ($location, $http, $q) ->
 
   logout: () ->
     deferred = $q.defer()
-    $http.post("/api/logout").then ->
+    $http.delete("/api/sessions").then ->
       _currentUser = null
       deferred.resolve()
     deferred.promise
@@ -43,7 +43,7 @@ ShyneService.factory('Session', ($location, $http, $q) ->
     if this.isAuthenticated()
       deferred.resolve(_currentUser)
     else
-      $http.get('/api/current_user').success((data)->
+      $http.get('/api/users').success((data)->
         _currentUser = data.user
         deferred.resolve(_currentUser)
       )

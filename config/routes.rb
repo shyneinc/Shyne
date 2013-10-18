@@ -66,14 +66,16 @@ Shyne::Application.routes.draw do
   namespace :api, defaults: {format: :json} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
       devise_scope :user do
-        post 'login' => 'sessions#create', :as => 'login'
-        post 'logout' => 'sessions#destroy', :as => 'logout'
-        get 'current_user' => 'users#show', :as => 'show_current_user'
+        match '/sessions' => 'sessions#create', :via => :post
+        match '/sessions' => 'sessions#destroy', :via => :delete
+
+        match '/confirmations' => 'confirmations#create', :via => :post
+        match '/confirmations' => 'confirmations#show', :via => :get
       end
+
       resources :users, only: [:create]
       match '/users' => 'users#show', :via => :get
       match '/users' => 'users#update', :via => :put
-      match '/users/confirm' => 'users#confirm', :via => :get
 
       resources :mentors, except: [:update, :destroy]
       match '/mentors' => 'mentors#update', :via => :put
