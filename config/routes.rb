@@ -68,10 +68,12 @@ Shyne::Application.routes.draw do
       devise_scope :user do
         post 'login' => 'sessions#create', :as => 'login'
         post 'logout' => 'sessions#destroy', :as => 'logout'
-        get 'current_user' => 'sessions#show_current_user', :as => 'show_current_user'
+        get 'current_user' => 'users#show', :as => 'show_current_user'
       end
       resources :users, only: [:create]
+      match '/users' => 'users#show', :via => :get
       match '/users' => 'users#update', :via => :put
+      match '/users/confirm' => 'users#confirm', :via => :get
 
       resources :mentors, except: [:update, :destroy]
       match '/mentors' => 'mentors#update', :via => :put
@@ -82,9 +84,8 @@ Shyne::Application.routes.draw do
       match '/members' => 'members#destroy', :via => :delete
 
       resources :industries, only: [:index]
-      resources :experties, only: [:show, :create, :destroy]
 
-      resources :calls
+      resources :calls, except: [:index]
     end
   end
 end

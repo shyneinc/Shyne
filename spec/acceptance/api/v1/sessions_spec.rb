@@ -14,8 +14,7 @@ resource 'Session' do
     let(:password) { user.password }
 
     example_request "Logging in" do
-      expect(response_body).to be_json_eql({ :success => true,
-                                         :info => "Logged in",
+      expect(response_body).to be_json_eql({ :info => "Logged in",
                                          :user => user
                                        }.to_json)
       expect(status).to eq 200
@@ -30,24 +29,7 @@ resource 'Session' do
     end
 
     example_request "Logging out" do
-      expect(response_body).to be_json_eql({ :success => true,
-                                         :info => "Logged out"
-                                       }.to_json)
-      expect(status).to eq 200
-    end
-  end
-
-  get "/api/current_user" do
-    include Warden::Test::Helpers
-
-    before (:each) do
-      login_as user, scope: :user
-    end
-
-    example_request "Show current user" do
-      expect(response_body).to be_json_eql({ :success => true,
-                                         :info => "Current User",
-                                         :user => user
+      expect(response_body).to be_json_eql({ :info => "Logged out"
                                        }.to_json)
       expect(status).to eq 200
     end

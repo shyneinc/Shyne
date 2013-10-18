@@ -1,7 +1,5 @@
 # SHYNE
 
-***
-
 ## First-time install
 
 ``git clone git@github.com:shyneinc/Shyne.git``
@@ -13,8 +11,6 @@
 ``bundle exec rake db:setup``
 
 ``rails s``
-
-***
 
 ## Git development workflow
 
@@ -42,8 +38,6 @@ Install git-flow: See the Wiki for up-to-date [Installation Instructions](https:
 
 ``git push origin develop``
 
-***
-
 ## Testing
 
 Run this to execute the API test suite:
@@ -51,8 +45,6 @@ Run this to execute the API test suite:
 ``rake db:migrate RAILS_ENV=test``
 
 ``rspec spec``
-
-***
 
 ## Documentation
 

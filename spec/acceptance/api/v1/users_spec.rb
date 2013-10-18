@@ -4,6 +4,24 @@ require 'rspec_api_documentation/dsl'
 resource 'User' do
   header "Accept", "application/vnd.shyne.v1"
 
+  let!(:user) { User.create(FactoryGirl.attributes_for(:user)) }
+
+  get "/api/current_user" do
+    include Warden::Test::Helpers
+
+    before (:each) do
+      login_as user, scope: :user
+    end
+
+    example_request "Show current user" do
+      expect(response_body).to be_json_eql({ :info => "Current User",
+                                             :user => user,
+                                             :confirmed => user.confirmed?
+                                           }.to_json)
+      expect(status).to eq 200
+    end
+  end
+
   post "/api/users" do
     parameter :email, "First name", :required => true, :scope => :user
     parameter :password, "Last name", :required => true, :scope => :user
