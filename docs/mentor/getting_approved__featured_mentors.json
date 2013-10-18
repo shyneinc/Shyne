@@ -31,7 +31,7 @@
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "[]",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"807331ed-93f0-47bf-af1a-62ac4e610367","X-Runtime":"0.010743","Content-Length":"2"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"91aefb1c-c9a9-4827-a093-0860e4a05fac","X-Runtime":"0.008789","Content-Length":"2"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

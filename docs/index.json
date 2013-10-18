@@ -92,11 +92,6 @@
           "description": "Logging out",
           "link": "session/logging_out.json",
           "groups": "all"
-        },
-        {
-          "description": "Show current user",
-          "link": "session/show_current_user.json",
-          "groups": "all"
         }
       ]
     },
@@ -106,6 +101,11 @@
         {
           "description": "Registering a user",
           "link": "user/registering_a_user.json",
+          "groups": "all"
+        },
+        {
+          "description": "Show current user",
+          "link": "user/show_current_user.json",
           "groups": "all"
         },
         {
