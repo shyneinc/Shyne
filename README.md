@@ -16,6 +16,12 @@
 
 Install git-flow: See the Wiki for up-to-date [Installation Instructions](https://github.com/nvie/gitflow/wiki/Installation).
 
+Please make sure to **always rebase instead of merge** to keep our commit history clean, linear and readable.
+
+If you use ``git pull`` or a GUI client, run this command to ensure new commits are rebased rather than merged:
+
+``git config --global pull.rebase true``
+
 ### Start
 
 ``git fetch origin``
