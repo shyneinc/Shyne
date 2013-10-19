@@ -56,6 +56,7 @@ Spork.prefork do
       config.docs_dir = Rails.root.join("docs", "")
     end
     Faker::Config.locale = 'en-us'
+    config.before(:each) { ActionMailer::Base.deliveries.clear }
   end
 end
 

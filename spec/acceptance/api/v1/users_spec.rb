@@ -4,7 +4,7 @@ require 'rspec_api_documentation/dsl'
 resource 'User' do
   header "Accept", "application/vnd.shyne.v1"
 
-  let!(:user) { User.create(FactoryGirl.attributes_for(:user)) }
+  let(:user) { create(:user) }
 
   get "/api/users" do
     include Warden::Test::Helpers
@@ -30,7 +30,7 @@ resource 'User' do
     parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
 
     example "Registering a user" do
-      user = FactoryGirl.attributes_for(:user).except(:id)
+      user = attributes_for(:user).except(:id)
       do_request(user: user)
 
       hash = JSON.parse(response_body)
@@ -40,6 +40,7 @@ resource 'User' do
       hash.to_json.should be_json_eql(user.except(:password, :password_confirmation).to_json)
 
       expect(status).to eq 201
+      expect(ActionMailer::Base.deliveries.count).to eq 1
     end
   end
 
@@ -58,7 +59,7 @@ resource 'User' do
     parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
 
     example "Updating a user" do
-      user_attrs = FactoryGirl.attributes_for(:user).except(:id)
+      user_attrs = attributes_for(:user).except(:id)
       do_request(user: user_attrs)
 
       expect(status).to eq 204

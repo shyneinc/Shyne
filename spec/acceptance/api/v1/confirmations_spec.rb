@@ -32,6 +32,7 @@ resource 'Confirmation' do
 
     example_request "Resend confirmation email" do
       expect(status).to eq 200
+      expect(ActionMailer::Base.deliveries.count).to eq 2
     end
   end
 end
