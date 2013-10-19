@@ -13,11 +13,19 @@
   <header>
     <div class="container">
         <nav class="masthead">
-          <ul class="nav nav-pills pull-right">
+          <ul class="nav nav-pills pull-right" ng-show="showIndex">
             <li><a href="#mentors" scroll-to>Become Mentors</a></li>
             <li><a href="#works" scroll-to>How It Works</a></li>
             <li><a href="#mission" scroll-to>Our Mission</a></li>
             <li><a href="#/login">Sign In</a></li>
+          </ul>
+          <ul class="nav nav-pills pull-right" ng-cloak ng-show="user">
+            <li>
+              <form class="navbar-form navbar-left">
+                <input type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
+              </form>
+            </li>
+            <li><a href="#" ng-click="signout()">Sign Out</a></li>
           </ul>
         </nav>
         <a class="logo" href="#" ng-click="home()">Shyne</a>

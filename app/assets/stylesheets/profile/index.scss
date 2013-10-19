@@ -1,0 +1,159 @@
+@import "typography";
+
+.profile {
+  .portfolio {
+    background: $black url(/assets/blue-sky.jpg) top center no-repeat;
+    background-size: cover;
+    min-height: 550px;
+    font-weight: 200;
+  }
+  h1 {
+    margin: 0 0 15px 0;
+  }
+  .info {
+    background-color: $black;
+    color: $white;
+    padding: 10px;
+    margin-top: 20px;
+    @include round-corners(5px);
+    .pic {
+      width: 100%;
+    }
+    h2 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    .nav {
+      li {
+        a {
+          padding: 5px 0;
+          border-top: 1px solid #666;
+          color: #999;
+          &:focus, &:active, &:hover {
+            background-color: $black;
+            color: $blue;
+          }
+          .glyphicon {
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .contact {
+    background-color: rgba(0, 0, 0, 0.45);
+    min-height: 550px;
+    padding: 20px;
+    color: $white;
+    .call-now {
+      background-color: $red;
+      width: 45px;
+      height: 45px;
+      @include round-corners(45px);
+      color: #FFF;
+      line-height: 50px;
+      text-align: center;
+      display: block;
+      font-size: 24px;
+      &:hover {
+        background-color: $blue;
+      }
+    }
+    .rate {
+      font-size: 16px;
+      font-weight: bold;
+      .glyphicon {
+        color: #EEE;
+        padding-right: 5px;
+      }
+      .glyphicon-star {
+        padding-right: 0;
+        top: 2px;
+      }
+      .group {
+        padding-left: 20px;
+      }
+      a {
+        color: #FCFCFC;
+        font-weight: 300;
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+    .additional-info {
+      margin: 20px 0;
+      padding: 10px 0 0;
+      border-top: 1px dotted $white;
+      border-bottom: 1px dotted $white;
+      .glyphicon {
+        padding-right: 5px;
+      }
+      a {
+        color: #FCFCFC;
+        font-weight: 300;
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+    .intro {
+      background: none;
+      border: 0;
+      color: $white;
+      margin: 0;
+      padding: 0;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+  .reviews {
+    .list {
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      h2 {
+        margin-top: 0;
+      }
+      .review {
+        padding: 0 15px;
+        margin-bottom: 20px;
+        .pic {
+          background-color: $white;
+          @include round-corners(5px);
+          padding: 5px;
+          position: relative;
+          font-size: 12px;
+          color: $gray;
+          img {
+            width: 100%;
+            margin-bottom: 5px;
+          }
+          .arrow {
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent $white;
+            position: absolute;
+            top: 25px;
+            right: -10px;
+          }
+        }
+        .message {
+          padding: 10px 0;
+          margin-left: 5px;
+          border-bottom: 1px dotted #999;
+        }
+        .rating {
+          font-size: 12px;
+          color: #666;
+          padding-left: 5px;
+          .timestamp {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
