@@ -7,8 +7,12 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def create
     @user = User.create(user_params)
-    sign_in(@user)
-    respond_with @user, :location => api_users_path
+    if @user.valid?
+      sign_in(@user)
+      respond_with @user, :location => api_users_path
+    else
+      respond_with @user.errors, :location => api_users_path
+    end
   end
 
   def update
@@ -18,6 +22,6 @@ class Api::V1::UsersController < Api::V1::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end

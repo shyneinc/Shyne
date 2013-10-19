@@ -54,8 +54,6 @@ resource 'Mentor' do
       login_as @user, scope: :user
     end
 
-    parameter :first_name, "First name", :required => true, :scope => :mentor
-    parameter :last_name, "Last name", :required => true, :scope => :mentor
     parameter :headline, "Headline", :required => true, :scope => :mentor
     parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
@@ -94,8 +92,6 @@ resource 'Mentor' do
       login_as user, scope: :user
     end
 
-    parameter :first_name, "First name", :required => true, :scope => :mentor
-    parameter :last_name, "Last name", :required => true, :scope => :mentor
     parameter :headline, "Headline", :required => true, :scope => :mentor
     parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor

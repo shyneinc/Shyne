@@ -1,10 +1,14 @@
 class Member < ActiveRecord::Base
+  validates :phone_number, presence: true
+  phony_normalize :phone_number, :default_country_code => 'US'
+  validates :phone_number, :phony_plausible => true
+
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
   has_many :calls
 
-  def display_name
-    "#{self.first_name} #{self.last_name}"
+  def full_name
+    "#{self.user.first_name} #{self.user.last_name}"
   end
 end

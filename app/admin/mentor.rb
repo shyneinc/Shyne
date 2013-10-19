@@ -3,8 +3,7 @@ ActiveAdmin.register Mentor do
 
   index do
     selectable_column
-    column :first_name
-    column :last_name
+    column :full_name
     column :headline
     column :years_of_experience
     column :mentor_status
@@ -14,9 +13,8 @@ ActiveAdmin.register Mentor do
 
   form do |f|
     f.inputs "Mentor Details" do
-      f.input :first_name
-      f.input :last_name
       f.input :headline
+      f.input :experties
       f.input :years_of_experience
       f.input :phone_number
       f.input :availability
@@ -28,7 +26,7 @@ ActiveAdmin.register Mentor do
 
   controller do
     def permitted_params
-      params.permit mentor: [:first_name, :last_name, :headline, :years_of_experience, :phone_number,
+      params.permit mentor: [:headline, :experties, :years_of_experience, :phone_number,
                              :availability, :mentor_status_id, :featured]
     end
   end

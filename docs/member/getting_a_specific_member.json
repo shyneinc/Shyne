@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/members/1607",
+      "request_path": "/api/members/1686",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -22,8 +22,8 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"id\":1607,\"first_name\":\"Irwin\",\"last_name\":\"Wehner\",\"created_at\":\"2013-10-18T22:18:14.291Z\",\"updated_at\":\"2013-10-18T22:18:14.291Z\",\"user_id\":null}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"5f00210ea4f14e177f3caf9386bd0ec6\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"df820255-0d52-4236-a5b3-038af50adcc5","X-Runtime":"0.026367","Content-Length":"148"},
+      "response_body": "{\"id\":1686,\"created_at\":\"2013-10-19T00:27:22.648Z\",\"updated_at\":\"2013-10-19T00:27:22.648Z\",\"user_id\":null,\"phone_number\":\"1333598768\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"9d1be6d86b0ed972ea0b7654c6b14d0d\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"5e190eb2-e12d-4c4b-96a0-9f9ecc640bf6","X-Runtime":"0.029297","Content-Length":"134"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

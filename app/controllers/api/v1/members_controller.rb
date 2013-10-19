@@ -43,6 +43,6 @@ class Api::V1::MembersController < Api::V1::BaseController
   private
 
   def member_params
-    params.require(:member).permit(:first_name, :last_name)
+    params.require(:member).permit(:phone_number)
   end
 end

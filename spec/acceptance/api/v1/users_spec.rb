@@ -23,9 +23,11 @@ resource 'User' do
   end
 
   post "/api/users" do
-    parameter :email, "First name", :required => true, :scope => :user
-    parameter :password, "Last name", :required => true, :scope => :user
-    parameter :password_confirmation, "Last name", :required => true, :scope => :user
+    parameter :first_name, "First name", :required => true, :scope => :user
+    parameter :last_name, "Last name", :required => true, :scope => :user
+    parameter :email, "Email", :required => true, :scope => :user
+    parameter :password, "Password", :required => true, :scope => :user
+    parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
 
     example "Registering a user" do
       user = FactoryGirl.attributes_for(:user).except(:id)
@@ -49,9 +51,11 @@ resource 'User' do
       login_as user, scope: :user
     end
 
-    parameter :email, "First name", :required => true, :scope => :user
-    parameter :password, "Last name", :required => true, :scope => :user
-    parameter :password_confirmation, "Last name", :required => true, :scope => :user
+    parameter :first_name, "First name", :required => true, :scope => :user
+    parameter :last_name, "Last name", :required => true, :scope => :user
+    parameter :email, "Email", :required => true, :scope => :user
+    parameter :password, "Password", :required => true, :scope => :user
+    parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
 
     example "Updating a user" do
       user_attrs = FactoryGirl.attributes_for(:user).except(:id)

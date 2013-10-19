@@ -21,12 +21,11 @@ resource 'Member' do
     include Warden::Test::Helpers
 
     before do
-      user = FactoryGirl.create(:user)
-      login_as user, scope: :user
+      @user = FactoryGirl.create(:user)
+      login_as @user, scope: :user
     end
 
-    parameter :first_name, "First name", :required => true, :scope => :member
-    parameter :last_name, "Last name", :required => true, :scope => :member
+    parameter :phone_number, "Phone number", :required => true, :scope => :member
 
     example "Creating a member" do
       explanation "Once the user is registered and logged in, create a member profile"
@@ -34,7 +33,8 @@ resource 'Member' do
       do_request(member: member)
 
       hash = JSON.parse(response_body)
-      hash.delete('user_id')
+      member[:user_id] = @user.id
+      member[:phone_number] = PhonyRails.normalize_number(member[:phone_number], :country_code => 'US')
 
       expect(hash.to_json).to be_json_eql(member.to_json)
       expect(status).to eq 201
@@ -58,8 +58,7 @@ resource 'Member' do
       login_as user, scope: :user
     end
 
-    parameter :first_name, "First name", :required => true, :scope => :member
-    parameter :last_name, "Last name", :required => true, :scope => :member
+    parameter :phone_number, "Phone number", :required => true, :scope => :member
 
     let(:id) { member.id }
 

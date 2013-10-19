@@ -8,27 +8,39 @@
     {
       "required": true,
       "scope": "user",
-      "name": "email",
+      "name": "first_name",
       "description": "First name"
     },
     {
       "required": true,
       "scope": "user",
-      "name": "password",
+      "name": "last_name",
       "description": "Last name"
     },
     {
       "required": true,
       "scope": "user",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "required": true,
+      "scope": "user",
       "name": "password_confirmation",
-      "description": "Last name"
+      "description": "Password Confirmation"
     }
   ],
   "requests": [
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[email]=user19_1382134695%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_body": "user[first_name]=Bret&user[last_name]=Muller&user[email]=user37_1382142446%40shyne.io&user[password]=password&user[password_confirmation]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -40,8 +52,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":7020,\"email\":\"user19_1382134695@shyne.io\",\"created_at\":\"2013-10-18T22:18:15.473Z\",\"updated_at\":\"2013-10-18T22:18:15.510Z\",\"role_id\":null,\"role_type\":null}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"a7785809ae8835bd3019105c375e798b\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=Z01DQ05aUmZyVm1xa3J2ODdNYVlSdnhyZUJwSHIveUwwbE5aOTlMdmNVRkd4OUxGTnp6aSsvZDJlYlJkWnBZd2MrUSsydkk3MzczQ2Z2S0dPbjNVS3NQK2lvcTNFeUFLbkxpVFV3NVJlMXA5Um1MZ2xFYUsvMnB5Y1JxWEhlVVNHWVBTbEFjV1FCUUdjMjlyMXZuY0I2QTZidmRJN29MZ1BpQnRNNkpOUW9ZPS0tTmpwbzVTOWxJMVlFRkEwOEoraGVoUT09--461156b94d581597ce09afc5c1cc068392b3cba1; path=/; HttpOnly","X-Request-Id":"7f4becf0-b6a6-4940-b326-cfdc16101147","X-Runtime":"0.065429","Content-Length":"160"},
+      "response_body": "{\"id\":7277,\"email\":\"user37_1382142446@shyne.io\",\"created_at\":\"2013-10-19T00:27:26.496Z\",\"updated_at\":\"2013-10-19T00:27:26.535Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Bret\",\"last_name\":\"Muller\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"e74be4e12fe182b3a519fe5bb6ea89c6\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=OFo3RDd6S0R5N1dYS1YvaW1UOVhlT1VUdEh3dkNaUE9uMWJpNnNvbGVPaXI4VytYempGOHV6Q3EwaUJMOHhqRWlzeG14OEdBMXJWeGJkbW1LcExYWk1JSEc2VXdlSjRsMUQwQTROcnV1a0VuV1Arc2Q0cDUxaHBJLzFpbHNMQmk3V1ZzQkVTUW5PVmZ1dXNpZ2dzTktrdnFGOFhQditvdklZdElKYlhycVhvPS0tNmdXRFFyQ3pvdXBHMVNscE1pMFFmdz09--6ffd6a9959dade0f54fc863e62506adaab756d4c; path=/; HttpOnly","X-Request-Id":"134e116e-2306-47c8-9ae2-2a3b878351c8","X-Runtime":"0.070312","Content-Length":"201"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

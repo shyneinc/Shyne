@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018000132) do
+ActiveRecord::Schema.define(version: 20131018234557) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -67,11 +67,10 @@ ActiveRecord::Schema.define(version: 20131018000132) do
   end
 
   create_table "members", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "phone_number"
   end
 
   add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
@@ -81,8 +80,6 @@ ActiveRecord::Schema.define(version: 20131018000132) do
   end
 
   create_table "mentors", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -118,6 +115,8 @@ ActiveRecord::Schema.define(version: 20131018000132) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -3,22 +3,21 @@ ActiveAdmin.register Member do
 
   index do
     selectable_column
-    column :first_name
-    column :last_name
+    column :full_name
+    column :phone_number
     default_actions
   end
 
   form do |f|
     f.inputs "Member Details" do
-      f.input :first_name
-      f.input :last_name
+      f.input :phone_number
     end
     f.actions
   end
 
   controller do
     def permitted_params
-      params.permit member: [:first_name, :last_name]
+      params.permit member: [:phone_number]
     end
   end
 end

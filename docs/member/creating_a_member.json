@@ -8,21 +8,15 @@
     {
       "required": true,
       "scope": "member",
-      "name": "first_name",
-      "description": "First name"
-    },
-    {
-      "required": true,
-      "scope": "member",
-      "name": "last_name",
-      "description": "Last name"
+      "name": "phone_number",
+      "description": "Phone number"
     }
   ],
   "requests": [
     {
       "request_method": "POST",
       "request_path": "/api/members",
-      "request_body": "member[first_name]=Kian&member[last_name]=Becker",
+      "request_body": "member[phone_number]=540.612.2137",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -34,8 +28,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":1605,\"first_name\":\"Kian\",\"last_name\":\"Becker\",\"created_at\":\"2013-10-18T22:18:13.431Z\",\"updated_at\":\"2013-10-18T22:18:13.431Z\",\"user_id\":7001}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/1605","Content-Type":"application/json; charset=utf-8","ETag":"\"f38cc981b7b2afaa63d8b1ee1b237eb3\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=TXZKVmNUZWI2cEtaRnRlTE9yQU1mNWpWWlVnUXd1RFg5akVmampWYXIwT2l5d0xnbHFvdnY1TjdkWXg0bGhBNnkvc0NESmZPdmNxY0crL0VtdUxRUkdPZGdTMyt6S2tXV2x5dFdMdEk5cFZqOU52WTVHS2cyMHJBRjg2UGVRKzdWcTVZaUJrRUdVekZvTURUK2IvK0R6eXF0VmNDQVBobE1GUS81azJPVjJBPS0tTS8za2RSb2YyL2dYeElHdGxPL3VQUT09--5fd05aeed067faac556543907058d96c222e6549; path=/; HttpOnly","X-Request-Id":"237e5ba2-9fc5-4d28-8cbf-18673cd4ddf9","X-Runtime":"0.702149","Content-Length":"147"},
+      "response_body": "{\"id\":1675,\"created_at\":\"2013-10-19T00:27:21.658Z\",\"updated_at\":\"2013-10-19T00:27:21.658Z\",\"user_id\":7240,\"phone_number\":\"15406122137\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/1675","Content-Type":"application/json; charset=utf-8","ETag":"\"38f75c1a8beeb5d77bb3c8048df5cf44\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=ZmgxdUVsQVducFBpS1Q1MTdnTUNyc1Bnc1g5QmtnbVRLalp1V2xERVFiU3BuVVFqbFhBbTUwTXV3eThRcEtoNUJ5MUFsTzZHZklQMXFnZ0N4d2NHblZmcVBkb2U2T1hiRXlnOGFBb29kczFoV0dHK0J1cFBKeittb3ZLSzR3cUtLMGIxZExuQmdXbzgvSXNTQTlOZU90Z2ppZlFxamFlQ21wS0JUdDhoL0ZRPS0taHZMWUwya3Nmc1owM0dzNzU3NTk4dz09--5f86808b7f8bd0a6eb0720717059ea81263e67f8; path=/; HttpOnly","X-Request-Id":"9c91e43c-bec4-4587-ab05-c5ed7bc8e647","X-Runtime":"0.380859","Content-Length":"135"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

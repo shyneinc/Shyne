@@ -8,18 +8,6 @@
     {
       "required": true,
       "scope": "mentor",
-      "name": "first_name",
-      "description": "First name"
-    },
-    {
-      "required": true,
-      "scope": "mentor",
-      "name": "last_name",
-      "description": "Last name"
-    },
-    {
-      "required": true,
-      "scope": "mentor",
       "name": "headline",
       "description": "Headline"
     },
@@ -52,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/mentors",
-      "request_body": "mentor[first_name]=Kaley&mentor[last_name]=Hammes&mentor[headline]=Magnam+adipisci+est+neque+accusamus+accusantium+quia+autem+omnis+quis.&mentor[experties]=%7BInternet%2CE-learning%7D&mentor[years_of_experience]=15&mentor[phone_number]=438.357.8211&mentor[availability]=Dolorum+reiciendis+et+enim+minus+incidunt+natus+excepturi+similique+iste.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Exercitationem+libero+qui+natus+possimus+dolorem+eum+culpa+quam+dolores.&mentor[experties]=%7BBanking%7D&mentor[years_of_experience]=25&mentor[phone_number]=597.791.6149+&mentor[availability]=Placeat+magnam+nisi+libero+sunt+quia+ut+perferendis+vitae+sit+minima+doloribus.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -64,8 +52,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":4015,\"first_name\":\"Kaley\",\"last_name\":\"Hammes\",\"created_at\":\"2013-10-18T22:18:16.531Z\",\"updated_at\":\"2013-10-18T22:18:16.531Z\",\"user_id\":7022,\"headline\":\"Magnam adipisci est neque accusamus accusantium quia autem omnis quis.\",\"years_of_experience\":15,\"phone_number\":\"14383578211\",\"availability\":\"Dolorum reiciendis et enim minus incidunt natus excepturi similique iste.\",\"mentor_status_id\":3884,\"status_changed_at\":null,\"featured\":null,\"experties\":[\"Internet\",\"E-learning\"]}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/4015","Content-Type":"application/json; charset=utf-8","ETag":"\"7081b67b7c5a538651e84f70f630b0ef\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=UElEbURJNlZmU3lIc1REclczRkZJWFVLckt1cXovYmVENjVoanhGbU1ieWVsbHQvaTFRVittbjZBTkV4TWRuWkYyTnYzZmVnTnM0OHJLYU11aU1DdmcwNFpiaGpHSzh5MFAxSktESWE4Q3N0RjkwQS9YTGtxME11Q1o1RkQ4Q2ZYVy8yZTNzY3ZKQitFTVNiS1dDZlM1dVF4RWRCc25LUUFXcEc5S2JOOFN3PS0tMmxJYi9nSFMzNkJCa1NZODNtV2Mrdz09--3f10960bbc9caa2243b6cf71e10861df739c527e; path=/; HttpOnly","X-Request-Id":"80fde791-f0e5-4dae-a954-2f92fda59882","X-Runtime":"0.192383","Content-Length":"480"},
+      "response_body": "{\"id\":4109,\"created_at\":\"2013-10-19T00:27:24.697Z\",\"updated_at\":\"2013-10-19T00:27:24.697Z\",\"user_id\":7258,\"headline\":\"Exercitationem libero qui natus possimus dolorem eum culpa quam dolores.\",\"years_of_experience\":25,\"phone_number\":\"15977916149\",\"availability\":\"Placeat magnam nisi libero sunt quia ut perferendis vitae sit minima doloribus.\",\"mentor_status_id\":3884,\"status_changed_at\":null,\"featured\":null,\"experties\":[\"Banking\"]}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/4109","Content-Type":"application/json; charset=utf-8","ETag":"\"d16270f4ade6148dbb08a3a36628da17\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=VDBOMUlhRytlSlRoSElHdU40emVJQ2V4cHJsa0tFOTlGRUFObHYwbFMyTmhyK0V6NExkaEZuOHhEWjVsZmk2R2R5TmEvc0c1R29UL3NVNlNWZFQrNnQ3N0UxbUdmS1ZKK053YU9YTG91ZFk5T1Myc0liaVZWQ0hxaGd0YVg4NXIvK05aWVhDYy9rZUpML0duWFY4cFc1c0ZrWEVLQ2NyZ21ZMDhqWFd3RXY0PS0tQlZ2V25lQWJWQXVPLzVyc3F6NysvUT09--a067c3f15a52459278d90fa5cb62275b3c5af13e; path=/; HttpOnly","X-Request-Id":"d1ffddd9-56f4-4807-a05d-7577c3529986","X-Runtime":"0.139649","Content-Length":"432"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

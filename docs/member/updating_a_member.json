@@ -8,21 +8,15 @@
     {
       "required": true,
       "scope": "member",
-      "name": "first_name",
-      "description": "First name"
-    },
-    {
-      "required": true,
-      "scope": "member",
-      "name": "last_name",
-      "description": "Last name"
+      "name": "phone_number",
+      "description": "Phone number"
     }
   ],
   "requests": [
     {
       "request_method": "PUT",
       "request_path": "/api/members",
-      "request_body": "member[first_name]=Lukas&member[last_name]=Kertzmann",
+      "request_body": "member[phone_number]=410-671-4226",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -35,7 +29,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=ZTM4NmpBRkU0aWxSdXlueGU2ekZrSVFMTmdOcmx6aTdxWm9Rb0tRZGt1V3RpUk0wcDA4MTNzWHRiK01vMFN5WnpHVlcwcGdkcXl1OCtZM1BSOGFQZ2FOLzlaamJuNG94ZWVvSG90c1VVSkMrNGZjWUFzTkpKNWUrcnhHbjJvaXpsOXBlUEx0L0o0WEN0dUlrdzB0eURsNmZ4ZUZ5cjhXcVJTMEpMYWR0NENVPS0tUWdhYi9kK0cydzY5QThxcHlCSjJTZz09--35c7975e44a5fdc6106e549cb50afefc7d702904; path=/; HttpOnly","X-Request-Id":"ac9a01cb-f39b-4322-92be-863d5087b750","X-Runtime":"0.036133"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=UFBTSzE0SHNaUUZ2dk1xZVdhNTJEMGdFQjNuaUZlUnRFN000Sll3cmMvQ01sbm53YllDbXVxbDNSNnNHbmN3SjBGZEwxTUhra2JFVjd1VHpHaWQ4U2Jub0owaUtDVDIyakdYajF3TUFrcDltNTNQLy82dWVDL1B3QUdzTjlnMGVDckNJZVJ1MGhDMGIzSGlxcXZxQkJrclRsVEc0b0MrVzg0WURFemdlZXBZPS0tMHdmUXZjQ3k2RmwyamFHZ25qT0RRZz09--1dfe6bdf241336ac558452ee33c5e86aca3b8e60; path=/; HttpOnly","X-Request-Id":"3839d63b-2845-4ee0-92e9-024006321238","X-Runtime":"0.042969"},
       "response_content_type": null,
       "curl": null
 }

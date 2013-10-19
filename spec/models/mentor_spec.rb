@@ -7,8 +7,6 @@ describe Mentor do
 
   describe "ActiveModel validations" do
     context "Basic validations" do
-      it { should validate_presence_of :first_name }
-      it { should validate_presence_of :last_name }
       it { should validate_presence_of :headline }
       it { should validate_presence_of :experties }
       it { should validate_presence_of :years_of_experience }
@@ -18,8 +16,8 @@ describe Mentor do
   end
 
   it "returns a mentor's full name as a string" do
-    mentor = build_stubbed(:mentor, first_name: "Jane", last_name: "Doe")
-    expect(mentor.display_name).to eq "Jane Doe"
+    mentor = build_stubbed(:mentor)
+    expect(mentor.full_name).to eq "#{mentor.user.first_name} #{mentor.user.last_name}"
   end
 
   describe "filter by featured mentors" do
