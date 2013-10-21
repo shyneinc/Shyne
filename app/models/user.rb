@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
 
+  mount_uploader :avatar, AvatarUploader
+
   belongs_to :role, :dependent => :destroy, :polymorphic => true
 
   def active_for_authentication?
