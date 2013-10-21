@@ -71,6 +71,9 @@ Shyne::Application.routes.draw do
 
         match '/confirmations' => 'confirmations#create', :via => :post
         match '/confirmations' => 'confirmations#show', :via => :get
+
+        match '/passwords' => 'passwords#create', :via => :post
+        match '/passwords' => 'passwords#update', :via => :put
       end
 
       resources :users, only: [:create]
