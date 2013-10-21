@@ -12,137 +12,165 @@
 <div id="wrap" ng-controller="IndexCtrl">
   <header>
     <div class="container">
-        <nav class="masthead">
-          <ul class="nav nav-pills pull-right" ng-show="showIndex">
-            <li><a href="#mentors" scroll-to>Become Mentors</a></li>
-            <li><a href="#works" scroll-to>How It Works</a></li>
-            <li><a href="#mission" scroll-to>Our Mission</a></li>
-            <li><a href="#/login">Sign In</a></li>
-          </ul>
-          <ul class="nav nav-pills pull-right" ng-cloak ng-show="user">
-            <li>
-              <form class="navbar-form navbar-left">
-                <input type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
-              </form>
-            </li>
-            <li><a href="#" ng-click="signout()">Sign Out</a></li>
-          </ul>
-        </nav>
-        <a class="logo" href="#" ng-click="home()">Shyne</a>
+      <nav class="masthead">
+        <ul class="nav navbar-nav pull-right" ng-show="showIndex">
+          <li>
+            <form class="navbar-form navbar-left">
+              <input type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
+            </form>
+          </li>
+          <li><a href="#/login">Log In</a></li>
+        </ul>
+      </nav>
+      <a class="logo" href="#" ng-click="home()">Shyne</a>
     </div>
   </header>
   <div class="hero" ng-show="showIndex">
     <div class="top-shadow"></div>
-    <div class="container">
-      <a href="#/signup" class="pull-right signup text-center"><span class="glyphicon glyphicon-user"></span> Join Now</a>
-      <h1 class="text-shadow">Got a clear path?</h1>
-      <h2 class="text-shadow">Find the quickest way to accelerate your career.</h2>
-      <form class="form-inline search-form" role="form">
-          <label class="sr-only" for="home-search"></label>
-          <input type="text" class="form-control search-box" id="home-search" placeholder="Search for a company or position you're interested in.">
-          <button type="submit" class="btn btn-primary">Search</button>
-      </form>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="text-shadow message">
-            <p>Get expert interview advice from people that have worked in positions you're interested in. Schedule a call with any of our mentions in just minutes.</p>
-            <p>We have mentors from Facebook, Google, Goldman Sachs, KPMG, PwC, Square, Dropbox, and many more companies!  Pick their brains on what they did to land their jobs.</p>
+    <div class="text-box text-center box-1">
+      <div class="inner">
+        <div class="container">
+          <h1>Find the quickest way to accelerate your career.</h1>
+          <h2>Get expert interview advice from people that have worked in positions you're interested in:</h2>
+          <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="col-md-4">
+              <ul>
+                <li><a href="#">Software Engineer at Google</a></li>
+                <li><a href="#">Senior Accountant at Goldman Sachs</a></li>
+                <li><a href="#">Designer at Facebook</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul>
+                <li><a href="#">Product Manager at Square</a></li>
+                <li><a href="#">Financial Analyst at PwC</a></li>
+                <li><a href="#">Web Developer at Dropbox</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2">&nbsp;</div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="mentors" ng-show="showIndex">
-    <div class="container text-center">
-      <a id="mentors-mark" name="mentors"></a>
-      <h2>Why Should You Become a Mentor?</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="inner">
-            <div class="graphic">
-              <span class="glyphicon glyphicon-user"></span> <span class="glyphicon glyphicon-resize-horizontal"></span> <span class="glyphicon glyphicon-user"></span>
-            </div>
-            <div class="question">HAVE YOU EVER BEEN IN THE FOLLOWING SITUATION?</div>
-            <div class="question-body">
-              One of your friends messages you and says, "Hey, a friend of mine needs some interview advice and I thought you'd be able to help him.  I was wondering if I could intro you and maybe you could talk to him?"
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="inner">
-            <div class="graphic">
-              <span class="glyphicon glyphicon-phone-alt"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-refresh"></span> <span class="glyphicon glyphicon-usd"></span>
-            </div>
-            <div class="question">WHAT IF YOU COULD GET PAID GIVING ADVICE?</div>
-            <div class="question-body">
-                This is exactly what Shyne does!  Just apply to become a mentor and our users will contact you to  schedule calls when they need a simple yet effective advice about your background and work experience.
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <button class="btn btn-default">Sign Up and Schedule a Call Now</button>
+              <div class="text">
+                or learn how to become a mentor
+              </div>
+              <a href="#" class="circle" roll-up="1">&#9660</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="works" ng-show="showIndex">
-    <div class="container text-center">
-      <a id="works-mark" name="works"></a>
-      <h2>How It Works?</h2>
-      <div class="row">
-        <div class="col-md-4">
-            <div class="inner">
-              <div class="graphic"><span class="glyphicon glyphicon-list-alt"></span></div>
-              <div class="step">Apply to become a mentor</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-          <div class="inner">
-            <div class="graphic"><span class="glyphicon glyphicon-info-sign"></span></div>
-            <div class="step">Create a profile so our users can contact you to schedule a call</div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="inner">
-            <div class="graphic"><span class="glyphicon glyphicon-phone-alt"></span></div>
-            <div class="step">Take calls at your convenience. Money transferred straight to your bank account within 48 hours of the call</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="top-mentors" ng-show="showIndex">
-    <div class="container text-center">
-      <h2>Our mentors make $60-180/hr.  Interested in joining?</h2>
-      <div class="row">
-        <div class="col-md-2" ng-repeat="mentor in mentors">
-            <div class="inner">
-              <a href="#" class="name">{{mentor.name}}</a>
-              <a href="#"><img class="pic" ng-src="{{mentor.photoUrl}}"/></a>
-              <div class="info">
-                {{mentor.role}} at {{mentor.company}}<br/>
-                Rate: ${{mentor.ratePerMinute}} / minute<br/>
-                <a href="#" class="btn btn-default">Schedule Call</a>
+
+    <div class="text-box text-center box-2">
+      <div class="inner">
+        <div class="container">
+          <a class="pull-right back-link glyphicon glyphicon-arrow-up" href="#" roll-down="2"></a>
+          <h1>Why Should You Become a Mentor?</h1>
+          <h2 class="flash-message flash-1">Have you ever been in the following situation?</h2>
+          <div class="flash-message flash-2">
+            <div class="circle"><span class="glyphicon glyphicon-user"></span></div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="message-box">
+                  "Hey, a friend of mine needs some interview advice and I thought you'd be able to help him. I was
+                  wondering if I could intro you and maybe you could talk to him?"
+                </div>
               </div>
             </div>
+          </div>
+          <div class="flash-message flash-3">
+            <h2>What if you can get <strong><em>paid</em></strong> giving advice?</h2>
+
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="marketing-box">
+                  This is exactly what Shyne does! Just apply to become a mentor and our users will contact you to
+                  schedule calls when they need a simple yet effective advice about your background and work experience.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <button class="btn btn-default">Apply Now and Start to Make $</button>
+                <div class="text">
+                  or learn more on how it works
+                </div>
+                <a href="#" class="circle" roll-up="2">&#9660</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <a href="#/signup" class="apply">Apply Now</a>
+    </div>
+
+    <div class="text-box text-center box-3">
+      <div class="inner">
+        <div class="container">
+          <a class="pull-right back-link glyphicon glyphicon-arrow-up" href="#" roll-down="3"></a>
+          <h1>How it Works?</h1>
+          <div class="flash-message flash-1">
+            <h2>It is as simple as 1-2-3.</h2>
+            <div class="icon-row row">
+              <div class="col-md-4">
+                <div class="message-box">
+                  <div class="graphic"><span class="glyphicon glyphicon-list-alt"></span></div>
+                  <div class="step">Apply to become a mentor</div>
+                  <button class="btn btn-primary">Apply Now</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="message-box">
+                  <div class="graphic"><span class="glyphicon glyphicon-info-sign"></span></div>
+                  <div class="step">Create a profile so our users can contact you to schedule a call</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="message-box">
+                  <div class="graphic"><span class="glyphicon glyphicon-phone-alt"></span></div>
+                  <div class="step">Take calls at your convenience. Money transferred straight to your bank account
+                    within 48 hours of the call
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flash-message flash-2">
+            <h2>Our mentors make <strong><em>$60-180/hr</em></strong>. Some of our Featured Mentors</h2>
+            <div class="row mentor-row">
+              <div class="col-md-2" ng-repeat="mentor in mentors">
+                <div class="mentor-info" toggle-sub-info>
+                  <a href="#"><img class="pic" ng-src="{{mentor.photoUrl}}"/></a>
+                  <div class="text-left metadata">
+                    <div class="name">{{mentor.name}}</div>
+                    <div>{{mentor.role}} at {{mentor.company}}</div>
+                    <a href="#" class="hidden sub-info">Call now for ${{mentor.ratePerMinute}} / min.</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <button class="btn btn-default">Interested?  Apply Now.</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="mission" ng-show="showIndex">
+
+  <footer>
     <div class="container">
-      <a id="mission-mark" name="mission"></a>
-      <h2>Our Mission</h2>
-      <p class="message">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>&copy; Shyne, Inc 2013</p>
-    </div>
-  </div>
-  <div ng-view></div>
-  <footer ng-hide="showIndex">
-    <div class="container text-center">
-        <p>&copy; Shyne, Inc 2013</p>
+      <div class="inner text-center">&copy; 2013 Shyne</div>
     </div>
   </footer>
+
+</div>
+
+<div ng-view></div>
+
 </div>
 
 <%= javascript_include_tag "application" %>

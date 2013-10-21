@@ -1,7 +1,6 @@
 #= require jquery.min
 #= require suggest.min
 #= require angular
-#= require twitter/bootstrap
 #= require angular-resource
 #= require setup
 #= require_directory ./controllers
