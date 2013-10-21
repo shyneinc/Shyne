@@ -96,6 +96,21 @@
       ]
     },
     {
+      "name": "Password",
+      "examples": [
+        {
+          "description": "Reset password",
+          "link": "password/reset_password.json",
+          "groups": "all"
+        },
+        {
+          "description": "Send password reset instructions",
+          "link": "password/send_password_reset_instructions.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Session",
       "examples": [
         {

@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/confirmations?confirmation_token=eN8yzsKcf9sWec5DBqTx",
+      "request_path": "/api/confirmations?confirmation_token=v-VVP-5XRs_C1dh7U92i",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -22,13 +22,13 @@
         "Cookie": ""
       },
       "request_query_parameters": {
-        "confirmation_token": "eN8yzsKcf9sWec5DBqTx"
+        "confirmation_token": "v-VVP-5XRs_C1dh7U92i"
       },
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "{\"confirmed\":true}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"21713856efd516145dacb27ce02e1922\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/\n_Shyne_session=YTByR0lmZnhnOE03NlVwWXlRV2tZNVVqTFNJN0IxNy9WRS85SjlObHc2eS9MME5yRXMzMDRlMjBYay9UY0t1bUxaVlBtVFpvUXBjY1FNWWNvV05vWlJZUkdSOVMvblRramhMY2R2RDV2RW1YclBPeXh1Ylovczh5L2o4NnBRWVJkZjdHV0pucTdEQXA2TXRaeit3Mks1WVlxd1M4RXFKY2pOd0wyc2pBZU5WelFEYmFKMElUMkQ3cmhKaCtWa1doLS1VNitxd3J2bU9MaDAwSTRPUUh2cTBBPT0%3D--dedd8dd80fc9030bcf0ddf8ef5cdba7d01d1488f; path=/; HttpOnly","X-Request-Id":"ba33f200-539c-4ad1-8331-f1b1b6426309","X-Runtime":"0.029297","Content-Length":"18"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"21713856efd516145dacb27ce02e1922\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/\n_Shyne_session=anJHTUwwYmMzL2t2M2hGVzJweFRKeURndXhjS2tqVUpUREhxZWhOQjNvVlJycUlocWlTeHhMT1Y1ZFliKy80dXdjaDFmekJRZURSVXhZK1lPd0NFN0tmT1ZqL1kxNERGdXl4Nm5tR3NNNUJrQ1N1WVdxSTQ4blN4REVxV0JHcEpsWk5NZWlsK2VlYnlOemdObjJyNXNCR3NyNjZ5ZXZjeXgxeWF1YWNNRTRrSk4xQk5mdVFMOTRzZEJtSEdnSUUvLS02NHVpRWowZzEzVDdTQ1JqUWNMV2p3PT0%3D--81d1c941f04cefa86b2c6e6fec63afaa87a815c6; path=/; HttpOnly","X-Request-Id":"ee7d6946-b6e6-4da5-8b77-dfe3ee5997ae","X-Runtime":"0.094727","Content-Length":"18"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

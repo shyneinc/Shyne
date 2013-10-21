@@ -24,7 +24,7 @@
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "{\"info\":\"Logged out\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f823f07bd01dac27d5545b4869081a3a\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=DELETE; path=/\n_Shyne_session=QlBhY2ZFaUErb1JHa3dHZnpmZUpxeWNvU0dpcHJ5M1JXMGE1UmJwSkt4YXFPR3h0R3V1bStyQ3kyOFluS1V3aHpZalQ3YVc2dUljQWsvOG8yNTZkRFE9PS0tYXRPbG5SaElOT1F4NnNWYUl0M3Z1QT09--4ee2104d5a2b2c175c841b3f924f80ceae18aa64; path=/; HttpOnly","X-Request-Id":"b492b56a-d1c3-4a10-8c53-d0f4c9ff5502","X-Runtime":"0.160156","Content-Length":"21"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f823f07bd01dac27d5545b4869081a3a\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=DELETE; path=/\n_Shyne_session=Nk05Y2t2ZmRIRWdPZDhHTXBJWUxmV0pBd3BrbDJPUGE0VDhUNFBFOXFjdThyZWpRVXVtZGFWaTZOdjYyMURPSjM0Rm9zS21TaEZNbkxkbUU5bEdzTUE9PS0tWk5Rc0lWQW1rbWFFSHVmMnZKQTkvdz09--88b47881b433be8d56d4fc0152a3b4587264e655; path=/; HttpOnly","X-Request-Id":"0b26eea6-df58-4baa-ae84-2c073ae88137","X-Runtime":"0.049805","Content-Length":"21"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

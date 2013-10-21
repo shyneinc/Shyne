@@ -40,7 +40,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Vel+est+alias+quam+numquam+et+doloremque+autem+officiis+sequi.&mentor[experties]=%7BInternet%2CE-learning%7D&mentor[years_of_experience]=10&mentor[phone_number]=%28625%29744-4628+&mentor[availability]=Dolores+tempora+explicabo+eum+rerum+minus+quia+aut+ipsa+pariatur+ex+sit+nostrum+vitae.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Assumenda+quos+officiis+autem+atque+ad+consequatur+laborum+tempore+inventore.&mentor[experties]=%7BAccounting%2CFinance%7D&mentor[years_of_experience]=4&mentor[phone_number]=1-178-018-1625&mentor[availability]=Eaque+aperiam+fugit+non+consequatur+sunt+molestias+ut+debitis+sunt+placeat+aut+possimus+inventore.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -53,7 +53,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=aWZFSDdQWHdOL2MwZ3N1MmprV3VyUVVhdVJ1K0djTTI4Z3Y1NGVUWFdxaTVkaXZUVWJMY0ZGc3NLc2orNXNUWUxYZHZNSDA4d1JqUUVEakNlYmJuL1pNTzVlK0xHd3JIT2dpakdiMUU4Szd3WGVnck5RMTlkZ0FSaEZDUWFyYWRxTW1WeDBEcC9hMUEydDBRZGZ4VVd3dFJyMGluR2I2RU8rWFp1RnBscEtFPS0tbjMrdTg3aXYwanhxdmc2NDc5Q1ZHdz09--3055fc72ea00e674bd0976e2c41091bb84f5a4ed; path=/; HttpOnly","X-Request-Id":"132ececf-c1f9-4470-9483-f0ea49e061d1","X-Runtime":"0.032226"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=SW5TanlUdncxY1ZJeTczNWxxendzdjVsUXBUbnBicm8rMFNkQlNnSXBsazVKUDRrYlNmZktWVlZnTWlDNWQ4OWkxbFV2cVF5cDk1enZmNm5kRExDanhkbEdxNlNucXVJUkdISHovTDBJN3VXdmdBcWpLSCtwUVphekh4NW5zTVEyVnRkSnVGWE9rV1ZmSkNvUHYvN3F4WHNrUEFhQTNEaGJJblJ2SGUwdEQ4PS0tTGpWaEtsOVBVRXZRNTJTK3VLTnFZZz09--3c878735cd8daf78433f41df01f2a89196807716; path=/; HttpOnly","X-Request-Id":"b7500c14-3c21-450b-adbc-80acbc1c4815","X-Runtime":"0.041016"},
       "response_content_type": null,
       "curl": null
 }

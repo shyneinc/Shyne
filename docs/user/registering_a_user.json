@@ -40,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Bret&user[last_name]=Muller&user[email]=user37_1382142446%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_body": "user[first_name]=Demond&user[last_name]=Douglas&user[email]=user18_1382396533%40shyne.io&user[password]=password&user[password_confirmation]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -52,8 +52,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":7277,\"email\":\"user37_1382142446@shyne.io\",\"created_at\":\"2013-10-19T00:27:26.496Z\",\"updated_at\":\"2013-10-19T00:27:26.535Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Bret\",\"last_name\":\"Muller\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"e74be4e12fe182b3a519fe5bb6ea89c6\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=OFo3RDd6S0R5N1dYS1YvaW1UOVhlT1VUdEh3dkNaUE9uMWJpNnNvbGVPaXI4VytYempGOHV6Q3EwaUJMOHhqRWlzeG14OEdBMXJWeGJkbW1LcExYWk1JSEc2VXdlSjRsMUQwQTROcnV1a0VuV1Arc2Q0cDUxaHBJLzFpbHNMQmk3V1ZzQkVTUW5PVmZ1dXNpZ2dzTktrdnFGOFhQditvdklZdElKYlhycVhvPS0tNmdXRFFyQ3pvdXBHMVNscE1pMFFmdz09--6ffd6a9959dade0f54fc863e62506adaab756d4c; path=/; HttpOnly","X-Request-Id":"134e116e-2306-47c8-9ae2-2a3b878351c8","X-Runtime":"0.070312","Content-Length":"201"},
+      "response_body": "{\"id\":8209,\"email\":\"user18_1382396533@shyne.io\",\"created_at\":\"2013-10-21T23:02:13.910Z\",\"updated_at\":\"2013-10-21T23:02:13.948Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Demond\",\"last_name\":\"Douglas\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"9fcbe9db3270317c4216275cfa8857ed\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=RDZKQThlQTVNSGNweHJsMXNBQ1FMK095YlJTeHJBYXJuMHVVYkJkeUlXZElaUE9UQTRnWVp1UFhJZmpMWVdoMURnM2g4OVJ5WU1WRzJ2dWZTdVYramh1aFF2V3lIb1Q4YndraThNTmZiQkh6QTJCcWt6VGx2SVZic1NmbUVlNTdWNVVucXdmald0b01XZmlNRFgyUDlQT21xcFVYWDAvR1Faa0UrZFF5SGFJPS0tN0ZEelExdzV0UjRtcFd6cjJOZUhQZz09--143c8c894b81254ba731b3fcb273dd996797c9d2; path=/; HttpOnly","X-Request-Id":"7cfdf23d-7167-42de-a045-be3bfc70f81e","X-Runtime":"0.146485","Content-Length":"204"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }
