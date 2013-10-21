@@ -48,7 +48,6 @@ resource 'User' do
     include Warden::Test::Helpers
 
     before do
-      user = FactoryGirl.create(:user)
       login_as user, scope: :user
     end
 

@@ -21,7 +21,7 @@ class Api::V1::ConfirmationsController < Devise::ConfirmationsController
         sign_in(@user)
         render :json => { :confirmed => current_user.confirmed? }, :status => 200
       else
-        render :json => { :error => 'Confirmation token is invalid' }, :status => 400
+        render :json => { :error => @user.errors.full_messages }, :status => 400
       end
     end
 end

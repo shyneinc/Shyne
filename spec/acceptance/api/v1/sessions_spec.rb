@@ -4,7 +4,7 @@ require 'rspec_api_documentation/dsl'
 resource 'Session' do
   header "Accept", "application/vnd.shyne.v1"
 
-  let!(:user) { User.create(FactoryGirl.attributes_for(:user)) }
+  let!(:user) { create(:user) }
 
   post "/api/sessions" do
     parameter :email, "Email", :required => true, :scope => :user
