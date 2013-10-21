@@ -19,6 +19,9 @@ gem 'bootstrap-sass-rails'
 gem "angularstrap-rails", "~> 0.7.6"
 gem 'just-datetime-picker'
 
+gem "carrierwave"
+gem "fog", "~> 1.16.0"
+
 group :assets do
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails'
@@ -30,6 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'letter_opener'
   gem 'rspec_api_documentation'
+  gem 'better_errors'
 end
 
 group :test do
