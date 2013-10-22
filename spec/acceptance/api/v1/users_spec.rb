@@ -36,6 +36,7 @@ resource 'User' do
       hash = JSON.parse(response_body)
       hash.delete('role_id')
       hash.delete('role_type')
+      hash.delete('avatar')
 
       hash.to_json.should be_json_eql(user.except(:password, :password_confirmation).to_json)
 
