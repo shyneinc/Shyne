@@ -33,6 +33,16 @@ class Mentor < ActiveRecord::Base
     where("? = ANY (experties)", experties)
   end
 
+  def rate_per_minute
+    if self.years_of_experience < 2
+      1.0
+    elsif self.years_of_experience >= 2 && self.years_of_experience <= 7
+      2.0
+    elsif self.years_of_experience > 7
+      3.0
+    end
+  end
+
   def full_name
     "#{self.user.first_name} #{self.user.last_name}"
   end
