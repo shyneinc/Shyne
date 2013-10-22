@@ -28,4 +28,8 @@ Shyne::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  ENV['aws_access_key'] = "AKIAJM7FCUEYPATUV54Q"
+  ENV['aws_secret_key'] = "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"
+  ENV['aws_bucket'] = "shynedev"
 end
