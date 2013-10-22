@@ -40,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Demond&user[last_name]=Douglas&user[email]=user18_1382396533%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_body": "user[first_name]=Dorian&user[last_name]=Fritsch&user[email]=user38_1382428565%40shyne.io&user[password]=password&user[password_confirmation]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -52,8 +52,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":8209,\"email\":\"user18_1382396533@shyne.io\",\"created_at\":\"2013-10-21T23:02:13.910Z\",\"updated_at\":\"2013-10-21T23:02:13.948Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Demond\",\"last_name\":\"Douglas\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"9fcbe9db3270317c4216275cfa8857ed\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=RDZKQThlQTVNSGNweHJsMXNBQ1FMK095YlJTeHJBYXJuMHVVYkJkeUlXZElaUE9UQTRnWVp1UFhJZmpMWVdoMURnM2g4OVJ5WU1WRzJ2dWZTdVYramh1aFF2V3lIb1Q4YndraThNTmZiQkh6QTJCcWt6VGx2SVZic1NmbUVlNTdWNVVucXdmald0b01XZmlNRFgyUDlQT21xcFVYWDAvR1Faa0UrZFF5SGFJPS0tN0ZEelExdzV0UjRtcFd6cjJOZUhQZz09--143c8c894b81254ba731b3fcb273dd996797c9d2; path=/; HttpOnly","X-Request-Id":"7cfdf23d-7167-42de-a045-be3bfc70f81e","X-Runtime":"0.146485","Content-Length":"204"},
+      "response_body": "{\"id\":321,\"email\":\"user38_1382428565@shyne.io\",\"created_at\":\"2013-10-22T07:56:05.781Z\",\"updated_at\":\"2013-10-22T07:56:05.866Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Dorian\",\"last_name\":\"Fritsch\",\"avatar\":{\"url\":\"/images/fallback/default.png\",\"medium\":{\"url\":\"/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"/images/fallback/thumb_default.png\"}}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"0263b721f448692af58df704b783ddd9\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=dEVhdkM1Z29CNmdjeWxBd29YclhmRHZlaGZyQ0FyN1dsVk5lYllQZ0wxUVRNRzJ6WVhKbjNMNCs1SStUQ1REOEFESjVJOW9mNGU5dnplOGt1NXFkT2pHSEUyZFI5SXpTeTRaRWlxV3VPWjFld0pJOFkyMi9YbkNxcFZ5bnE4KzYzWlpDZ08weVBtUjhXODFmQmduZVFqQ1BXTDZlMkdnMEFSSDI4cnk3bkRrPS0tU3J1UEIvT1BhVkdrZEdXbEV2ZVZLUT09--e7a6be5f61ae0673e4f7af6998985ac530a787cf; path=/; HttpOnly","X-Request-Id":"327601fb-d241-40ac-a8ad-926ca196d094","X-Runtime":"0.134179","Content-Length":"359"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

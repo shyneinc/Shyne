@@ -40,7 +40,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Assumenda+quos+officiis+autem+atque+ad+consequatur+laborum+tempore+inventore.&mentor[experties]=%7BAccounting%2CFinance%7D&mentor[years_of_experience]=4&mentor[phone_number]=1-178-018-1625&mentor[availability]=Eaque+aperiam+fugit+non+consequatur+sunt+molestias+ut+debitis+sunt+placeat+aut+possimus+inventore.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Facere+dolorem+illo+quod+similique+quia+esse+ut+maiores+atque+voluptatem+saepe+aut+sapiente+rem.&mentor[experties]=%7BInternet%2CE-learning%7D&mentor[years_of_experience]=10&mentor[phone_number]=1-666-644-6086+&mentor[availability]=Architecto+laudantium+assumenda+nesciunt+aut+in+quia+voluptatem+necessitatibus+in+porro.&mentor[featured]&mentor[mentor_status_id]=1&mentor[status_changed_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -53,7 +53,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=SW5TanlUdncxY1ZJeTczNWxxendzdjVsUXBUbnBicm8rMFNkQlNnSXBsazVKUDRrYlNmZktWVlZnTWlDNWQ4OWkxbFV2cVF5cDk1enZmNm5kRExDanhkbEdxNlNucXVJUkdISHovTDBJN3VXdmdBcWpLSCtwUVphekh4NW5zTVEyVnRkSnVGWE9rV1ZmSkNvUHYvN3F4WHNrUEFhQTNEaGJJblJ2SGUwdEQ4PS0tTGpWaEtsOVBVRXZRNTJTK3VLTnFZZz09--3c878735cd8daf78433f41df01f2a89196807716; path=/; HttpOnly","X-Request-Id":"b7500c14-3c21-450b-adbc-80acbc1c4815","X-Runtime":"0.041016"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=T21LdlZuUXY2MDd0Y3QveUhiUE9NazZrdHFiS0R4SDhVUHdoeVB4UVh0cE92ZG1LbTFWWTdQTEkvYlVUUS9FL2hpdUU4MkY3aGxaNjRmbjhvZ0tZeEJKWW4rQWpPRi9qU3VaVktjRWNOS2pFQTlyRGViMnFaYlRsZ20wd29MbnNTQWc1UmxySi96a3JnMXM3RStlcFJnNUJTQ2JBL0U5ZStGRU9KWW5INnE4PS0tdWx4SkdLN040aTRGblZZT1VzVkNhQT09--55183903216f62abb49fb22a62f9adfec0aff227; path=/; HttpOnly","X-Request-Id":"f74d66d8-fbbd-49b5-9096-86a41dfe7552","X-Runtime":"0.025242"},
       "response_content_type": null,
       "curl": null
 }
