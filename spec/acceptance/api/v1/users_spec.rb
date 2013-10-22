@@ -38,7 +38,7 @@ resource 'User' do
       hash.delete('role_type')
       hash.delete('avatar')
 
-      hash.to_json.should be_json_eql(user.except(:password, :password_confirmation).to_json)
+      hash.to_json.should be_json_eql(user.except(:password, :password_confirmation, :avatar).to_json)
 
       expect(status).to eq 201
       expect(ActionMailer::Base.deliveries.count).to eq 1

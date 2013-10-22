@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/sessions",
-      "request_body": "user[email]=user34_1382428565%40shyne.io&user[password]=password",
+      "request_body": "user[email]=user37_1382485504%40shyne.io&user[password]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -34,8 +34,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":318,\"email\":\"user34_1382428565@shyne.io\",\"created_at\":\"2013-10-22T07:56:05.267Z\",\"updated_at\":\"2013-10-22T07:56:05.348Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Carli\",\"last_name\":\"Kozey\",\"avatar\":{\"url\":\"/images/fallback/default.png\",\"medium\":{\"url\":\"/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"/images/fallback/thumb_default.png\"}}}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"187bd831e178416d1dd1c94682db21a6\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=UURFbVpwS211QkJUSEVYT3hCRjYwMEVYNEFnSzdycDB2eXJ4b0FJQXNNa2NkaXlBbEZ3b0piSWJ3RUtEbFpDanVXUE56WElBRFEwVkxhMi9Xdk9aSmhFYUYvczEwMGNrcFNMNVNhNWs5YmxuUUVyNVFueDU4TjUrMGR3V0MwcnRjbWh1aEhCVGNDNmIvM1VvUkQvT25jREdzL0FvSERXRVBJSHREamJKZkFWdE9LdjZ5dWJwOVV2dTJoc2JlV0s4LS1tMUJWU0dZYzNLbVNqSVlPTDhac3BRPT0%3D--6ab87b9df4822cf9a1565c741137d0292f89d5d5; path=/; HttpOnly","X-Request-Id":"c5fb9920-6c6d-4f77-b54e-808fc6ccb521","X-Runtime":"0.043654","Content-Length":"384"},
+      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":1479,\"email\":\"user37_1382485504@shyne.io\",\"created_at\":\"2013-10-22T23:45:04.296Z\",\"updated_at\":\"2013-10-22T23:45:04.386Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Vicky\",\"last_name\":\"Dooley\",\"avatar\":{\"url\":\"/uploads/user/avatar/1479/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/1479/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/1479/thumb_spongebob.jpeg\"}}}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"7205a2751dce3a220ed66dbb27b70ea8\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=Vm1ZT2YzbVpkWVRwWUdNdWdaMmQ5UU5vSzJ5cWVPdG1oM0xQdHRSMWprVW01dGZrbmY5dTFrQU5GRDNJZnU1ZlJPUlNOWHRmMFZXblR3SkVxTmd4Tm8xM01HSm95V2NuQVZ4Vk0xbUR2bU5oYXhia0pjSThSOUdmMlhhelJhRjl0NXpHaXRrQTdTWEpDQlVmVWViaWdQVWw4b3RNTGUyMU04M290QVE0c2RUek81SG44SFNCR1VoQkFiNXRvMW9KLS13Z3ZrYVBOMGRPY0tHS2N4RWtRdjNBPT0%3D--f2125926222f8e4b68da82cf653be970537a6137; path=/; HttpOnly","X-Request-Id":"a79c64ba-35d1-4aec-86a0-9a59068bf5a6","X-Runtime":"0.049519","Content-Length":"422"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

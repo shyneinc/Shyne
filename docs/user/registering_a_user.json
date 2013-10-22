@@ -40,7 +40,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Dorian&user[last_name]=Fritsch&user[email]=user38_1382428565%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_body": "user[first_name]=Nestor&user[last_name]=Morissette&user[email]=user21_1382485500%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f843e6e0180%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -52,8 +52,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":321,\"email\":\"user38_1382428565@shyne.io\",\"created_at\":\"2013-10-22T07:56:05.781Z\",\"updated_at\":\"2013-10-22T07:56:05.866Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Dorian\",\"last_name\":\"Fritsch\",\"avatar\":{\"url\":\"/images/fallback/default.png\",\"medium\":{\"url\":\"/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"/images/fallback/thumb_default.png\"}}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"0263b721f448692af58df704b783ddd9\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=dEVhdkM1Z29CNmdjeWxBd29YclhmRHZlaGZyQ0FyN1dsVk5lYllQZ0wxUVRNRzJ6WVhKbjNMNCs1SStUQ1REOEFESjVJOW9mNGU5dnplOGt1NXFkT2pHSEUyZFI5SXpTeTRaRWlxV3VPWjFld0pJOFkyMi9YbkNxcFZ5bnE4KzYzWlpDZ08weVBtUjhXODFmQmduZVFqQ1BXTDZlMkdnMEFSSDI4cnk3bkRrPS0tU3J1UEIvT1BhVkdrZEdXbEV2ZVZLUT09--e7a6be5f61ae0673e4f7af6998985ac530a787cf; path=/; HttpOnly","X-Request-Id":"327601fb-d241-40ac-a8ad-926ca196d094","X-Runtime":"0.134179","Content-Length":"359"},
+      "response_body": "{\"id\":1461,\"email\":\"user21_1382485500@shyne.io\",\"created_at\":\"2013-10-22T23:45:00.806Z\",\"updated_at\":\"2013-10-22T23:45:00.859Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Nestor\",\"last_name\":\"Morissette\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"c05db7e451416380c3f2ba69fd7e3016\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=dit2L2RYQzQ4cEk2UHZET1VKb05ObzIzdkRuZG5PRmtPUUVXcWJZYXZGb2N3VlpiNktVcFhsS3dUK2UvZC9CNFFNWUF6R3RWem51YUNadFF1dmVuVVNUdFFTRldLTUtoaDJXZmJHa2szTGxUOURnRm9veTYyejQrb1FvcCtDb1ZJcndVdEk5aGhuNXpDem9uOUx2UFdidUJ2RzByYTVUUmpkc0JXUW90eFhrPS0tQnVWQndQM2xmS09JZzJ5dlZwNHd4dz09--7e3086e191429e1390d930f10a743b5a4cce1313; path=/; HttpOnly","X-Request-Id":"d2fd900b-4566-4e5f-aab6-7600ebb2a84e","X-Runtime":"0.088647","Content-Length":"381"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

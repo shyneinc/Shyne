@@ -40,7 +40,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Arlie&user[last_name]=Quitzon&user[email]=user37_1382428565%40shyne.io&user[password]=password&user[password_confirmation]=password",
+      "request_body": "user[first_name]=Cory&user[last_name]=Morissette&user[email]=user20_1382485500%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f843e6e0180%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -53,7 +53,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=TkMyWXQ5Sk0rVEd2azJjUERnajY4MUlEMi9Ia2ltb0R0bWJTTVpVKzBmNEhqUTcvb2E2T0xHZENCNk5HczdSdFppYmE4M3dLd2cwM1MvbC9RZnVSV0hhaFVpL1JRRWRGWngwbzlMQ3lwTEIrakJ4QVpMa0ljaEF0LzI3MXQvRnZMc0x1T1JJTSs2THVLN0JOcTJiOXFTMUJ0WlpmTklTM1NJN3NmVEN3UnU0PS0tTmZsOFdlaW50UHlZOGo5RUV3RUFpdz09--5a74353a10d45b6d2b4d6a9ae5db786a236c71bd; path=/; HttpOnly","X-Request-Id":"b0af091d-0564-474c-b6b3-adf8c46cd12a","X-Runtime":"0.061031"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=NzN4ODVwM1ZsY2pmTkR3ek91L25NNUhqTlRSSjFXdnptS0pRT2lXOW5abXZ3RWhrV1FiUjNiSDVLbHBWT2gxa2l6c3o1bTc0R1EyWmZJVWtONGVtSXJiaGdVdlZqeGh2UTQzTHRyQTl3L3pVQk9qV05CMHBLNk5DWjJ5N1JVczZmNXhaTEdOMC9QMVA4NVY0a1pWVEpxSFZHTDJsc2xWQUVSOWpXd1lXb0drPS0tK1BJSWhrVkVNcEpOQmxGbm5CRXV4UT09--086b8d2d5bf38bb2d77cb050c2f1832b1c3a9b0d; path=/; HttpOnly","X-Request-Id":"ab0b8ebe-f6a3-45f6-9665-079f2b9f43f9","X-Runtime":"0.053108"},
       "response_content_type": null,
       "curl": null
 }

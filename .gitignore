@@ -16,4 +16,4 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 /.idea/*
-public/uploads/tmp/
+public/uploads/*
