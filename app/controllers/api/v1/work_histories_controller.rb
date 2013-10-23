@@ -41,7 +41,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	private
 
 	def work_params
-		params.require(:work).permit(:company, :date_started, :date_ended, :current_work)
+		params.require(:work).permit(:company, :title, :date_started, :date_ended, :current_work)
 	end
 
 	def check_type
