@@ -80,7 +80,9 @@ Shyne::Application.routes.draw do
       match '/users' => 'users#show', :via => :get
       match '/users' => 'users#update', :via => :put
 
-      resources :mentors, except: [:update, :destroy]
+      resources :mentors, except: [:update, :destroy] do 
+        resources :work_histories
+      end
       match '/mentors' => 'mentors#update', :via => :put
       match '/mentors' => 'mentors#destroy', :via => :delete
 

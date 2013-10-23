@@ -1,10 +1,12 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
+  startdate = Date.today - rand(500)
+  
   factory :work_history do
-    company "MyString"
-    date_started "2013-10-21"
-    date_ended "2013-10-21"
+    company { Faker::Company.name }
+    date_started { startdate }
+    date_ended { startdate + rand(1000) }
     current_work false
   end
 end

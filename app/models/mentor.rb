@@ -10,6 +10,7 @@ class Mentor < ActiveRecord::Base
   belongs_to :mentor_status
 
   has_many :calls
+  has_many :work_histories
 
   after_update :send_status_email, :if => :mentor_status_id_changed?
 
