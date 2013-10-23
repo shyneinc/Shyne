@@ -25,6 +25,7 @@ resource 'User' do
   post "/api/users" do
     parameter :first_name, "First name", :required => true, :scope => :user
     parameter :last_name, "Last name", :required => true, :scope => :user
+    parameter :avatar, "Avatar", :required => false, :scope => :user
     parameter :email, "Email", :required => true, :scope => :user
     parameter :password, "Password", :required => true, :scope => :user
     parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
@@ -54,6 +55,7 @@ resource 'User' do
 
     parameter :first_name, "First name", :required => true, :scope => :user
     parameter :last_name, "Last name", :required => true, :scope => :user
+    parameter :avatar, "Avatar", :required => false, :scope => :user
     parameter :email, "Email", :required => true, :scope => :user
     parameter :password, "Password", :required => true, :scope => :user
     parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user

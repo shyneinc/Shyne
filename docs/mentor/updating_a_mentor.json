@@ -40,7 +40,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Quis+dolorem+quam+voluptatum+et+eos+nulla+vel+sunt+iste+voluptas+et+libero.&mentor[experties]=%7BInternet%2CE-learning%7D&mentor[years_of_experience]=13&mentor[phone_number]=358.399.9646&mentor[availability]=Est+repudiandae+sit+fugiat+voluptates+aut+est+et+et+sed+mollitia+atque+qui+sint.&mentor[featured]&mentor[mentor_status_id]=1&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Eum+nulla+sequi+impedit+ab+aliquid+ipsum+quia+enim+architecto+esse+iusto.&mentor[experties]=%7BInternet%2CE-learning%7D&mentor[years_of_experience]=10&mentor[phone_number]=437-142-1976+&mentor[availability]=Perferendis+omnis+perspiciatis+et+assumenda+omnis+est+cumque+rem+fugiat+qui+dolores.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -53,7 +53,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=eklNRzNOODF5TEJ1OERGcjJRL0RZL3VkNUpkSzBONFBQM0xBeERPMUFCYVZYSEh6a1hSbGlDRGZnUTB5L3FQdFB6ekR0TWpQd0VScVYwV3NYN0gvb1RZUk5XSTRUeGtuUFRwVDByMGNHdUZPUXhXSW94N05UYVYwVmVSdW55QUxmZGhkSGhDdlJUeXNWVXFBbkF4eUdGeEpmczcwUFpwUjh2T1k1ZnFjY1BvPS0tYWJxdko1OS9nd01TS3NYZmlic1cxUT09--d93465e7256ddd6a47de8ac6ba785a021854efd7; path=/; HttpOnly","X-Request-Id":"e1ef8538-dd48-4c42-9731-c583b6fe0003","X-Runtime":"0.025662"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=TVlVazlKbzBJdWNwa3hIU2NqVDZSVzhVd2tKUlRWMFFMSU85UzZZZFQ3M3oyYnFFN2NCd3E4Y1dyL2prRUN2REdWb1VabnliMEJzU21LVGNEcU9YVUp5bVJ3MllpWnFsWlk1QzVVYjJrSHVFSjUxMkxxVGZsM3BFdFdQVnF2Snh1cW53WmJ0RTA5Q0NkQzNtUFRtSXFGby9hbkU0M29pVlIyTTdVUVlXU05ZPS0tVnp3ajg2TFBzY05nOHlTOWhMajV4dz09--5d54b18f1442105b55e6571d08d72ac0ea0a185d; path=/; HttpOnly","X-Request-Id":"6e54d7d6-0313-4aaa-8886-f45d9ae32876","X-Runtime":"0.045898"},
       "response_content_type": null,
       "curl": null
 }
