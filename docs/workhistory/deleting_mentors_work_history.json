@@ -1,8 +1,8 @@
 {
   "resource": "WorkHistory",
-  "http_method": "POST",
+  "http_method": "DELETE",
   "route": "/api/mentors/:mentor_id/work_histories",
-  "description": "Creating a work history",
+  "description": "Deleting mentor's work history",
   "explanation": null,
   "parameters": [
 

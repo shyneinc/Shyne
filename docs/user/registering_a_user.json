@@ -46,7 +46,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Gregg&user[last_name]=Spinka&user[email]=user33_1382633071%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007fa1257ac650%3E",
+      "request_body": "user[first_name]=Neal&user[last_name]=O%27Keefe&user[email]=user24_1382644008%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f9e3cd70258%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -58,8 +58,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":2146,\"email\":\"user33_1382633071@shyne.io\",\"created_at\":\"2013-10-24T16:44:31.096Z\",\"updated_at\":\"2013-10-24T16:44:31.147Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Gregg\",\"last_name\":\"Spinka\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"b2332df2e10561e7f384a5dad2b61d75\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=RVFMb3ZKcURpdUptREFFd1J5aHM5U3UxcHF2SWo2U2FKc2RIQUhlbGp6Y0ltS09hdEpuaHFtbzZ0Q1FyOVNFanBwTjJpTUhVajJrMER4THozd1Vza2Q3OVFkTnJFTWREdFQvcXZpUXpqbnFqcDAvZXFwSlE3TjZ5SXgzVlBOY0JYQzVSeW1UelJLMTMxd0NDUlUvMU8wYWRJd29TQmdqSHh5ZUJUdUhyL05RPS0tUXMrdmFabm13eE55Vm4xcVY1b0pnQT09--89c34ba0ed4375c761221bd2d541bea210f36313; path=/; HttpOnly","X-Request-Id":"e57f55c4-2df6-4407-a92c-3711369ab931","X-Runtime":"0.091609","Content-Length":"376"},
+      "response_body": "{\"id\":2943,\"email\":\"user24_1382644008@shyne.io\",\"created_at\":\"2013-10-24T19:46:48.386Z\",\"updated_at\":\"2013-10-24T19:46:48.440Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Neal\",\"last_name\":\"O'Keefe\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"94c31f3ca512096d7f90d5be47f5013f\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=QmwweVkwb2p3Y29TbkRseFRIQkhqblhUOTZjSGNaMHBtRHd2RTl0YnpPd2Z2S2o4djY0MU51VVZzNS82QjVaRWxBN3FQZFpNUzNkSWE3RFc3TDF1UzJxOWdmM0xPWTc5Wno0cE1vWEw0M1h1MFpiOFJseWE2UWsvY2NZMTdGbmt0eUc5R1BPMW1lQzhtZ0s3TXlqMDBjbUZQY09MMEw3V0ltNXUzcUxLMm40PS0teGFPOEhsdWVja294MUhkbTBnVDVjZz09--5730cf6d35969e95785461c75b667112f732abb9; path=/; HttpOnly","X-Request-Id":"e87b3c9e-7ba7-46f3-8051-b368605b70f1","X-Runtime":"0.194155","Content-Length":"376"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

@@ -46,7 +46,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Unique&user[last_name]=Howell&user[email]=user32_1382633070%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007fa1257ac650%3E",
+      "request_body": "user[first_name]=Josefa&user[last_name]=Marquardt&user[email]=user27_1382644008%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f9e3cd70258%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +59,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=YlUvNTkxTWVZaCtBYjd4cUxjZEl5MFp1M0s2V3FvS2laTXpFMjVKSEs4SjhVQ1lMa2JNbng1eUE2NWpDSG5mVHJHbmFwODI1NlRTUFBZRmRtR1ZLS3BXWmpFazBTUHFvWUNMdmMyOGJkemVRblpJM3NKQ1FMd0lYdExOTnZCYmVaeGhJbzQvemR1Nmx2b3dGd0tpdVc5azFtOUtTZG9zV2JaQXRkQXVOYnhzPS0tcS9SVm1pdmF2dXc2Ujg2N2RBbkpHdz09--0aed5cf93380420468ecafa8710cdd0622e59d16; path=/; HttpOnly","X-Request-Id":"14706a2f-5a25-474a-a31d-f6177073f335","X-Runtime":"0.061187"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=OFlYcHZoTVhYbExmMkJOYTJWNDNXcEFFQzZmK252NGU0K2RLQXhteWtzSWNML0ZLeXN2NmpzUFVObStEMUUrNW5OcGlvcHVjUzAzUkx6T0l0UHFubUFHSFF1WTVidlcvWWdrYWR4UE1hWUNENTJ6L1QwQ0FONFJQVVl5R2FKMHFWRFhZMi81Yk42UThwcHZqOWN6Q25mdVRZL0lwaFU1NVBYZ1lVa1dPVVJFPS0tM2JBUlJ6TGkyWTE2K1ZwWGZ1UVNqQT09--13b32884de79759db5cb38a0c244c0f00565536d; path=/; HttpOnly","X-Request-Id":"047ebf96-14c9-41ff-b3f2-affcc9ead14c","X-Runtime":"0.042524"},
       "response_content_type": null,
       "curl": null
 }

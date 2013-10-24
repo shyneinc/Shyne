@@ -18,6 +18,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	end
 
 	def update
+		#doesn't return any message if update is successful
     	respond_with :api, WorkHistory.update(@work.id, work_params)
 	end
 

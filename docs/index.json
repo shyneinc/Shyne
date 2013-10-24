@@ -149,13 +149,23 @@
       "name": "WorkHistory",
       "examples": [
         {
-          "description": "Creating a work history",
-          "link": "workhistory/creating_a_work_history.json",
+          "description": "Creating mentor's work history",
+          "link": "workhistory/creating_mentors_work_history.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting mentor's work history",
+          "link": "workhistory/deleting_mentors_work_history.json",
           "groups": "all"
         },
         {
           "description": "Getting all user work history",
           "link": "workhistory/getting_all_user_work_history.json",
+          "groups": "all"
+        },
+        {
+          "description": "Updating mentor's work history",
+          "link": "workhistory/updating_mentors_work_history.json",
           "groups": "all"
         }
       ]

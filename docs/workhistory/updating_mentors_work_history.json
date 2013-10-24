@@ -1,0 +1,66 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "PUT",
+  "route": "/api/mentors/:mentor_id/work_histories/:id",
+  "description": "Updating mentor's work history",
+  "explanation": "Once the user is signed in and now can update a work_history",
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "company",
+      "description": "Company"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "title",
+      "description": "Job Title"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "date_started",
+      "description": "Date Started"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "date_ended",
+      "description": "Date Ended"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "current_work",
+      "description": "Current Work?"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/mentors/1202/work_histories/257",
+      "request_body": "work[company]=Collins%2C+Witting+and+Douglas&work[title]=International+Marketing+Director&work[date_started]=2012-07-06&work[date_ended]=2012-12-27&work[current_work]=false&work[mentor_id]=1202",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=ZFlZZncreHFxR0NYOTdTRWQ4cWxoRFRiR0hwczlRRjFEaUk4dUNUU2hmd2Q1YnA1WjRUUmlLVHlnRUFwWjY0MHZqR0swM3M3cnYrQ3o5QU5vMExuc2szdzR6NkRpR3c3Q2FtOGpWRENZSmZ6TzBsSFVnd05UeTExVWR5SVBpR05KcGVhR3RoZEJTU2htNVh4WTZYc3UzWm1adWlORWU5UHEzbDEvS3ZzekFjPS0tWXppZFZqMStqelNiR1g5T0tTWGl6dz09--5dbbba0ee50c48af5efb084bf7d0239538ad4894; path=/; HttpOnly","X-Request-Id":"14dd9c30-c51e-4941-854c-1874df9c6ab7","X-Runtime":"0.033003"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}
