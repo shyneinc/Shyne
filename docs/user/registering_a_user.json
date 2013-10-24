@@ -46,7 +46,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Neal&user[last_name]=O%27Keefe&user[email]=user24_1382644008%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f9e3cd70258%3E",
+      "request_body": "user[first_name]=Rosetta&user[last_name]=Gleason&user[email]=user42_1382646382%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007fa09adf17a8%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -58,8 +58,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":2943,\"email\":\"user24_1382644008@shyne.io\",\"created_at\":\"2013-10-24T19:46:48.386Z\",\"updated_at\":\"2013-10-24T19:46:48.440Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Neal\",\"last_name\":\"O'Keefe\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"94c31f3ca512096d7f90d5be47f5013f\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=QmwweVkwb2p3Y29TbkRseFRIQkhqblhUOTZjSGNaMHBtRHd2RTl0YnpPd2Z2S2o4djY0MU51VVZzNS82QjVaRWxBN3FQZFpNUzNkSWE3RFc3TDF1UzJxOWdmM0xPWTc5Wno0cE1vWEw0M1h1MFpiOFJseWE2UWsvY2NZMTdGbmt0eUc5R1BPMW1lQzhtZ0s3TXlqMDBjbUZQY09MMEw3V0ltNXUzcUxLMm40PS0teGFPOEhsdWVja294MUhkbTBnVDVjZz09--5730cf6d35969e95785461c75b667112f732abb9; path=/; HttpOnly","X-Request-Id":"e87b3c9e-7ba7-46f3-8051-b368605b70f1","X-Runtime":"0.194155","Content-Length":"376"},
+      "response_body": "{\"id\":3398,\"email\":\"user42_1382646382@shyne.io\",\"created_at\":\"2013-10-24T20:26:22.920Z\",\"updated_at\":\"2013-10-24T20:26:22.972Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Rosetta\",\"last_name\":\"Gleason\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"b8843c58d928774b8dc3a61814663aaa\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=Q212LzBIVDFaZkV5ZWlCMUx2UmxHc1VibFdSb1pMRGU5MEJ5T1BmYUZ6QlBVZi8zd1FSWDBDZE92cVpLalV0a2Z1U0xPYmxiTnY5QkcwMXBHT3phdDBYMXA2Y212bmhVbjkzbVFSUXpvNDdGVzdtM1g1TkRwK0tyWEpQa2c4cHdpU1JRS0xRV2psVHJ2di9PYyt0eHVuSmNTdTcwby9EVTdsZDNwUlByMXlFPS0tMVJwbkdMVDI1cVlLaXI4OS9zTjlnQT09--97810273155be3485f369c3636f97e78be8dd025; path=/; HttpOnly","X-Request-Id":"796456fb-4d8c-48c5-9fcb-c4940408369a","X-Runtime":"0.085958","Content-Length":"379"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

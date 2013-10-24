@@ -8,7 +8,7 @@
     {
       "required": true,
       "name": "mentor_id",
-      "description": "Mentor"
+      "description": "Mentor ID"
     },
     {
       "required": true,
@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/api/mentors/1203/work_histories",
-      "request_body": "work[company]=Kertzmann+Group&work[title]=Central+Response+Orchestrator&work[date_started]=2012-07-06&work[date_ended]=2014-04-10&work[current_work]=false&work[mentor_id]=1203",
+      "request_path": "/api/mentors/1416/work_histories",
+      "request_body": "work[company]=McCullough+and+Sons&work[title]=Chief+Configuration+Administrator&work[date_started]=2013-06-07&work[date_ended]=2014-12-15&work[current_work]=false&work[mentor_id]=1416",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -57,8 +57,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":258,\"company\":\"Kertzmann Group\",\"date_started\":\"2012-07-06\",\"date_ended\":\"2014-04-10\",\"current_work\":false,\"mentor_id\":1203,\"created_at\":\"2013-10-24T19:46:48.211Z\",\"updated_at\":\"2013-10-24T19:46:48.211Z\",\"title\":\"Central Response Orchestrator\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/1203/work_histories.258","Content-Type":"application/json; charset=utf-8","ETag":"\"2a852780c3dbd0671da985fa1747e7bf\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=YjJoS2t6L0xtT2REVlVSeDE5ZUNabStYMTlTQ01TWmNFTURlTWVrdmtoS25GYWRKNmNDajB5L1dJR3B1OUNyL0tDRG5OQ0laVjdzYlZUdEVRVjIwVHhoN0RJM3ErR3gzSG1CV0hmcExFbnNwUUcvOVBLQWpMeWlPK0QvN2dTRmR2S2Z4dWVmMklHZFdTZ0RNSE04WEdkK3Ftem5pL2NPOS8zR1NvUDJQSjdFPS0tM2wwUklRRytRWElsbXUxL2JjNFVCdz09--28912b6b0e708dd2c066519988ca88cf7ceb584b; path=/; HttpOnly","X-Request-Id":"f0ff9216-ad19-4a3e-932f-67391b786dd9","X-Runtime":"0.028787","Content-Length":"250"},
+      "response_body": "{\"id\":349,\"company\":\"McCullough and Sons\",\"date_started\":\"2013-06-07\",\"date_ended\":\"2014-12-15\",\"current_work\":false,\"mentor_id\":1416,\"created_at\":\"2013-10-24T20:26:18.278Z\",\"updated_at\":\"2013-10-24T20:26:18.278Z\",\"title\":\"Chief Configuration Administrator\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/1416/work_histories.349","Content-Type":"application/json; charset=utf-8","ETag":"\"63f98569137789d7303fa41094056990\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=d1ovUHpFWlVuclFabFZIaFVabW4zTU4rZmhRWVFyS3ZuSWVYT2did0h1S3FqbWJDN3U3S0sxc1RKRWdyRG0yTm40bUhOS1RNbnpldmFOR1hXUHFiTFhzWVpHc20veHZqNXVzcVEzUEpYVTA0anZOeXI4Q04xNmt5akFEd3JJMkdvY2h5eWUwNkx5TU9NdVdwOStLQVVISHI3YWx3ZlpoazZndlBTM3BULy9FPS0tUTBjQUMvVmlDMHlMS3lCQ28vSDhQUT09--a5a1e20183d2c8fd30d76879ecefd062e29be04c; path=/; HttpOnly","X-Request-Id":"acbfde82-ea5e-4f3e-962a-3cd86b99a7a0","X-Runtime":"0.031851","Content-Length":"258"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

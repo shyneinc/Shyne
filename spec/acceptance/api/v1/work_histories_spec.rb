@@ -31,7 +31,7 @@ resource 'WorkHistory' do
 			login_as user, scope: :user
 		end
 
-		parameter :mentor_id, "Mentor" , required: true
+		parameter :mentor_id, "Mentor ID" , required: true
 		parameter :company, "Company" , required: true , scope: :work
 		parameter :title, "Job Title", required: true, scope: :work
 		parameter :date_started, "Date Started", required: true, scope: :work
@@ -49,13 +49,14 @@ resource 'WorkHistory' do
   	end
 
 	put "/api/mentors/:mentor_id/work_histories/:id" do
-		let(:id){ work_a.id }
+		#let(:id){ work_a.id }
 
-		before (:each) do
+		before do
 			login_as user, scope: :user
 		end
 
-		parameter :mentor_id, "Mentor" , required: true
+		parameter :mentor_id, "Mentor ID" , required: true
+		parameter :id, "Work History ID", required: true
 		parameter :company, "Company" , required: true , scope: :work
 		parameter :title, "Job Title", required: true, scope: :work
 		parameter :date_started, "Date Started", required: true, scope: :work
@@ -66,7 +67,7 @@ resource 'WorkHistory' do
     		explanation "Once the user is signed in and now can update a work_history"
     		work_a = create(:work_history, mentor_id: mentor_id)
     		work_b = attributes_for(:work_history, mentor_id: mentor_id).except(:id)
-
+    		
     		do_request(work: work_b, id: work_a.id)
 
     		# expect(response_body).to be_json_eql work_b.except(:id).to_json
@@ -74,9 +75,23 @@ resource 'WorkHistory' do
     	end
   	end
 
-  	delete "/api/mentors/:mentor_id/work_histories" do
-    	example "Deleting mentor's work history" do
+  	delete "/api/mentors/:mentor_id/work_histories/:id" do
+  		#let(:id){ work.id }
 
+    	before do
+    		login_as user, scope: :user
+    	end
+
+    	parameter :mentor_id, "Mentor ID" , required: true
+		parameter :id, "Work History ID", required: true
+
+    	example "Deleting mentor's work history" do
+    		explanation "Delete a work history"
+    		work = create(:work_history, mentor_id: mentor_id)
+
+    		do_request(id: work.id)
+
+    		expect(status).to eq 204
     	end
   end
 end

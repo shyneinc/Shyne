@@ -111,6 +111,16 @@
       ]
     },
     {
+      "name": "Search",
+      "examples": [
+        {
+          "description": "Getting all matching search results",
+          "link": "search/getting_all_matching_search_results.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Session",
       "examples": [
         {
