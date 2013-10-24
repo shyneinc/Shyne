@@ -13,16 +13,16 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	end
 
 	def create
-    @work = @mentor.work_histories.create(work_params)
-    respond_with @work, location: api_mentor_work_histories_url(@mentor.id, @work)
+    	@work = @mentor.work_histories.create(work_params)
+    	respond_with @work, location: api_mentor_work_histories_url(@mentor.id, @work)
 	end
 
 	def update
-    respond_with :api, WorkHistory.update(@work.id, work_params)
+    	respond_with :api, WorkHistory.update(@work.id, work_params)
 	end
 
 	def destroy
-    respond_with :api, @work.destroy
+    	respond_with :api, @work.destroy
 	end
 
 	private
@@ -31,13 +31,13 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 		params.require(:work).permit(:company, :title, :date_started, :date_ended, :current_work)
 	end
 
-  def check_mentor
-    @mentor = Mentor.find(params[:mentor_id])
-  end
+  	def check_mentor
+    	@mentor = Mentor.find(params[:mentor_id])
+  	end
 
-  def check_work
-    @work = @mentor.work_histories.find(params[:id])
-  end
+  	def check_work
+    	@work = @mentor.work_histories.find(params[:id])
+  	end
 
 	def check_type
 		if current_user.role_type != 'Mentor'
