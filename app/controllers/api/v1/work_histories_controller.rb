@@ -5,8 +5,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	before_filter :check_type, except: [:index, :show]
 
 	def index
-		@allwork = @mentor.work_histories.load
-		respond_with :api, @allwork
+		respond_with :api, @mentor.work_histories.load
 	end
 
 	def show
@@ -14,28 +13,16 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	end
 
 	def create
-		@work = current_user.role.work_histories.build(work_params)
-		if @work
-			respond_with :api, @work
-		else
-			render json: { error: 'could not create your work history' }, status: 401
-		end
+    @work = @mentor.work_histories.create(work_params)
+    respond_with @work, location: api_mentor_work_histories_url(@mentor.id, @work)
 	end
 
 	def update
-		if WorkHistory.update(@work.id, work_params)
-			respond_with :api, @work
-		else
-			render json: { error: 'could not update this work history'}, status: 401
-		end
+    respond_with :api, WorkHistory.update(@work.id, work_params)
 	end
 
 	def destroy
-		if @work.destroy
-			render json: { error: 'work history deleted.' }, status: 200
-		else
-			render json: { error: 'could not delete this work history'}, status: 401
-		end
+    respond_with :api, @work.destroy
 	end
 
 	private
@@ -44,17 +31,17 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 		params.require(:work).permit(:company, :title, :date_started, :date_ended, :current_work)
 	end
 
+  def check_mentor
+    @mentor = Mentor.find(params[:mentor_id])
+  end
+
+  def check_work
+    @work = @mentor.work_histories.find(params[:id])
+  end
+
 	def check_type
 		if current_user.role_type != 'Mentor'
-			render json: { error: 'This function are for mentors only' }, status: 401
+      render :json => {:error => 'User is not a mentor'}, :status => 401
 		end
-	end
-
-	def check_mentor
-		@mentor = Mentor.find(params[:mentor_id])
-	end
-
-	def check_work
-		@work = @mentor.work_histories.find(params[:id])
 	end
 end
