@@ -12,6 +12,11 @@ class Mentor < ActiveRecord::Base
   has_many :calls
   has_many :work_histories
 
+  include PgSearch
+  multisearchable :against => [:full_name, :headline, :experties, :worked_at],
+                  ignoring: :accents,
+                  :if => :approved?
+
   after_update :send_status_email, :if => :mentor_status_id_changed?
 
   def send_status_email
@@ -46,5 +51,13 @@ class Mentor < ActiveRecord::Base
 
   def full_name
     "#{self.user.first_name} #{self.user.last_name}"
+  end
+
+  def worked_at
+    self.work_histories.map(&:company).join(" ")
+  end
+
+  def approved?
+    self.mentor_status_id == MentorStatus.by_status('Approved').id
   end
 end

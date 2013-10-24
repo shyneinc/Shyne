@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023224823) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20131024163502) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -99,6 +96,14 @@ ActiveRecord::Schema.define(version: 20131023224823) do
   add_index "mentors", ["experties"], name: "index_mentors_on_experties", using: :gin
   add_index "mentors", ["mentor_status_id"], name: "index_mentors_on_mentor_status_id", using: :btree
   add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -93,6 +93,8 @@ Shyne::Application.routes.draw do
       resources :industries, only: [:index]
 
       resources :calls, except: [:index]
+
+      resources :search, only: [:index]
     end
   end
 end
