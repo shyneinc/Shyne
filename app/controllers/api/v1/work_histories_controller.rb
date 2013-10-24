@@ -5,7 +5,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	before_filter :check_type, except: [:index, :show]
 
 	def index
-		@allwork = @mentor.work_histories.all
+		@allwork = @mentor.work_histories.load
 		respond_with :api, @allwork
 	end
 
@@ -14,8 +14,8 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	end
 
 	def create
-		if @owner
-			@work = current_user.role.work_histories.build(work_params)
+		@work = current_user.role.work_histories.build(work_params)
+		if @work
 			respond_with :api, @work
 		else
 			render json: { error: 'could not create your work history' }, status: 401
@@ -23,16 +23,16 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	end
 
 	def update
-		if @owner #making sure if current_user is the owner
-			respond_with :api, WorkHistory.update(@work.id, work_params)
+		if WorkHistory.update(@work.id, work_params)
+			respond_with :api, @work
 		else
 			render json: { error: 'could not update this work history'}, status: 401
 		end
 	end
 
 	def destroy
-		if @owner
-			respond_with :api, @work.destroy
+		if @work.destroy
+			render json: { error: 'work history deleted.' }, status: 200
 		else
 			render json: { error: 'could not delete this work history'}, status: 401
 		end
@@ -47,8 +47,6 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 	def check_type
 		if current_user.role_type != 'Mentor'
 			render json: { error: 'This function are for mentors only' }, status: 401
-		else
-			current_user.role == @mentor ? @owner = true : @owner = false
 		end
 	end
 
