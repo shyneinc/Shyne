@@ -53,6 +53,10 @@ class Mentor < ActiveRecord::Base
     "#{self.user.first_name} #{self.user.last_name}"
   end
 
+  def avatar
+    self.user.avatar.thumb.to_s
+  end
+
   def worked_at
     self.work_histories.map(&:company).join(" ")
   end
