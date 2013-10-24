@@ -46,7 +46,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Juwan&user[last_name]=Ziemann&user[email]=user38_1382489592%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x789c768%3E",
+      "request_body": "user[first_name]=Unique&user[last_name]=Howell&user[email]=user32_1382633070%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007fa1257ac650%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +59,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=dnN5R2xpS01PbzU2a0ZadzdIZUZ4Mk5nczVIRXh3OUk4N0t2bXZXeTNHdXVJeFdncG85Q3pIQWtzcGtpd2UvaW91NlpPNmZRb3FETElTNC96aU8yM3p1QUJMRXBucjU2YngzV3Fkc0ZtOUdiWUZHNWRZRlJ3eHFkSnFGS1ViS0dlZTQ1SlBGL0NSNUZyNDJrRVJKdTNMSUJENWE3cW5CTE9QaGZDS0M1RldNPS0tM2VVR2gwdThzU3Y0eFRoYWlBUmNPZz09--32f25b44ad3b480b9589316c79da2d10431a78b6; path=/; HttpOnly","X-Request-Id":"6d447b5c-4c61-4ac6-8460-004933118c08","X-Runtime":"0.062500"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=YlUvNTkxTWVZaCtBYjd4cUxjZEl5MFp1M0s2V3FvS2laTXpFMjVKSEs4SjhVQ1lMa2JNbng1eUE2NWpDSG5mVHJHbmFwODI1NlRTUFBZRmRtR1ZLS3BXWmpFazBTUHFvWUNMdmMyOGJkemVRblpJM3NKQ1FMd0lYdExOTnZCYmVaeGhJbzQvemR1Nmx2b3dGd0tpdVc5azFtOUtTZG9zV2JaQXRkQXVOYnhzPS0tcS9SVm1pdmF2dXc2Ujg2N2RBbkpHdz09--0aed5cf93380420468ecafa8710cdd0622e59d16; path=/; HttpOnly","X-Request-Id":"14706a2f-5a25-474a-a31d-f6177073f335","X-Runtime":"0.061187"},
       "response_content_type": null,
       "curl": null
 }

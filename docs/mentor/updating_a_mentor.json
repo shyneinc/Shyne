@@ -40,7 +40,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Eum+nulla+sequi+impedit+ab+aliquid+ipsum+quia+enim+architecto+esse+iusto.&mentor[experties]=%7BInternet%2CE-learning%7D&mentor[years_of_experience]=10&mentor[phone_number]=437-142-1976+&mentor[availability]=Perferendis+omnis+perspiciatis+et+assumenda+omnis+est+cumque+rem+fugiat+qui+dolores.&mentor[featured]&mentor[mentor_status_id]=3884&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Et+voluptatum+ut+libero+voluptatem+nisi+perferendis+est+impedit+fuga+dolores.&mentor[experties]=%7BAccounting%2CFinance%7D&mentor[years_of_experience]=10&mentor[phone_number]=827-507-3277&mentor[availability]=Et+consequatur+rem+impedit+asperiores+excepturi+nobis+modi+temporibus+consectetur+ut+est+dignissimos.&mentor[featured]&mentor[mentor_status_id]=1&mentor[status_changed_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -53,7 +53,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=TVlVazlKbzBJdWNwa3hIU2NqVDZSVzhVd2tKUlRWMFFMSU85UzZZZFQ3M3oyYnFFN2NCd3E4Y1dyL2prRUN2REdWb1VabnliMEJzU21LVGNEcU9YVUp5bVJ3MllpWnFsWlk1QzVVYjJrSHVFSjUxMkxxVGZsM3BFdFdQVnF2Snh1cW53WmJ0RTA5Q0NkQzNtUFRtSXFGby9hbkU0M29pVlIyTTdVUVlXU05ZPS0tVnp3ajg2TFBzY05nOHlTOWhMajV4dz09--5d54b18f1442105b55e6571d08d72ac0ea0a185d; path=/; HttpOnly","X-Request-Id":"6e54d7d6-0313-4aaa-8886-f45d9ae32876","X-Runtime":"0.045898"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=bDNIQ2tPaUpJZ3VscDJ5RWp4aEp6NlJ0bGlWend5dG1rRTdhckowekxOTldDY3pwMHJSdnE1ZVFnSkkrSUJHTG9PTnM1aFBlMzc4NnZnc3A3UHRMN0IzUWcwYzkycG0wdElYSEJoK3pZdjhUbVFocThsemI3NWExaFlSeFNDRWdmdUlYc1VwUnZlZ2Y2Z0JmdG4yTU81WlJMYi8xU1duWWdxY0lhU1pPbHRrPS0tODc5Q1VjYWdWNDBPUlplYzJDMWFvQT09--14bdcf453a09c8b4562dfc02f97bf2d72bd67c50; path=/; HttpOnly","X-Request-Id":"cc105b73-282e-4962-b708-239be5802ceb","X-Runtime":"0.029374"},
       "response_content_type": null,
       "curl": null
 }

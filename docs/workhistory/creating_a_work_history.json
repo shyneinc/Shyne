@@ -1,0 +1,13 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "POST",
+  "route": "/api/mentors/:mentor_id/work_histories",
+  "description": "Creating a work history",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+
+  ]
+}

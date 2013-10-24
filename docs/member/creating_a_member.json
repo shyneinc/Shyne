@@ -16,7 +16,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/members",
-      "request_body": "member[phone_number]=140.238.9187+",
+      "request_body": "member[phone_number]=754-078-0094",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -28,8 +28,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":2035,\"created_at\":\"2013-10-23T00:53:10.679Z\",\"updated_at\":\"2013-10-23T00:53:10.679Z\",\"user_id\":8536,\"phone_number\":\"1402389187\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/2035","Content-Type":"application/json; charset=utf-8","ETag":"\"da3dc2a0d30051ba638ea50399d1fa20\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=cStQbElyWjFwME50QitUc1d3L0ZaOWxYZVFoK1cvMmRJQ3NrcVRaY0VMWHVjUHIzTG1PaEJiSHNwbTM5SUxJWXh1RVNyTFF0UEhMajJJNUhWS1lva05icEh1bXczeTYxQURuelFQSzF3Rml5VjJHekhzcHNNNFA0aUszR2hsaElnWkJJdkFDbVpGTURuZXppcnBoU2ZmUXE4aDUvZVpQZDUrNmErRDFlZElVPS0teDhsaVlOQzFzKzY4dUl4bUpDSk95dz09--20c616090e234a0c00aa92c6781e84f9965e8d34; path=/; HttpOnly","X-Request-Id":"f2c51acf-9fb9-4db7-a648-3d4c700b20b3","X-Runtime":"0.050781","Content-Length":"134"},
+      "response_body": "{\"id\":617,\"created_at\":\"2013-10-24T16:44:29.014Z\",\"updated_at\":\"2013-10-24T16:44:29.014Z\",\"user_id\":2130,\"phone_number\":\"17540780094\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/617","Content-Type":"application/json; charset=utf-8","ETag":"\"10812a95eef254d4dc80ef2a83bb8a89\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=RFIxdWhVTXNadTcxaHJYdDJFNWpVOU4rT0gvQmhEWVAyU0lsRnJwU3NvVkRRc2tIenp0MEJlQXhiWWNWY2paL0dUeUtFN0x5SEphN05pSllXb1JhNkR6ZjZCTHhKdDBtU1Q5Vkx3NXVMRDkzQnJqRXNjbDYvb1pLNHR5eWkxdlpkYllQMnFmY1pXS1dFbHh2b1JGQlVDcC9kZ3BUckN5dmNyUkNkNFJIbmJnPS0tcjM0RTZFUlhaa2NPUXZXdDlyWmVvZz09--c8b66976690a7efb10e8791d772327a036de3281; path=/; HttpOnly","X-Request-Id":"179277ff-a0a6-4cf0-a28a-3123a82116f2","X-Runtime":"0.039879","Content-Length":"134"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

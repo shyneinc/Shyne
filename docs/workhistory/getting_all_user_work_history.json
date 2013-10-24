@@ -1,0 +1,35 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "GET",
+  "route": "/api/mentors/:mentor_id/work_histories",
+  "description": "Getting all user work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": false,
+      "name": "mentor_id",
+      "description": "Mentor Id"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors/837/work_histories",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":101,\"company\":\"Douglas, Gaylord and Klocko\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2016-04-23\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.634Z\",\"updated_at\":\"2013-10-24T16:44:31.634Z\",\"title\":\"Dynamic Directives Director\"},{\"id\":102,\"company\":\"Shanahan, Hettinger and Schinner\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2015-12-19\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.643Z\",\"updated_at\":\"2013-10-24T16:44:31.643Z\",\"title\":\"Product Response Assistant\"},{\"id\":103,\"company\":\"Robel-Balistreri\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2016-03-10\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.652Z\",\"updated_at\":\"2013-10-24T16:44:31.652Z\",\"title\":\"Legacy Factors Liason\"},{\"id\":104,\"company\":\"Erdman-Lowe\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2014-04-25\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.659Z\",\"updated_at\":\"2013-10-24T16:44:31.659Z\",\"title\":\"Chief Tactics Producer\"},{\"id\":105,\"company\":\"Miller, Brown and Bergstrom\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2015-03-06\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.666Z\",\"updated_at\":\"2013-10-24T16:44:31.666Z\",\"title\":\"Dynamic Infrastructure Executive\"},{\"id\":106,\"company\":\"Haag LLC\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2014-03-18\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.753Z\",\"updated_at\":\"2013-10-24T16:44:31.753Z\",\"title\":\"Central Marketing Technician\"},{\"id\":107,\"company\":\"Muller Group\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2015-07-18\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.761Z\",\"updated_at\":\"2013-10-24T16:44:31.761Z\",\"title\":\"Lead Implementation Facilitator\"},{\"id\":108,\"company\":\"Heidenreich, Krajcik and Kohler\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2015-11-06\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.769Z\",\"updated_at\":\"2013-10-24T16:44:31.769Z\",\"title\":\"Investor Infrastructure Producer\"},{\"id\":109,\"company\":\"Cremin Inc\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2016-03-24\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.776Z\",\"updated_at\":\"2013-10-24T16:44:31.776Z\",\"title\":\"Legacy Accountability Associate\"},{\"id\":110,\"company\":\"Fisher Inc\",\"date_started\":\"2013-10-20\",\"date_ended\":\"2015-04-23\",\"current_work\":false,\"mentor_id\":837,\"created_at\":\"2013-10-24T16:44:31.786Z\",\"updated_at\":\"2013-10-24T16:44:31.786Z\",\"title\":\"Legacy Marketing Analyst\"}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f3589f03f2b1fea1683c591398e4603c\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/\n_Shyne_session=Nng4Um01QURTTzZKVlBOYnRISVZxWGNQcGM3cEVqOU4rd0ZtV29lODNEOG9lRm1xY2ljVTEreXhOOFFBV3NXWU1TL2VQZFlhTVRRbStSS2ZDdFA2S3NiZG1xRzljNWpLSEhPZ1FXVjNPbjdzVzIySStmNmkzemtGZ3VJUHVHWnRzeWdjMGVzRk5NOUR6VDI0TzVDRmdjUWJSenlkZHl6c0JaZDlWVkFJaDNJPS0tay9vL1drOU9BeVlrTXAwN3lRd3dFUT09--764d004cdc4bffe958c757af26d3fb7055c7712f; path=/; HttpOnly","X-Request-Id":"9005e65b-6c95-4722-ba04-815ca8725097","X-Runtime":"0.067902","Content-Length":"2519"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

@@ -16,7 +16,9 @@ resource 'WorkHistory' do
 			create_list(:work_history, 10, mentor_id: mentor_id)
 		end
 
-		example "Getting mentor's work history" do
+		parameter :mentor_id, "Supply Mentor ID in the url -> /api/mentors/[mentor_id]/work_histories", required: false
+
+		example "Getting all user work history" do
 			do_request
 
 			expect(response_body).to eq user.role.work_histories.to_json

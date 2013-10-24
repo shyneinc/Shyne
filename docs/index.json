@@ -144,6 +144,21 @@
           "groups": "all"
         }
       ]
+    },
+    {
+      "name": "WorkHistory",
+      "examples": [
+        {
+          "description": "Creating a work history",
+          "link": "workhistory/creating_a_work_history.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all user work history",
+          "link": "workhistory/getting_all_user_work_history.json",
+          "groups": "all"
+        }
+      ]
     }
   ]
 }
