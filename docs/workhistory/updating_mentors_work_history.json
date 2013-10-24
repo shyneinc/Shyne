@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/1414/work_histories/338",
-      "request_body": "work[company]=Jast%2C+Stokes+and+Mertz&work[title]=Legacy+Intranet+Designer&work[date_started]=2013-06-07&work[date_ended]=2014-10-01&work[current_work]=false&work[mentor_id]=1414",
+      "request_path": "/api/mentors/1451/work_histories/363",
+      "request_body": "work[company]=Murray-McKenzie&work[title]=Product+Integration+Consultant&work[date_started]=2012-06-13&work[date_ended]=2013-10-13&work[current_work]=false&work[mentor_id]=1451",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -63,7 +63,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=KzcvNUQ1RVppTC85S1Q2TWZUWmNuWmFvVlUvSnlScG5MMHVJZVRzMWpxM0FPbUNWZXdUS3RxaW5YUGhoWjQ1bkZMd3hYQ1YrU1pkZXVzUm1nTENFQWlnbWE3Nk1Id1BpYUlZR1ppVjZDbEIydUI4NlpLZkhMMnMxRHZ0czlWWGhTYmJBeW9NWUx6MHBSMlFoWUV3RVdJRGNyZXJzV3AxaXJCY3VDZUcvSEdjPS0tUUZySUVCRW1od0F3U1Y1SW5sZlNmUT09--67e318d5a15b5b9e076eaad82ba859897b674c4a; path=/; HttpOnly","X-Request-Id":"3caa5927-18c0-4f7e-bc9a-fa6aa46b5faf","X-Runtime":"0.043334"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=cUEwbFF0d1FKTEI1Z2x3UWI1Qk4zR3hHcHVaK0toL2htS1ZhSWFYM2VtdU0vYlhSeWxQQU50Wm9TUVozK3V4Y3NlMzV5RllXWWhzZTFxTlBiRjh0QVd2OUV3SG14SW9QQ0o2bGdZbmNvR1JWSlV0Q2VrRWp6NW5iSzV5Y29zQ2dnZGNQVElIRTNnN2xYN0FHU0E1UXNnNGlDOEFJamJHamUrQWJJYnRjVUlzPS0tUTRpeU5mRXpJUzBuZmNkR0g1WFdCdz09--f9176b0324df6702bc847ea785f72191a0046287; path=/; HttpOnly","X-Request-Id":"9f3e381c-3247-48f4-9d23-e037ee5138d0","X-Runtime":"0.167667"},
       "response_content_type": null,
       "curl": null
 }

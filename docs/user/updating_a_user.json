@@ -46,7 +46,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Sedrick&user[last_name]=Kulas&user[email]=user41_1382646382%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007fa09adf17a8%3E",
+      "request_body": "user[first_name]=Edwin&user[last_name]=Adams&user[email]=user26_1382648708%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f7f71ec11f0%3E",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +59,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=bXhLSXBiU2ozM2VBd3NwOUxZY3dOczB4VDNZVXRQbkdOUXF6V3BNK2N4QTVLVm1pTlFPbmhlTTEzT05GWEQzOXhjWjgxSnU4L0pGdG9Jdm43aSs1bW4xZUppZ3Z3d1o1U2pHT3NyaTlJdDhOMy9OSUpLVWNrMGE3ZGVTT1NRM3RaclVJZjJvT2c3d2RyT1dqTm1CM0s3TjQyamlLVHJxaFR2STRsNmdVK0d3PS0tQmRkaTVySy9jVVRGVVJuS2I4R1Z0dz09--c787dea61a7b1ff4ac924b230c5b94b9f1c1f8a1; path=/; HttpOnly","X-Request-Id":"61cb8586-5226-49ce-8ca7-10b5cf0c6e29","X-Runtime":"0.052057"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=elZRaUt5eGhDWG1UZnROWGdhNWpWMjJiNU5CZm41cktlWS9ySHRyOHZyeE5TN1BVYUJDYlVndERlbW1BTFh3U2JBU28zWnA3d3IxMTZIZEwvWjZZa2JuM3FGVngyY2l3U0thYmdzdGI1d2pNT080QkU5Ymt3d1BMRkVKd2puMG04REE3ZHgwUTVqYy8yVFJhK0pQdzNCQk1CMk4xeEVNRzdxazVTSVl5VjlvPS0tVFNpeDBGb0UxeUJCaDAxSW5QYW96UT09--2ce90ce617da56a3aa43a969297963ddf34cc96c; path=/; HttpOnly","X-Request-Id":"f6a472f5-12a7-432b-88a4-507257abf362","X-Runtime":"0.060158"},
       "response_content_type": null,
       "curl": null
 }

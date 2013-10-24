@@ -34,13 +34,19 @@
       "scope": "mentor",
       "name": "availability",
       "description": "Availability"
+    },
+    {
+      "required": false,
+      "scope": "mentor",
+      "name": "linkedin",
+      "description": "LinkedIn url"
     }
   ],
   "requests": [
     {
       "request_method": "PUT",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Quo+ducimus+a+aut+fugit+iure+molestias+laboriosam+voluptas+cupiditate+error+est+animi+et+eaque.&mentor[experties]=%7BLegal+Services%7D&mentor[years_of_experience]=15&mentor[phone_number]=%28454%29239-4083&mentor[availability]=Architecto+aut+recusandae+aut+quasi+porro+hic+doloremque+tenetur+natus+est+vel+autem+sapiente.&mentor[featured]&mentor[mentor_status_id]=1&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Aut+repudiandae+in+ex+voluptatem+quidem+autem+tempora+voluptates+rerum+enim+corrupti+occaecati.&mentor[linkedin]=http%3A%2F%2Flinkedin.com%2Fdelectus&mentor[experties]=%7BLegal+Services%7D&mentor[years_of_experience]=29&mentor[phone_number]=812.423.2130+&mentor[availability]=Adipisci+occaecati+optio+harum+distinctio+dignissimos+pariatur+voluptate+maiores+reprehenderit+ea.&mentor[featured]&mentor[mentor_status_id]=1&mentor[status_changed_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -53,7 +59,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=NVJoK3g4SWdDbm42S2wvMWJ1a1BxQ29ZUlM0L1NsNEhkMjRDL25wTTFJSzFYQWVXam1JWDR2c1VaZ05TNFg2Z0tNcEFYVjZkNGNLRFNQRnRheTlHL3pjRXVzK1RjMC9NNFBsaDlSSjJWbWE0eCtMK3FxSEZ1bW5ScVQ1UGd6WWRTVXdVRU1CdTh2cmd5RTFHNnNUTTVYdXNlSlVSVWFHMEhOdkErVUVWcGVNPS0tV0dRUzluVi9ZcEdYRnRRc2hIanREQT09--0a1153c00eebec0c1a39cd289b5df0d10293fd78; path=/; HttpOnly","X-Request-Id":"a5dea2b2-d47a-4adc-8204-91241b907a45","X-Runtime":"0.030833"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=R29aVzBpNFo0QUEyWSt0bnNyd09xMWF1NUZPR1Fld3dIc0hOK1NyakwyZXNOWnRtS1J5aDFYMUdVU2RpZzdsUWx3bUlVdUIzS0NXWndoQmh0cVlBY3BDdnFnSExVcFZkcUI2TmZFNGo2ZXBmWHc3N3VoWWJKQWNETjVaYjZ6clNHVTNqek5PNFJWLzNianN5N3lscDNSbS9la0t3SDM1Q3FPYWRtUHFIblcwPS0teGd4dGcvQ0h5ZnU4ZkxGck0zWDRGdz09--441470766f5fdfec75a3d3fdcc731cba8dab7855; path=/; HttpOnly","X-Request-Id":"19db1be4-e487-492f-873c-21de059d83e6","X-Runtime":"0.032156"},
       "response_content_type": null,
       "curl": null
 }
