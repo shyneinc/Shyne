@@ -18,7 +18,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 			@work = current_user.role.work_histories.build(work_params)
 			respond_with :api, @work
 		else
-			render json: { error: 'could not create your work history' }
+			render json: { error: 'could not create your work history' }, status: 401
 		end
 	end
 
@@ -26,7 +26,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 		if @owner #making sure if current_user is the owner
 			respond_with :api, WorkHistory.update(@work.id, work_params)
 		else
-			render json: { error: 'update failed'}
+			render json: { error: 'could not update this work history'}, status: 401
 		end
 	end
 
@@ -34,7 +34,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 		if @owner
 			respond_with :api, @work.destroy
 		else
-			render json: { error: 'could not delete this work history'}
+			render json: { error: 'could not delete this work history'}, status: 401
 		end
 	end
 
@@ -46,7 +46,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 
 	def check_type
 		if current_user.role_type != 'Mentor'
-			render json: { error: 'This function are for mentors only' }
+			render json: { error: 'This function are for mentors only' }, status: 401
 		else
 			current_user.role == @mentor ? @owner = true : @owner = false
 		end
