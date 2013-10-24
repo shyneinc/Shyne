@@ -59,6 +59,7 @@ resource 'Mentor' do
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
+    parameter :linkedin, "LinkedIn url", :required => false, :scope => :mentor
 
     example "Creating a mentor" do
       explanation "Once the user is registered and logged in, create a mentor profile"
@@ -97,6 +98,7 @@ resource 'Mentor' do
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
+    parameter :linkedin, "LinkedIn url", :required => false, :scope => :mentor
 
     example "Updating a mentor" do
       explanation "Update current user's mentor profile"

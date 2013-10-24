@@ -13,6 +13,7 @@ FactoryGirl.define do
 
   factory :mentor do
     headline { Faker::Lorem.sentence(10) }
+    linkedin { "http://linkedin.com/" + Faker::Lorem.word }
     experties { ['{Accounting,Finance}','{Banking}','{Legal Services}','{Internet,E-learning}'].sample }
     years_of_experience { rand(30) }
     phone_number { Faker::PhoneNumber.phone_number.split('x').first }

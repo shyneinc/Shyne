@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024163502) do
+ActiveRecord::Schema.define(version: 20131024204818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20131024163502) do
     t.datetime "status_changed_at"
     t.boolean  "featured"
     t.string   "experties",           default: [], array: true
+    t.string   "linkedin"
   end
 
   add_index "mentors", ["experties"], name: "index_mentors_on_experties", using: :gin
