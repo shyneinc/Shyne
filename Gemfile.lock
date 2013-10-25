@@ -140,6 +140,8 @@ GEM
     just-datetime-picker (0.0.6)
       activeadmin (>= 0.4.4)
       formtastic (>= 2.0.0)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -273,6 +275,10 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.6)
       ansi
+    twilio-ruby (3.11.4)
+      builder (>= 2.1.2)
+      jwt (>= 0.1.2)
+      multi_json (>= 1.3.0)
     tzinfo (0.3.37)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -326,4 +332,5 @@ DEPENDENCIES
   spork-rails
   thin
   turn
+  twilio-ruby
   uglifier (>= 1.3.0)
