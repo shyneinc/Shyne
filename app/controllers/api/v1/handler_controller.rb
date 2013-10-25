@@ -13,6 +13,6 @@ class Api::V1::HandlerController < ApplicationController
 
 		hash = Hash.from_xml(@response.text)
 
-		respond_with :xml => hash
+		render :xml => hash.to_xml(:root => "Response", :skip_types => true)
 	end
 end
