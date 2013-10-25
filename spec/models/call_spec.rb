@@ -5,5 +5,5 @@ describe Call do
     expect(build(:call)).to be_valid
   end
 
-  let(:call_instance) { create(:call) }
+  let(:call) { create(:call) }
 end

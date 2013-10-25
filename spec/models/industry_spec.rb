@@ -5,5 +5,5 @@ describe Industry do
     expect(build(:industry)).to be_valid
   end
 
-  let(:industry_instance) { create(:industry) }
+  let(:industry) { create(:industry) }
 end
