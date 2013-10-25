@@ -83,8 +83,8 @@ Shyne::Application.configure do
   ENV['aws_bucket'] = "shyne"
   
   #Testing Credentials
-  ENV['twilio_sid'] = "AC5b05132e8a1796743fdf60df4f9998ec"
-  ENV['twilio_token'] = "de35e9713a2e1963053134952486fa3f" 
+  ENV['twilio_sid'] = "AC226f8be2087e94b49724760fbe3d66b7"
+  ENV['twilio_token'] = "5b959a7c258221f6a551ef0c22e2c267" 
 
   # ENV['twilio_sid'] = "AC93a6e69aca2e08fdbb9b21b6c45f1e5d"
   # ENV['twilio_token'] = "b7b2de7ca6ee50514d33f2c2b2321158" 
