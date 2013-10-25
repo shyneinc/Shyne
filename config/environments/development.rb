@@ -32,4 +32,7 @@ Shyne::Application.configure do
   ENV['aws_access_key'] = "AKIAJM7FCUEYPATUV54Q"
   ENV['aws_secret_key'] = "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"
   ENV['aws_bucket'] = "shynedev"
+
+  ENV['twilio_sid'] = "AC5b05132e8a1796743fdf60df4f9998ec"
+  ENV['twilio_token'] = "de35e9713a2e1963053134952486fa3f" 
 end
