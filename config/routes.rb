@@ -96,7 +96,7 @@ Shyne::Application.routes.draw do
 
       resources :search, only: [:index]
 
-      match '/handler' => 'handler#index'
+      match '/handler' => 'handler#index' , :via => :get
     end
   end
 end
