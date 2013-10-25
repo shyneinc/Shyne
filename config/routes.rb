@@ -95,6 +95,8 @@ Shyne::Application.routes.draw do
       resources :calls, except: [:index]
 
       resources :search, only: [:index]
+
+      match '/handler' => 'handler#index'
     end
   end
 end
