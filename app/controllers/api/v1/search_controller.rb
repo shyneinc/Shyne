@@ -5,7 +5,9 @@ class Api::V1::SearchController < Api::V1::BaseController
       mentor_ids = []
       results.each { |result| mentor_ids << result[:searchable_id] }
       if(mentor_ids.count > 0)
-        respond_with :api, Mentor.find(mentor_ids.split(',')).to_json(:only => [:id, :headline, :years_of_experience], :methods => [:full_name, :avatar])
+        pg = params[:pg] || 1
+        mentors = Mentor.find(mentor_ids.split(','))
+        respond_with :api, Kaminari.paginate_array(mentors).page(pg).to_json(:only => [:id, :headline, :years_of_experience], :methods => [:full_name, :avatar])
       elsif
         render :json => {:info => 'No results found'}, :status => 200
       end
