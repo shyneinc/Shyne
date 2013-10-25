@@ -4,6 +4,7 @@ class Api::V1::HandlerController < ApplicationController
 
 	def index
 		@response = Twilio::TwiML::Response.new do |r|
+			r.Say "Greetings! Welcome to Shyne Conference"
 			r.Dial do |f|
 				f.Conference "Room 808"
 			end
