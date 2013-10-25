@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  after_validation :generate_username
+  after_validation :generate_username, :on => :create
 
   validates :first_name, :last_name, presence: true
 
@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
   end
 
   private
+
     def generate_username
-      tmp_username = (self.first_name + self.last_name).gsub(/\s+/, "").to_s.downcase
-      iterator = User.where("username like ?", "%#{tmp_username}%").pluck(:username).count    
+      tmp_username = "#{self.first_name}#{self.last_name}".gsub(/\s+/, "").to_s.downcase
+      iterator = User.where("username like ?", "%#{tmp_username}%").pluck(:username).count
       tmp_username += iterator.to_s if iterator > 0 #append count where there are similar usernames
-      
       self.username = tmp_username
     end
 end
