@@ -96,8 +96,10 @@ Shyne::Application.routes.draw do
 
       resources :search, only: [:index]
 
-      match '/handler' => 'handler#index' , :via => :get
+      match '/handler' => 'handler#index' , via: :get, defaults: {format: :xml}
     end
   end
+
+
 end
 
