@@ -1,5 +1,6 @@
 class Api::V1::HandlerController < ApplicationController
 	#this will be a twilio call handler
+	require 'nokogiri'
 	respond_to :xml
 
 	def index
@@ -10,6 +11,8 @@ class Api::V1::HandlerController < ApplicationController
 			end
 		end
 
-		respond_with xml: @response.text
+		hash = Hash.from_xml(@response.text)
+
+		respond_with :xml => hash
 	end
 end
