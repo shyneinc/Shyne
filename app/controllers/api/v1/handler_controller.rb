@@ -11,8 +11,6 @@ class Api::V1::HandlerController < ApplicationController
 			end
 		end
 
-		hash = Hash.from_xml(@response.text)
-
 		render :xml => Nokogiri::XML(@response.text)
 	end
 end
