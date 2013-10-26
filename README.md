@@ -57,3 +57,8 @@ Run this to execute the API test suite:
 API documentation is located at `/docs` and is generated using passing acceptance tests.
 
 Run this to regenerate the docs: `rake docs:generate`
+
+## Coding Style
+
+To keep our codebase clean, uniform and readable let's follow the coding styleguide prescribed by GitHub: https://github.com/styleguide
+
