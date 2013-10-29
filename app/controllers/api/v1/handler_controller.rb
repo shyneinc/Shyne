@@ -5,7 +5,7 @@ class Api::V1::HandlerController < ApplicationController
 
 	def index
 		@response = Twilio::TwiML::Response.new do |r|
-			r.Gather action: "#{root_url}handler/conference", method: 'GET', numDigits: 5, timeout: 10 do |f|
+			r.Gather action: "#{root_url}api/handler/conference", method: 'GET', numDigits: 5, timeout: 10 do |f|
 				f.Say "Greetings! Welcome to Shyne!" , voice: 'alice'
 				f.Say "Enter Passcode:", voice: 'alice'
 			end
@@ -18,9 +18,13 @@ class Api::V1::HandlerController < ApplicationController
 		@user_input = params[:Digits]
 
 		@response = Twilio::TwiML::Response.new do |r|
-			r.Say "Entering the Dojo!", voice: 'alice'
-			r.Dial do |d|
-				d.Conference @user_input
+			if !@user_input.nil?
+				r.Say "Entering the Dojo!", voice: 'alice'
+				r.Dial do |d|
+					d.Conference @user_input.to_s
+				end
+			else
+				r.Say "I'm sorry you passcode in invalid", voice: 'alice'
 			end
 		end
 
