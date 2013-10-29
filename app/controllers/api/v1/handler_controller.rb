@@ -1,6 +1,6 @@
-#this will be a twilio call handler
+#twilio call handler
+
 class Api::V1::HandlerController < ApplicationController
-	
 	require 'nokogiri'
 	respond_to :xml
 
