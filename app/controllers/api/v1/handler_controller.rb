@@ -23,5 +23,7 @@ class Api::V1::HandlerController < ApplicationController
 				d.Conference @user_input
 			end
 		end
+
+		render :xml => Nokogiri::XML(@response.text)
 	end
 end
