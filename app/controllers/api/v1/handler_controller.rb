@@ -21,7 +21,7 @@ class Api::V1::HandlerController < ApplicationController
 		@response = Twilio::TwiML::Response.new do |r|
 			if !@user_input.nil?
 				r.Say "Entering the Dojo!", voice: 'alice'
-				r.Dial do |d|
+				r.Dial action: "#{root_url}api/handler/save_call", method: :post do |d|
 					d.Conference @user_input.to_s
 				end
 			else
@@ -30,5 +30,9 @@ class Api::V1::HandlerController < ApplicationController
 		end
 
 		render :xml => Nokogiri::XML(@response.text)
+	end
+
+	def save_call
+
 	end
 end
