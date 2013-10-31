@@ -29,6 +29,7 @@ resource 'User' do
     parameter :email, "Email", :required => true, :scope => :user
     parameter :password, "Password", :required => true, :scope => :user
     parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
+    parameter :time_zone, "Time Zone", :required => false, :scope => :user
 
     example "Registering a user" do
       user = attributes_for(:user).except(:id)
@@ -59,6 +60,7 @@ resource 'User' do
     parameter :email, "Email", :required => true, :scope => :user
     parameter :password, "Password", :required => true, :scope => :user
     parameter :password_confirmation, "Password Confirmation", :required => true, :scope => :user
+    parameter :time_zone, "Time Zone", :required => false, :scope => :user
 
     example "Updating a user" do
       user_attrs = attributes_for(:user).except(:id)

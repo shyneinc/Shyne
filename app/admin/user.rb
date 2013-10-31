@@ -22,7 +22,7 @@ ActiveAdmin.register User do
 
   controller do
     def permitted_params
-      params.permit mentor: [:first_name, :last_name, :email]
+      params.permit mentor: [:first_name, :last_name, :email, :time_zone]
     end
   end
 end
