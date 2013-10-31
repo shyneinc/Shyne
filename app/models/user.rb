@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   after_validation :generate_username, :on => :create
 
   validates :first_name, :last_name, presence: true
+  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map { |m| m.name }, message: "is not a valid Time Zone"
 
   mount_uploader :avatar, AvatarUploader
 

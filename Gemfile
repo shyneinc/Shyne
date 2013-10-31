@@ -39,7 +39,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker', '~> 1.1.2'
+  gem 'faker', '~> 1.2.0'
   gem 'rack-test'
   gem 'turn', :require => false
   gem 'database_cleaner'
