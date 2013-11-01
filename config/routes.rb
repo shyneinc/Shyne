@@ -82,6 +82,7 @@ Shyne::Application.routes.draw do
 
       resources :mentors, except: [:update, :destroy] do 
         resources :work_histories
+        resources :reviews
       end
       match '/mentors' => 'mentors#update', :via => :put
       match '/mentors' => 'mentors#destroy', :via => :delete

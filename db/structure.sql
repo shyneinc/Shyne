@@ -320,6 +320,41 @@ ALTER SEQUENCE pg_search_documents_id_seq OWNED BY pg_search_documents.id;
 
 
 --
+-- Name: reviews; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE reviews (
+    id integer NOT NULL,
+    review text,
+    rating numeric,
+    mentor_id integer,
+    member_id integer,
+    call_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE reviews_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE reviews_id_seq OWNED BY reviews.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -475,6 +510,13 @@ ALTER TABLE ONLY pg_search_documents ALTER COLUMN id SET DEFAULT nextval('pg_sea
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY reviews ALTER COLUMN id SET DEFAULT nextval('reviews_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -547,6 +589,14 @@ ALTER TABLE ONLY mentors
 
 ALTER TABLE ONLY pg_search_documents
     ADD CONSTRAINT pg_search_documents_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY reviews
+    ADD CONSTRAINT reviews_pkey PRIMARY KEY (id);
 
 
 --
@@ -643,6 +693,27 @@ CREATE INDEX index_mentors_on_user_id ON mentors USING btree (user_id);
 
 
 --
+-- Name: index_reviews_on_call_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reviews_on_call_id ON reviews USING btree (call_id);
+
+
+--
+-- Name: index_reviews_on_member_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reviews_on_member_id ON reviews USING btree (member_id);
+
+
+--
+-- Name: index_reviews_on_mentor_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_reviews_on_mentor_id ON reviews USING btree (mentor_id);
+
+
+--
 -- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -705,8 +776,6 @@ INSERT INTO schema_migrations (version) VALUES ('20130918232951');
 INSERT INTO schema_migrations (version) VALUES ('20130918234754');
 
 INSERT INTO schema_migrations (version) VALUES ('20130918234856');
-
-INSERT INTO schema_migrations (version) VALUES ('20130927230737');
 
 INSERT INTO schema_migrations (version) VALUES ('20130927233105');
 
@@ -773,3 +842,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131030221621');
 INSERT INTO schema_migrations (version) VALUES ('20131030222359');
 
 INSERT INTO schema_migrations (version) VALUES ('20131031170408');
+
+INSERT INTO schema_migrations (version) VALUES ('20131031205408');
