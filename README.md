@@ -38,7 +38,7 @@ If you use ``git pull`` or a GUI client, run this command to ensure new commits 
 
 ``git rebase origin/develop develop``
 
-``git flow feature rebase new_feature``
+``git rebase develop feature/name-of-feature``
 
 ``git flow feature finish name-of-feature``
 
