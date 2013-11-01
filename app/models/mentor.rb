@@ -11,6 +11,7 @@ class Mentor < ActiveRecord::Base
 
   has_many :calls
   has_many :work_histories
+  has_many :reviews
 
   include PgSearch
   multisearchable :against => [:full_name, :headline, :experties, :worked_at],

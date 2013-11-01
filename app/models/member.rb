@@ -7,6 +7,7 @@ class Member < ActiveRecord::Base
   accepts_nested_attributes_for :user
 
   has_many :calls
+  has_many :reviews
 
   def full_name
     "#{self.user.first_name} #{self.user.last_name}"
