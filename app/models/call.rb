@@ -10,8 +10,11 @@ class Call < ActiveRecord::Base
 
   private
     def generate_passcode
-      #should check for uniqueness
-      #smallint have 32,767 limit
-      self.passcode = Random.new.rand(10_000..32_767-1) 
+      #smallint have 32,767 limit and checked for uniqueness
+      begin
+        tmp_passcode = Random.new.rand(10_000..32_767-1) 
+      end while Call.find_by_passcode(tmp_passcode)
+        
+      self.passcode = tmp_passcode
     end
 end
