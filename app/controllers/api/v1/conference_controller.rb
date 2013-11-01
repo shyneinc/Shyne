@@ -1,12 +1,12 @@
 #twilio call handler
 
-class Api::V1::HandlerController < ApplicationController
+class Api::V1::ConferenceController < ApplicationController
 	require 'nokogiri'
 	respond_to :xml
 
 	def index
 		@response = Twilio::TwiML::Response.new do |r|
-			r.Gather action: "#{root_url}api/handler/conference", method: 'GET', numDigits: 5, timeout: 10 do |f|
+			r.Gather action: "#{root_url}api/conference/initiate", method: 'GET', numDigits: 5, timeout: 10 do |f|
 				f.Say "Greetings! Welcome to Shyne!" , voice: 'alice'
 				f.Say "Enter Passcode:", voice: 'alice'
 			end
@@ -15,13 +15,13 @@ class Api::V1::HandlerController < ApplicationController
 		render :xml => Nokogiri::XML(@response.text)
 	end
 
-	def conference
+	def initiate
 		@user_input = params[:Digits]
 
 		@response = Twilio::TwiML::Response.new do |r|
 			if !@user_input.nil?
 				r.Say "Entering the Dojo!", voice: 'alice'
-				r.Dial action: "#{root_url}api/handler/save_call", method: :post do |d|
+				r.Dial action: "#{root_url}api/conference/save", method: :post do |d|
 					d.Conference @user_input.to_s
 				end
 			else
@@ -32,7 +32,7 @@ class Api::V1::HandlerController < ApplicationController
 		render :xml => Nokogiri::XML(@response.text)
 	end
 
-	def save_call
+	def save
 
 	end
 end
