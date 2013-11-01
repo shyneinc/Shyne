@@ -6,10 +6,6 @@ include PgArrayParser
 resource 'Mentor' do
   header "Accept", "application/vnd.shyne.v1"
 
-  before(:all) do
-    load "#{Rails.root}/db/seeds.rb"
-  end
-
   let(:mentor) { create(:mentor) }
 
   get "/api/mentors" do

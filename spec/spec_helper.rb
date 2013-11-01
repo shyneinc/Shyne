@@ -56,7 +56,12 @@ Spork.prefork do
       config.docs_dir = Rails.root.join("docs", "")
     end
     Faker::Config.locale = 'en-us'
+
     config.before(:each) { ActionMailer::Base.deliveries.clear }
+
+    config.before(:all) do
+      load "#{Rails.root}/db/seeds.rb"
+    end
 
     config.after(:all) do
       if Rails.env.test? 
