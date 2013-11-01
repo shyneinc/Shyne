@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Review do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    expect(build(:review)).to be_valid
+  end
+
+  let(:review) { create(:review) }
 end
