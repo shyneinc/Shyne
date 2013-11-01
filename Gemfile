@@ -24,6 +24,8 @@ gem "carrierwave"
 gem "fog", "~> 1.16.0"
 gem 'rmagick', '2.13.2'
 
+gem 'twilio-ruby'
+
 group :assets do
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails'
@@ -36,6 +38,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_api_documentation'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

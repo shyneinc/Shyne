@@ -96,7 +96,13 @@ Shyne::Application.routes.draw do
       resources :calls, except: [:index]
 
       resources :search, only: [:index]
+
+      match '/conference' => 'conference#index' , via: :get, defaults: {format: :xml}
+      match '/conference/initiate' => 'conference#initiate' , via: :get, defaults: {format: :xml}
+      match '/conference/save' => 'conference#save' , via: :post, defaults: {format: :xml}
     end
   end
+
+
 end
 
