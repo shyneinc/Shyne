@@ -121,37 +121,6 @@ ALTER SEQUENCE admins_id_seq OWNED BY admins.id;
 
 
 --
--- Name: call_statuses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE call_statuses (
-    id integer NOT NULL,
-    type character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: call_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE call_statuses_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: call_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE call_statuses_id_seq OWNED BY call_statuses.id;
-
-
---
 -- Name: calls; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -163,7 +132,8 @@ CREATE TABLE calls (
     duration numeric,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    passcode smallint
+    passcode smallint,
+    status character varying(255)
 );
 
 
@@ -422,7 +392,6 @@ CREATE TABLE users (
     last_name character varying(255),
     avatar character varying(255),
     username character varying(255),
-    settings hstore,
     time_zone character varying(255) DEFAULT 'UTC'::character varying
 );
 
@@ -494,13 +463,6 @@ ALTER TABLE ONLY active_admin_comments ALTER COLUMN id SET DEFAULT nextval('acti
 --
 
 ALTER TABLE ONLY admins ALTER COLUMN id SET DEFAULT nextval('admins_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY call_statuses ALTER COLUMN id SET DEFAULT nextval('call_statuses_id_seq'::regclass);
 
 
 --
@@ -580,14 +542,6 @@ ALTER TABLE ONLY active_admin_comments
 
 ALTER TABLE ONLY admins
     ADD CONSTRAINT admins_pkey PRIMARY KEY (id);
-
-
---
--- Name: call_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY call_statuses
-    ADD CONSTRAINT call_statuses_pkey PRIMARY KEY (id);
 
 
 --
@@ -895,3 +849,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131031170408');
 INSERT INTO schema_migrations (version) VALUES ('20131031205408');
 
 INSERT INTO schema_migrations (version) VALUES ('20131101072259');
+
+INSERT INTO schema_migrations (version) VALUES ('20131102090340');
