@@ -4,9 +4,9 @@ class Api::V1::ConferenceController < ApplicationController
 	require 'nokogiri'
 	respond_to :xml
 
-	def index
+	def initiate
 		@response = Twilio::TwiML::Response.new do |r|
-			r.Gather action: "#{root_url}api/conference/initiate", method: 'GET', numDigits: 5, timeout: 10 do |f|
+			r.Gather action: "#{root_url}api/conference/start", method: 'GET', numDigits: 5, timeout: 10 do |f|
 				f.Say "Greetings! Welcome to Shyne!" , voice: 'alice'
 				f.Say "Enter Passcode:", voice: 'alice'
 			end
@@ -15,7 +15,7 @@ class Api::V1::ConferenceController < ApplicationController
 		render :xml => Nokogiri::XML(@response.text)
 	end
 
-	def initiate
+	def start
 		@call = Call.find_by passcode: params[:Digits]
 
 		if @call
@@ -24,7 +24,7 @@ class Api::V1::ConferenceController < ApplicationController
 
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "Entering the Dojo!", voice: 'alice'
-				r.Dial action: "#{root_url}api/conference/save", method: :post do |d|
+				r.Dial action: "#{root_url}api/conference/finish", method: :post do |d|
 					d.Conference @user_input.passcode.to_s
 				end
 			end
@@ -38,7 +38,7 @@ class Api::V1::ConferenceController < ApplicationController
 		render :xml => Nokogiri::XML(@response.text)
 	end
 
-	def save
+	def finish
 		@call = Call.find_by sid: params[:CallSid]
 
 		if @call
