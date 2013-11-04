@@ -21,6 +21,7 @@ class Api::V1::ConferenceController < ApplicationController
 		if @call
 			@call.sid = params[:CallSid]
 			@call.state = params[:CallStatus]
+			@call.save
 
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "Entering the Dojo!", voice: 'alice'
@@ -41,8 +42,13 @@ class Api::V1::ConferenceController < ApplicationController
 	def finish
 		@call = Call.find_by sid: params[:CallSid]
 
-		if @call
-			#look-up account log for duration and save it to model
+		if @call && params[:CallStatus] == :completed
+			@client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
+			@log = @client.account.calls.get(@call.sid.to_s)
+
+			@call.duration = @log.duration 
+			@call.state = params[:CallStatus]
+			@call.save
 		end
 	end
 end
