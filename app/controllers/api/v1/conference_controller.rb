@@ -25,7 +25,7 @@ class Api::V1::ConferenceController < ApplicationController
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "Entering the Dojo!", voice: 'alice'
 				r.Dial action: "#{root_url}api/conference/finish", method: :post do |d|
-					d.Conference @user_input.passcode.to_s
+					d.Conference @call.passcode.to_s
 				end
 			end
 		else
