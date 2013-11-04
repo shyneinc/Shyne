@@ -7,7 +7,7 @@ end
 class State::Ringing < State
 end
 
-class State::In-progress < State
+class State::Inprogress < State
 end
 
 class State::Completed < State
