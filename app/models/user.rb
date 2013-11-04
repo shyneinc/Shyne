@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  after_validation :generate_username, :on => :create
-
   validates :first_name, :last_name, presence: true
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map { |m| m.name }, message: "is not a valid Time Zone"
+
+  after_validation :generate_username, :on => :create
 
   mount_uploader :avatar, AvatarUploader
 
