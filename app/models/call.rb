@@ -1,7 +1,9 @@
 class Call < ActiveRecord::Base
   classy_enum_attr :status, default: :proposed
 
-  belongs_to :member
+  validates :mentor_id , :member_id, presence: true
+
+  belongs_to :members
   belongs_to :mentor
   has_many :reviews
 
