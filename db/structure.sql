@@ -392,6 +392,7 @@ CREATE TABLE users (
     last_name character varying(255),
     avatar character varying(255),
     username character varying(255),
+    settings hstore,
     time_zone character varying(255) DEFAULT 'UTC'::character varying
 );
 
