@@ -133,7 +133,9 @@ CREATE TABLE calls (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     passcode smallint,
-    status character varying(255)
+    status character varying(255),
+    state character varying(255),
+    sid character varying(255)
 );
 
 
@@ -837,6 +839,8 @@ INSERT INTO schema_migrations (version) VALUES ('20131024224142');
 
 INSERT INTO schema_migrations (version) VALUES ('20131025171144');
 
+INSERT INTO schema_migrations (version) VALUES ('20131029224057');
+
 INSERT INTO schema_migrations (version) VALUES ('20131030211013');
 
 INSERT INTO schema_migrations (version) VALUES ('20131030221621');
@@ -850,3 +854,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131031205408');
 INSERT INTO schema_migrations (version) VALUES ('20131101072259');
 
 INSERT INTO schema_migrations (version) VALUES ('20131102090340');
+
+INSERT INTO schema_migrations (version) VALUES ('20131104083304');

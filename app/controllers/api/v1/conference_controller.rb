@@ -16,23 +16,33 @@ class Api::V1::ConferenceController < ApplicationController
 	end
 
 	def initiate
-		@user_input = Call.find_by passcode: params[:Digits]
+		@call = Call.find_by passcode: params[:Digits]
 
-		@response = Twilio::TwiML::Response.new do |r|
-			if !@user_input.nil?
+		if @call
+			@call.sid = params[:CallSid]
+			@call.state = params[:CallStatus]
+
+			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "Entering the Dojo!", voice: 'alice'
 				r.Dial action: "#{root_url}api/conference/save", method: :post do |d|
 					d.Conference @user_input.passcode.to_s
 				end
-			else
+			end
+		else
+			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "I'm sorry you passcode in invalid", voice: 'alice'
 			end
 		end
+
 
 		render :xml => Nokogiri::XML(@response.text)
 	end
 
 	def save
+		@call = Call.find_by sid: params[:CallSid]
 
+		if @call
+			#look-up account log for duration and save it to model
+		end
 	end
 end
