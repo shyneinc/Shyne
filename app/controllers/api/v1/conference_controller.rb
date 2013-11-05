@@ -47,7 +47,7 @@ class Api::V1::ConferenceController < ApplicationController
 			@call.state = @state
 			@call.save
 
-			render :xml => { duration: @duration.to_s }
+			render :xml => { state: @state }
 		else
 			render nothing: true
 		end
