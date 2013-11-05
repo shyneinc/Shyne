@@ -20,7 +20,7 @@ class Api::V1::ConferenceController < ApplicationController
 
 		if @call
 			@call.sid = params[:CallSid]
-			@call.state = params[:CallStatus]
+			@call.state = :inprogress
 			@call.save
 
 			@response = Twilio::TwiML::Response.new do |r|
