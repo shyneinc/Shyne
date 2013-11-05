@@ -35,7 +35,6 @@ class Api::V1::ConferenceController < ApplicationController
 			end
 		end
 
-
 		render :xml => Nokogiri::XML(@response.text)
 	end
 
@@ -43,10 +42,11 @@ class Api::V1::ConferenceController < ApplicationController
 		@call = Call.find_by sid: params[:CallSid]
 
 		if @call && params[:CallStatus] == "completed"
+			@call.duration = nil
 			@call.state = params[:CallStatus]
 			@call.save
 
-			render :xml => { state: @call.state.to_s }
+			render :xml => { state: @call.state.to_s }, status: 200
 		else
 			render nothing: true
 		end
