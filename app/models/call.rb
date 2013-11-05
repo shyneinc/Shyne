@@ -8,7 +8,7 @@ class Call < ActiveRecord::Base
 
   after_validation :generate_passcode, :on => :create
   after_update :send_status_update, :if => :status_changed?
-  after_save :send_billing, :if => :state_changed?
+  after_update :send_billing, :if => :state_changed?
 
   just_define_datetime_picker :scheduled_at
 
