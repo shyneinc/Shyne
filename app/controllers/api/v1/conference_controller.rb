@@ -41,13 +41,12 @@ class Api::V1::ConferenceController < ApplicationController
 
 	def finish
 		@call = Call.find_by sid: params[:CallSid]
-		@state = params[:CallStatus]
 
-		if @call && @state == "completed"
-			@call.state = @state
+		if @call && params[:CallStatus] == "completed"
+			@call.state = params[:CallStatus]
 			@call.save
 
-			render :xml => { state: @state }
+			render :xml => { state: @call.state.to_s }
 		else
 			render nothing: true
 		end
