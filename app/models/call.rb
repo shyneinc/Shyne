@@ -33,7 +33,8 @@ class Call < ActiveRecord::Base
     end
 
     def send_billing
-      if self.state.completed? && self.duration == nil
+      if self.state.completed? && self.duration == nil && self.sid
+        puts self.sid
         @client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
         @log = @client.account.calls.get(self.sid)
 
