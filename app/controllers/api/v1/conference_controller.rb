@@ -50,5 +50,7 @@ class Api::V1::ConferenceController < ApplicationController
 			@call.state = params[:CallStatus]
 			@call.save
 		end
+
+		render nothing: true
 	end
 end
