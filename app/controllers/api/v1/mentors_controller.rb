@@ -20,7 +20,6 @@ class Api::V1::MentorsController < Api::V1::BaseController
       @mentor = Mentor.new(mentor_params)
       @mentor.user = current_user
       @mentor.user_id = current_user.id
-      @mentor.mentor_status_id = MentorStatus.by_status('Applied').id
       @mentor.save
       respond_with :api, @mentor
     else

@@ -15,5 +15,3 @@ end
 Admin.create(:email => 'jesal@shyne.io', :password => 'password', :password_confirmation => 'password')
 Admin.create(:email => 'rohan@shyne.io', :password => 'password', :password_confirmation => 'password')
 Admin.create(:email => 'tim@shyne.io', :password => 'password', :password_confirmation => 'password')
-
-MentorStatus.create([{title: 'Applied'}, {title: 'Reapplied'}, {title: 'Approved'}, {title: 'Declined'}])

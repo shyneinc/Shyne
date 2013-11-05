@@ -20,7 +20,6 @@ describe Mentor do
 
   describe "ActiveRecord validations" do
     context "Associations" do
-      it { expect(mentor).to belong_to(:mentor_status) }
       it { expect(mentor).to have_many(:calls) }
       it { expect(mentor).to have_many(:work_histories) }
     end
@@ -50,9 +49,9 @@ describe Mentor do
     end
 
     context "#approved" do
-      let!(:mentor1) { create(:mentor, mentor_status_id: MentorStatus.by_status('Approved').id) }
+      let!(:mentor1) { create(:mentor, mentor_status: MentorStatus::Approved.new) }
       let!(:mentor2) { create(:mentor) }
-      let!(:mentor3) { create(:mentor, mentor_status_id: MentorStatus.by_status('Approved').id) }
+      let!(:mentor3) { create(:mentor, mentor_status: MentorStatus::Approved.new) }
 
       it "returns an array of approved mentors" do
         expect(Mentor.approved).to include mentor1, mentor3

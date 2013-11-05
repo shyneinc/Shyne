@@ -1,4 +1,6 @@
 class Mentor < ActiveRecord::Base
+  classy_enum_attr :mentor_status, default: :applied
+
   validates :headline, :experties, :years_of_experience, :availability, :phone_number, presence: true
   validates :years_of_experience, :numericality => { :greater_than_or_equal_to => 0 }
   phony_normalize :phone_number, :default_country_code => 'US'
@@ -6,8 +8,6 @@ class Mentor < ActiveRecord::Base
 
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
-
-  belongs_to :mentor_status
 
   has_many :calls
   has_many :work_histories
@@ -18,18 +18,18 @@ class Mentor < ActiveRecord::Base
                   ignoring: :accents,
                   :if => :approved?
 
-  after_update :send_status_email, :if => :mentor_status_id_changed?
+  after_update :send_status_email, :if => :mentor_status_changed?
 
   def send_status_email
-    if self.mentor_status.title == 'Approved'
+    if self.mentor_status.approved?
       MentorMailer.approval_email(self).deliver
-    else self.mentor_status.title == 'Declined'
+    else self.mentor_status.declined?
       MentorMailer.declined_email(self).deliver
     end
   end
 
   def self.approved
-    where(mentor_status_id: MentorStatus.by_status('Approved').id)
+    where(mentor_status: :approved)
   end
 
   def self.featured
@@ -63,6 +63,6 @@ class Mentor < ActiveRecord::Base
   end
 
   def approved?
-    self.mentor_status_id == MentorStatus.by_status('Approved').id
+    self.mentor_status.approved?
   end
 end

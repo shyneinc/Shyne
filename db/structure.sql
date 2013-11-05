@@ -121,6 +121,37 @@ ALTER SEQUENCE admins_id_seq OWNED BY admins.id;
 
 
 --
+-- Name: call_statuses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE call_statuses (
+    id integer NOT NULL,
+    type character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: call_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE call_statuses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: call_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE call_statuses_id_seq OWNED BY call_statuses.id;
+
+
+--
 -- Name: calls; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -222,35 +253,6 @@ ALTER SEQUENCE members_id_seq OWNED BY members.id;
 
 
 --
--- Name: mentor_statuses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE mentor_statuses (
-    id integer NOT NULL,
-    title character varying(255)
-);
-
-
---
--- Name: mentor_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE mentor_statuses_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: mentor_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE mentor_statuses_id_seq OWNED BY mentor_statuses.id;
-
-
---
 -- Name: mentors; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -263,11 +265,11 @@ CREATE TABLE mentors (
     years_of_experience integer,
     phone_number character varying(255),
     availability text,
-    mentor_status_id integer,
     status_changed_at timestamp without time zone,
     featured boolean,
     experties character varying(255)[] DEFAULT '{}'::character varying[],
-    linkedin character varying(255)
+    linkedin character varying(255),
+    mentor_status character varying(255)
 );
 
 
@@ -472,6 +474,13 @@ ALTER TABLE ONLY admins ALTER COLUMN id SET DEFAULT nextval('admins_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY call_statuses ALTER COLUMN id SET DEFAULT nextval('call_statuses_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY calls ALTER COLUMN id SET DEFAULT nextval('calls_id_seq'::regclass);
 
 
@@ -487,13 +496,6 @@ ALTER TABLE ONLY industries ALTER COLUMN id SET DEFAULT nextval('industries_id_s
 --
 
 ALTER TABLE ONLY members ALTER COLUMN id SET DEFAULT nextval('members_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY mentor_statuses ALTER COLUMN id SET DEFAULT nextval('mentor_statuses_id_seq'::regclass);
 
 
 --
@@ -548,6 +550,14 @@ ALTER TABLE ONLY admins
 
 
 --
+-- Name: call_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY call_statuses
+    ADD CONSTRAINT call_statuses_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: calls_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -569,14 +579,6 @@ ALTER TABLE ONLY industries
 
 ALTER TABLE ONLY members
     ADD CONSTRAINT members_pkey PRIMARY KEY (id);
-
-
---
--- Name: mentor_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY mentor_statuses
-    ADD CONSTRAINT mentor_statuses_pkey PRIMARY KEY (id);
 
 
 --
@@ -683,13 +685,6 @@ CREATE INDEX index_mentors_on_experties ON mentors USING gin (experties);
 
 
 --
--- Name: index_mentors_on_mentor_status_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_mentors_on_mentor_status_id ON mentors USING btree (mentor_status_id);
-
-
---
 -- Name: index_mentors_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -781,6 +776,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130918234754');
 
 INSERT INTO schema_migrations (version) VALUES ('20130918234856');
 
+INSERT INTO schema_migrations (version) VALUES ('20130927230737');
+
 INSERT INTO schema_migrations (version) VALUES ('20130927233105');
 
 INSERT INTO schema_migrations (version) VALUES ('20130930210659');
@@ -849,6 +846,8 @@ INSERT INTO schema_migrations (version) VALUES ('20131030222359');
 
 INSERT INTO schema_migrations (version) VALUES ('20131031170408');
 
+INSERT INTO schema_migrations (version) VALUES ('20131031180133');
+
 INSERT INTO schema_migrations (version) VALUES ('20131031205408');
 
 INSERT INTO schema_migrations (version) VALUES ('20131101072259');
@@ -856,3 +855,7 @@ INSERT INTO schema_migrations (version) VALUES ('20131101072259');
 INSERT INTO schema_migrations (version) VALUES ('20131102090340');
 
 INSERT INTO schema_migrations (version) VALUES ('20131104083304');
+
+INSERT INTO schema_migrations (version) VALUES ('20131105212056');
+
+INSERT INTO schema_migrations (version) VALUES ('20131105212409');

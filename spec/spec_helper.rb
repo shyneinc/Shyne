@@ -59,10 +59,6 @@ Spork.prefork do
 
     config.before(:each) { ActionMailer::Base.deliveries.clear }
 
-    config.before(:all) do
-      load "#{Rails.root}/db/seeds.rb"
-    end
-
     config.after(:all) do
       if Rails.env.test? 
         FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])

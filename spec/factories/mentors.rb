@@ -19,7 +19,7 @@ FactoryGirl.define do
     phone_number { Faker::PhoneNumber.phone_number.split('x').first }
     availability { Faker::Lorem.sentence(10) }
     featured { [true, false].sample }
-    mentor_status_id { MentorStatus.by_status('Applied').id }
+    mentor_status MentorStatus::Applied.new
     status_changed_at nil
     user
   end

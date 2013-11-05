@@ -18,7 +18,7 @@ ActiveAdmin.register Mentor do
       f.input :years_of_experience
       f.input :phone_number
       f.input :availability
-      f.input :mentor_status
+      f.input :mentor_status, as: :select, collection: MentorStatus.select_options
       f.input :featured
     end
     f.actions
@@ -27,7 +27,7 @@ ActiveAdmin.register Mentor do
   controller do
     def permitted_params
       params.permit mentor: [:headline, :experties, :years_of_experience, :phone_number,
-                             :availability, :mentor_status_id, :featured]
+                             :availability, :mentor_status, :featured]
     end
   end
 end
