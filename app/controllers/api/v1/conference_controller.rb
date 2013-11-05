@@ -47,6 +47,7 @@ class Api::V1::ConferenceController < ApplicationController
 
 			@client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
 			@log = @client.account.calls.get(@call.sid.to_s)
+			
 			@call.duration = @log.duration 
 			@call.state = params[:CallStatus]
 			@call.save
