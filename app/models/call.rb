@@ -8,6 +8,7 @@ class Call < ActiveRecord::Base
 
   after_validation :generate_passcode, :on => :create
   after_update :send_status_update, :if => :status_changed?
+  after_update :send_billing, :if => :state_changed?
 
   just_define_datetime_picker :scheduled_at
 
@@ -29,5 +30,16 @@ class Call < ActiveRecord::Base
       elsif self.status.rescheduled?
         puts 'send sked retry' #need mailer and sms
       end   
+    end
+
+    def send_billing
+      if self.state.completed?
+        @client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
+        @log = @client.account.calls.get(@call.sid)
+        @duration = @log.duration.to_f
+
+        @call.duration = @duration
+        @call.save
+      end
     end
 end
