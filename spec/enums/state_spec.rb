@@ -8,7 +8,7 @@ describe State::Ringing do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
-describe State::In-progress do
+describe State::Inprogress do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
