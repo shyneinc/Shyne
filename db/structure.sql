@@ -121,22 +121,27 @@ ALTER SEQUENCE admins_id_seq OWNED BY admins.id;
 
 
 --
--- Name: call_statuses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: call_histories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE call_statuses (
+CREATE TABLE call_histories (
     id integer NOT NULL,
-    type character varying(255),
+    sid character varying(255),
+    status character varying(255),
+    phone_number character varying(255),
+    price numeric,
+    duration integer,
+    call_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
 
 
 --
--- Name: call_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: call_histories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE call_statuses_id_seq
+CREATE SEQUENCE call_histories_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -145,10 +150,10 @@ CREATE SEQUENCE call_statuses_id_seq
 
 
 --
--- Name: call_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: call_histories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE call_statuses_id_seq OWNED BY call_statuses.id;
+ALTER SEQUENCE call_histories_id_seq OWNED BY call_histories.id;
 
 
 --
@@ -164,9 +169,7 @@ CREATE TABLE calls (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     passcode smallint,
-    status character varying(255),
-    state character varying(255),
-    sid character varying(255)
+    appointment_status character varying(255)
 );
 
 
@@ -187,6 +190,45 @@ CREATE SEQUENCE calls_id_seq
 --
 
 ALTER SEQUENCE calls_id_seq OWNED BY calls.id;
+
+
+--
+-- Name: delayed_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE delayed_jobs (
+    id integer NOT NULL,
+    priority integer DEFAULT 0 NOT NULL,
+    attempts integer DEFAULT 0 NOT NULL,
+    handler text NOT NULL,
+    last_error text,
+    run_at timestamp without time zone,
+    locked_at timestamp without time zone,
+    failed_at timestamp without time zone,
+    locked_by character varying(255),
+    queue character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: delayed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE delayed_jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: delayed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE delayed_jobs_id_seq OWNED BY delayed_jobs.id;
 
 
 --
@@ -474,7 +516,7 @@ ALTER TABLE ONLY admins ALTER COLUMN id SET DEFAULT nextval('admins_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY call_statuses ALTER COLUMN id SET DEFAULT nextval('call_statuses_id_seq'::regclass);
+ALTER TABLE ONLY call_histories ALTER COLUMN id SET DEFAULT nextval('call_histories_id_seq'::regclass);
 
 
 --
@@ -482,6 +524,13 @@ ALTER TABLE ONLY call_statuses ALTER COLUMN id SET DEFAULT nextval('call_statuse
 --
 
 ALTER TABLE ONLY calls ALTER COLUMN id SET DEFAULT nextval('calls_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY delayed_jobs ALTER COLUMN id SET DEFAULT nextval('delayed_jobs_id_seq'::regclass);
 
 
 --
@@ -550,11 +599,11 @@ ALTER TABLE ONLY admins
 
 
 --
--- Name: call_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: call_histories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY call_statuses
-    ADD CONSTRAINT call_statuses_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY call_histories
+    ADD CONSTRAINT call_histories_pkey PRIMARY KEY (id);
 
 
 --
@@ -563,6 +612,14 @@ ALTER TABLE ONLY call_statuses
 
 ALTER TABLE ONLY calls
     ADD CONSTRAINT calls_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: delayed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY delayed_jobs
+    ADD CONSTRAINT delayed_jobs_pkey PRIMARY KEY (id);
 
 
 --
@@ -619,6 +676,13 @@ ALTER TABLE ONLY users
 
 ALTER TABLE ONLY work_histories
     ADD CONSTRAINT work_histories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: delayed_jobs_priority; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX delayed_jobs_priority ON delayed_jobs USING btree (priority, run_at);
 
 
 --
@@ -776,8 +840,6 @@ INSERT INTO schema_migrations (version) VALUES ('20130918234754');
 
 INSERT INTO schema_migrations (version) VALUES ('20130918234856');
 
-INSERT INTO schema_migrations (version) VALUES ('20130927230737');
-
 INSERT INTO schema_migrations (version) VALUES ('20130927233105');
 
 INSERT INTO schema_migrations (version) VALUES ('20130930210659');
@@ -846,8 +908,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131030222359');
 
 INSERT INTO schema_migrations (version) VALUES ('20131031170408');
 
-INSERT INTO schema_migrations (version) VALUES ('20131031180133');
-
 INSERT INTO schema_migrations (version) VALUES ('20131031205408');
 
 INSERT INTO schema_migrations (version) VALUES ('20131101072259');
@@ -856,6 +916,14 @@ INSERT INTO schema_migrations (version) VALUES ('20131102090340');
 
 INSERT INTO schema_migrations (version) VALUES ('20131104083304');
 
+INSERT INTO schema_migrations (version) VALUES ('20131105094929');
+
+INSERT INTO schema_migrations (version) VALUES ('20131105193005');
+
+INSERT INTO schema_migrations (version) VALUES ('20131105205000');
+
 INSERT INTO schema_migrations (version) VALUES ('20131105212056');
 
 INSERT INTO schema_migrations (version) VALUES ('20131105212409');
+
+INSERT INTO schema_migrations (version) VALUES ('20131105214337');

@@ -1,11 +1,14 @@
 class Status < ClassyEnum::Base
 end
 
-class Status::Proposed < Status
+class Status::Inprogress < Status
 end
 
-class Status::Scheduled < Status
+class Status::Completed < Status
 end
 
-class Status::Rescheduled < Status
+class Status::Failed < Status
+end
+
+class Status::Canceled < Status
 end
