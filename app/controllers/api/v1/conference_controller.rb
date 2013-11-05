@@ -51,7 +51,5 @@ class Api::V1::ConferenceController < ApplicationController
 		else
 			render nothing: true
 		end
-
-
 	end
 end
