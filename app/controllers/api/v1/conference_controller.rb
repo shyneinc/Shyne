@@ -44,14 +44,14 @@ class Api::V1::ConferenceController < ApplicationController
 		@state = params[:CallStatus]
 
 		if @call && @state == "completed"
-
 			@client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
 			@log = @client.account.calls.get(@call.sid.to_s)
-			
-			@call.duration = @log.duration 
+
+			@call.duration = @log.duration.to_f
 			@call.state = params[:CallStatus]
 			@call.save
-			render @call
+
+			render :xml => Nokogiri::XML(@call)
 		else
 			render nothing: true
 		end
