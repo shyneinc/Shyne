@@ -40,13 +40,19 @@
       "scope": "user",
       "name": "password_confirmation",
       "description": "Password Confirmation"
+    },
+    {
+      "required": false,
+      "scope": "user",
+      "name": "time_zone",
+      "description": "Time Zone"
     }
   ],
   "requests": [
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Edwin&user[last_name]=Adams&user[email]=user26_1382648708%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f7f71ec11f0%3E",
+      "request_body": "user[first_name]=Rylee&user[last_name]=Stamm&user[email]=user9_1383698015%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x854d1f8%3E&user[username]=ryleestamm&user[settings]&user[time_zone]=Alaska",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +65,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=elZRaUt5eGhDWG1UZnROWGdhNWpWMjJiNU5CZm41cktlWS9ySHRyOHZyeE5TN1BVYUJDYlVndERlbW1BTFh3U2JBU28zWnA3d3IxMTZIZEwvWjZZa2JuM3FGVngyY2l3U0thYmdzdGI1d2pNT080QkU5Ymt3d1BMRkVKd2puMG04REE3ZHgwUTVqYy8yVFJhK0pQdzNCQk1CMk4xeEVNRzdxazVTSVl5VjlvPS0tVFNpeDBGb0UxeUJCaDAxSW5QYW96UT09--2ce90ce617da56a3aa43a969297963ddf34cc96c; path=/; HttpOnly","X-Request-Id":"f6a472f5-12a7-432b-88a4-507257abf362","X-Runtime":"0.060158"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=cGZiOEpSd0xOOUxrTDFSY2ROUmxVYTZNZVpvMkV2WU9udXZNWmVkMDA2L2RGeGRHUFFxb2VkZzFVVWFBK2Z2OUxybDhvS21qVlQ4LzZjRmw1RjBCb1drRFI4eFlWcVJ5VjFralQvZ3ZEQk9uOVNHZndHV3Z5bG5pZTZVR1JJZ0FBU1RBZmJRNlRRSWxGS0xBTmRaVFJ4RUVmbXZFelNQTkZKRGhSd1U0Tlo0PS0tNVZCMjJrWGcxYlIzeUFUbE5XVkkyUT09--1c788524ba5222d967112fc590f9e7d8403e8ccf; path=/; HttpOnly","X-Request-Id":"6e426668-b2cc-4868-97f3-c9febd4bee68","X-Runtime":"0.075196"},
       "response_content_type": null,
       "curl": null
 }

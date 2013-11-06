@@ -1,0 +1,48 @@
+{
+  "resource": "Review",
+  "http_method": "POST",
+  "route": "/api/mentors/:mentor_id/reviews",
+  "description": "Create a review",
+  "explanation": "Once the call is completed, a member can write a review",
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "scope": "review",
+      "name": "review",
+      "description": "Review"
+    },
+    {
+      "required": false,
+      "scope": "review",
+      "name": "call_id",
+      "description": "Call ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/mentors/102/reviews",
+      "request_body": "review[review]=Molestiae+rem+sunt+reprehenderit+quam+ut+et+autem+enim+minima+possimus.&review[rating]=4.0",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":15,\"review\":\"Molestiae rem sunt reprehenderit quam ut et autem enim minima possimus.\",\"rating\":\"4.0\",\"mentor_id\":102,\"member_id\":59,\"call_id\":null,\"created_at\":\"2013-11-06T00:33:34.980Z\",\"updated_at\":\"2013-11-06T00:33:34.980Z\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/102/reviews.15","Content-Type":"application/json; charset=utf-8","ETag":"\"a1661184836af67ddcbbb256d98a4125\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=QUR6M1F4UWJsQUdGNWNka1dSd09zREo3cUNKanhsU0ZEcXNlOWlwUXJKMVZWaFJsVjlnTUdmeVYxRk40TURjSGxoZ0YvVXB1RWdxcmVUV2RUVERhTDFtOEJiWnF1eDZuLzZkaFB3dXczQmxsR2VjcmxXMDdOT09jQ3FMMHNnOUNET25kaE1IVHlRSFRXaWFWc1U5OTl2ck9DLzZaeDV3SXh6UStXRmJxS1QwPS0takF4VG5EelNjbGI5Zmx4VWs2R1k0QT09--5070e0950bb8b058e68c2ccfa1e97b1a75c9c09a; path=/; HttpOnly","X-Request-Id":"aec279e4-9472-4d79-809f-73ddfc7bd177","X-Runtime":"0.041992","Content-Length":"233"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

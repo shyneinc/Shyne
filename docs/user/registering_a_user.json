@@ -40,13 +40,19 @@
       "scope": "user",
       "name": "password_confirmation",
       "description": "Password Confirmation"
+    },
+    {
+      "required": false,
+      "scope": "user",
+      "name": "time_zone",
+      "description": "Time Zone"
     }
   ],
   "requests": [
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Destini&user[last_name]=Cassin&user[email]=user28_1382648708%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x007f7f71ec11f0%3E",
+      "request_body": "user[first_name]=Lysanne&user[last_name]=Prohaska&user[email]=user11_1383698016%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x854d1f8%3E&user[username]=lysanneprohaska&user[settings]&user[time_zone]=Indiana+%28East%29",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -58,8 +64,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":3528,\"email\":\"user28_1382648708@shyne.io\",\"created_at\":\"2013-10-24T21:05:08.418Z\",\"updated_at\":\"2013-10-24T21:05:08.483Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Destini\",\"last_name\":\"Cassin\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"04b810cc976d98d52bbed0a2b5ae23ac\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=aW9CVEdWSkZEVWlBTTFuSW1xbFZWZENCZ1ZNTk5VQ1NNYW1rVlJYSWRjNXc4TTBMZ1BiL1RBQlZ5L3grQUtyR2t0ekV0SVhmZnpTTjFldzg4WXoxVG54eElFUGorb1U4emRudlAwc0xEa1ozM2dIRmVzTVh3VnpBU0ZSMVNObVRCTzF2TDZkS1MrZ2xJNlVpaVBPR2cvUnZDNTRNUU1JSTJndUVoSEEyNE8wPS0taEZ3RFdHaDVBYkNtTmRWSndUU21KQT09--5a19f32d8b537fab60477dbe54894f909fa23779; path=/; HttpOnly","X-Request-Id":"5ec30294-0d51-4f5c-9342-74a1fe28c1f2","X-Runtime":"0.109770","Content-Length":"378"},
+      "response_body": "{\"id\":236,\"email\":\"user11_1383698016@shyne.io\",\"created_at\":\"2013-11-05T15:33:36.046-09:00\",\"updated_at\":\"2013-11-05T15:33:36.087-09:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Lysanne\",\"last_name\":\"Prohaska\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}},\"username\":\"lysanneprohaska\",\"settings\":null,\"time_zone\":\"Indiana (East)\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"7efc359d93685f90f44f663b3cf2a78b\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=QlcrMGplK2JoREdmZ0NSbENMRkdYaEI5NXhnelJsZU8xZ1hWNkRsbTBDVkRoS0d5Smw1MUIzakgvOWVoK281THhIdXNhNGUxcUQveW1CYVN5Q2VvQTJVWUJlMmZYU3pwMjhrQzl0c3p3MDdpcWY4eDh0SS9lVCtBelhvcDhWUHhMbXFQME15NGpIRTJpV1hBYmtwbXdWaEdWSzJYRVBtQm82Si9Qam1jSC9BPS0tdjhaazJ5aFdSazUwTVhwV0pNdWxrUT09--4be84201c7294bddc1252917aeddf5e1cd273427; path=/; HttpOnly","X-Request-Id":"957ccaf1-d753-49c9-8bf2-ca8dd61d37d5","X-Runtime":"0.084961","Content-Length":"463"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

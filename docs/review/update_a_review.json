@@ -1,0 +1,53 @@
+{
+  "resource": "Review",
+  "http_method": "PUT",
+  "route": "/api/mentors/:mentor_id/reviews/:id",
+  "description": "Update a review",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "id",
+      "description": "Review ID"
+    },
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "scope": "review",
+      "name": "review",
+      "description": "Review"
+    },
+    {
+      "required": false,
+      "scope": "review",
+      "name": "call_id",
+      "description": "Call ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/mentors/103/reviews/16",
+      "request_body": "review[review]=Et+ipsa+tenetur+quidem+voluptate+sit+deleniti+autem+accusamus+fugit+itaque+in+quibusdam+et.&review[rating]=0.0",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dmdKZEpqSUJCNVNISEVWNEw3L3NLQ09aWE8xaTMyazI0YVByMVVJR2l6Qmc5Q1ZZMjRjNWpHam94Y0l0RnhzRkFDZDhXQ2lEcmdIQmhuRDB4WXVtM05DTi9TeTIwTWpiTFpubXc0STJBdU5ldG8vTE93by90My9vQmdhYURpdXJEYWc5NEJxY2JUOXk2VG5CU2ZxMEVFdVM2RXBPRXJDaHdzd0toVW0yWG9BPS0tRGxoUnQxeFlCa2ViUG1iMlVWaVRlZz09--f5b3aed2ba97b154c8474f51dbfafb8fcb0b278c; path=/; HttpOnly","X-Request-Id":"19843cef-99f6-4f99-9275-123f84d5b4ea","X-Runtime":"0.046875"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

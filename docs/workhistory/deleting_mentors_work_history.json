@@ -19,7 +19,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/mentors/1454/work_histories/375",
+      "request_path": "/api/mentors/118/work_histories/42",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -33,7 +33,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=DELETE; path=/\n_Shyne_session=eEUzbmh3VGFtWWxmSFhEUUp5Ui9ZcTNlRm94ZHpQMGN2TzZvU1ZGMjU4VVRMSXA2YXRVYW9ORUprNkc0MjZScElyejJIQ2kweDlIL3ZhcWh6eVByTEFaSTdRSkg3anpRNm01c2VkT0FxbHZjZk45UE5DT2Nvb3RJZnBDbmtQR3lza3R1elpBTEx2TXNMMHBSOE54MktFVHYyVGtlU2xDWjZVQVhEQTh4S0tVPS0tdHpEMTJNYTdITGtuamtwR1h4OUVIZz09--3b5c83192d387f2f4c7111fbac89948d2229708d; path=/; HttpOnly","X-Request-Id":"e32dd7d0-96c5-49cd-9459-6ce4b65481f1","X-Runtime":"0.028679"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dStwUTBHOXZiYU9Ia043dlpjelBoUWdseGU3dGdhVk5QSXRiMWYyR1BwelpTSVZ1bW4vSFRBbGt3eHFyTlpXNUxDTGx5M21ITEhtVDh1Q01PdTRYc2lublZCM1RKV2RNMVFVZEdzcG9RSVBMbHlvbHRuZjdIZi9pMkw3TkNSSEFkeUw2SjZuSy9SUmtzODBxenBRSVBqQ3RGOU5WS2k5V24xZkFhSXBGQWFJPS0td0cyc2F1cmp6VjZIWDZOam1JK3JiUT09--e86d1987458367044029c4f689f61af66aa56bc5; path=/; HttpOnly","X-Request-Id":"529859a5-ae0e-4704-a919-d275c8a0c731","X-Runtime":"0.062500"},
       "response_content_type": null,
       "curl": null
 }

@@ -111,6 +111,31 @@
       ]
     },
     {
+      "name": "Review",
+      "examples": [
+        {
+          "description": "Create a review",
+          "link": "review/create_a_review.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting a review",
+          "link": "review/deleting_a_review.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all mentor reviews",
+          "link": "review/getting_all_mentor_reviews.json",
+          "groups": "all"
+        },
+        {
+          "description": "Update a review",
+          "link": "review/update_a_review.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Search",
       "examples": [
         {

@@ -3,17 +3,23 @@
   "http_method": "GET",
   "route": "/api/search",
   "description": "Getting all matching search results",
-  "explanation": null,
+  "explanation": "This endpoint will search for Mentor's full name, headline, experties and work history to find a match",
   "parameters": [
     {
+      "required": true,
       "name": "q",
       "description": "Search query"
+    },
+    {
+      "required": false,
+      "name": "pg",
+      "description": "Page number"
     }
   ],
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/search?q=test",
+      "request_path": "/api/search?q=banking&pg=1",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -21,13 +27,14 @@
         "Cookie": ""
       },
       "request_query_parameters": {
-        "q": "test"
+        "q": "banking",
+        "pg": "1"
       },
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[]",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=GET; path=/","X-Request-Id":"42f63bdd-2704-4269-b0ba-fd4e16b06d00","X-Runtime":"0.524832","Content-Length":"2"},
+      "response_body": "{\"info\":\"No results found\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"8d091c0eadd59e1cca4dfaa373b51ade\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"83d71261-d1d7-4490-af42-7d962fa84eb6","X-Runtime":"0.579102","Content-Length":"27"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

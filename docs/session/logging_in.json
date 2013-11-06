@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/sessions",
-      "request_body": "user[email]=user6_1382648702%40shyne.io&user[password]=password",
+      "request_body": "user[email]=user41_1383698023%40shyne.io&user[password]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -34,8 +34,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":3505,\"email\":\"user6_1382648702@shyne.io\",\"created_at\":\"2013-10-24T21:05:02.379Z\",\"updated_at\":\"2013-10-24T21:05:02.481Z\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Houston\",\"last_name\":\"Fay\",\"avatar\":{\"url\":\"/uploads/user/avatar/3505/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/3505/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/3505/thumb_spongebob.jpeg\"}}}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f855138c5131282b2370b8e90081080b\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"request_method=POST; path=/\n_Shyne_session=QUg2cWxCSEo2QzhmbEVESHN0bXBHQk9JYTBoZ1JyL2RlZU9rVWdoakNZOTFQejZBQTJsRkJ0N01KRDIxUHhGWk1SYXZUbXlacEtqVXJnaWdoR3hFMVN2YmJLTmRaS20ra0NaN1hldmRJL2QzY1ppRWpUbk1kTW1mbUFSL3ZNSTJsY0VPWGVoUmU2bG5iK0tValhlUkVRbVorRFBSYlJXd1ordFZ3VGhaZEo3eldXcmorMG04U0JXZnVoRlByYSszLS1DQUlGT25raFRudjZLY2ljZ3dRUkZnPT0%3D--fa96d187e80ae131274c4b1f08ec8db677200050; path=/; HttpOnly","X-Request-Id":"5d9d3d0c-1373-4eed-a617-9e0152e380f4","X-Runtime":"0.055138","Content-Length":"420"},
+      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":270,\"email\":\"user41_1383698023@shyne.io\",\"created_at\":\"2013-11-05T19:33:43.310-05:00\",\"updated_at\":\"2013-11-05T19:33:43.458-05:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Aryanna\",\"last_name\":\"McCullough\",\"avatar\":{\"url\":\"/uploads/user/avatar/270/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/270/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/270/thumb_spongebob.jpeg\"}},\"username\":\"aryannamccullough\",\"settings\":null,\"time_zone\":\"Arizona\"}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"920076d08cf648f89452b75fa3cf5ad7\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=Yld0aUZZTGRPVm9SZUNjMmdIYjViT3ZjVFlZbVJJNXVpWkxsZXdUVTlIZFRSZjZYYlYrWDk3UFpCSytUdlFrN0F1SzZZY3NCS2c0LzYrUXI5Q0JuZ1VSbEdnRi94bGtjN3BDc3lhWDBpOHhXR3Vlb3Mwb21mQUZyeStvNW1ETFFxaDlwaVo5MEpMMG9QM0pzMjJDcFROdDNjZmROUmxCVXkyT0lKeU9yeUQ5eVhuYVcvM0owVHNoT1lwR08rcW5uLS1BcjRCaEd4b1EzclloV082cW1FRjNRPT0%3D--45bf3e0db0e02b9661ede98d74e372b2ca3e0eea; path=/; HttpOnly","X-Request-Id":"562fdfd2-90fc-4fd6-8537-7aa45369803e","X-Runtime":"0.070312","Content-Length":"503"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

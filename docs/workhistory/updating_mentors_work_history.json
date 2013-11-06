@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/1451/work_histories/363",
-      "request_body": "work[company]=Murray-McKenzie&work[title]=Product+Integration+Consultant&work[date_started]=2012-06-13&work[date_ended]=2013-10-13&work[current_work]=false&work[mentor_id]=1451",
+      "request_path": "/api/mentors/121/work_histories/54",
+      "request_body": "work[company]=VonRueden%2C+Murphy+and+Maggio&work[title]=Central+Implementation+Supervisor&work[date_started]=2012-09-16&work[date_ended]=2015-03-19&work[current_work]=false&work[mentor_id]=121",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -63,7 +63,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"request_method=PUT; path=/\n_Shyne_session=cUEwbFF0d1FKTEI1Z2x3UWI1Qk4zR3hHcHVaK0toL2htS1ZhSWFYM2VtdU0vYlhSeWxQQU50Wm9TUVozK3V4Y3NlMzV5RllXWWhzZTFxTlBiRjh0QVd2OUV3SG14SW9QQ0o2bGdZbmNvR1JWSlV0Q2VrRWp6NW5iSzV5Y29zQ2dnZGNQVElIRTNnN2xYN0FHU0E1UXNnNGlDOEFJamJHamUrQWJJYnRjVUlzPS0tUTRpeU5mRXpJUzBuZmNkR0g1WFdCdz09--f9176b0324df6702bc847ea785f72191a0046287; path=/; HttpOnly","X-Request-Id":"9f3e381c-3247-48f4-9d23-e037ee5138d0","X-Runtime":"0.167667"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=ZW41a3lOdllzdWppZXE5cEpHRVIrZ2JjVmx1WHRxRjdPWWpIdWNsMkFBLzFzQk1WV0hqVTZkTG5NZUE3dFQvVGJlNWlldUwrd3d0c2ZORVRrRFZCbEdyZEJ6QnFsbFJPRW5HdFhaMVFoY2FTRjNGZWY0VmoyTXNOZ1lRQ1pKaThhZ3g2OFJMelJjLytpRjdhY2lRbUZBM2Z4ZXc0ODBubVd0clBqVWpTU2N3PS0tbWtFRjROdEFYTlJqb3lkZTFaVUZEZz09--9f9cfb667be88f3846e62fbd723f74d1a2ec8807; path=/; HttpOnly","X-Request-Id":"38699378-c488-4d4b-866e-5e2c0dc41992","X-Runtime":"0.039062"},
       "response_content_type": null,
       "curl": null
 }
