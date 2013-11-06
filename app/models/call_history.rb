@@ -4,7 +4,7 @@ class CallHistory < ActiveRecord::Base
   belongs_to :call
 
   def send_billing
-    if self.state.completed? && self.sid
+    if self.status.completed? && self.sid
      
       @client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
       @log = @client.account.calls.get(self.sid.to_s)
@@ -12,12 +12,12 @@ class CallHistory < ActiveRecord::Base
       self.duration = @log.duration.to_i
       
 
-      if self.phone_number == self.call.member.phone_number
-        #do billing here
-        #send billing notification
-      else
-        #money is on the way
-      end
+      # if self.phone_number == self.call.member.phone_number
+      #   #do billing here
+      #   #send billing notification
+      # else
+      #   #money is on the way
+      # end
 
       self.billed = true
       self.save
