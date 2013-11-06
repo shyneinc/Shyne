@@ -18,7 +18,7 @@ class Api::V1::ConferenceController < ApplicationController
 	def start
 		@call = Call.find_by passcode: params[:Digits]
 		@caller_number = params[:From]
-		@sid = param[:CallSid]
+		@sid = params[:CallSid]
 
 		if @call
 			@response = Twilio::TwiML::Response.new do |r|
