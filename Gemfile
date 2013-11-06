@@ -4,6 +4,11 @@ gem 'rails', '4.0.1'
 gem 'pg'
 gem 'thin'
 
+#scheduling job and qeuing
+gem 'delayed_job_active_record'
+gem 'workless'
+gem 'daemons'
+
 gem 'nokogiri'
 gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.1.0'
@@ -26,9 +31,6 @@ gem 'rmagick', '2.13.2'
 
 gem 'twilio-ruby'
 gem 'classy_enum'
-
-#scheduling job and qeuing
-gem 'delayed_job_active_record'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'

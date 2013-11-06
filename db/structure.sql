@@ -133,7 +133,9 @@ CREATE TABLE call_histories (
     duration integer,
     call_id integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    conferencesid character varying(255),
+    billed boolean
 );
 
 
@@ -977,3 +979,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131105212056');
 INSERT INTO schema_migrations (version) VALUES ('20131105212409');
 
 INSERT INTO schema_migrations (version) VALUES ('20131105214337');
+
+INSERT INTO schema_migrations (version) VALUES ('20131106205641');
