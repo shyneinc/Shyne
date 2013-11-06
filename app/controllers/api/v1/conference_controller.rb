@@ -18,6 +18,7 @@ class Api::V1::ConferenceController < ApplicationController
 	def start
 		@call = Call.find_by passcode: params[:Digits]
 		@caller_number = params[:From]
+		@sid = param[:CallSid]
 
 		if @call
 			@response = Twilio::TwiML::Response.new do |r|
@@ -28,7 +29,7 @@ class Api::V1::ConferenceController < ApplicationController
 			end
 
 			
-				@call.call_histories.build(phone_number: @caller_number, status: :inprogress)
+			@call.call_histories.build(phone_number: @caller_number, sid: @sid, status: :inprogress)
 		else
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "I'm sorry you passcode in invalid", voice: 'alice'

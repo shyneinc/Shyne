@@ -10,6 +10,16 @@ class CallHistory < ActiveRecord::Base
       @log = @client.account.calls.get(self.sid.to_s)
 
       self.duration = @log.duration.to_i
+      
+
+      if self.phone_number == self.call.member.phone_number
+        #do billing here
+        #send billing notification
+      else
+        #money is on the way
+      end
+
+      self.billed = true
       self.save
     end
   end
