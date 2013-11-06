@@ -28,8 +28,7 @@ class Api::V1::ConferenceController < ApplicationController
 				end
 			end
 
-			
-			@call.call_histories.build(phone_number: @caller_number, sid: @sid, status: :inprogress)
+			@call.call_histories.create(phone_number: @caller_number, sid: @sid, status: :inprogress)
 		else
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "I'm sorry you passcode in invalid", voice: 'alice'
