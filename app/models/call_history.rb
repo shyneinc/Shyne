@@ -6,7 +6,7 @@ class CallHistory < ActiveRecord::Base
   def send_billing
     if self.status.completed? && self.sid
      
-      @client = Twilio::REST::Client.new ENV['twilio_sid'] , ENV['twilio_token']
+      @client = Twilio::REST::Client.new "AC4f20ae17644502d367b100f451b5b8e0" , "ba9cd06f9049217ad193da230e2918af"
       @log = @client.account.calls.get(self.sid.to_s)
 
       self.duration = @log.duration.to_i
