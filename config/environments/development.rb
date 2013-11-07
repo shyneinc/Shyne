@@ -29,6 +29,10 @@ Shyne::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.after_initialize do 
+    Delayed::Job.scaler = :local
+  end
+
   ENV['aws_access_key'] = "AKIAJM7FCUEYPATUV54Q"
   ENV['aws_secret_key'] = "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"
   ENV['aws_bucket'] = "shynedev"

@@ -78,6 +78,10 @@ Shyne::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  config.after_initialize do 
+    Delayed::Job.scaler = :heroku_cedar
+  end
+
   ENV['aws_access_key'] = "AKIAJM7FCUEYPATUV54Q"
   ENV['aws_secret_key'] = "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"
   ENV['aws_bucket'] = "shyne"
