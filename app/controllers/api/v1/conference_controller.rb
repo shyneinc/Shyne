@@ -47,7 +47,7 @@ class Api::V1::ConferenceController < ApplicationController
 			@clog.conferencesid = params[:ConferenceSid]
 			@clog.status = :completed
 			@clog.save
-			@clog.delay(1.minutes.from_now).send_billing
+			@clog.send_billing
 
 			render :xml => { status: @clog.status.to_s }, status: 200
 		else
