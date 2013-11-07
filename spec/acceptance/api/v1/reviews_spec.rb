@@ -31,6 +31,7 @@ resource 'Review' do
 
     parameter :mentor_id, "Mentor ID", required: true
     parameter :review, "Review", required: true, scope: :review
+    parameter :rating, "Rating (between 0-5)", required: true, scope: :review
     parameter :call_id, "Call ID", required: false, scope: :review
 
     example "Create a review" do
@@ -57,6 +58,7 @@ resource 'Review' do
     parameter :id, "Review ID", required: true
     parameter :mentor_id, "Mentor ID", required: true
     parameter :review, "Review", required: true, scope: :review
+    parameter :rating, "Rating (between 0-5)", required: true, scope: :review
     parameter :call_id, "Call ID", required: false, scope: :review
 
     example "Update a review" do
@@ -78,9 +80,7 @@ resource 'Review' do
     parameter :mentor_id, "Mentor ID", required: true
 
     example "Deleting a review" do
-
       do_request(id: review.id)
-
       expect(status).to eq 204
     end
   end
