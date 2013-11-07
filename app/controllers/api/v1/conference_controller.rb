@@ -3,6 +3,7 @@
 class Api::V1::ConferenceController < ApplicationController
 	require 'nokogiri'
 	respond_to :xml
+	protect_from_forgery :except => ["finish"]
 
 	def initiate
 		@response = Twilio::TwiML::Response.new do |r|
@@ -46,7 +47,7 @@ class Api::V1::ConferenceController < ApplicationController
 			@clog.conferencesid = params[:ConferenceSid]
 			@clog.status = :completed
 			@clog.save
-			@clog.send_billing
+			@clog.delay(1.minutes.from_now).send_billing
 
 			render :xml => { status: @clog.status.to_s }, status: 200
 		else
