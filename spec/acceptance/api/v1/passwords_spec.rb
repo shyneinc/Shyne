@@ -33,7 +33,7 @@ resource 'Password' do
 
       do_request(user: user_attrs)
 
-      expect(response_body).to be_json_eql({ :reset => true }.to_json)
+      expect(response_body).to be_json_eql({:reset => true}.to_json)
       expect(status).to eq 200
     end
   end

@@ -3,95 +3,90 @@ require 'rspec_api_documentation/dsl'
 include Warden::Test::Helpers
 
 resource 'WorkHistory' do
-	header "Accept", "application/vnd.shyne.v1"
+  header "Accept", "application/vnd.shyne.v1"
 
-	let(:user) { create(:mentor_user) }
-	let(:mentor_id){ user.role_id }
+  let(:user) { create(:mentor_user) }
+  let(:mentor_id) { user.role_id }
 
-	get "/api/mentors/:mentor_id/work_histories" do
-    	
-		before (:each) do
-			login_as user, scope: :user
-			create_list(:work_history, 10, mentor_id: mentor_id)
-		end
+  get "/api/mentors/:mentor_id/work_histories" do
 
-		parameter :mentor_id, "Supply Mentor ID in the url -> /api/mentors/[mentor_id]/work_histories", required: true
+    before (:each) do
+      login_as user, scope: :user
+      create_list(:work_history, 10, mentor_id: mentor_id)
+    end
 
-		example "Getting all user work history" do
-			do_request
+    parameter :mentor_id, "Mentor ID", required: true
 
-			expect(response_body).to eq user.role.work_histories.to_json
-			expect(status).to eq 200
-		end
-	end
+    example "Getting mentor's work history" do
+      do_request
 
-	post "/api/mentors/:mentor_id/work_histories" do
+      expect(response_body).to eq user.role.work_histories.to_json
+      expect(status).to eq 200
+    end
+  end
 
-		before (:each) do
-			login_as user, scope: :user
-		end
+  post "/api/mentors/:mentor_id/work_histories" do
 
-		parameter :mentor_id, "Mentor ID" , required: true
-		parameter :company, "Company" , required: true , scope: :work
-		parameter :title, "Job Title", required: true, scope: :work
-		parameter :date_started, "Date Started", required: true, scope: :work
-		parameter :date_ended, "Date Ended", required: false, scope: :work
-		parameter :current_work, "Current Work?", required: false, scope: :work
+    before (:each) do
+      login_as user, scope: :user
+    end
 
-		example "Creating mentor's work history" do
-			explanation "Once the use is registered as mentor and logged in, create a work history"
-			work = attributes_for(:work_history, mentor_id: mentor_id )
-			do_request(work: work)
-			
-			expect(response_body).to be_json_eql work.to_json
-			expect(status).to eq 201
-		end
-  	end
+    parameter :mentor_id, "Mentor ID", required: true
+    parameter :company, "Company", required: true, scope: :work
+    parameter :title, "Job Title", required: true, scope: :work
+    parameter :date_started, "Date Started", required: true, scope: :work
+    parameter :date_ended, "Date Ended", required: false, scope: :work
+    parameter :current_work, "Current Work?", required: false, scope: :work
 
-	put "/api/mentors/:mentor_id/work_histories/:id" do
-		#let(:id){ work_a.id }
+    example "Creating mentor's work history" do
+      explanation "Once the user is registered as mentor and logged in, they can add their work history"
+      work = attributes_for(:work_history, mentor_id: mentor_id)
+      do_request(work: work)
 
-		before do
-			login_as user, scope: :user
-		end
+      expect(response_body).to be_json_eql work.to_json
+      expect(status).to eq 201
+    end
+  end
 
-		parameter :mentor_id, "Mentor ID" , required: true
-		parameter :id, "Work History ID", required: true
-		parameter :company, "Company" , required: true , scope: :work
-		parameter :title, "Job Title", required: true, scope: :work
-		parameter :date_started, "Date Started", required: true, scope: :work
-		parameter :date_ended, "Date Ended", required: false, scope: :work
-		parameter :current_work, "Current Work?", required: false, scope: :work
+  put "/api/mentors/:mentor_id/work_histories/:id" do
 
-    	example "Updating mentor's work history" do
-    		explanation "Once the user is signed in and now can update a work_history"
-    		work_a = create(:work_history, mentor_id: mentor_id)
-    		work_b = attributes_for(:work_history, mentor_id: mentor_id).except(:id)
-    		
-    		do_request(work: work_b, id: work_a.id)
+    before do
+      login_as user, scope: :user
+    end
 
-    		# expect(response_body).to be_json_eql work_b.except(:id).to_json
-    		expect(status).to eq 204
-    	end
-  	end
+    parameter :mentor_id, "Mentor ID", required: true
+    parameter :id, "Work History ID", required: true
+    parameter :company, "Company", required: true, scope: :work
+    parameter :title, "Job Title", required: true, scope: :work
+    parameter :date_started, "Date Started", required: true, scope: :work
+    parameter :date_ended, "Date Ended", required: false, scope: :work
+    parameter :current_work, "Current Work?", required: false, scope: :work
 
-  	delete "/api/mentors/:mentor_id/work_histories/:id" do
-  		#let(:id){ work.id }
+    example "Updating mentor's work history" do
+      work_a = create(:work_history, mentor_id: mentor_id)
+      work_b = attributes_for(:work_history, mentor_id: mentor_id).except(:id)
 
-    	before do
-    		login_as user, scope: :user
-    	end
+      do_request(work: work_b, id: work_a.id)
 
-    	parameter :mentor_id, "Mentor ID" , required: true
-		parameter :id, "Work History ID", required: true
+      # expect(response_body).to be_json_eql work_b.except(:id).to_json
+      expect(status).to eq 204
+    end
+  end
 
-    	example "Deleting mentor's work history" do
-    		explanation "Delete a work history"
-    		work = create(:work_history, mentor_id: mentor_id)
+  delete "/api/mentors/:mentor_id/work_histories/:id" do
 
-    		do_request(id: work.id)
+    before do
+      login_as user, scope: :user
+    end
 
-    		expect(status).to eq 204
-    	end
+    parameter :mentor_id, "Mentor ID", required: true
+    parameter :id, "Work History ID", required: true
+
+    example "Deleting mentor's work history" do
+      work = create(:work_history, mentor_id: mentor_id)
+      do_request(id: work.id)
+
+      expect(status).to eq 204
+    end
   end
 end

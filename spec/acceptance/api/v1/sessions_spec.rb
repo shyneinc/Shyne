@@ -14,9 +14,9 @@ resource 'Session' do
     let(:password) { user.password }
 
     example_request "Logging in" do
-      expect(response_body).to be_json_eql({ :info => "Logged in",
-                                         :user => user
-                                       }.to_json)
+      expect(response_body).to be_json_eql({:info => "Logged in",
+                                            :user => user
+                                           }.to_json)
       expect(status).to eq 200
     end
   end
@@ -29,8 +29,8 @@ resource 'Session' do
     end
 
     example_request "Logging out" do
-      expect(response_body).to be_json_eql({ :info => "Logged out"
-                                       }.to_json)
+      expect(response_body).to be_json_eql({:info => "Logged out"
+                                           }.to_json)
       expect(status).to eq 200
     end
   end

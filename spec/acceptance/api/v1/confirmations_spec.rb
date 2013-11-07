@@ -18,7 +18,7 @@ resource 'Confirmation' do
     end
 
     example_request "Confirm user" do
-      expect(response_body).to be_json_eql({ :confirmed => true }.to_json)
+      expect(response_body).to be_json_eql({:confirmed => true}.to_json)
       expect(status).to eq 200
     end
   end
