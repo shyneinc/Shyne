@@ -1,5 +1,5 @@
 ActiveAdmin.register CallRequest do
-  menu :priority => 4
+  menu :priority => 5
 
   index do
     selectable_column
@@ -10,7 +10,7 @@ ActiveAdmin.register CallRequest do
   end
 
   form do |f|
-    f.inputs "Call Details" do
+    f.inputs "Call Request Details" do
       f.input :mentor
       f.input :member
       f.input :scheduled_at, :as => :just_datetime_picker
@@ -20,7 +20,7 @@ ActiveAdmin.register CallRequest do
 
   controller do
     def permitted_params
-      params.permit call: [:mentor_id, :member_id, :scheduled_at, :scheduled_at_date, :scheduled_at_time_hour, :scheduled_at_time_minute]
+      params.permit call_request: [:mentor_id, :member_id, :scheduled_at, :scheduled_at_date, :scheduled_at_time_hour, :scheduled_at_time_minute]
     end
   end
 end

@@ -1,6 +1,5 @@
 #twilio call handler
-
-class Api::V1::ConferenceController < ApplicationController
+class Api::V1::ConferenceController < ActionController::Base
 	require 'nokogiri'
 	respond_to :xml
 	protect_from_forgery :except => ["finish"]

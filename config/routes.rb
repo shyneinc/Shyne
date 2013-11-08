@@ -95,6 +95,8 @@ Shyne::Application.routes.draw do
 
       resources :calls, except: [:index]
 
+      resources :call_requests, except: [:index]
+
       resources :search, only: [:index]
 
       match '/conference/initiate' => 'conference#initiate' , via: :get, defaults: {format: :xml}

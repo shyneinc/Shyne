@@ -8,7 +8,7 @@ gem 'thin'
 
 #scheduling job and qeuing
 gem 'delayed_job_active_record'
-gem 'workless'
+gem "workless", "1.2.2"
 gem 'daemons'
 
 gem 'nokogiri'
@@ -28,7 +28,7 @@ gem "angularstrap-rails", "~> 0.7.6"
 gem 'just-datetime-picker'
 
 gem 'carrierwave'
-gem 'fog', '~> 1.16.0'
+gem 'fog'
 gem 'rmagick', '2.13.2'
 
 gem 'twilio-ruby'
