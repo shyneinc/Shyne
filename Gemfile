@@ -31,6 +31,7 @@ gem 'just-datetime-picker'
 
 gem 'carrierwave'
 gem 'fog'
+gem 'unf'
 gem 'rmagick', '2.13.2'
 
 gem 'twilio-ruby'
