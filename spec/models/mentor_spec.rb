@@ -20,7 +20,7 @@ describe Mentor do
 
   describe "ActiveRecord validations" do
     context "Associations" do
-      it { expect(mentor).to have_many(:calls) }
+      it { expect(mentor).to have_many(:call_request) }
       it { expect(mentor).to have_many(:work_histories) }
     end
 

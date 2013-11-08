@@ -15,7 +15,7 @@ describe Member do
 
   describe "ActiveRecord validations" do
     context "Associations" do
-      it { expect(member).to have_many(:calls) }
+      it { expect(member).to have_many(:call_request) }
     end
   end
 

@@ -6,7 +6,7 @@ class Member < ActiveRecord::Base
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
-  has_many :calls
+  has_many :call_request
   has_many :reviews
 
   def full_name
