@@ -1,6 +1,5 @@
 class CreateCalls < ActiveRecord::Migration
   def change
-    drop_table :calls
     create_table :calls do |t|
       t.references :call_request, index: true
       t.string :sid, index: true
