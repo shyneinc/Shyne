@@ -29,5 +29,5 @@ class CallRequest < ActiveRecord::Base
         puts 'send sked retry' #need mailer and sms
       end   
     end
-    handle_asynchronously :send_status_update
+    handle_asynchronously :send_status_update ,:priority => 20
 end
