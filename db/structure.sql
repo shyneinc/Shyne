@@ -449,8 +449,7 @@ CREATE TABLE reviews (
     member_id integer,
     call_id integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    call_request_id integer
+    updated_at timestamp without time zone
 );
 
 
@@ -1047,3 +1046,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131107221408');
 INSERT INTO schema_migrations (version) VALUES ('20131107235144');
 
 INSERT INTO schema_migrations (version) VALUES ('20131108002246');
+
+INSERT INTO schema_migrations (version) VALUES ('20131108182758');
