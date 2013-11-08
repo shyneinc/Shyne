@@ -15,7 +15,7 @@ class CallRequest < ActiveRecord::Base
       #smallint have 32,767 limit and checked for uniqueness
       begin
         tmp_passcode = Random.new.rand(10_000..32_767-1) 
-      end while CallRequest.find_by_passcode(tmp_passcode)
+      end while CallRequest.find_by passcode: tmp_passcode
         
       self.passcode = tmp_passcode
     end
