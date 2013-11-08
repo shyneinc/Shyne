@@ -121,44 +121,6 @@ ALTER SEQUENCE admins_id_seq OWNED BY admins.id;
 
 
 --
--- Name: call_histories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE call_histories (
-    id integer NOT NULL,
-    sid character varying(255),
-    status character varying(255),
-    phone_number character varying(255),
-    price numeric,
-    duration integer,
-    call_id integer,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    conferencesid character varying(255),
-    billed boolean
-);
-
-
---
--- Name: call_histories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE call_histories_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: call_histories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE call_histories_id_seq OWNED BY call_histories.id;
-
-
---
 -- Name: call_requests; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -586,13 +548,6 @@ ALTER TABLE ONLY admins ALTER COLUMN id SET DEFAULT nextval('admins_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY call_histories ALTER COLUMN id SET DEFAULT nextval('call_histories_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY call_requests ALTER COLUMN id SET DEFAULT nextval('call_requests_id_seq'::regclass);
 
 
@@ -680,14 +635,6 @@ ALTER TABLE ONLY active_admin_comments
 
 ALTER TABLE ONLY admins
     ADD CONSTRAINT admins_pkey PRIMARY KEY (id);
-
-
---
--- Name: call_histories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY call_histories
-    ADD CONSTRAINT call_histories_pkey PRIMARY KEY (id);
 
 
 --
@@ -1007,8 +954,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131024224142');
 
 INSERT INTO schema_migrations (version) VALUES ('20131025171144');
 
-INSERT INTO schema_migrations (version) VALUES ('20131029224057');
-
 INSERT INTO schema_migrations (version) VALUES ('20131030211013');
 
 INSERT INTO schema_migrations (version) VALUES ('20131030221621');
@@ -1029,8 +974,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131104083304');
 
 INSERT INTO schema_migrations (version) VALUES ('20131105094929');
 
-INSERT INTO schema_migrations (version) VALUES ('20131105193005');
-
 INSERT INTO schema_migrations (version) VALUES ('20131105205000');
 
 INSERT INTO schema_migrations (version) VALUES ('20131105212056');
@@ -1038,8 +981,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131105212056');
 INSERT INTO schema_migrations (version) VALUES ('20131105212409');
 
 INSERT INTO schema_migrations (version) VALUES ('20131105214337');
-
-INSERT INTO schema_migrations (version) VALUES ('20131106205641');
 
 INSERT INTO schema_migrations (version) VALUES ('20131107221408');
 
