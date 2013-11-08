@@ -3,6 +3,7 @@ ActiveAdmin.register Member do
 
   index do
     selectable_column
+    column :user_id
     column :full_name
     column :phone_number
     default_actions
@@ -10,6 +11,7 @@ ActiveAdmin.register Member do
 
   form do |f|
     f.inputs "Member Details" do
+      # f.input :user
       f.input :phone_number
     end
     f.actions

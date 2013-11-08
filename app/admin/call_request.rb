@@ -7,6 +7,7 @@ ActiveAdmin.register CallRequest do
     column :mentor_id
     column :member_id
     column :scheduled_at
+    column :status
     default_actions
   end
 
@@ -15,6 +16,7 @@ ActiveAdmin.register CallRequest do
       f.input :mentor
       f.input :member
       f.input :scheduled_at, :as => :just_datetime_picker
+      f.input :status, :as => :select, :collection => RequestStatus.select_options ,:include_blank => false
     end
     f.actions
   end
