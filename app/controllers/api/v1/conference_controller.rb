@@ -16,19 +16,19 @@ class Api::V1::ConferenceController < ActionController::Base
 	end
 
 	def start
-		@call = Call.find_by passcode: params[:Digits]
+		@callrequest = CallRequest.find_by passcode: params[:Digits]
 		@caller_number = params[:From]
 		@sid = params[:CallSid]
 
-		if @call
+		if @callrequest
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "Entering the Dojo!", voice: 'alice'
 				r.Dial action: "#{root_url}api/conference/finish", method: :post do |d|
-					d.Conference @call.passcode.to_s
+					d.Conference @callrequest.passcode.to_s
 				end
 			end
 
-			@call.call_histories.create(phone_number: @caller_number, sid: @sid, status: :inprogress)
+			@callrequest.call.create(phone_number: @caller_number, sid: @sid, status: :inprogress)
 		else
 			@response = Twilio::TwiML::Response.new do |r|
 				r.Say "I'm sorry you passcode in invalid", voice: 'alice'
@@ -39,18 +39,18 @@ class Api::V1::ConferenceController < ActionController::Base
 	end
 
 	def finish
-		@clog = CallHistory.find_by sid: params[:CallSid]
+		@call = Call.find_by sid: params[:CallSid]
 
-		if @clog && params[:CallStatus] == "completed"
+		if @call && params[:CallStatus] == "completed"
 
-			@clog.conferencesid = params[:ConferenceSid]
-			@clog.status = :completed
-			@clog.save
-			@clog.delay({:run_at => 3.minutes.from_now}).send_billing
+			@call.conferencesid = params[:ConferenceSid]
+			@call.status = :completed
+			@call.save
+			@call.delay({:run_at => 3.minutes.from_now}).send_billing
 
-			render :xml => { status: @clog.status.to_s }, status: 200
+			render :xml => { status: @call.status.to_s }, status: 200
 		else
-			render :xml => { status: "Call ID not found"}, status: 401
+			render :xml => { status: "callrequest ID not found"}, status: 401
 		end
 	end
 end

@@ -3,6 +3,7 @@ ActiveAdmin.register CallRequest do
 
   index do
     selectable_column
+    column :passcode
     column :mentor_id
     column :member_id
     column :scheduled_at

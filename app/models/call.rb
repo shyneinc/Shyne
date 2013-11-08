@@ -12,7 +12,6 @@ class Call < ActiveRecord::Base
       @log = @client.account.calls.get(self.sid.to_s)
 
       self.duration = @log.duration.to_i
-      
 
       # if self.phone_number == self.call.member.phone_number
       #   #do billing here
