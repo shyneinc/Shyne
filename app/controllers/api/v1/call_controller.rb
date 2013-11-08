@@ -6,7 +6,7 @@ class Api::V1::CallController < ActionController::Base
 
   def initiate
     @response = Twilio::TwiML::Response.new do |r|
-      r.Gather action: api_call_start_url, method: 'GET', numDigits: 5, timeout: 10 do |f|
+      r.Gather action: api_call_start_url, method: :post, numDigits: 5, timeout: 10 do |f|
         f.Say "Greetings! Welcome to Shyne!", voice: 'alice'
         f.Say "Enter Passcode:", voice: 'alice'
       end

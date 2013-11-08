@@ -99,8 +99,8 @@ Shyne::Application.routes.draw do
 
       resources :search, only: [:index]
 
-      match '/call/initiate' => 'call#initiate' , via: :get, defaults: {format: :xml}
-      match '/call/start' => 'call#start' , via: :get, defaults: {format: :xml}
+      match '/call/initiate' => 'call#initiate' , via: :post, defaults: {format: :xml}
+      match '/call/start' => 'call#start' , via: :post, defaults: {format: :xml}
       match '/call/finish' => 'call#finish' , via: :post, defaults: {format: :xml}
     end
   end
