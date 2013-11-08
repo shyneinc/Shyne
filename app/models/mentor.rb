@@ -1,7 +1,7 @@
 class Mentor < ActiveRecord::Base
   classy_enum_attr :mentor_status, default: :applied
 
-  validates :headline, :experties, :years_of_experience, :availability, :phone_number, presence: true
+  validates :user, :headline, :experties, :years_of_experience, :availability, :phone_number, presence: true
   validates :years_of_experience, :numericality => { :greater_than_or_equal_to => 0 }
   phony_normalize :phone_number, :default_country_code => 'US'
   validates :phone_number, :phony_plausible => true
