@@ -194,6 +194,37 @@ ALTER SEQUENCE call_requests_id_seq OWNED BY call_requests.id;
 
 
 --
+-- Name: call_statuses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE call_statuses (
+    id integer NOT NULL,
+    type character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: call_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE call_statuses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: call_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE call_statuses_id_seq OWNED BY call_statuses.id;
+
+
+--
 -- Name: calls; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -570,6 +601,13 @@ ALTER TABLE ONLY call_requests ALTER COLUMN id SET DEFAULT nextval('call_request
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY call_statuses ALTER COLUMN id SET DEFAULT nextval('call_statuses_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY calls ALTER COLUMN id SET DEFAULT nextval('calls_id_seq'::regclass);
 
 
@@ -659,6 +697,14 @@ ALTER TABLE ONLY call_histories
 
 ALTER TABLE ONLY call_requests
     ADD CONSTRAINT call_requests_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: call_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY call_statuses
+    ADD CONSTRAINT call_statuses_pkey PRIMARY KEY (id);
 
 
 --
@@ -902,6 +948,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130918234754');
 
 INSERT INTO schema_migrations (version) VALUES ('20130918234856');
 
+INSERT INTO schema_migrations (version) VALUES ('20130927230737');
+
 INSERT INTO schema_migrations (version) VALUES ('20130927233105');
 
 INSERT INTO schema_migrations (version) VALUES ('20130930210659');
@@ -969,6 +1017,8 @@ INSERT INTO schema_migrations (version) VALUES ('20131030221621');
 INSERT INTO schema_migrations (version) VALUES ('20131030222359');
 
 INSERT INTO schema_migrations (version) VALUES ('20131031170408');
+
+INSERT INTO schema_migrations (version) VALUES ('20131031180133');
 
 INSERT INTO schema_migrations (version) VALUES ('20131031205408');
 
