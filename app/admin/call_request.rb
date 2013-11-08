@@ -16,7 +16,7 @@ ActiveAdmin.register CallRequest do
       f.input :mentor
       f.input :member
       f.input :scheduled_at, :as => :just_datetime_picker
-      f.input :status, :as => :select, :collection => RequestStatus.select_options ,:include_blank => false
+      f.input :status, as: :select, collection: CallRequestStatus.select_options, include_blank: false
     end
     f.actions
   end
