@@ -34,9 +34,5 @@ Shyne::Application.configure do
   ENV['aws_bucket'] = "shynedev"
 
   ENV['twilio_sid'] = "AC4f20ae17644502d367b100f451b5b8e0"
-  ENV['twilio_token'] = "ba9cd06f9049217ad193da230e2918af" 
-
-  config.after_initialize do 
-    Delayed::Job.scaler = :local
-  end
+  ENV['twilio_token'] = "ba9cd06f9049217ad193da230e2918af"
 end

@@ -1,14 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails_12factor', group: :production
-
 gem 'rails', '4.0.1'
 gem 'pg'
 gem 'thin'
 
-#scheduling job and qeuing
+group :production do
+  gem 'rails_12factor'
+  #gem 'workless', '1.2.2'
+end
+
+#scheduling job and queuing
 gem 'delayed_job_active_record'
-gem "workless", "1.2.2"
 gem 'daemons'
 
 gem 'nokogiri'
@@ -24,7 +26,7 @@ gem 'kaminari'
 
 gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'
-gem "angularstrap-rails", "~> 0.7.6"
+gem 'angularstrap-rails', '~> 0.7.6'
 gem 'just-datetime-picker'
 
 gem 'carrierwave'
