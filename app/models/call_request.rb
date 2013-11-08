@@ -1,5 +1,5 @@
 class CallRequest < ActiveRecord::Base
-  classy_enum_attr :status, default: :proposed, enum: :request_status
+  classy_enum_attr :status, default: :proposed, enum: :call_request_status
 
   belongs_to :member
   belongs_to :mentor
