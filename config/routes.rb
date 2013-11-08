@@ -99,9 +99,9 @@ Shyne::Application.routes.draw do
 
       resources :search, only: [:index]
 
-      match '/conference/initiate' => 'conference#initiate' , via: :get, defaults: {format: :xml}
-      match '/conference/start' => 'conference#start' , via: :get, defaults: {format: :xml}
-      match '/conference/finish' => 'conference#finish' , via: :post, defaults: {format: :xml}
+      match '/call/initiate' => 'call#initiate' , via: :get, defaults: {format: :xml}
+      match '/call/start' => 'call#start' , via: :get, defaults: {format: :xml}
+      match '/call/finish' => 'call#finish' , via: :post, defaults: {format: :xml}
     end
   end
 

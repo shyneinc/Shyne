@@ -78,17 +78,17 @@ Shyne::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  ENV['aws_access_key'] = "AKIAJM7FCUEYPATUV54Q"
-  ENV['aws_secret_key'] = "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"
-  ENV['aws_bucket'] = "shyne"
-  
-  
-  ENV['twilio_sid'] = "AC4f20ae17644502d367b100f451b5b8e0"
-  ENV['twilio_token'] = "ba9cd06f9049217ad193da230e2918af" 
+  ENV['AWS_ACCESS_KEY'] = "AKIAJM7FCUEYPATUV54Q"
+  ENV['AWS_SECRET_KEY'] = "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"
+  ENV['AWS_BUCKET'] = "shyne"
+
+
+  ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
+  ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
 
   #Testing Credentials
-  # ENV['twilio_sid'] = "AC93a6e69aca2e08fdbb9b21b6c45f1e5d"
-  # ENV['twilio_token'] = "b7b2de7ca6ee50514d33f2c2b2321158" 
+  # ENV['TWILIO_SID'] = "AC93a6e69aca2e08fdbb9b21b6c45f1e5d"
+  # ENV['TWILIO_TOKEN'] = "b7b2de7ca6ee50514d33f2c2b2321158"
 
   config.after_initialize do 
     Delayed::Job.scaler = :heroku_cedar

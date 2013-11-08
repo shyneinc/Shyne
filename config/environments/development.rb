@@ -29,10 +29,10 @@ Shyne::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  ENV['aws_access_key'] = "AKIAJM7FCUEYPATUV54Q"
-  ENV['aws_secret_key'] = "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"
-  ENV['aws_bucket'] = "shynedev"
+  ENV['AWS_ACCESS_KEY'] = "AKIAJM7FCUEYPATUV54Q"
+  ENV['AWS_SECRET_KEY'] = "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"
+  ENV['AWS_BUCKET'] = "shynedev"
 
-  ENV['twilio_sid'] = "AC4f20ae17644502d367b100f451b5b8e0"
-  ENV['twilio_token'] = "ba9cd06f9049217ad193da230e2918af"
+  ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
+  ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
 end

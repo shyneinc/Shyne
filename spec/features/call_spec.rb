@@ -1,10 +1,10 @@
 require 'spec_helper'
 require 'twilio-test-toolkit'
 
-describe "Conference API" do
+describe "Call API" do
   describe "Initiate Call" do
     before(:all) do
-      @call = ttt_call(api_conference_initiate_path, nil, 19094804755, {:method => :get})
+      @call = ttt_call(api_call_initiate_path, nil, 19094804755, {:method => :get})
     end
 
     it "assigns the call" do
@@ -24,7 +24,7 @@ describe "Conference API" do
 
     it "has a gather action" do
       @call.within_gather do |gather|
-        expect(gather.gather_action).to eql api_conference_start_url
+        expect(gather.gather_action).to eql api_call_start_url
       end
     end
   end
