@@ -58,4 +58,5 @@ group :test do
   gem 'shoulda-callback-matchers', '>=0.3.0'
   gem 'spork-rails'
   gem 'json_spec'
+  gem 'twilio-test-toolkit'
 end

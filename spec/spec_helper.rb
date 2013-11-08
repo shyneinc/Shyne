@@ -63,7 +63,12 @@ Spork.prefork do
       if Rails.env.test? 
         FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
       end 
-    end 
+    end
+
+    # Configure Twilio Test Toolkit
+    config.include TwilioTestToolkit::DSL, :type => :feature
+
+    config.include Rails.application.routes.url_helpers
   end
 end
 
