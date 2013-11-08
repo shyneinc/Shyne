@@ -9,6 +9,7 @@ describe Mentor do
 
   describe "ActiveModel validations" do
     context "Basic validations" do
+      it { should validate_presence_of :user }
       it { should validate_presence_of :headline }
       it { should validate_presence_of :experties }
       it { should validate_presence_of :years_of_experience }
