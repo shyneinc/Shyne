@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe RequestStatus::Proposed do
+describe CallRequestStatus::Proposed do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
-describe RequestStatus::Scheduled do
+describe CallRequestStatus::Scheduled do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
-describe RequestStatus::Rescheduled do
+describe CallRequestStatus::Rescheduled do
   pending "add some examples to (or delete) #{__FILE__}"
 end
