@@ -1,0 +1,13 @@
+CREATE TABLE call_histories (
+    id integer NOT NULL,
+    sid character varying(255),
+    status character varying(255),
+    phone_number character varying(255),
+    price numeric,
+    duration integer,
+    call_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    conferencesid character varying(255),
+    billed boolean
+);

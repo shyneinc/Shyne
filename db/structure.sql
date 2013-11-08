@@ -159,22 +159,26 @@ ALTER SEQUENCE call_histories_id_seq OWNED BY call_histories.id;
 
 
 --
--- Name: call_statuses; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: call_requests; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE call_statuses (
+CREATE TABLE call_requests (
     id integer NOT NULL,
-    type character varying(255),
+    member_id integer,
+    mentor_id integer,
+    passcode integer,
+    status character varying(255),
+    scheduled_at timestamp without time zone,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
 
 
 --
--- Name: call_statuses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: call_requests_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE call_statuses_id_seq
+CREATE SEQUENCE call_requests_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -183,10 +187,10 @@ CREATE SEQUENCE call_statuses_id_seq
 
 
 --
--- Name: call_statuses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: call_requests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE call_statuses_id_seq OWNED BY call_statuses.id;
+ALTER SEQUENCE call_requests_id_seq OWNED BY call_requests.id;
 
 
 --
@@ -195,14 +199,16 @@ ALTER SEQUENCE call_statuses_id_seq OWNED BY call_statuses.id;
 
 CREATE TABLE calls (
     id integer NOT NULL,
-    member_id integer,
-    mentor_id integer,
-    scheduled_at timestamp without time zone,
-    duration numeric,
+    call_request_id integer,
+    sid character varying(255),
+    conferencesid character varying(255),
+    status character varying(255),
+    from_number character varying(255),
+    price double precision,
+    duration integer,
+    billed boolean,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    passcode smallint,
-    appointment_status character varying(255)
+    updated_at timestamp without time zone
 );
 
 
@@ -412,7 +418,8 @@ CREATE TABLE reviews (
     member_id integer,
     call_id integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    call_request_id integer
 );
 
 
@@ -556,7 +563,7 @@ ALTER TABLE ONLY call_histories ALTER COLUMN id SET DEFAULT nextval('call_histor
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY call_statuses ALTER COLUMN id SET DEFAULT nextval('call_statuses_id_seq'::regclass);
+ALTER TABLE ONLY call_requests ALTER COLUMN id SET DEFAULT nextval('call_requests_id_seq'::regclass);
 
 
 --
@@ -647,11 +654,11 @@ ALTER TABLE ONLY call_histories
 
 
 --
--- Name: call_statuses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: call_requests_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY call_statuses
-    ADD CONSTRAINT call_statuses_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY call_requests
+    ADD CONSTRAINT call_requests_pkey PRIMARY KEY (id);
 
 
 --
@@ -769,17 +776,24 @@ CREATE UNIQUE INDEX index_admins_on_reset_password_token ON admins USING btree (
 
 
 --
--- Name: index_calls_on_member_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_call_requests_on_member_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX index_calls_on_member_id ON calls USING btree (member_id);
+CREATE INDEX index_call_requests_on_member_id ON call_requests USING btree (member_id);
 
 
 --
--- Name: index_calls_on_mentor_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_call_requests_on_mentor_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX index_calls_on_mentor_id ON calls USING btree (mentor_id);
+CREATE INDEX index_call_requests_on_mentor_id ON call_requests USING btree (mentor_id);
+
+
+--
+-- Name: index_calls_on_call_request_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_calls_on_call_request_id ON calls USING btree (call_request_id);
 
 
 --
@@ -888,8 +902,6 @@ INSERT INTO schema_migrations (version) VALUES ('20130918234754');
 
 INSERT INTO schema_migrations (version) VALUES ('20130918234856');
 
-INSERT INTO schema_migrations (version) VALUES ('20130927230737');
-
 INSERT INTO schema_migrations (version) VALUES ('20130927233105');
 
 INSERT INTO schema_migrations (version) VALUES ('20130930210659');
@@ -958,8 +970,6 @@ INSERT INTO schema_migrations (version) VALUES ('20131030222359');
 
 INSERT INTO schema_migrations (version) VALUES ('20131031170408');
 
-INSERT INTO schema_migrations (version) VALUES ('20131031180133');
-
 INSERT INTO schema_migrations (version) VALUES ('20131031205408');
 
 INSERT INTO schema_migrations (version) VALUES ('20131101072259');
@@ -981,3 +991,9 @@ INSERT INTO schema_migrations (version) VALUES ('20131105212409');
 INSERT INTO schema_migrations (version) VALUES ('20131105214337');
 
 INSERT INTO schema_migrations (version) VALUES ('20131106205641');
+
+INSERT INTO schema_migrations (version) VALUES ('20131107221408');
+
+INSERT INTO schema_migrations (version) VALUES ('20131107235144');
+
+INSERT INTO schema_migrations (version) VALUES ('20131108002246');

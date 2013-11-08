@@ -1,9 +1,5 @@
 require 'spec_helper'
 
 describe Call do
-  it "has a valid factory" do
-    expect(build(:call)).to be_valid
-  end
-
-  let(:call) { create(:call) }
+  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -1,4 +1,4 @@
-ActiveAdmin.register Call do
+ActiveAdmin.register CallRequest do
   menu :priority => 4
 
   index do
@@ -6,7 +6,6 @@ ActiveAdmin.register Call do
     column :mentor_id
     column :member_id
     column :scheduled_at
-    column :duration
     default_actions
   end
 

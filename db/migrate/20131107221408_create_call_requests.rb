@@ -1,11 +1,11 @@
-class CreateCalls < ActiveRecord::Migration
+class CreateCallRequests < ActiveRecord::Migration
   def change
-    create_table :calls do |t|
+    create_table :call_requests do |t|
       t.references :member, index: true
       t.references :mentor, index: true
+      t.integer :passcode, limit: 3
+      t.string :status
       t.timestamp :scheduled_at
-      t.decimal :duration
-
       t.timestamps
     end
   end
