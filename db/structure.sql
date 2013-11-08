@@ -308,7 +308,6 @@ CREATE TABLE mentors (
     years_of_experience integer,
     phone_number character varying(255),
     availability text,
-    mentor_status_id integer,
     status_changed_at timestamp without time zone,
     featured boolean,
     experties character varying(255)[] DEFAULT '{}'::character varying[],
@@ -758,13 +757,6 @@ CREATE INDEX index_mentors_on_experties ON mentors USING gin (experties);
 
 
 --
--- Name: index_mentors_on_mentor_status_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX index_mentors_on_mentor_status_id ON mentors USING btree (mentor_status_id);
-
-
---
 -- Name: index_mentors_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -931,3 +923,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131105212409');
 INSERT INTO schema_migrations (version) VALUES ('20131107221408');
 
 INSERT INTO schema_migrations (version) VALUES ('20131107235144');
+
+INSERT INTO schema_migrations (version) VALUES ('20131108211839');
