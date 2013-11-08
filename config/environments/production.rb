@@ -90,8 +90,8 @@ Shyne::Application.configure do
   # ENV['TWILIO_SID'] = "AC93a6e69aca2e08fdbb9b21b6c45f1e5d"
   # ENV['TWILIO_TOKEN'] = "b7b2de7ca6ee50514d33f2c2b2321158"
 
-  config.after_initialize do 
-    Delayed::Job.scaler = :heroku_cedar
-  end
+  # config.after_initialize do 
+  #   Delayed::Job.scaler = :heroku_cedar
+  # end
   
 end
