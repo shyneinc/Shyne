@@ -2,6 +2,7 @@ class Call < ActiveRecord::Base
   classy_enum_attr :status, default: :inprogress, enum: :call_status
 
   belongs_to :call_request
+  has_many :reviews
 
   after_update :send_billing, :if => :status_changed?
 
