@@ -12,7 +12,7 @@ class Api::V1::CallController < ActionController::Base
       end
     end
 
-    render :xml => Nokogiri::XML(@response.text)
+    render :xml => Nokogiri::XML(@response.text), status: 200
   end
 
   def start
@@ -28,14 +28,14 @@ class Api::V1::CallController < ActionController::Base
         end
       end
 
-      @call_request.calls.create(phone_number: @caller_number, sid: @sid, status: :inprogress)
+      @call_request.calls.create(from_number: @caller_number, sid: @sid, status: :inprogress)
     else
       @response = Twilio::TwiML::Response.new do |r|
         r.Say "I'm sorry your passcode in invalid", voice: 'alice'
       end
     end
 
-    render :xml => Nokogiri::XML(@response.text)
+    render :xml => Nokogiri::XML(@response.text), status: 200
   end
 
   def finish
