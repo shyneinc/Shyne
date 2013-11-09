@@ -34,6 +34,8 @@ If you use ``git pull`` or a GUI client, run this command to ensure new commits 
 
 ### Finish
 
+Before pushing any code please **make sure all tests are passing!**
+
 ``git fetch origin``
 
 ``git rebase origin/develop develop``
@@ -49,6 +51,8 @@ If you use ``git pull`` or a GUI client, run this command to ensure new commits 
 Run this to execute the API test suite:
 
 ``rake db:migrate RAILS_ENV=test``
+
+``spork`` (Keep spork running in the background for faster test runs)
 
 ``rspec spec``
 
