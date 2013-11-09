@@ -28,7 +28,7 @@ class Api::V1::CallController < ActionController::Base
         end
       end
 
-      @call_request.call.create(phone_number: @caller_number, sid: @sid, status: :inprogress)
+      @call_request.calls.create(phone_number: @caller_number, sid: @sid, status: :inprogress)
     else
       @response = Twilio::TwiML::Response.new do |r|
         r.Say "I'm sorry your passcode in invalid", voice: 'alice'
