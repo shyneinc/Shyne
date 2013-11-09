@@ -16,7 +16,7 @@ ActiveAdmin.register Call do
 
   form do |f|
     f.inputs "Call Details" do
-      f.input :call_request
+      # f.input :call_request_id, as: :select, collection: CallRequest.all.pluck('id')
       f.input :sid
       f.input :conferencesid
       f.input :status , as: :select, collection: CallStatus.select_options, include_blank: false

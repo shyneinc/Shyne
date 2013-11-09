@@ -11,7 +11,6 @@ ActiveAdmin.register Member do
 
   form do |f|
     f.inputs "Member Details" do
-      # f.input :user
       f.input :phone_number
     end
     f.actions

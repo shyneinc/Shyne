@@ -3,9 +3,10 @@ ActiveAdmin.register User do
 
   index do
     selectable_column
+    column :username
     column :first_name
     column :last_name
-    column :email
+    column :email 
     column "Type", :role_type
     column "Confirmed", :confirmed?
     default_actions
@@ -16,6 +17,8 @@ ActiveAdmin.register User do
       f.input :first_name
       f.input :last_name
       f.input :email
+      # f.input :password
+      # f.input :password_confirmation
     end
     f.actions
   end
