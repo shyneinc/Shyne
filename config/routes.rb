@@ -95,7 +95,7 @@ Shyne::Application.routes.draw do
 
       resources :calls, except: [:index]
 
-      resources :call_requests, except: [:index]
+      resources :call_requests, except: [:show]
 
       resources :search, only: [:index]
 

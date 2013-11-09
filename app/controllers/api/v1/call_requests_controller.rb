@@ -1,7 +1,7 @@
-class Api::V1::CallRequestController < Api::V1::BaseController
+class Api::V1::CallRequestsController < Api::V1::BaseController
   before_filter :authenticate_user!
 
-  def show
+  def index
     if current_user.role_type == 'Member'
       respond_with :api, CallRequest.find_by_member_id(current_user.role_id)
     elsif current_user.role_type == 'Mentor'
@@ -12,9 +12,7 @@ class Api::V1::CallRequestController < Api::V1::BaseController
   end
 
   def create
-    @CallRequest = CallRequest.new(call_params)
-    @CallRequest.save
-    respond_with :api, @CallRequest
+    respond_with :api, CallRequest.create(call_params)
   end
 
   def update
@@ -22,7 +20,12 @@ class Api::V1::CallRequestController < Api::V1::BaseController
   end
 
   def destroy
-    respond_with :api, CallRequest.destroy(params[:id])
+    @call_request = CallRequest.find(params[:id])
+    if @call_request.member_id == current_user.role_id || @call_request.mentor_id == current_user.role_id
+      respond_with :api, @call_request.destroy
+    else
+      render :json => {:error => 'Current user is not the creator of this call request'}, :status => 401
+    end
   end
 
   private
