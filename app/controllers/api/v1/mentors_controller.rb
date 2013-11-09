@@ -2,9 +2,9 @@ class Api::V1::MentorsController < Api::V1::BaseController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    if(params[:featured].present? && params[:featured] == 'true')
+    if (params[:featured].present? && params[:featured] == 'true')
       respond_with :api, Mentor.approved.featured
-    elsif(params[:experties].present?)
+    elsif (params[:experties].present?)
       respond_with :api, Mentor.approved.experties(params[:experties])
     else
       respond_with :api, Mentor.approved

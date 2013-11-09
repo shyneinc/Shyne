@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
 
   private
 
-    def generate_username
-      tmp_username = "#{self.first_name}#{self.last_name}".gsub(/\s+/, "").to_s.downcase
-      iterator = User.where("username like ?", "%#{tmp_username}%").pluck(:username).count
-      tmp_username += iterator.to_s if iterator > 0 #append count where there are similar usernames
-      self.username = tmp_username
-    end
+  def generate_username
+    tmp_username = "#{self.first_name}#{self.last_name}".gsub(/\s+/, "").to_s.downcase
+    iterator = User.where("username like ?", "%#{tmp_username}%").pluck(:username).count
+    tmp_username += iterator.to_s if iterator > 0 #append count where there are similar usernames
+    self.username = tmp_username
+  end
 end

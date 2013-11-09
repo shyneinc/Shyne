@@ -17,13 +17,13 @@ class Api::V1::BaseController < ActionController::Base
 
   def record_not_found(error)
     respond_to do |format|
-      format.json  { render :json => {:error => error.message}, :status => 404 }
+      format.json { render :json => {:error => error.message}, :status => 404 }
     end
   end
 
   def generic_exception(error)
     respond_to do |format|
-      format.json  { render :json => {:error => error.message}, :status => 500 }
+      format.json { render :json => {:error => error.message}, :status => 500 }
     end
   end
 end

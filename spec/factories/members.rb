@@ -6,7 +6,7 @@ FactoryGirl.define do
     association :role, factory: :member
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    sequence(:email) {|n| "member_user#{n}@shyne.io" }
+    sequence(:email) { |n| "member_user#{n}@shyne.io" }
     password "password"
     password_confirmation "password"
   end

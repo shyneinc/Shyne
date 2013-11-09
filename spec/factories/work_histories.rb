@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   startdate = Date.today - rand(500)
-  
+
   factory :work_history do
     company { Faker::Company.name }
     title { Faker::Name.title }

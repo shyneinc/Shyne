@@ -1,7 +1,7 @@
 class Api::V1::ReviewsController < Api::V1::BaseController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :check_mentor
-  before_filter :check_review, except: [:index , :create]
+  before_filter :check_review, except: [:index, :create]
   before_filter :check_type, except: [:index, :show]
 
   def index

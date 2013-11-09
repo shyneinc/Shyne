@@ -19,7 +19,7 @@ ActiveAdmin.register Call do
       # f.input :call_request_id, as: :select, collection: CallRequest.all.pluck('id')
       f.input :sid
       f.input :conferencesid
-      f.input :status , as: :select, collection: CallStatus.select_options, include_blank: false
+      f.input :status, as: :select, collection: CallStatus.select_options, include_blank: false
       f.input :from_number
       f.input :duration
       f.input :price
@@ -34,5 +34,5 @@ ActiveAdmin.register Call do
     end
   end
 
-  
+
 end

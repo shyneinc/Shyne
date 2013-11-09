@@ -60,9 +60,9 @@ Spork.prefork do
     config.before(:each) { ActionMailer::Base.deliveries.clear }
 
     config.after(:all) do
-      if Rails.env.test? 
+      if Rails.env.test?
         FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
-      end 
+      end
     end
 
     # Configure Twilio Test Toolkit

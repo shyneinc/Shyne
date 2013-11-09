@@ -6,7 +6,7 @@ ActiveAdmin.register User do
     column :username
     column :first_name
     column :last_name
-    column :email 
+    column :email
     column "Type", :role_type
     column "Confirmed", :confirmed?
     default_actions
