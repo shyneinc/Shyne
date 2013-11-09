@@ -4,7 +4,7 @@ require 'twilio-test-toolkit'
 describe "Call API" do
   describe "Initiate Call" do
     before(:all) do
-      @call = ttt_call(api_call_initiate_path, nil, 19094804755, {:method => :get})
+      @call = ttt_call(api_call_initiate_path, nil, 19094804755)
     end
 
     it "assigns the call" do
