@@ -26,6 +26,6 @@ class Call < ActiveRecord::Base
     end
   end
 
-  handle_asynchronously :send_billing, :run_at => Proc.new { 1.minutes.from_now }
+  handle_asynchronously :send_billing, :run_at => Proc.new { 3.minutes.from_now }
 
 end
