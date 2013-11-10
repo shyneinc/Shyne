@@ -82,7 +82,6 @@ Shyne::Application.configure do
   ENV['AWS_SECRET_KEY'] = "KY+rpoiFt5CcN7BmSlNyuXiNmnGh8vWHR/dRXxCO"
   ENV['AWS_BUCKET'] = "shyne"
 
-
   ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
   ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
 
@@ -93,5 +92,15 @@ Shyne::Application.configure do
   config.after_initialize do 
     Delayed::Job.scaler = :heroku_cedar
   end
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
   
 end
