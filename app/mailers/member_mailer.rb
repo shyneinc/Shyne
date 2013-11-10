@@ -1,3 +1,3 @@
 class MemberMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "no-reply@shyne.io"
 end

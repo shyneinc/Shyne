@@ -102,5 +102,7 @@ Shyne::Application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+
+  config.action_mailer.default_url_options = { host: "http://pure-mountain-8093.herokuapp.com" } #this should be shyne.io soon
   
 end
