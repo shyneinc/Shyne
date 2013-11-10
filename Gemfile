@@ -30,7 +30,7 @@ gem 'angularstrap-rails', '~> 0.7.6'
 gem 'just-datetime-picker'
 
 gem 'carrierwave'
-# gem 'fog'
+gem "fog", "~> 1.15.0"
 gem 'unf'
 gem 'rmagick', '2.13.2'
 
