@@ -7,6 +7,7 @@ CarrierWave.configure do |config|
         :aws_secret_access_key => ENV['AWS_SECRET_KEY']
     }
     config.fog_directory = ENV['AWS_BUCKET']
+    config.asset_host = ENV['AWS_CDN']
   elsif Rails.env.development?
     config.storage = :file
   else

@@ -81,6 +81,7 @@ Shyne::Application.configure do
   ENV['AWS_ACCESS_KEY'] = "AKIAJM7FCUEYPATUV54Q"
   ENV['AWS_SECRET_KEY'] = "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"
   ENV['AWS_BUCKET'] = "shyne"
+  ENV['AWS_CDN'] = "http://cdn.shyne.io"
 
   ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
   ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
