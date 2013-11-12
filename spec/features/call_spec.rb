@@ -1,11 +1,11 @@
 require 'spec_helper'
 require 'twilio-test-toolkit'
 
-describe "Call API" do
-  describe "Initiate Call" do
-    let(:call_request) { FactoryGirl.create(:call_request) }
-    let(:call) { ttt_call(api_call_initiate_path, nil, 19094804755) }
+describe "CallController" do
+  let(:call_request) { FactoryGirl.create(:call_request) }
+  let(:call) { ttt_call(api_call_initiate_path, 11234567890, 19094804755) }
 
+  describe "#initiate" do
     it "assigns the call" do
       expect(call).to_not be_nil
     end
@@ -26,14 +26,18 @@ describe "Call API" do
         expect(gather.gather_action).to eql api_call_start_url
       end
     end
+  end
 
+  describe "#start" do
     it "enters dojo" do
       call.within_gather do |gather|
         gather.press(call_request.passcode)
-        # need to pass from_number and sid else not gonna pass
-        # expect(call_request.calls.count).to eql 1
+        expect(call_request.calls.count).to eql 1
       end
     end
+  end
 
+  describe "#finish" do
+    pending
   end
 end
