@@ -1,4 +1,4 @@
-# SHYNE
+# SHYNE ![CircleCI build status of the default branch][1]
 
 ## First-time install
 
@@ -56,6 +56,12 @@ Run this to execute the API test suite:
 
 ``rspec spec``
 
+## Deployment
+
+To deploy to the dev.shyne.io use:
+
+``rake development deploy``
+
 ## Documentation
 
 API documentation is located at `/docs` and is generated using passing acceptance tests.
@@ -66,3 +72,5 @@ Run this to regenerate the docs: `rake docs:generate`
 
 To keep our codebase clean, uniform and readable let's follow the coding styleguide prescribed by GitHub: https://github.com/styleguide
 
+
+  [1]: https://circleci.com/gh/shyneinc/Shyne.png?circle-token=f98ef1503c88afd9129d9a5e7319d8658228120a
