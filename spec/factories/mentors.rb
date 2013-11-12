@@ -22,6 +22,9 @@ FactoryGirl.define do
     featured { [true, false].sample }
     mentor_status MentorStatus::Applied.new
     status_changed_at nil
+    avg_call_duration nil
+    avg_rating nil
+    total_reviews nil
     user
   end
 end

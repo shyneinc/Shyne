@@ -312,7 +312,11 @@ CREATE TABLE mentors (
     featured boolean,
     experties character varying(255)[] DEFAULT '{}'::character varying[],
     linkedin character varying(255),
-    mentor_status character varying(255)
+    mentor_status character varying(255),
+    location character varying(255),
+    avg_call_duration numeric,
+    avg_rating numeric,
+    total_reviews integer
 );
 
 
@@ -925,3 +929,7 @@ INSERT INTO schema_migrations (version) VALUES ('20131107221408');
 INSERT INTO schema_migrations (version) VALUES ('20131107235144');
 
 INSERT INTO schema_migrations (version) VALUES ('20131108211839');
+
+INSERT INTO schema_migrations (version) VALUES ('20131112184109');
+
+INSERT INTO schema_migrations (version) VALUES ('20131112184323');
