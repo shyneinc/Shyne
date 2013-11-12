@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rspec_api_documentation'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'heroku_san'
 end
 
 group :test do

@@ -1,0 +1,35 @@
+#
+# Format:
+#
+# <stage name>:
+#   app: <Heroku app name>
+#   stack: <Heroku stack, optional>
+#   tag: <git tag pattern, optional>
+#   repo: <git repository, optional>
+#   config:
+#     - <Heroku config:var name>: <Heroku config:var value>
+#
+
+production:
+  app: shyne
+  stack: cedar
+  config:
+    RACK_ENV: production
+    RAILS_ENV: production
+    BUNDLE_WITHOUT: "development:test"
+  addons:
+    sendgrid: starter
+    papertrail: choklad
+    heroku-postgresql: hobby-dev
+
+development:
+  stack: cedar
+  app: shyne-dev
+  config:
+    RACK_ENV: development
+    RAILS_ENV: development
+    BUNDLE_WITHOUT: "development:test"
+  addons:
+    sendgrid: starter
+    papertrail: choklad
+    heroku-postgresql: hobby-dev
