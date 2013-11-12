@@ -12,7 +12,7 @@ resource 'Search' do
     let(:pg) { 1 }
 
     example_request "Getting all matching search results" do
-      explanation "This endpoint will search for Mentor's full name, headline, experties and work history to find a match"
+      explanation "This endpoint will search for Mentor's full name, headline, location, experties and work history to find a match"
       #TODO: Test results
       expect(status).to eq 200
     end

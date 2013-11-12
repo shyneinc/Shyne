@@ -51,6 +51,7 @@ resource 'Mentor' do
     end
 
     parameter :headline, "Headline", :required => true, :scope => :mentor
+    parameter :location, "Location", :required => true, :scope => :mentor
     parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
@@ -90,6 +91,7 @@ resource 'Mentor' do
     end
 
     parameter :headline, "Headline", :required => true, :scope => :mentor
+    parameter :location, "Location", :required => true, :scope => :mentor
     parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
