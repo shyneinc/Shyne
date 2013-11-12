@@ -1,5 +1,6 @@
 class Call < ActiveRecord::Base
   classy_enum_attr :status, default: :inprogress, enum: :call_status
+  validates :sid, :from_number, presence: true
 
   belongs_to :call_request
   has_many :reviews
