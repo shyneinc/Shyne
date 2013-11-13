@@ -9,6 +9,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "mentor_user#{n}@shyne.io" }
     password "password"
     password_confirmation "password"
+    time_zone { ActiveSupport::TimeZone.us_zones.sample.name }
   end
 
   factory :mentor do
