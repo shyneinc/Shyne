@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     column :first_name
     column :last_name
     column :email
+    column :time_zone
     column "Type", :role_type
     column "Confirmed", :confirmed?
     default_actions
@@ -17,6 +18,7 @@ ActiveAdmin.register User do
       f.input :first_name
       f.input :last_name
       f.input :email
+      f.input :time_zone, as: :select, collection: ActiveSupport::TimeZone.us_zones.map(&:name), include_blank: false
       f.input :password
       f.input :password_confirmation
     end
@@ -25,7 +27,7 @@ ActiveAdmin.register User do
 
   controller do
     def permitted_params
-      params.permit mentor: [:first_name, :last_name, :email, :password, :password_confirmation]  #, :time_zone] - gem 'geokit' , 'timezone'
+      params.permit user: [:first_name, :last_name, :email, :password, :password_confirmation, :time_zone, :utf8, :authenticity_token, :commit]
     end
   end
 end
