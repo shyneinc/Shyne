@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     true
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   private
 
   def generate_username

@@ -8,7 +8,8 @@ ActiveAdmin.register User do
     column :last_name
     column :email
     column :time_zone
-    column "Type", :role_type
+    column "Role Type", :role_type
+    column "Role Group", :role
     column "Confirmed", :confirmed?
     default_actions
   end
@@ -27,7 +28,7 @@ ActiveAdmin.register User do
 
   controller do
     def permitted_params
-      params.permit user: [:first_name, :last_name, :email, :password, :password_confirmation, :time_zone, :utf8, :authenticity_token, :commit]
+      params.permit user: [:first_name, :last_name, :email, :password, :password_confirmation, :time_zone]
     end
   end
 end

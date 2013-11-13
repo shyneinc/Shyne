@@ -13,7 +13,6 @@ ActiveAdmin.register Mentor do
 
   form do |f|
     f.inputs "Mentor Details" do
-      f.input :user_id, as: :select, collection: User.all
       f.input :headline
       f.input :experties
       f.input :years_of_experience
@@ -22,6 +21,7 @@ ActiveAdmin.register Mentor do
       f.input :mentor_status, as: :select, collection: MentorStatus.select_options
       f.input :featured
     end
+
     f.actions
   end
 
