@@ -14,6 +14,12 @@
     {
       "required": true,
       "scope": "mentor",
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
       "name": "experties",
       "description": "Experties (eg. '{Accounting, Finance}')"
     },
@@ -46,7 +52,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Et+suscipit+magni+veniam+optio+officia+numquam+consectetur+perspiciatis+temporibus.&mentor[linkedin]=http%3A%2F%2Flinkedin.com%2Fporro&mentor[experties]=%7BBanking%7D&mentor[years_of_experience]=25&mentor[phone_number]=845.380.8010+&mentor[availability]=Quaerat+minus+aut+excepturi+consectetur+asperiores+corrupti+ratione+optio+possimus+quisquam+nisi+sequi+qui.&mentor[featured]&mentor[mentor_status]=applied&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Reprehenderit+dolores+porro+accusamus+vel+consequatur+aspernatur+delectus+dolor+et.&mentor[location]=Raeganland%2C+FL&mentor[linkedin]=http%3A%2F%2Flinkedin.com%2Fofficiis&mentor[experties]=%7BLegal+Services%7D&mentor[years_of_experience]=15&mentor[phone_number]=%28653%29460-5706+&mentor[availability]=Rerum+et+impedit+consequatur+facilis+aperiam+provident+voluptas+porro+quidem.&mentor[featured]&mentor[mentor_status]=applied&mentor[status_changed_at]&mentor[avg_call_duration]&mentor[avg_rating]&mentor[total_reviews]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -58,8 +64,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":117,\"created_at\":\"2013-11-05T17:33:39.266-07:00\",\"updated_at\":\"2013-11-05T17:33:39.266-07:00\",\"user_id\":252,\"headline\":\"Et suscipit magni veniam optio officia numquam consectetur perspiciatis temporibus.\",\"years_of_experience\":25,\"phone_number\":\"18453808010\",\"availability\":\"Quaerat minus aut excepturi consectetur asperiores corrupti ratione optio possimus quisquam nisi sequi qui.\",\"status_changed_at\":null,\"featured\":null,\"experties\":[\"Banking\"],\"linkedin\":\"http://linkedin.com/porro\",\"mentor_status\":\"applied\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/117","Content-Type":"application/json; charset=utf-8","ETag":"\"bb6f18882c274a5af07e28819b16ea7a\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=MDJyNU9URXBxa2JYSjQxaFpQYTNXN2MvWEJsTkRySFRmZDArV0tTT01LcDhSekgxbkt1OTJUVi9lMEVBRllONGFBQUtwaFNNMlorRW1QWmUrMytRZkxBMGZ3SG1IWGFmd0cvd0NWcWM3ZHBQcXY4V0ZDK09GbWZTN0Z4bzBRaTBCUzdzbE1qbFhBOTFxRTVjaXBPRHNoTU1nU3RjVmZDTzBMQlQzQllYalVZPS0tK25ua2JkOGhQUnhUYTIzZForNy9xUT09--ac0b7e06e920c685e5eeb97b12661489c6cd2787; path=/; HttpOnly","X-Request-Id":"335e65d3-deb2-4085-abcf-cd0c3cc8b912","X-Runtime":"0.052735","Content-Length":"520"},
+      "response_body": "{\"id\":212,\"created_at\":\"2013-11-13T16:35:51.490-07:00\",\"updated_at\":\"2013-11-13T16:35:51.490-07:00\",\"user_id\":456,\"headline\":\"Reprehenderit dolores porro accusamus vel consequatur aspernatur delectus dolor et.\",\"years_of_experience\":15,\"phone_number\":\"16534605706\",\"availability\":\"Rerum et impedit consequatur facilis aperiam provident voluptas porro quidem.\",\"status_changed_at\":null,\"featured\":null,\"experties\":[\"Legal Services\"],\"linkedin\":\"http://linkedin.com/officiis\",\"mentor_status\":\"applied\",\"location\":\"Raeganland, FL\",\"avg_call_duration\":null,\"avg_rating\":null,\"total_reviews\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/212","Content-Type":"application/json; charset=utf-8","ETag":"\"4158a5c4c5bb1b8b849d3be59de9730e\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=bS91VDBEVWRycitlSVZYTHNYOE9RZ2p3V29MOW1jZlRPZ2dKT3oxSUFIWEVJbmpFVWo5MnlaZ0xicXkvRkxPaENYT1YrNy9Gei9kWUNnUjVIbkM2UFk1RmZMck9lR0hxaGVWSW5SUFNscWR5OEIwQlBrWGkvVTFSRkZsWjNWTmhjRnlLNXIzeEYzYTJkMno4cXhvSmFHQi85Tm9XdFZsMTVrbXZKSDBGWTdnPS0tTkovdjViRlVRT2J1eEJ1aGRsUkdyZz09--98baed50342f30aa7a426b574ca6762acc813e12; path=/; HttpOnly","X-Request-Id":"f71d2893-a63c-41fb-8321-1b36d8cf1b9a","X-Runtime":"0.180191","Content-Length":"592"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

@@ -3,7 +3,7 @@
   "http_method": "DELETE",
   "route": "/api/mentors/:mentor_id/work_histories/:id",
   "description": "Deleting mentor's work history",
-  "explanation": "Delete a work history",
+  "explanation": null,
   "parameters": [
     {
       "required": true,
@@ -19,7 +19,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/mentors/118/work_histories/42",
+      "request_path": "/api/mentors/219/work_histories/68",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -33,7 +33,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dStwUTBHOXZiYU9Ia043dlpjelBoUWdseGU3dGdhVk5QSXRiMWYyR1BwelpTSVZ1bW4vSFRBbGt3eHFyTlpXNUxDTGx5M21ITEhtVDh1Q01PdTRYc2lublZCM1RKV2RNMVFVZEdzcG9RSVBMbHlvbHRuZjdIZi9pMkw3TkNSSEFkeUw2SjZuSy9SUmtzODBxenBRSVBqQ3RGOU5WS2k5V24xZkFhSXBGQWFJPS0td0cyc2F1cmp6VjZIWDZOam1JK3JiUT09--e86d1987458367044029c4f689f61af66aa56bc5; path=/; HttpOnly","X-Request-Id":"529859a5-ae0e-4704-a919-d275c8a0c731","X-Runtime":"0.062500"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=SlNuN1FSY0F4TElMOEo3OU1sN2ZTREdaQkwxUDlmUGg4akxIV01Od3FxQUxITGlkU0Q2WHpWVTB2MWFNa0M3UVlUK0I3WldsdlVRYU45M2JLNWRha3FjQytZWDBVendQM1loZE9TRlJNdHFrNmIyaVg2bUtpb1FzWm9LSmVzNFl4SVUzc0VUSEViemdReEZKay9uL0RhQmFBekJHYm81WVlQWmJDSFRDZ0dnPS0talRuMXlYL2JaT2g4NEZCWktKcGZyQT09--b214d05ab362d1e9b62f5630cb3e7d9322dc8fa6; path=/; HttpOnly","X-Request-Id":"fc51052c-c95b-45e7-a7e1-78b61dfd5cf1","X-Runtime":"0.048051"},
       "response_content_type": null,
       "curl": null
 }

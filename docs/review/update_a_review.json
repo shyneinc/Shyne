@@ -22,6 +22,12 @@
       "description": "Review"
     },
     {
+      "required": true,
+      "scope": "review",
+      "name": "rating",
+      "description": "Rating (between 0-5)"
+    },
+    {
       "required": false,
       "scope": "review",
       "name": "call_id",
@@ -31,8 +37,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/103/reviews/16",
-      "request_body": "review[review]=Et+ipsa+tenetur+quidem+voluptate+sit+deleniti+autem+accusamus+fugit+itaque+in+quibusdam+et.&review[rating]=0.0",
+      "request_path": "/api/mentors/223/reviews/24",
+      "request_body": "review[review]=Dolore+doloremque+consequatur+eum+vel+natus+ullam+enim+et+consequatur+unde+voluptates.&review[rating]=1.0",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -45,7 +51,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dmdKZEpqSUJCNVNISEVWNEw3L3NLQ09aWE8xaTMyazI0YVByMVVJR2l6Qmc5Q1ZZMjRjNWpHam94Y0l0RnhzRkFDZDhXQ2lEcmdIQmhuRDB4WXVtM05DTi9TeTIwTWpiTFpubXc0STJBdU5ldG8vTE93by90My9vQmdhYURpdXJEYWc5NEJxY2JUOXk2VG5CU2ZxMEVFdVM2RXBPRXJDaHdzd0toVW0yWG9BPS0tRGxoUnQxeFlCa2ViUG1iMlVWaVRlZz09--f5b3aed2ba97b154c8474f51dbfafb8fcb0b278c; path=/; HttpOnly","X-Request-Id":"19843cef-99f6-4f99-9275-123f84d5b4ea","X-Runtime":"0.046875"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=emlXcFdrV0FTOElXVlRxWGFMN3JremxHUkg5OXpwRjdwRTd2YjBuTUtseUREMHY4TTZMU1hSeXlYaXEvZ1kvSHJpVmxEcC9BSklJOVN4dVJ2UHJHSHlOdDd3UlZoLy9aM0FpRWpQcG5iZjN5R2xXM0ptTnBzTm5lenczL0JDU3Q4ckdyVUxlL0JDU2lMc2FIUGJVWitSakZXMkd4ZGdrYkRrbklUakFaUlEwPS0tWVdUYUlncHFMaW50T0xUemE5ZjR0UT09--5ec8423e8dcf38b7e4923f1556822ece9401f972; path=/; HttpOnly","X-Request-Id":"f41bb510-44b4-477d-9710-d6ab33766ecf","X-Runtime":"0.080085"},
       "response_content_type": null,
       "curl": null
 }

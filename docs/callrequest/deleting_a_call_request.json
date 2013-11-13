@@ -1,0 +1,32 @@
+{
+  "resource": "CallRequest",
+  "http_method": "DELETE",
+  "route": "/api/call_requests/:id",
+  "description": "Deleting a call request",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/call_requests/76",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dWt1blZaQ2xjZjE2a3VvamU4VnRLQURqamQ2bUdGbG5zaDhWbnVFN1ROblZlNDFGbjN2dlRjOE1kRytOUnJTVERpa2g4dVdtM3dvT2VBbHMxTC9YeXduUDNtd0Ywa2pndlVNUHUvSHRoZW1weTJTbWNUeW1GdVRVc0IyVFhHMWxHcjBIa1FNK2dHU1Jhcld3S2MzaVQvclc3czhwbTRWOFVERGhxMzJtQ1UwPS0tZ0lLdVJWazk4SGRiLzVMRDA0WUF0QT09--2b422fd45830813343527178bb19968907b06e62; path=/; HttpOnly","X-Request-Id":"8c2df4b4-b575-45d4-8947-61358972f647","X-Runtime":"0.048051"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

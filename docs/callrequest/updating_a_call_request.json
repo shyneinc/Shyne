@@ -1,0 +1,54 @@
+{
+  "resource": "CallRequest",
+  "http_method": "PUT",
+  "route": "/api/call_requests/:id",
+  "description": "Updating a call request",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "id",
+      "description": "Call Request ID"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "member_id",
+      "description": "Member ID"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "scheduled_at",
+      "description": "Scheduled At"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/call_requests/75",
+      "request_body": "call_request[passcode]=66629&call_request[status]=proposed&call_request[scheduled_at]=2013-11-29+17%3A52%3A04",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=V2gvVmJ2Um5nd05NQjBzOFBLNnU4aWZDRFNoQzNlOG1ac2p5aDR0ejd2MlNwUlQ3UEFwTzA2dmIra3k4Y1ZPOTFZdis5SGVPdzI2Rm9iWDRsMlgwbVgwZGdMclBnNUlCZWpQWWp2Sjcwc2dRcHBGNElQYS8rcUMva3o5VVhhN1pYMTVKNHp4RkpLVjd5OXFMRDVSTkFMQXhneXpVVFU3RnZYcUpTRHlCS2JNPS0tWFhiYjJERUUzRkVrc2JKaEJuQmdmQT09--12ff599199ad23c623bdba18d080231e94a04781; path=/; HttpOnly","X-Request-Id":"f9a30d88-02f3-495d-b97c-06a8480f5b44","X-Runtime":"0.060064"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

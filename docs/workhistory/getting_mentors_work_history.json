@@ -1,0 +1,35 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "GET",
+  "route": "/api/mentors/:mentor_id/work_histories",
+  "description": "Getting mentor's work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors/216/work_histories",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":56,\"company\":\"Crist LLC\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2013-07-16\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.280-07:00\",\"updated_at\":\"2013-11-13T16:35:57.280-07:00\",\"title\":\"Product Configuration Assistant\"},{\"id\":57,\"company\":\"White, Jakubowski and Bartoletti\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-05-05\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.400-07:00\",\"updated_at\":\"2013-11-13T16:35:57.400-07:00\",\"title\":\"Forward Program Technician\"},{\"id\":58,\"company\":\"Braun Inc\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-09-30\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.420-07:00\",\"updated_at\":\"2013-11-13T16:35:57.420-07:00\",\"title\":\"Direct Functionality Liason\"},{\"id\":59,\"company\":\"Schowalter-Dickinson\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-07-16\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.440-07:00\",\"updated_at\":\"2013-11-13T16:35:57.440-07:00\",\"title\":\"Principal Division Agent\"},{\"id\":60,\"company\":\"Armstrong, Mueller and Bernier\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-04-09\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.460-07:00\",\"updated_at\":\"2013-11-13T16:35:57.460-07:00\",\"title\":\"Customer Tactics Officer\"},{\"id\":61,\"company\":\"Russel-Anderson\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2015-04-01\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.484-07:00\",\"updated_at\":\"2013-11-13T16:35:57.484-07:00\",\"title\":\"Direct Directives Developer\"},{\"id\":62,\"company\":\"Mraz-Prosacco\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2013-10-23\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.500-07:00\",\"updated_at\":\"2013-11-13T16:35:57.500-07:00\",\"title\":\"Dynamic Quality Officer\"},{\"id\":63,\"company\":\"Fritsch, Leffler and Grady\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-05-30\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.524-07:00\",\"updated_at\":\"2013-11-13T16:35:57.524-07:00\",\"title\":\"Investor Intranet Analyst\"},{\"id\":64,\"company\":\"Moore-Lockman\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-10-10\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.544-07:00\",\"updated_at\":\"2013-11-13T16:35:57.544-07:00\",\"title\":\"Dynamic Intranet Executive\"},{\"id\":65,\"company\":\"Blick, Glover and Schumm\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-12-03\",\"current_work\":false,\"mentor_id\":216,\"created_at\":\"2013-11-13T16:35:57.568-07:00\",\"updated_at\":\"2013-11-13T16:35:57.568-07:00\",\"title\":\"Chief Implementation Consultant\"}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"45cc27212491bca6e54183f157562656\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=amJhRWo2eXkzQXQ3bzMvUjVXeTY5bytGTzBTMk5DczlKZ3Z2NytYN2srL0dJSDduOE9IY3BtdTJkNUl1ZVc3WHpjYStBblQ4d0JsdFlwOFFhSU94aUtVZnNaSlNOemd4dGIzZEUzU1JOV1o0WHRuZmtUbVAzNDQ0aG1YU1lxVWhOV2VINXBkOVNhdElSeFo2aGJ2Y1NYRnB1UzNjSVowVHlkcGNYUklNTWhrPS0tSkQ5ZzhTYldnL3JwajFGamNYQTVkZz09--085edb3307eacc53b7e2bd616283cce4ddf361ec; path=/; HttpOnly","X-Request-Id":"f9e22219-f075-459f-bd9c-991dd61d76cb","X-Runtime":"0.264280","Content-Length":"2606"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

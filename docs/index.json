@@ -1,6 +1,31 @@
 {
   "resources": [
     {
+      "name": "CallRequest",
+      "examples": [
+        {
+          "description": "Creating a call request",
+          "link": "callrequest/creating_a_call_request.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting a call request",
+          "link": "callrequest/deleting_a_call_request.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all call requests",
+          "link": "callrequest/getting_all_call_requests.json",
+          "groups": "all"
+        },
+        {
+          "description": "Updating a call request",
+          "link": "callrequest/updating_a_call_request.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "Confirmation",
       "examples": [
         {
@@ -194,8 +219,8 @@
           "groups": "all"
         },
         {
-          "description": "Getting all user work history",
-          "link": "workhistory/getting_all_user_work_history.json",
+          "description": "Getting mentor's work history",
+          "link": "workhistory/getting_mentors_work_history.json",
           "groups": "all"
         },
         {

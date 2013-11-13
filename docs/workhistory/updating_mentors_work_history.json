@@ -3,7 +3,7 @@
   "http_method": "PUT",
   "route": "/api/mentors/:mentor_id/work_histories/:id",
   "description": "Updating mentor's work history",
-  "explanation": "Once the user is signed in and now can update a work_history",
+  "explanation": null,
   "parameters": [
     {
       "required": true,
@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/121/work_histories/54",
-      "request_body": "work[company]=VonRueden%2C+Murphy+and+Maggio&work[title]=Central+Implementation+Supervisor&work[date_started]=2012-09-16&work[date_ended]=2015-03-19&work[current_work]=false&work[mentor_id]=121",
+      "request_path": "/api/mentors/218/work_histories/67",
+      "request_body": "work[company]=Yundt-Ryan&work[title]=Regional+Configuration+Technician&work[date_started]=2012-12-01&work[date_ended]=2015-03-11&work[current_work]=false&work[mentor_id]=218",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -63,7 +63,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=ZW41a3lOdllzdWppZXE5cEpHRVIrZ2JjVmx1WHRxRjdPWWpIdWNsMkFBLzFzQk1WV0hqVTZkTG5NZUE3dFQvVGJlNWlldUwrd3d0c2ZORVRrRFZCbEdyZEJ6QnFsbFJPRW5HdFhaMVFoY2FTRjNGZWY0VmoyTXNOZ1lRQ1pKaThhZ3g2OFJMelJjLytpRjdhY2lRbUZBM2Z4ZXc0ODBubVd0clBqVWpTU2N3PS0tbWtFRjROdEFYTlJqb3lkZTFaVUZEZz09--9f9cfb667be88f3846e62fbd723f74d1a2ec8807; path=/; HttpOnly","X-Request-Id":"38699378-c488-4d4b-866e-5e2c0dc41992","X-Runtime":"0.039062"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=L1VnbHk2OGJzdFFQK0hsYjZRbTJhZFpMYStVTlRISlhtd012dUdHbFgrZDZUcVgwVEJUbGxhQ0w1V2ZwaUpsL0xoZi9tbDQzSDNIa2dpelkzQmdmWmZybm1LZkxtWHNxb0wrclo3RFIzTmRySTlwQlhCTWh6ekVXUy9nVlFWa1d3cFk3RXlvMUdWRGtpQlhtVVhwMmJlWXdOVlp6bHlNVEplTTFIL3ZibndNPS0tSnQ4UGdTeFQ1K1E0VzVnTk5mZnFCZz09--88826c97ea75e7fc585c5dfd84750924cc42f187; path=/; HttpOnly","X-Request-Id":"dba6fec1-247f-4e40-be72-908f3a60fd55","X-Runtime":"0.064068"},
       "response_content_type": null,
       "curl": null
 }

@@ -3,7 +3,7 @@
   "http_method": "GET",
   "route": "/api/search",
   "description": "Getting all matching search results",
-  "explanation": "This endpoint will search for Mentor's full name, headline, experties and work history to find a match",
+  "explanation": "This endpoint will search for Mentor's full name, headline, location, experties and work history to find a match",
   "parameters": [
     {
       "required": true,
@@ -34,7 +34,7 @@
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "{\"info\":\"No results found\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"8d091c0eadd59e1cca4dfaa373b51ade\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"83d71261-d1d7-4490-af42-7d962fa84eb6","X-Runtime":"0.579102","Content-Length":"27"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"8d091c0eadd59e1cca4dfaa373b51ade\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"a9a837e2-43d3-42f0-ab0f-1c5223fe0669","X-Runtime":"0.116123","Content-Length":"27"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

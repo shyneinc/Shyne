@@ -45,14 +45,14 @@
       "required": false,
       "scope": "user",
       "name": "time_zone",
-      "description": "Time Zone"
+      "description": "Time Zone ('Hawaii', 'Alaska', 'Pacific Time (US & Canada)', 'Arizona', 'Mountain Time (US & Canada)', 'Central Time (US & Canada)', 'Eastern Time (US & Canada)', 'Indiana (East)')"
     }
   ],
   "requests": [
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Rylee&user[last_name]=Stamm&user[email]=user9_1383698015%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x854d1f8%3E&user[username]=ryleestamm&user[settings]&user[time_zone]=Alaska",
+      "request_body": "user[first_name]=Adeline&user[last_name]=Kovacek&user[email]=user28_1384385767%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0xe07f824%3E&user[username]=adelinekovacek&user[settings]&user[time_zone]=Mountain+Time+%28US+%26+Canada%29",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -65,7 +65,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=cGZiOEpSd0xOOUxrTDFSY2ROUmxVYTZNZVpvMkV2WU9udXZNWmVkMDA2L2RGeGRHUFFxb2VkZzFVVWFBK2Z2OUxybDhvS21qVlQ4LzZjRmw1RjBCb1drRFI4eFlWcVJ5VjFralQvZ3ZEQk9uOVNHZndHV3Z5bG5pZTZVR1JJZ0FBU1RBZmJRNlRRSWxGS0xBTmRaVFJ4RUVmbXZFelNQTkZKRGhSd1U0Tlo0PS0tNVZCMjJrWGcxYlIzeUFUbE5XVkkyUT09--1c788524ba5222d967112fc590f9e7d8403e8ccf; path=/; HttpOnly","X-Request-Id":"6e426668-b2cc-4868-97f3-c9febd4bee68","X-Runtime":"0.075196"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=Q1J6MTN0bkNpTWgxVTZadXJENHBBUEw2MGRtSStFZkx6YWJORXhsS0ZlMGM4Z0hadGp1YVBNZVJyUG5LV0RxdnRHOHdlYmdYUGZqMjFUU1BZc0REN2h0amo3QU96L3Z5U1E0cDBEWGMrOWZBakxQMlJsdjVaeUZ6YTcxZVl1RzFjNHZPeGlnYjhET3FFdUVQQWFzK2dPUW5QUmZwTzRBV1U5NWxiTDNYdlJnPS0tMklUaStSREt2QW16NlBuK1RoSHJiZz09--4b0cd3a35528766e897e8ae954315321b5658f8a; path=/; HttpOnly","X-Request-Id":"69de0d6c-9948-4992-b44c-dc830a92026a","X-Runtime":"0.192204"},
       "response_content_type": null,
       "curl": null
 }

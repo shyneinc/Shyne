@@ -14,6 +14,12 @@
     {
       "required": true,
       "scope": "mentor",
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
       "name": "experties",
       "description": "Experties (eg. '{Accounting, Finance}')"
     },
@@ -46,7 +52,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/mentors",
-      "request_body": "mentor[headline]=Doloribus+reiciendis+sequi+qui+qui+ut+enim+quidem+dolores+minus+et+illum+cum+nulla.&mentor[linkedin]=http%3A%2F%2Flinkedin.com%2Faut&mentor[experties]=%7BBanking%7D&mentor[years_of_experience]=1&mentor[phone_number]=1-566-469-5079+&mentor[availability]=Qui+impedit+aliquam+eveniet+incidunt+dolor+mollitia+ducimus+necessitatibus+non+amet.&mentor[featured]&mentor[mentor_status]=applied&mentor[status_changed_at]",
+      "request_body": "mentor[headline]=Enim+quibusdam+quia+nemo+officiis+sit+explicabo+sit+quia+magni+quia+et.&mentor[location]=West+Kayberg%2C+TN&mentor[linkedin]=http%3A%2F%2Flinkedin.com%2Flaboriosam&mentor[experties]=%7BAccounting%2CFinance%7D&mentor[years_of_experience]=5&mentor[phone_number]=563-485-7257+&mentor[availability]=Ut+autem+ad+perferendis+dolores+sit+non+eos+qui+vero+aut+est+ipsa+nobis+eius.&mentor[featured]&mentor[mentor_status]=applied&mentor[status_changed_at]&mentor[avg_call_duration]&mentor[avg_rating]&mentor[total_reviews]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -59,7 +65,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=K0JDU2IxbXNPY2lINGFrV1FXYi9ZaXVoSmt2SEsrNkM2T2hlOGhiRUFVM0NSdU4zQmxJbjhJZnpGbmx0Nm1POHc0NUx2bm05RUc0QTloa0hrTmJxWmFLc0tYSzZyMVZBU0JvZUlCU0V4emZERjF3MWlwWDdjcWNFRHBpSHc2TnFnU1R5UEFab2VUTlRaUkd2S0J1RFJjb3RyNDFYRHVka1BKTHZkVDVERnlZPS0tWjZUcCtaNjFhVzBoRUNPUHVkTkJDUT09--de56d8731f4340e6f1554a334d38ac19f07bae17; path=/; HttpOnly","X-Request-Id":"b48af038-62ee-4693-b994-cb7f0f374c0b","X-Runtime":"0.033203"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=enJUdW9HVjd3Y0JQMndWMThBVHR1VUNUY1RLdDQ0S1dPYzRGRnYzNDZId3Z6eVFKdHVEZHVCS1p2aXFpeFRVK052Qi9MbGt4TzZFMEVDbENYMU1KaG9PQ0wzWDdkeXh2ZktLWVhSUlh0ZUpPUzRRRlZoWEJ4RnFzSU5zc1lQeXEzQklCK2VVQjFMU2xDVitYem5xWVhZNFpyRDdDeHZVdW5XMi81b0xNZlhzPS0tQytMTFhsVHhJZWRmb0RNUUV2OTVQZz09--0fdb654614b3cd97add0b37098ad8c13bf146772; path=/; HttpOnly","X-Request-Id":"a0428012-9eeb-4fd3-abaf-8b55f4cdc25a","X-Runtime":"0.124132"},
       "response_content_type": null,
       "curl": null
 }

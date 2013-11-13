@@ -1,0 +1,49 @@
+{
+  "resource": "CallRequest",
+  "http_method": "POST",
+  "route": "/api/call_requests",
+  "description": "Creating a call request",
+  "explanation": "Once the member is registered and logged in, they can create a call request",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "member_id",
+      "description": "Member ID"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "scheduled_at",
+      "description": "Scheduled At"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/call_requests",
+      "request_body": "call_request[status]=proposed&call_request[scheduled_at]=2013-12-04+17%3A39%3A40&call_request[member_id]=172&call_request[mentor_id]=229",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":74,\"member_id\":172,\"mentor_id\":229,\"passcode\":55329,\"status\":\"proposed\",\"scheduled_at\":\"2013-12-04T17:39:40.000-06:00\",\"created_at\":\"2013-11-13T17:36:31.720-06:00\",\"updated_at\":\"2013-11-13T17:36:31.720-06:00\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/call_requests/74","Content-Type":"application/json; charset=utf-8","ETag":"\"0dc1baa3fd8544c87763777dce7ece33\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=RU92ZmozSmM2R05KTjRGalVwUmgvR0FFOVhXUHg4S2NMQWhrVkIvdUlJYjVyVEZFZUtTNjlBUURNNUFzNWxZQ2h0Q0Iya09uRlVWUkxScFoyeGczeU9KUmd5WDNjd3BGb0VWQjZKM2dlc05iTUIwelpJcFV2YVlqUEJCNEV2dG1LcDI4Z1Y4bzFWNjFOZk00QmorZ1I1S091MjUrRmhIZnB1a0FQamdieXdVPS0tRGtIZzV0cHhvQ1ArZUdpeXJsV3YyZz09--46e23fb9ba66a42bb20d1a27c95cce189e3ed336; path=/; HttpOnly","X-Request-Id":"a88b90a3-e9a9-4c01-b83f-a0a9a8553205","X-Runtime":"0.064068","Content-Length":"215"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

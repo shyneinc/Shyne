@@ -3,7 +3,7 @@
   "http_method": "POST",
   "route": "/api/mentors/:mentor_id/work_histories",
   "description": "Creating mentor's work history",
-  "explanation": "Once the use is registered as mentor and logged in, create a work history",
+  "explanation": "Once the user is registered as mentor and logged in, they can add their work history",
   "parameters": [
     {
       "required": true,
@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/api/mentors/120/work_histories",
-      "request_body": "work[company]=Bergstrom+Inc&work[title]=District+Branding+Liason&work[date_started]=2012-09-16&work[date_ended]=2013-12-14&work[current_work]=false&work[mentor_id]=120",
+      "request_path": "/api/mentors/217/work_histories",
+      "request_body": "work[company]=Waelchi+Inc&work[title]=Corporate+Creative+Executive&work[date_started]=2012-12-01&work[date_ended]=2014-05-27&work[current_work]=false&work[mentor_id]=217",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -57,8 +57,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":53,\"company\":\"Bergstrom Inc\",\"date_started\":\"2012-09-16\",\"date_ended\":\"2013-12-14\",\"current_work\":false,\"mentor_id\":120,\"created_at\":\"2013-11-06T00:33:46.412Z\",\"updated_at\":\"2013-11-06T00:33:46.412Z\",\"title\":\"District Branding Liason\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/120/work_histories.53","Content-Type":"application/json; charset=utf-8","ETag":"\"a30bc13430d9cbd7f0e92fcfb4f3aa55\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=MkNFS2JUaURwN0hqZStUcm1GQ0xBREhVcmNjOVd6WlJPRjVKS0ZjcmJkMnFSOXBaU09LbHhsRldDZWVvM2o2OS9TSHl5MkhtM1JEaFBmVFU1bldkeTd5S3dzNzhUQmY3QlBxV0ovLzYvZ3VGWVoyUytEYlkzcjVBazYxQmdpdmJseVYxRU9meDNjemdyUkRvREY5Qk01TjJFVFlKNTE4RmVsQnlhUkNxaDhBPS0tTzFRMURTZGpiUWpjc1lsSzZwQm9xdz09--3148775f08e5b675b7d7b715cc55f28c0847678b; path=/; HttpOnly","X-Request-Id":"baca30ce-3dcd-46d3-939b-0b4801560340","X-Runtime":"0.035157","Content-Length":"241"},
+      "response_body": "{\"id\":66,\"company\":\"Waelchi Inc\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-05-27\",\"current_work\":false,\"mentor_id\":217,\"created_at\":\"2013-11-13T16:35:58.717-07:00\",\"updated_at\":\"2013-11-13T16:35:58.717-07:00\",\"title\":\"Corporate Creative Executive\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/217/work_histories.66","Content-Type":"application/json; charset=utf-8","ETag":"\"06fbad80c148d2e5c79389c115e2f435\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=L21SWVd1Mm94Rm1iS2JoK3B2UFB4R2dzVnNQZ0ttQmltNEVBN0tMN1pSZW1rRVVwRVkzdU91VkU5c0h0RnpkbDVVRUlDd0g2QmRrN05ub0tLWmtNWlBzemlRaVR0dCt4cnUwSUN5THp5a2FxclpPcmptd1JkVjFYeUNqcTVKYW9SQ215NUZrQmlPeXZ0a3VxT3lsMm4xTEs0SUxJM2h0T0tDTENYdzNCalJrPS0tV1o1eXUxR01HS1pMaTA2WGpDbW9uQT09--89dec018379b1f23c19cc9485064669ffce652b6; path=/; HttpOnly","X-Request-Id":"7e4af228-5050-4ce2-b1ff-c72027ba5d71","X-Runtime":"0.064068","Content-Length":"253"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

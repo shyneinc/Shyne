@@ -16,7 +16,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/members",
-      "request_body": "member[phone_number]=285.895.1379+",
+      "request_body": "member[phone_number]=1-312-362-1662+",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -28,8 +28,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":74,\"created_at\":\"2013-11-05T19:33:42.806-05:00\",\"updated_at\":\"2013-11-05T19:33:42.806-05:00\",\"user_id\":268,\"phone_number\":\"12858951379\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/74","Content-Type":"application/json; charset=utf-8","ETag":"\"1615d0cee16f6563572cd7981b0574d0\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=VHRUb2RzTG1vN0FaZG1OTXM5OGNmQ0hGT0dlR1dzVHZnRXd6SmZxeVM5U2dlQ1BUMlhVRG4ydXJpWi8xWEg2RHFhTW1xTG5vTU04djhibXJzZHdFd0x4V2xvNXRXTm0vcFNPUHdJOGZHb0pqQ05lT3BtR3FQanJUSlhURXpwREpPQzAxdVBHTFd2YmJjWGZDUFR2YkdOR2RuckFFY3lKZmNjYWxWMzBEUGZJPS0tcURPOWVNSk1aZWlpaW1DNnlmWGNtUT09--866db9e7b5b60bec43ddc69f3f6216f4c7814730; path=/; HttpOnly","X-Request-Id":"354ff8ef-20f3-4a67-85c9-e1c54e9a2405","X-Runtime":"0.042969","Content-Length":"142"},
+      "response_body": "{\"id\":167,\"created_at\":\"2013-11-13T17:36:25.081-06:00\",\"updated_at\":\"2013-11-13T17:36:25.081-06:00\",\"user_id\":505,\"phone_number\":\"13123621662\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/167","Content-Type":"application/json; charset=utf-8","ETag":"\"e69a4c5785a84f2847ceee159c7ca5c0\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=VURYcHA4RHcyaXBTdkEzbDVKUTdZWEJRTHo5RzFlS0N1cFV3eXRSdnE5WUdhNzJPRXlBREJ1Vi9HWFBHZTdLdmtMY2diUW5leW13bjJMSUpYWEhpdVkzNWlvSC9sQlR0WlFEbzdobWZIT3JBRFhtcHErcWpqeHhSVlZPQnR5MTNvL1Y5WHQzb2s1N3V6eHR2dUw1N1U5dnFBQ2tTZ0pYVGZyMmZQcitaTzMwPS0tMjFnakJPWDFKWmZBQlYwa2RWL3Y3dz09--d25c315f411b4793fea7a6630c2d1e7462a29d92; path=/; HttpOnly","X-Request-Id":"7b3cc334-0236-498a-9679-0c4f5f0eea9c","X-Runtime":"0.248263","Content-Length":"143"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }
