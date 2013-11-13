@@ -28,6 +28,8 @@ gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'
 gem 'angularstrap-rails', '~> 0.7.6'
 gem 'just-datetime-picker'
+#gem 'geokit' - I this we can use this for getting default timezone
+#gem 'timezone' - For all timezone stuff
 
 gem 'carrierwave'
 gem "fog", "~> 1.15.0"
@@ -51,6 +53,9 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'heroku_san'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  # gem 'guard-livereload'
 end
 
 group :test do
