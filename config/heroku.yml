@@ -18,9 +18,10 @@ production:
     RAILS_ENV: production
     BUNDLE_WITHOUT: "development:test"
   addons:
-    sendgrid: starter
-    papertrail: choklad
-    heroku-postgresql: hobby-dev
+    - sendgrid:starter
+    - papertrail:choklad
+    - heroku-postgresql
+    - pgbackups:auto-month
 
 development:
   stack: cedar
@@ -30,6 +31,6 @@ development:
     RAILS_ENV: development
     BUNDLE_WITHOUT: "development:test"
   addons:
-    sendgrid: starter
-    papertrail: choklad
-    heroku-postgresql: hobby-dev
+    - sendgrid:starter
+    - papertrail:choklad
+    - heroku-postgresql
