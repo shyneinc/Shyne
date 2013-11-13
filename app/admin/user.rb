@@ -17,15 +17,15 @@ ActiveAdmin.register User do
       f.input :first_name
       f.input :last_name
       f.input :email
-      # f.input :password
-      # f.input :password_confirmation
+      f.input :password
+      f.input :password_confirmation
     end
     f.actions
   end
 
   controller do
     def permitted_params
-      params.permit mentor: [:first_name, :last_name, :email, :time_zone]
+      params.permit mentor: [:first_name, :last_name, :email, :password, :password_confirmation]  #, :time_zone] - gem 'geokit' , 'timezone'
     end
   end
 end

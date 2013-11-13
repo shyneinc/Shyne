@@ -3,7 +3,7 @@ ActiveAdmin.register Member do
 
   index do
     selectable_column
-    column :user_id
+    column :user
     column :full_name
     column :phone_number
     default_actions
@@ -11,6 +11,7 @@ ActiveAdmin.register Member do
 
   form do |f|
     f.inputs "Member Details" do
+      f.input :user_id, as: :select, collection: User.all
       f.input :phone_number
     end
     f.actions
@@ -18,7 +19,7 @@ ActiveAdmin.register Member do
 
   controller do
     def permitted_params
-      params.permit member: [:phone_number]
+      params.permit member: [:phone_number, :user_id]
     end
   end
 end

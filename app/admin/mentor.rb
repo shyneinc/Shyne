@@ -13,6 +13,7 @@ ActiveAdmin.register Mentor do
 
   form do |f|
     f.inputs "Mentor Details" do
+      f.input :user_id, as: :select, collection: User.all
       f.input :headline
       f.input :experties
       f.input :years_of_experience
@@ -27,7 +28,7 @@ ActiveAdmin.register Mentor do
   controller do
     def permitted_params
       params.permit mentor: [:headline, :experties, :years_of_experience, :phone_number,
-                             :availability, :mentor_status, :featured]
+                             :availability, :mentor_status, :featured, :user_id]
     end
   end
 end
