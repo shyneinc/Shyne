@@ -41,14 +41,17 @@ class Api::V1::CallController < ActionController::Base
   def finish
     @call = Call.find_by sid: params[:CallSid]
 
-    if @call && params[:CallStatus] == "completed"
+    if @call
+      if params[:CallStatus] == "completed"
+        @call.conferencesid = params[:ConferenceSid]
+        @call.status = params[:CallStatus]
+        @call.save
 
-      @call.conferencesid = params[:ConferenceSid]
-      @call.status = :completed
-      @call.save
-      @call.delay({:run_at => 3.minutes.from_now}).send_billing
-
-      render :xml => {status: @call.status.to_s}, status: 200
+        render :xml => {status: @call.status.to_s}, status: 200
+      else
+        @call.status = params[:CallStatus]
+        @call.save
+      end
     else
       render :xml => {status: "Call request ID not found"}, status: 401
     end
