@@ -50,15 +50,15 @@ Before pushing any code please **make sure all tests are passing!**
 
 Run this to execute the API test suite:
 
-``rake db:migrate RAILS_ENV=test``
+``rake db:test:prepare``
 
-``spork`` (Keep spork running in the background for faster test runs)
-
-``rspec spec``
+``rspec spec`` OR ``bundle exec guard``
 
 ## Deployment
 
-To deploy to the dev.shyne.io use:
+We will be using [heroku_san](https://github.com/fastestforward/heroku_san) to manage deployments.
+
+To deploy to dev.shyne.io use:
 
 ``rake development deploy``
 
