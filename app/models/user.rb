@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  validates :first_name, :last_name, :time_zone, presence: true
+  validates :first_name, :last_name, presence: true
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.us_zones.map(&:name), message: "is not a valid Time Zone"
 
   after_validation :generate_username, :on => :create
