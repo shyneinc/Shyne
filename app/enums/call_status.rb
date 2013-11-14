@@ -24,7 +24,7 @@ class CallStatus::Completed < CallStatus
           @call_request.conferencesid = @conference.id
 
           if @call_request.save
-            CallMailer.delay.send_duration(@call_request.member, @call_request.mentor, @call_request )
+            CallMailer.delay.send_duration( @call_request )
           end
         end
       end
