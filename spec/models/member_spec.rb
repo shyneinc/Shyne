@@ -26,5 +26,11 @@ describe Member do
         expect(member.full_name).to eq "#{member.user.first_name} #{member.user.last_name}"
       end
     end
+
+    context "#email" do
+      it "returns a member's email as a string" do
+        expect(member.email).to eq "#{member.user.email}"
+      end
+    end
   end
 end

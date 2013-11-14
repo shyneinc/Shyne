@@ -38,6 +38,12 @@ describe Mentor do
       end
     end
 
+    context "#email" do
+      it "returns a mentor's email as a string" do
+        expect(mentor.email).to eq "#{mentor.user.email}"
+      end
+    end
+
     context "#years_of_experience" do
       it "returns a rate per minute according to mentor's experience" do
         if mentor.years_of_experience < 2
