@@ -36,4 +36,7 @@ Shyne::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Workaround for "Error dumping database" error on Heroku
+  config.active_record.schema_format = :ruby
 end
