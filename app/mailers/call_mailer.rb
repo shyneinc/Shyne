@@ -29,17 +29,17 @@ class CallMailer < ActionMailer::Base
     mail(to: mentor.email, cc: member.email, subject: "Call Reuest have been proposed!" )
   end
 
-  def send_duration(member, mentor, call)
+  def send_duration(member, mentor, call_request)
     @member = member
     @mentor = mentor
-    @call = call
+    @call_request = call_request
     mail(to: mentor.email, subject: "Duration for you call with #{member.full_name}" )
   end
 
   def send_bill(member, mentor, call_request)
     @member = member
     @mentor = mentor
-    @call = call
+    @call_request = call_request
     mail(to: member.email, subject: "Bill for you call with #{mentor.full_name}")
   end
 end
