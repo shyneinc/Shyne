@@ -5,5 +5,3 @@ require File.expand_path('../config/application', __FILE__)
 
 Shyne::Application.load_tasks
 
-# Don't try to dump structure.sql unless it's dev env
-Rake::Task["db:structure:dump"].clear unless Rails.env.development?

@@ -26,6 +26,9 @@ module Shyne
       DeviseController.respond_to :html, :json
     end
 
+    # Don't try to dump structure.sql unless it's dev env
+    Rake::Task["db:structure:dump"].clear unless Rails.env.development?
+
     config.active_record.schema_format = :sql
   end
 end
