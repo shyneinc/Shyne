@@ -7,8 +7,9 @@ gem 'thin'
 
 group :production do
   gem 'rails_12factor'
-  gem 'workless', '1.2.2'
 end
+
+gem 'workless', '1.2.2'
 
 #scheduling job and queuing
 gem 'delayed_job_active_record'
