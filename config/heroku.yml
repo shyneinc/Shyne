@@ -23,12 +23,12 @@ production:
     - heroku-postgresql
     - pgbackups:auto-month
 
-development:
+staging:
+  app: shyne-staging
   stack: cedar
-  app: shyne-dev
   config:
-    RACK_ENV: development
-    RAILS_ENV: development
+    RACK_ENV: production
+    RAILS_ENV: production
     BUNDLE_WITHOUT: "development:test"
   addons:
     - sendgrid:starter

@@ -1,6 +1,6 @@
 ## Customize deployment commands
 deployment:
-  development:
+  staging:
     branch: develop
     commands:
-      - rake development deploy
+      - rake staging deploy

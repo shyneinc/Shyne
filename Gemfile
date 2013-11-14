@@ -47,14 +47,13 @@ group :assets do
   gem 'sass'
 end
 
-gem 'letter_opener'
-
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec_api_documentation'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'letter_opener'
   gem 'heroku_san'
   gem 'guard-spork'
   gem 'guard-rspec'
