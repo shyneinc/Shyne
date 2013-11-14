@@ -22,7 +22,6 @@ production:
     - papertrail:choklad
     - heroku-postgresql
     - pgbackups:auto-month
-    - newrelic:stark
 
 development:
   stack: cedar
@@ -35,4 +34,3 @@ development:
     - sendgrid:starter
     - papertrail:choklad
     - heroku-postgresql
-    - newrelic
