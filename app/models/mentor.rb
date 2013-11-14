@@ -51,7 +51,11 @@ class Mentor < ActiveRecord::Base
   end
 
   def full_name
-    "#{self.user.first_name} #{self.user.last_name}"
+    self.user.full_name
+  end
+
+  def email
+    self.user.email
   end
 
   def avatar

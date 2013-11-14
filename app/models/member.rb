@@ -10,6 +10,10 @@ class Member < ActiveRecord::Base
   has_many :reviews
 
   def full_name
-    "#{self.user.first_name} #{self.user.last_name}"
+    self.user.full_name
+  end
+
+  def email
+    self.user.email
   end
 end
