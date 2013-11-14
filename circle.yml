@@ -1,0 +1,6 @@
+## Customize deployment commands
+deployment:
+  development:
+    branch: develop
+    commands:
+      - rake development deploy
