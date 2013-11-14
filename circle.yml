@@ -2,5 +2,5 @@
 deployment:
   staging:
     branch: develop
-    commands:
-      - rake staging deploy
+    heroku:
+      appname: shyne-dev

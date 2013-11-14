@@ -31,6 +31,4 @@ Shyne::Application.configure do
 
   ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
   ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
-
-  config.active_record.schema_format = :sql
 end

@@ -100,7 +100,4 @@ Shyne::Application.configure do
   }
 
   config.action_mailer.default_url_options = { host: "http://staging.shyne.io" }
-
-  # Workaround for "Error dumping database" error on Heroku
-  config.active_record.schema_format = :ruby
 end
