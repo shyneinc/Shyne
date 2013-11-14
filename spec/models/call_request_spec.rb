@@ -24,7 +24,7 @@ describe CallRequest do
 
     context "Callbacks" do
       it { expect(call_request).to callback(:generate_passcode).after(:validation).on(:create) }
-      it { expect(call_request).to callback(:send_status_update).after(:update) }
+      it { expect(call_request).to callback(:send_status).after(:update) }
     end
   end
 end

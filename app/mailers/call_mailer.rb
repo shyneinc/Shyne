@@ -15,18 +15,11 @@ class CallMailer < ActionMailer::Base
     mail(to: member.user.email, cc: mentor.user.email, subject: "Call Request have been approved!" )
   end
 
-  def request_change_proposed(member, mentor, call_request)
+  def request_changed(member, mentor, call_request)
     @member = member
     @mentor = mentor
     @call_request = call_request
     mail(to: member.user.email, cc: mentor.user.email, subject: "Schedule change has been proposed!" )
-  end
-
-  def request_change_approved(member, mentor, call_request)
-    @member = member
-    @mentor = mentor
-    @call_request = call_request
-    mail(to: mentor.user.email, cc: member.user.email, subject: "Schedule change has been approved!" )
   end
 
   def send_reminder(member, mentor, call_request)
