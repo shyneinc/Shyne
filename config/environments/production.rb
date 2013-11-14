@@ -55,7 +55,7 @@ Shyne::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  config.action_controller.asset_host = "http://static.shyne.io"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -86,10 +86,6 @@ Shyne::Application.configure do
   ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
   ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
 
-  #Testing Credentials
-  # ENV['TWILIO_SID'] = "AC93a6e69aca2e08fdbb9b21b6c45f1e5d"
-  # ENV['TWILIO_TOKEN'] = "b7b2de7ca6ee50514d33f2c2b2321158"
-
   config.after_initialize do 
     Delayed::Job.scaler = :heroku_cedar
   end
@@ -104,6 +100,5 @@ Shyne::Application.configure do
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = { host: "http://pure-mountain-8093.herokuapp.com" } #this should be shyne.io soon
-  
+  config.action_mailer.default_url_options = { host: "http://www.shyne.io" }
 end
