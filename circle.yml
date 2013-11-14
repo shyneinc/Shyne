@@ -3,4 +3,4 @@ deployment:
   staging:
     branch: develop
     heroku:
-      appname: shyne-dev
+      appname: shyne-staging
