@@ -5,6 +5,8 @@ FactoryGirl.define do
     passcode { Random.new.rand(10_000..99_999) }
     status CallRequestStatus::Proposed.new
     scheduled_at { rand(30.days).from_now.to_s(:db) }
+    billable_duration nil
+    conferencesid nil
     member
     mentor
   end
