@@ -50,7 +50,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
-  gem 'factory_girl_rails', '4.2.1'
   gem 'rspec_api_documentation'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -61,11 +60,15 @@ group :development, :test do
   # gem 'guard-livereload'
 end
 
-group :test do
+group :development, :staging, :test do
+  gem 'factory_girl_rails', '4.2.1'
   gem 'faker', '~> 1.2.0'
+  gem 'database_cleaner'
+end
+
+group :test do
   gem 'rack-test'
   gem 'turn', :require => false
-  gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '>=0.3.0'
   gem 'spork-rails'
