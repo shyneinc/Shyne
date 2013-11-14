@@ -27,8 +27,8 @@ staging:
   app: shyne-staging
   stack: cedar
   config:
-    RACK_ENV: production
-    RAILS_ENV: production
+    RACK_ENV: staging
+    RAILS_ENV: staging
     BUNDLE_WITHOUT: "development:test"
   addons:
     - sendgrid:starter
