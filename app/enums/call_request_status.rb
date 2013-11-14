@@ -5,19 +5,19 @@ class CallRequestStatus < ClassyEnum::Base
 end
 
 class CallRequestStatus::Proposed < CallRequestStatus
-   def send_status
-    CallMailer.request_proposed(owner.member, owner.mentor, owner).deliver
+  def send_status
+    CallMailer.delay.request_proposed(owner.member, owner.mentor, owner)
   end
 end
 
 class CallRequestStatus::Scheduled < CallRequestStatus
   def send_status
-    CallMailer.request_approved(owner.member, owner.mentor, owner).deliver
+    CallMailer.delay.request_approved(owner.member, owner.mentor, owner)
   end
 end
 
 class CallRequestStatus::Rescheduled < CallRequestStatus
   def send_status
-    CallMailer.request_changed(owner.member, owner.mentor, owner).deliver
+    CallMailer.delay.request_changed(owner.member, owner.mentor, owner)
   end
 end
