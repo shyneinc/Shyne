@@ -56,11 +56,7 @@ Run this to execute the API test suite:
 
 ## Deployment
 
-We will be using [heroku_san](https://github.com/fastestforward/heroku_san) to manage deployments.
-
-To deploy to dev.shyne.io use:
-
-``rake development deploy``
+Deployments to [staging.shyne.io](http://staging.shyne.io) happen continuously through CircleCI & [heroku_san](https://github.com/fastestforward/heroku_san) every time a commit is made to develop.
 
 ## Documentation
 
