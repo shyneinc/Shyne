@@ -1,4 +1,4 @@
-ShyneService.factory('Session', ($location, $http, $q) ->
+ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q) ->
 
   _currentUser = null
 
@@ -52,4 +52,4 @@ ShyneService.factory('Session', ($location, $http, $q) ->
   isAuthenticated: () ->
     !!_currentUser
 
-)
+])
