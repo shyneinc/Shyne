@@ -1,4 +1,4 @@
-development:
+staging:
   adapter: postgresql
   encoding: utf8
   template: template0
