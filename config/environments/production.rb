@@ -33,14 +33,14 @@ Shyne::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  config.assets.version = '1.1'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -81,7 +81,7 @@ Shyne::Application.configure do
   ENV['AWS_ACCESS_KEY'] = "AKIAJM7FCUEYPATUV54Q"
   ENV['AWS_SECRET_KEY'] = "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"
   ENV['AWS_BUCKET'] = "shyne"
-  ENV['AWS_CDN'] = "http://cdn.shyne.io"
+  ENV['AWS_CDN'] = "//d1tskns84uy35v.cloudfront.net"
 
   ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
   ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
