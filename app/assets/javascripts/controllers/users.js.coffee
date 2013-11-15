@@ -1,4 +1,4 @@
-Shyne.controller('UsersCtrl', ($scope, Session) ->
+Shyne.controller('UsersCtrl', ['$scope','Session',($scope, Session) ->
   $scope.login = (user) ->
     $scope.authError = null
     Session.login(user.email, user.password).then ((response) ->
@@ -23,4 +23,4 @@ Shyne.controller('UsersCtrl', ($scope, Session) ->
 
       $scope.authError = errors
 
-)
+])

@@ -1,4 +1,4 @@
-Shyne.controller('HomeCtrl', ($location, $scope, Session) ->
+Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope, Session) ->
 
   $scope.showIndex = true
   mentorIdx = 0
@@ -35,4 +35,4 @@ Shyne.controller('HomeCtrl', ($location, $scope, Session) ->
       $scope.error = error
     )
 
-)
+])

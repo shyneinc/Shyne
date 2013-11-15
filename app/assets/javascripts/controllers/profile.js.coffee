@@ -1,4 +1,4 @@
-Shyne.controller('ProfileCtrl', ($scope, Session) ->
+Shyne.controller('ProfileCtrl', ['$scope','Session',($scope, Session) ->
 
   $scope.$parent.showIndex = false
 
@@ -9,4 +9,4 @@ Shyne.controller('ProfileCtrl', ($scope, Session) ->
   $scope.logout = ->
     Session.logout()
 
-)
+])

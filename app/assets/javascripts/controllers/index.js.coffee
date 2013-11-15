@@ -1,4 +1,4 @@
-Shyne.controller('IndexCtrl', ($location, $scope, Session) ->
+Shyne.controller('IndexCtrl', ['$location','$scope','Session',($location, $scope, Session) ->
 
   $scope.showIndex = true
   mentorIdx = 0
@@ -17,4 +17,4 @@ Shyne.controller('IndexCtrl', ($location, $scope, Session) ->
   $scope.viewProfile = (mentor) ->
     $location.path '/profile/' + mentor.id
 
-)
+])
