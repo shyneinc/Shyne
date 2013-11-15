@@ -1,118 +1,133 @@
-<div class="profile">
-    <div class="portfolio">
+<div class="profile-index">
+    <header>
+        <div class="container">
+            <nav class="masthead">
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <form class="navbar-form navbar-left search-form">
+                            <input type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
+                            <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+                        </form>
+                    </li>
+                    <li><a href="#/login">Log In</a></li>
+                </ul>
+            </nav>
+            <a class="logo" href="#" ng-click="home()">Shyne</a>
+        </div>
+    </header>
+    <div class="hero">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="info">
-                        <img class="pic img-rounded" src="/assets/sample/jesal.jpg"/>
-                        <h2>Jesal Gadhia</h2>
-                        <ul class="hidden nav">
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit Portfolio</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-phone-alt"></span> Call Statistics</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-usd"></span> Account Settings</a></li>
-                        </ul>
-                        <ul class="nav">
-                            <li><a href="#" class="highlight"><span class="glyphicon glyphicon-earphone"></span> Schedule Call</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-comment"></span> Write Review</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-md-8">
-                    <div class="contact">
-                        <div class="pull-right"><a href="#" class="call-now"><span class="glyphicon glyphicon-earphone"></span></a></div>
-                        <h1>Co-founder at Shyne.io </h1>
-                        <div class="rate">
-                            <span class="glyphicon glyphicon-phone-alt"></span> $5/min <a href="#">(15 Calls / Avg Length: 32 mins)</a>
-                            <span class="group">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <a href="#">(38 reviews)</a>
-                            </span>
-                        </div>
-                        <div class="additional-info">
-                            <p><span class="glyphicon glyphicon-briefcase"></span> <a href="#">Web Application Development</a>, <a href="#">Software Engineering</a>, <a href="#">Computer Science</a></p>
-                            <p><span class="glyphicon glyphicon-map-marker"></span> <a href="#">San Francisco, CA</a></p>
-                        </div>
-                        <pre class="intro">Hello! I’m a software engineer from sunny Los Angeles who started his adventures on the web at an early age, writing code for fun. Subsequently I followed my passion for technology and graduated with a degree in Computer Science.
-
-Throughout the years since then, I’ve had the opportunity to architect & develop applications for various major brands such as Cleveland Golf/Srixon, eHarmony, Icehouse, Lexus, Pabst Brewing, RobbReport, Scion, SANYO/Panasonic, among many others using a range of programming languages/frameworks like C#/ASP.NET, CodeIgniter, CakePHP, Python/Django, Ruby/Rails, etc
-
-Specialties:Polyglot programmer with versatile skills in various aspects of server side and client side development on Linux and Windows stacks.
-                        </pre>
+                    <h1>Jesal Gadhia</h1>
+                    <section class="current-role clearfix">
+                        <div class="pull-left">Co-founder at Shyne.io</div>
+                        <a href="#" class="pull-left linkedin-logo"></a>
+                    </section>
+                    <section>
+                        <span class="glyphicon glyphicon-record"></span>
+                        Positions that I've been in
+                        <ol>
+                            <li>Product Manager at Facebook (2013 - 2014)</li>
+                            <li>Risk Analyst at Square (2010 - 2013)</li>
+                            <li>Business Development at Betfair (2004 - 2010)</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        San Francisco, CA
+                    </section>
+                    <section>
+                        <span class="glyphicon glyphicon-briefcase"></span>
+                        Web Application Development, Software Engineering, Computer Science
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <div class="timeslot">
+                        <h2>Availability</h2>
+                        Weekdays: <strong>6:00pm - 8:00pm</strong><br/>
+                        Weekends: <strong>11:00am - 1:00pm</strong><br/>
+                        <span class="glyphicon glyphicon-time"></span>
+                        Pacific Standard Time (PST)<br/>
+                        <a href="#">Schedule a call now</a>
                     </div>
                 </div>
-                <div class="col-md-1">&nbsp;</div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <a href="#" class="btn btn-default pull-left">
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+                            Schedule Call Now
+                        </a>
+                        <strong class="pull-left">$5 / minute</strong>
+                        <span class="pull-left avg-call-time">Avg. Call Length: 25 mins</span>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="circle">
+                            <div class="inner">
+                                <img src="/assets/sample/jesal.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    Hello! I’m a software engineer from sunny Los Angeles who started his adventures on the web at an early age, writing code for fun. Subsequently I followed my passion for technology and graduated with a degree in Computer Science.  Throughout the years since then, I’ve had the opportunity to architect & develop applications for various major brands such as Cleveland Golf/Srixon, eHarmony, Icehouse, Lexus, Pabst Brewing, RobbReport, Scion, SANYO/Panasonic, among many others using a range of programming languages/frameworks like C#/ASP.NET, CodeIgniter, CakePHP, Python/Django, Ruby/Rails, etc.
+                </div>
+                <div class="col-md-4">&nbsp;</div>
             </div>
         </div>
     </div>
     <div class="reviews">
         <div class="container">
+            <strong class="pull-left">28 reviews</strong>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star empty"></span>
+            <a href="#" class="review-link">Write a review</a>
             <div class="row">
-                <div class="col-md-3">&nbsp;</div>
-                <div class="col-md-8">
-                    <div class="list">
-                        <h2>Reviews</h2>
-                        <div class="row review">
-                            <div class="col-md-2 pic">
-                                <img src="/assets/sample/snowy.jpg"/>
-                                Snowy
-                                <div class="arrow"></div>
-                            </div>
-                            <div class="col-md-10">
-                                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur culpa cum distinctio dolorum enim error fuga fugiat illum in natus necessitatibus optio pariatur perferendis quaerat quas rem, repellendus suscipit veniam!</p>
-                                <p class="rating">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                    <spna class="timestamp">2 months ago</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row review">
-                            <div class="col-md-2 pic">
-                                <img src="/assets/sample/tim.jpg"/>
-                                Tim W.
-                                <div class="arrow"></div>
-                            </div>
-                            <div class="col-md-10">
-                                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur culpa cum distinctio dolorum enim error fuga fugiat illum in natus necessitatibus optio pariatur perferendis quaerat quas rem, repellendus suscipit veniam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus et fugiat illo in natus officia rerum temporibus vel, voluptatum. Cum, dolores fuga ipsam ipsum odio perspiciatis saepe sint vitae!</p>
-                                <p class="rating">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <spna class="timestamp">3 months ago</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row review">
-                            <div class="col-md-2 pic">
-                                <img src="/assets/sample/rohan.jpg"/>
-                                Rohan J.
-                                <div class="arrow"></div>
-                            </div>
-                            <div class="col-md-10">
-                                <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur culpa cum distinctio dolorum enim error fuga fugiat illum in natus necessitatibus optio pariatur perferendis quaerat quas rem, repellendus suscipit veniam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus et fugiat illo in natus officia rerum temporibus vel, voluptatum. Cum, dolores fuga ipsam ipsum odio perspiciatis saepe sint vitae!</p>
-                                <p class="rating">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <spna class="timestamp">July 07, 2011</span>
-                                </p>
-                            </div>
-                        </div>
+                <div class="inner">
+                    <div class="circle"><img src="/assets/sample/tim.jpg"/></div>
+                    <h3 class="pull-left">Tim Wong</h3>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     </div>
+                    <small>9 months ago</small>
                 </div>
-                <div class="col-md-1">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="inner">
+                    <div class="circle"><img src="/assets/sample/rohan.jpg"/></div>
+                    <h3 class="pull-left">Rohan Jain</h3>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </div>
+                    <small>9 months ago</small>
+                </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <div class="inner text-center">&copy; 2013 Shyne</div>
+        </div>
+    </footer>
 </div>

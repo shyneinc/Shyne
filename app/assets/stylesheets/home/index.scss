@@ -1,19 +1,152 @@
 @import "typography";
 
-.form {
-  .jumbotron {
-    margin-top: 40px;
-    padding: 10px 30px 20px;
-    h2 {
-      padding-bottom: 15px;
-      border-bottom: 1px solid #C6C6C6;
+.home-index{
+  .hero {
+    @include gradient($white, $light-gray);
+    color: #475664;
+    border-bottom: 1px solid #DADDDF;
+    padding-bottom: 70px;
+    line-height: 160%;
+    font-size: 15px;
+    h1 {
+      font-size: 40px;
+      font-weight: 100;
+      margin-top: 30px;
     }
-    label {
-      font-size: 16px;
-      line-height: 18px;
-    }
-    .button-group{
+    .banner {
       margin: 20px 0;
+      background-color: #00CFC7;
+      .search-form {
+        margin: 8px 0;
+        position: relative;
+        .btn-default {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: $light-gray;
+          color: #CCC;
+        }
+      }
+      .holder {
+        position: relative;
+        overflow: hidden;
+        min-height: 50px;
+      }
+      .glyphicon-chevron-right {
+        color: $white;
+        font-size: 85px;
+        position: absolute;
+        top: -29px;
+        &.arrow-1 {
+          left: 0;
+        }
+        &.arrow-2 {
+          left: 50px;
+        }
+        &.arrow-3 {
+          left: 100px;
+        }
+      }
+      .signup-circle {
+        @include circle(160px);
+        background-color: $red;
+        display: block;
+        position: absolute;
+        top: -57px;
+        padding: 5px;
+        &:hover {
+          text-decoration: none;
+        }
+        .inner {
+          @include circle(150px);
+          background-color: $white;
+          padding: 8px;
+          .deep {
+            @include circle(134px);
+            background-color: $red;
+            color: $white;
+            font-size: 15px;
+            position: relative;
+            sup {
+              position: absolute;
+              top: 46px;
+              left: 0;
+              width: 134px;
+              text-align: center;
+              font-size: 15px;
+            }
+            strong {
+              font-size: 40px;
+              line-height: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mentors {
+    margin-top: -50px;
+    margin-bottom: 20px;
+    line-height: 150%;
+    .col-md-2 {
+      padding-left: 0;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: normal;
+      margin-left: 15px;
+    }
+    .arrow-holder {
+      position: relative;
+      .arrow {
+        @include circle(27px);
+        border: 1px solid #CCC;
+        background-color: $light-gray;
+        color: #CCC;
+        position: absolute;
+        top: 115px;
+      }
+      .left-arrow {
+        right: 20px;
+      }
+      .right-arrow {
+        left: 5px;
+      }
+    }
+    .card {
+      @include round-corners(6px);
+      @include box-shadow(1px, #CCC);
+      cursor: pointer;
+      border: 1px solid #CCC;
+      .photo {
+        position: relative;
+        .overlay {
+          position: absolute;
+          height: 27px;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          color: $white;
+          padding: 5px;
+          background-color: rgba(0, 0, 0, 0.7);
+        }
+        img {
+          @include top-round-corners(6px);
+          width: 100%;
+        }
+      }
+      .info {
+        padding: 5px;
+      }
+      .action {
+        @include bottom-round-corners(6px);
+        display: block;
+        background-color: $light-gray;
+        color: $red;
+        border-top: 1px solid #DADDDF;
+        padding: 5px;
+      }
     }
   }
 }

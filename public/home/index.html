@@ -1,69 +1,97 @@
-<div class="home index">
-
-    <section class="hero container">
-        <div class="row">
-            <div class="col-md-5">
-                <h1>The fastest way to accelerate your career.</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <p>
-                    Get expert interview advice from people that have worked in positions you're interested in.  Schedule a call with any of our mentions in just minutes.
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <form class="form-inline search-form" role="form">
-                    <div class="form-group">
-                        <label class="sr-only" for="home-search"></label>
-                        <input type="text" class="form-control search-box" id="home-search" placeholder="Search for a company or position you're interested in.">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <div class="arrow"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section class="banner">
+<div class="home-index">
+    <header>
         <div class="container">
-            <p class="text-center">
-                We have mentors from Facebook. Google. Goldman Sachs, KPMG, PwC, Square, Dropbox, and many more companies!  Pick their brains on how they advanced to get to where they are in their careers.
-            </p>
+            <nav class="masthead">
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="#">Become Mentors</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#/login">Log In</a></li>
+                </ul>
+            </nav>
+            <a class="logo" href="#" ng-click="home()">Shyne</a>
         </div>
-    </section>
-
-    <section class="mentors container">
-        <div class="row">
-            <h2 class="text-center">Featured Mentors</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-1">
-                <a href="#" class="circle">
-                    <div class="arrow left">&nbsp;</div>
-                </a>
+    </header>
+    <div class="hero">
+        <div class="container">
+            <h1>Accerlerate your career path</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    Get expert interview advice from people that have worked in positions you’re interested in.  Schedule a call with any of our mentors in just minutes.
+                </div>
+                <div class="col-md-4">&nbsp;</div>
             </div>
-            <div class="col-md-2"  ng-repeat="mentor in mentors">
-                <figure>
-                    <img class="img-rounded" ng-src="{{mentor.photoUrl}}"/>
-                    <figcaption>
-                        <div class="text-center">
-                            {{mentor.name}}
-                            <div class="role">{{mentor.role}} @ {{mentor.company}}</div>
-                            ${{mentor.ratePerMinute}} / minute
-                            <button class="btn btn-primary">Schedule Call</button>
+        </div>
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="search-form">
+                            <input type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
+                            <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="holder">
+                            <span class="glyphicon glyphicon-chevron-right arrow-1"></span>
+                            <span class="glyphicon glyphicon-chevron-right arrow-2"></span>
+                            <span class="glyphicon glyphicon-chevron-right arrow-3"></span>
                         </div>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-md-1 text-right">
-                <a href="#" class="circle">
-                    <div class="arrow right">&nbsp;</div>
-                </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="signup-circle">
+                <span class="inner">
+                  <span class="deep">
+                    <sup>JOIN FOR</sup>
+                    <strong>FREE</strong>
+                  </span>
+                </span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    We have mentors from <a href="#">Facebook</a>, <a href="#">Google</a>, <a href="#">Goldman Sachs</a>, <a href="#">KPMG</a>, <a href="#">PwC</a>, <a href="#">Square</a>, <a href="#">Dropbox</a>, and many more companies!  Pick their brains on what they did to land their jobs.
+                </div>
+                <div class="col-md-4">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="mentors">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 arrow-holder">
+                    <h2>Featured Mentors</h2>
+                    <a href="#" class="left-arrow arrow"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                </div>
+                <div class="col-md-2" ng-repeat="mentor in mentors">
+                    <div class="card" ng-click="viewProfile(mentor)" pop-card>
+                        <div class="photo">
+                            <img src="/assets/sample/rohan.jpg" ng-src="{{mentor.photoUrl}}">
+                            <div class="overlay">
+                                ${{mentor.ratePerMinute}} / minute
+                            </div>
+                        </div>
+                        <div class="info">
+                            <a href="#">{{mentor.name}}</a><br/>
+                            {{mentor.role}}<br/>
+                            {{mentor.company}}<br/>
+                        </div>
+                        <a class="action" href="#"><span class="glyphicon glyphicon-earphone"></span> Schedule Call</a>
+                    </div>
+                </div>
+                <div class="col-md-2 arrow-holder">
+                    <a href="#" class="right-arrow arrow"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="inner text-center">&copy; 2013 Shyne</div>
+        </div>
+    </footer>
 </div>

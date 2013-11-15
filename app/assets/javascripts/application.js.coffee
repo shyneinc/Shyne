@@ -25,7 +25,10 @@ Shyne.config(["$httpProvider", ($httpProvider) ->
 ])
 
 Shyne.config ["$routeProvider", ($routeProvider) ->
-  $routeProvider.when("/profile",
+  $routeProvider.when("/",
+    templateUrl: "/home/index.html"
+    controller: 'HomeCtrl'
+  ).when("/profile/:id",
     templateUrl: "/profile/index.html"
     controller: 'ProfileCtrl'
   ).when("/login",

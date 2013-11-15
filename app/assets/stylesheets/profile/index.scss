@@ -1,156 +1,131 @@
 @import "typography";
 
-.profile {
-  .portfolio {
-    background: $black url(/assets/blue-sky.jpg) top center no-repeat;
-    background-size: cover;
-    min-height: 550px;
-    font-weight: 200;
-  }
+.profile-index {
   h1 {
-    margin: 0 0 15px 0;
+    font-size: 40px;
   }
-  .info {
-    background-color: $black;
-    color: $white;
-    padding: 10px;
-    margin-top: 20px;
-    @include round-corners(5px);
-    .pic {
-      width: 100%;
+  h2 {
+    font-size: 20px;
+  }
+  .hero {
+    @include gradient($white, $light-gray);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    color: #475664;
+    border-bottom: 1px solid #DADDDF;
+    line-height: 150%;
+    h1 {
+      margin-top: 40px;
     }
-    h2 {
-      font-size: 18px;
+    .current-role {
       margin: 10px 0;
-    }
-    .nav {
-      li {
-        a {
-          padding: 5px 0;
-          border-top: 1px solid #666;
-          color: #999;
-          &:focus, &:active, &:hover {
-            background-color: $black;
-            color: $blue;
-          }
-          .glyphicon {
-            padding-right: 5px;
-          }
-        }
-      }
-    }
-  }
-  .contact {
-    background-color: rgba(0, 0, 0, 0.45);
-    min-height: 550px;
-    padding: 20px;
-    color: $white;
-    .call-now {
-      background-color: $red;
-      width: 45px;
-      height: 45px;
-      @include round-corners(45px);
-      color: #FFF;
-      line-height: 50px;
-      text-align: center;
-      display: block;
-      font-size: 24px;
-      &:hover {
-        background-color: $blue;
-      }
-    }
-    .rate {
       font-size: 16px;
-      font-weight: bold;
-      .glyphicon {
-        color: #EEE;
-        padding-right: 5px;
-      }
-      .glyphicon-star {
-        padding-right: 0;
-        top: 2px;
-      }
-      .group {
-        padding-left: 20px;
-      }
-      a {
-        color: #FCFCFC;
-        font-weight: 300;
-        &:hover {
-          color: $blue;
-        }
+      .linkedin-logo {
+        margin: 1px 0 0 8px;
       }
     }
-    .additional-info {
+    .timeslot {
+      margin-top: 90px;
+      line-height: 160%;
+    }
+    section {
+      margin-bottom: 10px;
+      .glyphicon {
+        padding-right: 5px;
+      }
+      ol {
+        margin-left: 5px;
+      }
+    }
+    .banner {
       margin: 20px 0;
-      padding: 10px 0 0;
-      border-top: 1px dotted $white;
-      border-bottom: 1px dotted $white;
-      .glyphicon {
-        padding-right: 5px;
+      padding: 10px 0;
+      background-color: #00CFC7;
+      position: relative;
+      color: $white;
+      .btn-default {
+        border: 1px solid $white;
+        @include gradient(#FF645B, #FF493F);
+        color: $white;
       }
-      a {
-        color: #FCFCFC;
-        font-weight: 300;
-        &:hover {
-          color: $blue;
-        }
+      strong {
+        margin: 7px 0 0 15px;
+        font-size: 28px;
+      }
+      .avg-call-time {
+        margin: 11px 0 0 10px;
       }
     }
-    .intro {
-      background: none;
-      border: 0;
-      color: $white;
-      margin: 0;
-      padding: 0;
-      font-family: inherit;
-      font-size: 14px;
-      line-height: 24px;
+    .circle {
+      @include circle(160px);
+      position: absolute;
+      top: -70px;
+      left: 0;
+      background-color: $red;
+      padding: 5px;
+      .inner {
+        background-color: $white;
+        padding: 5px;
+        @include circle(150px);
+        img {
+          @include circle(140px);
+        }
+      }
     }
   }
   .reviews {
-    .list {
-      background-color: rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      h2 {
-        margin-top: 0;
+    margin-bottom: 10px;
+    h2 {
+      margin-top: 0;
+    }
+    strong {
+      font-size: 20px;
+      font-weight: normal;
+      padding-right: 10px;
+      margin-top: -6px;
+    }
+    .glyphicon-star {
+      color: $gold;
+      width: 12px;
+      font-size: 16px;
+      &.empty {
+        color: #999;
       }
-      .review {
-        padding: 0 15px;
-        margin-bottom: 20px;
-        .pic {
+    }
+    .review-link {
+      font-size: 12px;
+      padding-left: 10px;
+    }
+    .row {
+      .inner{
+        @include round-corners(6px);
+        position: relative;
+        background-color: $light-gray;
+        padding: 10px 10px 10px 60px;
+        margin-left: 40px;
+        margin-top: 15px;
+        h3 {
+          font-size: 18px;
+          margin: 0;
+          padding: 0 10px 0 0;
+        }
+        .content{
+          margin: 5px 0;
+          line-height: 160%;
+        }
+        small {
+          color: #999;
+          font-size: 12px;
+        }
+        .circle {
+          @include circle(80px);
+          position: absolute;
+          top: 20px;
+          left: -30px;
           background-color: $white;
-          @include round-corners(5px);
           padding: 5px;
-          position: relative;
-          font-size: 12px;
-          color: $gray;
           img {
-            width: 100%;
-            margin-bottom: 5px;
-          }
-          .arrow {
-            width: 0px;
-            height: 0px;
-            border-style: solid;
-            border-width: 10px 0 10px 15px;
-            border-color: transparent transparent transparent $white;
-            position: absolute;
-            top: 25px;
-            right: -10px;
-          }
-        }
-        .message {
-          padding: 10px 0;
-          margin-left: 5px;
-          border-bottom: 1px dotted #999;
-        }
-        .rating {
-          font-size: 12px;
-          color: #666;
-          padding-left: 5px;
-          .timestamp {
-            padding-left: 5px;
+            @include circle(70px);
           }
         }
       }
