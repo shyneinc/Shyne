@@ -16,9 +16,9 @@ class CallStatus::Completed < CallStatus
       owner.duration = @log.duration.to_i
       if owner.save
         @conference = @client.account.conferences.get(owner.conferencesid.to_s)
-        if @conference.status == 'completed' 
-          @duration = Call.where(conferencesid: owner.conferencesid , status: :completed).minimum(:duration)
-
+        
+        if @conference && @conference.status == 'completed' 
+          @duration = Call.where(conferencesid: @conference.sid , status: :completed).minimum(:duration)
           @call_request = owner.call_request
           @call_request.billable_duration = @duration
           @call_request.conferencesid = @conference.id
