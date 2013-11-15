@@ -68,5 +68,8 @@ Run this to regenerate the docs: `rake docs:generate`
 
 To keep our codebase clean, uniform and readable let's follow the coding styleguide prescribed by GitHub: https://github.com/styleguide
 
+## Gotchas
+
+For shyne-staging, make sure [user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) is enabled for rake assets:precompile to work properly.
 
   [1]: https://circleci.com/gh/shyneinc/Shyne.png?circle-token=84572cf098f3e783ea27317ada59cde54c386547
