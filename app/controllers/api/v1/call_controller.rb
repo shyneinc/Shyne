@@ -28,6 +28,12 @@ class Api::V1::CallController < ActionController::Base
         end
       end
 
+      # TODO:
+      # 1) Check if the call recrod already exists - If it does, continue to #2 else go to #4
+      # 2) Make sure that there are no calls with status "completed" with this passcode. If there are, don't do anything else continue to #3.
+      # 3) Update the existing call record with status: inprogress. End.
+      # 4) Create the call record like how it is now:
+
       @call_request.calls.create(from_number: @caller_number, sid: @sid, status: :inprogress)
     else
       @response = Twilio::TwiML::Response.new do |r|
