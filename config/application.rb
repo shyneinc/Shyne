@@ -26,6 +26,6 @@ module Shyne
       DeviseController.respond_to :html, :json
     end
 
-    config.active_record.schema_format = :sql
+    config.active_record.schema_format = :ruby
   end
 end
