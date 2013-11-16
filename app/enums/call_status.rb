@@ -11,6 +11,8 @@ class CallStatus::Completed < CallStatus
   # TODO
   # Turn this into a rake task run it with whenever.
   # Seperate task to calculate duration and to do billing
+  # Try alternate approach to calculate duration, where
+  # its conference.start - conference.end
   def fetch_duration
     if owner.sid
       @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
