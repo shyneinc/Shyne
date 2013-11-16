@@ -52,6 +52,8 @@ class Api::V1::CallController < ActionController::Base
       else
         @call.status = params[:CallStatus]
         @call.save
+        
+        render :xml => {status: @call.status.to_s}, status: 200
       end
     else
       render :xml => {status: "Call request ID not found"}, status: 401
