@@ -44,14 +44,14 @@ class Api::V1::CallController < ActionController::Base
 
     if @call
       if params[:CallStatus] == "completed" || params[:CallStatus] == "in-progress"
+        @call.conferencesid = params[:ConferenceSid]
+        @call.status = :completed
+        @call.save
+
         @response = Twilio::TwiML::Response.new do |r|
           r.Say "Thank you for using Shyne", voice: 'alice'
           r.Hangup
         end
-
-        @call.conferencesid = params[:ConferenceSid]
-        @call.status == :completed
-        @call.save
 
         render :xml => Nokogiri::XML(@response.text), status: 200
       else
