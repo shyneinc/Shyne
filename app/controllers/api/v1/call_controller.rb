@@ -20,6 +20,7 @@ class Api::V1::CallController < ActionController::Base
     @caller_number = params[:From]
     @sid = params[:CallSid]
 
+    #TODO: restrict passcode by time - can't use passcode 30minutes before or after scheduled call_request
     if @call_request
       @response = Twilio::TwiML::Response.new do |r|
         r.Say "Entering the Dojo!", voice: 'alice'
