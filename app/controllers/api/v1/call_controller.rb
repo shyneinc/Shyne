@@ -24,7 +24,7 @@ class Api::V1::CallController < ActionController::Base
       @response = Twilio::TwiML::Response.new do |r|
         r.Say "Entering the Dojo!", voice: 'alice'
         r.Dial action: api_call_finish_url, method: :post do |d|
-          d.Conference @call_request.passcode.to_s
+          d.Conference @call_request.passcode.to_s, maxParticipants: 3, endConferenceOnExit: true
         end
       end
 
