@@ -7,6 +7,8 @@ FactoryGirl.define do
     scheduled_at { rand(30.days).from_now.to_s(:db) }
     billable_duration nil
     conferencesid nil
+    billed nil
+    price nil
     member
     mentor
   end
