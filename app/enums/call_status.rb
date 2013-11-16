@@ -17,22 +17,25 @@ class CallStatus::Completed < CallStatus
     if owner.sid
       @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
       @log = @client.account.calls.get(owner.sid.to_s)
-
       owner.duration = @log.duration.to_i
+
       if owner.save
-        @conference = @client.account.conferences.get(owner.conferencesid.to_s)
+        @conf = @client.account.conferences.get(owner.conferencesid.to_s)
+        callers = Call.where(conferencesid: @conf.sid , status: :completed).count
         
-        if @conference && @conference.status == 'completed' 
-          @duration = Call.where(conferencesid: @conference.sid , status: :completed).minimum(:duration)
+        if @conf && @conf.status == 'completed' && callers > 1 
+          @duration = @conf.date_updated.to_time - @conf.date_created.to_time
+          
           @call_request = owner.call_request
           @call_request.billable_duration = @duration
-          @call_request.conferencesid = @conference.id
+          @call_request.conferencesid = @conf.sid
 
           if @call_request.save
             CallMailer.delay.send_duration( @call_request )
           end
         end
       end
+      
     end
   end
   handle_asynchronously :fetch_duration, :run_at => Proc.new { 3.minutes.from_now }
