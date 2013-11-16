@@ -49,7 +49,7 @@ class Api::V1::CallController < ActionController::Base
         @call.save
 
         @response = Twilio::TwiML::Response.new do |r|
-          r.Say "Thank you for using Shyne", voice: 'alice'
+          r.Say "Thank you for using Shyne, Goodbye!", voice: 'alice'
           r.Hangup
         end
 
