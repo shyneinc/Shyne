@@ -9,6 +9,7 @@ ActiveAdmin.register CallRequest do
     column :scheduled_at
     column :status
     column :billable_duration
+    column :price
     default_actions
   end
 
