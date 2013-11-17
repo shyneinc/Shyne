@@ -5,7 +5,6 @@ class CallRequest < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :mentor
-  has_many :calls
 
   after_validation :generate_passcode, :on => :create
   after_update :send_status, :if => :status_changed?
@@ -15,7 +14,21 @@ class CallRequest < ActiveRecord::Base
   #delegated into the enum class
   delegate :send_status, to: :status
 
-  private
+  def calculate_billable_duration
+    if self.status.approved? && self.scheduled_at < (DateTime.now - 1.hour)
+      callers = self.calls.where(status: :completed)
+      if callers.count > 1
+        @call_durations = Hash.new
+        self.callers.find_each do |call|
+          @call_durations[call.from_number] += call.duration.to_i
+        end
+        self.billable_duration = @call_durations.values.min_by(&:last)
+        if self.save
+          CallRequestMailer.delay.send_duration(self)
+        end
+      end
+    end
+  end
 
   def generate_passcode
     begin
