@@ -5,6 +5,7 @@ class CallRequest < ActiveRecord::Base
 
   belongs_to :member
   belongs_to :mentor
+  has_many :calls
 
   after_validation :generate_passcode, :on => :create
   after_update :send_status, :if => :status_changed?

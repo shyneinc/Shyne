@@ -1,4 +1,4 @@
-class CallMailer < ActionMailer::Base
+class CallRequestMailer < ActionMailer::Base
   default from: "no-reply@shyne.io"
 
   def request_proposed(call_request)
