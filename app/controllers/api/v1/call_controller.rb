@@ -2,7 +2,6 @@
 class Api::V1::CallController < ActionController::Base
   require 'nokogiri'
   respond_to :xml
-  protect_from_forgery :except => ["finish"]
 
   def initiate
     @response = Twilio::TwiML::Response.new do |r|
@@ -25,7 +24,7 @@ class Api::V1::CallController < ActionController::Base
       @response = Twilio::TwiML::Response.new do |r|
         r.Say "Entering the Dojo!", voice: 'alice'
         r.Dial action: api_call_finish_url, method: :post do |d|
-          d.Conference @call_request.passcode.to_s, maxParticipants: 3, endConferenceOnExit: true
+          d.Conference @call_request.passcode.to_s, maxParticipants: 3, endConferenceOnExit: true #maxParticipants should be 2?
         end
       end
 
@@ -43,7 +42,7 @@ class Api::V1::CallController < ActionController::Base
     @call = Call.find_by sid: params[:CallSid]
 
     if @call
-      if params[:CallStatus] == "completed" || params[:CallStatus] == "in-progress"
+      if params[:CallStatus] == "completed" || params[:CallStatus] == "in-progress" #Why is in-progesss = completed?
         @call.conferencesid = params[:ConferenceSid]
         @call.status = :completed
         @call.save
