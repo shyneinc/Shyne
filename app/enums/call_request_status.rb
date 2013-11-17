@@ -10,13 +10,13 @@ class CallRequestStatus::Proposed < CallRequestStatus
   end
 end
 
-class CallRequestStatus::Scheduled < CallRequestStatus
+class CallRequestStatus::Approved < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_approved(owner)
   end
 end
 
-class CallRequestStatus::Rescheduled < CallRequestStatus
+class CallRequestStatus::Changed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_changed(owner)
   end
