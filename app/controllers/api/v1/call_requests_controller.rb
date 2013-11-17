@@ -12,11 +12,11 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
   end
 
   def create
-    respond_with :api, CallRequest.create(call_params)
+    respond_with :api, CallRequest.create(call_request_params)
   end
 
   def update
-    respond_with :api, CallRequest.update(params[:id], call_params)
+    respond_with :api, CallRequest.update(params[:id], call_request_params)
   end
 
   def destroy
@@ -30,7 +30,7 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
 
   private
 
-  def call_params
-    params.require(:call_request).permit(:member_id, :mentor_id, :scheduled_at)
+  def call_request_params
+    params.require(:call_request).permit(:member_id, :mentor_id, :scheduled_at, :status)
   end
 end
