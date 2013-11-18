@@ -21,3 +21,9 @@ class CallRequestStatus::Changed < CallRequestStatus
     CallRequestMailer.delay.request_changed(owner)
   end
 end
+
+class CallRequestStatus::Completed < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_completed(owner)
+  end
+end

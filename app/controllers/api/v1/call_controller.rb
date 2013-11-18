@@ -15,7 +15,7 @@ class Api::V1::CallController < ActionController::Base
   end
 
   def start
-    @call_request = CallRequest.find_by passcode: params[:Digits]
+    @call_request = CallRequest.find_by passcode: params[:Digits], status: :approved
     @caller_number = params[:From]
     @sid = params[:CallSid]
 

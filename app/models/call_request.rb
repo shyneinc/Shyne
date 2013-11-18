@@ -28,10 +28,8 @@ class CallRequest < ActiveRecord::Base
           end
         end
         self.billable_duration = @call_durations.values.min
-        self.passcode = -1 if self.billable_duration > 0
-        if self.save
-          CallRequestMailer.delay.send_duration(self)
-        end
+        self.status = :completed
+        self.save
       end
     end
   end
