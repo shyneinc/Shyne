@@ -19,12 +19,11 @@ class Api::V1::CallController < ActionController::Base
     @caller_number = params[:From]
     @sid = params[:CallSid]
 
-    #TODO: restrict passcode by time - can't use passcode 30minutes before or after scheduled call_request
     if @call_request
       @response = Twilio::TwiML::Response.new do |r|
-        r.Say "Entering the Dojo!", voice: 'alice'
+        r.Say "Entering conference!", voice: 'alice'
         r.Dial action: api_call_finish_url, method: :post do |d|
-          d.Conference @call_request.passcode.to_s, maxParticipants: 3, endConferenceOnExit: true #maxParticipants should be 2?
+          d.Conference @call_request.passcode.to_s, maxParticipants: 3 #maxParticipants should be 2?
         end
       end
 
