@@ -38,7 +38,7 @@ class CallRequestMailer < ActionMailer::Base
     @mentor = call_request.mentor
     @call_request = call_request
     
-    mail(to: @mentor.email, subject: "Duration for you call with #{@member.full_name}" )
-    mail(to: @member.email, subject: "Bill for you call with #{@mentor.full_name}")
+    mail(to: @mentor.email, subject: "Summary of your call with #{@member.full_name}")
+    mail(to: @member.email, subject: "Summary of your call with #{@mentor.full_name}")
   end
 end
