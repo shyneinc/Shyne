@@ -56,7 +56,21 @@ Run this to execute the API test suite:
 
 ## Deployment
 
-Deployments to [staging.shyne.io](http://staging.shyne.io) happen continuously through CircleCI & [heroku_san](https://github.com/fastestforward/heroku_san) every time a commit is made to develop.
+### Staging
+
+Deployments to [staging.shyne.io](http://staging.shyne.io) happen continuously through CircleCI & [heroku_san](https://github.com/fastestforward/heroku_san) every time a commit is made to the develop branch.
+
+### Production
+
+Deployments to [www.shyne.io](http://www.shyne.io) happen similar to staging but only when a release is create through git-flow (never push directly to master):
+
+``git flow release start X.X.X``
+
+``Bump asset versions if needed``
+
+``git folow relese finish X.X.X``
+
+``git push origin master develop --tags``
 
 ## Documentation
 
@@ -70,6 +84,6 @@ To keep our codebase clean, uniform and readable let's follow the coding stylegu
 
 ## Gotchas
 
-For shyne-staging, make sure [user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) is enabled for rake assets:precompile to work properly.
+For shyne-staging, make sure [user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) add-on is enabled on Heroku for rake assets:precompile to work properly.
 
   [1]: https://circleci.com/gh/shyneinc/Shyne.png?circle-token=84572cf098f3e783ea27317ada59cde54c386547
