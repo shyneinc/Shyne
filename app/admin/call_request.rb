@@ -9,7 +9,6 @@ ActiveAdmin.register CallRequest do
     column :scheduled_at
     column :status
     column :billable_duration
-    column :price
     default_actions
   end
 
@@ -25,7 +24,7 @@ ActiveAdmin.register CallRequest do
 
   controller do
     def permitted_params
-      params.permit call_request: [:mentor_id, :member_id, :scheduled_at, :scheduled_at_date, :scheduled_at_time_hour, :scheduled_at_time_minute]
+      params.permit call_request: [:mentor_id, :member_id, :status, :scheduled_at, :scheduled_at_date, :scheduled_at_time_hour, :scheduled_at_time_minute]
     end
   end
 end

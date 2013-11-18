@@ -9,8 +9,6 @@ ActiveAdmin.register Call do
     column :status
     column :from_number
     column :duration
-    column :price
-    column :billed
     default_actions
   end
 
@@ -30,7 +28,7 @@ ActiveAdmin.register Call do
 
   controller do
     def permitted_params
-      params.permit call: [:call_request_id, :sid, :conferencesid, :status, :from_number, :duration, :price, :billed]
+      params.permit call: [:call_request_id, :sid, :conferencesid, :status, :from_number, :duration]
     end
   end
 
