@@ -159,6 +159,7 @@ GEM
       rake
     hike (1.2.3)
     i18n (0.6.5)
+    icalendar (1.4.5)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
@@ -182,10 +183,13 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    launchy (2.3.0)
+    launchy (2.4.0)
       addressable (~> 2.3)
     letter_opener (1.1.2)
       launchy (~> 2.2)
+    letter_opener_web (1.1.1)
+      letter_opener (~> 1.0)
+      rails (>= 3.2)
     listen (2.2.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -381,6 +385,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   heroku_san
+  icalendar
   jbuilder (~> 1.2)
   jquery-rails (~> 3.0)
   json
