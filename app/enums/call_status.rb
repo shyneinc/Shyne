@@ -13,6 +13,7 @@ class CallStatus::Completed < CallStatus
       @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
       @log = @client.account.calls.get(owner.sid.to_s)
       owner.duration = @log.duration.to_i
+      owner.save
     end
   end
   handle_asynchronously :fetch_duration, :run_at => Proc.new { 3.minutes.from_now }

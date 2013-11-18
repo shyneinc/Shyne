@@ -17,13 +17,17 @@ class CallRequest < ActiveRecord::Base
 
   def calculate_billable_duration
     if self.status.approved? && self.scheduled_at < (DateTime.now - 1.hour)
-      callers = self.calls.where(status: :completed)
-      if callers.count > 1
+      @callers = self.calls.where(status: :completed)
+      if @callers.count > 1
         @call_durations = Hash.new
-        self.callers.find_each do |call|
-          @call_durations[call.from_number] += call.duration.to_i
+        @callers.find_each do |call|
+          if @call_durations.has_key?(call.from_number)
+            @call_durations[call.from_number] += call.duration.to_i
+          else
+            @call_durations[call.from_number] = call.duration.to_i
+          end
         end
-        self.billable_duration = @call_durations.values.min_by(&:last)
+        self.billable_duration = @call_durations.values.min
         if self.save
           CallRequestMailer.delay.send_duration(self)
         end
