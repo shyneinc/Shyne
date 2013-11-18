@@ -50,7 +50,7 @@ group :development, :test do
   gem 'rspec_api_documentation'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'heroku_san'
   gem 'guard-spork'
   gem 'guard-rspec'

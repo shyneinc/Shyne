@@ -387,7 +387,7 @@ DEPENDENCIES
   json_spec
   just-datetime-picker
   kaminari
-  letter_opener
+  letter_opener_web
   nokogiri
   pg
   pg_array_parser

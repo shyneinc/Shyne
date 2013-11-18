@@ -9,6 +9,10 @@ Shyne::Application.routes.draw do
     mount Raddocs::App => "/docs"
   end
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   resources :home, only: [:index]
   root :to => "home#index"
   devise_for :users
