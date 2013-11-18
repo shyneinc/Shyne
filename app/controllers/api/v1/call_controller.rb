@@ -15,6 +15,7 @@ class Api::V1::CallController < ActionController::Base
   end
 
   def start
+    #TODO: Make sure people don't try to call-in before the scheduled time or tell them to call back later
     @call_request = CallRequest.find_by passcode: params[:Digits], status: :approved
     @caller_number = params[:From]
     @sid = params[:CallSid]
@@ -23,7 +24,7 @@ class Api::V1::CallController < ActionController::Base
       @response = Twilio::TwiML::Response.new do |r|
         r.Say "Entering conference!", voice: 'alice'
         r.Dial action: api_call_finish_url, method: :post do |d|
-          d.Conference @call_request.passcode.to_s, maxParticipants: 3 #maxParticipants should be 2?
+          d.Conference @call_request.passcode.to_s, maxParticipants: 2
         end
       end
 
