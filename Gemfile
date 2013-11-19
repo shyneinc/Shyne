@@ -39,6 +39,7 @@ gem 'rmagick', '2.13.2'
 gem 'twilio-ruby'
 gem 'classy_enum'
 gem 'icalendar'
+gem 'balanced'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'

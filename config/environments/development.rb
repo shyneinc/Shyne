@@ -35,4 +35,6 @@ Shyne::Application.configure do
   config.after_initialize do 
     Delayed::Job.scaler = :local
   end
+
+  ENV['BALANCED_SECRET'] = "ak-test-2CVZpE5q8xUsqAxtKTnt1hbAF8NkSUr49"
 end

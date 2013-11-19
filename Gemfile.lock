@@ -50,6 +50,9 @@ GEM
       activesupport (>= 3.0.0)
     arel (4.0.1)
     atomic (1.1.14)
+    balanced (0.7.4)
+      faraday (>= 0.8.6)
+      faraday_middleware (~> 0.9.0)
     bcrypt-ruby (3.1.2)
     better_errors (1.0.1)
       coderay (>= 1.0.0)
@@ -118,6 +121,10 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
     fattr (2.2.1)
     ffi (1.9.3)
     fog (1.15.0)
@@ -203,6 +210,7 @@ GEM
     mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    multipart-post (1.2.0)
     mustache (0.99.4)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -369,6 +377,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   angularstrap-rails (~> 0.7.6)
+  balanced
   better_errors
   binding_of_caller
   bootstrap-sass-rails
