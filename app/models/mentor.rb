@@ -12,7 +12,7 @@ class Mentor < ActiveRecord::Base
   has_many :call_requests, after_add: :get_avg_duration, after_remove: :get_avg_duration
   has_many :reviews, after_add: :get_avg_rating, after_remove: :get_avg_rating
   has_many :work_histories
- 
+
 
   include PgSearch
   multisearchable :against => [:full_name, :headline, :location, :experties, :worked_at],
@@ -29,23 +29,9 @@ class Mentor < ActiveRecord::Base
     end
   end
 
-  #rails 4 scope can be use for this one
-  #scope :approved, -> { where( mentor_status: :approved) }
-  def self.approved
-    where(mentor_status: :approved)
-  end
-
-  #rails 4 scope can be use for this one
-  #scope :featured, -> { where( featured: true) }
-  def self.featured
-    where(featured: true)
-  end
-
-  #rails 4 scope can be use for this one
-  #scope :expperties, -> (experties){ where("? = ANY (experties)", experties) }
-  def self.experties(experties)
-    where("? = ANY (experties)", experties)
-  end
+  scope :approved, -> { where( mentor_status: :approved) }
+  scope :featured, -> { where( featured: true) }
+  scope :experties, -> (experties){ where("? = ANY (experties)", experties) }
 
   def rate_per_minute
     if self.years_of_experience < 2
@@ -88,5 +74,5 @@ class Mentor < ActiveRecord::Base
     self.update_attribute(:avg_call_duration, avg_call_duration )
   end
   handle_asynchronously :get_avg_duration, :priority => 10
-  
+
 end
