@@ -9,9 +9,10 @@ class Mentor < ActiveRecord::Base
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
-  has_many :call_requests
+  has_many :call_requests, after_add: :get_avg_duration, after_remove: :get_avg_duration
+  has_many :reviews, after_add: :get_avg_rating, after_remove: :get_avg_rating
   has_many :work_histories
-  has_many :reviews
+ 
 
   include PgSearch
   multisearchable :against => [:full_name, :headline, :location, :experties, :worked_at],
@@ -70,13 +71,13 @@ class Mentor < ActiveRecord::Base
     self.mentor_status.approved?
   end
 
-  def get_avg_rating
-    avg_rating = self.reviews.average('rating')
-    update_attribute(:avg_rating, avg_rating)
+  def get_avg_rating( review )
+    avg_rating = self.reviews.average('rating').to_f
+    self.update_attribute(:avg_rating, avg_rating )
   end
 
-  def get_avg_duration
-    avg_call_duration = self.call_requests.average('billable_duration')
-    update_attribute(:avg_call_duration, avg_call_duration)
+  def get_avg_duration( call_request )
+    avg_call_duration = self.call_requests.average('billable_duration').to_f
+    self.update_attribute(:avg_call_duration, avg_call_duration )
   end
 end
