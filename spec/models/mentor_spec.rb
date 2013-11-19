@@ -22,7 +22,7 @@ describe Mentor do
 
   describe "ActiveRecord validations" do
     context "Associations" do
-      it { expect(mentor).to have_many(:call_request) }
+      it { expect(mentor).to have_many(:call_requests) }
       it { expect(mentor).to have_many(:work_histories) }
     end
 
@@ -86,6 +86,22 @@ describe Mentor do
       it "returns an array of mentors with specific experties" do
         expect(Mentor.experties('Banking')).to include mentor1, mentor2
         expect(Mentor.experties('Banking')).to_not include mentor3
+      end
+    end
+
+    context "#fullname" do
+      let!(:mentor1){ create(:mentor) }
+
+      it "return fullname of the mentor same as it's user fullname" do
+        expect(mentor1.full_name).to eq mentor1.user.full_name
+      end
+    end
+
+    context "#email" do
+      let!(:mentor1){ create(:mentor) }
+
+      it "return email of the mentor same as it's user email" do
+        expect(mentor1.email).to eq mentor1.user.email
       end
     end
   end
