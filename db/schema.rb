@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117220217) do
+ActiveRecord::Schema.define(version: 20131119231059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,16 @@ ActiveRecord::Schema.define(version: 20131117220217) do
   add_index "mentors", ["experties"], name: "index_mentors_on_experties", using: :gin
   add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
 
+  create_table "payment_transactions", force: true do |t|
+    t.integer "call_request_id"
+    t.string  "type"
+    t.decimal "amount"
+    t.string  "status"
+    t.string  "uri"
+  end
+
+  add_index "payment_transactions", ["call_request_id"], name: "index_payment_transactions_on_call_request_id", using: :btree
+
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -177,6 +187,7 @@ ActiveRecord::Schema.define(version: 20131117220217) do
     t.string   "avatar"
     t.string   "username"
     t.string   "time_zone",              default: "UTC"
+    t.string   "customer_uri"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
