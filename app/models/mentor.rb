@@ -9,7 +9,7 @@ class Mentor < ActiveRecord::Base
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
-  has_many :call_request
+  has_many :call_requests
   has_many :work_histories
   has_many :reviews
 
@@ -68,5 +68,15 @@ class Mentor < ActiveRecord::Base
 
   def approved?
     self.mentor_status.approved?
+  end
+
+  def get_avg_rating
+    avg_rating = self.reviews.average('rating')
+    update_attribute(:avg_rating, avg_rating)
+  end
+
+  def get_avg_duration
+    avg_call_duration = self.call_requests.average('billable_duration')
+    update_attribute(:avg_call_duration, avg_call_duration)
   end
 end
