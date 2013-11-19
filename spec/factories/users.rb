@@ -11,6 +11,7 @@ FactoryGirl.define do
     avatar File.open(File.join(Rails.root, '/public/images/test/spongebob.jpeg'))
     username { "#{first_name}#{last_name}".gsub(/\s+/, "").to_s.downcase }
     time_zone { ActiveSupport::TimeZone.us_zones.sample.name }
+    customer_uri nil
   end
 
 end
