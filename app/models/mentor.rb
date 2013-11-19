@@ -29,14 +29,20 @@ class Mentor < ActiveRecord::Base
     end
   end
 
+  #rails 4 scope can be use for this one
+  #scope :approved, -> { where( mentor_status: :approved) }
   def self.approved
     where(mentor_status: :approved)
   end
 
+  #rails 4 scope can be use for this one
+  #scope :featured, -> { where( featured: true) }
   def self.featured
     where(featured: true)
   end
 
+  #rails 4 scope can be use for this one
+  #scope :expperties, -> (experties){ where("? = ANY (experties)", experties) }
   def self.experties(experties)
     where("? = ANY (experties)", experties)
   end
