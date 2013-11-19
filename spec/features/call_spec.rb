@@ -29,7 +29,7 @@ describe "CallController" do
   end
 
   describe "#start" do
-    it "enters dojo" do
+    it "enters conference" do
       call.within_gather do |gather|
         gather.press(call_request.passcode)
         expect(call_request.calls.count).to eql 1
@@ -38,6 +38,12 @@ describe "CallController" do
   end
 
   describe "#finish" do
-    pending
+    it "hangs up the call" do
+      call.within_gather do |gather|
+        gather.press(call_request.passcode)
+        page.driver.browser.post api_call_finish_path, CallSid: call.sid, CallStatus: "completed"
+        expect(page.body).to have_content "Thank you for using Shyne, Goodbye!"
+      end
+    end
   end
 end
