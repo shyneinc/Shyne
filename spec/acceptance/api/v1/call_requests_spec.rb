@@ -48,11 +48,12 @@ resource 'CallRequest' do
     parameter :member_id, "Member ID", :required => true, :scope => :call_request
     parameter :mentor_id, "Mentor ID", :required => true, :scope => :call_request
     parameter :scheduled_at, "Scheduled At", :required => true, :scope => :call_request
+    parameter :request_status, "Status (Proposed (default), Approved, Changed)", :required => false, :scope => :call_request
 
     let(:id) { call_request.id }
 
     example "Updating a call request" do
-      call_request = attributes_for(:call_request).except(:id)
+      call_request = attributes_for(:call_request, :status => CallRequestStatus::Approved.new)
       do_request(call_request: call_request)
 
       expect(status).to eq 204
