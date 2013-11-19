@@ -96,12 +96,29 @@ describe Mentor do
         expect(mentor1.full_name).to eq mentor1.user.full_name
       end
     end
+  
+    context "#avg_rating" do
+      let!(:mentor1){ create(:mentor_with_reviews) }
 
-    context "#email" do
+      it "should return avg_rating" do
+        expect(mentor1.reviews.size).to eq 5
+        mentor1.get_avg_rating_without_delay(true)
+        expect(mentor1.avg_rating).to eq mentor1.reviews.average('rating').to_f
+      end
+
+      it "should return updated avg_rating after delete" do
+        mentor1.reviews.last.destroy
+        expect(mentor1.reviews.size).to eq 4
+        mentor1.get_avg_rating_without_delay(true)
+        expect(mentor1.avg_rating).to eq mentor1.reviews.average('rating').to_f
+      end
+    end
+
+    context "#avg_call_duration" do
       let!(:mentor1){ create(:mentor) }
 
-      it "return email of the mentor same as it's user email" do
-        expect(mentor1.email).to eq mentor1.user.email
+      it "return an updated average call duration" do
+        pending
       end
     end
   end
