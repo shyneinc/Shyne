@@ -75,12 +75,12 @@ class Mentor < ActiveRecord::Base
     avg_rating = self.reviews.average('rating').to_f
     self.update_attribute(:avg_rating, avg_rating )
   end
-  handle_asynchronously :get_avg_rating, :priority => 40
+  handle_asynchronously :get_avg_rating, :priority => 10
 
   def get_avg_duration( call_request )
     avg_call_duration = self.call_requests.average('billable_duration').to_f
     self.update_attribute(:avg_call_duration, avg_call_duration )
   end
-  handle_asynchronously :get_avg_rating, :priority => 40
+  handle_asynchronously :get_avg_duration, :priority => 10
   
 end
