@@ -12,10 +12,12 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
   end
 
   def create
+    #TODO: Make sure member has a CC on record
     respond_with :api, CallRequest.create(call_request_params)
   end
 
   def update
+    #TODO: Before approving, make sure mentor has a bank acct on record
     respond_with :api, CallRequest.update(params[:id], call_request_params)
   end
 
