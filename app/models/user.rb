@@ -21,6 +21,26 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  def balanced_customer
+    return Balanced::Customer.find(self.customer_uri) if self.customer_uri
+
+    begin
+      customer = Balanced::Marketplace.mine.create_customer(
+          :name   => self.full_name,
+          :email  => self.email,
+          :meta => {
+              :user_id => self.id
+          }
+      )
+    rescue
+      'There was error fetching the Balanced customer'
+    end
+
+    self.customer_uri = customer.uri
+    self.save
+    customer
+  end
+
   private
 
   def generate_username
