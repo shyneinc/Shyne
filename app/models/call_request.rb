@@ -9,17 +9,20 @@ class CallRequest < ActiveRecord::Base
 
   after_validation :generate_passcode, :on => :create
   after_update :send_status, :if => :status_changed?
+  after_update :get_mentor_duration, :if => :billable_duration_changed?
 
   just_define_datetime_picker :scheduled_at
 
   #delegated into the enum class
   delegate :send_status, to: :status
 
+
   def calculate_billable_duration
     if self.status.approved? && self.scheduled_at < (DateTime.now - 1.hour)
       @callers = self.calls.where(status: :completed)
       if @callers.count > 1
         @call_durations = Hash.new
+
         @callers.find_each do |call|
           if @call_durations.has_key?(call.from_number)
             @call_durations[call.from_number] += call.duration.to_i
@@ -27,6 +30,7 @@ class CallRequest < ActiveRecord::Base
             @call_durations[call.from_number] = call.duration.to_i
           end
         end
+
         self.billable_duration = @call_durations.values.min
         self.status = :completed
         self.save
@@ -34,10 +38,15 @@ class CallRequest < ActiveRecord::Base
     end
   end
 
+  private
   def generate_passcode
     begin
       tmp_passcode = Random.new.rand(10_000..99_999)
     end while CallRequest.find_by passcode: tmp_passcode
     self.passcode = tmp_passcode
+  end
+
+  def get_mentor_duration
+    self.mentor.get_avg_duration(true)
   end
 end
