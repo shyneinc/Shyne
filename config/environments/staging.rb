@@ -101,5 +101,5 @@ Shyne::Application.configure do
 
   config.action_mailer.default_url_options = { host: "http://staging.shyne.io" }
 
-  ENV['BALANCED_SECRET'] = "ak-test-2CVZpE5q8xUsqAxtKTnt1hbAF8NkSUr49"
+  ENV['BALANCED_SECRET'] = "ak-test-psocIlwyJODZ2X9btAVVy70GNSjHPiBe"
 end
