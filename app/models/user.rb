@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :first_name, :last_name, presence: true
-  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.us_zones.map(&:name), message: "is not a valid Time Zone"
+  validates :time_zone, :inclusion => { :in => ActiveSupport::TimeZone.us_zones.map(&:name) << "UTC" }
 
   after_validation :generate_username, :on => :create
 
