@@ -1,8 +1,6 @@
 Shyne.controller('ProfileCtrl', ['$scope','Session',($scope, Session) ->
 
-  $scope.$parent.showIndex = false
-
-  Session.requestCurrentUser().then((user)->
+  Session.getCurrentUser().then((user)->
     $scope.user =  user
   )
 

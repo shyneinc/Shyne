@@ -1,37 +1,74 @@
-<div class="signup form">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="jumbotron">
-                    <h2>Sign Up</h2>
-                    <form novalidate role="form" name="signupForm" class="css-form" ng-submit="signup()">
-                        <div class="form-group">
-                            <label for="loginFirstName">First Name</label>
-                            <input ng-model="signup.firstName" class="form-control" id="loginFirstName" placeholder="Enter first name" required="" auto-focus>
-                        </div>
-                        <div class="form-group">
-                            <label for="loginLastName">Last Name</label>
-                            <input ng-model="signup.lastName" class="form-control" id="loginLastName" placeholder="Enter last name" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="loginEmail">Email Address</label>
-                            <input name="email" ng-model="signup.email" type="email" class="form-control" id="loginEmail" placeholder="Enter email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Password</label>
-                            <input name="password" ng-model="signup.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="loginConfirmPassword">Confirm Password</label>
-                            <input name="password" ng-model="signup.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm password" required="">
-                        </div>
-                        <div class="button-group">
-                            <p class="text-danger">{{error}}</p>
-                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign up</button>
-                        </div>
-                    </form>
+<div class="home-form">
+    <header>
+        <div class="container">
+            <nav class="masthead">
+                <ul class="nav navbar-nav pull-right">
+                    <li ng-hide="user"><a href="#/login">Log In</a></li>
+                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
+                </ul>
+            </nav>
+            <a class="logo" href="#/">Shyne</a>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="text-center info-message" ng-show="user">
+                        <h2>Welcome to Shyne, {{user.first_name}}</h2>
+                        <p>
+                            To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
+                        </p>
+                    </div>
+                    <div class="jumbotron" ng-hide="user">
+                        <h2>Sign Up for Free</h2>
+                        <form novalidate role="form" name="signupForm" class="css-form" ng-submit="signup()">
+                            <div class="form-group">
+                                <label for="loginFirstName">First Name <span class="text-danger">{{signUpError.first_name[0]}}</span></label>
+                                <input ng-model="signupModel.firstName" class="form-control" id="loginFirstName" placeholder="Enter first name" required="" auto-focus>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginLastName">Last Name <span class="text-danger">{{signUpError.last_name[0]}}</span></label>
+                                <input ng-model="signupModel.lastName" class="form-control" id="loginLastName" placeholder="Enter last name" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address <span class="text-danger">{{signUpError.email[0]}}</span></label>
+                                <input name="email" ng-model="signupModel.email" type="email" class="form-control" id="loginEmail" placeholder="Enter email" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password <span class="text-danger">{{signUpError.password[0]}}</span></label>
+                                <input name="password" ng-model="signupModel.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password (8 characters minimum)" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginConfirmPassword">Confirm Password <span class="text-danger">{{signUpError.password_confirmation[0]}}</span></label>
+                                <input name="password" ng-model="signupModel.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm password" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="timeZone">Time Zone <span class="text-danger">{{signUpError.time_zone[0]}}</span></label>
+                                <select id="timeZone" ng-model="signupModel.timeZone" class="form-control">
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Arizona">Arizona</option>
+                                    <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                    <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                    <option value="Hawaii">Hawaii</option>
+                                    <option value="Indiana (East)">Indiana (East)</option>
+                                    <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                    <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                </select>
+                            </div>
+                            <div class="button-group">
+                                <p class="text-danger">{{error}}</p>
+                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign up</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <div class="inner text-center">&copy; 2013 Shyne</div>
+        </div>
+    </footer>
 </div>

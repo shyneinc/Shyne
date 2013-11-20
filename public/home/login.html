@@ -1,25 +1,48 @@
-<div class="login form">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="jumbotron">
-                    <h2>Sign In</h2>
-                    <form novalidate role="form" name="loginForm" class="css-form" ng-submit="signin()">
-                        <div class="form-group">
-                            <label for="loginEmail">Email Address</label>
-                            <input name="email" ng-model="login.email" type="email" class="form-control" id="loginEmail" placeholder="Enter email" required="" auto-focus>
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Password</label>
-                            <input name="password" ng-model="login.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
-                        </div>
-                        <div class="button-group">
-                            <p class="text-danger">{{error}}</p>
-                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid" ng-click="signin()">Sign in</button>
-                        </div>
-                    </form>
+<div class="home-form">
+    <header>
+        <div class="container">
+            <nav class="masthead">
+                <ul class="nav navbar-nav pull-right">
+                    <li ng-hide="user"><a href="#/signup">Sign Up</a></li>
+                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
+                </ul>
+            </nav>
+            <a class="logo" href="#/">Shyne</a>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="text-center info-message" ng-show="user">
+                        <h2>Welcome to Shyne, {{user.first_name}}</h2>
+                        <p>
+                            To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
+                        </p>
+                    </div>
+                    <div class="jumbotron" ng-hide="user">
+                        <h2>Sign In</h2>
+                        <form novalidate role="form" name="loginForm" class="css-form" ng-submit="login()">
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address <span class="text-danger">{{loginError}}</span></label>
+                                <input name="email" ng-model="loginModel.email" type="email" class="form-control" id="loginEmail" placeholder="Enter email" required="" auto-focus>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input name="password" ng-model="loginModel.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid" ng-click="login()">Log in</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <div class="inner text-center">&copy; 2013 Shyne</div>
+        </div>
+    </footer>
 </div>

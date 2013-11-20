@@ -30,13 +30,25 @@ header {
         color: #CCC;
       }
     }
-    li {
+    .caret{
+      border-bottom-color: #333;
+      border-top-color: #333;
+    }
+    .open > a {
+      background-color: $light-gray;
+      border-color: $light-gray;
+      &:hover, &:focus, &:active {
+        background-color: $light-gray;
+        border-color: $light-gray;
+      }
+    }
+    & > li {
       background-color: $light-gray;
       &:hover, &:focus, &:active {
         background-color: $light-gray;
       }
     }
-    li > a {
+    & > li > a {
       color: #333;
       font-size: 14px;
       text-decoration: none;
@@ -46,6 +58,14 @@ header {
         background-color: $light-gray;
         color: #333;
         text-decoration: underline;
+      }
+    }
+    .dropdown-menu > li {
+      & > a {
+        &:hover, &:focus, &:active {
+          background-color: $blue;
+
+        }
       }
     }
   }

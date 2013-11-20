@@ -6,10 +6,17 @@
                     <li><a href="#">Become Mentors</a></li>
                     <li><a href="#">How It Works</a></li>
                     <li><a href="#">Our Mission</a></li>
-                    <li><a href="#/login">Log In</a></li>
+                    <li ng-hide="user"><a href="#/login">Log In</a></li>
+                    <li ng-show="user" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#/logout">Log out</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
-            <a class="logo" href="#" ng-click="home()">Shyne</a>
+            <a class="logo" href="#/">Shyne</a>
         </div>
     </header>
     <div class="hero">
@@ -39,13 +46,13 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="#" class="signup-circle">
-                <span class="inner">
-                  <span class="deep">
-                    <sup>JOIN FOR</sup>
-                    <strong>FREE</strong>
-                  </span>
-                </span>
+                        <a href="#/signup" class="signup-circle">
+                            <span class="inner">
+                              <span class="deep">
+                                <sup>JOIN FOR</sup>
+                                <strong>FREE</strong>
+                              </span>
+                            </span>
                         </a>
                     </div>
                 </div>

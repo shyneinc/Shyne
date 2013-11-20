@@ -150,3 +150,21 @@
     }
   }
 }
+
+.home-form {
+  .hero {
+    @include gradient($white, $light-gray);
+    border-bottom: 1px solid #DADDDF;
+    .jumbotron {
+      background: none;
+      padding:20px 0;
+      line-height: 1em;
+      label {
+        font-size: 14px;
+      }
+    }
+  }
+  .info-message{
+    padding: 20px 0 40px;
+  }
+}

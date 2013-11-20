@@ -1,6 +1,14 @@
 Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope, Session) ->
 
   $scope.showIndex = true
+  $scope.signupModel = {timeZone: 'Alaska'}
+  $scope.signUpError = {}
+  $scope.user = null
+
+  Session.getCurrentUser().then((user)->
+    $scope.user = user
+  )
+
   mentorIdx = 0
 
   mentors = [
@@ -17,22 +25,28 @@ Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope,
   $scope.viewProfile = (mentor) ->
     $location.path '/profile/' + mentor.id
 
-  $scope.signin = () ->
-    u = $scope.login
+  $scope.login = () ->
+    u = $scope.loginModel
     Session.login(u.email, u.password).then(
-      ()->
-        $location.path '/profile'
+      (user)->
+        $location.path '/profile/' + user.id
     , (error)->
-      $scope.error = error
+      $scope.loginError = error
     )
 
   $scope.signup = () ->
-    u = $scope.signup
-    Session.register(u.email, u.password, u.confirmPassword).then(
-      ()->
-        $location.path '/profile'
-    , ()->
-      $scope.error = error
+    u = $scope.signupModel
+    Session.register(u.firstName, u.lastName, u.email, u.password, u.confirmPassword, u.timeZone).then(
+      (user)->
+        $location.path '/profile/' + user.id
+    , (error)->
+      $scope.signUpError = error
+    )
+
+  $scope.logout = () ->
+    $scope.user = null
+    Session.logout().then(() ->
+      $scope.user = null
     )
 
 ])

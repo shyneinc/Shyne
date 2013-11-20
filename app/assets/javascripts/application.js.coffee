@@ -1,5 +1,6 @@
 #= require jquery.min
 #= require suggest.min
+#= require twitter/bootstrap/dropdown
 #= require angular
 #= require angular-resource
 #= require setup
@@ -37,5 +38,8 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/signup",
     templateUrl: "/home/signup.html"
     controller: 'HomeCtrl'
+  ).when("/logout",
+    templateUrl: "/home/logout.html"
+    controller: 'LogoutCtrl'
   )
 ]

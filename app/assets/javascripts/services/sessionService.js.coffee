@@ -23,22 +23,29 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       deferred.resolve()
     deferred.promise
 
-  register: (email, password, confirmPassword) ->
+  register: (firstName, lastName, email, password, confirmPassword, timeZone) ->
     deferred = $q.defer()
     $http.post('/api/users',
       user:
+        first_name: firstName,
+        last_name: lastName,
         email: email
         password: password
         password_confirmation: confirmPassword
+        time_zone: timeZone
     ).success((data) ->
-      _currentUser = data
-      deferred.resolve(_currentUser)
+      if data.id
+        _currentUser = data
+        deferred.resolve(_currentUser)
+      else
+        deferred.reject(data)
     ).error((data) ->
-      deferred.reject(data.error)
+      # TODO: Check server error formate
+      deferred.reject(data)
     )
     deferred.promise
 
-  requestCurrentUser: () ->
+  getCurrentUser: () ->
     deferred = $q.defer()
     if this.isAuthenticated()
       deferred.resolve(_currentUser)
