@@ -60,7 +60,7 @@ end
 
 group :development, :staging, :test do
   gem 'factory_girl_rails', '4.2.1'
-  gem 'faker', '~> 1.2.0'
+  gem 'faker', :git => 'git@github.com:adooylabs/faker.git'
   gem 'database_cleaner'
 end
 
