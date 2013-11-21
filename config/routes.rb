@@ -55,6 +55,8 @@ Shyne::Application.routes.draw do
 
       resources :credit_cards, except: [:update]
 
+      resources :bank_accounts, except: [:update]
+
       match '/call/initiate' => 'call#initiate' , via: :post, defaults: {format: :xml}
       match '/call/start' => 'call#start' , via: :post, defaults: {format: :xml}
       match '/call/finish' => 'call#finish' , via: :post, defaults: {format: :xml}
