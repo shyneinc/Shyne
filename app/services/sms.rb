@@ -1,7 +1,7 @@
 module Sms
   extend ActiveSupport::Concern
 
-  def send(message, to_number)
+  def send(message , to_number )
     client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
     
     if client
