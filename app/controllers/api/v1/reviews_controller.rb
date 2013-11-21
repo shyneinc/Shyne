@@ -1,7 +1,7 @@
 class Api::V1::ReviewsController < Api::V1::BaseController
   before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :check_mentor
-  before_filter :check_review, except: [:index, :create]
+  before_filter :find_mentor
+  before_filter :find_review, except: [:index, :create]
   before_filter :check_type, except: [:index, :show]
 
   def index
@@ -37,11 +37,11 @@ class Api::V1::ReviewsController < Api::V1::BaseController
     params.require(:review).permit(:review, :rating, :call_id)
   end
 
-  def check_mentor
+  def find_mentor
     @mentor = Mentor.find(params[:mentor_id])
   end
 
-  def check_review
+  def find_review
     @review = @mentor.reviews.find(params[:id])
   end
 

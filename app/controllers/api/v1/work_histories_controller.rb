@@ -1,7 +1,7 @@
 class Api::V1::WorkHistoriesController < Api::V1::BaseController
   before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :check_mentor
-  before_filter :check_work, except: [:index, :create]
+  before_filter :find_mentor
+  before_filter :find_work_history, except: [:index, :create]
   before_filter :check_type, except: [:index, :show]
 
   def index
@@ -31,11 +31,11 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
     params.require(:work).permit(:company, :title, :date_started, :date_ended, :current_work)
   end
 
-  def check_mentor
+  def find_mentor
     @mentor = Mentor.find(params[:mentor_id])
   end
 
-  def check_work
+  def find_work_history
     @work = @mentor.work_histories.find(params[:id])
   end
 
