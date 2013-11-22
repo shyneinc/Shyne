@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :member do
-    phone_number { Faker::PhoneNumber.phone_number.split('x').first }
+    phone_number "15626453725"
     user
   end
 end

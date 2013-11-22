@@ -18,7 +18,7 @@ FactoryGirl.define do
     linkedin { "http://linkedin.com/" + Faker::Lorem.word }
     experties { ['{Accounting,Finance}', '{Banking}', '{Legal Services}', '{Internet,E-learning}'].sample }
     years_of_experience { rand(30) }
-    phone_number { "#{Faker::PhoneNumber.int_format}" } 
+    phone_number "15626453725"
     availability { Faker::Lorem.sentence(10) }
     featured { [true, false].sample }
     mentor_status MentorStatus::Applied.new
