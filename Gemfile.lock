@@ -16,13 +16,6 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
-GIT
-  remote: git@github.com:adooylabs/faker.git
-  revision: 5679144470368e1033b383c6874129ba523c3875
-  specs:
-    faker (1.2.0)
-      i18n (~> 0.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -126,6 +119,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    faker (1.2.0)
+      i18n (~> 0.5)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
@@ -394,7 +389,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise (= 3.1.0)
   factory_girl_rails (= 4.2.1)
-  faker!
+  faker
   fog (~> 1.15.0)
   guard-rspec
   guard-spork
