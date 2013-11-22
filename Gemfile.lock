@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:adooylabs/faker.git
-  revision: 35ae2b9aa8e2079d25b36a60212a21a02909c792
+  revision: 5679144470368e1033b383c6874129ba523c3875
   specs:
     faker (1.2.0)
       i18n (~> 0.5)
