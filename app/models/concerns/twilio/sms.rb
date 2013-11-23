@@ -26,7 +26,15 @@ module Twilio::Sms
   end
 
   def self.send_request(to_number)
-    return "TODO: send a request sms to mentor"
+    if @client
+      res = @client.account.sms.messages.create({
+              :to => "#{to_number}",
+              :from => "#{ENV['TWILIO_NUMBER']}",
+              :body => "Your have a call request!"
+            })
+      return true unless res == nil
+    end
   end
+
   #should create canned messages here for approval .etc
 end
