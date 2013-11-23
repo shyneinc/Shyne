@@ -3,38 +3,25 @@ module Twilio::Sms
 
   @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
 
-  def self.send(message , to_number )
+  def self.send(message, to_number)
     if @client
-      res = @client.account.sms.messages.create({
-              :to => "#{to_number}",
-              :from => "#{ENV['TWILIO_NUMBER']}",
-              :body => "#{message}"
-            })
-      return true unless res == nil
+      @client.account.sms.messages.create({
+                                              :to => "#{to_number}",
+                                              :from => "#{ENV['TWILIO_NUMBER']}",
+                                              :body => "#{message}"
+                                          })
     end
   end
 
-  def  self.send_approval(to_number)
+  def self.send_approval(to_number)
     if @client
-      res = @client.account.sms.messages.create({
-              :to => "#{to_number}",
-              :from => "#{ENV['TWILIO_NUMBER']}",
-              :body => "Your call request has been approved!"
-            })
-      return true unless res == nil
+      self.send("Your call request has been approved!", to_number)
     end
   end
 
   def self.send_request(to_number)
     if @client
-      res = @client.account.sms.messages.create({
-              :to => "#{to_number}",
-              :from => "#{ENV['TWILIO_NUMBER']}",
-              :body => "Your have a call request!"
-            })
-      return true unless res == nil
+      self.send("You have a call request!", to_number)
     end
   end
-
-  #should create canned messages here for approval .etc
 end
