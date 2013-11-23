@@ -36,4 +36,9 @@ Shyne::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  #using twilio test credentials
+  ENV['TWILIO_SID'] = "AC226f8be2087e94b49724760fbe3d66b7"
+  ENV['TWILIO_TOKEN'] = "5b959a7c258221f6a551ef0c22e2c267"
+  ENV['TWILIO_NUMBER'] = "+15005550006"
 end
