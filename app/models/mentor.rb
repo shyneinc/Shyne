@@ -9,10 +9,9 @@ class Mentor < ActiveRecord::Base
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
 
-  has_many :call_requests, after_add: :get_avg_duration, after_remove: :get_avg_duration
-  has_many :reviews, after_add: :get_avg_rating, after_remove: :get_avg_rating
+  has_many :call_requests, after_add: :calc_avg_duration, after_remove: :calc_avg_duration
+  has_many :reviews, after_add: :calc_avg_rating, after_remove: :calc_avg_rating
   has_many :work_histories
-
 
   include PgSearch
   multisearchable :against => [:full_name, :headline, :location, :experties, :worked_at],
@@ -29,9 +28,9 @@ class Mentor < ActiveRecord::Base
     end
   end
 
-  scope :approved, -> { where( mentor_status: :approved) }
-  scope :featured, -> { where( featured: true) }
-  scope :experties, -> (experties){ where("? = ANY (experties)", experties) }
+  scope :approved, -> { where(mentor_status: :approved) }
+  scope :featured, -> { where(featured: true) }
+  scope :experties, -> (experties) { where("? = ANY (experties)", experties) }
 
   def rate_per_minute
     if self.years_of_experience < 2
@@ -63,16 +62,16 @@ class Mentor < ActiveRecord::Base
     self.mentor_status.approved?
   end
 
-  def get_avg_rating( review )
+  def calc_avg_rating
     avg_rating = self.reviews.average('rating').to_f
-    self.update_attribute(:avg_rating, avg_rating )
+    self.update_attribute(:avg_rating, avg_rating)
   end
-  handle_asynchronously :get_avg_rating, :priority => 10
+  handle_asynchronously :calc_avg_rating, :priority => 10
 
-  def get_avg_duration( call_request )
+  def calc_avg_duration
     avg_call_duration = self.call_requests.average('billable_duration').to_f
-    self.update_attribute(:avg_call_duration, avg_call_duration )
+    self.update_attribute(:avg_call_duration, avg_call_duration)
   end
-  handle_asynchronously :get_avg_duration, :priority => 10
+  handle_asynchronously :calc_avg_duration, :priority => 10
 
 end

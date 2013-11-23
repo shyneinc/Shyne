@@ -1,4 +1,6 @@
 class CallRequest < ActiveRecord::Base
+  include Twilio::Sms
+
   validates :status, :scheduled_at, :mentor, :member, presence: true
 
   classy_enum_attr :status, default: :proposed, enum: :call_request_status
@@ -10,13 +12,12 @@ class CallRequest < ActiveRecord::Base
 
   after_validation :generate_passcode, :on => :create
   after_update :send_status, :if => :status_changed?
-  after_update :get_mentor_duration, :if => :billable_duration_changed?
+  after_update :calc_mentor_duration, :if => :billable_duration_changed?
 
   just_define_datetime_picker :scheduled_at
 
   #delegated into the enum class
   delegate :send_status, to: :status
-
 
   def calculate_billable_duration
     if self.status.approved? && self.scheduled_at < (DateTime.now - 1.hour)
@@ -47,7 +48,7 @@ class CallRequest < ActiveRecord::Base
     self.passcode = tmp_passcode
   end
 
-  def get_mentor_duration
-    self.mentor.get_avg_duration(true)
+  def calc_mentor_duration
+    self.mentor.calc_avg_duration(true)
   end
 end

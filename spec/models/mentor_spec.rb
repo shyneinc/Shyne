@@ -102,14 +102,14 @@ describe Mentor do
 
       it "should return avg_rating" do
         expect(mentor1.reviews.size).to eq 5
-        mentor1.get_avg_rating_without_delay(true)
+        mentor1.calc_avg_rating_without_delay
         expect(mentor1.avg_rating).to eq mentor1.reviews.average('rating').to_f
       end
 
       it "should return updated avg_rating after delete" do
         mentor1.reviews.last.destroy
         expect(mentor1.reviews.size).to eq 4
-        mentor1.get_avg_rating_without_delay(true)
+        mentor1.calc_avg_rating_without_delay
         expect(mentor1.avg_rating).to eq mentor1.reviews.average('rating').to_f
       end
     end
