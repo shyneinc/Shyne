@@ -29,7 +29,7 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/",
     templateUrl: "/home/index.html"
     controller: 'HomeCtrl'
-  ).when("/profile/:id",
+  ).when("/profile/",
     templateUrl: "/profile/index.html"
     controller: 'ProfileCtrl'
   ).when("/login",

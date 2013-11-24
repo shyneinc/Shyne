@@ -40,7 +40,6 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       else
         deferred.reject(data)
     ).error((data) ->
-      # TODO: Check server error formate
       deferred.reject(data)
     )
     deferred.promise
@@ -53,6 +52,8 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       $http.get('/api/users').success((data)->
         _currentUser = data.user
         deferred.resolve(_currentUser)
+      ).error((data)->
+        deferred.reject(data)
       )
     deferred.promise
 

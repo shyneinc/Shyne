@@ -30,7 +30,7 @@ header {
         color: #CCC;
       }
     }
-    .caret{
+    .caret {
       border-bottom-color: #333;
       border-top-color: #333;
     }
@@ -71,7 +71,7 @@ header {
   }
 }
 
-.linkedin-logo{
+.linkedin-logo {
   width: 19px;
   height: 20px;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMS8xNC8xM0YQMlYAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAAANPSURBVDiNbZNPaF1VEMZ/M+e8P3kvaZsESVsVU7C1uFAKCbqpoGgFcSNIIagb6aZIdSMouHDTZd11UxA3ShfdiBQUW6WIgoIGwYgBA6HQEq1JmzQv7+W9e8854+Le96faC5c7c5n55puZbwTg+Pkrp1Zvt55TEe73iAhm9v//QDJjdnr8j+/fOnFWjp+/8vbqZufDXkyT+p9AEEQK24ACz4pvWdcAp7I7s6f2hc9yOZPFNKVANGM3T9S9UveKiCAjzFKZHRMYRp9rSNa4td1dUBW6lEBehBOHZ3h4b4NoUHEO7xxOFO8cFS38ihOcCGIFuJSsfb+tdi/wycl5Fo4d4k6nx/MXvmOjk1F3RasAoWQoThBNEBLRhgy1b3pV5h6aBmCqUePARA0HeHU453DqqKlQUUGleJ1ThiszPBRzqXrlzOeLnHr6MEt/bbJ8q0Xde2IqIqpOyGKikwVQqDjFJOFUsZQAwYMhqtQcrLW6nLu2jFehWa0wPVblgWYNgOX1No9MNnh8/wR/t7r8cH0DA1QFQcESntt30XaPbe/5+NU5Xjr6IHkMHPvoW1554iDvPPMYYHz683Vem5ulr8Wrf67x5qVFLCSk1YZeQMUMOj10YwfrBorNgqDYYCLCG/OH2OpmpFK8Lxw5yOtHZ2jdvIO0MySPaClxEAYqtwR7dgL1bKj6Lxdv8uLZa7z/2S/0j+HZI/sLWwVE0AT3P5VkSEwD/6tf13Ax8dPKBtudHgD7mjUqrswXK9o0IKZ0D2geA3HETxYxElgipH4RIyUb5HlKZikNWQD0YiBYHAGP7IYccQoj6krWv1UpdNYHG8wMyGIkjrTZDYFuCDivZQQjeUUBpawTYqJZL66rUfX0YsB7HWEQ6eY5WYzsK7W3Z6xCiLGEluFtNmueC1d/55ulNYIlgkW+XrrBPztdRISV9W3EGbsh592LPzLmHWub29Qrw5OSpz64tLK6fvdREaG1m5HHhHee6Yk6WTS6eQSEibEKTopFbbV7ZCHgRNjbqGJmOHV477jsVE7HZPXx+oAoeQg4VcarigEpBhKQUqJZVZrVSjm3hIjGA5NjvwnAk+9dvHxjq/3yvXqT/khBEpiWs0mDBfS3OTvVXDq3MH/yXwmsrv7QrjeWAAAAAElFTkSuQmCC);
@@ -86,4 +86,50 @@ footer {
 
 .hidden {
   display: none;
+}
+
+.editable-field {
+  position: relative;
+  .edit-form {
+    z-index: 10;
+    @include round-corners(6px);
+    display: none;
+    background-color: $white;
+    width: 400px;
+    border: 1px solid #999;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .glyphicon-remove-circle {
+      margin: -5px -10px;
+    }
+  }                     ;
+  .glyphicon-pencil {
+    display: none;
+    font-size: 12px;
+  }
+  &:hover .glyphicon-pencil{
+    display: inline;
+  }
+}
+
+.flash-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .inner {
+    margin: 0 auto;
+    background-color: $dark-blue;
+    color: $white;
+    padding: 5px 0;
+    @include bottom-round-corners(6px);
+    text-align: center;
+    width: 400px;
+    &:hover {
+      background-color: $green;
+    }
+  }
+  cursor: pointer;
 }
