@@ -6,6 +6,12 @@ namespace :call_request  do
     end
   end
 
+  task :process_payment => :environment do
+    CallRequest.where(status: :completed).find_each do |call_request|
+      call_request.process_payment
+    end
+  end
+
   task :send_reminders => :environment do
     CallRequest.where(billable_duration: nil, status: :approved).find_each do |call_request|
       #TODO: See if we can achieve the same thing with icalendar alaram
