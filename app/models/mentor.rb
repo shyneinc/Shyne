@@ -8,6 +8,7 @@ class Mentor < ActiveRecord::Base
 
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
+  delegate :full_name, :email, :balanced_customer, :to => :user
 
   has_many :call_requests, after_add: :calc_avg_duration, after_remove: :calc_avg_duration
   has_many :reviews, after_add: :calc_avg_rating, after_remove: :calc_avg_rating
@@ -40,14 +41,6 @@ class Mentor < ActiveRecord::Base
     elsif self.years_of_experience > 7
       3.0
     end
-  end
-
-  def full_name
-    self.user.full_name
-  end
-
-  def email
-    self.user.email
   end
 
   def avatar

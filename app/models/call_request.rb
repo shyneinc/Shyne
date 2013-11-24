@@ -49,6 +49,6 @@ class CallRequest < ActiveRecord::Base
   end
 
   def calc_mentor_duration
-    self.mentor.calc_avg_duration(true)
+    self.mentor.calc_avg_duration
   end
 end

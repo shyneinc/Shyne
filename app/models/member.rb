@@ -5,15 +5,8 @@ class Member < ActiveRecord::Base
 
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
+  delegate :full_name, :email, :balanced_customer, :to => :user
 
   has_many :call_request
   has_many :reviews
-
-  def full_name
-    self.user.full_name
-  end
-
-  def email
-    self.user.email
-  end
 end
