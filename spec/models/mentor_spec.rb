@@ -47,11 +47,11 @@ describe Mentor do
     context "#years_of_experience" do
       it "returns a rate per minute according to mentor's experience" do
         if mentor.years_of_experience < 2
-          expect(mentor.rate_per_minute).to eq 1.0
+          expect(mentor.rate_per_minute).to eq 1
         elsif mentor.years_of_experience >= 2 && mentor.years_of_experience <= 7
-          expect(mentor.rate_per_minute).to eq 2.0
+          expect(mentor.rate_per_minute).to eq 2
         elsif mentor.years_of_experience > 7
-          expect(mentor.rate_per_minute).to eq 3.0
+          expect(mentor.rate_per_minute).to eq 3
         end
       end
     end
