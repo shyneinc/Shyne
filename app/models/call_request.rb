@@ -42,29 +42,51 @@ class CallRequest < ActiveRecord::Base
 
   def process_payment
     if self.status.completed? && self.billable_duration > 0
-      rate_in_cents = self.mentor.rate_per_minute * 100
-      duration_in_mins = self.billable_duration/60
-      billable_amount = rate_in_cents * duration_in_mins
-      shyne_commission = billable_amount * 0.3
-
-      if self.payment_transactions.where(type: "debit", status: "succeeded").count == 0
+      if !self.member_debited?
         debit = self.member.balanced_customer.debit(
-            :amount => billable_amount,
-            :description => "Shyne call with #{self.mentor.full_name}",
-            :on_behalf_of => self.mentor.balanced_customer,
+            :amount => self.debit_amount,
+            :description => self.description,
+            :on_behalf_of => self.mentor.balanced_customer
         )
         self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
       end
 
-      if self.payment_transactions.where(type: "debit", status: "succeeded").count == 1 &&
-          self.payment_transactions.where(type: "credit", status: "succeeded").count == 0
-          credit = self.mentor.balanced_customer.credit(
-              :amount => billable_amount - shyne_commission,
-              :description => "Shyne call with #{self.member.full_name}"
-          )
-          self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+      if self.member_debited? && !self.mentor_credited?
+        credit = self.mentor.balanced_customer.credit(
+            :amount => self.credit_amount,
+            :description => self.description
+        )
+        self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+      end
+
+      if self.member_debited? && self.mentor_credited?
+        self.status = :processed
+        self.save
       end
     end
+  end
+
+  def member_debited?
+    self.payment_transactions.where(type: "debit", status: "succeeded").count > 0
+  end
+
+  def mentor_credited?
+    self.payment_transactions.where(type: "credit", status: "succeeded").count > 0
+  end
+
+  def debit_amount
+    rate_in_cents = self.mentor.rate_per_minute * 100
+    duration_in_mins = self.billable_duration/60
+    rate_in_cents * duration_in_mins
+  end
+
+  def credit_amount
+    shyne_commission = self.billable_amount * 0.3
+    self.billable_amount - shyne_commission
+  end
+
+  def description
+    "Shyne call with #{self.member.full_name} & #{self.mentor.full_name}"
   end
 
   private

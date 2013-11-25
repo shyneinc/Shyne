@@ -31,3 +31,10 @@ class CallRequestStatus::Completed < CallRequestStatus
     Twilio::Sms.delay.send("Your call is completed!", owner.member.phone_number.to_s)
   end
 end
+
+class CallRequestStatus::Processed < CallRequestStatus
+  def send_status
+    #CallRequestMailer.delay.request_processed(owner)
+  end
+end
+
