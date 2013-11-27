@@ -4,11 +4,11 @@ require 'rspec_api_documentation/dsl'
 resource 'Member' do
   header "Accept", "application/vnd.shyne.v1"
 
-  let(:member) { FactoryGirl.create(:member) }
+  let(:member) { create(:member) }
 
   get "/api/members" do
     before do
-      FactoryGirl.create_list(:member, 10)
+      create_list(:member, 10)
     end
 
     example_request "Getting all members" do
@@ -21,7 +21,7 @@ resource 'Member' do
     include Warden::Test::Helpers
 
     before do
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
       login_as @user, scope: :user
     end
 
@@ -29,7 +29,7 @@ resource 'Member' do
 
     example "Creating a member" do
       explanation "Once the user is registered and logged in, create a member profile"
-      member = FactoryGirl.attributes_for(:member).except(:id)
+      member = attributes_for(:member).except(:id)
       do_request(member: member)
 
       hash = JSON.parse(response_body)
@@ -54,7 +54,7 @@ resource 'Member' do
     include Warden::Test::Helpers
 
     before do
-      user = FactoryGirl.create(:member_user)
+      user = create(:member_user)
       login_as user, scope: :user
     end
 
@@ -64,7 +64,7 @@ resource 'Member' do
 
     example "Updating a member" do
       explanation "Update current user's member profile"
-      member = FactoryGirl.attributes_for(:member).except(:id)
+      member = attributes_for(:member).except(:id)
       do_request(member: member)
 
       expect(status).to eq 204
@@ -75,7 +75,7 @@ resource 'Member' do
     include Warden::Test::Helpers
 
     before do
-      user = FactoryGirl.create(:member_user)
+      user = create(:member_user)
       login_as user, scope: :user
     end
 

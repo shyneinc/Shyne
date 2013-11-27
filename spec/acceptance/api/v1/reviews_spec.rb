@@ -36,7 +36,7 @@ resource 'Review' do
 
     example "Create a review" do
       explanation "Once the call is completed, a member can write a review"
-      review = FactoryGirl.attributes_for(:review, member: user.role)
+      review = attributes_for(:review, member: user.role)
       do_request(review: review)
 
       hash = JSON.parse(response_body)

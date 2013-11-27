@@ -5,9 +5,9 @@ include Warden::Test::Helpers
 resource 'CallRequest' do
   header "Accept", "application/vnd.shyne.v1"
 
-  let(:user) { FactoryGirl.create(:member_user) }
-  let(:mentor) { FactoryGirl.create(:mentor) }
-  let!(:call_request) { FactoryGirl.create(:call_request, member: user.role) }
+  let(:user) { create(:member_user) }
+  let(:mentor) { create(:mentor) }
+  let!(:call_request) { create(:call_request, member: user.role) }
 
   before do
     login_as user, scope: :user
@@ -27,7 +27,7 @@ resource 'CallRequest' do
 
     example "Creating a call request" do
       explanation "Once the member is registered and logged in, they can create a call request"
-      call_request = FactoryGirl.attributes_for(:call_request, member: user.role).except(:id, :passcode)
+      call_request = attributes_for(:call_request, member: user.role).except(:id, :passcode)
       call_request[:member_id] = user.role.id
       call_request[:mentor_id] = mentor.id
 

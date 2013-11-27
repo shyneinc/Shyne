@@ -100,7 +100,7 @@ resource 'Mentor' do
 
     example "Updating a mentor" do
       explanation "Update current user's mentor profile"
-      mentor = FactoryGirl.attributes_for(:mentor, :featured => nil).except(:id)
+      mentor = attributes_for(:mentor, :featured => nil).except(:id)
 
       do_request(mentor: mentor)
 
