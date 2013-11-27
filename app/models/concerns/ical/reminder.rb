@@ -5,7 +5,6 @@ module Ical::Reminder
   def self.post(options = {}, email)
     if options.is_a?(Hash)
       cal = Calendar.new
-
       cal.event do
         dtstart     "#{options[:date]}"  
         dtend       "#{options[:date]}"
@@ -29,10 +28,9 @@ module Ical::Reminder
           trigger       "-PT5M" # 15 minutes before
         end
       end
-    end
-  end
+      cal.publish
 
-  def test
-    "test this is"
+      return cal
+    end
   end
 end
