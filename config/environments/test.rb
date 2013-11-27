@@ -41,4 +41,6 @@ Shyne::Application.configure do
   ENV['TWILIO_SID'] = "AC226f8be2087e94b49724760fbe3d66b7"
   ENV['TWILIO_TOKEN'] = "5b959a7c258221f6a551ef0c22e2c267"
   ENV['TWILIO_NUMBER'] = "+15005550006"
+
+  ENV['BALANCED_SECRET'] = "ak-test-psocIlwyJODZ2X9btAVVy70GNSjHPiBe"
 end
