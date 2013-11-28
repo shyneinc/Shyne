@@ -10,8 +10,6 @@ group :production, :staging do
 end
 
 gem 'workless', '1.2.2'
-
-#scheduling job and queuing
 gem 'delayed_job_active_record'
 gem 'daemons'
 
@@ -40,6 +38,7 @@ gem 'twilio-ruby'
 gem 'classy_enum'
 gem 'icalendar'
 gem 'balanced'
+gem 'mailboxer'
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'
@@ -49,6 +48,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails', '4.2.1'
   gem 'rspec_api_documentation'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -58,15 +58,11 @@ group :development, :test do
   gem 'guard-rspec'
 end
 
-group :development, :staging, :test do
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'faker'
-  gem 'database_cleaner'
-end
-
 group :test do
+  gem 'faker'
   gem 'rack-test'
   gem 'turn', :require => false
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers', '>=0.3.0'
   gem 'spork-rails'
