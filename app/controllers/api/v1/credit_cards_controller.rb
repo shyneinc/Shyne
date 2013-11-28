@@ -9,14 +9,16 @@ class Api::V1::CreditCardsController < Api::V1::BaseController
   def create
     card = Balanced::Card.new(credit_card_params).save
     current_user.balanced_customer.add_card(card)
-    render :json => card.attributes, :status => 200
+    render :json => card.attributes, :status => 201
+    #TODO: Proper error handeling
   end
 
   def destroy
     uri = "#{current_user.customer_uri}/cards/#{params[:id]}"
     card = Balanced::Card.find(uri)
     card.unstore
-    render :json => {}, :status => 200
+    render :json => {}, :status => 204
+    #TODO: Proper error handeling
   end
 
   private
