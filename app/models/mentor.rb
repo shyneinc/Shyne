@@ -1,4 +1,6 @@
 class Mentor < ActiveRecord::Base
+  acts_as_messageable
+
   classy_enum_attr :mentor_status, default: :applied
 
   validates :user, :headline, :location, :experties, :years_of_experience, :availability, :phone_number, presence: true
