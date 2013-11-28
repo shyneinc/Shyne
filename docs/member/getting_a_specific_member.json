@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/members/168",
+      "request_path": "/api/members/592",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -22,8 +22,8 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"id\":168,\"created_at\":\"2013-11-13T17:36:25.834-06:00\",\"updated_at\":\"2013-11-13T17:36:25.834-06:00\",\"user_id\":null,\"phone_number\":\"16772064487\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"e92f3e36f73a33623dc88df6806383a4\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"b5112d10-4bac-4e61-92f6-655bc69c144d","X-Runtime":"0.032034","Content-Length":"144"},
+      "response_body": "{\"id\":592,\"created_at\":\"2013-11-27T17:09:01.214-08:00\",\"updated_at\":\"2013-11-27T17:09:01.214-08:00\",\"user_id\":null,\"phone_number\":\"15626453725\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"8951e1108ed85f999b667a1e9b2c23f3\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"930b6cae-4c50-4197-b412-662d917fb7af","X-Runtime":"0.045436","Content-Length":"144"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

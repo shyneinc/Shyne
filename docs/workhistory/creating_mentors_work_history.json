@@ -44,8 +44,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/api/mentors/217/work_histories",
-      "request_body": "work[company]=Waelchi+Inc&work[title]=Corporate+Creative+Executive&work[date_started]=2012-12-01&work[date_ended]=2014-05-27&work[current_work]=false&work[mentor_id]=217",
+      "request_path": "/api/mentors/597/work_histories",
+      "request_body": "work[company]=Kris-Mertz&work[title]=Product+Communications+Administrator&work[date_started]=2013-02-15&work[date_ended]=2013-03-25&work[current_work]=false&work[mentor_id]=597",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -57,8 +57,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":66,\"company\":\"Waelchi Inc\",\"date_started\":\"2012-12-01\",\"date_ended\":\"2014-05-27\",\"current_work\":false,\"mentor_id\":217,\"created_at\":\"2013-11-13T16:35:58.717-07:00\",\"updated_at\":\"2013-11-13T16:35:58.717-07:00\",\"title\":\"Corporate Creative Executive\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/217/work_histories.66","Content-Type":"application/json; charset=utf-8","ETag":"\"06fbad80c148d2e5c79389c115e2f435\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=L21SWVd1Mm94Rm1iS2JoK3B2UFB4R2dzVnNQZ0ttQmltNEVBN0tMN1pSZW1rRVVwRVkzdU91VkU5c0h0RnpkbDVVRUlDd0g2QmRrN05ub0tLWmtNWlBzemlRaVR0dCt4cnUwSUN5THp5a2FxclpPcmptd1JkVjFYeUNqcTVKYW9SQ215NUZrQmlPeXZ0a3VxT3lsMm4xTEs0SUxJM2h0T0tDTENYdzNCalJrPS0tV1o1eXUxR01HS1pMaTA2WGpDbW9uQT09--89dec018379b1f23c19cc9485064669ffce652b6; path=/; HttpOnly","X-Request-Id":"7e4af228-5050-4ce2-b1ff-c72027ba5d71","X-Runtime":"0.064068","Content-Length":"253"},
+      "response_body": "{\"id\":31,\"company\":\"Kris-Mertz\",\"date_started\":\"2013-02-15\",\"date_ended\":\"2013-03-25\",\"current_work\":false,\"mentor_id\":597,\"created_at\":\"2013-11-27T20:07:55.729-05:00\",\"updated_at\":\"2013-11-27T20:07:55.729-05:00\",\"title\":\"Product Communications Administrator\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/597/work_histories.31","Content-Type":"application/json; charset=utf-8","ETag":"\"651585a80704675209363fd779700bd6\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=dWhlemV1dlUyM1pYajR6QVE0K3hBR1lqalc4dW1OR1dZNmU2eldxdzlPUjRNa3ZJNnh6SWpoNzhqNzNFdGNaSCsxbi9VZmhuUVQydGdZV3didTRobFp0bzFXL254c2E2S3RLL2UrcUM0NWk2ZmFSeG9pQXFva01uZlFTVkZIRlhIbWpSanFtZDhpVTAxT0xza0U4VS9nRUZGdG9nM01WNzRaZ3lNUlp3VmV3PS0tUUQ4NEFpNGNWNE1ucndmY203QUw4UT09--219c02a23229fb840a0e8145c3358ff0ca1d2fe9; path=/; HttpOnly","X-Request-Id":"bd60e6b8-05f1-4d0d-a867-6b5cf819c3c7","X-Runtime":"0.246084","Content-Length":"260"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

@@ -52,7 +52,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Jadyn&user[last_name]=Reinger&user[email]=user26_1384385766%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0xe07f824%3E&user[username]=jadynreinger&user[settings]&user[time_zone]=Pacific+Time+%28US+%26+Canada%29",
+      "request_body": "user[first_name]=Cali&user[last_name]=Rohan&user[email]=user40_1385600893%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0xd0512e0%3E&user[username]=calirohan&user[time_zone]=Eastern+Time+%28US+%26+Canada%29&user[customer_uri]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -64,8 +64,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":477,\"email\":\"user26_1384385766@shyne.io\",\"created_at\":\"2013-11-13T17:36:06.365-06:00\",\"updated_at\":\"2013-11-13T17:36:06.421-06:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Jadyn\",\"last_name\":\"Reinger\",\"avatar\":{\"url\":\"public/images/fallback/default.png\",\"medium\":{\"url\":\"public/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"public/images/fallback/thumb_default.png\"}},\"username\":\"jadynreinger\",\"settings\":null,\"time_zone\":\"Pacific Time (US \\u0026 Canada)\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"805fed4ab59f2c1c439f3a0ae83b96e6\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=emNLakdmVnYrM093bEdRK1B0Mko3YTFIbGgvK3FtcTN4WTkxYXZVS2I5eEl2THYwRDQrVlFOWjRCVDdjbnM3WlYxNngzam8vUWNSUWtwc0RGNm92WWRUODM2NjBMSHZMcHU1VE1rU0lQL0JZT0d3UHBjMTlqcGhCTWtLMHdxRjFKakdFQXRtdi9BYkovcFZrcjM3dE9mSkwvSHkrd2xYbk5rRTBuek9QT2VjPS0tRVQ3cWNjTTJQTnhaVXdnQUtJWDlLdz09--51df3f9179e1983123b5f42b143e72d68730ad5c; path=/; HttpOnly","X-Request-Id":"851572e2-0563-457d-8805-6ee0cc1e6636","X-Runtime":"0.124132","Content-Length":"474"},
+      "response_body": "{\"id\":1311,\"email\":\"user40_1385600893@shyne.io\",\"created_at\":\"2013-11-27T16:08:13.535-09:00\",\"updated_at\":\"2013-11-27T16:08:13.605-09:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Cali\",\"last_name\":\"Rohan\",\"avatar\":{\"url\":\"/images/fallback/default.png\",\"medium\":{\"url\":\"/images/fallback/medium_default.png\"},\"thumb\":{\"url\":\"/images/fallback/thumb_default.png\"}},\"username\":\"calirohan\",\"time_zone\":\"Eastern Time (US \\u0026 Canada)\",\"customer_uri\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"167fd35b8dc1066e965955e0a26b139d\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=UFR6b3ZhV0hqejJoQTFLT3NycEtRcnlFbkZvYjZRay92U1JEemFVMFBoVUZxbEJMVDk3SlhLRFJHb3h5bk5vTWNGR3Y5czFjb0VpZDB2QzJRWmZ2d25WMFIvYzQ2N054WTQzcFA5Q0czbC80NktRYVM2dVFJOThkaHpJRHZ4ejFNeW5sYnNrdnVmSll0Rk4zcE9iK2NkbWlMTUdvMnNDL1NhNUYvbW5ZMldzPS0tRTFJYWhieTJEUmRIRThVTWlDMEFMZz09--87b43892aa54c9d9183e46efeeec4c22a485c6ca; path=/; HttpOnly","X-Request-Id":"3c38dbb0-0337-4538-ad49-8d8e3a138d79","X-Runtime":"0.174141","Content-Length":"455"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

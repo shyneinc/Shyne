@@ -24,7 +24,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=bk9rMXd1bDNqSkRvbkhXWG1uQ0hiWDFIS05QaFc2YUpLUEk0WTdqb2ExbVQvWFRiUndYQUtKeCs3QjVSZGNrbm5KR0JRWVhBaEtnNFlCN1pVTENNUytHbVIvdUhEbDNKMFpTRFFQVVVONVVBMStOVVpnU3VSVXNlcHZkeVF3bE5jaXVIR1liRGoyVWd0SEw5ZkVndTRBdGc2V0M4S0pjalRXV01vbnNBalg0PS0tSGR5NXVmd3ZXcjY2S0lmLzN5YVdSZz09--c83fe284af348bfefe64e35a5fce9037c8cd75dc; path=/; HttpOnly","X-Request-Id":"ba99d007-d649-41ff-8d4e-0bd27050e946","X-Runtime":"0.132140"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=Y2dUQ0E0RTJRditoQTJ3QnpqWGwzUlBVNUEvS21pUk1PbUNobU54WGVyRFBWWEdVZjFpcHRCelY3V0JlNnNiOVZzRWdxaXNsRktYWE1WNVBLYkRIaUtKY1hpZmlONGdFc0hDR2VSSzg4ZDY2VG1kUEticllYdGxFZVJpeWppRXR3akRoTllGdSt3QkF5amZNYzNMMlFmakdIQjNXZE1KK0FlUFlLbStCNGNvPS0tQnVIcGJWaFR0YlVnSHZUL0RuR2VuZz09--31d63e21b0fc8373a37d774b8a1dbeeb1b0d1229; path=/; HttpOnly","X-Request-Id":"a6d84548-3d3c-4344-807d-4a035044fadb","X-Runtime":"0.171663"},
       "response_content_type": null,
       "curl": null
 }

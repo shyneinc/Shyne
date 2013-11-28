@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/call_requests",
-      "request_body": "call_request[status]=proposed&call_request[scheduled_at]=2013-12-04+17%3A39%3A40&call_request[member_id]=172&call_request[mentor_id]=229",
+      "request_body": "call_request[status]=proposed&call_request[scheduled_at]=2013-11-28+08%3A43%3A09&call_request[billable_duration]&call_request[member_id]=579&call_request[mentor_id]=616",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -40,8 +40,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":74,\"member_id\":172,\"mentor_id\":229,\"passcode\":55329,\"status\":\"proposed\",\"scheduled_at\":\"2013-12-04T17:39:40.000-06:00\",\"created_at\":\"2013-11-13T17:36:31.720-06:00\",\"updated_at\":\"2013-11-13T17:36:31.720-06:00\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/call_requests/74","Content-Type":"application/json; charset=utf-8","ETag":"\"0dc1baa3fd8544c87763777dce7ece33\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=RU92ZmozSmM2R05KTjRGalVwUmgvR0FFOVhXUHg4S2NMQWhrVkIvdUlJYjVyVEZFZUtTNjlBUURNNUFzNWxZQ2h0Q0Iya09uRlVWUkxScFoyeGczeU9KUmd5WDNjd3BGb0VWQjZKM2dlc05iTUIwelpJcFV2YVlqUEJCNEV2dG1LcDI4Z1Y4bzFWNjFOZk00QmorZ1I1S091MjUrRmhIZnB1a0FQamdieXdVPS0tRGtIZzV0cHhvQ1ArZUdpeXJsV3YyZz09--46e23fb9ba66a42bb20d1a27c95cce189e3ed336; path=/; HttpOnly","X-Request-Id":"a88b90a3-e9a9-4c01-b83f-a0a9a8553205","X-Runtime":"0.064068","Content-Length":"215"},
+      "response_body": "{\"id\":455,\"member_id\":579,\"mentor_id\":616,\"passcode\":69757,\"status\":\"proposed\",\"scheduled_at\":\"2013-11-28T08:43:09.000-06:00\",\"created_at\":\"2013-11-27T19:08:27.547-06:00\",\"updated_at\":\"2013-11-27T19:08:27.547-06:00\",\"billable_duration\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/call_requests/455","Content-Type":"application/json; charset=utf-8","ETag":"\"6cab598114355e72f0857d6cc83efa91\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=TGs4b2FaeVIyM0FieTQzYmFNR2hadldNZmU1ZGRZdDRjdXpCdFBNb0VLV0JpOHdlaGFtN0orMnFZdHF2dzI2WmtMYzlpZWhtbjZDSFBEQ2swdFlZMHFhaUhaRUo5RTR2eTNoYXRvRWRXZmZMejNUM1ZhUmtZck1RVlJSY0ZrdERmd1pOOGV3Z003ZkhvTzRFa2g5WGZUYURWTlppTXJmQ1BFRzdEY1Q1RkRnPS0taTRNWFF5ZmVJRHNrOXpFUVhnWUJYUT09--785955a1327f4139c38df34ace9e58fdc3df92d3; path=/; HttpOnly","X-Request-Id":"8b25ac33-122f-4520-86ec-feade7fde440","X-Runtime":"0.118745","Content-Length":"241"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

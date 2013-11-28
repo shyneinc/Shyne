@@ -1,6 +1,26 @@
 {
   "resources": [
     {
+      "name": "BankAccount",
+      "examples": [
+        {
+          "description": "Add a bank account",
+          "link": "bankaccount/add_a_bank_account.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting a bank account",
+          "link": "bankaccount/deleting_a_bank_account.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all bank accounts on file",
+          "link": "bankaccount/getting_all_bank_accounts_on_file.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "CallRequest",
       "examples": [
         {
@@ -36,6 +56,26 @@
         {
           "description": "Resend confirmation email",
           "link": "confirmation/resend_confirmation_email.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "CreditCard",
+      "examples": [
+        {
+          "description": "Add a credit card",
+          "link": "creditcard/add_a_credit_card.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting a credit card",
+          "link": "creditcard/deleting_a_credit_card.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all credit cards on file",
+          "link": "creditcard/getting_all_credit_cards_on_file.json",
           "groups": "all"
         }
       ]
