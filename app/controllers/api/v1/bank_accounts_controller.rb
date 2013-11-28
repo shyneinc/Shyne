@@ -9,20 +9,22 @@ class Api::V1::BankAccountsController < Api::V1::BaseController
   def create
     bank_account = Balanced::BankAccount.new(bank_account_params).save
     current_user.balanced_customer.add_bank_account(bank_account)
-    render :json => bank_account.attributes, :status => 200
+    render :json => bank_account.attributes, :status => 201
+    #TODO: Proper error handeling
   end
 
   def destroy
     uri = "#{current_user.customer_uri}/bank_accounts/#{params[:id]}"
     bank_account = Balanced::BankAccount.find(uri)
     bank_account.unstore
-    render :json => {}, :status => 200
+    render :json => {}, :status => 204
+    #TODO: Proper error handeling
   end
 
   private
 
   def bank_account_params
-    params.require(:bank_account).permit(:name, :account_number, :bank_code, :routing_number, :type)
+    params.require(:bank_account).permit(:name, :account_number, :routing_number, :type)
   end
 
   def check_type
