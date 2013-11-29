@@ -29,12 +29,14 @@ FactoryGirl.define do
     user
 
     factory :mentor_with_reviews do
-      ignore do
-        review_count 5
-      end
-
       after(:create) do |mentor, evaluator|
-        create_list(:review, evaluator.review_count, mentor: mentor)
+        create_list(:review, 5, mentor: mentor)
+      end
+    end
+
+    factory :mentor_with_calls do
+      after(:create) do |mentor, evaluator|
+        create(:completed_call_request, mentor: mentor)
       end
     end
   end

@@ -28,6 +28,7 @@ describe Mentor do
 
     context "Callbacks" do
       it { expect(mentor).to callback(:send_status_email).after(:update) }
+      #TODO: Test additional callbacks
     end
   end
 
@@ -61,8 +62,11 @@ describe Mentor do
       let!(:mentor2) { create(:mentor) }
       let!(:mentor3) { create(:mentor, mentor_status: MentorStatus::Approved.new) }
 
-      it "returns an array of approved mentors" do
+      it "returns approved mentors" do
         expect(Mentor.approved).to include mentor1, mentor3
+      end
+
+      it "does not return unapproved mentors" do
         expect(Mentor.approved).to_not include mentor2
       end
     end
@@ -72,8 +76,11 @@ describe Mentor do
       let!(:mentor2) { create(:mentor, featured: false) }
       let!(:mentor3) { create(:mentor, featured: true) }
 
-      it "returns an array of featured mentors" do
+      it "returns featured mentors" do
         expect(Mentor.featured).to include mentor1, mentor3
+      end
+
+      it "does not return regular mentors" do
         expect(Mentor.featured).to_not include mentor2
       end
     end
@@ -83,42 +90,42 @@ describe Mentor do
       let!(:mentor2) { create(:mentor, experties: '{Banking}') }
       let!(:mentor3) { create(:mentor, experties: '{Programming}') }
 
-      it "returns an array of mentors with specific experties" do
+      it "returns mentors with the specified experties" do
         expect(Mentor.experties('Banking')).to include mentor1, mentor2
+      end
+
+      it "does not return mentors with an unspecific experties" do
         expect(Mentor.experties('Banking')).to_not include mentor3
       end
     end
 
     context "#fullname" do
-      let!(:mentor1){ create(:mentor) }
-
       it "return fullname of the mentor same as it's user fullname" do
-        expect(mentor1.full_name).to eq mentor1.user.full_name
+        expect(mentor.full_name).to eq mentor.user.full_name
       end
     end
   
     context "#avg_rating" do
-      let!(:mentor1){ create(:mentor_with_reviews) }
+      let(:mentor_with_reviews){ create(:mentor_with_reviews) }
 
-      it "should return avg_rating" do
-        expect(mentor1.reviews.size).to eq 5
-        mentor1.calc_avg_rating_without_delay
-        expect(mentor1.avg_rating).to eq mentor1.reviews.average('rating').to_f
+      before(:all) do
+        mentor_with_reviews.calc_avg_rating_without_delay
       end
 
-      it "should return updated avg_rating after delete" do
-        mentor1.reviews.last.destroy
-        expect(mentor1.reviews.size).to eq 4
-        mentor1.calc_avg_rating_without_delay
-        expect(mentor1.avg_rating).to eq mentor1.reviews.average('rating').to_f
+      it "returns an average of all the ratings" do
+        expect(mentor_with_reviews.avg_rating).to eq mentor_with_reviews.reviews.average('rating').to_f
       end
     end
 
     context "#avg_call_duration" do
-      let!(:mentor1){ create(:mentor) }
+      let(:mentor_with_calls){ create(:mentor_with_calls) }
 
-      it "return an updated average call duration" do
-        pending
+      before(:all) do
+        mentor_with_calls.calc_avg_duration_without_delay
+      end
+
+      it "returns an average call duration" do
+        expect(mentor_with_calls.avg_call_duration).to eq mentor_with_calls.call_requests.average('billable_duration').to_f
       end
     end
   end
