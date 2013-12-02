@@ -94,8 +94,8 @@ describe CallRequest do
     end
 
     context "#description" do
-      it "returns the correct description with member and mentor names" do
-        expect(call_request.description).to eq "Shyne call with #{call_request.member.full_name} & #{call_request.mentor.full_name}"
+      it "returns the correct description with id, member and mentor names" do
+        expect(call_request.description).to include call_request.id.to_s, call_request.member.full_name, call_request.mentor.full_name
       end
     end
   end

@@ -41,11 +41,13 @@ class CallRequest < ActiveRecord::Base
   end
 
   def process_payment
+    #TODO: Account for these transactions failing
     if self.status.completed? && self.billable_duration > 0
       if !self.member_debited?
         debit = self.member.balanced_customer.debit(
             :amount => self.debit_amount,
             :description => self.description,
+            :appears_on_statement_as => "Shyne #{self.id} #{self.mentor.full_name}",
             :on_behalf_of => self.mentor.balanced_customer
         )
         self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
@@ -54,7 +56,8 @@ class CallRequest < ActiveRecord::Base
       if self.member_debited? && !self.mentor_credited?
         credit = self.mentor.balanced_customer.credit(
             :amount => self.credit_amount,
-            :description => self.description
+            :description => self.description,
+            :appears_on_statement_as => "Shyne #{self.id} #{self.member.full_name}"
         )
         self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
       end
@@ -87,7 +90,7 @@ class CallRequest < ActiveRecord::Base
   end
 
   def description
-    "Shyne call with #{self.member.full_name} & #{self.mentor.full_name}"
+    "Shyne call #{self.id} with #{self.member.full_name} & #{self.mentor.full_name}"
   end
 
   private
