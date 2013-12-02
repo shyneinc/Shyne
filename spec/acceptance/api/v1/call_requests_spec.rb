@@ -11,6 +11,8 @@ resource 'CallRequest' do
 
   before do
     login_as user, scope: :user
+    user.stub_chain(:balanced_customer, :bank_accounts, :any?).and_return(true)
+    user.stub_chain(:balanced_customer, :cards, :any?).and_return(true)
   end
 
   get "/api/call_requests" do
@@ -26,7 +28,7 @@ resource 'CallRequest' do
     parameter :scheduled_at, "Scheduled At", :required => true, :scope => :call_request
 
     example "Creating a call request" do
-      explanation "Once the member is registered and logged in, they can create a call request"
+      explanation "Once the member is authenticated and has a CC on file, they can propose or change a call request"
       call_request = attributes_for(:call_request, member: user.role).except(:id, :passcode)
       call_request[:member_id] = user.role.id
       call_request[:mentor_id] = mentor.id
@@ -53,6 +55,7 @@ resource 'CallRequest' do
     let(:id) { call_request.id }
 
     example "Updating a call request" do
+      explanation "Once the mentor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request"
       call_request = attributes_for(:call_request, :status => CallRequestStatus::Approved.new)
       do_request(call_request: call_request)
 
