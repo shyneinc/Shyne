@@ -71,7 +71,7 @@ class CallRequest < ActiveRecord::Base
   end
 
   def mentor_credited?
-    self.payment_transactions.where(type: "credit", status: "succeeded").count > 0
+    self.payment_transactions.where(type: "credit", status: ["succeeded", "pending"]).count > 0
   end
 
   def debit_amount
