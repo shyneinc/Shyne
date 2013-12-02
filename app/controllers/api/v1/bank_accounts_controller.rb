@@ -7,10 +7,13 @@ class Api::V1::BankAccountsController < Api::V1::BaseController
   end
 
   def create
-    bank_account = Balanced::BankAccount.new(bank_account_params).save
-    current_user.balanced_customer.add_bank_account(bank_account)
-    render :json => bank_account.attributes, :status => 201
-    #TODO: Proper error handeling
+    begin
+      bank_account = Balanced::BankAccount.new(bank_account_params).save
+      current_user.balanced_customer.add_bank_account(bank_account)
+      render :json => bank_account.attributes, :status => 201
+    rescue Exception => ex
+      render :json => {:error => ex.extras}, :status => 500
+    end
   end
 
   def destroy
@@ -18,7 +21,6 @@ class Api::V1::BankAccountsController < Api::V1::BaseController
     bank_account = Balanced::BankAccount.find(uri)
     bank_account.unstore
     render :json => {}, :status => 204
-    #TODO: Proper error handeling
   end
 
   private

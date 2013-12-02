@@ -7,10 +7,13 @@ class Api::V1::CreditCardsController < Api::V1::BaseController
   end
 
   def create
-    card = Balanced::Card.new(credit_card_params).save
-    current_user.balanced_customer.add_card(card)
-    render :json => card.attributes, :status => 201
-    #TODO: Proper error handeling
+    begin
+      card = Balanced::Card.new(credit_card_params).save
+      current_user.balanced_customer.add_card(card)
+      render :json => card.attributes, :status => 201
+    rescue Exception => ex
+      render :json => {:error => ex.extras}, :status => 500
+    end
   end
 
   def destroy
@@ -18,7 +21,6 @@ class Api::V1::CreditCardsController < Api::V1::BaseController
     card = Balanced::Card.find(uri)
     card.unstore
     render :json => {}, :status => 204
-    #TODO: Proper error handeling
   end
 
   private
