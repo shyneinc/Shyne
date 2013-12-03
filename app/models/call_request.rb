@@ -48,7 +48,10 @@ class CallRequest < ActiveRecord::Base
             :amount => self.debit_amount,
             :description => self.description,
             :appears_on_statement_as => "Shyne #{self.id} #{self.mentor.full_name}",
-            :on_behalf_of => self.mentor.balanced_customer
+            :on_behalf_of => self.mentor.balanced_customer,
+            :meta => {
+                :call_request_id => self.id
+            }
         )
         self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
       end
@@ -57,7 +60,10 @@ class CallRequest < ActiveRecord::Base
         credit = self.mentor.balanced_customer.credit(
             :amount => self.credit_amount,
             :description => self.description,
-            :appears_on_statement_as => "Shyne #{self.id} #{self.member.full_name}"
+            :appears_on_statement_as => "Shyne #{self.id} #{self.member.full_name}",
+            :meta => {
+                :call_request_id => self.id
+            }
         )
         self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
       end
