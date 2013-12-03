@@ -4,6 +4,7 @@ class CallRequest < ActiveRecord::Base
   validates :status, :scheduled_at, :mentor, :member, presence: true
 
   classy_enum_attr :status, default: :proposed, enum: :call_request_status
+  delegate :send_status, to: :status
 
   belongs_to :member
   belongs_to :mentor
@@ -15,9 +16,6 @@ class CallRequest < ActiveRecord::Base
   after_update :calc_mentor_duration, :if => :billable_duration_changed?
 
   just_define_datetime_picker :scheduled_at
-
-  #delegated into the enum class
-  delegate :send_status, to: :status
 
   def calculate_billable_duration
     if self.status.approved? && self.scheduled_at < (DateTime.now - 1.hour)
@@ -41,13 +39,12 @@ class CallRequest < ActiveRecord::Base
   end
 
   def process_payment
-    #TODO: Account for these transactions failing
     if self.status.completed? && self.billable_duration > 0
       if !self.member_debited?
         debit = self.member.balanced_customer.debit(
             :amount => self.debit_amount,
             :description => self.description,
-            :appears_on_statement_as => "Shyne #{self.id} #{self.mentor.full_name}",
+            :appears_on_statement_as => "Shyne / #{self.mentor.full_name}",
             :on_behalf_of => self.mentor.balanced_customer,
             :meta => {
                 :call_request_id => self.id
@@ -60,7 +57,7 @@ class CallRequest < ActiveRecord::Base
         credit = self.mentor.balanced_customer.credit(
             :amount => self.credit_amount,
             :description => self.description,
-            :appears_on_statement_as => "Shyne #{self.id} #{self.member.full_name}",
+            :appears_on_statement_as => "Shyne / #{self.member.full_name}",
             :meta => {
                 :call_request_id => self.id
             }
@@ -92,11 +89,11 @@ class CallRequest < ActiveRecord::Base
   def credit_amount
     debit_amount = self.debit_amount
     shyne_commission = debit_amount * 0.3
-    debit_amount - shyne_commission
+    debit_amount - sh = yne_commission
   end
 
   def description
-    "Shyne call #{self.id} with #{self.member.full_name} & #{self.mentor.full_name}"
+    "Call# #{self.id} with #{self.member.full_name} & #{self.mentor.full_name}"
   end
 
   private
