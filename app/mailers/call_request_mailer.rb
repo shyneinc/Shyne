@@ -18,15 +18,10 @@ class CallRequestMailer < ActionMailer::Base
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
+    @date = call_request.scheduled_at
+    @passcode = call_request.passcode
 
-    cal = Calendar.new
-    cal.event do
-      dtstart     call_request.scheduled_at
-      dtend       call_request.scheduled_at+1.hour
-      summary     "Shyne Call"
-      description "Call with #{@member.full_name} and #{@mentor.full_name}"
-      klass       "PRIVATE"
-    end
+    cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor}, @member.email)
     attachments['event.ics'] = cal.to_ical
 
     mail(to: @member.email, cc: @mentor.email, subject: "Call request have been approved!" )
