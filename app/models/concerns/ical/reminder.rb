@@ -28,9 +28,9 @@ module Ical::Reminder
           trigger       "-PT5M" # 15 minutes before
         end
       end
-      cal.publish
 
-      return cal
+      cal.publish
+      cal.to_ical
     end
   end
 end

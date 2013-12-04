@@ -21,10 +21,14 @@ class CallRequestMailer < ActionMailer::Base
     @date = call_request.scheduled_at
     @passcode = call_request.passcode
 
-    cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor}, @member.email)
-    attachments['event.ics'] = cal.to_ical
-
-    mail(to: @member.email, cc: @mentor.email, subject: "Call request have been approved!" )
+    cal = Ical::Reminder.post({date: @date.to_date , passcode: @passcode, mentor: @mentor.full_name}, @member.email)
+    # attachments['ShyneCall.ics'] = {:mime_type => 'text/calendar' , :content => cal}
+ 
+    mail(to: @member.email, cc: @mentor.email, subject: "Call request have been approved!" ) do |format|
+      format.ics{
+        render :text => cal, :layout => false
+      }
+    end
   end
 
   def request_changed(call_request)
