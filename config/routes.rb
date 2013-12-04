@@ -34,7 +34,7 @@ Shyne::Application.routes.draw do
       match '/users' => 'users#show', :via => :get
       match '/users' => 'users#update', :via => :put
 
-      resources :mentors, except: [:update, :destroy] do 
+      resources :mentors, except: [:update, :destroy] do
         resources :work_histories
         resources :reviews
       end
@@ -55,9 +55,11 @@ Shyne::Application.routes.draw do
 
       resources :bank_accounts, except: [:update]
 
-      match '/call/initiate' => 'call#initiate' , via: :post, defaults: {format: :xml}
-      match '/call/start' => 'call#start' , via: :post, defaults: {format: :xml}
-      match '/call/finish' => 'call#finish' , via: :post, defaults: {format: :xml}
+      match '/payment_transactions' => 'payment_transactions#index', :via => :post
+
+      match '/call/initiate' => 'call#initiate', via: :post, defaults: {format: :xml}
+      match '/call/start' => 'call#start', via: :post, defaults: {format: :xml}
+      match '/call/finish' => 'call#finish', via: :post, defaults: {format: :xml}
     end
   end
 
