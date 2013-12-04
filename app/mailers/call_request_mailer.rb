@@ -22,7 +22,6 @@ class CallRequestMailer < ActionMailer::Base
     @passcode = call_request.passcode
 
     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
-    # attachments['ShyneCall.ics'] = {:mime_type => 'text/calendar' , :content => cal}
  
     mail(to: @member.email, cc: @mentor.email, subject: "Call request have been approved!" ) do |format|
       format.ics{
