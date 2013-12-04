@@ -73,11 +73,11 @@ class CallRequest < ActiveRecord::Base
   end
 
   def member_debited?
-    self.payment_transactions.where(type: "debit", status: "succeeded").count > 0
+    ["succeeded"].include? self.payment_transactions.where(type: "debit").order(created_at: :desc).limit(1).pluck(:status).first
   end
 
   def mentor_credited?
-    self.payment_transactions.where(type: "credit", status: ["paid", "pending"]).count > 0
+    ["paid", "pending"].include? self.payment_transactions.where(type: "credit").order(created_at: :desc).limit(1).pluck(:status).first
   end
 
   def debit_amount
