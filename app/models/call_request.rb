@@ -89,7 +89,7 @@ class CallRequest < ActiveRecord::Base
   def credit_amount
     debit_amount = self.debit_amount
     shyne_commission = debit_amount * 0.3
-    debit_amount - sh = yne_commission
+    debit_amount - shyne_commission
   end
 
   def description
