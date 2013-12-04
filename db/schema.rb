@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128174244) do
+ActiveRecord::Schema.define(version: 20131204004901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,11 +159,13 @@ ActiveRecord::Schema.define(version: 20131128174244) do
   add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id", using: :btree
 
   create_table "payment_transactions", force: true do |t|
-    t.integer "call_request_id"
-    t.string  "type"
-    t.decimal "amount"
-    t.string  "status"
-    t.string  "uri"
+    t.integer  "call_request_id"
+    t.string   "type"
+    t.decimal  "amount"
+    t.string   "status"
+    t.string   "uri"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "payment_transactions", ["call_request_id"], name: "index_payment_transactions_on_call_request_id", using: :btree
