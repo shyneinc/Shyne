@@ -3,7 +3,7 @@ module Ical::Reminder
   include Icalendar
 
   def self.post(options = {}, email)
-    if options.is_a?(Hash)
+    if !options.empty? && email != nil
       cal = Calendar.new
       date = options[:date].to_datetime
 
