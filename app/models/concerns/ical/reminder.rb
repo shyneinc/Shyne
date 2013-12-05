@@ -11,7 +11,7 @@ module Ical::Reminder
         dtstart     date.utc 
         dtend       date.utc
         summary     "Scheduled call with #{options[:mentor]}"
-        location    "+1(909)480-4755 Passcode:#{options[:passcode]}"
+        location    "#{ENV['TWILIO_NUMBER']} Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:mentor]} at #{date.to_s(:long)}. Passcode: #{options[:passcode]}"
         klass       "PRIVATE"
 
