@@ -18,16 +18,16 @@ module Ical::Reminder
         alarm do
           action        "EMAIL"
           description   "You have a schedule call with #{options[:mentor]} at #{date.to_s(:long)}. Passcode: #{options[:passcode]}" # email body (required)
-          summary       "Shyne: Call Reminder"        # email subject (required)
-          attendees     "mailto:#{email}" 
+          summary       "Shyne: Call Reminder" 
+          attendees     "#{email}" 
           trigger       "-PT15M" # 15 minutes before
         end
 
         alarm do
           action        "EMAIL"
           description   "You have a schedule call with #{options[:mentor]} at #{date.to_s(:long)}. Passcode: #{options[:passcode]}" # email body (required)
-          summary       "Shyne: Call Reminder"        # email subject (required)
-          attendees     "mailto:#{email}" 
+          summary       "Shyne: Call Reminder"
+          attendees     "#{email}" 
           trigger       "-PT5M" # 15 minutes before
         end
       end
