@@ -34,6 +34,9 @@ module Ical::Reminder
 
       cal.publish
       cal.to_ical
+    else
+      raise ArgumentError, "Wrong Parameters"
     end
+
   end
 end
