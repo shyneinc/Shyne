@@ -22,6 +22,7 @@ describe "ReminderSpec" do
 	  it "should mention the mentor" do
 	  	expect(call).to include("call with John Doe")
 	  end
+	  #i still need to test this because this is manually implemented and not coming from ruby
 	  it "raise error if wrong arguments" do 
 	  	lambda { Ical::Reminder.post({passcode: "12345", mentor: "John Doe", date: DateTime.now }) }.should raise_error
 	  end
