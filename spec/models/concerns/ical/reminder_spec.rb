@@ -2,19 +2,19 @@ require 'spec_helper'
 require 'rspec_api_documentation/dsl'
 
 describe "ReminderSpec" do
-	let(:call_request) { create(:call_request) }
 	describe "#post" do
 		it "returns an object" do
-			expect(Ical::Reminder.post({passcode: call_request.passcode, mentor: call_request.mentor.full_name, date: call_request.scheduled_at }, call_request.member.email )).to_not eql nil
+			expect(Ical::Reminder.post({passcode: "12345", mentor: "John Doe", date: DateTime.now + 2.days }, "test@email.com")).to_not eql nil
 	  end
-	  it "return an ical class" do
-	  	expect(Ical::Reminder.post({passcode: call_request.passcode, mentor: call_request.mentor.full_name, date: call_request.scheduled_at }, call_request.member.email ).class).to eql String
+	  it "return an ical" do
+	  	#checks if ical format is in the string
+	  	expect(Ical::Reminder.post({passcode: "12345", mentor: "John Doe", date: DateTime.new + 2.days }, "test@email.com" )).to include("BEGIN:VCALENDAR" , "END:VCALENDAR")
 	  end
-	  it "return nil if no email(2nd argument)" do 
-	  	expect(Ical::Reminder.post({passcode: call_request.passcode, mentor: call_request.mentor.full_name, date: call_request.scheduled_at })).to eql nil
+	  it "raise error if no email(2nd argument)" do 
+	  	lambda { Ical::Reminder.post({passcode: "12345", mentor: "John Doe", date: "test@email.com"}) }.should raise_error
 	  end
-	  it "return nil if no options(1st argument)" do 
-	  	expect(Ical::Reminder.post( call_request.member.email )).to eql nil
+	  it "raise an error if no options(1st argument)" do 
+	  	lambda { Ical::Reminder.post( "test@email.com" ) }.should raise_error
 	  end
 	end
 end
