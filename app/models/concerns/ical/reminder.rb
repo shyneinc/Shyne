@@ -6,18 +6,19 @@ module Ical::Reminder
     if !options.empty? && email != nil
       cal = Calendar.new
       date = options[:date].to_datetime
+      shortdate = options[:date].to_s(:short)
 
       cal.event do
         dtstart     date.utc 
         dtend       date.utc
         summary     "Scheduled call with #{options[:mentor]}"
         location    "#{ENV['TWILIO_NUMBER']} Passcode:#{options[:passcode]}"
-        description "Shyne: you have a scheduled call with #{options[:mentor]} at #{date.to_s(:long)}. Passcode: #{options[:passcode]}"
+        description "Shyne: you have a scheduled call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}"
         klass       "PRIVATE"
 
         alarm do
           action        "EMAIL"
-          description   "You have a schedule call with #{options[:mentor]} at #{date.to_s(:long)}. Passcode: #{options[:passcode]}" # email body (required)
+          description   "You have a schedule call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
           summary       "Shyne: Call Reminder" 
           attendees     "#{email}" 
           trigger       "-PT15M" # 15 minutes before
@@ -25,7 +26,7 @@ module Ical::Reminder
 
         alarm do
           action        "EMAIL"
-          description   "You have a schedule call with #{options[:mentor]} at #{date.to_s(:long)}. Passcode: #{options[:passcode]}" # email body (required)
+          description   "You have a schedule call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
           summary       "Shyne: Call Reminder"
           attendees     "#{email}" 
           trigger       "-PT5M" # 15 minutes before
