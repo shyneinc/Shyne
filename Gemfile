@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+ruby '2.0.0'
 
 gem 'rails', '4.0.1'
 gem 'pg'
@@ -56,6 +56,7 @@ group :development, :test do
   gem 'heroku_san'
   gem 'guard-spork'
   gem 'guard-rspec'
+  gem 'foreman'
 end
 
 group :test do

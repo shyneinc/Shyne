@@ -1,16 +1,26 @@
 # SHYNE ![CircleCI build status of the default branch][1]
 
-## First-time install
+## First-time install & run
+
+``git clone git@github.com:shyneinc/shyne-dev-box.git``
+
+``cd shyne-dev-box``
 
 ``git clone git@github.com:shyneinc/Shyne.git``
 
-``cd Shyne``
+``vagrant up``
+
+``vagrant ssh``
+
+``cd /vagrant/Shyne``
 
 ``bundle install``
 
 ``bundle exec rake db:setup``
 
-``rails s``
+``cp .env.sample .env`` (.env file is need at the root for foreman)
+
+``foreman start``
 
 ## Git development workflow
 
