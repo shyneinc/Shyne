@@ -10,19 +10,19 @@ describe CallRequestMailer do
     	mail.subject.should == 'Call request have been approved!'
     end
     it "renders the reciever email" do
-    	pending
+    	mail.to.should eql [call_request.member.email]
     end
     it "renders the sender email" do
-    	pending
+    	mail.from.should eql ['no-reply@shyne.io']
     end
     it "contains the mentor" do
-    	pending
+    	mail.body.encoded.should match(call_request.mentor.full_name)
     end
     it "contains the passcode" do
-    	pending
+    	mail.body.encoded.should match(call_request.passcode.to_s)
     end
     it "contains the scheduled date and time" do
-    	pending
+    	mail.body.encoded.should match(call_request.scheduled_at.to_s(:short))
     end
   end
   describe '#request_proposed' do
