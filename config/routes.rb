@@ -7,6 +7,7 @@ Shyne::Application.routes.draw do
 
   authenticate(:admin) do
     mount Raddocs::App => "/docs"
+    match "/delayed_job" => DelayedJobWeb, :via => :get, :anchor => false
   end
 
   if Rails.env.development?
