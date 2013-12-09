@@ -22,4 +22,4 @@ public/assets/*
 *.crt
 *.csr
 *.key
-*.env
+.env

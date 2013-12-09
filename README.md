@@ -18,7 +18,7 @@
 
 ``bundle exec rake db:setup``
 
-``cp .env.sample .env`` (.env file is need at the root for foreman)
+``cp sample.env .env`` (.env file is need at the root for foreman)
 
 ``foreman start``
 
