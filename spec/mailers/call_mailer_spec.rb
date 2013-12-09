@@ -49,7 +49,7 @@ describe CallRequestMailer do
   	let(:mailcomplete) { CallRequestMailer.request_completed(call_request) }
 
     it "renders the reciever email" do
-    	mailcomplete.to.should eql [call_request.member.email]
+    	mailcomplete.to.should eql [call_request.mentor.email]
     end
     it "renders completed subject" do
     	mailcomplete.subject.should == "Summary of your call with #{call_request.member.full_name}"
