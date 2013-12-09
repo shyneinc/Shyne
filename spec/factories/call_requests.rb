@@ -14,8 +14,8 @@ FactoryGirl.define do
       scheduled_at 2.hours.ago
       calls {
         [build(:call, status: CallStatus::Completed.new, duration: 60, from_number: "19496665341"),
-        build(:call, status: CallStatus::Completed.new, duration: 900, from_number: "19496665341"),
-        build(:call, status: CallStatus::Completed.new, duration: 1000, from_number: "17471778437")]
+         build(:call, status: CallStatus::Completed.new, duration: 900, from_number: "19496665341"),
+         build(:call, status: CallStatus::Completed.new, duration: 1000, from_number: "17471778437")]
       }
     end
 

@@ -104,9 +104,9 @@ describe Mentor do
         expect(mentor.full_name).to eq mentor.user.full_name
       end
     end
-  
+
     context "#avg_rating" do
-      let(:mentor_with_reviews){ create(:mentor_with_reviews) }
+      let(:mentor_with_reviews) { create(:mentor_with_reviews) }
 
       before(:all) do
         mentor_with_reviews.calc_avg_rating_without_delay
@@ -118,7 +118,7 @@ describe Mentor do
     end
 
     context "#avg_call_duration" do
-      let(:mentor_with_calls){ create(:mentor_with_calls) }
+      let(:mentor_with_calls) { create(:mentor_with_calls) }
 
       before(:all) do
         mentor_with_calls.calc_avg_duration_without_delay
