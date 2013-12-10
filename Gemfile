@@ -13,6 +13,7 @@ gem 'workless', '1.2.2'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'delayed_job_web'
+gem 'clockwork'
 
 gem 'nokogiri'
 gem 'jbuilder', '~> 1.2'
