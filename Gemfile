@@ -35,6 +35,7 @@ gem 'carrierwave'
 gem "fog", "~> 1.15.0"
 gem 'unf'
 gem 'rmagick', '2.13.2'
+gem 'gravatar-ultimate'
 
 gem 'twilio-ruby'
 gem 'classy_enum'
