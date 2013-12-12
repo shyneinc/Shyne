@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  acts_as_messageable
+
   validates :first_name, :last_name, presence: true
   validates :time_zone, :inclusion => { :in => ActiveSupport::TimeZone.us_zones.map(&:name) << "UTC" }
 
