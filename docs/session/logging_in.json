@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/sessions",
-      "request_body": "user[email]=user55_1385600927%40shyne.io&user[password]=password",
+      "request_body": "user[email]=user30_1386904367%40shyne.io&user[password]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -34,8 +34,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":1332,\"email\":\"user55_1385600927@shyne.io\",\"created_at\":\"2013-11-27T18:08:48.061-07:00\",\"updated_at\":\"2013-11-27T18:08:48.442-07:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Jessie\",\"last_name\":\"Gleichner\",\"avatar\":{\"url\":\"/uploads/user/avatar/1332/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/1332/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/1332/thumb_spongebob.jpeg\"}},\"username\":\"jessiegleichner\",\"time_zone\":\"Hawaii\",\"customer_uri\":null}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"431d00bee5b640bd0488e0ef81750a7f\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=M2w5eDhTdmttSTFGV25YSWxMYlF3bzlQV1lRcTY5N1huZUtPdnFnclBPMUY4Rm9FTW5DOFZMZW1NVXFaT0d0aS9vSmxpRkJYTGRjSTFjTkpmN3ozWlg0MmViM05XcC94bUhETFNxVG9RQmhPRmkwVURlV0Z1emNTaXo0c0pvOFlkQTVZLzF6MXhNdDQ0RVl4VnRPdExSaTZibVhnUjliVHRZNGlwblN6SUtsTFFzMDE2dVcvOXZDMnZCTEc4cVBYLS14TU1admpsV2VScmszcFJGdUFIL3d3PT0%3D--7fa241d579f29e4950861761f63f39ff3d95826b; path=/; HttpOnly","X-Request-Id":"cb4e50cb-36dd-48a4-ba5e-17fa4d1fd387","X-Runtime":"0.315686","Content-Length":"506"},
+      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":322,\"email\":\"user30_1386904367@shyne.io\",\"created_at\":\"2013-12-12T20:12:47.892-07:00\",\"updated_at\":\"2013-12-12T20:12:48.700-07:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Allan\",\"last_name\":\"Kulas\",\"avatar\":{\"url\":\"/uploads/user/avatar/322/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/322/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/322/thumb_spongebob.jpeg\"}},\"username\":\"allankulas\",\"time_zone\":\"Central Time (US \\u0026 Canada)\",\"customer_uri\":null}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"b4c986bffbf060aa83ba0842471c4f77\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=anN0bjJrQndVRlVPLzVDUEpPQUdCYXkvVHFaQjl5MjlxVEIrMklHYnFCRlowN3lwSGpHYXM5dVd2RkNKUXFLdWZ4Tnp1aVFqUkpUcEV5Nk54cERjaFdscEpoVmJNZk1SRUdWcm1CYWZxSzJFQjJTUFZLU0wrcHVxVDIzRFcyR1hScURiWkhPaGVITWxFM28xV2tSQll6V1V1alBhNlVoNXA4SkRMeFRSM1ZMWHEvbksrY2U2bDZid0dLUEQ5WHQ5LS1nQXhjME5IVFIrQUlNU0xGeWRWQ2h3PT0%3D--836a85d2724c317c5841a6c2a9f110feb5c0c65b; path=/; HttpOnly","X-Request-Id":"d184ef19-3a1f-497c-9f9f-fabf8fc5bcf5","X-Runtime":"1.331335","Content-Length":"517"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

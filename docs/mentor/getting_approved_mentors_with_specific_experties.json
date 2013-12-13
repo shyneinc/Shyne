@@ -31,7 +31,7 @@
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "[]",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"348fc7c4-e61b-4591-8dc1-4db64a1cccca","X-Runtime":"0.019765","Content-Length":"2"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"d5eeab40-c7aa-49dd-b6e8-f1293e242b21","X-Runtime":"0.013462","Content-Length":"2"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

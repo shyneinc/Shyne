@@ -1,0 +1,42 @@
+{
+  "resource": "Conversation",
+  "http_method": "GET",
+  "route": "/api/conversations",
+  "description": "Getting all conversations in inbox",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": false,
+      "name": "box",
+      "description": "Box [inbox (default), sentbox, trash]"
+    },
+    {
+      "required": false,
+      "name": "page",
+      "description": "Page [1 (default)]"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/conversations?box=inbox&page=1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "box": "inbox",
+        "page": "1"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=OG5hTWpDaWxOZXpFS3ZMdHE5MndkZkpKQ29zNkhSYUJvYzJHTHRHZ1pwYnNGSllmNU5ROXhqWTgvaUtkdHlQVzZnTnY0azZ6dytQNmpLU0JVRXBqWWtZTjY3dnV6OVphL0k2UCt5VXJtaWtnOGN1OGZTb2xqb04weHQ3SXVRbXNxTXYzcDlrSnpReFFLYTFmclBybGYxRTF1K0dkV3RiMzlBUlpiVG4yMU1FPS0tYkozT1hLQnhXZ1Y0cTg5dFdISjl4dz09--977e3ed0013225cb263fa83596deaab3433cdf2f; path=/; HttpOnly","X-Request-Id":"a5703677-6dc3-4364-a88b-4c69a2e703da","X-Runtime":"0.107358","Content-Length":"2"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

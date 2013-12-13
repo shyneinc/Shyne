@@ -61,6 +61,46 @@
       ]
     },
     {
+      "name": "Conversation",
+      "examples": [
+        {
+          "description": "Deleting a conversation",
+          "link": "conversation/deleting_a_conversation.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting a specific conversation",
+          "link": "conversation/getting_a_specific_conversation.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all conversations in inbox",
+          "link": "conversation/getting_all_conversations_in_inbox.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all conversations in sentbox",
+          "link": "conversation/getting_all_conversations_in_sentbox.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all conversations in trash",
+          "link": "conversation/getting_all_conversations_in_trash.json",
+          "groups": "all"
+        },
+        {
+          "description": "Replying to a conversation",
+          "link": "conversation/replying_to_a_conversation.json",
+          "groups": "all"
+        },
+        {
+          "description": "Starting a conversation",
+          "link": "conversation/starting_a_conversation.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "CreditCard",
       "examples": [
         {

@@ -37,8 +37,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/590/reviews/36",
-      "request_body": "review[review]=Quam+non+harum+non+ullam+similique+provident+id+porro+quia+quisquam.&review[rating]=2.0",
+      "request_path": "/api/mentors/91/reviews/3",
+      "request_body": "review[review]=Iure+nihil+qui+inventore+deleniti+expedita+vel+omnis+cupiditate+quasi+aut.&review[rating]=0.0",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -51,7 +51,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=VjU0TE40MWJlNzFjdExVZ0R5MmRldWVqMFNVcjY2cjFmQTE0dm5nejgwQlpNcHRaOEs2ZGxCd0V3dmNPL3JkclIzOHhLZVpnYW5jUTA4ZWZjcTkycnVzY2ticzNHTFg3MmtlV29YRXFObW93ZjJvZ0M4WFdaNjk0a24vc0tBV0I1dlcreWRZZ0tQOGdHNzFDWjZETW5CdXBFL1B2b1Fwbmp3ZWZCM215WjBZPS0tYUVWMmdWYjNhbFdiOWN5U3ArV3pDUT09--8f2e7367df1cf2bbab259104adb942fe3cd7b7c9; path=/; HttpOnly","X-Request-Id":"9249ade7-b208-4713-a470-6d459fbaa181","X-Runtime":"0.289542"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=U3hteVFWK1U2LzczUUZ3TWpVb3IwV2h1WjJ4UHhZSjFDOWRsa1R2cVE3eXBZaTRia3dKVkRWKy96L1RnZWp0QXlWbllyK1BwbXk5bGZ6azB0M1hsM2pTb3ZObTVFOEc4eTlieFl1RjRPNnpQaFh4MUJUUFBXTVVYenRyL2J4YVpBUlFjcW9Ebm56RjBTQ1owSGN6T2ZJZm1EY1lWRVhMeTFLKzlkQlB5SzBRPS0tYVJWRmFWMWltYWhDdk1nQkJ2NFR3Zz09--2c62f1e6fb3360a1e312adefa919e33b675df240; path=/; HttpOnly","X-Request-Id":"b7608c95-fc51-417a-bffd-6612b79476e8","X-Runtime":"0.086735"},
       "response_content_type": null,
       "curl": null
 }

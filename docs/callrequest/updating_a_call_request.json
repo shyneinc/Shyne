@@ -3,7 +3,7 @@
   "http_method": "PUT",
   "route": "/api/call_requests/:id",
   "description": "Updating a call request",
-  "explanation": null,
+  "explanation": "Once the mentor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request",
   "parameters": [
     {
       "required": true,
@@ -38,8 +38,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/call_requests/453",
-      "request_body": "call_request[passcode]=49723&call_request[status]=approved&call_request[scheduled_at]=2013-12-07+06%3A48%3A50&call_request[billable_duration]",
+      "request_path": "/api/call_requests/4",
+      "request_body": "call_request[passcode]=61925&call_request[status]=approved&call_request[scheduled_at]=2014-01-07+15%3A20%3A26&call_request[billable_duration]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -52,7 +52,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=T1FZZGRzeFNrbFYxTDhvZGc4OVYvdTAvWm5PVHIyc0RYdHdHcE5kRnRscmpBOUYzblF6Vk1JVE1vdlpaQW9IV0NZQ2orejcwcld5SzJsQ3JFdlhMSzA1MFAwU3Zqdkd5Ly9URUwwOCtleGhYckgyWG9mZm0yZW9ab2Fpd3k4VjdkWXN5N1dXNkRJeExacjRrQWpPMTRpYzFUTlFCaDN3VHVocVBZM0EvM1gwPS0tL0JWM1JxUmJPZVY1akJGZkY2M04rUT09--ba9774d202e4fff652121a754047a6f3f0ac3ff5; path=/; HttpOnly","X-Request-Id":"f9d489ce-eb0b-42e4-bf6b-8d2855aa2dbf","X-Runtime":"5.875010"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=Z3NMUnpsbUlrbTRuWG5UNFc4U1JySWdLendpajQ4enZ1NWU1OFBHVW51SWFLaE1qZ0hhZCtpdGt2RWtEYXFaYkdjVDFBZ2I4S3RBV2w5eXZiVTlPOWxkK2t0Wk9EYm9ILzc2WFFSdnR5U0ZvNDRhZ1hEWUhoOTdLQkF4Z2NwRHp2dFg1T0NxUTFTeUN5UHBWcmZvWUtDOXhqVG9ZZStWbUtaOHNTYmtKZHg0PS0tUk5lSmhsT2MwS25CWk1STEJLL083dz09--a56faa639c6f13639f2d759dbfab9c8d60a9ea62; path=/; HttpOnly","X-Request-Id":"3c96eca6-e8ca-49b1-8fe5-c054e6491508","X-Runtime":"17.903779"},
       "response_content_type": null,
       "curl": null
 }

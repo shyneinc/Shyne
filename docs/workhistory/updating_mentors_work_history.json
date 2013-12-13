@@ -49,8 +49,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/596/work_histories/30",
-      "request_body": "work[company]=Reichel%2C+Pfannerstill+and+Sporer&work[title]=National+Usability+Architect&work[date_started]=2013-02-15&work[date_ended]=2015-06-22&work[current_work]=false&work[mentor_id]=596",
+      "request_path": "/api/mentors/69/work_histories/12",
+      "request_body": "work[company]=Funk-Pfeffer&work[title]=National+Marketing+Liason&work[date_started]=2013-09-17&work[date_ended]=2014-05-18&work[current_work]=false&work[mentor_id]=69",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -63,7 +63,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=a3hLTDloVlNjOXZwK0w5dGVCa2l1eU9wRDlUbFJQNE5pVjF6dTZoYXo1QUEyeXF1SXlVM0xVOGlUV0t3MmdUQkJsNkpKbGlBY3dwU3VOU05VUmpTMXhlakF2NGxYZWZOR2ZvUm16dTRUMjc3VVFGbjhuMllMMmtZOHlkSjJPRkROUnl0T2l2ckNQY2pQcEFnbmFCckVQQmpzeUZNemdVRTBXSWlYOG1acjZzPS0tQ3NNa2cvSVk3M1FrRERxbi9QR2FkQT09--2bb2be9256eaa4845db51b3ce6b9ae88a7381939; path=/; HttpOnly","X-Request-Id":"017e28cc-c29a-4270-a5ab-97add5959852","X-Runtime":"0.143979"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=QjlBRGJGV0VERWNUYnNZRWxQbU5WWW9NWlBaa29ocVQ0cE4rNk1vMU5za1ZsMVh5NFBMTnVsQzZWUnBxSlc1cUpZZkRrNldVUFZ0UUpGKy8wMjBTTE5qcmxpRGMwejJjOVlrWE8wbFBGOUJDcHl2NlE0Z2xwZkpvc0luQno1UFNBZFpKV0FUSEt2UC81TFlocGZ3SGw5V2VOS2grNkZrazBNU2tNa3ZoU21NPS0tNk1NU1Bkb0FZT0ZiVnZxbXY2ZmRwUT09--c8c010c6eff31c3e450f28834989d91162bae11e; path=/; HttpOnly","X-Request-Id":"00fe3cd0-6159-482e-b8ac-4e17cd5ca314","X-Runtime":"0.089485"},
       "response_content_type": null,
       "curl": null
 }
