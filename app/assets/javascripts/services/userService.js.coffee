@@ -8,6 +8,41 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
           phoneNumber
     ).success((data)->
       if data.id
+        deferred.resolve(angular.extend(data, {role_type: 'Member'}))
+      else
+        deferred.reject(data.errors)
+    ).error((data)->
+      deferred.reject(data.errors)
+    )
+    deferred.promise
+
+  becomeMentor: (headline, location, experties, years_of_experience, phone_number, availability, linkedin) ->
+    deferred = $q.defer()
+
+    $http.post('/api/mentors',
+      mentor:
+        headline: headline,
+        location: location,
+        experties: experties,
+        years_of_experience: years_of_experience,
+        phone_number: phone_number,
+        availability: availability,
+        linkedin: linkedin
+    ).success((data)->
+      if data.id
+        deferred.resolve(angular.extend(data, {role_type: 'Mentor'}))
+      else
+        deferred.reject(data.errors)
+    ).error((data)->
+      deferred.reject(data.errors)
+    )
+
+    deferred.promise
+
+  getMemberInfo: (memberId) ->
+    deferred = $q.defer()
+    $http.get('/api/members/' + memberId).success((data) ->
+      if data.id
         deferred.resolve(data)
       else
         deferred.reject(data)
@@ -16,10 +51,11 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  getMemberInfo: (memberId) ->
+  getMentorInfo: (memberId) ->
     deferred = $q.defer()
-    $http.get('/api/members/' + memberId).success((data) ->
+    $http.get('/api/mentors/' + memberId).success((data) ->
       if data.id
+        data.expertieString = data.experties.join(', ')
         deferred.resolve(data)
       else
         deferred.reject(data)
@@ -43,6 +79,24 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       member:
         phone_number:
           user.phone_number
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data)
+    )
+    deferred.promise
+
+  updateMentor: (user) ->
+    deferred = $q.defer()
+    $http.put('/api/mentors',
+      mentor:
+        headline: user.headline,
+        location: user.location,
+        experties: user.experties,
+        years_of_experience: user.years_of_experience,
+        phone_number: user.phone_number,
+        availability: user.availability,
+        linkedin: user.linkedin
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->

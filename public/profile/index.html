@@ -19,199 +19,412 @@
     <div class="flash-message" ng-show="flash_message">
         <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
     </div>
-    <div class="hero">
-        <div class="container" ng-hide="user">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="text-center info-message">
-                        <h2>Please <a href="#/login">log in</a> to access your profile</h2>
-                        <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+
+    <section ng-hide="user">
+        <div class="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="text-center info-message">
+                            <h2>Please <a href="#/login">log in</a> to access your profile</h2>
+                            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container" ng-show="user">
-            <div class="row" ng-hide="user.role_type">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="welcome-message" >
-                        <div class="text-center" ng-hide="welcomeModel.role">
-                            <h1>Welcome to Shyne</h1>
-                            <p>Please let us know how we can best help you</p>
-                            <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">Apply to Become a Mentor</button></p>
-                            <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">Become a Member</button></p>
+    </section>
+
+    <section ng-show="user">
+        <div ng-hide="user.role_type">
+            <div class="hero">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="welcome-message" >
+                                <div class="text-center" ng-hide="welcomeModel.role">
+                                    <h1>Welcome to Shyne</h1>
+                                    <p>Please let us know how we can best help you</p>
+                                    <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">Apply to Become a Mentor</button></p>
+                                    <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">Become a Member</button></p>
+                                </div>
+                            </div>
+                            <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
+                                <h2>Become a Member</h2>
+                                <form novalidate role="form" name="memberForm" class="css-form" ng-submit="becomeMember()">
+                                    <div class="form-group">
+                                        <label for="becomeMemberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone[0]}}</span></label>
+                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" class="form-control" id="becomeMemberPhoneNumber" placeholder="Enter phone number (xxx) xxx-xxxx" required="">
+                                    </div>
+                                    <div class="button-group">
+                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Apply</button>
+                                        <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="jumbotron" ng-show="welcomeModel.role == 'Mentor'">
+                                <h2>Become a Mentor</h2>
+                                <form novalidate role="form" name="mentorForm" class="css-form" ng-submit="becomeMentor()">
+                                    <div class="form-group">
+                                        <label for="mentorHeadline">Headline <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
+                                        <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" placeholder="Enter a short description about yourself" required="" auto-focus>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mentorLocation">Location <span class="text-danger">{{mentorFormError.location[0]}}</span></label>
+                                        <input name="location" ng-model="mentorModel.location" class="form-control" id="mentorLocation" placeholder="Enter the City, State that you are in" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mentorExperties">Experties <span class="text-danger">{{mentorFormError.experties[0]}}</span></label>
+                                        <input name="experties" ng-model="mentorModel.experties" class="form-control" id="mentorExperties" placeholder="Enter 2 to 3 areas that you are an expert in" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mentorYearsOfExperience">Years of Experience <span class="text-danger">{{mentorFormError.years_of_experience[0]}}</span></label>
+                                        <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control" id="mentorYearsOfExperience" placeholder="Enter the total of industry experience you have" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mentorPhoneNumber">Phone Number <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
+                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter phone number (xxx) xxx-xxxx" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mentorAvailability">Availability <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
+                                        <input name="availability" ng-model="mentorModel.availability" class="form-control" id="mentorAvailability" placeholder="Enter your availability for call (i.e., Weekdays 1-5pm)" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mentorLinkedin">Linkedin <span class="text-muted">(Optional)</span> <span class="text-danger">{{mentorFormError.linkedin[0]}}</span></label>
+                                        <input name="linkedin" ng-model="mentorModel.linkedin" class="form-control" id="mentorLinkedin" placeholder="Enter the URL to your Linkedin Profile">
+                                    </div>
+                                    <div class="button-group">
+                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Apply</button>
+                                        <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
-                        <h2>Become a Member</h2>
-                        <form novalidate role="form" name="memberForm" class="css-form" ng-submit="becomeMember()">
-                            <div class="form-group">
-                                <label for="memberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone[0]}}</span></label>
-                                <input name="phoneNumber" ng-model="memberModel.phoneNumber" class="form-control" id="memberPhoneNumber" placeholder="Enter phone number (xxx) xxx-xxxx" required="" auto-focus>
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Apply</button>
-                                <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="jumbotron" ng-show="welcomeModel.role == 'Mentor'">
-                        <h2>Become a Mentor</h2>
-                        <form novalidate role="form" name="mentorForm" class="css-form" ng-submit="becomeMentor()">
-                            <div class="form-group">
-                                <label for="mentorHeadline">Headline <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
-                                <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" placeholder="Enter a short description about yourself" required="" auto-focus>
-                            </div>
-                            <div class="form-group">
-                                <label for="mentorLocation">Location <span class="text-danger">{{mentorFormError.location[0]}}</span></label>
-                                <input name="location" ng-model="mentorModel.location" class="form-control" id="mentorLocation" placeholder="Enter the City, State that you are in" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="mentorExperties">Experties <span class="text-danger">{{mentorFormError.experties[0]}}</span></label>
-                                <input name="experties" ng-model="mentorModel.experties" class="form-control" id="mentorExperties" placeholder="Enter 2 to 3 areas that you are an expert in" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="mentorYearsOfExperience">Years of Experience <span class="text-danger">{{mentorFormError.years_of_experience[0]}}</span></label>
-                                <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control" id="mentorYearsOfExperience" placeholder="Enter the total of industry experience you have" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="mentorPhoneNumber">Phone Number <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
-                                <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter phone number (xxx) xxx-xxxx" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="mentorAvailability">Availability <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
-                                <input name="availability" ng-model="mentorModel.availability" class="form-control" id="mentorAvailability" placeholder="Enter your availability for call (i.e., Weekdays 1-5pm)" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="mentorLinkedin">Linkedin <span class="text-muted">(Optional)</span> <span class="text-danger">{{mentorFormError.linkedin[0]}}</span></label>
-                                <input name="linkedin" ng-model="mentorModel.linkedin" class="form-control" id="mentorLinkedin" placeholder="Enter the URL to your Linkedin Profile">
-                            </div>
-                            <div class="button-group">
-                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Apply</button>
-                                <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
-            <div class="member-section" ng-show="user.role_type == 'Member'">
-                <div class="row">
-                    <div class="col-md-3 editable-field">
-                        <div class="circle">
-                            <div class="inner">
-                                <img src="{{user.avatar.url}}" start-inline-edit/>
+        </div>
+
+        <div class="mentor-section" ng-show="user.role_type == 'Mentor'">
+            <div class="hero">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="editable-field">
+                                <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
+                                        <div class="form-group">
+                                            <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
+                                            <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
+                                            <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <section class="current-role clearfix">
+                                <div class="pull-left">Co-founder at Shyne.io</div>
+                                <a href="{{user.linkedin}}" class="pull-left linkedin-logo" ng-show="user.linkedin"></a>
+                            </section>
+                            <section>
+                                <span class="glyphicon glyphicon-record"></span>
+                                Positions that I've been in
+                                <ol>
+                                    <li>Product Manager at Facebook (2013 - 2014)</li>
+                                    <li>Risk Analyst at Square (2010 - 2013)</li>
+                                    <li>Business Development at Betfair (2004 - 2010)</li>
+                                </ol>
+                            </section>
+                            <section class="editable-field">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                {{user.location}}  <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="mentorLocationForm" class="css-form" ng-submit="updateMentor()">
+                                        <div class="form-group">
+                                            <label for="mentorLocation">Location <span class="text-danger">{{memberFormError.location[0]}}</span></label>
+                                            <input name="location" ng-model="user.location" class="form-control" id="mentorLocation" placeholder="Enter location" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorLocationForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                            <section class="editable-field">
+                                <span class="glyphicon glyphicon-briefcase"></span>
+                                {{user.expertieString}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="mentorExpertieForm" class="css-form" ng-submit="updateMentor()">
+                                        <div class="form-group">
+                                            <label for="mentorExperties">Experties <span class="text-danger">{{memberFormError.experties[0]}}</span></label>
+                                            <input name="location" ng-model="user.expertiString" class="form-control" id="mentorExperties" placeholder="Enter your experties" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorExpertieForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="timeslot">
+                                <h2>Availability</h2>
+                                <div class="editable-field">
+                                    {{user.availability}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                    <div class="edit-form">
+                                        <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                        <form novalidate role="form" name="mentorAvailabilityForm" class="css-form" ng-submit="updateMentor()">
+                                            <div class="form-group">
+                                                <label for="mentorAvailability">Availability <span class="text-danger">{{memberFormError.availability[0]}}</span></label>
+                                                <input name="location" ng-model="user.availability" class="form-control" id="mentorAvailability" placeholder="Enter availability" required="">
+                                            </div>
+                                            <div class="button-group">
+                                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorAvailabilityForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="editable-field">
+                                    <span class="glyphicon glyphicon-time"></span> {{user.time_zone}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                    <div class="edit-form">
+                                        <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                        <form novalidate role="form" name="memberTimeZoneForm" class="css-form" ng-submit="updateUser()">
+                                            <div class="form-group">
+                                                <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
+                                                <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
+                                                    <option value="Alaska">Alaska</option>
+                                                    <option value="Arizona">Arizona</option>
+                                                    <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                                    <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                                    <option value="Hawaii">Hawaii</option>
+                                                    <option value="Indiana (East)">Indiana (East)</option>
+                                                    <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                                    <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                                </select>
+                                            </div>
+                                            <div class="button-group">
+                                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberTimeZoneForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="editable-field">
+                                    <span class="glyphicon glyphicon-envelope"></span> {{user.email}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                    <div class="edit-form">
+                                        <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                        <form novalidate role="form" name="memberEmailForm" class="css-form" ng-submit="updateUser()">
+                                            <div class="form-group">
+                                                <label for="memberEmail">Email <span class="text-danger">{{memberFormError.email[0]}}</span></label>
+                                                <input name="email" ng-model="user.email" class="form-control" id="memberEmail" type="email" placeholder="Enter email address" required="">
+                                            </div>
+                                            <div class="button-group">
+                                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberEmailForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="editable-field">
+                                    <span class="glyphicon glyphicon-earphone"></span> {{user.phone_number}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                    <div class="edit-form">
+                                        <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                        <form novalidate role="form" name="memberPhoneForm" class="css-form" ng-submit="updateMember()">
+                                            <div class="form-group">
+                                                <label for="memberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
+                                                <input name="phoneNumber" ng-model="user.phone_number" class="form-control" id="memberPhoneNumber" placeholder="Enter phone number" required="">
+                                            </div>
+                                            <div class="button-group">
+                                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <strong class="pull-left">$5 / minute</strong>
+                        </div>
+                        <div class="col-md-4 editable-field">
+                            <div class="circle">
+                                <div class="inner">
+                                    <img src="{{user.avatar.url}}" start-inline-edit/>
+                                </div>
+                            </div>
+                            <div class="edit-form">
+                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                <form novalidate role="form" name="memberAvatarForm" class="css-form" ng-submit="updateUser()">
+                                    <div class="form-group">
+                                        <label for="memberAvatar">Avatar <span class="text-danger">{{memberFormError.avatar[0]}}</span></label>
+                                        <input name="firstName" ng-model="user.avatar.url" class="form-control" id="memberAvatar" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="">
+                                    </div>
+                                    <div class="button-group">
+                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberAvatarForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 editable-field">
+                        {{user.headline}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                         <div class="edit-form">
                             <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                            <form novalidate role="form" name="memberAvatarForm" class="css-form" ng-submit="updateUser()">
+                            <form novalidate role="form" name="memberHeadlineForm" class="css-form" ng-submit="updateMentor()">
                                 <div class="form-group">
-                                    <label for="memberAvatar">Avatar <span class="text-danger">{{memberFormError.avatar[0]}}</span></label>
-                                    <input name="firstName" ng-model="user.avatar.url" class="form-control" id="memberAvatar" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="">
+                                    <label for="memberHeadline">Headline <span class="text-danger">{{memberFormError.headline[0]}}</span></label>
+                                    <input name="headline" ng-model="user.headline" class="form-control" id="memberHeadline" type="text" placeholder="Enter headline" required="">
                                 </div>
                                 <div class="button-group">
-                                    <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberAvatarForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                    <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberHeadlineForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="editable-field">
-                            <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
+                    <div class="col-md-4">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="member-section" ng-show="user.role_type == 'Member'">
+            <div class="hero">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 editable-field">
+                            <div class="circle">
+                                <div class="inner">
+                                    <img src="{{user.avatar.url}}" start-inline-edit/>
+                                </div>
+                            </div>
                             <div class="edit-form">
                                 <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
+                                <form novalidate role="form" name="memberAvatarForm" class="css-form" ng-submit="updateUser()">
                                     <div class="form-group">
-                                        <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
-                                        <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
-                                        <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
+                                        <label for="memberAvatar">Avatar <span class="text-danger">{{memberFormError.avatar[0]}}</span></label>
+                                        <input name="firstName" ng-model="user.avatar.url" class="form-control" id="memberAvatar" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="">
                                     </div>
                                     <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberAvatarForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="editable-field">
-                            <span class="glyphicon glyphicon-envelope"></span> {{user.email}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                            <div class="edit-form">
-                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="memberEmailForm" class="css-form" ng-submit="updateUser()">
-                                    <div class="form-group">
-                                        <label for="memberEmail">Email <span class="text-danger">{{memberFormError.email[0]}}</span></label>
-                                        <input name="email" ng-model="user.email" class="form-control" id="memberEmail" type="email" placeholder="Enter email address" required="">
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberEmailForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                    </div>
-                                </form>
+                        <div class="col-md-9">
+                            <div class="editable-field">
+                                <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
+                                        <div class="form-group">
+                                            <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
+                                            <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
+                                            <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <div class="editable-field">
-                            <span class="glyphicon glyphicon-earphone"></span> {{user.phone_number}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                            <div class="edit-form">
-                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="memberPhoneForm" class="css-form" ng-submit="updateMember()">
-                                    <div class="form-group">
-                                        <label for="memberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="user.phone_number" class="form-control" id="memberPhoneNumber" placeholder="Enter phone number" required="">
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMember()" hide-inline-edit>Update</button>
-                                    </div>
-                                </form>
+                            <div class="editable-field">
+                                <span class="glyphicon glyphicon-envelope"></span> {{user.email}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberEmailForm" class="css-form" ng-submit="updateUser()">
+                                        <div class="form-group">
+                                            <label for="memberEmail">Email <span class="text-danger">{{memberFormError.email[0]}}</span></label>
+                                            <input name="email" ng-model="user.email" class="form-control" id="memberEmail" type="email" placeholder="Enter email address" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberEmailForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <div class="editable-field">
-                            <span class="glyphicon glyphicon-time"></span> {{user.time_zone}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                            <div class="edit-form">
-                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="memberTimeZoneForm" class="css-form" ng-submit="updateUser()">
-                                    <div class="form-group">
-                                        <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
-                                        <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
-                                            <option value="Alaska">Alaska</option>
-                                            <option value="Arizona">Arizona</option>
-                                            <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                            <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                            <option value="Hawaii">Hawaii</option>
-                                            <option value="Indiana (East)">Indiana (East)</option>
-                                            <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                            <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                        </select>
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberTimeZoneForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                    </div>
-                                </form>
+                            <div class="editable-field">
+                                <span class="glyphicon glyphicon-earphone"></span> {{user.phone_number}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberPhoneForm" class="css-form" ng-submit="updateMember()">
+                                        <div class="form-group">
+                                            <label for="memberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
+                                            <input name="phoneNumber" ng-model="user.phone_number" class="form-control" id="memberPhoneNumber" placeholder="Enter phone number" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMember()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <div class="editable-field">
-                            <span class="glyphicon glyphicon-lock"></span> <a href="" start-inline-edit>Change Password</a>
-                            <div class="edit-form">
-                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="memberPasswordForm" class="css-form" ng-submit="updateUser()">
-                                    <div class="form-group">
-                                        <label for="memberPassword">Password <span class="text-danger">{{memberFormError.password[0]}}</span></label>
-                                        <input name="password" ng-model="user.password" type="password" class="form-control" id="memberPassword" placeholder="Enter password" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="memberPasswordConfirmation">Password <span class="text-danger">{{memberFormError.password_confirmation[0]}}</span></label>
-                                        <input name="password" ng-model="user.password_confirmation" type="password" class="form-control" id="memberPasswordConfirmation" placeholder="Confirm password" required="">
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPasswordForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                    </div>
-                                </form>
+                            <div class="editable-field">
+                                <span class="glyphicon glyphicon-time"></span> {{user.time_zone}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberTimeZoneForm" class="css-form" ng-submit="updateUser()">
+                                        <div class="form-group">
+                                            <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
+                                            <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
+                                                <option value="Alaska">Alaska</option>
+                                                <option value="Arizona">Arizona</option>
+                                                <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                                <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                                <option value="Hawaii">Hawaii</option>
+                                                <option value="Indiana (East)">Indiana (East)</option>
+                                                <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                                <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                            </select>
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberTimeZoneForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="editable-field">
+                                <span class="glyphicon glyphicon-lock"></span> <a href="" start-inline-edit>Change Password</a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberPasswordForm" class="css-form" ng-submit="updateUser()">
+                                        <div class="form-group">
+                                            <label for="memberPassword">Password <span class="text-danger">{{memberFormError.password[0]}}</span></label>
+                                            <input name="password" ng-model="user.password" type="password" class="form-control" id="memberPassword" placeholder="Enter password" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="memberPasswordConfirmation">Password <span class="text-danger">{{memberFormError.password_confirmation[0]}}</span></label>
+                                            <input name="password" ng-model="user.password_confirmation" type="password" class="form-control" id="memberPasswordConfirmation" placeholder="Confirm password" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPasswordForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <footer>
         <div class="container">
             <div class="inner text-center">&copy; 2013 Shyne</div>

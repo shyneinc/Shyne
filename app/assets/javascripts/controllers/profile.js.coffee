@@ -6,8 +6,12 @@ Shyne.controller('ProfileCtrl', ['$scope','Session', 'User',($scope, Session, Us
   Session.getCurrentUser().then((user)->
     $scope.user = user
     if user.role_type is 'Member'
-      User.getMemberInfo(user.id).then((memberInfo) ->
+      User.getMemberInfo(user.role_id).then((memberInfo) ->
         angular.extend(user, memberInfo)
+      )
+    else if user.role_type is 'Mentor'
+      User.getMentorInfo(user.role_id).then((mentorInfo) ->
+        angular.extend(user, mentorInfo)
       )
   )
 
@@ -22,9 +26,24 @@ Shyne.controller('ProfileCtrl', ['$scope','Session', 'User',($scope, Session, Us
 
   $scope.becomeMember = () ->
     User.becomeMember($scope.memberModel.phoneNumber).then((data)->
-      console.log(data)
-    , (data)->
+     angular.extend($scope.user, data)
+    , (data) ->
       $scope.memberFormError = data
+    )
+
+  $scope.becomeMentor = () ->
+    User.becomeMentor(
+      $scope.mentorModel.headline,
+      $scope.mentorModel.location,
+      $scope.mentorModel.experties,
+      $scope.mentorModel.yearsOfExperience,
+      $scope.mentorModel.phoneNumber,
+      $scope.mentorModel.availability,
+      $scope.mentorModel.linkedin
+    ).then((data) ->
+      angular.extend($scope.user, data)
+    , (data) ->
+      $scope.mentorFormError = data
     )
 
   $scope.updateUser = () ->
@@ -38,6 +57,15 @@ Shyne.controller('ProfileCtrl', ['$scope','Session', 'User',($scope, Session, Us
 
   $scope.updateMember = () ->
     User.updateMember($scope.user).then(() ->
+      $scope.flash_message = 'User Information Updated.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    )
+
+  $scope.updateMentor = () ->
+    User.updateMentor($scope.user).then(() ->
       $scope.flash_message = 'User Information Updated.'
       window.setTimeout(() ->
         $scope.flash_message = null

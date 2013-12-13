@@ -31,6 +31,9 @@
   .member-section {
     padding: 40px 0;
     line-height: 180%;
+    .hero {
+      min-height: 200px;
+    }
     .glyphicon{
       padding-right: 10px;
     }
@@ -58,6 +61,72 @@
       font-weight: normal;
       font-size: 30px;
       margin: 0 0 10px 0;
+    }
+  }
+  .mentor-section {
+    .hero{
+      padding-bottom: 20px;
+      margin-bottom: 0;
+      min-height: 200px;
+    }
+    h1 {
+      margin-top: 40px;
+    }
+    .current-role {
+      margin: 10px 0;
+      font-size: 16px;
+      .linkedin-logo {
+        margin: 1px 0 0 8px;
+      }
+    }
+    .timeslot {
+      margin-top: 90px;
+      line-height: 160%;
+    }
+    section {
+      margin-bottom: 10px;
+      .glyphicon {
+        padding-right: 5px;
+      }
+      ol {
+        margin-left: 5px;
+      }
+    }
+    .banner {
+      margin: 0 0 20px;
+      padding: 10px 0;
+      background-color: #00CFC7;
+      position: relative;
+      color: $white;
+      .btn-default {
+        border: 1px solid $white;
+        @include gradient(#FF645B, #FF493F);
+        color: $white;
+        margin-top: 10px;
+      }
+      strong {
+        margin: 7px 0 0 15px;
+        font-size: 28px;
+      }
+      .avg-call-time {
+        margin: 21px 0 0 10px;
+      }
+    }
+    .circle {
+      @include circle(160px);
+      position: absolute;
+      top: -70px;
+      left: 0;
+      background-color: $red;
+      padding: 5px;
+      .inner {
+        background-color: $white;
+        padding: 5px;
+        @include circle(150px);
+        img {
+          @include circle(140px);
+        }
+      }
     }
   }
 }
