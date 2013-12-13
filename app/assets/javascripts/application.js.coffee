@@ -34,12 +34,18 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
     controller: 'ProfileCtrl'
   ).when("/login",
     templateUrl: "/home/login.html"
-    controller: 'HomeCtrl'
+    controller: 'HomeBaseCtrl'
   ).when("/signup",
     templateUrl: "/home/signup.html"
-    controller: 'HomeCtrl'
+    controller: 'HomeBaseCtrl'
   ).when("/logout",
     templateUrl: "/home/logout.html"
     controller: 'LogoutCtrl'
+  ).when("/mentors",
+    templateUrl: "/home/become_mentors.html"
+    controller: 'HomeBaseCtrl'
+  ).when("/how",
+    templateUrl: "/home/how_it_works.html"
+    controller: 'HomeBaseCtrl'
   )
 ]

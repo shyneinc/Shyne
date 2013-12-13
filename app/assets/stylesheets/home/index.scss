@@ -13,9 +13,26 @@
       font-weight: 100;
       margin-top: 30px;
     }
+    h2 {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+    }
+    .list-row {
+      h2 {
+        padding: 5px 0;
+        .glyphicon {
+          margin-right: 5px;
+        }
+      }
+    }
     .banner {
       margin: 20px 0;
       background-color: #00CFC7;
+      h2 {
+        color: $white;
+        font-size: 20px;
+        margin: 10px 0;
+      }
       .search-form {
         margin: 8px 0;
         position: relative;
