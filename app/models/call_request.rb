@@ -1,7 +1,7 @@
 class CallRequest < ActiveRecord::Base
   include Twilio::Sms
 
-  validates :status, :scheduled_at, :mentor, :member, presence: true
+  validates :agenda, :status, :scheduled_at, :proposed_duration, :mentor, :member, presence: true
 
   classy_enum_attr :status, default: :proposed, enum: :call_request_status
   delegate :send_status, to: :status

@@ -9,7 +9,9 @@ describe CallRequest do
 
   describe "ActiveModel validations" do
     context "Basic validations" do
+      it { should validate_presence_of :agenda }
       it { should validate_presence_of :scheduled_at }
+      it { should validate_presence_of :proposed_duration }
       it { should validate_presence_of :mentor }
       it { should validate_presence_of :member }
     end

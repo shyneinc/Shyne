@@ -23,9 +23,11 @@ resource 'CallRequest' do
   end
 
   post "/api/call_requests" do
+    parameter :agenda, "Agenda/Focus of the Call", :required => true, :scope => :call_request
     parameter :member_id, "Member ID", :required => true, :scope => :call_request
     parameter :mentor_id, "Mentor ID", :required => true, :scope => :call_request
     parameter :scheduled_at, "Scheduled At", :required => true, :scope => :call_request
+    parameter :proposed_duration, "Proposed duration time", :required => true, :scope => :call_request
 
     example "Creating a call request" do
       explanation "Once the member is authenticated and has a CC on file, they can propose or change a call request"

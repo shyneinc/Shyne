@@ -27,7 +27,7 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
   private
 
   def call_request_params
-    params.require(:call_request).permit(:member_id, :mentor_id, :scheduled_at, :status)
+    params.require(:call_request).permit(:agenda, :member_id, :mentor_id, :scheduled_at, :proposed_duration, :status)
   end
 
   def has_account?
