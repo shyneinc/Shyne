@@ -1,24 +1,6 @@
 <div class="home-index">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li><a href=""><strong>Become Mentors</strong></a></li>
-                    <li><a href="#/how">How It Works</a></li>
-                    <li><a href="#">Our Mission</a></li>
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#/profile">Profile</a></li>
-                            <li><a href="#/logout">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
-        </div>
-    </header>
+    <div ng-include src="'shared/masthead.html'"></div>
+    
     <div class="hero">
         <div class="container">
             <h1>Why Should You Become a Mentor?</h1>
@@ -59,9 +41,6 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="inner text-center">&copy; 2013 Shyne</div>
-        </div>
-    </footer>
+    
+    <div ng-include src="'shared/footer.html'"></div>
 </div>
