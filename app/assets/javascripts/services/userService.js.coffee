@@ -73,6 +73,24 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
+  updateAvatar: (files) ->
+    payload = new FormData()
+    payload.append "user[avatar]", files[0]
+    deferred = $q.defer()
+    $http.put('/api/users',
+      payload
+      withCredentials: true
+      headers:
+        "Content-Type": false
+      transformRequest: (tdata) ->
+        tdata
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data)
+    )
+    deferred.promise
+
   updateMember: (user) ->
     deferred = $q.defer()
     $http.put('/api/members',

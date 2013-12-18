@@ -44,9 +44,9 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
     )
     deferred.promise
 
-  getCurrentUser: () ->
+  getCurrentUser: (forceUpdate) ->
     deferred = $q.defer()
-    if this.isAuthenticated()
+    if !forceUpdate && this.isAuthenticated()
       deferred.resolve(_currentUser)
     else
       $http.get('/api/users').success((data)->

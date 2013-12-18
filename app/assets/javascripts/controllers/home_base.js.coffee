@@ -5,7 +5,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','Session',($location, $sc
   $scope.signUpError = {}
   $scope.user = null
 
-  Session.getCurrentUser().then((user)->
+  Session.getCurrentUser(false).then((user)->
     $scope.user = user
   )
 

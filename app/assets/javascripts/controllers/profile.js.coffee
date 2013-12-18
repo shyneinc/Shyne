@@ -1,19 +1,22 @@
-Shyne.controller('ProfileCtrl', ['$scope','Session', 'User',($scope, Session, User) ->
+Shyne.controller('ProfileCtrl', ['$scope', 'Session', 'User',($scope, Session, User) ->
 
   $scope.user = null
   $scope.welcomeModel = {role: null}
 
-  Session.getCurrentUser().then((user)->
-    $scope.user = user
-    if user.role_type is 'Member'
-      User.getMemberInfo(user.role_id).then((memberInfo) ->
-        angular.extend(user, memberInfo)
-      )
-    else if user.role_type is 'Mentor'
-      User.getMentorInfo(user.role_id).then((mentorInfo) ->
-        angular.extend(user, mentorInfo)
-      )
-  )
+  $scope.refresh = (forceUpdate) ->
+    Session.getCurrentUser(forceUpdate).then((user)->
+      $scope.user = user
+      if user.role_type is 'Member'
+        User.getMemberInfo(user.role_id).then((memberInfo) ->
+          angular.extend(user, memberInfo)
+        )
+      else if user.role_type is 'Mentor'
+        User.getMentorInfo(user.role_id).then((mentorInfo) ->
+          angular.extend(user, mentorInfo)
+        )
+    )
+
+  $scope.refresh(false)
 
   $scope.showMemberForm = () ->
     $scope.welcomeModel.role = 'Member'
@@ -49,6 +52,16 @@ Shyne.controller('ProfileCtrl', ['$scope','Session', 'User',($scope, Session, Us
   $scope.updateUser = () ->
     User.updateUser($scope.user).then(() ->
       $scope.flash_message = 'User Information Updated.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    )
+
+  $scope.updateAvatar = (files) ->
+    User.updateAvatar(files).then(() ->
+      $scope.refresh(true)
+      $scope.flash_message = 'User Avatar updated.'
       window.setTimeout(() ->
         $scope.flash_message = null
         $scope.$digest()
