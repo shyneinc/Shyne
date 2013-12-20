@@ -1,9 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome <%= @resource.first_name %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Click the link below to verify your e-mail address with Shyne:</p>
 
-<p><%= link_to 'Confirm my account', api_confirmations_url(@resource, :confirmation_token => @token) %> (TODO: Point this link to front-end view)</p>
+<p><%= link_to "#{root_url}#/account/settings/verify/#{@token}", "#{root_url}/#/account/settings/verify/#{@token}" %>
 
-<p>or by pasting this confirmation code on the website:</p>
+<p>If the link doesn't work, please copy and paste this code into the verification form: <code><%= @token %></code></p>
 
-<%= @token %>
+Thanks for using Shyne!
