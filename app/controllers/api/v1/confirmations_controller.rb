@@ -11,7 +11,7 @@ class Api::V1::ConfirmationsController < Devise::ConfirmationsController
         render :json => {:error => 'There was an error in sending the confirmation email'}, :status => 500
       end
     else
-      render :json => {:error => 'User is already confirmed'}, :status => 400
+      render :json => {:error => 'User is already confirmed'}, :status => 401
     end
   end
 
@@ -21,7 +21,7 @@ class Api::V1::ConfirmationsController < Devise::ConfirmationsController
       sign_in(@user)
       render :json => {:confirmed => current_user.confirmed?}, :status => 200
     else
-      render :json => {:error => @user.errors.full_messages}, :status => 400
+      render :json => {:error => @user.errors.full_messages}, :status => 401
     end
   end
 end

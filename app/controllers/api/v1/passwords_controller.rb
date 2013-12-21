@@ -16,7 +16,7 @@ class Api::V1::PasswordsController < Devise::PasswordsController
       sign_in(@user)
       render :json => {:reset => true}, :status => 200
     else
-      render :json => {:error => @user.errors.full_messages}, :status => 400
+      render :json => {:error => @user.errors.full_messages}, :status => 401
     end
   end
 end
