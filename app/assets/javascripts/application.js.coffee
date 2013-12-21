@@ -47,5 +47,8 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/how",
     templateUrl: "/home/how_it_works.html"
     controller: 'HomeBaseCtrl'
+  ).when("/verify",
+    templateUrl: "/home/verify.html"
+    controller: 'HomeBaseCtrl'
   )
 ]

@@ -1,4 +1,4 @@
-Shyne.controller('HomeBaseCtrl', ['$location','$scope','Session',($location, $scope, Session) ->
+Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','Session','Confirmation', ($location, $scope, $timeout, Session, Confirmation) ->
 
   $scope.showIndex = true
   $scope.signupModel = {timeZone: 'Alaska'}
@@ -33,4 +33,18 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','Session',($location, $sc
       $scope.user = null
     )
 
+  $scope.verify = () ->
+    Confirmation.verify($scope.token).then(
+      () ->
+        $scope.flash_message = "Thank you! Your email has been verified."
+        $timeout (->
+          $scope.flash_message = null
+          $location.path '/profile/'
+        ), 200
+    , (error)->
+      $scope.flash_message = error[0]
+      $timeout(->
+        $scope.flash_message = null
+      , 5000)
+    )
 ])

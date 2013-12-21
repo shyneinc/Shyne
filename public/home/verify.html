@@ -1,0 +1,42 @@
+<div class="home-form">
+    <header>
+        <div class="container">
+            <nav class="masthead">
+                <ul class="nav navbar-nav pull-right">
+                    <li ng-hide="user"><a href="#/signup">Sign Up</a></li>
+                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
+                </ul>
+            </nav>
+            <a class="logo" href="#/">Shyne</a>
+        </div>
+    </header>
+    <div class="flash-message" ng-show="flash_message">
+        <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+    </div>
+    <div class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="jumbotron">
+                        <h2>Verify your email</h2>
+                        <form novalidate role="form" name="loginForm" class="css-form" ng-submit="login()">
+                            <div class="form-group">
+                                <label for="token">Enter your confirmation code</label>
+                                <input name="token" ng-model="token" type="token" class="form-control" id="token" placeholder="Confirmation Code" required="" auto-focus>
+
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid" ng-click="verify()">Verify</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="inner text-center">&copy; 2013 Shyne</div>
+        </div>
+    </footer>
+</div>
