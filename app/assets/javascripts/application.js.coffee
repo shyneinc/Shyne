@@ -50,5 +50,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/verify",
     templateUrl: "/home/verify.html"
     controller: 'HomeBaseCtrl'
+  ).when("/verify/:token",
+    templateUrl: "/home/verify.html"
+    controller: 'HomeBaseCtrl'
   )
+
 ]

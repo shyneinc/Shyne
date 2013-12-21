@@ -1,9 +1,10 @@
-Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','Session','Confirmation', ($location, $scope, $timeout, Session, Confirmation) ->
+Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams','Session','Confirmation', ($location, $scope, $timeout, $routeParams, Session, Confirmation) ->
 
   $scope.showIndex = true
   $scope.signupModel = {timeZone: 'Alaska'}
   $scope.signUpError = {}
   $scope.user = null
+  $scope.token = $routeParams.token
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
@@ -47,4 +48,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','Session','Con
         $scope.flash_message = null
       , 5000)
     )
+
+  if $routeParams.token != null
+    $scope.verify()
 ])
