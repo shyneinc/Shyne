@@ -4,7 +4,6 @@ ActiveAdmin.register Member do
   index do
     selectable_column
     column :user
-    column :full_name
     column :phone_number
     default_actions
   end

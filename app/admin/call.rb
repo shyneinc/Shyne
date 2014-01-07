@@ -20,7 +20,6 @@ ActiveAdmin.register Call do
       f.input :status, as: :select, collection: CallStatus.select_options, include_blank: false
       f.input :from_number
       f.input :duration
-      f.input :price
       f.input :billed
     end
     f.actions

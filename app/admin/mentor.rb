@@ -3,7 +3,7 @@ ActiveAdmin.register Mentor do
 
   index do
     selectable_column
-    column :full_name
+    column :user
     column :headline
     column :years_of_experience
     column :mentor_status
