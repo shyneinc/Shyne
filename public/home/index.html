@@ -1,30 +1,12 @@
 <div class="home-index">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li><a href="#/mentors">Become Mentors</a></li>
-                    <li><a href="#/how">How It Works</a></li>
-                    <li><a href="#">Our Mission</a></li>
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#/profile">Profile</a></li>
-                            <li><a href="#/logout">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
-        </div>
-    </header>
+    <div ng-include src="'shared/masthead.html'"></div>
+
     <div class="hero">
         <div class="container">
-            <h1>Accelerate to your career.</h1>
+            <h1>Accelerate your career.</h1>
             <div class="row">
                 <div class="col-md-8">
-                    Get expert interview advice from people that have worked in positions you’re interested in.  Schedule a call with any of our mentors in just minutes.
+                    <p class="lead">Get career advice from people that work at companies you're interested in. Schedule a call with any of our Mentors in just minutes.</p>
                 </div>
                 <div class="col-md-4">&nbsp;</div>
             </div>
@@ -61,7 +43,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    We have mentors from <a href="#">Facebook</a>, <a href="#">Google</a>, <a href="#">Goldman Sachs</a>, <a href="#">KPMG</a>, <a href="#">PwC</a>, <a href="#">Square</a>, <a href="#">Dropbox</a>, and many more companies!  Pick their brains on what they did to land their jobs.
+                    <p>We have mentors from <a href="#">Facebook</a>, <a href="#">Google</a>, <a href="#">Goldman Sachs</a>, <a href="#">KPMG</a>, <a href="#">PwC</a>, <a href="#">Square</a>, <a href="#">Dropbox</a>, and many more companies!  Pick their brains on what they did to land their jobs.</p>
+                    <button class="btn btn-lg btn-success">I'm ready for advice!</button>
                 </div>
                 <div class="col-md-4">&nbsp;</div>
             </div>
@@ -69,9 +52,9 @@
     </div>
     <div class="mentors">
         <div class="container">
+            <h2 class="text-center">Featured Mentors</h2>
             <div class="row">
                 <div class="col-md-2 arrow-holder">
-                    <h2>Featured Mentors</h2>
                     <a href="#" class="left-arrow arrow"><span class="glyphicon glyphicon-chevron-left"></span></a>
                 </div>
                 <div class="col-md-2" ng-repeat="mentor in mentors">
@@ -85,7 +68,7 @@
                         <div class="info">
                             <a href="#">{{mentor.name}}</a><br/>
                             {{mentor.role}}<br/>
-                            {{mentor.company}}<br/>
+                            <strong>{{mentor.company}}</strong><br/>
                         </div>
                         <a class="action" href="#"><span class="glyphicon glyphicon-earphone"></span> Schedule Call</a>
                     </div>
@@ -96,9 +79,6 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="inner text-center">&copy; 2013 Shyne</div>
-        </div>
-    </footer>
+
+    <div ng-include src="'shared/footer.html'"></div>
 </div>

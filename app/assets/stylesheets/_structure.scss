@@ -60,6 +60,11 @@ header {
         text-decoration: underline;
       }
     }
+    & > li > a.btn-danger{
+      background: #FF2C21;
+      color: #fff;
+      padding: 7px;
+    }
     .dropdown-menu > li {
       & > a {
         &:hover, &:focus, &:active {

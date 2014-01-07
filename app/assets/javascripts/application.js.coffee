@@ -1,6 +1,6 @@
 #= require jquery.min
 #= require suggest.min
-#= require twitter/bootstrap/dropdown
+#= require twitter/bootstrap
 #= require angular
 #= require angular-resource
 #= require setup
