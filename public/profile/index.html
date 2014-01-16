@@ -63,15 +63,18 @@
                                 </form>
                             </div>
                             <div class="jumbotron" ng-show="welcomeModel.role == 'Mentor'">
-                                <h2>Become a Mentor</h2>
+                                <h2>Application to Become a Mentor</h2>
                                 <form novalidate role="form" name="mentorForm" class="css-form" ng-submit="becomeMentor()">
                                     <div class="form-group">
-                                        <label for="mentorHeadline">Headline <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
-                                        <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" placeholder="Enter a short description about yourself" required="" auto-focus>
+                                        <label for="mentorHeadline">Please enter a Headline (280 character limit) <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
+                                        <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" maxlength="280" placeholder="A short description about your career experience." required="" auto-focus>
+                                    </div>
+                                    <div class="form-group mgBtm">
+                                        <label for="mentorLocation">Where are you located? <span class="text-danger">{{mentorFormError.city[0]}}</span> <span class="text-danger">{{mentorFormError.state[0]}}</span></label>
                                     </div>
                                     <div class="form-group">
-                                        <label for="mentorLocation">Location <span class="text-danger">{{mentorFormError.location[0]}}</span></label>
-                                        <input name="location" ng-model="mentorModel.location" class="form-control" id="mentorLocation" placeholder="Enter the City, State that you are in" required="">
+                                        <input name="city" ng-model="mentorModel.city" class="form-control width50" id="mentorCity" placeholder="Enter the City" required="">
+                                        <input name="state" ng-model="mentorModel.state" class="form-control width50" id="mentorState" placeholder="Enter the State" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorExperties">Experties <span class="text-danger">{{mentorFormError.experties[0]}}</span></label>
@@ -82,19 +85,19 @@
                                         <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control" id="mentorYearsOfExperience" placeholder="Enter the total of industry experience you have" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="mentorPhoneNumber">Phone Number <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter phone number (xxx) xxx-xxxx" required="">
+                                        <label for="mentorPhoneNumber">Phone Number (Please note this is not shared with anyone) <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
+                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter your 10-digit number" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="mentorAvailability">Availability <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
-                                        <input name="availability" ng-model="mentorModel.availability" class="form-control" id="mentorAvailability" placeholder="Enter your availability for call (i.e., Weekdays 1-5pm)" required="">
+                                        <label for="mentorAvailability">When is the best time you're available to take phone calls to give advice? <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
+                                        <input name="availability" ng-model="mentorModel.availability" class="form-control" id="mentorAvailability" placeholder="e.g. Weekdays from 5-7pm, Saturdays from 1-3pm" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="mentorLinkedin">Linkedin <span class="text-muted">(Optional)</span> <span class="text-danger">{{mentorFormError.linkedin[0]}}</span></label>
-                                        <input name="linkedin" ng-model="mentorModel.linkedin" class="form-control" id="mentorLinkedin" placeholder="Enter the URL to your Linkedin Profile">
+                                        <label for="mentorLinkedin">What is your LinkedIn URL? <span class="text-danger">{{mentorFormError.linkedin[0]}}</span></label>
+                                        <input name="linkedin" ng-model="mentorModel.linkedin" class="form-control" id="mentorLinkedin" placeholder="Enter the URL to your Linkedin Profile" required="">
                                     </div>
                                     <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Apply</button>
+                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Apply Now!</button>
                                         <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
                                     </div>
                                 </form>
@@ -109,76 +112,103 @@
             <div class="hero">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="editable-field">
-                                <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
-                                        <div class="form-group">
-                                            <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
-                                            <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
-                                            <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
+                        <div class="col-md-7">
+                            <div class="col-md-11">
+                              <div class="col-md-4 editable-field">
+                                  <div class="circle">
+                                      <div class="inner">
+                                          <img ng-src="{{user.avatar.url}}" start-inline-edit/>
+                                      </div>
+                                  </div>
+                                  <div class="edit-form">
+                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                      <form novalidate role="form" name="userAvatarForm" class="css-form">
+                                          <div class="form-group">
+                                              <label for="userAvatar">Avatar <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
+                                              <input id="userAvatar" type="file" ng-model="user.avatar" class="form-control" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="" onchange="angular.element(this).scope().updateAvatar(this.files)" hide-inline-edit>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-8 editable-field name-position clearfix">
+                                  <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
+                                  <div class="edit-form">
+                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                      <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
+                                          <div class="form-group">
+                                              <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
+                                              <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
+                                              <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
+                                          </div>
+                                          <div class="button-group">
+                                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
                             </div>
-                            <section class="current-role clearfix">
+                            <div class="col-md-11">
+                              <section class="current-role clearfix">
                                 <div class="pull-left">Co-founder at Shyne.io</div>
                                 <a href="{{user.linkedin}}" class="pull-left linkedin-logo" ng-show="user.linkedin"></a>
-                            </section>
-                            <section>
-                                <span class="glyphicon glyphicon-record"></span>
-                                Positions that I've been in
-                                <ol>
-                                    <li>Product Manager at Facebook (2013 - 2014)</li>
-                                    <li>Risk Analyst at Square (2010 - 2013)</li>
-                                    <li>Business Development at Betfair (2004 - 2010)</li>
-                                </ol>
-                            </section>
-                            <section class="editable-field">
-                                <span class="glyphicon glyphicon-map-marker"></span>
-                                {{user.location}}  <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="mentorLocationForm" class="css-form" ng-submit="updateMentor()">
-                                        <div class="form-group">
-                                            <label for="mentorLocation">Location <span class="text-danger">{{memberFormError.location[0]}}</span></label>
-                                            <input name="location" ng-model="user.location" class="form-control" id="mentorLocation" placeholder="Enter location" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorLocationForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </section>
-                            <section class="editable-field">
-                                <span class="glyphicon glyphicon-briefcase"></span>
-                                {{user.expertieString}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="mentorExpertieForm" class="css-form" ng-submit="updateMentor()">
-                                        <div class="form-group">
-                                            <label for="mentorExperties">Experties <span class="text-danger">{{memberFormError.experties[0]}}</span></label>
-                                            <input name="location" ng-model="user.expertiString" class="form-control" id="mentorExperties" placeholder="Enter your experties" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorExpertieForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </section>
-
+                              </section>
+                              <section>
+                                  <span class="glyphicon glyphicon-record"></span>
+                                  Positions that I've been in
+                                  <ol>
+                                      <li>Product Manager at Facebook (2013 - 2014)</li>
+                                      <li>Risk Analyst at Square (2010 - 2013)</li>
+                                      <li>Business Development at Betfair (2004 - 2010)</li>
+                                  </ol>
+                              </section>
+                              <section class="editable-field">
+                                  <span class="glyphicon glyphicon-map-marker"></span>
+                                  {{user.city}}, {{user.state}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                  <div class="edit-form">
+                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                      <form novalidate role="form" name="mentorLocationForm" class="css-form" ng-submit="updateMentor()">
+                                          <div class="form-group">
+                                              <label for="mentorCity">City <span class="text-danger">{{memberFormError.city[0]}}</span></label>
+                                              <input name="city" ng-model="user.city" class="form-control" id="mentorCity" placeholder="Enter City" required="">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="mentorState">State <span class="text-danger">{{memberFormError.state[0]}}</span></label>
+                                              <input name="state" ng-model="user.state" class="form-control" id="mentorState" placeholder="Enter State" required="">
+                                          </div>
+                                          <div class="button-group">
+                                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorLocationForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </section>
+                              <section class="editable-field">
+                                  <span class="glyphicon glyphicon-briefcase"></span>
+                                  Specialties: {{user.expertieString}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                  <div class="edit-form">
+                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                      <form novalidate role="form" name="mentorExpertieForm" class="css-form" ng-submit="updateMentor()">
+                                          <div class="form-group">
+                                              <label for="mentorExperties">Experties <span class="text-danger">{{memberFormError.experties[0]}}</span></label>
+                                              <input name="location" ng-model="user.expertiString" class="form-control" id="mentorExperties" placeholder="Enter your experties" required="">
+                                          </div>
+                                          <div class="button-group">
+                                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorExpertieForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </section>
+                              <section>
+                                <button type="button" class="btn btn-primary">I'd like to speak with  {{ user.first_name }} {{ user.last_name }}</button>
+                              </section>
+                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="timeslot">
-                                <h2>Availability</h2>
+                                <h2>Generally Available to Speak:</h2>
                                 <div class="editable-field">
                                     {{user.availability}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                                     <div class="edit-form">
@@ -218,7 +248,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="editable-field">
+<!--                                <div class="editable-field">
                                     <span class="glyphicon glyphicon-envelope"></span> {{user.email}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                                     <div class="edit-form">
                                         <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
@@ -232,8 +262,8 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                                <div class="editable-field">
+                                </div>-->
+                                <!--<div class="editable-field">
                                     <span class="glyphicon glyphicon-earphone"></span> {{user.phone_number}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                                     <div class="edit-form">
                                         <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
@@ -247,7 +277,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -259,28 +289,13 @@
                         <div class="col-md-8">
                             <strong class="pull-left">$5 / minute</strong>
                         </div>
-                        <div class="col-md-4 editable-field">
-                            <div class="circle">
-                                <div class="inner">
-                                    <img ng-src="{{user.avatar.url}}" start-inline-edit/>
-                                </div>
-                            </div>
-                            <div class="edit-form">
-                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="userAvatarForm" class="css-form">
-                                    <div class="form-group">
-                                        <label for="userAvatar">Avatar <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
-                                        <input id="userAvatar" type="file" ng-model="user.avatar" class="form-control" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="" onchange="angular.element(this).scope().updateAvatar(this.files)" hide-inline-edit>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 editable-field">
+                        <h2><strong>About Me</strong></h2>
                         {{user.headline}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                         <div class="edit-form">
                             <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
