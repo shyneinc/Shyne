@@ -1,8 +1,10 @@
-Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User',($location, $scope, $timeout, $routeParams, Session, User) ->
+Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory',($location, $scope, $timeout, $routeParams, Session, User, Workhistory) ->
 
   $scope.user = null
+  $scope.work_history = null
   $scope.welcomeModel = {role: null}
   $scope.resetModel = {token: null}
+  $scope.historyModel = {role: null}
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -36,6 +38,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     )
 
   $scope.becomeMentor = () ->
+    $scope.historyModel.role = 'Mentor'
     User.becomeMentor(
       $scope.mentorModel.headline,
       $scope.mentorModel.city,
@@ -50,6 +53,28 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     , (data) ->
       $scope.mentorFormError = data
     )
+
+  $scope.createWorkHistory = () ->
+    $scope.historyModel = {role: null}
+    Session.getCurrentUser(forceUpdate).then((user)->
+      Workhistory.createWorkHistory(
+        $scope.historyModel.current_title,
+        $scope.historyModel.current_company,
+        $scope.historyModel.current_date_started,
+        $scope.historyModel.previous_title,
+        $scope.historyModel.previous_company,
+        $scope.historyModel.previous_date_started,
+        $scope.historyModel.previous_date_ended,
+        $scope.historyModel.industries,
+        $scope.historyModel.programs,
+        $scope.historyModel.current_mentor_id
+      ).then((data) ->
+        angular.extend($scope.work_history, data)
+      , (data) ->
+        $scope.historyFormError = data
+      )
+    )      
+    
 
   $scope.updateUser = () ->
     User.updateUser($scope.user).then(() ->
