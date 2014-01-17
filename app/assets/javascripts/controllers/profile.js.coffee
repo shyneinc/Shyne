@@ -1,7 +1,8 @@
-Shyne.controller('ProfileCtrl', ['$scope', 'Session', 'User',($scope, Session, User) ->
+Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User',($location, $scope, $timeout, $routeParams, Session, User) ->
 
   $scope.user = null
   $scope.welcomeModel = {role: null}
+  $scope.resetModel = {token: null}
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -86,5 +87,29 @@ Shyne.controller('ProfileCtrl', ['$scope', 'Session', 'User',($scope, Session, U
       , 5000)
     )
 
+  $scope.password_reset = () ->
+    User.password_reset($scope.forgotModel).then((data) ->
+      $scope.flash_message = 'Email sent with password reset instructions.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    , (data) ->
+      $scope.resetpasswordFormError = data
+    )
 
+
+  $scope.changePassword = () ->
+    User.changePassword($scope.resetModel).then((data) ->
+      $scope.flash_message = 'Your password has been changed.'
+      $timeout (->
+          $scope.flash_message = null
+          $location.path '/profile/'
+        ), 1500
+    , (data) ->
+      $scope.resetpasswordFormError = data
+    )
+
+  if $routeParams.token != null
+    $scope.resetModel.reset_password_token = $routeParams.token
 ])

@@ -6,7 +6,7 @@ class Api::V1::PasswordsController < Devise::PasswordsController
     if successfully_sent?(@user)
       render :json => nil, :status => 200
     else
-      render :json => {:error => 'There was an error in sending password reset email'}, :status => 500
+      render :json => {:error => 'There was an error in sending password reset email'}, :status => 401
     end
   end
 
