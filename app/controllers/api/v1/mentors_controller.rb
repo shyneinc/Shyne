@@ -49,6 +49,6 @@ class Api::V1::MentorsController < Api::V1::BaseController
   private
 
   def mentor_params
-    params.require(:mentor).permit(:headline, :location, :experties, :years_of_experience, :phone_number, :availability, :linkedin)
+    params.require(:mentor).permit(:headline, :city, :state, :experties, :years_of_experience, :phone_number, :availability, :linkedin)
   end
 end

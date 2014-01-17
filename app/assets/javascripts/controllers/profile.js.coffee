@@ -38,7 +38,8 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
   $scope.becomeMentor = () ->
     User.becomeMentor(
       $scope.mentorModel.headline,
-      $scope.mentorModel.location,
+      $scope.mentorModel.city,
+      $scope.mentorModel.state,
       $scope.mentorModel.experties,
       $scope.mentorModel.yearsOfExperience,
       $scope.mentorModel.phoneNumber,

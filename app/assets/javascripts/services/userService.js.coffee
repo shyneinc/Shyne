@@ -16,13 +16,14 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  becomeMentor: (headline, location, experties, years_of_experience, phone_number, availability, linkedin) ->
+  becomeMentor: (headline, city, state, experties, years_of_experience, phone_number, availability, linkedin) ->
     deferred = $q.defer()
 
     $http.post('/api/mentors',
       mentor:
         headline: headline,
-        location: location,
+        city: city,
+        state: state,
         experties: experties,
         years_of_experience: years_of_experience,
         phone_number: phone_number,
@@ -109,7 +110,8 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     $http.put('/api/mentors',
       mentor:
         headline: user.headline,
-        location: user.location,
+        city: user.city,
+        state: user.state,
         experties: user.experties,
         years_of_experience: user.years_of_experience,
         phone_number: user.phone_number,

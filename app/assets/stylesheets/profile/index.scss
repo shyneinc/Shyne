@@ -114,8 +114,8 @@
     }
     .circle {
       @include circle(160px);
-      position: absolute;
-      top: -70px;
+      position: relative;
+      top: 5px;
       left: 0;
       background-color: $red;
       padding: 5px;
@@ -127,6 +127,11 @@
           @include circle(140px);
         }
       }
+    }
+    .name-position {
+      position: relative;
+      left: -17px;
+      top: 23px;
     }
   }
 }
