@@ -2,13 +2,19 @@ class Api::V1::MentorsController < Api::V1::BaseController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
+    mentors = []
     if (params[:featured].present? && params[:featured] == 'true')
-      respond_with :api, Mentor.approved.featured
+      mentors_list = Mentor.approved.featured
     elsif (params[:experties].present?)
-      respond_with :api, Mentor.approved.experties(params[:experties])
+      mentors_list = Mentor.approved.experties(params[:experties])
     else
-      respond_with :api, Mentor.approved
+      mentors_list = Mentor.approved
     end
+    mentors_list.each do |mentor|
+      mentors << { id: mentor.id, role: mentor.headline, name: "#{mentor.user.first_name} #{mentor.user.last_name}", company: "Shyne", ratePerMinute: 5, photoUrl: mentor.user.avatar.url }
+    end
+
+    respond_with :api, mentors
   end
 
   def show

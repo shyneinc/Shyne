@@ -57,6 +57,15 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       )
     deferred.promise
 
+  getFeaturedMentors: () ->
+    deferred = $q.defer()
+    $http.get('/api/mentors?featured=true').success((data)->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
+
   isAuthenticated: () ->
     !!_currentUser
 
