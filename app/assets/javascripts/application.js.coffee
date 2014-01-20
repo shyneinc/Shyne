@@ -59,6 +59,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/resetpassword/:token",
     templateUrl: "/profile/updatepassword.html"
     controller: 'ProfileCtrl'
+  ).when("/our-mission",
+    templateUrl: "/home/our_mission.html"
+    controller: 'HomeBaseCtrl'
   )
 
 ]
