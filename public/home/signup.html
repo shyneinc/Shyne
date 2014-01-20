@@ -10,7 +10,7 @@
             <a class="logo" href="#/">Shyne</a>
         </div>
     </header>
-    
+
     <div class="hero">
         <div class="container">
             <div class="row">
@@ -22,27 +22,27 @@
                         </p>
                     </div>
                     <div class="jumbotron" ng-hide="user">
-                        <h2>Sign Up for Free</h2>
+                        <h2>Ready for Career Advice? We're excited for you to join Shyne!</h2>
                         <form novalidate role="form" name="signupForm" class="css-form" ng-submit="signup()">
                             <div class="form-group">
                                 <label for="loginFirstName">First Name <span class="text-danger">{{signUpError.first_name[0]}}</span></label>
-                                <input ng-model="signupModel.firstName" class="form-control" id="loginFirstName" placeholder="Enter first name" required="" auto-focus>
+                                <input ng-model="signupModel.firstName" class="form-control" id="loginFirstName" placeholder="First name" required="" auto-focus>
                             </div>
                             <div class="form-group">
                                 <label for="loginLastName">Last Name <span class="text-danger">{{signUpError.last_name[0]}}</span></label>
-                                <input ng-model="signupModel.lastName" class="form-control" id="loginLastName" placeholder="Enter last name" required="">
+                                <input ng-model="signupModel.lastName" class="form-control" id="loginLastName" placeholder="Last name" required="">
                             </div>
                             <div class="form-group">
                                 <label for="loginEmail">Email Address <span class="text-danger">{{signUpError.email[0]}}</span></label>
-                                <input name="email" ng-model="signupModel.email" type="email" class="form-control" id="loginEmail" placeholder="Enter email" required="">
+                                <input name="email" ng-model="signupModel.email" type="email" class="form-control" id="loginEmail" placeholder="Email Address" required="">
                             </div>
                             <div class="form-group">
                                 <label for="loginPassword">Password <span class="text-danger">{{signUpError.password[0]}}</span></label>
-                                <input name="password" ng-model="signupModel.password" type="password" class="form-control" id="loginPassword" placeholder="Enter password" required="">
+                                <input name="password" ng-model="signupModel.password" type="password" class="form-control" id="loginPassword" placeholder="Enter Password" required="">
                             </div>
                             <div class="form-group">
                                 <label for="loginConfirmPassword">Confirm Password <span class="text-danger">{{signUpError.password_confirmation[0]}}</span></label>
-                                <input name="password" ng-model="signupModel.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm password" required="">
+                                <input name="password" ng-model="signupModel.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm Password" required="">
                             </div>
                             <div class="form-group">
                                 <label for="timeZone">Time Zone <span class="text-danger">{{signUpError.time_zone[0]}}</span></label>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="button-group">
                                 <p class="text-danger">{{error}}</p>
-                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign up</button>
+                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button>
                             </div>
                         </form>
                     </div>
@@ -67,6 +67,6 @@
             </div>
         </div>
     </div>
-   
+
    <div ng-include src="'shared/footer.html'"></div>
 </div>
