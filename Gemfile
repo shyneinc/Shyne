@@ -17,7 +17,7 @@ gem 'clockwork'
 
 gem 'nokogiri'
 gem 'jbuilder', '~> 1.2'
-gem 'devise', '3.1.0'
+gem 'devise', '~> 3.2'
 gem 'json'
 gem 'pg_array_parser'
 gem 'pg_search'
