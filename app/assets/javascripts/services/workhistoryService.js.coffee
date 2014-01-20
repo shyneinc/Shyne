@@ -1,22 +1,25 @@
 ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http, $q) ->
 
-  createWorkHistory: (current_title, current_company, current_date_started, previous_title, previous_company, previous_date_started, previous_date_ended, industries, programs, user) ->
+  createWorkHistory: (history_model, mentor_id) ->
     deferred = $q.defer()
 
-    $http.post('/api/mentors/'+user.role_id+'/work_histories',
+    $http.post('/api/mentors/'+mentor_id+'/work_histories',
       work_history:
-        title: current_title,
-        company: current_company,
+        title: history_model.current_title,
+        company: history_model.current_company,
+        year_started: history_model.current_year_started,
         current_work: true,
-        mentor_id: user.role_id,
+        mentor_id: mentor_id
     )
     
-    $http.post('/api/mentors/'+user.role_id+'/work_histories',
+    $http.post('/api/mentors/'+mentor_id+'/work_histories',
       work_history:
-        title: previous_title,
-        company: previous_company,
+        title: history_model.previous_title,
+        company: history_model.previous_company,
+        year_started: history_model.previous_year_started,
+        year_ended: history_model.previous_year_ended,
         current_work: false,
-        mentor_id: user.role_id,
+        mentor_id: mentor_id
     ).success((data)->
       if data.id
         deferred.resolve(angular.extend(data))
