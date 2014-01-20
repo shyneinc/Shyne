@@ -69,6 +69,8 @@ a {
   @include gradient(#FF645B, #FF493F);
   border-color: $white;
   color: $white;
+  font-size: 24px;
+  width: 55%;
   &:hover, &:active, &:focus {
     @include gradient(#FD8882, #FF493F);
     border-color: $white;
@@ -80,6 +82,8 @@ a {
   @include gradient(#25D5CF, #00CFC7);
   border-color: $white;
   color: $white;
+  font-size: 24px;
+  width: 55%;
   &:hover, &:active, &:focus {
     @include gradient(#54DED9, #00CFC7);
     border-color: $white;

@@ -40,13 +40,15 @@
             <div class="hero">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
+                        <div class="col-md-8 col-md-offset-2">
                             <div class="welcome-message" >
                                 <div class="text-center" ng-hide="welcomeModel.role">
-                                    <h1>Welcome to Shyne</h1>
-                                    <p>Please let us know how we can best help you</p>
-                                    <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">Apply to Become a Mentor</button></p>
-                                    <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">Become a Member</button></p>
+                                    <h1>Welcome!  How would you like  to  use Shyne?</h1>
+                                    <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">I'd like to Join as a Member</button></p>
+                                    <div class="welcome-note">Members  can schedule  calls with  Mentors for career  advice, interview tips, & insider info  on  popular companies and positions.</div>
+                                    <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">I'd like to Apply to become a Mentor</button></p>
+                                    <div class="welcome-note">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</div>
+                                    <div class="remember-note">Remember:  It's  FREE  to  join  as  either  a Mentor  or  Member. Also, Members can always  apply to  become  Mentors later on.</div>
                                 </div>
                             </div>
                             <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
@@ -102,16 +104,16 @@
                                     </div>
                                 </form>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">        
+        <div class="col-md-8 col-md-offset-2">
 	        <div class="jumbotron" ng-show="historyModel.role == 'Mentor'">
 	            <h2>Mentor Application</h2>
 	            <form novalidate role="form" name="historyForm" class="css-form" ng-submit="createWorkHistory()">
@@ -123,34 +125,34 @@
 	                    		<td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="position" required="" auto-focus></td>
 	                    		<td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required="" auto-focus></td>
 	                    		<td><input name="current_date_started" ng-model="historyModel.current_date_started" class="form-control" id="historyCurrentDateStarted" maxlength="50" placeholder="Year you started working" required="" auto-focus></td>
-	                    	</tr>	
+	                    	</tr>
 	                    </table>
-	                    
+
 	                    <label for="historyPosition">What position have you held previously?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
 	                    <table>
-	                    	<tr>	                    
+	                    	<tr>
 		                    <td><input name="previous_title" ng-model="historyModel.previous_title" class="form-control" id="historyPreviousTitle" maxlength="50" placeholder="position" required="" auto-focus></td>
 		                    <td><input name="previous_company" ng-model="historyModel.previous_company" class="form-control" id="historyCompany" maxlength="50" placeholder="Company Name" required="" auto-focus></td>
-		                    <td><input name="previous_date_started" ng-model="historyModel.previous_date_started" class="form-control" id="historyPreviousDateStarted" maxlength="50" placeholder="Year you started working" required="" auto-focus></td>                                        
+		                    <td><input name="previous_date_started" ng-model="historyModel.previous_date_started" class="form-control" id="historyPreviousDateStarted" maxlength="50" placeholder="Year you started working" required="" auto-focus></td>
 		                    <td><input name="previous_date_ended" ng-model="historyModel.previous_date_ended" class="form-control" id="historyPreviousDateEnded" maxlength="50" placeholder="Year you ended working" required="" auto-focus></td>
-	                    	</tr>	
-	                    </table>		                    
-	                    
+	                    	</tr>
+	                    </table>
+
 	                    <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-	                    <input name="industries" ng-model="historyModel.industries" class="form-control" id="historyIndustries" maxlength="280" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>                                        
-	                    
+	                    <input name="industries" ng-model="historyModel.industries" class="form-control" id="historyIndustries" maxlength="280" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+
 	                    <label for="historyPrograms">What	skills and programs	are	you	comfortable	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-	                    <input name="programs" ng-model="historyModel.programs" class="form-control" id="historyPrograms" maxlength="280" placeholder="E.g.	Ruby on	Rails, Financial Analysis, SQL,	Digital	Marketing, B2B Sales" required="" auto-focus>                                        
+	                    <input name="programs" ng-model="historyModel.programs" class="form-control" id="historyPrograms" maxlength="280" placeholder="E.g.	Ruby on	Rails, Financial Analysis, SQL,	Digital	Marketing, B2B Sales" required="" auto-focus>
 	                </div>
                   <div class="button-group">
                       <button type="button" class="btn btn-primary" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
                       <a href="#/profile" class="cancel-link">Cancel</a>
-                  </div>	                
+                  </div>
 	            </form>
-	        </div>   
+	        </div>
 	      </div>
 	    </div>
-	  </div>              
+	  </div>
 
         <div class="mentor-section" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor'">
             <div class="hero">
