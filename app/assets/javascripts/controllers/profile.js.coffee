@@ -62,7 +62,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
       #update industries and program of mentor
       User.updateMentor($scope.user)
       #create work current and previous history of mentor
-      Workhistory.createWorkHistory($scope.historyModel,
+      Workhistory.createWorkHistory($scope.historyModel,$scope.todo,
         $scope.user.role_id
       ).then((data) ->
         angular.extend($scope.work_history, data)
@@ -70,8 +70,9 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
         $scope.historyFormError = data
       )
     , 0)
-
-    $scope.historyModel = {role: null}    
+    window.setTimeout(() ->
+      $scope.historyModel = {role: null}
+    , 1000)      
 
   $scope.updateMember = () ->
     User.updateMember($scope.user).then(() ->

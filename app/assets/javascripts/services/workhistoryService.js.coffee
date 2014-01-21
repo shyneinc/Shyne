@@ -1,6 +1,6 @@
 ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http, $q) ->
 
-  createWorkHistory: (history_model, mentor_id) ->
+  createWorkHistory: (history_model, todo_model, mentor_id) ->
     deferred = $q.defer()
 
     $http.post('/api/mentors/'+mentor_id+'/work_histories',
@@ -14,10 +14,10 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
     
     $http.post('/api/mentors/'+mentor_id+'/work_histories',
       work_history:
-        title: history_model.previous_title,
-        company: history_model.previous_company,
-        year_started: history_model.previous_year_started,
-        year_ended: history_model.previous_year_ended,
+        title: todo_model.previous_title,
+        company: todo_model.previous_company,
+        year_started: todo_model.previous_year_started,
+        year_ended: todo_model.previous_year_ended,
         current_work: false,
         mentor_id: mentor_id
     ).success((data)->
