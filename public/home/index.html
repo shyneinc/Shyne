@@ -15,9 +15,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <form class="search-form">
-                            <input type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
-                            <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+                        <form class="search-form" ng-submit="search()">
+                            <input ng-model="searchModel.search_text" type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
+                            <button class="btn btn-default"  ng-click="search()"><span class="glyphicon glyphicon-search"></span></a>
                         </form>
                     </div>
                     <div class="col-md-3">

@@ -62,6 +62,12 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/our-mission",
     templateUrl: "/home/our_mission.html"
     controller: 'HomeBaseCtrl'
+  ).when("/search",
+    templateUrl: "/home/search_mentors.html"
+    controller: 'HomeBaseCtrl'
+  ).when("/search/:q",
+    templateUrl: "/home/search_mentors.html"
+    controller: 'HomeBaseCtrl'
   )
 
 ]

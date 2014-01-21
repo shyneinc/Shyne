@@ -5,6 +5,7 @@ Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope,
   $scope.signUpError = {}
   $scope.user = null
   $scope.mentors = null
+  $scope.searchModel = { search_text: '' }
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
@@ -42,5 +43,9 @@ Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope,
     Session.logout().then(() ->
       $scope.user = null
     )
+
+  $scope.search = () ->
+    search_location = "/search/#{$scope.searchModel.search_text}"
+    $location.path search_location
 
 ])

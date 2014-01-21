@@ -1,0 +1,44 @@
+<div class="home-index">
+    <div ng-include src="'shared/masthead.html'"></div>
+
+    <div class="hero">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+              <form class="mentor-search-form" role="form" name="searchForm" ng-submit="searchMentors()">
+                  <input type="search" class="form-search-control search-box" placeholder="Search for a person, company or position" ng-model="searchModel.search_text" />
+                  <button type="button" class="btn btn-primary btn-search-green" type="submit" ng-click="searchMentors()"><span class="glyphicon glyphicon-search"></span> SEARCH</button>
+              </form>
+              <div class="result-text">Search result for "{{searchModel.search_text}}"</div>
+              <div class="mentors">
+                  <div class="container">
+                      <div class="row">
+                          <div class="search-card col-md-9" ng-repeat="mentor in search_mentors">
+                              <div class="col-md-2 profile-padd" ng-click="viewProfile(mentor)">
+                                  <div class="photo">
+                                      <img src="/assets/sample.jpg" ng-src="{{mentor.avatar}}">
+                                  </div>
+                              </div>
+                              <div class="col-md-7">
+                                  <div class="info">
+                                      <div class="full-name"><a href="#">{{mentor.full_name}}</a></div>
+                                      <div><span class="glyphicon glyphicon-map-marker"></span>{{mentor.full_address}}</div>
+                                      <div><strong>Current: </strong>{{mentor.current_worked_at}}</div>
+                                      <div><strong>Previous: </strong>{{mentor.previous_worked_at}}</div>
+                                      <div>Work Experience: {{mentor.years_of_experience}} years</div>
+                                  </div>
+                              </div>
+                              <div class="col-md-3 search-right-part">
+                                  <star-rating star-rating="mentor.get_avg_rating" max-star-rating="5"></star-rating> <div class="review-count">(0)</div>
+                                  <div class="mentor-call-rate">${{mentor.rate_per_minute}}/Minute</div>
+                                  <button class="btn btn-primary btn-orange">Schedule Call</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include src="'shared/footer.html'"></div>
+</div>

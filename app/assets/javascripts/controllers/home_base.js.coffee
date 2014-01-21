@@ -5,9 +5,17 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
   $scope.signUpError = {}
   $scope.user = null
   $scope.token = $routeParams.token
+  $scope.search_text = $routeParams.q
+  $scope.search_mentors = null
+  $scope.searchModel = { search_text: null }
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
+  )
+
+  Session.searchMentors($scope.search_text).then((data)->
+    $scope.searchModel.search_text = $routeParams.q
+    $scope.search_mentors = data
   )
 
   $scope.login = () ->
@@ -34,6 +42,16 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
       $scope.user = null
     )
 
+  $scope.searchMentors = () ->
+    search_text = $scope.searchModel.search_text
+    Session.searchMentors(search_text).then(
+      (data)->
+        $scope.search_mentors = data
+        $location.path("/search/"+search_text).replace()
+    , (error)->
+      $scope.signUpError = error
+    )
+
   $scope.verify = () ->
     Confirmation.verify($scope.token).then(
       () ->
@@ -48,6 +66,9 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
         $scope.flash_message = null
       , 5000)
     )
+
+  $scope.updateModel = (newRating) ->
+    console.log(newRating)
 
   if $routeParams.token != null
     $scope.verify()

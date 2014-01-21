@@ -7,7 +7,7 @@ class Api::V1::SearchController < Api::V1::BaseController
       results.each { |result| mentor_ids << result[:searchable_id] }
       if (mentor_ids.count > 0)
         mentors = Mentor.find(mentor_ids.split(','))
-        respond_with :api, mentors.to_json(:only => [:id, :headline, :years_of_experience], :methods => [:full_name, :avatar])
+        respond_with :api, mentors.to_json(:only => [:id, :headline, :years_of_experience, :full_address, :rate_per_minute], :methods => [:full_name, :avatar, :full_address, :rate_per_minute, :get_avg_rating, :current_worked_at, :previous_worked_at])
       elsif render :json => {:info => 'No results found'}, :status => 200
       end
     else

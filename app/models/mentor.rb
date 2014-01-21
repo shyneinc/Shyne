@@ -8,7 +8,7 @@ class Mentor < ActiveRecord::Base
 
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
-  delegate :full_name, :email, :balanced_customer, :to => :user
+  delegate :full_name, :email, :balanced_customer, :full_address, :to => :user
 
   has_many :call_requests, after_add: :calc_avg_duration, after_remove: :calc_avg_duration
   has_many :reviews, after_add: :calc_avg_rating, after_remove: :calc_avg_rating
@@ -67,4 +67,19 @@ class Mentor < ActiveRecord::Base
   end
   handle_asynchronously :calc_avg_duration, :priority => 10
 
+  def full_address
+    [self.city, self.state].join(", ")
+  end
+
+  def get_avg_rating
+    self.reviews.average('rating').to_f
+  end
+
+  def current_worked_at
+    self.work_histories.where(:current_work => true).map! { |p| "#{p.title} at #{p.company}" }.join(" ")
+  end
+
+  def previous_worked_at
+    self.work_histories.where(:current_work => false).map! { |p| "#{p.title} at #{p.company}" }.join(" ")
+  end
 end

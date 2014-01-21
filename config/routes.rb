@@ -41,6 +41,7 @@ Shyne::Application.routes.draw do
       end
       match '/mentors' => 'mentors#update', :via => :put
       match '/mentors' => 'mentors#destroy', :via => :delete
+      match '/all_mentors' => 'mentors#all_mentors', :via => :get
 
       resources :members, except: [:update, :destroy]
       match '/members' => 'members#update', :via => :put
