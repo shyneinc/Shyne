@@ -10,7 +10,13 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
         year_started: history_model.current_year_started,
         current_work: true,
         mentor_id: mentor_id
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data.error)
     )
+    deferred.promise
+
     $.each(history_model.positions, (key,valueObj) ->
       $http.post('/api/mentors/'+mentor_id+'/work_histories',
         work_history:
@@ -20,7 +26,22 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
           year_ended: valueObj.previous_year_ended_text,
           current_work: false,
           mentor_id: mentor_id
-      )      
-    )    
+      ).success((data) ->
+        deferred.resolve(data)
+      ).error((data) ->
+        deferred.reject(data.error)
+      )
+      deferred.promise
+    )
+
+  getWorkHistories: (mentor_id) ->
+    deferred = $q.defer()
+
+    $http.get('/api/mentors/'+mentor_id+'/work_histories').success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data.error)
+    )
+    deferred.promise
 
 ])

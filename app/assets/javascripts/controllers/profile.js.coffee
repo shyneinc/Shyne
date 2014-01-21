@@ -5,6 +5,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
   $scope.welcomeModel = {role: null}
   $scope.resetModel = {token: null}
   $scope.historyModel = {role: null}
+  $scope.work_histories = null
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -16,6 +17,9 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
           angular.extend(user, mentorInfo)
+        )
+        Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
+          $scope.work_histories = workHistoriesInfo
         )
     )
 
@@ -38,7 +42,6 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     )
 
   $scope.becomeMentor = () ->
-    $scope.historyModel.role = 'Mentor'
     User.becomeMentor(
       $scope.mentorModel.headline,
       $scope.mentorModel.city,
@@ -50,6 +53,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
       $scope.mentorModel.linkedin
     ).then((data) ->
       angular.extend($scope.user, data)
+      $scope.historyModel.role = 'Mentor'
     , (data) ->
       $scope.mentorFormError = data
     )
@@ -62,7 +66,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
       #update industries and program of mentor
       User.updateMentor($scope.user)
       #create work current and previous history of mentor
-      
+
       Workhistory.createWorkHistory($scope.historyModel,
         $scope.user.role_id
       ).then((data) ->
@@ -73,7 +77,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     , 0)
     window.setTimeout(() ->
       $scope.historyModel = {role: null}
-    , 1000)      
+    , 1000)
 
   $scope.updateMember = () ->
     User.updateMember($scope.user).then(() ->

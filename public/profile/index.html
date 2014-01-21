@@ -118,7 +118,7 @@
 	        <div class="jumbotron" ng-show="historyModel.role == 'Mentor'">
 	            <h2><strong>Mentor Application</strong></h2>
 	            <form novalidate role="form" name="historyForm" class="css-form" ng-submit="createWorkHistory()">
-    
+
 	                <div class="form-group">
 	                <label for="historyPosition">What is your current position?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
 	                    <table>
@@ -129,27 +129,27 @@
 	                    	</tr>
 	                    </table>
 									</div>
-									<div class="form-group">	
+									<div class="form-group">
 	                    <label for="historyPosition">What position have you held previously?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
 
 											 <div ng-controller="RepeatPositionCtrl">
 												<div ng-repeat="pos in historyModel.positions">
 		                    <table>
-		                    	<tr>	                    
+		                    	<tr>
 			                    <td><input ng-model="pos.previous_title_text" class="form-control" placeholder="position" required=""></td>
 			                    <td><input ng-model="pos.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name" required=""></td>
-			                    <td><input ng-model="pos.previous_year_started_text" class="form-control" maxlength="50" placeholder="Year started work" required=""></td>                                        
+			                    <td><input ng-model="pos.previous_year_started_text" class="form-control" maxlength="50" placeholder="Year started work" required=""></td>
 			                    <td><input ng-model="pos.previous_year_ended_text" class="form-control" maxlength="50" placeholder="Year ended work" required=""></td>
-			                    <td><button type="button" ng-hide="$index == 0" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
-		                    	</tr>	
-		                    </table>	
+			                    <td><button type="button" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
+		                    	</tr>
+		                    </table>
 												</div>
 												<form ng-submit="addPosition()">
 												<button type="button" class="btn btn-primary" type="button" ng-click="addPosition()">+</button>&nbsp;Add Position
 												</form>
 											</div>
-									</div>		   
-									<div class="form-group">		
+									</div>
+									<div class="form-group">
 	                    <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
 	                    <input name="industries" ng-model="historyModel.industries" class="form-control" id="historyIndustries" maxlength="280" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
 									</div>
@@ -353,7 +353,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 editable-field">
+                    <div class="col-md-6 editable-field">
                         <h2><strong>About Me</strong></h2>
                         {{user.headline}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                         <div class="edit-form">
@@ -369,7 +369,15 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-4">&nbsp;</div>
+                    <div class="col-md-6">
+                      <h2><strong>Work History</strong></h2>
+                      <div ng-repeat="work_history in work_histories">
+                            <div style="padding-top:10px;"><strong>Position: </strong>{{work_history.title}}</div>
+                            <div><strong>Company: </strong>{{work_history.company}} <strong>({{work_history.current_work && "Current" || "Previous" }})</strong></div>
+                            <div><strong>Start Year: </strong>{{work_history.year_started}}</div>
+                            <div ng-hide="$index == 0"><strong>End Year: </strong>{{work_history.year_ended}}</div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
