@@ -55,45 +55,25 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     )
 
   $scope.createWorkHistory = () ->
-    $scope.historyModel = {role: null}
-    Session.getCurrentUser(forceUpdate).then((user)->
-      Workhistory.createWorkHistory(
-        $scope.historyModel.current_title,
-        $scope.historyModel.current_company,
-        $scope.historyModel.current_date_started,
-        $scope.historyModel.previous_title,
-        $scope.historyModel.previous_company,
-        $scope.historyModel.previous_date_started,
-        $scope.historyModel.previous_date_ended,
-        $scope.historyModel.industries,
-        $scope.historyModel.programs,
-        $scope.historyModel.current_mentor_id
+    $scope.refresh(true)
+    window.setTimeout(() ->
+      $scope.user.industries = $scope.historyModel.industries
+      $scope.user.programs = $scope.historyModel.programs
+      #update industries and program of mentor
+      User.updateMentor($scope.user)
+      #create work current and previous history of mentor
+      
+      Workhistory.createWorkHistory($scope.historyModel,
+        $scope.user.role_id
       ).then((data) ->
         angular.extend($scope.work_history, data)
       , (data) ->
         $scope.historyFormError = data
       )
-    )      
-    
-
-  $scope.updateUser = () ->
-    User.updateUser($scope.user).then(() ->
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateAvatar = (files) ->
-    User.updateAvatar(files).then(() ->
-      $scope.refresh(true)
-      $scope.flash_message = 'User Avatar updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
+    , 0)
+    window.setTimeout(() ->
+      $scope.historyModel = {role: null}
+    , 1000)      
 
   $scope.updateMember = () ->
     User.updateMember($scope.user).then(() ->

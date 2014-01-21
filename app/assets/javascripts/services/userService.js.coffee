@@ -116,7 +116,9 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         years_of_experience: user.years_of_experience,
         phone_number: user.phone_number,
         availability: user.availability,
-        linkedin: user.linkedin
+        linkedin: user.linkedin,
+        industries: user.industries,
+        programs: user.programs
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->
