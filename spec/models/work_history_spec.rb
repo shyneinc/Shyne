@@ -10,8 +10,8 @@ describe WorkHistory do
   describe "ActiveModel validations" do
     context "Basic validations" do
       it { should validate_presence_of :company }
-      it { should validate_presence_of :date_started }
-      it { should validate_presence_of :mentor }
+      it { should validate_presence_of :year_started }
+      it { should validate_presence_of :mentor_id }
       it { should validate_presence_of :title }
     end
   end

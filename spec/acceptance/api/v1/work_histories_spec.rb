@@ -34,14 +34,14 @@ resource 'WorkHistory' do
     parameter :mentor_id, "Mentor ID", required: true
     parameter :company, "Company", required: true, scope: :work
     parameter :title, "Job Title", required: true, scope: :work
-    parameter :date_started, "Date Started", required: true, scope: :work
-    parameter :date_ended, "Date Ended", required: false, scope: :work
+    parameter :year_started, "Date Started", required: true, scope: :work
+    parameter :year_ended, "Date Ended", required: false, scope: :work
     parameter :current_work, "Current Work?", required: false, scope: :work
 
     example "Creating mentor's work history" do
       explanation "Once the user is registered as mentor and logged in, they can add their work history"
       work = attributes_for(:work_history, mentor_id: mentor_id)
-      do_request(work: work)
+      do_request(work_history: work)
 
       expect(response_body).to be_json_eql work.to_json
       expect(status).to eq 201
@@ -58,15 +58,15 @@ resource 'WorkHistory' do
     parameter :id, "Work History ID", required: true
     parameter :company, "Company", required: true, scope: :work
     parameter :title, "Job Title", required: true, scope: :work
-    parameter :date_started, "Date Started", required: true, scope: :work
-    parameter :date_ended, "Date Ended", required: false, scope: :work
+    parameter :year_started, "Date Started", required: true, scope: :work
+    parameter :year_ended, "Date Ended", required: false, scope: :work
     parameter :current_work, "Current Work?", required: false, scope: :work
 
     example "Updating mentor's work history" do
       work_a = create(:work_history, mentor_id: mentor_id)
       work_b = attributes_for(:work_history, mentor_id: mentor_id).except(:id)
 
-      do_request(work: work_b, id: work_a.id)
+      do_request(work_history: work_b, id: work_a.id)
 
       # expect(response_body).to be_json_eql work_b.except(:id).to_json
       expect(status).to eq 204

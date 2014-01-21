@@ -11,7 +11,8 @@ describe Mentor do
     context "Basic validations" do
       it { should validate_presence_of :user }
       it { should validate_presence_of :headline }
-      it { should validate_presence_of :location }
+      it { should validate_presence_of :city }
+      it { should validate_presence_of :state }
       it { should validate_presence_of :experties }
       it { should validate_presence_of :years_of_experience }
       it { should validate_numericality_of(:years_of_experience) }

@@ -14,9 +14,13 @@ FactoryGirl.define do
 
   factory :mentor do
     headline { Faker::Lorem.sentence(10) }
-    location { "#{Faker::Address.city}, #{Faker::Address.state_abbr}" }
+    city { Faker::Address.city }
+    state { Faker::Address.state_abbr }
     linkedin { "http://linkedin.com/" + Faker::Lorem.word }
     experties { ['{Accounting,Finance}', '{Banking}', '{Legal Services}', '{Internet,E-learning}'].sample }
+    industries nil
+    programs nil
+    location nil
     years_of_experience { rand(30) }
     phone_number "15626453725"
     availability { Faker::Lorem.sentence(10) }
