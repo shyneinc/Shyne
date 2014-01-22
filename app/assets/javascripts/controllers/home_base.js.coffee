@@ -31,7 +31,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
     u = $scope.signupModel
     Session.register(u.firstName, u.lastName, u.email, u.password, u.confirmPassword, u.timeZone).then(
       (user)->
-        $location.path '/profile/'
+        $location.path '/confirmation/'
     , (error)->
       $scope.signUpError = error
     )
@@ -66,9 +66,6 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
         $scope.flash_message = null
       , 5000)
     )
-
-  $scope.updateModel = (newRating) ->
-    console.log(newRating)
 
   if $routeParams.token != null
     $scope.verify()

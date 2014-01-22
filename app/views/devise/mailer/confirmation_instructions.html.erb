@@ -1,8 +1,8 @@
 <p>Welcome <%= @resource.first_name %>!</p>
 
-<p>Click the link below to verify your e-mail address with Shyne:</p>
+<p>Click the following button to verify your email address with Shyne:</p>
 
-<p><%= link_to "#{root_url}#/verify/#{@token}", "#{root_url}/#/verify/#{@token}" %>
+<p><%= button_to "Confirm e-mail address", "#{root_url}/#/verify/#{@token}", :method => :get %>
 
 <p>If the link doesn't work, please copy and paste this code into the verification form: <code><%= @token %></code></p>
 

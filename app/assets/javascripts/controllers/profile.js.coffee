@@ -6,6 +6,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
   $scope.resetModel = {token: null}
   $scope.historyModel = {role: null}
   $scope.work_histories = null
+  $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -35,8 +36,10 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     $scope.welcomeModel.role = null
 
   $scope.becomeMember = () ->
-    User.becomeMember($scope.memberModel.phoneNumber).then((data)->
+    User.becomeMember($scope.memberModel.phoneNumber, $scope.memberModel.industries, $scope.memberModel.timeZone).then((data)->
+     $scope.userInfo = { user: { time_zone: $scope.memberModel.timeZone} }
      angular.extend($scope.user, data)
+     User.updateUser($scope.userInfo)
     , (data) ->
       $scope.memberFormError = data
     )
@@ -122,4 +125,19 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
 
   if $routeParams.token != null
     $scope.resetModel.reset_password_token = $routeParams.token
+
+  $scope.resendconfirmation = () ->
+    User.sendconfirmation().then((data) ->
+      $scope.flash_message = 'Re-send confirmation link successfully.'
+      $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
+    ,(data) ->
+      $scope.flash_message = data.error
+      $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
+    )
 ])

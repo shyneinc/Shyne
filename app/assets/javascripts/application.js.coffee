@@ -68,6 +68,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/search/:q",
     templateUrl: "/home/search_mentors.html"
     controller: 'HomeBaseCtrl'
+  ).when("/confirmation",
+    templateUrl: "/users/confirmation.html"
+    controller: 'ProfileCtrl'
   )
 
 ]

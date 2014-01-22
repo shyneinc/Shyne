@@ -1,0 +1,25 @@
+<div class="home-form">
+    <header>
+        <div class="container">
+            <nav class="masthead">
+            </nav>
+            <a class="logo" href="#/">Shyne</a>
+        </div>
+    </header>
+    <div class="flash-message" ng-show="flash_message">
+        <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+    </div>
+    <div class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="jumbotron">
+                        <h3>Thanks for joining Shyne! <br /> A confirmation email has been sent to: {{user.email}}. Please click on the link to activate your account.</h3><br /><br /><br />
+                        <h4 class="">If you don’t see it in your e-mail, please check your junk mail OR <a href="javascript:void(0)" ng-click="resendconfirmation()">click here</a> to resend confirmation email.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-include src="'shared/footer.html'"></div>
+</div>

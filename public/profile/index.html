@@ -52,14 +52,31 @@
                                 </div>
                             </div>
                             <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
-                                <h2>Become a Member</h2>
+                                <h2>Become a Member of Shyne!</h2>
                                 <form novalidate role="form" name="memberForm" class="css-form" ng-submit="becomeMember()">
                                     <div class="form-group">
-                                        <label for="becomeMemberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" class="form-control" id="becomeMemberPhoneNumber" placeholder="Enter phone number (xxx) xxx-xxxx" required="">
+                                        <label for="memberTimeZone">What timezone are you in? <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
+                                        <select id="memberTimeZone" ng-model="memberModel.timeZone" class="form-control">
+                                            <option value="Alaska">Alaska</option>
+                                            <option value="Arizona">Arizona</option>
+                                            <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                            <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                            <option value="Hawaii">Hawaii</option>
+                                            <option value="Indiana (East)">Indiana (East)</option>
+                                            <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                            <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                        </select>
                                     </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Apply</button>
+                                    <div class="form-group">
+                                        <label for="becomeMemberPhoneNumber">Phone Number(Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone[0]}}</span></label>
+                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" class="form-control" id="becomeMemberPhoneNumber" placeholder="Enter your 10-digit number" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="becomeMemberIndustries">What industries are you interested in? <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
+                                        <input name="industries" ng-model="memberModel.industries" class="form-control" id="becomeMemberIndustries" placeholder="E.g. Technology, finance, startups, large corporations" required="">
+                                    </div>
+                                    <div class="button-group button-signup">
+                                        <button type="button" class="btn btn-primary btn-signup" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Join Now</button>
                                         <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
                                     </div>
                                 </form>
