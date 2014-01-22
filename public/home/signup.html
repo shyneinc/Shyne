@@ -22,29 +22,29 @@
                         </p>
                     </div>
                     <div class="jumbotron" ng-hide="user">
-                        <h2>Ready for Career Advice? We're excited for you to join Shyne!</h2>
+                        <h2>Ready for reliable career advice? <br /> We're excited for you to join Shyne!</h2>
                         <form novalidate role="form" name="signupForm" class="css-form" ng-submit="signup()">
                             <div class="form-group">
-                                <label for="loginFirstName">First Name <span class="text-danger">{{signUpError.first_name[0]}}</span></label>
+                                <span class="text-danger">{{signUpError.first_name[0]}}</span>
                                 <input ng-model="signupModel.firstName" class="form-control" id="loginFirstName" placeholder="First name" required="" auto-focus>
                             </div>
                             <div class="form-group">
-                                <label for="loginLastName">Last Name <span class="text-danger">{{signUpError.last_name[0]}}</span></label>
+                                <span class="text-danger">{{signUpError.last_name[0]}}</span>
                                 <input ng-model="signupModel.lastName" class="form-control" id="loginLastName" placeholder="Last name" required="">
                             </div>
                             <div class="form-group">
-                                <label for="loginEmail">Email Address <span class="text-danger">{{signUpError.email[0]}}</span></label>
+                                <span class="text-danger">{{signUpError.email[0]}}</span>
                                 <input name="email" ng-model="signupModel.email" type="email" class="form-control" id="loginEmail" placeholder="Email Address" required="">
                             </div>
                             <div class="form-group">
-                                <label for="loginPassword">Password <span class="text-danger">{{signUpError.password[0]}}</span></label>
-                                <input name="password" ng-model="signupModel.password" type="password" class="form-control" id="loginPassword" placeholder="Enter Password" required="">
+                                <span class="text-danger">{{signUpError.password[0]}}</span>
+                                <input name="password" ng-model="signupModel.password" type="password" class="form-control" id="loginPassword" placeholder="Password" required="">
                             </div>
                             <div class="form-group">
-                                <label for="loginConfirmPassword">Confirm Password <span class="text-danger">{{signUpError.password_confirmation[0]}}</span></label>
+                                <span class="text-danger">{{signUpError.password_confirmation[0]}}</span>
                                 <input name="password" ng-model="signupModel.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm Password" required="">
                             </div>
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label for="timeZone">Time Zone <span class="text-danger">{{signUpError.time_zone[0]}}</span></label>
                                 <select id="timeZone" ng-model="signupModel.timeZone" class="form-control">
                                     <option value="Alaska">Alaska</option>
@@ -56,10 +56,10 @@
                                     <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
                                     <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
                                 </select>
-                            </div>
-                            <div class="button-group">
+                            </div>-->
+                            <div class="button-group button-signup">
                                 <p class="text-danger">{{error}}</p>
-                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button>
+                                <button type="button" class="btn btn-success btn-signup" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button>
                             </div>
                         </form>
                     </div>
