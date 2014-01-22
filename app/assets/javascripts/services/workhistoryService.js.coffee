@@ -7,7 +7,7 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
       work_history:
         title: history_model.current_title,
         company: history_model.current_company,
-        year_started: history_model.current_year_started,
+        date_started: history_model.startedCurrentMonthOption + " " + history_model.startedCurrentYearOption,
         current_work: true,
         mentor_id: mentor_id
     ).success((data) ->
@@ -22,8 +22,8 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
         work_history:
           title: valueObj.previous_title_text,
           company: valueObj.previous_company_text,
-          year_started: valueObj.previous_year_started_text,
-          year_ended: valueObj.previous_year_ended_text,
+          date_started: valueObj.startedPreviousMonthOption + " " + valueObj.startedPreviousYearOption,
+          date_ended: valueObj.endedPreviousMonthOption + " " + valueObj.endedPreviousYearOption,
           current_work: false,
           mentor_id: mentor_id
       ).success((data) ->

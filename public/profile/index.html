@@ -142,7 +142,12 @@
 	                    	<tr>
 	                    		<td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="position" required="" auto-focus></td>
 	                    		<td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required="" auto-focus></td>
-	                    		<td><input name="current_year_started" ng-model="historyModel.current_year_started" class="form-control" id="historyCurrentYearStarted" maxlength="50" placeholder="Year you started working" required="" auto-focus></td>
+	                    		<td>
+	                    			<select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" class="form-control"></select>
+	                    		</td>
+	                    		<td>	
+	                    			<select data-ng-options="o.name for o in startedYearOptions" ng-model="historyModel.startedCurrentYearOption" class="form-control"></select>
+	                    		</td>
 	                    	</tr>
 	                    </table>
 									</div>
@@ -153,11 +158,28 @@
 												<div ng-repeat="pos in historyModel.positions">
 		                    <table>
 		                    	<tr>
-			                    <td><input ng-model="pos.previous_title_text" class="form-control" placeholder="position" required=""></td>
-			                    <td><input ng-model="pos.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name" required=""></td>
-			                    <td><input ng-model="pos.previous_year_started_text" class="form-control" maxlength="50" placeholder="Year started work" required=""></td>
-			                    <td><input ng-model="pos.previous_year_ended_text" class="form-control" maxlength="50" placeholder="Year ended work" required=""></td>
-			                    <td><button type="button" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
+			                    	<td><input ng-model="pos.previous_title_text" class="form-control" placeholder="position" required=""></td>
+			                    	<td><input ng-model="pos.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name" required=""></td>
+			                    </tr>
+			                    <tr>
+				                    <td>
+															<select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedPreviousMonthOption" class="form-control"></select>			                    	
+				                    </td>
+		                    		<td>	
+		                    			<select data-ng-options="o.name for o in startedYearOptions" ng-model="historyModel.startedPreviousYearOption" class="form-control"></select>
+		                    		</td>
+		                    	</tr>	
+			                    <tr>
+				                    <td>
+															<select data-ng-options="o.name for o in endedMonthOptions" ng-model="historyModel.endedPreviousMonthOption" class="form-control"></select>			                    	
+				                    </td>
+		                    		<td>	
+		                    			<select data-ng-options="o.name for o in endedYearOptions" ng-model="historyModel.endedPreviousYearOption" class="form-control"></select>
+		                    		</td>
+		                    		<td><button type="button" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
+		                    	</tr>		                    	
+	                    		
+			                    
 		                    	</tr>
 		                    </table>
 												</div>

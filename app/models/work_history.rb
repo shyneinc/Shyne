@@ -1,5 +1,5 @@
 class WorkHistory < ActiveRecord::Base
-  validates :company, :year_started, :mentor_id, :title, presence: true
+  validates :company, :mentor_id, :title, presence: true
   belongs_to :mentor
 
   after_create :rebuild_pg_search_documents

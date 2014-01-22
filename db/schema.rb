@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140122095832) do
 
   # These are extensions that must be enabled in order to support this database
@@ -247,8 +248,8 @@ ActiveRecord::Schema.define(version: 20140122095832) do
 
   create_table "work_histories", force: true do |t|
     t.string   "company"
-    t.string   "year_started"
-    t.string   "year_ended"
+    t.string   "date_started", limit: nil
+    t.string   "date_ended",   limit: nil
     t.boolean  "current_work"
     t.integer  "mentor_id"
     t.datetime "created_at"

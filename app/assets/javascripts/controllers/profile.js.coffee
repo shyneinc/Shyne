@@ -7,6 +7,30 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
   $scope.historyModel = {role: null}
   $scope.work_histories = null
   $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
+  
+  #month started ended
+  month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"]
+                    
+  $scope.startedMonthOptions = [{ name: "MonthStarted", id: "" }]
+  $scope.endedMonthOptions = [{ name: "MonthEnded", id: "" }]
+  
+  for i in month_arr
+    $scope.startedMonthOptions.push({ name: i, id: i })
+    $scope.endedMonthOptions.push({ name: i, id: i })
+  
+  $scope.historyModel.startedCurrentMonthOption = $scope.historyModel.startedPreviousMonthOption = $scope.startedMonthOptions[0]
+  $scope.historyModel.endedPreviousMonthOption = $scope.endedMonthOptions[0]
+  current_year = new Date().getFullYear()
+  
+  #year started ended  
+  $scope.startedYearOptions = [{ name: "YearStarted", id: "" }]
+  $scope.endedYearOptions = [{ name: "YearEnded", id: "" }]
+  for i in [current_year-20..current_year]
+    $scope.startedYearOptions.push({ name: i, id: i }) 
+    $scope.endedYearOptions.push({ name: i, id: i })
+  
+  $scope.historyModel.startedCurrentYearOption = $scope.historyModel.startedPreviousYearOption = $scope.startedYearOptions[0]
+  $scope.historyModel.endedPreviousYearOption = $scope.endedYearOptions[0]
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -77,7 +101,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
       , (data) ->
         $scope.historyFormError = data
       )
-    , 0)
+    , 1000)
     window.setTimeout(() ->
       $scope.historyModel = {role: null}
     , 1000)
