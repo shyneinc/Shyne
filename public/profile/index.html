@@ -248,7 +248,7 @@
                                       <form novalidate role="form" name="userAvatarForm" class="css-form">
                                           <div class="form-group">
                                               <label for="userAvatar">Avatar <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
-                                              <input id="userAvatar" type="file" ng-model="user.avatar" class="form-control" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="" onchange="angular.element(this).scope().updateAvatar(this.files)" hide-inline-edit>
+                                              <input id="userAvatar" type="file" class="form-control" required="" onchange="angular.element(this).scope().updateAvatar(this)" hide-inline-edit>
                                           </div>
                                       </form>
                                   </div>
@@ -458,14 +458,11 @@
                             </div>
                             <div class="edit-form">
                                 <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="memberAvatarForm" class="css-form" ng-submit="updateUser()">
-                                    <div class="form-group">
-                                        <label for="memberAvatar">Avatar <span class="text-danger">{{memberFormError.avatar[0]}}</span></label>
-                                        <input name="firstName" ng-model="user.avatar.url" class="form-control" id="memberAvatar" placeholder="Enter avatar URL (Best Size: 140px by 140px)" required="">
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberAvatarForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                    </div>
+                                <form novalidate role="form" name="userAvatarForm" class="css-form">
+                                  <div class="form-group">
+                                    <label for="userAvatar">Avatar <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
+                                    <input id="userAvatar" type="file" class="form-control" onchange="angular.element(this).scope().updateAvatar(this)" hide-inline-edit>
+                                  </div>
                                 </form>
                             </div>
                         </div>
