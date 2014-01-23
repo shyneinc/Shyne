@@ -5,7 +5,7 @@
         <div class="container">
             <div class="col-md-10 col-md-offset-1">
               <form class="mentor-search-form" role="form" name="searchForm" ng-submit="searchMentors()">
-                  <input type="search" class="form-search-control search-box" placeholder="Search for a person, company or position" ng-model="searchModel.search_text" />
+                  <input type="search" class="form-search-control search-box" placeholder="Search for a company or position that you’re interested in." ng-model="searchModel.search_text" />
                   <button type="button" class="btn btn-primary btn-search-green" ng-click="searchMentors()"><span class="glyphicon glyphicon-search"></span> SEARCH</button>
               </form>
               <div class="result-text">Search result for "{{searchModel.search_text}}"</div>
