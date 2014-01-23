@@ -46,8 +46,10 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
     search_text = $scope.searchModel.search_text
     Session.searchMentors(search_text).then(
       (data)->
+        if data.info
+          $scope.searchError = data
+          data = []
         $scope.search_mentors = data
-        $location.path("/search/"+search_text).replace()
     , (error)->
       $scope.signUpError = error
     )

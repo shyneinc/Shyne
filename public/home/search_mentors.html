@@ -6,13 +6,13 @@
             <div class="col-md-10 col-md-offset-1">
               <form class="mentor-search-form" role="form" name="searchForm" ng-submit="searchMentors()">
                   <input type="search" class="form-search-control search-box" placeholder="Search for a person, company or position" ng-model="searchModel.search_text" />
-                  <button type="button" class="btn btn-primary btn-search-green" type="submit" ng-click="searchMentors()"><span class="glyphicon glyphicon-search"></span> SEARCH</button>
+                  <button type="button" class="btn btn-primary btn-search-green" ng-click="searchMentors()"><span class="glyphicon glyphicon-search"></span> SEARCH</button>
               </form>
               <div class="result-text">Search result for "{{searchModel.search_text}}"</div>
               <div class="mentors">
                   <div class="container">
                       <div class="row">
-                          <div class="search-card col-md-9" ng-repeat="mentor in search_mentors">
+                          <div class="search-card col-md-9" ng-repeat="mentor in search_mentors" ng-hide="search_mentors.length == 0">
                               <div class="col-md-2 profile-padd" ng-click="viewProfile(mentor)">
                                   <div class="photo">
                                       <img src="/assets/sample.jpg" ng-src="{{mentor.avatar}}">
@@ -33,6 +33,9 @@
                                   <button class="btn btn-primary btn-orange">Schedule Call</button>
                               </div>
                           </div>
+                        <div class="search-card col-md-9" ng-show="search_mentors.length == 0">
+                            {{searchError.info}}
+                        </div>
                       </div>
                   </div>
               </div>

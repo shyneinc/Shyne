@@ -15,7 +15,7 @@ class Mentor < ActiveRecord::Base
   has_many :work_histories
 
   include PgSearch
-  multisearchable :against => [:full_name, :headline, :location, :experties, :worked_at],
+  multisearchable :against => [:full_name, :headline, :location, :experties, :worked_at, :position],
                   ignoring: :accents,
                   :if => :approved?
 
@@ -76,10 +76,14 @@ class Mentor < ActiveRecord::Base
   end
 
   def current_worked_at
-    self.work_histories.where(:current_work => true).map! { |p| "#{p.title} at #{p.company}" }.join(" ")
+    self.work_histories.where(:current_work => true).map! { |p| "#{p.title} at #{p.company}" }.first
   end
 
   def previous_worked_at
-    self.work_histories.where(:current_work => false).map! { |p| "#{p.title} at #{p.company}" }.join(" ")
+    self.work_histories.where(:current_work => false).map! { |p| "#{p.title} at #{p.company}" }.first
+  end
+
+  def position
+    self.work_histories.map(&:title).join(" ")
   end
 end
