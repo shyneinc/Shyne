@@ -34,8 +34,8 @@ resource 'WorkHistory' do
     parameter :mentor_id, "Mentor ID", required: true
     parameter :company, "Company", required: true, scope: :work
     parameter :title, "Job Title", required: true, scope: :work
-    parameter :year_started, "Date Started", required: true, scope: :work
-    parameter :year_ended, "Date Ended", required: false, scope: :work
+    parameter :date_started, "Date Started", required: true, scope: :work
+    parameter :date_ended, "Date Ended", required: false, scope: :work
     parameter :current_work, "Current Work?", required: false, scope: :work
 
     example "Creating mentor's work history" do
@@ -58,8 +58,8 @@ resource 'WorkHistory' do
     parameter :id, "Work History ID", required: true
     parameter :company, "Company", required: true, scope: :work
     parameter :title, "Job Title", required: true, scope: :work
-    parameter :year_started, "Date Started", required: true, scope: :work
-    parameter :year_ended, "Date Ended", required: false, scope: :work
+    parameter :date_started, "Date Started", required: true, scope: :work
+    parameter :date_ended, "Date Ended", required: false, scope: :work
     parameter :current_work, "Current Work?", required: false, scope: :work
 
     example "Updating mentor's work history" do

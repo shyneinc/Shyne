@@ -14,6 +14,7 @@ FactoryGirl.define do
 
   factory :member do
     phone_number "15626453725"
+    industries nil
     user
   end
 end
