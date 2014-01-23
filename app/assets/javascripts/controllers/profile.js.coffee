@@ -7,6 +7,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
   $scope.historyModel = {role: null}
   $scope.work_histories = null
   $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
+  $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"]
@@ -81,6 +82,8 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     ).then((data) ->
       angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
+      $scope.userInfo = { user: { time_zone: $scope.mentorModel.timeZone} }
+      User.updateUser($scope.userInfo)
     , (data) ->
       $scope.mentorFormError = data
     )

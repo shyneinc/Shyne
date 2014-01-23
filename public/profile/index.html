@@ -92,8 +92,10 @@
                                         <label for="mentorLocation">Where are you located? <span class="text-danger">{{mentorFormError.city[0]}}</span> <span class="text-danger">{{mentorFormError.state[0]}}</span></label>
                                     </div>
                                     <div class="form-group">
-                                        <input name="city" ng-model="mentorModel.city" class="form-control width50" id="mentorCity" placeholder="Enter the City" required="">
-                                        <input name="state" ng-model="mentorModel.state" class="form-control width50" id="mentorState" placeholder="Enter the State" required="">
+                                        <label for="mentorCity">City <span class="text-danger">{{mentorFormError.city[0]}}</span></label>
+                                        <input name="city" ng-model="mentorModel.city" class="form-control width60" id="mentorCity" placeholder="Enter the City" required="">
+                                        <label for="mentorState">State <span class="text-danger">{{mentorFormError.state[0]}}</span></label>
+                                        <input name="state" ng-model="mentorModel.state" class="form-control width30" id="mentorState" placeholder="eg. CA" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorExperties">Experties <span class="text-danger">{{mentorFormError.experties[0]}}</span></label>
@@ -114,6 +116,19 @@
                                     <div class="form-group">
                                         <label for="mentorLinkedin">What is your LinkedIn URL? <span class="text-danger">{{mentorFormError.linkedin[0]}}</span></label>
                                         <input name="linkedin" ng-model="mentorModel.linkedin" class="form-control" id="mentorLinkedin" placeholder="Enter the URL to your Linkedin Profile" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="memberTimeZone">What timezone are you in? <span class="text-danger">{{mentorFormError.time_zone[0]}}</span></label>
+                                        <select id="memberTimeZone" ng-model="mentorModel.timeZone" class="form-control">
+                                            <option value="Alaska">Alaska</option>
+                                            <option value="Arizona">Arizona</option>
+                                            <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                            <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                            <option value="Hawaii">Hawaii</option>
+                                            <option value="Indiana (East)">Indiana (East)</option>
+                                            <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                            <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                        </select>
                                     </div>
                                     <div class="button-group">
                                         <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Apply Now!</button>
@@ -524,6 +539,21 @@
                                         </div>
                                         <div class="button-group">
                                             <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberTimeZoneForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="editable-field">
+                                <span class="glyphicon glyphicon-random"></span> {{user.industries}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <div class="edit-form">
+                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
+                                    <form novalidate role="form" name="memberIndustriesForm" class="css-form" ng-submit="updateMember()">
+                                        <div class="form-group">
+                                            <label for="memberPhoneNumber">Industries <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
+                                            <input name="industries" ng-model="user.industries" class="form-control" id="memberIndustries" placeholder="E.g. Technology, finance, startups, large corporations" required="">
+                                        </div>
+                                        <div class="button-group">
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMember()" hide-inline-edit>Update</button>
                                         </div>
                                     </form>
                                 </div>

@@ -100,6 +100,8 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       member:
         phone_number:
           user.phone_number
+        industries:
+          user.industries
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->

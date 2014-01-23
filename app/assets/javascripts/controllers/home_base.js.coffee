@@ -1,7 +1,7 @@
 Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams','Session','Confirmation', ($location, $scope, $timeout, $routeParams, Session, Confirmation) ->
 
   $scope.showIndex = true
-  $scope.signupModel = {timeZone: 'Alaska'}
+  $scope.signupModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.signUpError = {}
   $scope.user = null
   $scope.token = $routeParams.token
