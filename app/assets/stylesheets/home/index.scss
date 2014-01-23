@@ -206,7 +206,7 @@
         }
         .review-count {
           float: right;
-          margin-right:15px;
+          margin-right:36px;
           margin-top: -34px;
         }
       }
@@ -214,7 +214,7 @@
         @include gradient(#FF860D, #FF860D);
         border-color: $white;
         color: $white;
-        font-size: 24px;
+        font-size: 20px;
         &:hover, &:active, &:focus {
           @include gradient(#FF860D, #FF860D);
           border-color: $white;
