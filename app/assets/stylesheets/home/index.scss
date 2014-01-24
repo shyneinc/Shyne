@@ -244,6 +244,16 @@
         color: #FF860D;
       }
     }
+    .work-text {
+      text-align: center;
+      .step-count {
+        display: inline-block;
+        border: 2px solid #000;
+        border-radius: 15px;
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
   .our-mission {
     margin-top: 40px;
@@ -327,4 +337,8 @@
 .width30 {
   width: 29.9%;
   display:inline-block;
+}
+
+.pt5 {
+  padding-top: 5px;
 }

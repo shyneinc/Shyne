@@ -17,7 +17,7 @@
                     <div class="col-md-6">
                         <form class="search-form" ng-submit="search()">
                             <input ng-model="searchModel.search_text" type="search" class="form-control search-box" placeholder="Search for a company or position you're interested in."/>
-                            <button class="btn btn-default"  ng-click="search()"><span class="glyphicon glyphicon-search"></span></a>
+                            <button class="btn btn-default" ng-click="search()"><span class="glyphicon glyphicon-search"></span></button>
                         </form>
                     </div>
                     <div class="col-md-3">
@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <p>We have mentors from <a href="#">Facebook</a>, <a href="#">Google</a>, <a href="#">Goldman Sachs</a>, <a href="#">KPMG</a>, <a href="#">PwC</a>, <a href="#">Square</a>, <a href="#">Dropbox</a>, and many more companies!  Pick their brains on what they did to land their jobs.</p>
-                    <button class="btn btn-lg btn-success" ng-click="go('/signup')">I'm ready for advice!</button>
+                    <a href="#/signup" class="btn btn-lg btn-success">I'm ready for advice!</a>
                 </div>
                 <div class="col-md-4">&nbsp;</div>
             </div>
@@ -76,6 +76,50 @@
                 <div class="col-md-2 arrow-holder">
                     <a href="#" class="right-arrow arrow"><span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mentors">
+        <div class="container">
+            <h2 class="text-center">How it Works</h2>
+            <div class="col-md-12 col-md-offset-1">
+              <div class="col-md-3 work-text">
+                  <div><span class="step-count">1</span></div>
+                  <div class="pt5"><img src="/assets/first-icon.png" /></div>
+                  <div>Apply to become a Mentor</div>
+              </div>
+              <div class="col-md-3 work-text">
+                  <div><span class="step-count">2</span></div>
+                  <div class="pt5"><img src="/assets/second-icon.png" /></div>
+                  <div class="pt5">Create a profile so our users can contact you to schedule a call</div>
+              </div>
+              <div class="col-md-3 work-text">
+                  <div><span class="step-count">3</span></div>
+                  <div class="pt5"><img src="/assets/third-icon.png" /></div>
+                  <div class="pt5">Take calls whenever you’re free. Money transferred straight to your bank account after call is complete!</div>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="text-center">Why Should You Become a Mentor?</h2>
+            <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-6 work-text">
+                  <div><strong>Have you ever been in the following situation?</strong></div>
+                  <div>One of your buddies messages you and says, “Hey, a friend of mine needs some career advice and I thought you’d be able to help him. I was wondering if I could introduce you two and maybe you could talk to him and give some advice?”</div>
+              </div>
+              <div class="col-md-6 work-text">
+                  <div><strong>What if you could get paid to give career advice that you usually give for free?</strong></div>
+                  <div>This is exactly what Shyne does! Just apply to become a Mentor and our users will contact you to schedule calls when they need simple yet effective advice about your background and work experience.</div>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+            <h3 class="text-center">Our Mentors make $60-180/hr (depending on experience). Interested in joining?</h3>
+            <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-12 work-text">
+                  <div><a href="#/signup" class="btn btn-lg btn-red">Apply Now</a></div>
+              </div>
             </div>
         </div>
     </div>
