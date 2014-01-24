@@ -247,7 +247,7 @@
                                       <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
                                       <form novalidate role="form" name="userAvatarForm" class="css-form">
                                           <div class="form-group">
-                                              <label for="userAvatar">Avatar <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
+                                              <label for="userAvatar">Upload Profile Image <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
                                               <input id="userAvatar" type="file" class="form-control" required="" onchange="angular.element(this).scope().updateAvatar(this)" hide-inline-edit>
                                           </div>
                                       </form>
@@ -460,7 +460,7 @@
                                 <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
                                 <form novalidate role="form" name="userAvatarForm" class="css-form">
                                   <div class="form-group">
-                                    <label for="userAvatar">Avatar <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
+                                    <label for="userAvatar">Upload Profile Image <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
                                     <input id="userAvatar" type="file" class="form-control" onchange="angular.element(this).scope().updateAvatar(this)" hide-inline-edit>
                                   </div>
                                 </form>
@@ -517,7 +517,7 @@
                                 </div>
                             </div>-->
                             <div class="editable-field">
-                                <span class="glyphicon glyphicon-time"></span> {{user.time_zone}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <h4><span class="glyphicon glyphicon-time"></span> {{user.time_zone}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h4>
                                 <div class="edit-form">
                                     <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
                                     <form novalidate role="form" name="memberTimeZoneForm" class="css-form" ng-submit="updateUser()">
@@ -541,7 +541,7 @@
                                 </div>
                             </div>
                             <div class="editable-field">
-                                <span class="glyphicon glyphicon-random"></span> {{user.industries}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                <h4><span class="glyphicon glyphicon-random"></span> {{user.industries}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h4>
                                 <div class="edit-form">
                                     <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
                                     <form novalidate role="form" name="memberIndustriesForm" class="css-form" ng-submit="updateMember()">
@@ -556,7 +556,7 @@
                                 </div>
                             </div>
                             <div class="editable-field">
-                                <span class="glyphicon glyphicon-lock"></span> <a href="" start-inline-edit>Change Password</a>
+                                <h4><span class="glyphicon glyphicon-lock"></span> <a href="" start-inline-edit>Change Password</a></h4>
                                 <div class="edit-form">
                                     <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
                                     <form novalidate role="form" name="memberPasswordForm" class="css-form" ng-submit="updateUser()">
