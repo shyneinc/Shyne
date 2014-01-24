@@ -163,9 +163,7 @@
                             </select>
                           </td>
                           <td>
-                            <select data-ng-options="o.name for o in startedYearOptions" ng-model="historyModel.startedCurrentYearOption" class="form-control" required="">
-                              <option value="">YearStarted</option>
-                            </select>
+                            <input name="staredCurrentYear" ng-model="historyModel.startedCurrentYearOption" class="form-control" id="historyStartedCurrentYear" maxlength="4" placeholder="Year" required="">
                           </td>
                         </tr>
                       </table>
@@ -187,9 +185,7 @@
                               </select>
                             </td>
                             <td>
-                              <select data-ng-options="o.name for o in startedYearOptions" ng-model="historyModel.startedPreviousYearOption" class="form-control">
-                                <option value="">YearStarted</option>
-                            </select>
+                              <input name="staredPreviousYear" ng-model="historyModel.startedPreviousYearOption" class="form-control" id="historyStartedPreviousYear" maxlength="4" placeholder="Year" required="">
                             </td>
                           </tr>
                           <tr>
@@ -199,9 +195,7 @@
                             </select>
                             </td>
                             <td>
-                              <select data-ng-options="o.name for o in endedYearOptions" ng-model="historyModel.endedPreviousYearOption" class="form-control">
-                                <option value="">YearEnded</option>
-                              </select>
+                              <input name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" class="form-control" id="historyEndedPreviousYear" maxlength="4" placeholder="Year" required="">
                             </td>
                             <td><button type="button" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
                           </tr>
