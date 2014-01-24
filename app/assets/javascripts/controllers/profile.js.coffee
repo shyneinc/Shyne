@@ -170,7 +170,9 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
 
   $scope.updateAvatar = (element) ->
     User.updateAvatar(element.files).then((data) ->
-      $scope.refresh(true)
+      Session.getCurrentUser(true).then((user)->
+        $scope.user.avatar = user.avatar
+      )
     , (data) ->
       $scope.resetpasswordFormError = data.errors
     )

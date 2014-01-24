@@ -48,4 +48,8 @@ Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope,
     search_location = "/search/#{$scope.searchModel.search_text}"
     $location.path search_location
 
+  $scope.go = (path) ->
+    $location.path(path)
+
+
 ])
