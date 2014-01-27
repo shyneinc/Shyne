@@ -176,4 +176,26 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     , (data) ->
       $scope.resetpasswordFormError = data.errors
     )
+
+  $scope.updateUser = () ->
+    User.updateUser($scope.user).then((data) ->
+      $scope.flash_message = 'User Information Updated.'
+      $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
+    , (data) ->
+      $scope.resetpasswordFormError = data.errors
+    )
+
+  $scope.updatePassword = () ->
+    User.updatePassword($scope.user).then((data) ->
+      $scope.flash_message = 'Your Password has been updated!'
+      $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
+    , (data) ->
+      $scope.changepasswordFormError = data.errors
+    )
 ])

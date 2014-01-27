@@ -71,6 +71,24 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/confirmation",
     templateUrl: "/users/confirmation.html"
     controller: 'ProfileCtrl'
+  ).when("/settings",
+    templateUrl: "/profile/settings.html"
+    controller: 'ProfileCtrl'
+  ).when("/basicinfo",
+    templateUrl: "/settings/basic_information.html"
+    controller: 'ProfileCtrl'
+  ).when("/changepassword",
+    templateUrl: "/settings/changepassword.html"
+    controller: 'ProfileCtrl'
+  ).when("/creditcard",
+    templateUrl: "/settings/creditcard.html"
+    controller: 'ProfileCtrl'
+  ).when("/emailnotification",
+    templateUrl: "/settings/emailnotifications.html"
+    controller: 'ProfileCtrl'
+  ).when("/account",
+    templateUrl: "/settings/account_status.html"
+    controller: 'ProfileCtrl'
   )
 
 ]

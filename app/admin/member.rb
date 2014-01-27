@@ -5,19 +5,21 @@ ActiveAdmin.register Member do
     selectable_column
     column :user
     column :phone_number
+    column :industries
     default_actions
   end
 
   form do |f|
     f.inputs "Member Details" do
       f.input :phone_number
+      f.input :industries
     end
     f.actions
   end
 
   controller do
     def permitted_params
-      params.permit member: [:phone_number, :user_id]
+      params.permit member: [:phone_number, :industries, :user_id]
     end
   end
 end
