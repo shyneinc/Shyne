@@ -319,6 +319,57 @@
   .button-signup {
     text-align: center;
   }
+
+  .setting-nav {
+    li {
+      border-bottom: 1px solid #D9D8E3;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    a {
+      color: $black;
+    }
+  }
+  .chev-right {
+      position: absolute;
+      right: 12px;
+      top: 15px;
+  }
+  .chev-right, .chev-left {
+      background-position: 0 -140px;
+      height: 13px;
+      width: 9px;
+  }
+  i, .icon {
+      background-image: url("/assets/twitter_web_sprite_icons.png");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: inline-block;
+      vertical-align: text-top;
+  }
+  .back-link {
+    display: block;
+    position:relative;
+    float: left;
+    font-size: 21px;
+    left: 15px;
+    span {
+      background-image: url("/assets/left_arrow.png");
+      background-position: 0 10px;
+      background-repeat: no-repeat;
+      font-size: 31px;
+      padding: 5px 29px;
+      color: #3DA0F8;
+    }
+  }
+  .back-link:hover {
+    text-decoration: none;
+  }
+  .link-red {
+    color: #CE0000;
+    text-decoration:underline;
+  }
 }
 
 .mgBtm {

@@ -29,6 +29,9 @@ Shyne::Application.routes.draw do
 
         match '/passwords' => 'passwords#create', :via => :post
         match '/passwords' => 'passwords#update', :via => :put
+
+
+        match '/update_password' => 'passwords#update_password', :via => :put
       end
 
       resources :users, only: [:create]

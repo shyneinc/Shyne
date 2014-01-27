@@ -162,4 +162,18 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       deferred.reject(data)
     )
     deferred.promise
+
+  updatePassword: (user) ->
+    deferred = $q.defer()
+    $http.put('/api/update_password',
+      user:
+        current_password: user.current_password,
+        password: user.password,
+        password_confirmation: user.confirmPassword,
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data)
+    )
+    deferred.promise
 ])
