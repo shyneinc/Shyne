@@ -37,6 +37,7 @@ Shyne::Application.routes.draw do
       resources :users, only: [:create]
       match '/users' => 'users#show', :via => :get
       match '/users' => 'users#update', :via => :put
+      match '/users' => 'users#destroy', :via => :delete
 
       resources :mentors, except: [:update, :destroy] do
         resources :work_histories

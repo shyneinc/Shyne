@@ -19,6 +19,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     respond_with :api, User.update(current_user.id, user_params)
   end
 
+  def destroy
+    respond_with :api, User.find(current_user.id).destroy
+  end
+
   private
 
   def user_params
