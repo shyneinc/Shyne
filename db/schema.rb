@@ -245,8 +245,8 @@ ActiveRecord::Schema.define(version: 20140127080723) do
 
   create_table "work_histories", force: true do |t|
     t.string   "company"
-    t.string   "date_started", limit: nil
-    t.string   "date_ended",   limit: nil
+    t.string   "date_started"
+    t.string   "date_ended"
     t.boolean  "current_work"
     t.integer  "mentor_id"
     t.datetime "created_at"

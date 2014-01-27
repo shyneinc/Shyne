@@ -7,6 +7,8 @@ class Api::V1::MentorsController < Api::V1::BaseController
       mentors_list = Mentor.approved.featured
     elsif (params[:skills].present?)
       mentors_list = Mentor.approved.skills(params[:skills])
+    elsif (params[:industries].present?)
+      mentors_list = Mentor.approved.industries(params[:industries])
     else
       mentors_list = Mentor.approved
     end
