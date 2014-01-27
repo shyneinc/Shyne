@@ -52,6 +52,7 @@ class Api::V1::MentorsController < Api::V1::BaseController
     end
   end
 
+  #TODO: Delete this route. This is not RESTful!
   def all_mentors
     mentors = []
     mentors_list = Mentor.approved
