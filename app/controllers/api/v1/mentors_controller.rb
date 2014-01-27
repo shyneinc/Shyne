@@ -5,8 +5,8 @@ class Api::V1::MentorsController < Api::V1::BaseController
     mentors = []
     if (params[:featured].present? && params[:featured] == 'true')
       mentors_list = Mentor.approved.featured
-    elsif (params[:experties].present?)
-      mentors_list = Mentor.approved.experties(params[:experties])
+    elsif (params[:skills].present?)
+      mentors_list = Mentor.approved.skills(params[:skills])
     else
       mentors_list = Mentor.approved
     end
@@ -74,6 +74,6 @@ class Api::V1::MentorsController < Api::V1::BaseController
   private
 
   def mentor_params
-    params.require(:mentor).permit(:headline, :city, :state, :experties, :years_of_experience, :phone_number, :availability, :linkedin, :industries, :programs)
+    params.require(:mentor).permit(:headline, :city, :state, :years_of_experience, :phone_number, :availability, :linkedin, :industries, :skills)
   end
 end

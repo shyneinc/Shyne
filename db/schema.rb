@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140122095832) do
+ActiveRecord::Schema.define(version: 20140127080723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,7 +129,6 @@ ActiveRecord::Schema.define(version: 20140122095832) do
     t.text     "availability"
     t.datetime "status_changed_at"
     t.boolean  "featured"
-    t.string   "experties",           default: [], array: true
     t.string   "linkedin"
     t.string   "mentor_status"
     t.string   "location"
@@ -140,10 +138,9 @@ ActiveRecord::Schema.define(version: 20140122095832) do
     t.string   "city"
     t.string   "state"
     t.string   "industries"
-    t.string   "programs"
+    t.string   "skills"
   end
 
-  add_index "mentors", ["experties"], name: "index_mentors_on_experties", using: :gin
   add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
 
   create_table "notifications", force: true do |t|

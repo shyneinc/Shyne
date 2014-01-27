@@ -18,15 +18,14 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  becomeMentor: (headline, city, state, experties, years_of_experience, phone_number, availability, linkedin) ->
+  becomeMentor: (headline, city, state, years_of_experience, phone_number, availability, linkedin) ->
     deferred = $q.defer()
 
     $http.post('/api/mentors',
       mentor:
         headline: headline,
         city: city,
-        state: state,
-        experties: experties,
+        state: state
         years_of_experience: years_of_experience,
         phone_number: phone_number,
         availability: availability,
@@ -57,11 +56,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
   getMentorInfo: (memberId) ->
     deferred = $q.defer()
     $http.get('/api/mentors/' + memberId).success((data) ->
-      if data.id
-        data.expertieString = data.experties.join(', ')
-        deferred.resolve(data)
-      else
-        deferred.reject(data)
+      deferred.resolve(data)
     ).error((data)->
       deferred.reject(data)
     )
@@ -115,14 +110,13 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       mentor:
         headline: user.headline,
         city: user.city,
-        state: user.state,
-        experties: user.experties,
+        state: user.state
         years_of_experience: user.years_of_experience,
         phone_number: user.phone_number,
         availability: user.availability,
         linkedin: user.linkedin,
         industries: user.industries,
-        programs: user.programs
+        skills: user.skills
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->
