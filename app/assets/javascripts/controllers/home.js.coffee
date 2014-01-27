@@ -47,6 +47,9 @@ Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope,
   $scope.search = () ->
     search_location = "/search/#{$scope.searchModel.search_text}"
     $location.path search_location
+    
+  $scope.scheduleCall = (mentor_id) ->
+    alert('hi')  
 
   $scope.go = (path) ->
     $location.path(path)

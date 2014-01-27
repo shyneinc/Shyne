@@ -89,6 +89,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/account",
     templateUrl: "/settings/account_status.html"
     controller: 'ProfileCtrl'
+  ).when("/call_request/:mentor_id",
+    templateUrl: "/call_request/index.html"
+    controller: 'CallRequestCtrl'    
   )
 
 ]
