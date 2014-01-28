@@ -11,7 +11,7 @@ class Api::V1::MentorsController < Api::V1::BaseController
       mentors_list = Mentor.approved
     end
     mentors_list.each do |mentor|
-      mentors << { id: mentor.id, role: mentor.headline, name: "#{mentor.user.first_name} #{mentor.user.last_name}", company: "Shyne", ratePerMinute: 5, photoUrl: mentor.user.avatar.url }
+      mentors << { id: mentor.id, role: mentor.current_position, name: "#{mentor.user.first_name} #{mentor.user.last_name}", company: mentor.current_company, ratePerMinute: 5, photoUrl: mentor.user.avatar.url }
     end
 
     respond_with :api, mentors
