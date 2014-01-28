@@ -13,7 +13,19 @@ class Api::V1::MentorsController < Api::V1::BaseController
       mentors_list = Mentor.approved
     end
     mentors_list.each do |mentor|
-      mentors << { id: mentor.id, role: mentor.current_position, name: "#{mentor.user.first_name} #{mentor.user.last_name}", company: mentor.current_company, ratePerMinute: 5, photoUrl: mentor.user.avatar.url }
+      mentors << {
+        id: mentor.id,
+        role: mentor.current_position,
+        name: mentor.full_name,
+        company: mentor.current_company,
+        rate_per_minute: mentor.rate_per_minute,
+        photoUrl: mentor.user.avatar.url,
+        years_of_experience: mentor.years_of_experience,
+        full_address: mentor.full_address,
+        get_avg_rating: mentor.get_avg_rating,
+        current_worked_at: mentor.current_worked_at,
+        previous_worked_at: mentor.previous_worked_at
+      }
     end
 
     respond_with :api, mentors
@@ -54,26 +66,6 @@ class Api::V1::MentorsController < Api::V1::BaseController
     end
   end
 
-  #TODO: Delete this route. This is not RESTful!
-  def all_mentors
-    mentors = []
-    mentors_list = Mentor.approved
-    mentors_list.each do |mentor|
-      mentors << {
-        id: mentor.id,
-        headline: mentor.headline,
-        years_of_experience: mentor.years_of_experience,
-        full_name: mentor.full_name,
-        avatar: mentor.user.avatar.url,
-        full_address: mentor.full_address,
-        rate_per_minute: mentor.rate_per_minute,
-        get_avg_rating: mentor.get_avg_rating,
-        current_worked_at: mentor.current_worked_at,
-        previous_worked_at: mentor.previous_worked_at
-      }
-    end
-    respond_with :api, mentors
-  end
   private
 
   def mentor_params

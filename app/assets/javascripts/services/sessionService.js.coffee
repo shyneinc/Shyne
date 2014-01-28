@@ -71,7 +71,7 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       search_text = ""
 
     deferred = $q.defer()
-    search_url = if search_text then "/api/search?q=#{search_text}" else "/api/all_mentors"
+    search_url = if search_text then "/api/search?q=#{search_text}" else "/api/mentors"
     $http.get(search_url).success((data)->
       deferred.resolve(data)
     ).error((data)->
@@ -81,7 +81,7 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
 
   getAllMentors: () ->
     deferred = $q.defer()
-    $http.get('/api/all_mentors').success((data)->
+    $http.get('/api/mentors').success((data)->
       deferred.resolve(data)
     ).error((data)->
       deferred.reject(data)

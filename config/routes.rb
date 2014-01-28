@@ -30,7 +30,6 @@ Shyne::Application.routes.draw do
         match '/passwords' => 'passwords#create', :via => :post
         match '/passwords' => 'passwords#update', :via => :put
 
-
         match '/update_password' => 'passwords#update_password', :via => :put
       end
 
@@ -45,7 +44,6 @@ Shyne::Application.routes.draw do
       end
       match '/mentors' => 'mentors#update', :via => :put
       match '/mentors' => 'mentors#destroy', :via => :delete
-      match '/all_mentors' => 'mentors#all_mentors', :via => :get
 
       resources :members, except: [:update, :destroy]
       match '/members' => 'members#update', :via => :put
