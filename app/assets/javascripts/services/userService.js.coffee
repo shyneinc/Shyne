@@ -176,4 +176,13 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       deferred.reject(data)
     )
     deferred.promise
+
+  getMentorFullInfo: (memberId) ->
+    deferred = $q.defer()
+    $http.get('/api/mentor_details/' + memberId).success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
 ])

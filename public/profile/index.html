@@ -301,13 +301,13 @@
                               </section>
                               <section class="editable-field">
                                   <span class="glyphicon glyphicon-briefcase"></span>
-                                  Specialties: {{user.expertieString}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
+                                  Specialties: {{user.skills}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
                                   <div class="edit-form">
                                       <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
                                       <form novalidate role="form" name="mentorExpertieForm" class="css-form" ng-submit="updateMentor()">
                                           <div class="form-group">
-                                              <label for="mentorExperties">Experties <span class="text-danger">{{memberFormError.experties[0]}}</span></label>
-                                              <input name="location" ng-model="user.expertiString" class="form-control" id="mentorExperties" placeholder="Enter your experties" required="">
+                                              <label for="mentorExperties">Skills <span class="text-danger">{{memberFormError.skills[0]}}</span></label>
+                                              <input name="skills" ng-model="user.skills" class="form-control" id="mentorSkills" placeholder="Enter your skills" required="">
                                           </div>
                                           <div class="button-group">
                                               <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorExpertieForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>

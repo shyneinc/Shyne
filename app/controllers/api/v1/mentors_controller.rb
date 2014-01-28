@@ -1,5 +1,5 @@
 class Api::V1::MentorsController < Api::V1::BaseController
-  before_filter :authenticate_user!, :except => [:index, :show, :all_mentors]
+  before_filter :authenticate_user!, :except => [:index, :show, :show_fulldetails]
 
   def index
     mentors = []
@@ -67,6 +67,38 @@ class Api::V1::MentorsController < Api::V1::BaseController
     else
       render :json => {:error => 'User is not a mentor'}, :status => 401
     end
+  end
+
+  def show_fulldetails
+    mentor_info = []
+    mentor = Mentor.find(params[:id])
+    mentor_info << {
+      id: mentor.id,
+      headline: mentor.headline,
+      years_of_experience: mentor.years_of_experience,
+      full_name: mentor.full_name,
+      city: mentor.city,
+      state: mentor.state,
+      phone_number: mentor.phone_number,
+      availability: mentor.availability,
+      status_changed_at: mentor.status_changed_at,
+      featured: mentor.featured,
+      linkedin: mentor.linkedin,
+      mentor_status: mentor.mentor_status,
+      avg_call_duration: mentor.avg_call_duration,
+      avg_rating: mentor.avg_rating,
+      total_reviews: mentor.total_reviews,
+      industries: mentor.industries,
+      skills: mentor.skills,
+      avatar: mentor.user.avatar.url,
+      full_address: mentor.full_address,
+      rate_per_minute: mentor.rate_per_minute,
+      get_avg_rating: mentor.get_avg_rating,
+      current_worked_at: mentor.current_worked_at,
+      previous_worked_at: mentor.previous_worked_at,
+      time_zone: mentor.user.time_zone
+    }
+    respond_with :api, mentor_info
   end
 
   private

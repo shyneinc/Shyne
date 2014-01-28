@@ -1,8 +1,26 @@
-Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User',($location, $scope, $timeout, $routeParams, Session, User) ->
+Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory',($location, $scope, $timeout, $routeParams, Session, User, Workhistory) ->
 
   $scope.user = null
   $scope.mentor = null
   $scope.callRequestModel = {form: 'cal_details'}
+
+  $scope.refresh = (forceUpdate) ->
+    Session.getCurrentUser(forceUpdate).then((user)->
+      $scope.user = user
+      if user.role_type is 'Member'
+        User.getMemberInfo(user.role_id).then((memberInfo) ->
+          angular.extend(user, memberInfo)
+        )
+      else if user.role_type is 'Mentor'
+        User.getMentorInfo(user.role_id).then((mentorInfo) ->
+          angular.extend(user, mentorInfo)
+        )
+        Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
+          $scope.work_histories = workHistoriesInfo
+        )
+    )
+
+  $scope.refresh(false)
 
   $scope.proposedDurationOptions = []
   proposed_duration = ["10", "15", "20", "25", "30"]
@@ -16,7 +34,7 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
 
   $scope.callRequestModel.proposed_duration = $scope.proposedDurationOptions[0]
   mentor_id = $routeParams.mentor_id
-  $scope.mentor = User.getMentorInfo(mentor_id)
+  $scope.mentor = User.getMentorFullInfo(mentor_id)
 
 
 
