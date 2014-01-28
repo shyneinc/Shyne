@@ -426,6 +426,7 @@ DEPENDENCIES
   icalendar
   jbuilder (~> 1.2)
   jquery-rails (~> 3.0)
+  jquery-ui-rails
   json
   json_spec
   just-datetime-picker

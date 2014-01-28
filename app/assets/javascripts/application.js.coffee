@@ -1,6 +1,8 @@
 #= require jquery.min
 #= require suggest.min
 #= require twitter/bootstrap
+#= require jquery.ui.datepicker
+#= require jquery.timepicker
 #= require angular
 #= require angular-resource
 #= require setup
@@ -91,7 +93,7 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
     controller: 'ProfileCtrl'
   ).when("/call_request/:mentor_id",
     templateUrl: "/call_request/index.html"
-    controller: 'CallRequestCtrl'    
+    controller: 'CallRequestCtrl'
   )
 
 ]

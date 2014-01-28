@@ -47,6 +47,7 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails'
   gem 'sass'
+  gem 'jquery-ui-rails'
 end
 
 group :development, :test do

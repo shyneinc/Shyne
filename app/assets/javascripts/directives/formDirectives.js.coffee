@@ -24,3 +24,26 @@ ShyneDirectives.directive('hideFlashMessage', () ->
       scope.$digest()
     )
 )
+
+ShyneDirectives.directive("datepicker", () ->
+  restrict: "A"
+  require: "ngModel"
+  link: (scope, el, attr, ngModel) ->
+    el.datepicker
+      dateFormat:'yy-mm-dd'
+      onSelect: (dateText) ->
+        scope.$apply ->
+          ngModel.$setViewValue dateText
+)
+
+ShyneDirectives.directive('timepicker', () ->
+  require: "ngModel"
+  link: (scope, el, attr, ngModel) ->
+    $(el).timepicker
+      timeFormat: 'h:i A'
+    el.change(() ->
+      selectedValue = $(this).val()
+      scope.$apply ->
+        ngModel.$setViewValue selectedValue
+    )
+)
