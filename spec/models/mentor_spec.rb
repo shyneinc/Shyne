@@ -13,7 +13,6 @@ describe Mentor do
       it { should validate_presence_of :headline }
       it { should validate_presence_of :city }
       it { should validate_presence_of :state }
-      it { should validate_presence_of :experties }
       it { should validate_presence_of :years_of_experience }
       it { should validate_numericality_of(:years_of_experience) }
       it { should validate_presence_of :availability }
@@ -83,20 +82,6 @@ describe Mentor do
 
       it "does not return regular mentors" do
         expect(Mentor.featured).to_not include mentor2
-      end
-    end
-
-    context "#experties" do
-      let!(:mentor1) { create(:mentor, experties: '{Accounting,Banking}') }
-      let!(:mentor2) { create(:mentor, experties: '{Banking}') }
-      let!(:mentor3) { create(:mentor, experties: '{Programming}') }
-
-      it "returns mentors with the specified experties" do
-        expect(Mentor.experties('Banking')).to include mentor1, mentor2
-      end
-
-      it "does not return mentors with an unspecific experties" do
-        expect(Mentor.experties('Banking')).to_not include mentor3
       end
     end
 

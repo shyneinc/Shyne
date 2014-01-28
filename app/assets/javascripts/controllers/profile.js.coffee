@@ -74,7 +74,6 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
       $scope.mentorModel.headline,
       $scope.mentorModel.city,
       $scope.mentorModel.state,
-      $scope.mentorModel.experties,
       $scope.mentorModel.yearsOfExperience,
       $scope.mentorModel.phoneNumber,
       $scope.mentorModel.availability,
@@ -92,7 +91,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     $scope.refresh(true)
     window.setTimeout(() ->
       $scope.user.industries = $scope.historyModel.industries
-      $scope.user.programs = $scope.historyModel.programs
+      $scope.user.skills = $scope.historyModel.skills
       #update industries and program of mentor
       User.updateMentor($scope.user)
       #create work current and previous history of mentor

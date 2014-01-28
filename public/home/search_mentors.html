@@ -30,7 +30,7 @@
                               <div class="col-md-4 search-right-part">
                                   <star-rating star-rating="mentor.get_avg_rating" max-star-rating="5"></star-rating> <div class="review-count">(0)</div>
                                   <div class="mentor-call-rate">${{mentor.rate_per_minute}}/Minute</div>
-                                  <button class="btn btn-primary btn-orange">Schedule Call Now</button>
+                                  <a href="#/call_request/{{mentor.id}}" class="btn btn-primary btn-orange">Schedule Call Now</a>
                               </div>
                           </div>
                         <div class="search-card col-md-9" ng-show="search_mentors.length == 0">

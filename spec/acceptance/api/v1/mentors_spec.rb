@@ -1,7 +1,5 @@
 require 'spec_helper'
 require 'rspec_api_documentation/dsl'
-require 'pg_array_parser'
-include PgArrayParser
 
 resource 'Mentor' do
   header "Accept", "application/vnd.shyne.v1"
@@ -10,7 +8,7 @@ resource 'Mentor' do
 
   get "/api/mentors" do
     parameter :featured, "Only list featured mentors"
-    parameter :experties, "Only list mentors with specified experties"
+    parameter :skills, "Only list mentors with specified skill"
 
     before :all do
       create_list(:mentor, 10)
@@ -30,10 +28,17 @@ resource 'Mentor' do
       expect(status).to eq 200
     end
 
-    example "Getting approved mentors with specific experties" do
-      do_request(:experties => 'Accounting')
+    example "Getting approved mentors with specific skill" do
+      do_request(:skills => 'Word')
 
-      expect(response_body).to eq Mentor.approved.experties('Accounting').to_json
+      expect(response_body).to eq Mentor.approved.skills('Rails').to_json
+      expect(status).to eq 200
+    end
+
+    example "Getting approved mentors with specific industry expertise" do
+      do_request(:industries => 'Finance')
+
+      expect(response_body).to eq Mentor.approved.industries('Finance').to_json
       expect(status).to eq 200
     end
 
@@ -52,7 +57,8 @@ resource 'Mentor' do
 
     parameter :headline, "Headline", :required => true, :scope => :mentor
     parameter :location, "Location", :required => true, :scope => :mentor
-    parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
+    parameter :skills, "Skills (eg. '{Word, Programming}')", :required => true, :scope => :mentor
+    parameter :industries, "Industries (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor
@@ -65,7 +71,6 @@ resource 'Mentor' do
 
       hash = JSON.parse(response_body)
       mentor[:user_id] = @user.id
-      mentor[:experties] = parse_pg_array mentor[:experties]
       mentor[:phone_number] = PhonyRails.normalize_number(mentor[:phone_number], :country_code => 'US')
 
       expect(hash.to_json).to be_json_eql mentor.to_json
@@ -92,7 +97,8 @@ resource 'Mentor' do
 
     parameter :headline, "Headline", :required => true, :scope => :mentor
     parameter :location, "Location", :required => true, :scope => :mentor
-    parameter :experties, "Experties (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
+    parameter :skills, "Skills (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
+    parameter :industries, "Industries (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor

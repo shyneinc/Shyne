@@ -1,0 +1,179 @@
+<div ng-include src="'shared/masthead.html'"></div>
+	<!-- call details -->
+	<div class="detailForm" ng-show="callHistoryModel.form == 'cal_details'">
+    	<h1>Call Details</h1>
+        <div class="formBox">
+        	<div class="formHeading">
+            	<h3>Let’s Schedule a Call with Johnsmith</h3>
+                <span>STEP 1 of 4</span>
+            </div>
+            <div class="formContent">
+            	<div class="userNameImg">
+                	<span class="noImage"><img src="images/no-image.png" alt=""></span>
+                    <label>$PRICE/minute</label>
+                </div>
+                <div class="formRow">
+                	<label>1) What would you like $Johnsmith to focus on for this call?<span>(280 characters left)</span></label>
+                    <textarea class="form-control width65" rows="3"></textarea>
+                </div>
+                <div class="formRow">
+                	<label>2) Roughly speaking, how long would you like this call to last?</label>
+                    <select class="form-control width65">
+                      <option>20 Minutes</option>
+                      <option>20 Minutes</option>
+                      <option>20 Minutes</option>
+                      <option>20 Minutes</option>
+                      <option>20 Minutes</option>
+                    </select>
+
+                </div>
+                <div class="formRow">
+                	<p>Please note that your call can go over the amount of time you choose! This is just to give our 
+Johnsmith a rough estimate on how long to expect the call to last.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottomBtn">
+        	<a href="#" class="btn btn-back fleft">Back</a>
+            <button class="btn btn-continue fright" type="button" ng-disabled="historyForm.$invalid" ng-click="availableTimes()">Continue</button>
+        </div>
+	</div>
+
+
+	<!-- Availabel times -->
+	<div class="detailForm" ng-show="callHistoryModel.form == 'avl_times'">
+        <div class="formBox">
+        	<div class="formHeading">
+            	<h3>Best Available times for Johnsmith</h3>
+                <span>STEP 2 of 4</span>
+            </div>
+            <div class="formContent">
+            	<div class="bestTimeTakeCall">
+                	<label>Here are the best time that Johnsmith is available to take calls</label>
+                	<div class="bestTimeDigit"><span>10:00 to 11:00</span></div>
+            		<label>Johnsmith located in the $ PACIFIC Timezone.</label>
+                </div>
+                <div class="formRow">
+                	<div class="suggestTime">
+                        <label>1) Suggest a time <span>(in your timezone)</span> for Johnsmith to accept a call. The Johnsmith has the option of accepting your time or can reply back with another time that might be a better fit.</label>
+                        <input type="text" class="form-control width40 fleft" placeholder="Text input">
+                        <span class="atText fleft">at</span> 
+                        <select class="form-control width40 fleft">
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="formRow">
+                	<p>Note: We don't recommend requesting a call within 12 hours, as our Johnsmith might not be able to respond back in time. Please also be courteous of any timezone differences.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottomBtn">
+        	<button class="btn btn-back fleft" type="button" ng-disabled="historyForm.$invalid" ng-click="calDetails()">Back</button>
+          <button class="btn btn-continue fright" type="button" ng-disabled="historyForm.$invalid" ng-click="PaymentInfo()">Continue</button>
+        </div>
+    </div>
+    
+	<!-- Payment Info -->
+	<div class="detailForm" ng-show="callHistoryModel.form == 'payment_info'">
+        <div class="formBox">
+        	<div class="formHeading">
+            	<h3>Please enter your payment information</h3>
+                <span>STEP 3 of 4</span>
+            </div>
+            <div class="formContent">
+            	<div class="formRow">
+                	<div class="creditCardDetail">
+                    	<label>Your credit card will not be charged until after the call is complete.</label>
+                		<input type="text" class="form-control width40" placeholder="Text input">
+                        <input type="text" class="form-control width10" placeholder="Text input">
+                    </div>
+                </div>
+                <div class="formRow">
+                	<div class="expireDateDetail">
+                    	<label>Expiration Date?</label>
+                		<select class="form-control width40 fleft">
+                          <option>December</option>
+                          <option>December</option>
+                          <option>December</option>
+                          <option>December</option>
+                          <option>December</option>
+                        </select>
+                        <select class="form-control width20">
+                          <option>2013</option>
+                          <option>2013</option>
+                          <option>2013</option>
+                          <option>2013</option>
+                          <option>2013</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomBtn">
+        	<button class="btn btn-back fleft" type="button" ng-disabled="historyForm.$invalid" ng-click="availableTimes()">Back</button>
+            <button class="btn btn-continue fright" type="button" ng-disabled="historyForm.$invalid" ng-click="ConfirmDetails()">Continue</button>
+        </div>
+    </div>
+    
+  <!-- confirm details -->  
+	<div class="detailForm" ng-show="callHistoryModel.form == 'confirm_details'">
+        <div class="formBox">
+        	<div class="formHeading">
+            	<h3>Confirm Details for call</h3>
+                <span>STEP 4 of 4</span>
+            </div>
+            <div class="formContent">
+                <div class="formRow">
+                	<div class="confirmCallDetail">
+                		<label>1) Reason for your call</label>
+                    	<div class="bestTimeDigit"><span>10:00 to 11:00</span></div>
+                    </div>
+                </div>
+                <div class="formRow">
+                	<div class="suggestTime">
+                    	<label>2) Suggested Time</label>
+                    	<input type="text" class="form-control width40 fleft" placeholder="Text input">
+                    	<span class="atText fleft">at</span> 
+                        <select class="form-control width40 fleft">
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                          <option>20 Minutes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="formRow">
+                	<div class="estimatedTotal">
+                    	<label>3) Estimated Total</label>
+                    	<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+                        	<tr>
+                            	<td width="50%"><span>Rate per Minute</span></td>
+                                <td width="50%"><span>$1</span></td>
+                            </tr>
+                            <tr>
+                            	<td><span>Requested call length</span></td>
+                                <td><span>20 minutes</span></td>
+                            </tr>
+                            <tr>
+                            	<td><span>Estimated Cost</span></td>
+                                <td><span>$20.00</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="formRow">
+                	<p>How to enter call: A Conference line number will be provided once the call is confirmed. Your credit card will not be charged until after call is complete.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottomBtn">
+        		<button class="btn btn-back fleft" type="button" ng-disabled="historyForm.$invalid" ng-click="PaymentInfo()">Back</button>
+            <button class="btn btn-continue fright" type="button">Submit Call Request</button>
+        </div>
+    </div>

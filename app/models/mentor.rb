@@ -1,7 +1,7 @@
 class Mentor < ActiveRecord::Base
   classy_enum_attr :mentor_status, default: :applied
 
-  validates :user, :headline, :city, :state, :experties, :years_of_experience, :availability, :phone_number, presence: true
+  validates :user, :headline, :city, :state, :years_of_experience, :availability, :phone_number, presence: true
   validates :years_of_experience, :numericality => {:greater_than_or_equal_to => 0}
   phony_normalize :phone_number, :default_country_code => 'US'
   validates :phone_number, :phony_plausible => true
@@ -15,7 +15,7 @@ class Mentor < ActiveRecord::Base
   has_many :work_histories
 
   include PgSearch
-  multisearchable :against => [:full_name, :headline, :location, :experties, :worked_at, :position],
+  multisearchable :against => [:full_name, :headline, :location, :skills, :industries, :worked_at, :position],
                   ignoring: :accents,
                   :if => :approved?
 
@@ -31,7 +31,8 @@ class Mentor < ActiveRecord::Base
 
   scope :approved, -> { where(mentor_status: :approved) }
   scope :featured, -> { where(featured: true) }
-  scope :experties, -> (experties) { where("? = ANY (experties)", experties) }
+  scope :skills, -> (skill) { where("skills like ?", "%#{skill}%") }
+  scope :industries, -> (industry) { where("industries like ?", "%#{industry}%") }
 
   def rate_per_minute
     if self.years_of_experience < 2

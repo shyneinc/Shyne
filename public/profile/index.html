@@ -99,10 +99,6 @@
                                         <input name="state" ng-model="mentorModel.state" class="form-control width30" id="mentorState" placeholder="eg. CA" required="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="mentorExperties">Experties <span class="text-danger">{{mentorFormError.experties[0]}}</span></label>
-                                        <input name="experties" ng-model="mentorModel.experties" class="form-control" id="mentorExperties" placeholder="Enter 2 to 3 areas that you are an expert in" required="">
-                                    </div>
-                                    <div class="form-group">
                                         <label for="mentorYearsOfExperience">Years of Experience <span class="text-danger">{{mentorFormError.years_of_experience[0]}}</span></label>
                                         <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control" id="mentorYearsOfExperience" placeholder="Enter the total of industry experience you have" required="">
                                     </div>
@@ -214,7 +210,7 @@
                   </div>
                   <div class="form-group">
                       <label for="historyPrograms">What	skills and programs	are	you	comfortable	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-                      <input name="programs" ng-model="historyModel.programs" class="form-control" id="historyPrograms" maxlength="280" placeholder="E.g.	Ruby on	Rails, Financial Analysis, SQL,	Digital	Marketing, B2B Sales" required="" auto-focus>
+                      <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g.	Ruby on	Rails, Financial Analysis, SQL,	Digital	Marketing, B2B Sales" required="" auto-focus>
                   </div>
                   <div class="button-group">
                       <button type="button" class="btn btn-primary" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
