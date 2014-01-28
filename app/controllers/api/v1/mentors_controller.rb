@@ -32,7 +32,22 @@ class Api::V1::MentorsController < Api::V1::BaseController
   end
 
   def show
-    respond_with :api, Mentor.find(params[:id])
+    mentor_info = []
+    mentor = Mentor.find(params[:id])
+    mentor_info << {
+      id: mentor.id,
+      headline: mentor.headline,
+      years_of_experience: mentor.years_of_experience,
+      full_name: mentor.full_name,
+      avatar: mentor.user.avatar.url,
+      full_address: mentor.full_address,
+      rate_per_minute: mentor.rate_per_minute,
+      get_avg_rating: mentor.get_avg_rating,
+      current_worked_at: mentor.current_worked_at,
+      previous_worked_at: mentor.previous_worked_at,
+      time_zone: mentor.user.time_zone 
+    }
+    respond_with :api, mentor_info 
   end
 
   def create
