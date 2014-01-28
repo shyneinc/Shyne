@@ -14,8 +14,11 @@ class Api::V1::MembersController < Api::V1::BaseController
       @member = Member.new(member_params)
       @member.user = current_user
       @member.user_id = current_user.id
-      @member.save
-      respond_with :api, @member
+      if @member.save
+        respond_with :api, @member
+      else
+        render :json => {:errors => @member.errors}, :status => 401
+      end
     else
       render :json => {:error => 'User already has a profile'}, :status => 401
     end

@@ -40,8 +40,11 @@ class Api::V1::MentorsController < Api::V1::BaseController
       @mentor = Mentor.new(mentor_params)
       @mentor.user = current_user
       @mentor.user_id = current_user.id
-      @mentor.save
-      respond_with :api, @mentor
+      if @mentor.save
+        respond_with :api, @mentor
+      else
+        render :json => {:errors => @mentor.errors}, :status => 401
+      end
     else
       render :json => {:error => 'User already has a profile'}, :status => 401
     end
