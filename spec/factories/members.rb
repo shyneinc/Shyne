@@ -14,7 +14,7 @@ FactoryGirl.define do
 
   factory :member do
     phone_number "15626453725"
-    industries nil
+    industries { Faker::Lorem.word }
     user
   end
 end
