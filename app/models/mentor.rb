@@ -68,10 +68,6 @@ class Mentor < ActiveRecord::Base
   end
   handle_asynchronously :calc_avg_duration, :priority => 10
 
-  def full_address
-    [self.city, self.state].join(", ")
-  end
-
   def get_avg_rating
     self.reviews.average('rating').to_f
   end
