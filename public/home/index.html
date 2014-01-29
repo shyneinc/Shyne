@@ -66,11 +66,11 @@
                             </div>
                         </div>
                         <div class="info">
-                            <a href="#">{{mentor.name}}</a><br/>
+                            <a href="javascript:void(0);">{{mentor.name}}</a><br/>
                             {{mentor.role}}<br/>
                             <strong>{{mentor.company}}</strong><br/>
                         </div>
-                        <a class="action" href="#"><span class="glyphicon glyphicon-earphone"></span> Schedule Call</a>
+                        <a href="#/call_request/{{mentor.id}}" class="action glyphicon glyphicon-earphone">Schedule Call</a>
                     </div>
                 </div>
                 <div class="col-md-2 arrow-holder">
@@ -83,18 +83,24 @@
     <div class="mentors">
         <div class="container">
             <h2 class="text-center">How it Works</h2>
-            <div class="col-md-12 col-md-offset-2">
-            	<div class="pt5"><img src="/assets/how-it-works.png" /></div>
-            	<div class="clearb">&nbsp;</div>
-              <div class="col-md-3 work-text mr5" style="text-align: left;">
-                  <div>Apply to become a Mentor</div>
-              </div>
-              <div class="col-md-3 work-text" style="text-align: left;">
-                  <div>Create a profile so our users can contact you to schedule a call</div>
-              </div>
-              <div class="col-md-3 work-text" style="text-align: left;">
-                  <div>Take calls whenever you’re free. Money transferred straight to your bank account after call is complete!</div>
-              </div>
+           	<div class="col-md-9 row mar0 floatNone">
+            	<div class="col-md-4">
+                	<div class="pt5 textAlignCenter"><img src="/assets/how-it-works-1.png" /></div>
+                    <div>&nbsp;</div>
+                  	<div class="textAlignCenter">Apply to become a Mentor</div>
+                    <div class="glyphicon glyphicon-chevron-right rightArrow">&nbsp;</div>
+                </div>
+                <div class="col-md-4">
+                	<div class="pt5 textAlignCenter"><img src="/assets/how-it-works-2.png" /></div>
+                    <div>&nbsp;</div>
+                  	<div class="textAlignCenter">Create a profile so our users can contact you to schedule a call</div>
+                    <div class="glyphicon glyphicon-chevron-right rightArrow">&nbsp;</div>
+                </div>
+                <div class="col-md-4">
+                	<div class="pt5 textAlignCenter"><img src="/assets/how-it-works-3.png" /></div>
+                    <div>&nbsp;</div>
+                  	<div class="textAlignCenter">Take calls whenever you’re free. Money transferred straight to your bank account after call is complete!</div>
+                </div>
             </div>
         </div>
         <div class="container">

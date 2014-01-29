@@ -550,17 +550,21 @@
                                 <h4><span class="glyphicon glyphicon-lock"></span> <a href="" start-inline-edit>Change Password</a></h4>
                                 <div class="edit-form">
                                     <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberPasswordForm" class="css-form" ng-submit="updateUser()">
+                                    <form novalidate role="form" name="memberPasswordForm" class="css-form" ng-submit="updatePassword()">
                                         <div class="form-group">
-                                            <label for="memberPassword">Password <span class="text-danger">{{memberFormError.password[0]}}</span></label>
-                                            <input name="password" ng-model="user.password" type="password" class="form-control" id="memberPassword" placeholder="Enter password" required="">
+                                            <label for="memberPassword">CurrentPassword <span class="text-danger">{{memberFormError.password[0]}}</span></label>
+                                            <input name="current_password" ng-model="user.current_password" type="password" class="form-control" id="memberPassword" placeholder="Enter current password" required="">
+                                        </div>                                    	
+                                        <div class="form-group">
+                                            <label for="memberPassword">New Password <span class="text-danger">{{memberFormError.password[0]}}</span></label>
+                                            <input name="password" ng-model="user.password" type="password" class="form-control" id="memberPassword" placeholder="Enter new password" required="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="memberPasswordConfirmation">Password <span class="text-danger">{{memberFormError.password_confirmation[0]}}</span></label>
-                                            <input name="password" ng-model="user.password_confirmation" type="password" class="form-control" id="memberPasswordConfirmation" placeholder="Confirm password" required="">
+                                            <label for="memberPasswordConfirmation">Confirm Password <span class="text-danger">{{memberFormError.password_confirmation[0]}}</span></label>
+                                            <input name="password" ng-model="user.confirmPassword" type="password" class="form-control" id="memberPasswordConfirmation" placeholder="Confirm password" required="">
                                         </div>
                                         <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPasswordForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPasswordForm.$invalid" ng-click="updatePassword()" hide-inline-edit>Update</button>
                                         </div>
                                     </form>
                                 </div>
