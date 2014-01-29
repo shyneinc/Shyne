@@ -177,12 +177,36 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  getMentorFullInfo: (memberId) ->
+  addCreditCard: (creditCard) ->
     deferred = $q.defer()
-    $http.get('/api/mentor_details/' + memberId).success((data) ->
+    $http.post('/api/credit_cards',
+      credit_card:
+        card_number: creditCard.card_number,
+        expiration_year: creditCard.expired_year.id,
+        expiration_month: creditCard.expired_month.id,
+        security_code: creditCard.security_code
+    ).success((data) ->
       deferred.resolve(data)
     ).error((data)->
-      deferred.reject(data)
+      deferred.reject(data.error)
     )
     deferred.promise
+
+  createCallRequest: (callRequest, memberId, mentorId) ->
+    deferred = $q.defer()
+    $http.post('/api/call_requests',
+      call_request:
+        agenda: callRequest.agenda,
+        member_id: memberId,
+        mentor_id: mentorId,
+        scheduled_at: "#{callRequest.scheduled_at} #{callRequest.scheduled_time}",
+        proposed_duration: callRequest.proposed_duration.id,
+        status: callRequest.status
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data.error)
+    )
+    deferred.promise
+
 ])

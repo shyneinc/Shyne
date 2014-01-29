@@ -3,6 +3,7 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
   $scope.user = null
   $scope.mentor = null
   $scope.callRequestModel = {form: 'cal_details'}
+  $scope.callRequestModel.status = "proposed"
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -25,23 +26,16 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
   $scope.proposedDurationOptions = []
   proposed_duration = ["10", "15", "20", "25", "30"]
   for i in proposed_duration
-    $scope.proposedDurationOptions.push({ name: i, id: i })
-
-  $scope.scheduledTimeOptions = []
-  scheduled_time = ["10", "15", "20", "25", "30"]
-  for i in scheduled_time
-    $scope.scheduledTimeOptions.push({ name: i, id: i })
+    $scope.proposedDurationOptions.push({ name: "#{i} minutes", id: i })
 
   $scope.callRequestModel.proposed_duration = $scope.proposedDurationOptions[0]
   mentor_id = $routeParams.mentor_id
-  $scope.mentor = User.getMentorFullInfo(mentor_id)
-
-
+  $scope.mentor = User.getMentorInfo(mentor_id)
 
   month_list = ["January", "February", "March", "April",  "May",  "June", "July", "August", "September", "October", "November", "December"]
   $scope.expiredMonths = []
-  for j in month_list
-    $scope.expiredMonths.push({ name: j, id: j })
+  for j,idx in month_list
+    $scope.expiredMonths.push({ name: j, id: (idx + 1) })
 
   $scope.callRequestModel.expired_month = $scope.expiredMonths[0]
 
@@ -57,12 +51,25 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
   $scope.callRequestModel.expired_year = $scope.expiredYears[0]
 
   $scope.calDetails = () ->
-    $scope.callRequestModel = {form: 'cal_details'}
+    $scope.callRequestModel.form = 'cal_details'
   $scope.availableTimes = () ->
-    $scope.callRequestModel = {form: 'avl_times'}
+    $scope.callRequestModel.form = 'avl_times'
   $scope.PaymentInfo = () ->
-    $scope.callRequestModel = {form: 'payment_info'}
-  $scope.ConfirmDetails = () ->
-    $scope.callRequestModel = {form: 'confirm_details'}
+    $scope.callRequestModel.form = 'payment_info'
 
+  $scope.ConfirmDetails = () ->
+    User.addCreditCard($scope.callRequestModel).then(
+      (data)->
+        $scope.callRequestModel.form = 'confirm_details'
+    , (error)->
+      $scope.creditCardError = error
+    )
+
+  $scope.SubmitCallRequest = () ->
+    User.createCallRequest($scope.callRequestModel, $scope.user.role_id, mentor_id).then(
+      (data)->
+        $location.path '/profile/'
+    , (error)->
+      $scope.callRequestModelError = error
+    )
 ])

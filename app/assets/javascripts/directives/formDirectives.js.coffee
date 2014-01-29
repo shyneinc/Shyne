@@ -41,6 +41,9 @@ ShyneDirectives.directive('timepicker', () ->
   link: (scope, el, attr, ngModel) ->
     $(el).timepicker
       timeFormat: 'h:i A'
+      useSelect : true
+      noneOption: true
+      className: 'form-control width40'
     el.change(() ->
       selectedValue = $(this).val()
       scope.$apply ->
