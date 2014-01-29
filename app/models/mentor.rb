@@ -72,11 +72,11 @@ class Mentor < ActiveRecord::Base
     self.reviews.average('rating').to_f
   end
 
-  def current_worked_at
+  def currently_working_at
     self.work_histories.where(:current_work => true).map! { |p| "#{p.title} at #{p.company}" }.first
   end
 
-  def previous_worked_at
+  def previously_worked_at
     self.work_histories.where(:current_work => false).map! { |p| "#{p.title} at #{p.company}" }.first
   end
 

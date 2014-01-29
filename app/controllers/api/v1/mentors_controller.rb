@@ -23,8 +23,8 @@ class Api::V1::MentorsController < Api::V1::BaseController
         years_of_experience: mentor.years_of_experience,
         full_address: mentor.full_address,
         get_avg_rating: mentor.get_avg_rating,
-        current_worked_at: mentor.current_worked_at,
-        previous_worked_at: mentor.previous_worked_at
+        currently_working_at: mentor.currently_working_at,
+        previously_worked_at: mentor.previously_worked_at
       }
     end
 
@@ -55,8 +55,8 @@ class Api::V1::MentorsController < Api::V1::BaseController
       full_address: mentor.full_address,
       rate_per_minute: mentor.rate_per_minute,
       get_avg_rating: mentor.get_avg_rating,
-      current_worked_at: mentor.current_worked_at,
-      previous_worked_at: mentor.previous_worked_at,
+      currently_working_at: mentor.currently_working_at,
+      previously_worked_at: mentor.previously_worked_at,
       time_zone: mentor.user.time_zone
     }
     respond_with :api, mentor_info.to_json
