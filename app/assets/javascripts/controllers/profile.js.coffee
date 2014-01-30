@@ -177,6 +177,7 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
     )
 
   $scope.updateUser = () ->
+    $scope.updateMentor($scope.user)
     User.updateUser($scope.user).then((data) ->
       $scope.flash_message = 'User Information Updated.'
       $timeout (->
