@@ -48,6 +48,13 @@ Shyne.controller('ProfileCtrl', ['$location', '$scope','$timeout', '$routeParams
           $scope.work_histories = workHistoriesInfo
         )
     )
+  
+  state_list = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY','LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC',
+                'ND','OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
+  $scope.states = []
+  for j in state_list
+    $scope.states.push({ name: j, id: j })
+  $scope.mentorModel.state = $scope.states[0]  
 
   $scope.refresh(false)
 

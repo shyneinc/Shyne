@@ -4,6 +4,7 @@
 #= require jquery.ui.datepicker
 #= require jquery.timepicker
 #= require angular
+#= require ui-utils
 #= require angular-resource
 #= require setup
 #= require_directory ./controllers
