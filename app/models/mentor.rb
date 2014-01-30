@@ -12,9 +12,9 @@ class Mentor < ActiveRecord::Base
   phony_normalize :phone_number, :default_country_code => 'US'
   validates :phone_number, :phony_plausible => true
   
-  validates :phone_number,   
-    :presence => true,   
-    :length => { :maximum => 11, :minimum => 11, :message => "Please enter a 11-digit phone number"}  
+  #validates :phone_number,   
+    #:presence => true,   
+    #:length => { :maximum => 11, :minimum => 11, :message => "Please enter a 11-digit phone number"}  
 
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user
