@@ -1,0 +1,53 @@
+<div ng-include src="'shared/masthead.html'"></div>
+<section ng-hide="user">
+  <div class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="text-center info-message">
+            <h2>Please <a href="#/login">log in</a> to access messages</h2>
+            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div ng-show="user">
+    <div class="conversations">
+    	<h1 class="text-center">Messages</h1>
+    	<div class="conversationsList">
+        <ul>
+            <li>
+                <div>
+                    <div class="fLeft">From: <a href="#/profile">{{mentor.full_name}}full_name</a></div>
+                    <div class="fRight">Jan 27</div>
+                </div>	
+                <div class="clearb">&nbsp;</div>
+                <div class="photo fLeft msgPhoto">
+                    <img src="/assets/sample.png" ng-src="{{mentor.photo_url}}" width="100" height="100">
+                </div>  		
+                <div class="fLeft">
+                    Sounds great. I am busy at the time.
+                </div>	
+            </li>
+            <li>
+                <div>
+                    <div class="fLeft">From: <a href="#/profile">{{mentor.full_name}}full_name</a></div>
+                    <div class="fRight">Jan 27</div>
+                </div>	
+                <div class="clearb">&nbsp;</div>
+                <div class="photo fLeft msgPhoto">
+                    <img src="/assets/sample.png" ng-src="{{mentor.photo_url}}" width="100" height="100">
+                </div>  		
+                <div class="fLeft">
+                    Sounds great. I am busy at the time.
+                </div>	
+            </li>
+        </ul>
+    </div>	
+    </div>	
+</div>
+

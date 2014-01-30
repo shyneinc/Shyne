@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+.conversations {
+  margin: 0px auto;
+  padding:15px;
+  border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; border:3px solid #4a5763;
+  margin:10px;
+  float: left;
+  .clearb {
+   clear: both; 
+  }
+  h1 {
+    font-size: 30px;
+    color: #4a5763;
+    margin: 0px 0px 15px 0px;
+  }
+  h2 {
+    font-size: 24px;
+    color: #4a5763;
+    margin: 0px 0px 15px 0px;
+  }  
+  .fLeft {
+    float: left;
+  }
+  .fRight {
+    float: right;
+  }
+  .photo {
+    position: relative;
+  }    
+  .conversationsList {
+    top: 15px;
+    border-top: 2px solid #4a5763;
+  }
+  .conversationsShow {
+    top: 15px;
+    border: 2px solid #4a5763;
+    padding: 30px;    
+  }
+.msgPhoto{padding-right:15px;}
+.msgPhoto img{border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; border:2px solid #4a5763;}
+.conversationsList ul{ padding:0px; margin:0px;}
+.conversationsList ul li{ padding:20px 0px 20px 0px; margin:0px; list-style:none; border-bottom:1px solid #4a5763; float:left; width:100%;}  
+}
