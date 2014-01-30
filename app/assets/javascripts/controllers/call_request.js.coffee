@@ -58,10 +58,12 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
     $scope.callRequestModel.form = 'payment_info'
 
   $scope.ConfirmDetails = () ->
+    $("#spinner").show()
     User.addCreditCard($scope.callRequestModel).then(
       (data)->
         $scope.callRequestModel.form = 'confirm_details'
     , (error)->
+      $("#spinner").hide()
       $scope.creditCardError = error
     )
 

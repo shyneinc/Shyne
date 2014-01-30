@@ -12,7 +12,7 @@ class Api::V1::CreditCardsController < Api::V1::BaseController
       current_user.balanced_customer.add_card(card)
       render :json => card.attributes, :status => 201
     rescue Exception => ex
-      render :json => {:error => ex.extras}, :status => 401
+      render :json => {:error => "Card cannot be validated"}, :status => 401
     end
   end
 

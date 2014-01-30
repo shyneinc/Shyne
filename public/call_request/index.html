@@ -107,6 +107,11 @@
           </div>
           <div class="formContent">
             <div class="formRow">
+              <div class="expireDateDetail">
+                <span class="text-danger">{{creditCardError}}</span>
+              </div>
+            </div>          	
+            <div class="formRow">
               <div class="creditCardDetail">
                 <label>Your credit card will not be charged until after the call is complete.</label>
                 <input type="text" class="form-control width40" ng-model="callRequestModel.card_number" placeholder="Credit Card #" required="">
@@ -120,17 +125,14 @@
                 <select class="form-control width40" ng-model="callRequestModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
               </div>
             </div>
-
-            <div class="formRow">
-              <div class="expireDateDetail">
-                <span class="text-danger">{{creditCardError}}</span>
-              </div>
-            </div>
           </div>
         </div>
         <div class="bottomBtn">
           <button class="btn btn-back fleft" type="button" ng-click="availableTimes()">Back</button>
           <button class="btn btn-continue fright" type="button" ng-disabled="paymentInfoForm.$invalid" ng-click="ConfirmDetails()">Continue</button>
+					<div id="spinner" class="loaderIcon">
+					  <img src="/assets/loader.gif" />
+					</div>          
         </div>
       </form>
     </div>
