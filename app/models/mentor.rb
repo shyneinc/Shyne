@@ -3,8 +3,12 @@ class Mentor < ActiveRecord::Base
 
   validates :user, :headline, :city, :state, :years_of_experience, :availability, :phone_number, presence: true
   validates :years_of_experience, :numericality => {:greater_than_or_equal_to => 0}
+  validates :headline, length: {maximum: 280}, allow_blank: false
+  validates :linkedin, format: { with: /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix }, allow_blank: true
+
   phony_normalize :phone_number, :default_country_code => 'US'
   validates :phone_number, :phony_plausible => true
+  validates :phone_number, length: {is: 11}, allow_blank: false
 
   has_one :user, as: :role, dependent: :nullify
   accepts_nested_attributes_for :user

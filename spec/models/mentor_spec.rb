@@ -11,12 +11,16 @@ describe Mentor do
     context "Basic validations" do
       it { should validate_presence_of :user }
       it { should validate_presence_of :headline }
+      it { should ensure_length_of(:headline).is_at_most(280) }
       it { should validate_presence_of :city }
       it { should validate_presence_of :state }
       it { should validate_presence_of :years_of_experience }
       it { should validate_numericality_of(:years_of_experience) }
       it { should validate_presence_of :availability }
       it { should validate_presence_of :phone_number }
+      #it { should ensure_length_of(:phone_number).is_equal_to(11) }
+      it { should_not allow_value('some random string').for(:linkedin) }
+      it { should allow_value('http://www.linkedin.com/in/williamhgates').for(:linkedin) }
     end
   end
 
