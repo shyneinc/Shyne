@@ -1,8 +1,9 @@
-Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Conversation',($location, $scope, $timeout, $routeParams, Session, User, Workhistory) ->
+Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeParams', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, Session, User, Workhistory, Conversation) ->
 
   $scope.user = null
   $scope.conversationModel = null
-  $scope.conversations null
+  $scope.conversations = null
+  $scope.conversation_id = $routeParams.conversation_id
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -22,17 +23,37 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout', '$route
 
   $scope.refresh(false)
 
-  Conversation.getInboxConversations().then((data)->
-    $scope.conversations = data
-  )
+  $scope.getConversations = () ->
+    Conversation.getConversations(false).then((data)->
+      $scope.conversations = data
+    )
+
+  $scope.getConversation = () ->
+    Conversation.getConversation($scope.conversation_id).then((data)->
+      $scope.conversations = data
+    )
 
   $scope.createConversation = () ->
     $scope.refresh(true)
-    Conversation.createConversation($scope.conversationModel, $routeParams.sender_id
+    Conversation.createConversation($scope.conversationModel, $scope.user.id
     ).then((data) ->
       angular.extend($scope.conversation, data)
     , (data) ->
       $scope.conversationModelError = data
     )
 
+  $scope.showConversation = (conversationUrl) ->
+    $location.path conversationUrl
+
+  if $routeParams.conversation_id != undefined and $routeParams.conversation_id != null
+    $scope.getConversation()
+  else
+    $scope.getConversations()
+
+  $scope.replyOnConversation = () ->
+    Conversation.replyConversation($scope.conversationModel, $scope.conversation_id).then((data) ->
+      $scope.getConversation()
+    , (data) ->
+      $scope.conversationModelError = data
+    )
 ])

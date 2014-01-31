@@ -25,8 +25,8 @@
                 </div>
             </div>
         </div>
-    </div>		
-	</div>	
+    </div>
+	</div>
   <div ng-show="user.role_type == 'Member'">
     <!-- call details -->
     <div class="detailForm" ng-show="callRequestModel.form == 'cal_details'">
@@ -110,7 +110,7 @@
               <div class="expireDateDetail">
                 <span class="text-danger">{{creditCardError}}</span>
               </div>
-            </div>          	
+            </div>
             <div class="formRow">
               <div class="creditCardDetail">
                 <label>Your credit card will not be charged until after the call is complete.</label>
@@ -132,7 +132,7 @@
           <button class="btn btn-continue fright" type="button" ng-disabled="paymentInfoForm.$invalid" ng-click="ConfirmDetails()">Continue</button>
 					<div id="spinner" class="loaderIcon">
 					  <img src="/assets/loader.gif" />
-					</div>          
+					</div>
         </div>
       </form>
     </div>

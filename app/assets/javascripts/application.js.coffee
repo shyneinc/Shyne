@@ -100,9 +100,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/conversation",
     templateUrl: "/conversations/index.html"
     controller: 'ConversationsCtrl'
-  ).when("/conversation/:user_id",
+  ).when("/conversation/:conversation_id",
     templateUrl: "/conversations/show.html"
-    controller: 'ConversationsCtrl'    
+    controller: 'ConversationsCtrl'
   )
 
 ]

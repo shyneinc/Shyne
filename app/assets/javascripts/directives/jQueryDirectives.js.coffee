@@ -39,3 +39,12 @@ ShyneDirectives.directive('starRating', () ->
     maxStarRating: "="
     ratingChanged: "&"
 )
+
+
+ShyneDirectives.directive("stopEvent", ->
+  restrict: "A"
+  link: (scope, element, attr) ->
+    element.bind "click", (e) ->
+      e.stopPropagation()
+
+)
