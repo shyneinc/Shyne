@@ -43,5 +43,15 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
       deferred.reject(data.error)
     )
     deferred.promise
+    
+  getIndustries: () ->
+    deferred = $q.defer()
+
+    $http.get('/api/industries').success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data.error)
+    )
+    deferred.promise    
 
 ])

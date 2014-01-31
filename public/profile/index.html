@@ -88,15 +88,17 @@
                                 <form novalidate role="form" name="mentorForm" class="css-form" ng-submit="becomeMentor()">
 
                                     <div class="form-group mgBtm">
-                                        <label for="mentorLocation">Where are you located? <span class="text-danger">{{mentorFormError.city[0]}}</span> <span class="text-danger">{{mentorFormError.state[0]}}</span></label>
+                                        <label for="mentorLocation">Where are you located?<span class="text-danger">{{mentorFormError.state[0]}}</span></label>
                                     </div>
                                     <div class="form-group">
-                                        <label for="mentorCity">City <span class="text-danger">{{mentorFormError.city[0]}}</span></label>
+                                        <label for="mentorCity">City</label>
                                         <input name="city" ng-model="mentorModel.city" class="form-control width60" id="mentorCity" placeholder="Enter the City" required="">
                                         
-                                        
                                         <label for="mentorState">State</label>
-                                        <select class="form-control width30" ng-model="mentorModel.state" data-ng-options="o.name for o in states"></select>
+                                        <select class="form-control width30" ng-model="mentorModel.state">
+                                        	<option value="">Select State</option>
+                                        	<option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                                        </select>
                                         
                                     </div>
                                     <div class="form-group">
@@ -155,76 +157,88 @@
       <div class="row">
 
         <div class="col-md-8 col-md-offset-2">
-          <div class="jumbotron" ng-show="historyModel.role == 'Mentor'">
-              <h2><strong>Mentor Application</strong></h2>
+          <div class="jumbotron">
+              <h2 align="center"><strong>Mentor Application</strong></h2>
+              <span class="stepHeader">Step 2 of 2</span>
               <form novalidate role="form" name="historyForm" class="css-form" ng-submit="createWorkHistory()">
 
                   <div class="form-group">
                   <label for="historyPosition">What is your current position?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
                       <table>
                         <tr>
-                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="position" required="" auto-focus></td>
+                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="Positions" required="" auto-focus></td>
+                          <td>&nbsp;</td>
                           <td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required="" auto-focus></td>
+                        </tr>  
+                        <tr>  
                           <td>
                             <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" class="form-control" required="">
-                              <option value="">MonthStarted</option>
+                              <option value="">Month Started</option>
                             </select>
                           </td>
+                          <td>&nbsp;</td>
                           <td>
                             <input name="staredCurrentYear" ng-model="historyModel.startedCurrentYearOption" class="form-control" id="historyStartedCurrentYear" maxlength="4" placeholder="Year" required="">
                           </td>
                         </tr>
                       </table>
                   </div>
-                  <div class="form-group">
-                      <label for="historyPosition">What position have you held previously?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
+                  <div class="form-group" ng-hide="previousPosition">
+                      <label for="historyPosition">What positions have you held previously?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
 
                       <div ng-controller="RepeatPositionCtrl">
-                        <div ng-repeat="pos in historyModel.positions">
+                        <div ng-repeat="historyModel in historyModel.positions">
                         <table>
                           <tr>
-                            <td><input ng-model="pos.previous_title_text" class="form-control" placeholder="position" required=""></td>
-                            <td><input ng-model="pos.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name" required=""></td>
+                            <td><input ng-model="historyModel.previous_title_text" class="form-control" placeholder="Positions"></td>
+                            <td>&nbsp;</td>
+                            <td><input ng-model="historyModel.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name"></td>
                           </tr>
                           <tr>
                             <td>
                               <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedPreviousMonthOption" class="form-control">
-                                <option value="">MonthStarted</option>
+                                <option value="">Month Started</option>
                               </select>
                             </td>
+                            <td>&nbsp;</td>
                             <td>
-                              <input name="staredPreviousYear" ng-model="historyModel.startedPreviousYearOption" class="form-control" id="historyStartedPreviousYear" maxlength="4" placeholder="Year" required="">
+                              <input name="staredPreviousYear" ng-model="historyModel.startedPreviousYearOption" class="form-control" id="historyStartedPreviousYear" maxlength="4" placeholder="Year">
                             </td>
                           </tr>
                           <tr>
                             <td>
                               <select data-ng-options="o.name for o in endedMonthOptions" ng-model="historyModel.endedPreviousMonthOption" class="form-control">
-                                <option value="">MonthEnded</option>
+                                <option value="">Month Ended</option>
                             </select>
                             </td>
+                            <td>&nbsp;</td>
                             <td>
-                              <input name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" class="form-control" id="historyEndedPreviousYear" maxlength="4" placeholder="Year" required="">
+                              <input name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" class="form-control" id="historyEndedPreviousYear" maxlength="4" placeholder="Year">
                             </td>
                             <td><button type="button" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
-                          </tr>
-
-
                           </tr>
                         </table>
                         </div>
                         <button type="button" class="btn btn-primary" type="button" ng-click="addPosition()">+</button>&nbsp;Add Position
                       </div>
                   </div>
-                  <div class="form-group">
-                      <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-                      <input name="industries" ng-model="historyModel.industries" class="form-control" id="historyIndustries" maxlength="280" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                  <div class="fLeft">
+                  	<input type="checkbox" ng-model="previousPosition"> I have not held any previous positions.
                   </div>
                   <div class="form-group">
-                      <label for="historyPrograms">What	skills and programs	are	you	comfortable	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
+                      <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
+                      
+                       <tags-input name="industries" ng-model="historyModel.industries" class="form-control" id="historyIndustries" maxlength="280" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                       	<auto-complete source="loadIndustries($query)"></auto-complete>
+                       </tags-input>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="historyPrograms">List some skills and programs that you’ve become comfortable with<span class="text-danger">{{historyFormError.title[0]}}</span></label>
                       <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g.	Ruby on	Rails, Financial Analysis, SQL,	Digital	Marketing, B2B Sales" required="" auto-focus>
                   </div>
                   <div class="button-group">
-                      <button type="button" class="btn btn-primary" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
+                      <button type="button" class="btn btn-success btn-xlarge" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
                       <a href="#/profile" class="cancel-link">Cancel</a>
                   </div>
               </form>

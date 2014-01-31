@@ -4,6 +4,8 @@
 #= require jquery.ui.datepicker
 #= require jquery.timepicker
 #= require angular
+#= require angular-route
+#= require ng-tags-input
 #= require ui-utils
 #= require angular-resource
 #= require setup
