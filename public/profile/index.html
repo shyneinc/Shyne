@@ -107,13 +107,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorPhoneNumber">Phone Number (Please note this is not shared with anyone) <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter your 11-digit number" required="">
+                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter your 10-digit number" required="">
                                     </div>
-
-																    <div class="form-group">
-															          <a class="btn btn-primary" ng-click="mentorModel.phoneNumber = '(999) 999-9999'">Set (999) 999-9999</a>
-															          <a class="btn btn-primary" ng-click="mentorModel.phoneNumber = '999 999-9999'">Set to 999 999-9999</a>
-																    </div>
                                     
                                     <div class="form-group">
                                         <label for="mentorAvailability">When is the best time you're available to take phone calls to give advice? <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
@@ -157,7 +152,7 @@
       <div class="row">
 
         <div class="col-md-8 col-md-offset-2">
-          <div class="jumbotron">
+          <div class="jumbotron" ng-show="historyModel.role == 'Mentor'">
               <h2 align="center"><strong>Mentor Application</strong></h2>
               <span class="stepHeader">Step 2 of 2</span>
               <form novalidate role="form" name="historyForm" class="css-form" ng-submit="createWorkHistory()">
@@ -227,10 +222,11 @@
                   </div>
                   <div class="form-group">
                       <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-                      
-                       <tags-input name="industries" ng-model="historyModel.industries" class="form-control" id="historyIndustries" maxlength="280" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
-                       	<auto-complete source="loadIndustries($query)"></auto-complete>
-                       </tags-input>
+											<input ng-model="historyModel.industries" class="form-control" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>                      
+										  <!--								
+                     <tags-input ng-model="historyModel.industries" custom-class="form-control" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" enable-editing-last-tag="true"  auto-focus>
+                     	<auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                 </tags-input> -->
                       
                   </div>
                   <div class="form-group">
