@@ -4,9 +4,9 @@
 
 .conversations {
   margin: 0px auto;
-  padding:15px;
-  border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; border:3px solid #4a5763;
+  border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; border:1px solid #45c9c3;
   margin:10px;
+  width:800px;
   float: left;
   .clearb {
    clear: both; 
@@ -14,12 +14,13 @@
   h1 {
     font-size: 30px;
     color: #4a5763;
-    margin: 0px 0px 15px 0px;
+    margin: 0px 0px 0px 0px;
+	line-height:35px;
   }
   h2 {
     font-size: 24px;
     color: #4a5763;
-    margin: 0px 0px 15px 0px;
+    margin: 0px 0px 0px 0px;
   }  
   .fLeft {
     float: left;
@@ -32,15 +33,22 @@
   }    
   .conversationsList {
     top: 15px;
-    border-top: 2px solid #4a5763;
   }
   .conversationsShow {
     top: 15px;
-    border: 2px solid #4a5763;
     padding: 30px;    
   }
+a.ng-binding{ color:#45c9c3; font-weight:bold;}
+a:hover.ng-binding{ color:#e04238;}
 .msgPhoto{padding-right:15px;}
-.msgPhoto img{border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; border:2px solid #4a5763;}
+.msgPhoto img{border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px; border:2px solid #ff493e;}
+.conversationsList{ padding:0px 0px; display:block; float:left;}
 .conversationsList ul{ padding:0px; margin:0px;}
-.conversationsList ul li{ padding:20px 0px 20px 0px; margin:0px; list-style:none; border-bottom:1px solid #4a5763; float:left; width:100%;}  
+.conversationsList ul li{ padding:17px 20px 20px 20px; margin:0px; list-style:none; border-bottom:1px solid #768898; float:left; width:100%;}
+.conversationsList ul li:hover{ background:#ecf2f8;}
+.conversationsList ul li.last{border-bottom:none;}  
+.messageTextDiv{cursor:pointer; float:left; width:100%;}
+.messageText{ padding-top:3px;}
+.messaheHeading{background:#5ad8d2; border-radius:5px 5px 0 0; float:left; padding:5px 0 8px 0px; width:100%; min-height:38px;}
+.messaheShowHeading{background:#5ad8d2; border-radius:5px 5px 0 0; float:left; padding:9px 20px 11px; width:100%; min-height:38px;}
 }
