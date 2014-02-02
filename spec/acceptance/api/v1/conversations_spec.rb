@@ -43,7 +43,7 @@ resource 'Conversation' do
     let(:id) { conversation.id }
 
     example_request "Getting a specific conversation" do
-      expect(response_body).to eq conversation.to_json
+      expect(response_body).to eq conversation.to_json(:include => [:messages => {:include => [:sender, :recipients]}])
       expect(status).to eq 200
     end
   end
