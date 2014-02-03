@@ -448,8 +448,8 @@
                       <div ng-repeat="work_history in work_histories">
                             <div style="padding-top:10px;"><strong>Position: </strong>{{work_history.title}}</div>
                             <div><strong>Company: </strong>{{work_history.company}} <strong>({{work_history.current_work && "Current" || "Previous" }})</strong></div>
-                            <div><strong>Start Year: </strong>{{work_history.year_started}}</div>
-                            <div ng-hide="$index == 0"><strong>End Year: </strong>{{work_history.year_ended}}</div>
+                            <div><strong>Start Year: </strong>{{work_history.date_started}}</div>
+                            <div ng-hide="$index == 0"><strong>End Year: </strong>{{work_history.date_ended}}</div>
                       </div>
                     </div>
                 </div>
