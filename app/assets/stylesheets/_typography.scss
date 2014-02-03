@@ -67,13 +67,13 @@ a {
 
 .btn-red {
   @include gradient(#FF645B, #FF493F);
-  border-color: $white;
+  border-color: #FF645B;
   color: $white;
   font-size: 24px;
   width: 55%;
   &:hover, &:active, &:focus {
     @include gradient(#FD8882, #FF493F);
-    border-color: $white;
+    border-color: #FF645B;
     color: $white;
   }
 }
@@ -110,5 +110,12 @@ input.ng-valid.ng-dirty {
     border-color: #356635;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+  }
+}
+
+.text-danger {
+  color: #ff0000;
+  &:hover {
+    color: #ff0000;
   }
 }

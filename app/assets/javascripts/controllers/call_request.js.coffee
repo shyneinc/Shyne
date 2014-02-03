@@ -23,14 +23,18 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
 
   $scope.refresh(false)
 
+  mentor_id = $routeParams.mentor_id
+
+  User.getMentorInfo(mentor_id).then((mentorInfo) ->
+    $scope.mentor = mentorInfo
+  )
+
   $scope.proposedDurationOptions = []
   proposed_duration = ["10", "15", "20", "25", "30"]
   for i in proposed_duration
-    $scope.proposedDurationOptions.push({ name: "#{i} minutes", id: i })
+    $scope.proposedDurationOptions.push({ name: "#{i} Minutes", id: i })
 
   $scope.callRequestModel.proposed_duration = $scope.proposedDurationOptions[0]
-  mentor_id = $routeParams.mentor_id
-  $scope.mentor = User.getMentorInfo(mentor_id)
 
   month_list = ["January", "February", "March", "April",  "May",  "June", "July", "August", "September", "October", "November", "December"]
   $scope.expiredMonths = []

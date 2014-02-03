@@ -9,7 +9,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.previousPosition = false
-  
+
   $scope.loadIndustries = (query) ->
     $http.get('/api/industries?query=' + query).then((industries)->
       $scope.historyModel.industries = []
@@ -17,10 +17,10 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         $scope.historyModel.industries.push(i.title)
       return $scope.historyModel.industries
     )
-  
+
   $scope.loadIndustries1 = (query) ->
     return ['aaa', 'bbb', 'ccc']
-  
+
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"]
@@ -61,10 +61,10 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
           $scope.work_histories = workHistoriesInfo
         )
     )
-  
+
   $scope.state_list = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY','LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC',
                 'ND','OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
-  
+
   $scope.refresh(false)
 
   $scope.showMemberForm = () ->

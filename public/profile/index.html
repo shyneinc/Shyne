@@ -5,7 +5,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li ng-hide="user"><a href="#/login">Log In</a></li>
                     <li ng-show="user" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Profile</a></li>
                             <li><a href="#/conversation">Messages</a></li>
@@ -93,23 +93,23 @@
                                     <div class="form-group">
                                         <label for="mentorCity">City</label>
                                         <input name="city" ng-model="mentorModel.city" class="form-control width60" id="mentorCity" placeholder="Enter the City" required="">
-                                        
+
                                         <label for="mentorState">State</label>
                                         <select class="form-control width30" ng-model="mentorModel.state">
                                         	<option value="">Select State</option>
                                         	<option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                         </select>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorYearsOfExperience">How many years of work experience do you have? <span class="text-danger">{{mentorFormError.years_of_experience[0]}}</span></label><br />
-                                        <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control width40" id="mentorYearsOfExperience" placeholder="Enter total of industry experience you have" required="">
+                                        <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control width40" id="mentorYearsOfExperience" placeholder="Enter number of years worked" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorPhoneNumber">Phone Number (Please note this is not shared with anyone) <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
                                         <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter your 10-digit number" required="">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="mentorAvailability">When is the best time you're available to take phone calls to give advice? <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
                                         <input name="availability" ng-model="mentorModel.availability" class="form-control" id="mentorAvailability" placeholder="e.g. Weekdays from 5-7pm, Saturdays from 1-3pm" required="">
@@ -134,7 +134,7 @@
                                     <div class="form-group">
                                         <label for="mentorHeadline">Please enter a short headline about your career (280 character limit) <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
                                         <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" maxlength="280" placeholder="e.g. 5+ years working in online marketing in the tech industry in San Francisco" required="" auto-focus>
-                                    </div>                                    
+                                    </div>
                                     <div class="button-group">
                                         <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Continue</button>
                                         <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
@@ -161,11 +161,11 @@
                   <label for="historyPosition">What is your current position?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
                       <table>
                         <tr>
-                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="Positions" required="" auto-focus></td>
+                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="Position" required="" auto-focus></td>
                           <td>&nbsp;</td>
                           <td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required="" auto-focus></td>
-                        </tr>  
-                        <tr>  
+                        </tr>
+                        <tr>
                           <td>
                             <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" class="form-control" required="">
                               <option value="">Month Started</option>
@@ -185,7 +185,7 @@
                         <div ng-repeat="historyModel in historyModel.positions">
                         <table>
                           <tr>
-                            <td><input ng-model="historyModel.previous_title_text" class="form-control" placeholder="Positions"></td>
+                            <td><input ng-model="historyModel.previous_title_text" class="form-control" placeholder="Position"></td>
                             <td>&nbsp;</td>
                             <td><input ng-model="historyModel.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name"></td>
                           </tr>
@@ -222,16 +222,16 @@
                   </div>
                   <div class="form-group">
                       <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-											<input ng-model="historyModel.industries" class="form-control" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>                      
-										  <!--								
+											<input ng-model="historyModel.industries" class="form-control" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+										  <!--
                      <tags-input ng-model="historyModel.industries" custom-class="form-control" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" enable-editing-last-tag="true"  auto-focus>
                      	<auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                  </tags-input> -->
-                      
+
                   </div>
                   <div class="form-group">
                       <label for="historyPrograms">List some skills and programs that you’ve become comfortable with<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-                      <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g.	Ruby on	Rails, Financial Analysis, SQL,	Digital	Marketing, B2B Sales" required="" auto-focus>
+                      <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g. Ruby on Rails, Financial Analysis, SQL, Digital Marketing, B2B Sales" required="" auto-focus>
                   </div>
                   <div class="button-group">
                       <button type="button" class="btn btn-success btn-xlarge" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
@@ -575,7 +575,7 @@
                                         <div class="form-group">
                                             <label for="memberPassword">CurrentPassword <span class="text-danger">{{memberFormError.password[0]}}</span></label>
                                             <input name="current_password" ng-model="user.current_password" type="password" class="form-control" id="memberPassword" placeholder="Enter current password" required="">
-                                        </div>                                    	
+                                        </div>
                                         <div class="form-group">
                                             <label for="memberPassword">New Password <span class="text-danger">{{memberFormError.password[0]}}</span></label>
                                             <input name="password" ng-model="user.password" type="password" class="form-control" id="memberPassword" placeholder="Enter new password" required="">
