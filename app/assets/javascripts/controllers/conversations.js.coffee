@@ -43,7 +43,7 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
     )
 
   $scope.showConversation = (conversationUrl) ->
-    $location.path conversationUrl
+    $location.path ('/conversation/'+conversationUrl)
 
   if $routeParams.conversation_id != undefined and $routeParams.conversation_id != null
     $scope.getConversation()
@@ -53,6 +53,7 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
   $scope.replyOnConversation = () ->
     Conversation.replyConversation($scope.conversationModel, $scope.conversation_id).then((data) ->
       $scope.getConversation()
+      $scope.conversationModel.body = null
     , (data) ->
       $scope.conversationModelError = data
     )

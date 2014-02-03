@@ -45,7 +45,8 @@
     color:#e04238;
   }
   .msgPhoto{
-    padding-right:15px;
+    padding-left: 0px;
+    padding-right:10px;
     img{
       border-radius:5px;
       -moz-border-radius:5px;
@@ -84,9 +85,17 @@
     cursor:pointer;
     float:left;
     width:100%;
+    padding-left: 0px;
   }
   .messageText{
-    padding-top:3px;
+    padding-left: 0px;
+    min-height: 100px;
+    line-height: 100px;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+    }
   }
   .messaheHeading{
     background:#5ad8d2;

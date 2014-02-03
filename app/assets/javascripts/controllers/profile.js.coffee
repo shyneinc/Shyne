@@ -10,17 +10,13 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.previousPosition = false
 
+  $scope.industries = null
+  Workhistory.getIndustries().then((industries) ->
+    $scope.industries = industries
+  )
+
   $scope.loadIndustries = (query) ->
-    $http.get('/api/industries?query=' + query).then((industries)->
-      $scope.historyModel.industries = []
-      for i in industries
-        $scope.historyModel.industries.push(i.title)
-      return $scope.historyModel.industries
-    )
-
-  $scope.loadIndustries1 = (query) ->
-    return ['aaa', 'bbb', 'ccc']
-
+    return $http.get('/api/industries?query=' + query)
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"]

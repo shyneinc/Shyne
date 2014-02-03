@@ -19,18 +19,18 @@
     <div class="messaheHeading"><h1 class="text-center">Messages</h1></div>
     <div class="conversationsList">
       <ul>
-        <li ng-repeat="conversation in conversations" ng-click="showConversation('/conversation/{{ conversation.id }}')">
+        <li ng-repeat="conversation in conversations" ng-click="showConversation(conversation.id)">
           <div>
             <div class="fLeft"><strong>From:</strong> <a href="#/profile" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a></div>
             <div class="fRight"><b>{{ conversation.messages[0].created_at | date:'MMM dd' }}</b></div>
           </div>
           <div class="clearb">&nbsp;</div>
-          <div class="messageTextDiv">
-            <div class="photo fLeft msgPhoto">
+          <div class="messageTextDiv col-md-9">
+            <div class="photo fLeft msgPhoto col-md-2">
               <img src="/assets/sample.png" ng-src="{{conversation.messages[0].sender.avatar.medium.url}}" width="100" height="100">
             </div>
-            <div class="fLeft messageText">
-              {{ conversation.messages[0].body }}
+            <div class="fLeft messageText col-md-10">
+              <span>{{ conversation.messages[0].body }}</span>
             </div>
           </div>
         </li>

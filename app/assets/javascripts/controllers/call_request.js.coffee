@@ -1,4 +1,4 @@
-Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory',($location, $scope, $timeout, $routeParams, Session, User, Workhistory) ->
+Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, Session, User, Workhistory, Conversation) ->
 
   $scope.user = null
   $scope.mentor = null
@@ -74,7 +74,9 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
   $scope.SubmitCallRequest = () ->
     User.createCallRequest($scope.callRequestModel, $scope.user.role_id, mentor_id).then(
       (data)->
-        $location.path '/profile/'
+        Conversation.createConversation($scope.callRequestModel, $scope.mentor.user.id).then((data)->
+          $location.path '/profile/'
+        )
     , (error)->
       $scope.callRequestModelError = error
     )

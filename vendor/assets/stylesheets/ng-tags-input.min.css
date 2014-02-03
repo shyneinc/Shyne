@@ -20,6 +20,8 @@
     overflow-y: auto;
     padding: 2px;
     word-wrap: break-word;
+    width: 100%;
+    border-radius: 4px;
 }
 .ngTagsInput .tags.focused {
     box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);

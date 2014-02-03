@@ -28,8 +28,8 @@ ShyneService.factory('Conversation', ['$location','$http','$q',($location, $http
 
     $http.post('/api/conversations',
       conversation:
-        body: conversationModel.body,
-        subject: conversationModel.subject,
+        body: conversationModel.agenda,
+        subject: conversationModel.agenda,
         user_id: userId
     ).success((data) ->
       deferred.resolve(data)
