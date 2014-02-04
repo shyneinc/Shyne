@@ -4,8 +4,11 @@ ActiveAdmin.register Mentor do
   index do
     selectable_column
     column :user
+    column :city
+    column :state
     column :headline
     column :years_of_experience
+    column :linkedin
     column :mentor_status
     column :featured
     default_actions
@@ -13,9 +16,11 @@ ActiveAdmin.register Mentor do
 
   form do |f|
     f.inputs "Mentor Details" do
+      f.input :city
+      f.input :state
       f.input :headline
-      f.input :experties
       f.input :years_of_experience
+      f.input :linkedin
       f.input :phone_number
       f.input :availability
       f.input :mentor_status, as: :select, collection: MentorStatus.select_options
@@ -27,7 +32,7 @@ ActiveAdmin.register Mentor do
 
   controller do
     def permitted_params
-      params.permit mentor: [:headline, :experties, :years_of_experience, :phone_number,
+      params.permit mentor: [:city, :state, :headline, :years_of_experience, :linkedin, :phone_number,
                              :availability, :mentor_status, :featured, :user_id]
     end
   end
