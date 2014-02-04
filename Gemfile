@@ -48,6 +48,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'sass'
   gem 'jquery-ui-rails'
+  gem 'jquery-ui-themes'
 end
 
 group :development, :test do

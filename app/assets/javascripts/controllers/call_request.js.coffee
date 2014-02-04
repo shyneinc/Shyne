@@ -58,8 +58,10 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
     $scope.callRequestModel.form = 'cal_details'
   $scope.availableTimes = () ->
     $scope.callRequestModel.form = 'avl_times'
-  $scope.PaymentInfo = () ->
-    $scope.callRequestModel.form = 'payment_info'
+  $scope.PaymentInfo = (forceRedirect) ->
+    $scope.callRequestModel.form = 'avl_times' if $scope.user.customer_uri != null and forceRedirect
+    $scope.callRequestModel.form = 'payment_info' if $scope.user.customer_uri == null and !forceRedirect
+    $scope.callRequestModel.form = 'confirm_details' if $scope.user.customer_uri != null and !forceRedirect
 
   $scope.ConfirmDetails = () ->
     $("#spinner").show()

@@ -21,23 +21,22 @@
                 </div>
                 <div class="col-md-6 col-md-offset-3">
                     <div class="jumbotron" ng-show="user">
-                        <h2>Change Credit Card information</h2>
-                        <form novalidate role="form" name="creditCardForm" class="css-form" ng-submit="addCreditCard()">
+                        <h2>Change Bank Account Information</h2>
+                        <form novalidate role="form" name="bankAccountForm" class="css-form" ng-submit="addBankAccount()">
                           <div class="form-group">
-                              <label>Card Number <span class="text-danger">{{creditCardFormError}}</span></label>
-                              <input name="cardNumber" ng-model="creditCardModel.card_number" class="form-control" id="creditCardCardNumber" placeholder="Credit Card #" required="">
+                              <label>Name <span class="text-danger">{{bankAccountFormError}}</span></label>
+                              <input name="name" ng-model="bankAccountModel.name" class="form-control" id="bankAccountName" placeholder="Enter name" required="">
                           </div>
                           <div class="form-group">
-                              <label>Security Code</label>
-                              <input name="SecurityCode" ng-model="creditCardModel.security_code" class="form-control" id="creditCardSecurityCode" placeholder="CVC" required="">
+                              <label>Account Number</label>
+                              <input name="accountNumber" ng-model="bankAccountModel.account_number" class="form-control" id="bankAccountAccountNumber" placeholder="Enter account number" required="">
                           </div>
                           <div class="form-group">
-                              <label class="width100">Expiration Date?</label>
-                              <select class="form-control width48 monthSelect" ng-model="creditCardModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
-                              <select class="form-control width48" ng-model="creditCardModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
+                              <label>Routing Number</label>
+                              <input name="routingNumber" ng-model="bankAccountModel.routing_number" class="form-control" id="bankAccountRoutingNumber" placeholder="Enter routing number" required="">
                           </div>
                           <div class="button-group">
-                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="creditCardForm.$invalid" ng-click="addCreditCard()">Update</button>
+                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="bankAccountForm.$invalid" ng-click="addBankAccount()">Update</button>
                           </div>
                       </form>
                     </div>

@@ -22,7 +22,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div class="jumbotron" ng-show="user && user.role_type == 'Mentor'">
                         <h2>Basic Information</h2>
-                        <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
+                        <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUserInformation()">
                           <div class="form-group">
                               <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
                               <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
@@ -53,15 +53,15 @@
                               </select>
                           </div>
                           <div class="button-group">
-                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUserInformation()" hide-inline-edit>Update</button>
                           </div>
                       </form>
                     </div>
-                    
-                    
+
+
                     <div class="jumbotron" ng-show="user && user.role_type == 'Member'">
                         <h2>Basic Information</h2>
-                        <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
+                        <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUserInformation()">
                           <div class="form-group">
                               <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
                               <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
@@ -84,11 +84,11 @@
                               </select>
                           </div>
                           <div class="button-group">
-                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
+                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUserInformation()" hide-inline-edit>Update</button>
                           </div>
                       </form>
-                    </div>                    
-                    
+                    </div>
+
                 </div>
             </div>
         </div>

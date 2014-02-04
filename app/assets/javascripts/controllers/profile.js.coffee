@@ -9,6 +9,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.previousPosition = false
+  $scope.creditCardModel = {}
 
   $scope.industries = null
   Workhistory.getIndustries().then((industries) ->
@@ -41,6 +42,28 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
 
   $scope.historyModel.startedCurrentYearOption = ""
   $scope.historyModel.endedPreviousYearOption = ""
+
+
+  $scope.creditCardModel.expired_month = ""
+  $scope.creditCardModel.expired_year = ""
+
+  month_list = ["January", "February", "March", "April",  "May",  "June", "July", "August", "September", "October", "November", "December"]
+  $scope.expiredMonths = []
+  for j,idx in month_list
+    $scope.expiredMonths.push({ name: j, id: (idx + 1) })
+
+  $scope.creditCardModel.expired_month = $scope.expiredMonths[0]
+
+  $scope.expiredYears = []
+  current_year = new Date()
+  started_year = current_year.getFullYear()
+  ended_year = started_year + 15
+  year_list = [started_year..ended_year]
+
+  for j in year_list
+    $scope.expiredYears.push({ name: j, id: j })
+
+  $scope.creditCardModel.expired_year = $scope.expiredYears[0]
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -189,13 +212,25 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
     )
 
   $scope.updateUser = () ->
-    $scope.updateMentor($scope.user)
     User.updateUser($scope.user).then((data) ->
       $scope.flash_message = 'User Information Updated.'
       $timeout (->
           $scope.flash_message = null
           $scope.$digest()
         ), 5000
+    , (data) ->
+      $scope.resetpasswordFormError = data.errors
+    )
+
+  $scope.updateUserInformation = () ->
+    User.updateUser($scope.user).then((data) ->
+      $scope.flash_message = 'User Information Updated.'
+      $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
+      $scope.updateMentor($scope.user) if $scope.user.role_type == 'Mentor'
+      $scope.updateMember($scope.user) if $scope.user.role_type == 'Member'
     , (data) ->
       $scope.resetpasswordFormError = data.errors
     )
@@ -209,5 +244,29 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         ), 5000
     , (data) ->
       $scope.changepasswordFormError = data.errors
+    )
+
+  $scope.addCreditCard = () ->
+    User.addCreditCard($scope.creditCardModel).then((data) ->
+      $scope.refresh(false)
+      $scope.flash_message = 'Credit card detail added successfully!'
+      $timeout (->
+          $scope.flash_message = null
+          $location.path '/settings/'
+        ), 5000
+    , (data) ->
+      $scope.creditCardFormError = data.error
+    )
+
+  $scope.addBankAccount = () ->
+    User.addBankAccount($scope.bankAccountModel).then((data) ->
+      $scope.refresh(false)
+      $scope.flash_message = 'Bank account detail added successfully!'
+      $timeout (->
+          $scope.flash_message = null
+          $location.path '/settings/'
+        ), 5000
+    , (data) ->
+      $scope.creditCardFormError = data.error
     )
 ])

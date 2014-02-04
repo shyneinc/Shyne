@@ -526,7 +526,9 @@ tagsInput.directive('tiAutosize', function() {
             span = angular.element('<span class="tag-input"></span>');
             span.css('display', 'none')
                 .css('visibility', 'hidden')
-                .css('width', 'auto');
+                .css('width', '100%')
+                .css('padding', '6px 12px')
+                .css('height', '34px');
 
             element.parent().append(span);
 

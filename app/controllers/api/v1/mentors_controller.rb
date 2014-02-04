@@ -4,13 +4,13 @@ class Api::V1::MentorsController < Api::V1::BaseController
   def index
     mentors = []
     if (params[:featured].present? && params[:featured] == 'true')
-      mentors_list = Mentor.approved.featured
+      mentors_list = Mentor.approved.featured.not_deleted
     elsif (params[:skills].present?)
-      mentors_list = Mentor.approved.skills(params[:skills])
+      mentors_list = Mentor.approved.not_deleted.skills(params[:skills])
     elsif (params[:industries].present?)
       mentors_list = Mentor.approved.industries(params[:industries])
     else
-      mentors_list = Mentor.approved
+      mentors_list = Mentor.approved.not_deleted
     end
     mentors_list.each do |mentor|
       mentors << {

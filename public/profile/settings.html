@@ -24,7 +24,8 @@
                       <ul class="nav nav-pills nav-stacked">
                         <li><a href="#/basicinfo">Basic Information<i class="chev-right"></i></a></li>
                         <li><a href="#/changepassword">Change Password<i class="chev-right"></i></a></li>
-                        <li><a href="#/creditcard">Change Credit Card<i class="chev-right"></i></a></li>
+                        <li ng-hide="user.role_type == 'Mentor'"><a href="#/creditcard">Change Credit Card<i class="chev-right"></i></a></li>
+                        <li ng-hide="user.role_type == 'Member'"><a href="#/bankaccount">Change Bank Account<i class="chev-right"></i></a></li>
                         <li><a href="#/emailnotification">Email Notifications<i class="chev-right"></i></a></li>
                         <li><a href="#/account">Account Status ({{user.confirmed && "Activate" || "Deactivate" }})<i class="chev-right"></i></a></li>
                       </ul>

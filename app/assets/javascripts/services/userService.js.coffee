@@ -64,7 +64,16 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
 
   updateUser: (user) ->
     deferred = $q.defer()
-    $http.put('/api/users', user).success((data) ->
+    $http.put('/api/users',
+      user:
+        first_name: user.first_name
+        last_name:  user.last_name,
+        email:  user.email,
+        avatar: user.avatar,
+        password: user.password,
+        password_confirmation: user.password_confirmation,
+        time_zone: user.time_zone
+    ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->
       deferred.reject(data)
@@ -209,4 +218,18 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
+  addBankAccount: (bankAccount) ->
+    deferred = $q.defer()
+    $http.post('/api/bank_accounts',
+      bank_account:
+        name: bankAccount.name,
+        account_number: bankAccount.account_number,
+        routing_number: bankAccount.routing_number,
+        type: 'checking'
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data.error)
+    )
+    deferred.promise
 ])

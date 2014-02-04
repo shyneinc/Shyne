@@ -9,7 +9,7 @@ class Mentor < ActiveRecord::Base
 
   phony_normalize :phone_number, :default_country_code => 'US'
   validates :phone_number, :phony_plausible => true
-  
+
   validates :phone_number, :presence => true, :length => { :maximum => 11, :minimum => 11, :message => "Please enter a 11-digit phone number"}
 
   has_one :user, as: :role, dependent: :nullify
@@ -39,6 +39,7 @@ class Mentor < ActiveRecord::Base
   scope :featured, -> { where(featured: true) }
   scope :skills, -> (skill) { where("skills like ?", "%#{skill}%") }
   scope :industries, -> (industry) { where("industries like ?", "%#{industry}%") }
+  scope :not_deleted, lambda { self.joins("join users on users.id = mentors.user_id").where('users.deleted_at IS NULL') }
 
   def rate_per_minute
     if self.years_of_experience < 2

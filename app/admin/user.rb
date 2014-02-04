@@ -11,6 +11,7 @@ ActiveAdmin.register User do
     column "Role Type", :role_type
     column "Role Group", :role
     column "Confirmed", :confirmed?
+    column "DeletedAt", :deleted_at
     default_actions
   end
 

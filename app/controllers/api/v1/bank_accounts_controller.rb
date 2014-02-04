@@ -12,7 +12,7 @@ class Api::V1::BankAccountsController < Api::V1::BaseController
       current_user.balanced_customer.add_bank_account(bank_account)
       render :json => bank_account.attributes, :status => 201
     rescue Exception => ex
-      render :json => {:error => ex.extras}, :status => 500
+      render :json => {:error => ex.extras}, :status => 401
     end
   end
 

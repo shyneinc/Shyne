@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :role, :dependent => :destroy, :polymorphic => true
+  scope :not_deleted, -> { where("deleted_at = ?", nil) }
 
   def active_for_authentication?
     true
@@ -43,6 +44,13 @@ class User < ActiveRecord::Base
     customer
   end
 
+  def soft_delete
+    update_attribute(:deleted_at, Time.current)
+  end
+
+  def active_for_authentication?
+    super && !deleted_at
+  end
   private
 
   def generate_username

@@ -88,6 +88,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/creditcard",
     templateUrl: "/settings/creditcard.html"
     controller: 'ProfileCtrl'
+  ).when("/bankaccount",
+    templateUrl: "/settings/bank_account.html"
+    controller: 'ProfileCtrl'
   ).when("/emailnotification",
     templateUrl: "/settings/emailnotifications.html"
     controller: 'ProfileCtrl'

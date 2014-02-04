@@ -92,7 +92,7 @@
         </div>
         <div class="bottomBtn">
           <button class="btn btn-back fleft" type="button" ng-click="calDetails()">Back</button>
-          <button class="btn btn-continue fright" type="button" ng-disabled="avlTimeForm.$invalid" ng-click="PaymentInfo()">Continue</button>
+          <button class="btn btn-continue fright" type="button" ng-disabled="avlTimeForm.$invalid" ng-click="PaymentInfo(false)">Continue</button>
         </div>
       </form>
     </div>
@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="bottomBtn">
-          <button class="btn btn-back fleft" type="button" ng-click="PaymentInfo()">Back</button>
+          <button class="btn btn-back fleft" type="button" ng-click="PaymentInfo(true)">Back</button>
           <button class="btn btn-continue fright" type="button" ng-click="SubmitCallRequest()">Continue</button>
         </div>
       </div>
