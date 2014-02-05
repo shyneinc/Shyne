@@ -353,7 +353,7 @@ requires jQuery 1.7+
 
     if (settings.noneOption) {
       if (settings.useSelect) {
-        list.append($('<option value="">Time...</option>'));
+        list.append($('<option value="">Time</option>'));
       } else {
         list.append($('<li>None</li>'));
       }

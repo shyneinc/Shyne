@@ -27,7 +27,7 @@
         </div>
     </div>
 	</div>
-  <div ng-show="user.role_type == 'Member'">
+  <div ng-show="user.role_type == 'Member'" class="mainBg">
     <!-- call details -->
     <div class="detailForm" ng-show="callRequestModel.form == 'cal_details'">
 
@@ -35,8 +35,8 @@
         <h1>Call Details</h1>
           <div class="formBox">
             <div class="formHeading">
-                <h3>Let’s Schedule a Call with {{mentor.full_name}}</h3>
-                  <span>STEP 1 of 4</span>
+                <h3>Let’s Schedule a Call with {{mentor.user.first_name}}</h3>
+                  <span>Step 1 of 4</span>
               </div>
               <div class="formContent">
                 <div class="userNameImg">
@@ -44,11 +44,12 @@
                     <label>${{mentor.rate_per_minute}}/minute</label>
                   </div>
                   <div class="formRow">
-                    <label>1) What would you like ${{mentor.full_name}} to focus on for this call?<span>  ({{280 - callRequestModel.agenda.length}} characters left)</span></label>
+                    <label>{{ datestring }}</label>
+                    <label>What would you like ${{mentor.user.first_name}} to focus on for this call?<span>  {{280 - callRequestModel.agenda.length}} characters left</span></label>
                     <textarea class="form-control width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280"></textarea>
                   </div>
                   <div class="formRow">
-                    <label>2) Roughly speaking, how long would you like this call to last?</label>
+                    <label>Roughly speaking, how long would you like this call to last?</label>
                     <select data-ng-options="o.name for o in proposedDurationOptions" ng-model="callRequestModel.proposed_duration" class="form-control width65"></select>
                   </div>
                   <div class="formRow">
@@ -68,25 +69,25 @@
       <form novalidate role="form" name="avlTimeForm" class="css-form">
         <div class="formBox">
           <div class="formHeading">
-              <h3>Best Available times for {{mentor.full_name}}</h3>
-              <span>STEP 2 of 4</span>
+              <h3>Best Available times for {{mentor.user.first_name}}</h3>
+              <span>Step 2 of 4</span>
             </div>
             <div class="formContent">
               <div class="bestTimeTakeCall">
-                <label>Here are the best time that {{mentor.full_name}} is available to take calls</label>
+                <label>{{mentor.user.first_name}} is generally available to speak at the following times:</label>
                 <div class="bestTimeDigit"><span>{{ mentor.availability }}</span></div>
-              <label>{{mentor.full_name}} located in the {{mentor.time_zone}} Timezone.</label>
+                <label>{{mentor.user.first_name}} is located in the {{mentor.user.time_zone}} Timezone.</label><br/><br/>
               </div>
               <div class="formRow">
                 <div class="suggestTime">
-                  <label>1) Suggest a time <span>(in your timezone)</span> for {{mentor.full_name}} to accept a call. The {{mentor.full_name}} has the option of accepting your time or can reply back with another time that might be a better fit.</label>
-                  <input type="text" class="form-control width40 fleft" id="scheduled_at" placeholder="Schedule Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
+                  <label>Suggest a time (in your timezone) for {{mentor.user.first_name}} to accept a call. The Mentor has the option of accepting your time or can reply back with another time that might be a better fit.</label>
+                  <input type="text" class="form-control width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
                   <span class="atText fleft">at</span>
                   <input ng-model="callRequestModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
                 </div>
               </div>
               <div class="formRow">
-                <p>Note: We don't recommend requesting a call within 12 hours, as our {{mentor.full_name}} might not be able to respond back in time. Please also be courteous of any timezone differences.</p>
+                <p>Note: We don't recommend requesting a call within 12 hours, as our Mentors might not be able to respond back in time. Please also be courteous of any timezone differences.</p>
               </div>
             </div>
         </div>
@@ -103,7 +104,7 @@
         <div class="formBox">
           <div class="formHeading">
             <h3>Please enter your payment information</h3>
-            <span>STEP 3 of 4</span>
+            <span>Step 3 of 4</span>
           </div>
           <div class="formContent">
             <div class="formRow">
@@ -120,7 +121,7 @@
             </div>
             <div class="formRow">
               <div class="expireDateDetail">
-                <label>Expiration Date?</label>
+                <label>Expiration Date</label>
                 <select class="form-control width40 fleft" ng-model="callRequestModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
                 <select class="form-control width40" ng-model="callRequestModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
               </div>
@@ -130,9 +131,9 @@
         <div class="bottomBtn">
           <button class="btn btn-back fleft" type="button" ng-click="availableTimes()">Back</button>
           <button class="btn btn-continue fright" type="button" ng-disabled="paymentInfoForm.$invalid" ng-click="ConfirmDetails()">Continue</button>
-					<div id="spinner" class="loaderIcon">
-					  <img src="/assets/loader.gif" />
-					</div>
+          <div id="spinner" class="loaderIcon">
+            <img src="/assets/loader.gif" />
+          </div>
         </div>
       </form>
     </div>
@@ -143,25 +144,25 @@
         <div class="formBox">
           <div class="formHeading">
             <h3>Confirm Details for call</h3>
-            <span>STEP 4 of 4</span>
+            <span>Step 4 of 4</span>
           </div>
           <div class="formContent">
             <div class="formRow">
               <div class="suggestTime">
-                <label>1) Reason for your call</label>
+                <label>Reason for your call</label>
                 <span class="atText fleft">{{ callRequestModel.agenda }}</span>
               </div>
             </div>
             <div class="formRow">
               <div class="suggestTime">
-                <label>2) Suggested Time</label>
+                <label>Suggested Time</label>
                 <span class="atText fleft">{{ callRequestModel.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ callRequestModel.scheduled_time }}</span>
 
               </div>
             </div>
             <div class="formRow">
               <div class="estimatedTotal">
-                <label>3) Estimated Total</label>
+                <label>Estimated Total</label>
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tr>
                     <td width="50%"><span>Rate per Minute</span></td>

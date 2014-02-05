@@ -30,7 +30,7 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
   )
 
   $scope.proposedDurationOptions = []
-  proposed_duration = ["10", "15", "20", "25", "30"]
+  proposed_duration = ["20", "30", "40"]
   for i in proposed_duration
     $scope.proposedDurationOptions.push({ name: "#{i} Minutes", id: i })
 
@@ -67,10 +67,12 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
     $("#spinner").show()
     User.addCreditCard($scope.callRequestModel).then(
       (data)->
+        $("#spinner").hide()
+        $scope.creditCardError = ''
         $scope.callRequestModel.form = 'confirm_details'
     , (error)->
-      $("#spinner").hide()
-      $scope.creditCardError = error
+        $("#spinner").hide()
+        $scope.creditCardError = error
     )
 
   $scope.SubmitCallRequest = () ->

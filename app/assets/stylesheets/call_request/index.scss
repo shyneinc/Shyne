@@ -2,6 +2,10 @@
 
 /* CSS Document */
 
+.mainBg {
+  background:url(/assets/main_bg.jpg) top left repeat-x;
+}
+
 .detailForm {
   width: 710px;
   margin: 0 auto;
@@ -88,6 +92,7 @@
     label {
       color: #4a5763;
       font-size: 18px;
+      font-weight: normal;
       letter-spacing: -1px;
       padding: 0px 0px 3px 0px;
       line-height: 20px;

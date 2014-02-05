@@ -203,12 +203,14 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
 
   createCallRequest: (callRequest, memberId, mentorId) ->
     deferred = $q.defer()
+    scheduled_date = callRequest.scheduled_at.split("-")
+    scheduled_date = "#{scheduled_date[2]}-#{scheduled_date[0]}-#{scheduled_date[1]}"
     $http.post('/api/call_requests',
       call_request:
         agenda: callRequest.agenda,
         member_id: memberId,
         mentor_id: mentorId,
-        scheduled_at: "#{callRequest.scheduled_at} #{callRequest.scheduled_time}",
+        scheduled_at: "#{scheduled_date} #{callRequest.scheduled_time}",
         proposed_duration: callRequest.proposed_duration.id,
         status: callRequest.status
     ).success((data) ->
