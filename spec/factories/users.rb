@@ -12,6 +12,7 @@ FactoryGirl.define do
     username { "#{first_name}#{last_name}".gsub(/\s+/, "").to_s.downcase }
     time_zone { ActiveSupport::TimeZone.us_zones.sample.name }
     customer_uri nil
+    deleted_at nil
   end
 
 end
