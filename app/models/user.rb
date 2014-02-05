@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   scope :not_deleted, -> { where("deleted_at = ?", nil) }
 
   def active_for_authentication?
-    true
+    true && !deleted_at
   end
 
   def full_name
@@ -48,9 +48,6 @@ class User < ActiveRecord::Base
     update_attribute(:deleted_at, Time.current)
   end
 
-  def active_for_authentication?
-    super && !deleted_at
-  end
   private
 
   def generate_username

@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorPhoneNumber">Phone Number (Please note this is not shared with anyone) <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" class="form-control" id="mentorPhoneNumber" placeholder="Enter your 10-digit number" required="">
+                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="mentorPhoneNumber" required="">
                                     </div>
 
                                     <div class="form-group">
