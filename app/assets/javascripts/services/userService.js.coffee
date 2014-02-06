@@ -88,7 +88,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       payload
       withCredentials: true
       headers:
-        "Content-Type": false
+        "Content-Type": undefined
       transformRequest: (tdata) ->
         tdata
     ).success((data) ->

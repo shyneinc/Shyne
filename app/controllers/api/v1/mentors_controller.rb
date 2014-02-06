@@ -16,8 +16,10 @@ class Api::V1::MentorsController < Api::V1::BaseController
       mentors << {
         id: mentor.id,
         role: mentor.current_position,
-        name: mentor.full_name,
+        full_name: mentor.full_name,
         company: mentor.current_company,
+        city: mentor.city,
+        state: mentor.state,
         rate_per_minute: mentor.rate_per_minute,
         photo_url: mentor.user.avatar.url,
         years_of_experience: mentor.years_of_experience,

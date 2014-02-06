@@ -43,8 +43,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p>We have mentors from <a href="#">Facebook</a>, <a href="#">Google</a>, <a href="#">Goldman Sachs</a>, <a href="#">KPMG</a>, <a href="#">PwC</a>, <a href="#">Square</a>, <a href="#">Dropbox</a>, and many more companies!  Pick their brains on what they did to land their jobs.</p>
-                    <a href="#/signup" class="btn btn-lg btn-success">I'm ready for advice!</a>
+                    <p>We have mentors from <a href="#/search/Facebook">Facebook</a>, <a href="#/search/Google">Google</a>, <a href="#/search/Goldman Sachs">Goldman Sachs</a>, <a href="#/search/KPMG">KPMG</a>, <a href="#/search/PwC">PwC</a>, <a href="#/search/Square">Square</a>, <a href="#/search/Dropbox">Dropbox</a>, and many more companies!  Pick their brains on what they did to land their jobs.</p>
+                    <a ng-hide="user" href="#/signup" class="btn btn-lg btn-success">I'm ready for advice!</a>
+                    <a ng-show="user" href="#/mentors" class="btn btn-lg btn-success">I'm ready for advice!</a>
                 </div>
                 <div class="col-md-4">&nbsp;</div>
             </div>

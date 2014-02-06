@@ -55,6 +55,10 @@ class Mentor < ActiveRecord::Base
     self.user.avatar.thumb.to_s
   end
 
+  def photo_url
+    self.user.avatar.url.to_s
+  end
+
   def worked_at
     self.work_histories.map(&:company).join(" ")
   end
