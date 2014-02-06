@@ -234,4 +234,15 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       deferred.reject(data.error)
     )
     deferred.promise
+
+  searchData: (objectList, query) ->
+    items = undefined
+    deferred = $q.defer()
+
+    items = _.chain(objectList).filter((x) ->
+      x.toLowerCase().indexOf(query.toLowerCase()) > -1
+    ).value()
+
+    deferred.resolve(items)
+    deferred.promise
 ])

@@ -96,8 +96,8 @@
 
                                         <label for="mentorState">State</label>
                                         <select class="form-control width30" ng-model="mentorModel.state">
-                                        	<option value="">Select State</option>
-                                        	<option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                                          <option value="">Select State</option>
+                                          <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                         </select>
 
                                     </div>
@@ -218,17 +218,16 @@
                       </div>
                   </div>
                   <div class="fLeft">
-                  	<input type="checkbox" ng-model="previousPosition"> I have not held any previous positions.
+                    <input type="checkbox" ng-model="previousPosition"> I have not held any previous positions.
                   </div>
                   <div class="form-group">
-                      <label for="historyIndustries">What	are	the	main industries	you're familiar	with?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
+                      <label for="historyIndustries">What are the main industries you're familiar with?<span class="text-danger">{{historyFormError.industries[0]}}</span></label>
                       <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
                         <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                       </tags-input>
-
                   </div>
                   <div class="form-group">
-                      <label for="historyPrograms">List some skills and programs that you’ve become comfortable with<span class="text-danger">{{historyFormError.title[0]}}</span></label>
+                      <label for="historyPrograms">List some skills and programs that you’ve become comfortable with<span class="text-danger">{{historyFormError.skills[0]}}</span></label>
                       <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g. Ruby on Rails, Financial Analysis, SQL, Digital Marketing, B2B Sales" required="" auto-focus>
                   </div>
                   <div class="button-group">

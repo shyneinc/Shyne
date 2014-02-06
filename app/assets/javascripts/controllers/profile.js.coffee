@@ -17,7 +17,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   )
 
   $scope.loadIndustries = (query) ->
-    return $http.get('/api/industries?query=' + query)
+    return User.searchData($scope.industries, query)
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"]

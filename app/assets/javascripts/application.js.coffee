@@ -3,6 +3,7 @@
 #= require twitter/bootstrap
 #= require jquery.ui.datepicker
 #= require jquery.timepicker
+#= require underscore
 #= require angular
 #= require angular-route
 #= require ng-tags-input
