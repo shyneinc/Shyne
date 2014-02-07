@@ -1,0 +1,136 @@
+<div class="profile-index">
+    <header>
+        <div class="container">
+            <nav class="masthead">
+                <ul class="nav navbar-nav pull-right">
+                    <li ng-hide="user"><a href="#/login">Log In</a></li>
+                    <li ng-show="user" class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#/conversation">Messages</a></li>
+                            <li><a href="#/settings">Settings</a></li>
+                            <li><a href="#/logout">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a class="logo" href="#" ng-click="home()">Shyne</a>
+        </div>
+    </header>
+  <section ng-show="userProfile">
+        <div class="mentor-section mainBg">
+            <div class="hero">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 profile-page">
+                        	<div class="row">
+                                <div class="col-md-8">
+                                	<div class="row">
+                                        <div class="col-md-12 left-side">
+                                          <div class="col-md-3">
+                                              <div class="circle">
+                                                  <div class="inner">
+                                                      <img ng-src="{{userProfile.avatar.url}}" start-inline-edit/>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-8 clearfix">
+                                              <h1>{{userProfile.first_name}} {{userProfile.last_name}}</h1>
+                                              <div class="fleft">{{ userProfile.currently_working_at }}</div>
+                                              <div class="fleft">{{ userProfile.years_of_experience }} years experience</div>
+                                              <div class="fleft paddL0 col-md-9">
+                                                <div class="col-md-5 paddL0">
+                                                  <star-rating star-rating="userProfile.get_avg_rating" max-star-rating="5"></star-rating>
+                                                </div>
+                                                <div class="col-md-5 paddL0">
+                                                  ({{ user_reviews.length }} reviews)
+                                                </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-md-12 headline clearfix">
+                                            <span class="fleft">{{ userProfile.headline }}</span>
+                                          </div>
+
+                                          <div class="col-md-12 profileBox clearfix">
+                                            <h3 class="boxHeader">Work History</h3>
+                                            <div ng-repeat="work_history in user_work_histories">
+                                              <p>{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})</p>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-12 contentBox clearfix">
+                                            <h3 class="boxHeader">Skills</h3>
+                                            <p>{{ userProfile.skills }}</p>
+                                          </div>
+
+                                          <div class="col-md-12 contentBox clearfix">
+                                            <h3 class="boxHeader">{{ userProfile.first_name }} generally works in these industries</h3>
+                                          </div>
+
+                                          <div class="col-md-12 profile-page review-section">
+                                              <div class="col-md-12 profile-page">
+                                                <h3>Reviews ({{user_reviews.length}})</h3>
+                                                <div>&nbsp;</div>
+                                                <div class="row" ng-repeat="review in user_reviews">
+                                                  <div class="col-md-12 review">
+                                                    <div class="col-md-2"><img ng-src="{{review.member.user.avatar.medium.url }}" /></div>
+                                                    <div class="col-md-10">
+                                                      <h4>{{ review.member.user.first_name }} {{ review.member.user.last_name }}</h4>
+                                                      <div class="review-body">{{ review.review }}</div>
+                                                      <div>{{ review.created_at | timeago }}</div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div ng-show="user_reviews.length == 0">
+                                                  <p>No any review available</p>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 right-side">
+                                <div class="text-center mentorRate">${{ userProfile.rate_per_minute}} per minute</div>
+                                <div class="text-center"><a href="#/call_request/{{userProfile.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
+                                <div class="availibility">
+                                  <h3 class="boxHeader">Availability</h3>
+                                  <div>{{ userProfile.availability }} ({{ userProfile.time_zone}} Timezone)</div>
+                                </div>
+                                <div class="user-detail">
+                                  <h3 class="boxHeader">{{ userProfile.first_name}}'s details</h3>
+                                  <div class="detail-content">
+                                    <section>
+                                      <span class="glyphicon glyphicon-map-marker"></span>{{ userProfile.city}}, {{userProfile.state }}
+                                    </section>
+                                    <hr class="grayHR">
+                                    <section>
+                                      <span class="glyphicon glyphicon-bookmark"></span>{{userProfile.years_of_experience}} years experience
+                                    </section>
+                                    <hr class="grayHR">
+                                    <section>
+                                      <span class="glyphicon glyphicon-link"></span><a href="{{ userProfile.linkedin }}">LinkedIn</a>
+                                    </section>
+                                    <hr class="grayHR">
+                                    <section class="editable-field">
+                                      <span class="glyphicon glyphicon-phone"></span>0 calls
+                                    </section>
+                                    <hr class="grayHR">
+                                  </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="inner text-center">&copy; 2013 Shyne</div>
+        </div>
+    </footer>
+</div>

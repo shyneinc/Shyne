@@ -12,6 +12,7 @@
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services
+#= require_directory ./filters
 #= require directives/bootstrapDirectives
 #= require directives/formDirectives
 #= require directives/jQueryDirectives
@@ -37,6 +38,9 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
     controller: 'HomeCtrl'
   ).when("/profile/",
     templateUrl: "/profile/index.html"
+    controller: 'ProfileCtrl'
+  ).when("/profile/:user_id",
+    templateUrl: "/profile/user_profile.html"
     controller: 'ProfileCtrl'
   ).when("/login",
     templateUrl: "/home/login.html"
