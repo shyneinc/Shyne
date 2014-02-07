@@ -245,4 +245,22 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
 
     deferred.resolve(items)
     deferred.promise
+
+  getReviews: (mentorId) ->
+    deferred = $q.defer()
+    $http.get('/api/mentors/' + mentorId + '/reviews').success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
+
+  getUser: (user_id) ->
+    deferred = $q.defer()
+    $http.get('/api/users?user_id=' + user_id).success((data)->
+      deferred.resolve(data.user)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
 ])

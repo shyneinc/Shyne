@@ -2,7 +2,12 @@ class Api::V1::UsersController < Api::V1::BaseController
   before_filter :authenticate_user!, :except => [:create]
 
   def show
-    render :json => {:info => "Current User", :user => current_user, :confirmed => current_user.confirmed?}, :status => 200
+    if params[:user_id].present?
+      user = User.find(params[:user_id])
+    else
+      user = current_user
+    end
+    render :json => {:info => "Current User", :user => user, :confirmed => user.confirmed?}, :status => 200
   end
 
   def create

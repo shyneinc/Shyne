@@ -5,7 +5,7 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   before_filter :check_type, except: [:index, :show]
 
   def index
-    respond_with :api, @mentor.reviews.load
+    respond_with :api, @mentor.reviews.to_json({:include => [:member => {:include => :user}]})
   end
 
   def show

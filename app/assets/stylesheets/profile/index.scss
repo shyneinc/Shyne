@@ -80,8 +80,10 @@
   .mentor-section {
     .hero{
       padding-bottom: 20px;
+      padding-top: 15px;
       margin-bottom: 0;
       min-height: 200px;
+      background: none repeat scroll 0 0 #F2F4F6;
     }
     h1 {
       margin-top: 40px;
@@ -147,6 +149,157 @@
       left: -17px;
       top: 23px;
     }
+
+    .profile-page {
+      width: 100%;
+	  font-size:13px;
+	  line-height:21px;
+	  color:#333333;
+    }
+	.profile-page {
+      h3{
+	  	font-size:20px;
+		font-weight:bold;
+		margin-top:0px;
+		margin-bottom:12px;
+		padding-bottom:12px;
+		border-bottom:1px solid #F2F4F6;
+	  }
+	  h4{
+	  	font-size:18px;
+		font-weight:bold;
+		margin-top:0px;
+		margin-bottom:15px;
+	  }
+	  p.ng-binding{
+		 margin-bottom:20px;
+	  }
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .availibility {
+      background: #fff;
+      text-align: center;
+      margin-top: 10px;
+      padding: 5px;
+      border: 2px solid #fff;
+      @include round-corners(10px);
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    .review-section {
+      background: #fff;
+      text-align: left;
+      margin-top: 10px;
+      padding: 5px;
+      border: 2px solid #fff;
+      @include round-corners(10px);
+    }
+
+    .user-detail {
+      background: #fff;
+      text-align: center;
+      margin-top: 15px;
+      padding: 5px 15px 15px 15px;
+      border: 2px solid #fff;
+      @include round-corners(10px);
+      h1 {
+        font-size: 30px;
+      }
+      .detail-content {
+        text-align: left;
+        position: relative;
+        padding-left:0px;
+        div {
+          width: 100%;
+        }
+        span {
+          margin-right: 5px;
+        }
+		.glyphicon{
+			color:#a7aaab;
+			font-size: 17px;
+    		margin-top: 1px;
+    		vertical-align: top;
+		}
+		section{
+			margin-bottom:0;
+		}
+		hr.grayHR {
+			background-color: #F0F0F0;
+			border: 0 none;
+			height: 1px;
+			margin: 6px 0;
+		}
+      }
+    }
+
+    .headline {
+      padding-left: 5px;
+      padding-top: 15px;
+    }
+
+    .left-side {
+      padding-left: 0px;
+    }
+
+    .profileBox {
+      background: #fff;
+      padding: 15px;
+      border: 2px solid #fff;
+      @include round-corners(10px);
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .contentBox {
+      background: #fff;
+      padding: 15px;
+      border: 2px solid #fff;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .boxHeader {
+      margin-top: 5px;
+    }
+
+    .right-side {
+      margin-top: 55px;
+    }
+
+    .mentorRate {
+      padding-bottom: 10px;
+    }
+
+    .review {
+      padding-left: 0px;
+      width: 100%;
+      .review-content {
+        width: 87.333%;
+        padding-left: 0px;
+        border-bottom: 1px solid #000;
+        .review-body {
+          margin-bottom: 10px;
+        }
+        h3 {
+          margin-top: 0px;
+        }
+      }
+      .review-img {
+        padding-left: 0px;
+        float: left;
+        width: 12%;
+        img {
+          border-radius: 4px;
+        }
+      }
+    }
   }
 }
 .text-danger {
@@ -171,5 +324,16 @@
   border-radius: 6px 6px 6px 6px;
   font-size: 20px;
   line-height: 1.53;
-  padding: 12px 150px;  
+  padding: 12px 150px;
+}
+
+.btn-blue-large {
+  border-radius: 6px 6px 6px 6px;
+  font-size: 20px;
+  line-height: 1.53;
+  width: 100%;
+}
+
+.paddL0 {
+  padding-left:0px;
 }

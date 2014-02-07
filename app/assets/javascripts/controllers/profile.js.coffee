@@ -1,6 +1,6 @@
 Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, Session, User, Workhistory) ->
 
-  $scope.user = null
+  $scope.user = $scope.userProfile = null
   $scope.work_history = null
   $scope.welcomeModel = {role: null}
   $scope.resetModel = {token: null}
@@ -10,6 +10,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.previousPosition = false
   $scope.creditCardModel = {}
+  $scope.reviews = null
+  $scope.user_id = $routeParams.user_id
 
   $scope.industries = null
   Workhistory.getIndustries().then((industries) ->
@@ -78,6 +80,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo
+        )
+        User.getReviews(user.role_id).then((reviews) ->
+          $scope.reviews = reviews
         )
     )
 
@@ -268,5 +273,19 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         ), 5000
     , (data) ->
       $scope.creditCardFormError = data.error
+    )
+
+  if $routeParams.user_id != undefined and $routeParams.user_id != null
+    User.getUser($routeParams.user_id).then((userProfile)->
+      $scope.userProfile = userProfile
+      User.getMentorInfo(userProfile.role_id).then((mentorInfo) ->
+        angular.extend(userProfile, mentorInfo)
+      )
+      Workhistory.getWorkHistories(userProfile.role_id).then((workHistoriesInfo) ->
+        $scope.user_work_histories = workHistoriesInfo
+      )
+      User.getReviews(userProfile.role_id).then((reviews) ->
+        $scope.user_reviews = reviews
+      )
     )
 ])
