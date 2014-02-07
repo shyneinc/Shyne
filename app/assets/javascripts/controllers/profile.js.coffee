@@ -13,9 +13,10 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.reviews = null
   $scope.user_id = $routeParams.user_id
 
-  $scope.industries = null
+  $scope.industries = []
   Workhistory.getIndustries().then((industries) ->
-    $scope.industries = industries
+    for i in industries
+      $scope.industries.push(i[1])
   )
 
   $scope.loadIndustries = (query) ->
