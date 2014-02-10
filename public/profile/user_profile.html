@@ -37,7 +37,7 @@
                                           </div>
                                           <div class="col-md-8 clearfix">
                                               <h1>{{userProfile.first_name}} {{userProfile.last_name}}</h1>
-                                              <div class="fleft">{{ userProfile.currently_working_at }}</div>
+                                              <div class="fleft currentWork">{{ userProfile.currently_working_at }}</div>
                                               <div class="fleft">{{ userProfile.years_of_experience }} years experience</div>
                                               <div class="fleft paddL0 col-md-9">
                                                 <div class="col-md-5 paddL0">
@@ -92,12 +92,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 right-side">
+                                <div class="col-md-4">
                                 <div class="text-center mentorRate">${{ userProfile.rate_per_minute}} per minute</div>
                                 <div class="text-center"><a href="#/call_request/{{userProfile.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
                                 <div class="availibility">
                                   <h3 class="boxHeader">Availability</h3>
-                                  <div>{{ userProfile.availability }} ({{ userProfile.time_zone}} Timezone)</div>
+                                  <section>{{ userProfile.availability }} ({{ userProfile.time_zone}} Timezone)</section>
                                 </div>
                                 <div class="user-detail">
                                   <h3 class="boxHeader">{{ userProfile.first_name}}'s details</h3>
