@@ -9,6 +9,7 @@
 #= require ng-tags-input
 #= require ui-utils
 #= require angular-resource
+#= require xeditable
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services

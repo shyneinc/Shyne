@@ -12,6 +12,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.creditCardModel = {}
   $scope.reviews = null
   $scope.user_id = $routeParams.user_id
+  timeZoneArray = ["Alaska", "Arizona", "Central Time (US & Canada)", "Eastern Time (US & Canada)", "Hawaii", "Indiana (East)", "Mountain Time (US & Canada)", "Pacific Time (US & Canada)"]
+  $scope.timeZoneList = []
+
+  for i in timeZoneArray
+    $scope.timeZoneList.push({ value : i, text: i})
 
   $scope.industries = []
   Workhistory.getIndustries().then((industries) ->

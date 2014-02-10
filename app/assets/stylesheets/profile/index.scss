@@ -304,6 +304,56 @@
     .currentWork {
       font-size: 17px;
     }
+    .mrT40 {
+      margin-top: 40px;
+    }
+    .starRating {
+      padding-right: 15px;
+      width: 30.333%;
+    }
+    .xeditable-fields {
+      display: inline-block;
+      border-bottom: 1px solid #F2F4F6;
+      width: 100%;
+      h1 {
+        display: inline-block;
+      }
+      h3 {
+        border-bottom: none;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        margin-top: 0;
+        padding-bottom: 2px;
+        display: inline-block;
+      }
+      button {
+        display: inline-block;
+      }
+    }
+    .form-edit {
+      display:inline-block;
+      float: right;
+      a {
+        color: $red;
+      }
+      .edit-link {
+        margin-top: 40px;
+      }
+    }
+    .edit-link {
+      font-size: 13px;
+    }
+    .name-form-edit {
+      float: right;
+      a {
+        color: $red;
+      }
+    }
+    .form-fields {
+      float: left;
+      text-align: left;
+    }
   }
 }
 .text-danger {

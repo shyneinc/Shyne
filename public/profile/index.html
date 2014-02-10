@@ -266,95 +266,109 @@
                                       </div>
                                   </div>
 
-                                  <div class="col-md-8 editable-field clearfix">
-                                      <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
-                                      <div class="fleft currentWork">{{ user.currently_working_at }}</div>
+                                  <div class="col-md-9 clearfix">
+                                      <form editable-form name="topdetailForm" onaftersave="updateUser()">
+                                        <div class="xeditable-fields">
+                                          <h1 ng-hide="topdetailForm.$visible">{{ user.first_name }} {{ user.last_name }}</h1>
+                                          <h1 ng-show="topdetailForm.$visible">&nbsp;</h1>
+                                          <div class="name-form-edit">
+                                            <h1><a class="edit-link" href="javascript:void(0)" ng-click="topdetailForm.$show()" ng-show="!topdetailForm.$visible">Edit</a></h1>
+                                            <!-- buttons to submit / cancel form -->
+                                            <h1 ng-show="topdetailForm.$visible"></h1>
+                                            <span ng-show="topdetailForm.$visible">
+                                              <button type="submit" class="btn btn-primary" ng-disabled="topdetailForm.$waiting">Save</button>
+                                              <button type="button" class="btn btn-default" ng-disabled="topdetailForm.$waiting" ng-click="topdetailForm.$cancel()">Cancel</button>
+                                            </span>
+                                          </div>
+                                          <div class="form-controls">
+                                            <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
+                                            <span editable-text="user.last_name" e-name="last_name" e-required></span>
+                                          </div>
+                                        </div>
+                                      </form>
+                                      <div class="fleft currentWork">{{ user.currently_working_at }}</div></td></tr>
                                       <div class="fleft">{{ user.years_of_experience }} years experience</div>
                                       <div class="fleft paddL0 col-md-9">
-                                        <div class="col-md-4 paddL0">
+                                        <div class="col-md-4 paddL0 starRating">
                                           <star-rating star-rating="user.get_avg_rating" max-star-rating="5"></star-rating>
                                         </div>
                                         <div class="col-md-5 paddL0 currentWork">
                                           ({{ reviews.length }} Reviews)
                                         </div>
                                       </div>
-                                      <div class="edit-form">
-                                          <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                          <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
-                                              <div class="form-group">
-                                                  <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
-                                                  <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
-                                              </div>
-                                              <div class="form-group">
-                                                  <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
-                                                  <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
-                                              </div>
-                                              <div class="button-group">
-                                                  <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                              </div>
-                                          </form>
-                                      </div>
                                   </div>
 
                                   <div class="col-md-12 headline clearfix editable-field">
-                                    <span class="fleft">{{ user.headline }}</span> <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                    <div class="edit-form">
-                                        <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                        <form novalidate role="form" name="memberHeadlineForm" class="css-form" ng-submit="updateMentor()">
-                                            <div class="form-group">
-                                                <label for="memberHeadline">Headline <span class="text-danger">{{memberFormError.headline[0]}}</span></label>
-                                                <input name="headline" ng-model="user.headline" class="form-control" id="memberHeadline" type="text" placeholder="Enter headline" required="">
-                                            </div>
-                                            <div class="button-group">
-                                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberHeadlineForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    <span class="fleft">{{ user.headline }}</span>
                                   </div>
 
                                   <div class="col-md-12 profileBox clearfix">
-                                    <h3 class="boxHeader">Work History</h3>
-                                    <div ng-repeat="work_history in work_histories">
-                                      <p>{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})<p>
-                                    </div>
+                                    <form editable-form name="workhistoryform" onaftersave="updateWorkHistories()" oncancel="cancel()">
+                                      <div class="xeditable-fields">
+                                        <h3 class="boxHeader">Work History</h3>
+                                        <div class="form-edit">
+                                          <a href="javascript:void(0)" ng-show="!workhistoryform.$visible" ng-click="workhistoryform.$show()">Edit</a>
+                                        </div>
+                                        <div class="btn-form" ng-show="workhistoryform.$visible">
+                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="addWorkhistory()" class="btn btn-default pull-right">add row</button>
+                                          <button type="submit" ng-disabled="workhistoryform.$waiting" class="btn btn-primary">Save</button>
+                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="workhistoryform.$cancel()" class="btn btn-default">cancel</button>
+                                        </div>
+                                      </div>
+                                      <table width="100%">
+                                        <tr ng-repeat="work_history in work_histories">
+                                          <td width="50%">
+                                            <p ng-hide="workhistoryform.$visible">{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})</p>
+                                            <span editable-text="work_history.title"></span>
+                                          </td>
+                                          <td width="50%">
+                                            <span editable-text="work_history.company"></span>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <span editable-select="work_history.startedMonthOption" e-ng-options="o.name for o in startedMonthOptions"></span>
+                                            <span editable-text="work_history.startedYearOption"></span>
+                                          </td>
+                                          <td>
+                                            <span editable-select="work_history.endedMonthOption" e-ng-options="o.name for o in startedMonthOptions"></span>
+                                            <span editable-text="work_history.endedYearOption"></span>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </form>
                                   </div>
 
                                   <div class="col-md-12 contentBox clearfix">
-                                    <h3 class="boxHeader">Skills</h3>
-                                    <div class="editable-field">
-                                      <p>{{ user.skills }} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></p>
-                                      <div class="edit-form">
-                                          <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                          <form novalidate role="form" name="mentorExpertieForm" class="css-form" ng-submit="updateMentor()">
-                                              <div class="form-group">
-                                                  <label for="mentorExperties">Skills <span class="text-danger">{{memberFormError.skills[0]}}</span></label>
-                                                  <input name="skills" ng-model="user.skills" class="form-control" id="mentorSkills" placeholder="Enter your skills" required="">
-                                              </div>
-                                              <div class="button-group">
-                                                  <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorExpertieForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                              </div>
-                                          </form>
+                                    <form editable-form name="skillForm" onaftersave="updateUser()">
+                                      <div class="xeditable-fields">
+                                        <h3 class="boxHeader">Skills</h3>
+                                        <div class="form-edit">
+                                          <a href="javascript:void(0)" ng-click="skillForm.$show()" ng-show="!skillForm.$visible">Edit</a>
+                                          <span ng-show="skillForm.$visible">
+                                            <button type="submit" class="btn btn-primary" ng-disabled="skillForm.$waiting">Save</button>
+                                            <button type="button" class="btn btn-default" ng-disabled="skillForm.$waiting" ng-click="skillForm.$cancel()">Cancel</button>
+                                          </span>
+                                        </div>
                                       </div>
-                                    </div>
+                                      <p editable-text="user.skills" e-name="skills" e-required>{{ user.skills }}</p>
+                                    </form>
                                   </div>
 
                                   <div class="col-md-12 contentBox clearfix">
-                                    <h3 class="boxHeader">{{ user.first_name }} generally works in these industries</h3>
-                                    <div class="editable-field">
-                                      {{ user.industries }} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                      <div class="edit-form">
-                                        <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                        <form novalidate role="form" name="memberIndustriesForm" class="css-form" ng-submit="updateMember()">
-                                            <div class="form-group">
-                                                <label for="memberPhoneNumber">Industries <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
-                                                <input name="industries" ng-model="user.industries" class="form-control" id="memberIndustries" placeholder="E.g. Technology, finance, startups, large corporations" required="">
-                                            </div>
-                                            <div class="button-group">
-                                                <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMember()" hide-inline-edit>Update</button>
-                                            </div>
-                                        </form>
+                                    <form editable-form name="industriesForm" class="css-form" onaftersave="updateMentor()">
+                                      <div class="xeditable-fields">
+                                        <h3 class="boxHeader">{{ user.first_name }} generally works in these industries</h3>
+                                        <div class="form-edit">
+                                          <a href="javascript:void(0)" ng-click="industriesForm.$show()" ng-show="!industriesForm.$visible">Edit</a>
+                                          <span ng-show="industriesForm.$visible">
+                                            <button type="submit" class="btn btn-primary" ng-disabled="industriesForm.$waiting">Save</button>
+                                            <button type="button" class="btn btn-default" ng-disabled="industriesForm.$waiting" ng-click="industriesForm.$cancel()">Cancel</button>
+                                          </span>
+                                        </div>
                                       </div>
-                                    </div>
+                                      <p editable-text="user.industries" e-name="industries" e-required>{{ user.industries }}</p>
+                                    </form>
                                   </div>
 
                                   <div class="col-md-12 profile-page review-section">
@@ -383,91 +397,78 @@
                               <div class="text-center mentorRate">${{ user.rate_per_minute}} per minute</div>
                               <div class="text-center"><a href="#/call_request/{{user.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
                               <div class="availibility">
-                                <h3 class="boxHeader text-center">Availability</h3>
-                                <section class="editable-field">{{ user.availability }} ({{ user.time_zone}} Timezone) <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                  <div class="edit-form">
-                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                      <form novalidate role="form" name="memberTimeZoneForm" class="css-form" ng-submit="updateUser()">
-                                          <div class="form-group">
-                                              <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
-                                              <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
-                                                  <option value="Alaska">Alaska</option>
-                                                  <option value="Arizona">Arizona</option>
-                                                  <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                                  <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                                  <option value="Hawaii">Hawaii</option>
-                                                  <option value="Indiana (East)">Indiana (East)</option>
-                                                  <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                                  <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                              </select>
-                                          </div>
-                                          <div class="button-group">
-                                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberTimeZoneForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                          </div>
-                                      </form>
+                                <form editable-form name="availabilityForm" onaftersave="updateUser()">
+                                  <div class="xeditable-fields">
+                                    <h3 class="boxHeader text-center">Availability</h3>
+                                    <div class="form-edit">
+                                      <!-- button to show form -->
+                                      <a href="javascript:void(0)" ng-click="availabilityForm.$show()" ng-show="!availabilityForm.$visible">
+                                        Edit
+                                      </a>
+                                      <!-- buttons to submit / cancel form -->
+                                      <span ng-show="availabilityForm.$visible">
+                                        <button type="submit" class="btn btn-primary" ng-disabled="availabilityForm.$waiting">
+                                          Save
+                                        </button>
+                                        <button type="button" class="btn btn-default" ng-disabled="availabilityForm.$waiting" ng-click="availabilityForm.$cancel()">
+                                          Cancel
+                                        </button>
+                                      </span>
+                                    </div>
+                                    <section ng-show="!availabilityForm.$visible">{{ user.availability }} ({{ user.time_zone}} Timezone)</section>
+                                    <div class="form-fields">
+                                        <span editable-text="user.availability" e-name="availability"></span>
+                                        <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
+                                    </div>
                                   </div>
-                                </section>
+                                </form>
                               </div>
                               <div class="user-detail">
-                                <h3 class="boxHeader">{{ user.first_name}}'s details</h3>
-                                <div class="detail-content">
-                                  <section class="editable-field">
-                                    <span class="glyphicon glyphicon-map-marker"></span>{{ user.city}}, {{user.state }} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                    <div class="edit-form">
-                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                      <form novalidate role="form" name="mentorLocationForm" class="css-form" ng-submit="updateMentor()">
-                                          <div class="form-group">
-                                              <label for="mentorCity">City <span class="text-danger">{{memberFormError.city[0]}}</span></label>
-                                              <input name="city" ng-model="user.city" class="form-control" id="mentorCity" placeholder="Enter City" required="">
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="mentorState">State <span class="text-danger">{{memberFormError.state[0]}}</span></label>
-                                              <input name="state" ng-model="user.state" class="form-control" id="mentorState" placeholder="Enter State" required="">
-                                          </div>
-                                          <div class="button-group">
-                                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorLocationForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                          </div>
-                                      </form>
+                                <form editable-form name="rightdetailForm" onaftersave="updateMentor()">
+                                  <div class="xeditable-fields">
+                                    <h3 class="boxHeader">{{ user.first_name}}'s details</h3>
+                                    <div class="form-edit">
+                                      <!-- button to show form -->
+                                      <a href="javascript:void(0)" ng-click="rightdetailForm.$show()" ng-show="!rightdetailForm.$visible">
+                                        Edit
+                                      </a>
+                                      <!-- buttons to submit / cancel form -->
+                                      <span ng-show="rightdetailForm.$visible">
+                                        <button type="submit" class="btn btn-primary" ng-disabled="rightdetailForm.$waiting">
+                                          Save
+                                        </button>
+                                        <button type="button" class="btn btn-default" ng-disabled="rightdetailForm.$waiting" ng-click="rightdetailForm.$cancel()">
+                                          Cancel
+                                        </button>
+                                      </span>
                                     </div>
-                                  </section>
-                                  <hr class="grayHR">
-                                  <section class="editable-field">
-                                    <span class="glyphicon glyphicon-bookmark"></span>{{user.years_of_experience}} years experience <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                    <div class="edit-form">
-                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                      <form novalidate role="form" name="memberHeadlineForm" class="css-form" ng-submit="updateMentor()">
-                                        <div class="form-group">
-                                          <label for="memberHeadline">How many years of work experience do you have? <span class="text-danger">{{memberFormError.years_of_experience[0]}}</span></label>
-                                          <input name="years_of_experience" ng-model="user.years_of_experience" class="form-control" id="memberYearOfExperience" type="text" placeholder="Enter number of years worked" required="">
-                                        </div>
-                                        <div class="button-group">
-                                          <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberHeadlineForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                        </div>
-                                      </form>
-                                    </div>
-                                  </section>
-                                  <hr class="grayHR">
-                                  <section class="editable-field">
-                                    <span class="glyphicon glyphicon-link"></span><a href="{{ user.linkedin }}">LinkedIn</a> <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                    <div class="edit-form">
-                                      <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                      <form novalidate role="form" name="memberHeadlineForm" class="css-form" ng-submit="updateMentor()">
-                                          <div class="form-group">
-                                              <label for="memberHeadline">What is your LinkedIn URL? <span class="text-danger">{{memberFormError.headline[0]}}</span></label>
-                                              <input name="linkedin" ng-model="user.linkedin" class="form-control" id="memberLinkedin" type="text" placeholder="Enter the URL to your Linkedin Profile" required="">
-                                          </div>
-                                          <div class="button-group">
-                                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberHeadlineForm.$invalid" ng-click="updateMentor()" hide-inline-edit>Update</button>
-                                          </div>
-                                      </form>
-                                    </div>
-                                  </section>
-                                  <hr class="grayHR">
-                                  <section class="editable-field">
-                                    <span class="glyphicon glyphicon-phone"></span>0 calls
-                                  </section>
-                                  <hr class="grayHR">
-                                </div>
+                                  </div>
+                                  <div class="detail-content" ng-show="!rightdetailForm.$visible">
+                                      <section><span class="glyphicon glyphicon-map-marker"></span>{{ user.city}}, {{user.state }}</section>
+                                      <hr class="grayHR">
+                                      <section><span class="glyphicon glyphicon-bookmark"></span>{{user.years_of_experience}} years experience</section>
+                                      <hr class="grayHR">
+                                      <section><span class="glyphicon glyphicon-link"></span><a href="{{ user.linkedin }}">LinkedIn</a></section>
+                                      <hr class="grayHR">
+                                      <section><span class="glyphicon glyphicon-phone"></span>0 calls</section>
+                                      <hr class="grayHR">
+                                  </div>
+                                  <div class="detail-content" ng-show="rightdetailForm.$visible">
+                                      <section>
+                                        <span editable-text="user.city">{{ user.city}}</span>
+                                        <span editable-text="user.state">{{user.state }}</span>
+                                      </section>
+                                      <hr class="grayHR">
+                                      <section>
+                                        <span editable-text="user.years_of_experience">{{user.years_of_experience}} years experience</span>
+                                      </section>
+                                      <hr class="grayHR">
+                                      <section>
+                                        <span editable-text="user.linkedin"><a href="{{ user.linkedin }}">LinkedIn</a></span>
+                                      </section>
+                                      <hr class="grayHR">
+                                  </div>
+                                </form>
                               </div>
                             </div>
                           </div>
