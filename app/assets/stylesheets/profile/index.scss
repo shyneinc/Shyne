@@ -152,28 +152,28 @@
 
     .profile-page {
       width: 100%;
-	  font-size:13px;
-	  line-height:21px;
-	  color:#333333;
-    }
-	.profile-page {
-      h3{
-	  	font-size:20px;
-		font-weight:bold;
-		margin-top:0px;
-		margin-bottom:12px;
-		padding-bottom:12px;
-		border-bottom:1px solid #F2F4F6;
-	  }
-	  h4{
-	  	font-size:18px;
-		font-weight:bold;
-		margin-top:0px;
-		margin-bottom:15px;
-	  }
-	  p.ng-binding{
-		 margin-bottom:20px;
-	  }
+      font-size:13px;
+      line-height:21px;
+      color:#333333;
+      }
+    .profile-page {
+        h3{
+        font-size:20px;
+      font-weight:bold;
+      margin-top:0px;
+      margin-bottom:12px;
+      padding-bottom:12px;
+      border-bottom:1px solid #F2F4F6;
+      }
+      h4{
+        font-size:18px;
+      font-weight:bold;
+      margin-top:0px;
+      margin-bottom:15px;
+      }
+      p.ng-binding{
+      margin-bottom:20px;
+      }
     }
 
     .text-center {
@@ -221,21 +221,21 @@
         span {
           margin-right: 5px;
         }
-		.glyphicon{
-			color:#a7aaab;
-			font-size: 17px;
-    		margin-top: 1px;
-    		vertical-align: top;
-		}
-		section{
-			margin-bottom:0;
-		}
-		hr.grayHR {
-			background-color: #F0F0F0;
-			border: 0 none;
-			height: 1px;
-			margin: 6px 0;
-		}
+        .glyphicon{
+          color:#a7aaab;
+          font-size: 17px;
+            margin-top: 1px;
+            vertical-align: top;
+        }
+        section{
+          margin-bottom:0;
+        }
+        hr.grayHR {
+          background-color: #F0F0F0;
+          border: 0 none;
+          height: 1px;
+          margin: 6px 0;
+        }
       }
     }
 
@@ -275,6 +275,7 @@
 
     .mentorRate {
       padding-bottom: 10px;
+      font-weight: bold;
     }
 
     .review {
@@ -299,6 +300,9 @@
           border-radius: 4px;
         }
       }
+    }
+    .currentWork {
+      font-size: 17px;
     }
   }
 }
@@ -332,6 +336,7 @@
   font-size: 20px;
   line-height: 1.53;
   width: 100%;
+  padding: 16px;
 }
 
 .paddL0 {

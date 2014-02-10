@@ -268,14 +268,14 @@
 
                                   <div class="col-md-8 editable-field clearfix">
                                       <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
-                                      <div class="fleft">{{ user.currently_working_at }}</div>
+                                      <div class="fleft currentWork">{{ user.currently_working_at }}</div>
                                       <div class="fleft">{{ user.years_of_experience }} years experience</div>
                                       <div class="fleft paddL0 col-md-9">
-                                        <div class="col-md-5 paddL0">
+                                        <div class="col-md-4 paddL0">
                                           <star-rating star-rating="user.get_avg_rating" max-star-rating="5"></star-rating>
                                         </div>
-                                        <div class="col-md-5 paddL0">
-                                          ({{ reviews.length }} reviews)
+                                        <div class="col-md-5 paddL0 currentWork">
+                                          ({{ reviews.length }} Reviews)
                                         </div>
                                       </div>
                                       <div class="edit-form">
@@ -320,7 +320,7 @@
                                   </div>
 
                                   <div class="col-md-12 contentBox clearfix">
-                                    <h1 class="boxHeader">Skills</h1>
+                                    <h3 class="boxHeader">Skills</h3>
                                     <div class="editable-field">
                                       <p>{{ user.skills }} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></p>
                                       <div class="edit-form">
@@ -379,7 +379,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md-4 right-side">
+                            <div class="col-md-4">
                               <div class="text-center mentorRate">${{ user.rate_per_minute}} per minute</div>
                               <div class="text-center"><a href="#/call_request/{{user.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
                               <div class="availibility">
