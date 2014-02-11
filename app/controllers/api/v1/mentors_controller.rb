@@ -15,6 +15,7 @@ class Api::V1::MentorsController < Api::V1::BaseController
     mentors_list.each do |mentor|
       mentors << {
         id: mentor.id,
+        user_id: mentor.user_id,
         role: mentor.current_position,
         full_name: mentor.full_name,
         company: mentor.current_company,

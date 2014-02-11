@@ -71,4 +71,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$scope','$timeout','$routeParams'
 
   if $routeParams.token != null
     $scope.verify()
+
+  $scope.viewProfile = (user_id) ->
+    $location.path('/profile/' + user_id)
 ])

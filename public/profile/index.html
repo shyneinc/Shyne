@@ -282,14 +282,14 @@
                                               <button type="button" class="btn btn-default" ng-disabled="topdetailForm.$waiting" ng-click="topdetailForm.$cancel()">Cancel</button>
                                             </span>
                                           </div>
-                                          <div class="form-controls">
+                                          <div class="form-controls" ng-show="topdetailForm.$visible">
                                             <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
                                             <span editable-text="user.last_name" e-name="last_name" e-required></span>
                                           </div>
                                         </div>
                                       </form>
                                       <div class="fleft currentWork">{{ user.currently_working_at }}</div></td></tr>
-                                      <div class="fleft">{{ user.years_of_experience }} years experience</div>
+                                      <div class="fleft experience">{{ user.years_of_experience }} years experience</div>
                                       <div class="fleft paddL0 col-md-9">
                                         <div class="col-md-4 paddL0 starRating">
                                           <star-rating star-rating="user.get_avg_rating" max-star-rating="5"></star-rating>
@@ -405,32 +405,34 @@
                             <div class="col-md-4">
                               <div class="text-center mentorRate">${{ user.rate_per_minute}} per minute</div>
                               <div class="text-center"><a href="#/call_request/{{user.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
-                              <div class="availibility">
-                                <form editable-form name="availabilityForm" onaftersave="updateUser()">
-                                  <div class="xeditable-fields">
-                                    <h3 class="boxHeader text-center">Availability</h3>
-                                    <div class="form-edit">
-                                      <!-- button to show form -->
-                                      <a href="javascript:void(0)" ng-click="availabilityForm.$show()" ng-show="!availabilityForm.$visible">
-                                        Edit
-                                      </a>
-                                      <!-- buttons to submit / cancel form -->
-                                      <span ng-show="availabilityForm.$visible">
-                                        <button type="submit" class="btn btn-primary" ng-disabled="availabilityForm.$waiting">
-                                          Save
-                                        </button>
-                                        <button type="button" class="btn btn-default" ng-disabled="availabilityForm.$waiting" ng-click="availabilityForm.$cancel()">
-                                          Cancel
-                                        </button>
-                                      </span>
+                              <div class="availibilityBox">
+                                <div class="availibility">
+                                  <form editable-form name="availabilityForm" onaftersave="updateUser()">
+                                    <div class="xeditable-fields">
+                                      <h3 class="boxHeader text-center">Availability</h3>
+                                      <div class="form-edit">
+                                        <!-- button to show form -->
+                                        <a href="javascript:void(0)" ng-click="availabilityForm.$show()" ng-show="!availabilityForm.$visible">
+                                          Edit
+                                        </a>
+                                        <!-- buttons to submit / cancel form -->
+                                        <span ng-show="availabilityForm.$visible">
+                                          <button type="submit" class="btn btn-primary" ng-disabled="availabilityForm.$waiting">
+                                            Save
+                                          </button>
+                                          <button type="button" class="btn btn-default" ng-disabled="availabilityForm.$waiting" ng-click="availabilityForm.$cancel()">
+                                            Cancel
+                                          </button>
+                                        </span>
+                                      </div>
+                                      <div class="form-fields">
+                                          <span editable-text="user.availability" e-name="availability"></span>
+                                          <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
+                                      </div>
                                     </div>
                                     <section ng-show="!availabilityForm.$visible">{{ user.availability }} ({{ user.time_zone}} Timezone)</section>
-                                    <div class="form-fields">
-                                        <span editable-text="user.availability" e-name="availability"></span>
-                                        <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
-                                    </div>
-                                  </div>
-                                </form>
+                                  </form>
+                                </div>
                               </div>
                               <div class="user-detail">
                                 <form editable-form name="rightdetailForm" onaftersave="updateMentor()">
@@ -457,7 +459,7 @@
                                       <hr class="grayHR">
                                       <section><span class="glyphicon glyphicon-bookmark"></span>{{user.years_of_experience}} years experience</section>
                                       <hr class="grayHR">
-                                      <section><span class="glyphicon glyphicon-link"></span><a href="{{ user.linkedin }}">LinkedIn</a></section>
+                                      <section><span class="glyphicon glyphicon-link"></span><a href="{{ user.linkedin }}" target="_blank">LinkedIn</a></section>
                                       <hr class="grayHR">
                                       <section><span class="glyphicon glyphicon-phone"></span>0 calls</section>
                                       <hr class="grayHR">

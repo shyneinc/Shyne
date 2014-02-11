@@ -38,7 +38,7 @@
                                           <div class="col-md-8 clearfix">
                                               <h1>{{userProfile.first_name}} {{userProfile.last_name}}</h1>
                                               <div class="fleft currentWork">{{ userProfile.currently_working_at }}</div>
-                                              <div class="fleft">{{ userProfile.years_of_experience }} years experience</div>
+                                              <div class="fleft experience">{{ userProfile.years_of_experience }} years experience</div>
                                               <div class="fleft paddL0 col-md-9">
                                                 <div class="col-md-5 paddL0">
                                                   <star-rating star-rating="userProfile.get_avg_rating" max-star-rating="5"></star-rating>
@@ -95,9 +95,11 @@
                                 <div class="col-md-4">
                                 <div class="text-center mentorRate">${{ userProfile.rate_per_minute}} per minute</div>
                                 <div class="text-center"><a href="#/call_request/{{userProfile.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
-                                <div class="availibility">
-                                  <h3 class="boxHeader">Availability</h3>
-                                  <section>{{ userProfile.availability }} ({{ userProfile.time_zone}} Timezone)</section>
+                                <div class="availibilityBox">
+                                  <div class="availibility">
+                                    <h3 class="boxHeader">Availability</h3>
+                                    <section>{{ userProfile.availability }} ({{ userProfile.time_zone}} Timezone)</section>
+                                  </div>
                                 </div>
                                 <div class="user-detail">
                                   <h3 class="boxHeader">{{ userProfile.first_name}}'s details</h3>
@@ -111,7 +113,7 @@
                                     </section>
                                     <hr class="grayHR">
                                     <section>
-                                      <span class="glyphicon glyphicon-link"></span><a href="{{ userProfile.linkedin }}">LinkedIn</a>
+                                      <span class="glyphicon glyphicon-link"></span><a href="{{ userProfile.linkedin }}" target="_blank">LinkedIn</a>
                                     </section>
                                     <hr class="grayHR">
                                     <section class="editable-field">

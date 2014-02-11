@@ -13,14 +13,14 @@
                   <div class="container">
                       <div class="row">
                           <div class="search-card col-md-9" ng-repeat="mentor in search_mentors" ng-hide="search_mentors.length == 0">
-                              <div class="col-md-2 profile-padd" ng-click="viewProfile(mentor)">
+                              <div class="col-md-2 profile-padd">
                                   <div class="photo">
                                       <img src="/assets/sample.jpg" ng-src="{{mentor.photo_url}}">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="info">
-                                      <div class="full-name"><a href="#">{{mentor.full_name}}</a></div>
+                                      <div class="full-name"><a href="#/profile/{{mentor.user_id}}">{{mentor.full_name}}</a></div>
                                       <div><span class="glyphicon glyphicon-map-marker"></span>{{mentor.city}}, {{mentor.state}}</div>
                                       <div><strong>Current: </strong>{{mentor.currently_working_at}}</div>
                                       <div><strong>Previous: </strong>{{mentor.previously_worked_at}}</div>
@@ -30,7 +30,7 @@
                               <div class="col-md-4 search-right-part">
                                   <star-rating star-rating="mentor.get_avg_rating" max-star-rating="5"></star-rating> <div class="review-count">(0)</div>
                                   <div class="mentor-call-rate">${{mentor.rate_per_minute}}/Minute</div>
-                                  <a href="#/call_request/{{mentor.id}}" class="btn btn-primary btn-orange">Schedule Call Now</a>
+                                  <a href="#/profile/{{mentor.user_id}}" class="btn btn-primary btn-schedule-blue">Schedule Call Now</a>
                               </div>
                           </div>
                         <div class="search-card col-md-9" ng-show="search_mentors.length == 0">

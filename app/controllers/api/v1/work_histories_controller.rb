@@ -5,7 +5,25 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
   before_filter :check_type, except: [:index, :show]
 
   def index
-    respond_with :api, @mentor.work_histories.load
+    work_histories = @mentor.work_histories.order('current_work desc')
+    work_history_list = []
+    work_histories.each do |w|
+      work_history_list << {
+        id: w.id,
+        current_work: w.current_work,
+        title: w.title,
+        company: w.company,
+        date_started: w.date_started,
+        date_ended: w.date_ended,
+        created_at: w.created_at,
+        updated_at: w.updated_at,
+        started_month: w.date_started.split(" ")[0],
+        started_year: w.date_started.split(" ")[1],
+        ended_month: (w.date_ended.split(" ")[0] if w.date_ended),
+        ended_year: (w.date_ended.split(" ")[1] if w.date_ended)
+      }
+    end
+    respond_with :api, work_history_list
   end
 
   def show

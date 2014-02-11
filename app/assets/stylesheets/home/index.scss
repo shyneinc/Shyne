@@ -261,6 +261,18 @@
           color: $white;
         }
       }
+      .btn-schedule-blue {
+        @include gradient(#2B8BC1, #2B8BC1);
+        @include border-radius(6px);
+        border-color: $white;
+        color: $white;
+        font-size: 20px;
+        &:hover, &:active, &:focus {
+          @include gradient(#2B8BC1, #2B8BC1);
+          border-color: $white;
+          color: $white;
+        }
+      }
       .rating{
         color: #a9a9a9;
         margin: 0;
@@ -317,11 +329,12 @@
   }
   .btn-search-green {
     font-weight: bold;
-    border-radius: 0;
+    @include border-radius(6px);
     border-color: #3D8C0B;
     background: #3D8C0B;
   }
   .form-search-control {
+    @include border-radius(6px);
     background-color: #FFFFFF;
     background-image: none;
     border: 1px solid #CCCCCC;

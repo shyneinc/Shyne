@@ -155,29 +155,37 @@
       font-size:13px;
       line-height:21px;
       color:#333333;
-      }
+    }
     .profile-page {
         h3{
-        font-size:20px;
-      font-weight:bold;
-      margin-top:0px;
-      margin-bottom:12px;
-      padding-bottom:12px;
-      border-bottom:1px solid #F2F4F6;
+        font-size:22px;
+        font-weight:bold;
+        margin-top:0px;
+        margin-bottom:12px;
+        padding-bottom:12px;
+        border-bottom:1px solid #F2F4F6;
       }
       h4{
         font-size:18px;
-      font-weight:bold;
-      margin-top:0px;
-      margin-bottom:15px;
+        font-weight:bold;
+        margin-top:0px;
+        margin-bottom:15px;
       }
       p.ng-binding{
-      margin-bottom:20px;
+        margin-bottom:20px;
+        font-size: 17px;
+      }
+      section {
+        font-size: 17px;
       }
     }
 
     .text-center {
       text-align: center;
+    }
+
+    .availibilityBox {
+      min-height: 110px;
     }
 
     .availibility {
@@ -242,6 +250,8 @@
     .headline {
       padding-left: 5px;
       padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 15px;
     }
 
     .left-side {
@@ -276,6 +286,7 @@
     .mentorRate {
       padding-bottom: 10px;
       font-weight: bold;
+      font-size: 15px;
     }
 
     .review {
@@ -302,7 +313,10 @@
       }
     }
     .currentWork {
-      font-size: 17px;
+      font-size: 21px;
+    }
+    .experience {
+      font-size: 15px;
     }
     .mrT40 {
       margin-top: 40px;
@@ -320,7 +334,7 @@
       }
       h3 {
         border-bottom: none;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
         margin-bottom: 12px;
         margin-top: 0;
@@ -329,6 +343,15 @@
       }
       button {
         display: inline-block;
+      }
+    }
+
+    .editable-table {
+      width: 100%;
+      span {
+        select {
+          width: 50%;
+        }
       }
     }
     .form-edit {

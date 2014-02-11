@@ -51,4 +51,7 @@ Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope,
   $scope.go = (path) ->
     $location.path(path)
 
+  $scope.viewProfile = (user_id) ->
+    $location.path('/profile/' + user_id)
+
 ])
