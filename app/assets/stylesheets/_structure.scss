@@ -66,6 +66,10 @@ header {
       color: #fff;
       padding: 7px;
     }
+    & > li > a.btn-blue{
+      background: #0F6B9D;
+      border-color: #0F6B9D;
+    }
     .dropdown-menu > li {
       & > a {
         &:hover, &:focus, &:active {

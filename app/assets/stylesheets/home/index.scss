@@ -34,7 +34,7 @@
     }
     .banner {
       margin: 20px 0;
-      background-color: #00FFFF;
+      background-color: #2B8BC1;
       h2 {
         color: $white;
         font-size: 20px;
@@ -73,7 +73,7 @@
       }
       .signup-circle {
         @include circle(160px);
-        background-color: $red;
+        background-color: #2B8BC1;
         display: block;
         position: absolute;
         top: -57px;
@@ -87,7 +87,7 @@
           padding: 8px;
           .deep {
             @include circle(134px);
-            background-color: $red;
+            background-color: #2B8BC1;
             color: $white;
             font-size: 15px;
             position: relative;
@@ -106,6 +106,9 @@
           }
         }
       }
+    }
+    .btn-blue {
+      background-color: #2B8BC1;
     }
   }
 
@@ -139,7 +142,7 @@
         margin-bottom:20px;
       }
       p{
-        color: #FFFFFF;
+        color: #B8D0E8;
         font-size:16px;
       }
     }
@@ -288,6 +291,18 @@
         font-size: 25px;
         font-weight: bold;
         color: #45C9C3;
+      }
+    }
+    .btn-blue {
+      @include gradient(#2B8BC1, #2B8BC1);
+      border-color: #2B8BC1;
+      color: $white;
+      font-size: 24px;
+      width: 55%;
+      &:hover, &:active, &:focus {
+        @include gradient(#2B8BC1, #2B8BC1);
+        border-color: #2B8BC1;
+        color: $white;
       }
     }
   }
@@ -449,7 +464,8 @@
 }
 
 .blueBg {
-  background: #00CFC7;
+  background: #0F6B9D;
+  color: $white;
 }
 
 .width100 {
