@@ -71,11 +71,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="becomeMemberPhoneNumber">Phone Number(Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" class="form-control" id="becomeMemberPhoneNumber" placeholder="Enter your 10-digit number" required="">
+                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="becomeMemberPhoneNumber" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="becomeMemberIndustries">What industries are you interested in? <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
-                                        <input name="industries" ng-model="memberModel.industries" class="form-control" id="becomeMemberIndustries" placeholder="E.g. Technology, finance, startups, large corporations" required="">
+                                        <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                                          <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                        </tags-input>
                                     </div>
                                     <div class="button-group button-signup">
                                         <button type="button" class="btn btn-primary btn-signup" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Join Now</button>
@@ -310,30 +312,37 @@
                                           <a href="javascript:void(0)" ng-show="!workhistoryform.$visible" ng-click="workhistoryform.$show()">Edit</a>
                                         </div>
                                         <div class="btn-form" ng-show="workhistoryform.$visible">
-                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="addWorkhistory()" class="btn btn-default pull-right">add row</button>
+                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="addWorkHistory()" class="btn btn-default pull-right">add row</button>
                                           <button type="submit" ng-disabled="workhistoryform.$waiting" class="btn btn-primary">Save</button>
                                           <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="workhistoryform.$cancel()" class="btn btn-default">cancel</button>
                                         </div>
                                       </div>
-                                      <table width="100%">
-                                        <tr ng-repeat="work_history in work_histories">
-                                          <td width="50%">
+                                      <table class="editable-table">
+                                        <tr ng-repeat="work_history in work_histories | filter:filterWorkHistory">
+                                          <td width="100%">
                                             <p ng-hide="workhistoryform.$visible">{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})</p>
-                                            <span editable-text="work_history.title"></span>
+                                            <table width="100%">
+                                              <tr>
+                                                <td>
+                                                  <span editable-text="work_history.title"></span>
+                                                </td>
+                                                <td>
+                                                  <span editable-text="work_history.company"></span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <span editable-select="work_history.started_month" e-ng-options="t.value as t.text for t in monthList"></span>
+                                                  <span editable-text="work_history.started_year"></span>
+                                                </td>
+                                                <td>
+                                                  <span editable-select="work_history.ended_month" e-ng-options="t.value as t.text for t in monthList"></span>
+                                                  <span editable-text="work_history.ended_year"></span>
+                                                </td>
+                                              </tr>
+                                            </table>
                                           </td>
-                                          <td width="50%">
-                                            <span editable-text="work_history.company"></span>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>
-                                            <span editable-select="work_history.startedMonthOption" e-ng-options="o.name for o in startedMonthOptions"></span>
-                                            <span editable-text="work_history.startedYearOption"></span>
-                                          </td>
-                                          <td>
-                                            <span editable-select="work_history.endedMonthOption" e-ng-options="o.name for o in startedMonthOptions"></span>
-                                            <span editable-text="work_history.endedYearOption"></span>
-                                          </td>
+                                          <td><button type="button" ng-show="workhistoryform.$visible" ng-click="deleteWorkHistory(work_history.id)" class="btn btn-danger pull-right">Del</button></td>
                                         </tr>
                                       </table>
                                     </form>
@@ -455,8 +464,8 @@
                                   </div>
                                   <div class="detail-content" ng-show="rightdetailForm.$visible">
                                       <section>
-                                        <span editable-text="user.city">{{ user.city}}</span>
-                                        <span editable-text="user.state">{{user.state }}</span>
+                                        <span editable-text="user.city"></span>
+                                        <span editable-select="user.state" e-name="state" e-ng-options="t.value as t.text for t in stateList"></span>
                                       </section>
                                       <hr class="grayHR">
                                       <section>

@@ -1,4 +1,4 @@
-Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, Session, User, Workhistory) ->
+Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', '$filter', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, $filter, Session, User, Workhistory) ->
 
   $scope.user = $scope.userProfile = null
   $scope.work_history = null
@@ -13,7 +13,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.reviews = null
   $scope.user_id = $routeParams.user_id
   timeZoneArray = ["Alaska", "Arizona", "Central Time (US & Canada)", "Eastern Time (US & Canada)", "Hawaii", "Indiana (East)", "Mountain Time (US & Canada)", "Pacific Time (US & Canada)"]
-  $scope.timeZoneList = []
+  $scope.timeZoneList = $scope.monthList = []
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -36,6 +36,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   for i in month_arr
     $scope.startedMonthOptions.push({ name: i, id: i })
     $scope.endedMonthOptions.push({ name: i, id: i })
+    $scope.monthList.push({ value : i, text: i})
 
   $scope.historyModel.startedCurrentMonthOption = $scope.historyModel.startedPreviousMonthOption = ""
   $scope.historyModel.endedPreviousMonthOption = ""
@@ -95,6 +96,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.state_list = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY','LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC',
                 'ND','OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
+  $scope.stateList = []
+
+  for i in $scope.state_list
+    $scope.stateList.push({ value : i, text: i})
+
   $scope.refresh(false)
 
   $scope.showMemberForm = () ->
@@ -108,9 +114,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
 
   $scope.becomeMember = () ->
     User.becomeMember($scope.memberModel.phoneNumber, $scope.memberModel.industries, $scope.memberModel.timeZone).then((data)->
-     $scope.userInfo = { user: { time_zone: $scope.memberModel.timeZone} }
+     $scope.user.time_zone = $scope.memberModel.timeZone
      angular.extend($scope.user, data)
-     User.updateUser($scope.userInfo)
+     User.updateUser($scope.user)
     , (data) ->
       $scope.memberFormError = data
     )
@@ -294,4 +300,43 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         $scope.user_reviews = reviews
       )
     )
+
+  # filter work histories to show
+  $scope.filterWorkHistory = (work_history) ->
+    work_history.isDeleted isnt true
+
+  # add user
+  $scope.addWorkHistory = ->
+    $scope.work_histories.push
+      id: $scope.work_histories.length + 1
+      title: ""
+      company: ""
+      started_month: "January"
+      started_year: ""
+      ended_month: "December"
+      ended_year: ""
+      isNew: true
+    return
+
+  # mark work history as deleted
+  $scope.deleteWorkHistory = (id) ->
+    filtered = $filter("filter")($scope.work_histories,
+      id: id
+    )
+    filtered[0].isDeleted = true  if filtered.length
+    return
+
+  # cancel all changes
+  $scope.cancel = ->
+    i = $scope.work_histories.length
+
+    while i--
+      work_history = $scope.work_histories[i]
+
+      # undelete
+      delete work_history.isDeleted  if work_history.isDeleted
+
+      # remove new
+      $scope.work_histories.splice i, 1  if work_history.isNew
+    return
 ])

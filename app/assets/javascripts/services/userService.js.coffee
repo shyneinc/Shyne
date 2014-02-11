@@ -5,9 +5,9 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     $http.post('/api/members',
       member:
         phone_number:
-          phoneNumber
+          "1#{phoneNumber}"
         industries:
-          industries
+          industries.join(", ")
     ).success((data)->
       if data.id
         deferred.resolve(angular.extend(data, {role_type: 'Member', time_zone: time_zone}))
