@@ -12,6 +12,7 @@ class Api::V1::MentorsController < Api::V1::BaseController
     else
       mentors_list = Mentor.approved.not_deleted
     end
+    #TODO: This needs to be cleaned up to use to_json or ActiveModel Serializer
     mentors_list.each do |mentor|
       mentors << {
         id: mentor.id,
