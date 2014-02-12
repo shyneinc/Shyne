@@ -9,7 +9,8 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
   end
 
   def show
-    respond_with :api, @work.to_json(:only => [:id, :current_work, :title, :company, :date_started, :date_ended], :methods => [:started_month, :started_year, :ended_month, :ended_year])
+    respond_with :api, @work.to_json(:only => [:id, :mentor_id, :current_work, :title, :company, :date_started, :date_ended],
+                                     :methods => [:started_month, :started_year, :ended_month, :ended_year])
   end
 
   def create

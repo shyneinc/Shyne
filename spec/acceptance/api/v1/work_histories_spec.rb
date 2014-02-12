@@ -20,8 +20,7 @@ resource 'WorkHistory' do
     example "Getting mentor's work history" do
       do_request
 
-      #TODO: Fix using factory_girl_json
-      #expect(response_body).to eq user.role.work_histories.to_json
+      expect(response_body).to eq user.role.work_histories.to_json
       expect(status).to eq 200
     end
   end
@@ -44,8 +43,8 @@ resource 'WorkHistory' do
       work = attributes_for(:work_history, mentor_id: mentor_id)
       do_request(work_history: work)
 
-      #TODO: Fix using factory_girl_json
-      #expect(response_body).to be_json_eql work.to_json
+      expect(response_body).to be_json_eql work.to_json(:only => [:id, :mentor_id, :current_work, :title, :company, :date_started, :date_ended],
+                                                        :methods => [:started_month, :started_year, :ended_month, :ended_year])
       expect(status).to eq 201
     end
   end
