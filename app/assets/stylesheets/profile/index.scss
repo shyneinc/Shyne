@@ -185,7 +185,7 @@
     }
 
     .availibilityBox {
-      min-height: 110px;
+      min-height: 117px;
     }
 
     .availibility {
@@ -250,8 +250,8 @@
     .headline {
       padding-left: 5px;
       padding-top: 15px;
-      padding-bottom: 15px;
-      font-size: 15px;
+      padding-bottom: 22px;
+      font-size: 17px;
     }
 
     .left-side {
@@ -332,6 +332,11 @@
       h1 {
         display: inline-block;
       }
+      .plus-sign {
+        float: left;
+        font-size: 22px;
+        margin-top: 5px;
+      }
       h3 {
         border-bottom: none;
         font-size: 22px;
@@ -349,8 +354,40 @@
     .editable-table {
       width: 100%;
       span {
+        width: 100%;
         select {
           width: 50%;
+        }
+      }
+      .history-edit {
+        input {
+          width: 50%;
+        }
+      }
+      td.time-period {
+        label {
+          width: 100%;
+        }
+        span.editable-wrap {
+          width: 19%;
+        }
+        .dashes {
+          margin-left: -26px;
+          padding-right: 11px;
+        }
+        span {
+          display: inline-block;
+          width: auto;
+          span {
+            select {
+              width: auto;
+              display: inline-block;
+            }
+            input {
+              width: 70%;
+              display: inline-block;
+            }
+          }
         }
       }
     }
@@ -414,4 +451,8 @@
 
 .paddL0 {
   padding-left:0px;
+}
+
+.mrR5 {
+  margin-right:5px;
 }

@@ -1,4 +1,4 @@
-Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', '$filter', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, $filter, Session, User, Workhistory) ->
+Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', '$filter', '$q', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, $filter, $q, Session, User, Workhistory) ->
 
   $scope.user = $scope.userProfile = null
   $scope.work_history = null
@@ -13,7 +13,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.reviews = null
   $scope.user_id = $routeParams.user_id
   timeZoneArray = ["Alaska", "Arizona", "Central Time (US & Canada)", "Eastern Time (US & Canada)", "Hawaii", "Indiana (East)", "Mountain Time (US & Canada)", "Pacific Time (US & Canada)"]
-  $scope.timeZoneList = $scope.monthList = []
+  $scope.timeZoneList = []
+  $scope.monthList = []
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -28,7 +29,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
     return User.searchData($scope.industries, query)
 
   #month started ended
-  month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"]
+  month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
   $scope.startedMonthOptions = []
   $scope.endedMonthOptions = []
@@ -339,4 +340,36 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
       # remove new
       $scope.work_histories.splice i, 1  if work_history.isNew
     return
+
+  $scope.updateWorkHistories = () ->
+    results = []
+    i = $scope.work_histories.length
+
+    while i--
+      work_history = $scope.work_histories[i]
+
+      if work_history.isDeleted
+        Workhistory.deleteWorkHistory($scope.user.role_id, work_history.id).then((data) ->
+          $scope.work_histories.splice i, 1
+        , (data) ->
+          $scope.historyFormError = data
+        )
+
+      work_history.isNew = true if work_history.isNew
+
+      # send on server
+      if !work_history.isDeleted
+        if work_history.isNew
+          Workhistory.addWorkHistory(work_history, $scope.user.role_id).then((data) ->
+            results.push(data)
+          , (data) ->
+            $scope.historyFormError = data
+          )
+        else
+          Workhistory.updateWorkHistory(work_history, $scope.user.role_id, work_history.id).then((data) ->
+            results.push(data)
+          , (data) ->
+            $scope.historyFormError = data
+          )
+    $q.all results
 ])

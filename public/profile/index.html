@@ -305,44 +305,52 @@
                                   </div>
 
                                   <div class="col-md-12 profileBox clearfix">
-                                    <form editable-form name="workhistoryform" onaftersave="updateWorkHistories()" oncancel="cancel()">
+                                    <form editable-form name="workhistoryform" class="css-form" onaftersave="updateWorkHistories()" oncancel="cancel()">
                                       <div class="xeditable-fields">
                                         <h3 class="boxHeader">Work History</h3>
                                         <div class="form-edit">
                                           <a href="javascript:void(0)" ng-show="!workhistoryform.$visible" ng-click="workhistoryform.$show()">Edit</a>
                                         </div>
                                         <div class="btn-form" ng-show="workhistoryform.$visible">
-                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="addWorkHistory()" class="btn btn-default pull-right">add row</button>
-                                          <button type="submit" ng-disabled="workhistoryform.$waiting" class="btn btn-primary">Save</button>
-                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="workhistoryform.$cancel()" class="btn btn-default">cancel</button>
+                                          <span class="plus-sign">+</span><button type="button" ng-disabled="workhistoryform.$waiting" ng-click="addWorkHistory()" class="btn btn-default pull-left">Add Position</button>
+                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="workhistoryform.$cancel()" class="btn btn-default pull-right">Cancel</button>
+                                          <button type="submit" ng-disabled="workhistoryform.$waiting" class="btn btn-primary pull-right mrR5">Save</button>
                                         </div>
                                       </div>
                                       <table class="editable-table">
                                         <tr ng-repeat="work_history in work_histories | filter:filterWorkHistory">
                                           <td width="100%">
                                             <p ng-hide="workhistoryform.$visible">{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})</p>
-                                            <table width="100%">
-                                              <tr>
-                                                <td>
-                                                  <span editable-text="work_history.title"></span>
-                                                </td>
-                                                <td>
-                                                  <span editable-text="work_history.company"></span>
-                                                </td>
-                                              </tr>
-                                              <tr>
-                                                <td>
-                                                  <span editable-select="work_history.started_month" e-ng-options="t.value as t.text for t in monthList"></span>
-                                                  <span editable-text="work_history.started_year"></span>
-                                                </td>
-                                                <td>
-                                                  <span editable-select="work_history.ended_month" e-ng-options="t.value as t.text for t in monthList"></span>
-                                                  <span editable-text="work_history.ended_year"></span>
-                                                </td>
-                                              </tr>
-                                            </table>
+                                            <div class="jumbotron" ng-show="workhistoryform.$visible">
+                                              <table width="100%">
+                                                <tr class="history-edit">
+                                                  <td>
+                                                    <div class="form-group">
+                                                      <label>Company</label>
+                                                      <span editable-text="work_history.company"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label>Title</label>
+                                                      <span editable-text="work_history.title"></span>
+                                                    </div>
+                                                  </td>
+                                                  <td></td>
+                                                </tr>
+                                                <tr>
+                                                  <td><label>Time Period</label></td>
+                                                </tr>
+                                                <tr>
+                                                  <td class="time-period" colspan="2" width="100%">
+                                                    <span editable-select="work_history.started_month" e-ng-options="t.value as t.text for t in monthList"></span>
+                                                    <span editable-text="work_history.started_year"></span>
+                                                    <span class="dashes"> - </span>
+                                                    <span editable-select="work_history.ended_month" e-ng-options="t.value as t.text for t in monthList"></span>
+                                                    <span editable-text="work_history.ended_year"></span>
+                                                  </td>
+                                                  <td><button type="button" ng-show="workhistoryform.$visible" ng-click="deleteWorkHistory(work_history.id)" class="btn btn-danger pull-right">Remove</button></td>
+                                                </tr>
+                                              </table>
                                           </td>
-                                          <td><button type="button" ng-show="workhistoryform.$visible" ng-click="deleteWorkHistory(work_history.id)" class="btn btn-danger pull-right">Del</button></td>
                                         </tr>
                                       </table>
                                     </form>
