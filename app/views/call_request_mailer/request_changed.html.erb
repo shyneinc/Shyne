@@ -4,10 +4,17 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Shyne Call Request</h1>
 <p>
-	you have a call request  
+Hey <%= @member.user.first_name %>,
 </p>
-
+<p>
+It looks like <%= @mentor.user.first_name %> is a bit busy at the time you requested the call. <%= @mentor.user.first_name %> suggested a new time to speak:
+</p>
+<p>
+<%= @call_request.scheduled_at.strftime("%a, (%b %d) @ %H:%M%P") %>
+</p>
+<p>
+If this new time works for you, please click to confirm the call. Thanks!”
+</p>
 </body>
 </html>

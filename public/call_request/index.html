@@ -13,6 +13,9 @@
     </div>
   </div>
 </section>
+<div class="flash-message" ng-show="flash_message">
+    <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+</div>
 <div ng-show="user">
 	<div ng-show="user.role_type == 'Mentor'">
     <div class="hero">
@@ -28,6 +31,11 @@
     </div>
 	</div>
   <div ng-show="user.role_type == 'Member'" class="mainBg">
+    <div class="loaderimgText" style="display:none;" id="loaderimgText">
+      <img src="/assets/ajax-loader.gif" /><br />
+      <span style="font-size:20px;">Submitting...</span>
+      <div class="backTransparant"></div>
+    </div>
     <!-- call details -->
     <div class="detailForm" ng-show="callRequestModel.form == 'cal_details'">
 
@@ -186,7 +194,7 @@
         </div>
         <div class="bottomBtn">
           <button class="btn btn-back fleft" type="button" ng-click="PaymentInfo(true)">Back</button>
-          <button class="btn btn-continue fright" type="button" ng-click="SubmitCallRequest()">Continue</button>
+          <button class="btn btn-continue fright" type="button" ng-click="SubmitCallRequest()">Submit</button>
         </div>
       </div>
   </div>
