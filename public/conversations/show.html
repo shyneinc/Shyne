@@ -21,7 +21,8 @@
     </div>
     <div class="conversationsList">
         <ul>
-            <li ng-repeat="message in conversations.messages">
+            <li ng-repeat="message in conversations.messages | orderBy:'id':false">
+                <div ng-hide="true"> {{ message.id}} </div>
                 <div>
                     <div class="fLeft"><strong>From:</strong> <a href="#/profile">{{message.sender.first_name}} {{message.sender.last_name}}</a></div>
                     <div class="fRight"><b>{{ message.created_at | date:'MMM dd' }}</b></div>

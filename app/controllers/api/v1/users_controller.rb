@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController
-  before_filter :authenticate_user!, :except => [:create]
+  before_filter :authenticate_user!, :except => [:create, :show]
 
   def show
     if params[:user_id].present?
@@ -7,7 +7,11 @@ class Api::V1::UsersController < Api::V1::BaseController
     else
       user = current_user
     end
-    render :json => {:info => "Current User", :user => user, :confirmed => user.confirmed?}, :status => 200
+    if user
+      render :json => {:info => "Current User", :user => user, :confirmed => user.confirmed?}, :status => 200
+    else
+      render :json => {}, :status => 401
+    end
   end
 
   def create
