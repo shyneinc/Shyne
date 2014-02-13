@@ -4,34 +4,17 @@ class Api::V1::MentorsController < Api::V1::BaseController
   def index
     mentors = []
     if (params[:featured].present? && params[:featured] == 'true')
-      mentors_list = Mentor.approved.featured.not_deleted
+      mentors = Mentor.approved.featured.not_deleted
     elsif (params[:skills].present?)
-      mentors_list = Mentor.approved.not_deleted.skills(params[:skills])
+      mentors = Mentor.approved.not_deleted.skills(params[:skills])
     elsif (params[:industries].present?)
-      mentors_list = Mentor.approved.industries(params[:industries])
+      mentors = Mentor.approved.industries(params[:industries])
     else
-      mentors_list = Mentor.approved.not_deleted
-    end
-    #TODO: This needs to be cleaned up to use to_json or ActiveModel Serializer
-    mentors_list.each do |mentor|
-      mentors << {
-        id: mentor.id,
-        user_id: mentor.user_id,
-        role: mentor.current_position,
-        full_name: mentor.full_name,
-        company: mentor.current_company,
-        city: mentor.city,
-        state: mentor.state,
-        rate_per_minute: mentor.rate_per_minute,
-        photo_url: mentor.user.avatar.url,
-        years_of_experience: mentor.years_of_experience,
-        get_avg_rating: mentor.get_avg_rating,
-        currently_working_at: mentor.currently_working_at,
-        previously_worked_at: mentor.previously_worked_at
-      }
+      mentors = Mentor.approved.not_deleted
     end
 
-    respond_with :api, mentors
+    respond_with :api, mentors.to_json(:only => [:id, :user_id, :city, :state, :rate_per_minute, :years_of_experience],
+                                       :methods => [:current_position, :current_company, :full_name, :photo_url, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at])
   end
 
   def show
