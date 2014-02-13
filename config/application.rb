@@ -30,5 +30,7 @@ module Shyne
     end
 
     config.active_record.schema_format = :ruby
+
+    I18n.config.enforce_available_locales = false
   end
 end
