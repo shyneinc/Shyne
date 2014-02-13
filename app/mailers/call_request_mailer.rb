@@ -11,7 +11,7 @@ class CallRequestMailer < ActionMailer::Base
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @mentor.email, cc: @member.email, subject: "Shyne: You’ve received a Call Request!" )
+    mail(to: @mentor.email, cc: @member.email, subject: "Shyne: You've received a Call Request!" )
   end
 
   def request_approved(call_request)
