@@ -13,7 +13,9 @@
     </div>
   </div>
 </section>
-
+<div class="flash-message" ng-show="flash_message">
+    <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+</div>
 <div class="mainBg" ng-show="user">
 <div class="container">
   <div class="conversations">

@@ -1,4 +1,4 @@
-Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routeParams', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, Session, User, Workhistory, Conversation) ->
+Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$timeout', '$routeParams', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $rootScope, $timeout, $routeParams, Session, User, Workhistory, Conversation) ->
 
   $scope.user = null
   $scope.mentor = null
@@ -81,11 +81,8 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope','$timeout', '$routePa
       (data)->
         Conversation.createConversation($scope.callRequestModel, $scope.mentor.user.id).then((data)->
           $("#loaderimgText").hide()
-          $scope.flash_message = "You're all done! We'll send you an email once the Mentor responds."
-          $timeout (->
-              $scope.flash_message = null
-              $location.path '/conversation/'
-            ), 1500
+          $rootScope.flash_message = "You're all done! We'll send you an email once the Mentor responds."
+          $location.path '/conversation/'
         )
     , (error)->
       $scope.callRequestModelError = error

@@ -13,9 +13,6 @@
     </div>
   </div>
 </section>
-<div class="flash-message" ng-show="flash_message">
-    <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
-</div>
 <div ng-show="user">
 	<div ng-show="user.role_type == 'Mentor'">
     <div class="hero">
@@ -32,7 +29,7 @@
 	</div>
   <div ng-show="user.role_type == 'Member'" class="mainBg">
     <div class="loaderimgText" style="display:none;" id="loaderimgText">
-      <img src="/assets/ajax-loader.gif" /><br />
+      <div><img src="/assets/ajax-loader.gif" /></div>
       <span style="font-size:20px;">Submitting...</span>
       <div class="backTransparant"></div>
     </div>
