@@ -1,4 +1,4 @@
-Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeParams', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, Session, User, Workhistory, Conversation) ->
+Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeParams', '$rootScope', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, $rootScope, Session, User, Workhistory, Conversation) ->
 
   $scope.user = null
   $scope.conversationModel = null
@@ -7,7 +7,7 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
 
 
   $timeout (->
-    $scope.flash_message = null
+    $rootScope.flash_message = null
   ), 5000
 
   $scope.refresh = (forceUpdate) ->
