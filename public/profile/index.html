@@ -251,43 +251,36 @@
                             <div class="col-md-8">
                               <div class="row">
                                 <div class="col-md-12 left-side">
-                                  <div class="col-md-3 editable-field">
+                                  <div class="col-md-3">
                                       <div class="circle">
                                           <div class="inner">
                                               <img ng-src="{{user.avatar.url}}" start-inline-edit/>
                                           </div>
                                       </div>
-                                      <div class="edit-form">
-                                          <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                          <form novalidate role="form" name="userAvatarForm" class="css-form">
-                                              <div class="form-group">
-                                                  <label for="userAvatar">Upload Profile Image <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
-                                                  <input id="userAvatar" type="file" class="form-control" required="" onchange="angular.element(this).scope().updateAvatar(this)" hide-inline-edit>
-                                              </div>
-                                          </form>
-                                      </div>
                                   </div>
 
-                                  <div class="col-md-9 clearfix">
-                                      <form editable-form name="topdetailForm" onaftersave="updateUser()">
-                                        <div class="xeditable-fields">
-                                          <h1 ng-hide="topdetailForm.$visible">{{ user.first_name }} {{ user.last_name }}</h1>
-                                          <h1 ng-show="topdetailForm.$visible">&nbsp;</h1>
-                                          <div class="name-form-edit">
-                                            <h1><a class="edit-link" href="javascript:void(0)" ng-click="topdetailForm.$show()" ng-show="!topdetailForm.$visible">Edit</a></h1>
-                                            <!-- buttons to submit / cancel form -->
-                                            <h1 ng-show="topdetailForm.$visible"></h1>
-                                            <span ng-show="topdetailForm.$visible">
-                                              <button type="submit" class="btn btn-primary" ng-disabled="topdetailForm.$waiting">Save</button>
-                                              <button type="button" class="btn btn-default" ng-disabled="topdetailForm.$waiting" ng-click="topdetailForm.$cancel()">Cancel</button>
-                                            </span>
-                                          </div>
-                                          <div class="form-controls" ng-show="topdetailForm.$visible">
-                                            <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
-                                            <span editable-text="user.last_name" e-name="last_name" e-required></span>
-                                          </div>
+                                  <form editable-form name="topdetailForm" onaftersave="updateUser()">
+                                    <div class="col-md-9 clearfix">
+                                      <div class="xeditable-fields">
+                                        <h1 ng-hide="topdetailForm.$visible">{{ user.first_name }} {{ user.last_name }}</h1>
+                                        <div class="fileUpload btn btn-primary btn-blue" ng-show="topdetailForm.$visible">
+                                            <span>Change Photo</span>
+                                            <input id="userAvatar" type="file" class="upload" required="" onchange="angular.element(this).scope().updateAvatar(this)">
                                         </div>
-                                      </form>
+                                        <div class="name-form-edit">
+                                          <h1><a class="edit-link" href="javascript:void(0)" ng-click="topdetailForm.$show()" ng-show="!topdetailForm.$visible">Edit</a></h1>
+                                          <!-- buttons to submit / cancel form -->
+                                          <h1 ng-show="topdetailForm.$visible"></h1>
+                                          <span ng-show="topdetailForm.$visible">
+                                            <button type="submit" class="btn btn-primary" ng-disabled="topdetailForm.$waiting">Save</button>
+                                            <button type="button" class="btn btn-default" ng-disabled="topdetailForm.$waiting" ng-click="topdetailForm.$cancel()">Cancel</button>
+                                          </span>
+                                        </div>
+                                        <div class="form-controls" ng-show="topdetailForm.$visible">
+                                          <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
+                                          <span editable-text="user.last_name" e-name="last_name" e-required></span>
+                                        </div>
+                                      </div>
                                       <div class="fleft currentWork">{{ user.currently_working_at }}</div></td></tr>
                                       <div class="fleft experience">{{ user.years_of_experience }} years experience</div>
                                       <div class="fleft paddL0 col-md-9">
@@ -298,12 +291,12 @@
                                           ({{ reviews.length }} Reviews)
                                         </div>
                                       </div>
-                                  </div>
+                                    </div>
 
-                                  <div class="col-md-12 headline clearfix editable-field">
-                                    <span class="fleft">{{ user.headline }}</span>
-                                  </div>
-
+                                    <div class="col-md-12 headline clearfix editable-field">
+                                      <span class="fleft" editable-text="user.headline" e-name="headline" e-required>{{ user.headline }}</span>
+                                    </div>
+                                  </form>
                                   <div class="col-md-12 profileBox clearfix">
                                     <form editable-form name="workhistoryform" class="css-form" onaftersave="updateWorkHistories()" oncancel="cancel()">
                                       <div class="xeditable-fields">
@@ -373,7 +366,7 @@
                                   </div>
 
                                   <div class="col-md-12 contentBox clearfix">
-                                    <form editable-form name="industriesForm" class="css-form" onaftersave="updateMentor()">
+                                    <form editable-form name="industriesForm" class="css-form" onaftersave="updateMentorIndustries()">
                                       <div class="xeditable-fields">
                                         <h3 class="boxHeader">{{ user.first_name }} generally works in these industries</h3>
                                         <div class="form-edit">
@@ -384,7 +377,10 @@
                                           </span>
                                         </div>
                                       </div>
-                                      <p editable-text="user.industries" e-name="industries" e-required>{{ user.industries }}</p>
+                                      <p ng-show="!industriesForm.$visible">{{ user.industries }}</p>
+                                      <tags-input ng-show="industriesForm.$visible" ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                                        <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                      </tags-input>
                                     </form>
                                   </div>
 
@@ -474,15 +470,18 @@
                                   </div>
                                   <div class="detail-content" ng-show="rightdetailForm.$visible">
                                       <section>
+                                        <span class="pdT8 glyphicon glyphicon-map-marker"></span>
                                         <span editable-text="user.city"></span>
                                         <span editable-select="user.state" e-name="state" e-ng-options="t.value as t.text for t in stateList"></span>
                                       </section>
                                       <hr class="grayHR">
                                       <section>
+                                        <span class="pdT8 glyphicon glyphicon-bookmark"></span>
                                         <span editable-text="user.years_of_experience">{{user.years_of_experience}} years experience</span>
                                       </section>
                                       <hr class="grayHR">
                                       <section>
+                                        <span class="pdT8 glyphicon glyphicon-link"></span>
                                         <span editable-text="user.linkedin"><a href="{{ user.linkedin }}">LinkedIn</a></span>
                                       </section>
                                       <hr class="grayHR">

@@ -1,6 +1,7 @@
 Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', '$filter', '$q', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, $filter, $q, Session, User, Workhistory) ->
 
-  $scope.user = $scope.userProfile = null
+  $scope.user = null
+  $scope.userProfile = null
   $scope.work_history = null
   $scope.welcomeModel = {role: null}
   $scope.resetModel = {token: null}
@@ -15,6 +16,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   timeZoneArray = ["Alaska", "Arizona", "Central Time (US & Canada)", "Eastern Time (US & Canada)", "Hawaii", "Indiana (East)", "Mountain Time (US & Canada)", "Pacific Time (US & Canada)"]
   $scope.timeZoneList = []
   $scope.monthList = []
+  $scope.is_industries = false
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -84,6 +86,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
+          $scope.editIndustryModel.industries = mentorInfo.industries.split(", ")
+          $scope.user.user_industries = mentorInfo.industries
           angular.extend(user, mentorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
@@ -173,6 +177,19 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.updateMentor = () ->
     User.updateMentor($scope.user).then(() ->
       $scope.flash_message = 'User Information Updated.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    )
+
+  $scope.updateMentorIndustries = () ->
+    $scope.user.industries = $scope.editIndustryModel.industries
+
+    User.updateMentor($scope.user).then(() ->
+      $scope.user.industries = $scope.user.industries.join(", ")
+      $scope.flash_message = 'User Information Updated.'
+      $scope.is_industries = true
       window.setTimeout(() ->
         $scope.flash_message = null
         $scope.$digest()

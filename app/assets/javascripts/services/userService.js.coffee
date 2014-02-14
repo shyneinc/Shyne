@@ -124,7 +124,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         phone_number: user.phone_number,
         availability: user.availability,
         linkedin: user.linkedin,
-        industries: user.industries,
+        industries: user.industries.join(", "),
         skills: user.skills
     ).success((data) ->
       deferred.resolve(data)
