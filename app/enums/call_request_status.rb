@@ -34,7 +34,13 @@ end
 
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
-    #CallRequestMailer.delay.request_processed(owner)
+    CallRequestMailer.delay.request_processed(owner)
+  end
+end
+
+class CallRequestStatus::Declined < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_declined(owner)
   end
 end
 

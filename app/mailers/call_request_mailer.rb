@@ -54,7 +54,15 @@ class CallRequestMailer < ActionMailer::Base
     mail(to: @mentor.email, subject: "Summary of your call with #{@member.full_name}")
   end
 
-  def request_decline(call_request)
+  def request_processed(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+
+    mail(to: @mentor.email, subject: "Payment has been processed for your call with #{@member.full_name}")
+  end
+
+  def request_declined(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
