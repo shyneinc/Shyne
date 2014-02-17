@@ -106,6 +106,12 @@ Shyne.config ["$routeProvider", ($routeProvider) ->
   ).when("/call_request/:mentor_id",
     templateUrl: "/call_request/index.html"
     controller: 'CallRequestCtrl'
+  ).when("/request/:request_id",
+    templateUrl: "/call_request/view.html"
+    controller: 'CallRequestCtrl'
+  ).when("/change_request/:request_id",
+    templateUrl: "/call_request/reschedule.html"
+    controller: 'CallRequestCtrl'
   ).when("/conversation",
     templateUrl: "/conversations/index.html"
     controller: 'ConversationsCtrl'

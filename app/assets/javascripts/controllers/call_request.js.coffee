@@ -25,9 +25,17 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
 
   mentor_id = $routeParams.mentor_id
 
-  User.getMentorInfo(mentor_id).then((mentorInfo) ->
-    $scope.mentor = mentorInfo
-  )
+  if $routeParams.mentor_id != null and $routeParams.mentor_id != undefined
+    User.getMentorInfo(mentor_id).then((mentorInfo) ->
+      $scope.mentor = mentorInfo
+    )
+
+  request_id = $routeParams.request_id
+
+  if $routeParams.request_id != null and $routeParams.request_id != undefined
+    User.getCallRequest(request_id).then((requestInfo) ->
+      $scope.callRequestModel = requestInfo
+    )
 
   $scope.proposedDurationOptions = []
   proposed_duration = ["20", "30", "40"]
@@ -87,4 +95,25 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
     , (error)->
       $scope.callRequestModelError = error
     )
+
+  $scope.acceptDeclineCallRequest = (status) ->
+    $("#loaderimgText").show()
+    User.acceptDeclineCallRequest($scope.callRequestModel, status).then(
+      (data)->
+        $("#loaderimgText").hide()
+        $location.path('/profile/' + $scope.callRequestModel.mentor.user_id)
+    , (error)->
+      $scope.callRequestModelError = error
+    )
+
+  $scope.updateCallRequest = () ->
+    $("#loaderimgText").show()
+    User.updateCallRequest($scope.callRescheduleModel, "changed", $scope.callRequestModel.id).then(
+      (data)->
+        $("#loaderimgText").hide()
+        $location.path('/profile/' + $scope.callRequestModel.mentor.user_id)
+    , (error)->
+      $scope.callRequestModelError = error
+    )
+
 ])

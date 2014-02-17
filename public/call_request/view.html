@@ -1,0 +1,72 @@
+<div ng-include src="'shared/masthead.html'"></div>
+<section ng-hide="user">
+  <div class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="text-center info-message">
+            <h2>Please <a href="#/login">log in</a> to access schedule call</h2>
+            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div ng-show="user">
+  <div ng-show="user.role_type == 'Mentor'" class="mainBg">
+    <div class="loaderimgText" style="display:none;" id="loaderimgText">
+      <div><img src="/assets/ajax-loader.gif" /></div>
+      <span style="font-size:20px;">Submitting...</span>
+      <div class="backTransparant"></div>
+    </div>
+    <!-- confirm details -->
+    <div class="detailForm">
+      <form novalidate role="form" name="confirmDetailForm" class="css-form">
+        <div class="formBox">
+          <div class="formHeading">
+            <h3>Request Details for call</h3>
+          </div>
+          <div class="formContent">
+            <div class="formRow">
+              <div class="suggestTime">
+                <label>Reason for your call</label>
+                <span class="atText fleft">{{ callRequestModel.agenda }}</span>
+              </div>
+            </div>
+            <div class="formRow">
+              <div class="suggestTime">
+                <label>Suggested Time</label>
+                <span class="atText fleft">{{ callRequestModel.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ callRequestModel.scheduled_at | date:'hh:mm a' }}</span>
+
+              </div>
+            </div>
+            <div class="formRow">
+              <div class="estimatedTotal">
+                <label>Estimated Total</label>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td width="50%"><span>Rate per Minute</span></td>
+                    <td width="50%"><span>${{callRequestModel.mentor.rate_per_minute}}</span></td>
+                  </tr>
+                  <tr>
+                    <td><span>Requested call length</span></td>
+                      <td><span>{{ callRequestModel.proposed_duration }} minutes</span></td>
+                  </tr>
+                  <tr>
+                    <td><span>Estimated Cost</span></td>
+                      <td><span>{{ callRequestModel.proposed_duration * callRequestModel.mentor.rate_per_minute | currency:"$"}}  </span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottomBtn">
+          <button class="btn btn-continue fright" type="button" ng-click="acceptDeclineCallRequest('decline')">Decline</button>
+          <button class="btn btn-continue fright mrR5" type="button" ng-click="acceptDeclineCallRequest('approved')">Accept</button>
+        </div>
+      </div>
+  </div>
+
+</div>

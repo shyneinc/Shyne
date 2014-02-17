@@ -8,11 +8,20 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
   end
 
   def create
-    respond_with :api, CallRequest.create(call_request_params)
+    call_request = CallRequest.create(call_request_params)
+    if call_request
+      CallRequestMailer.delay.request_proposed(call_request)
+    end
+    respond_with :api, call_request
   end
 
   def update
     respond_with :api, CallRequest.update(params[:id], call_request_params)
+  end
+
+  def show
+    call_request = CallRequest.find(params[:id])
+    respond_with :api, call_request.to_json(:include => {:mentor => { :methods => [:rate_per_minute]}, :member => {:include => :user}})
   end
 
   def destroy
