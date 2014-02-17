@@ -17,6 +17,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
   $scope.timeZoneList = []
   $scope.monthList = []
   $scope.is_industries = false
+  $scope.memberDetailModel = {}
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
