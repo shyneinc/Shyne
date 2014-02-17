@@ -5,11 +5,6 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
   $scope.conversations = null
   $scope.conversation_id = $routeParams.conversation_id
 
-
-  $timeout (->
-    $rootScope.flash_message = null
-  ), 5000
-
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
       $scope.user = user
