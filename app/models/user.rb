@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
   validates :time_zone, :inclusion => { :in => ActiveSupport::TimeZone.us_zones.map(&:name) << "UTC" }
+  validates_uniqueness_of :email, :message => "Email address has already been taken"
 
   after_validation :generate_username, :on => :create
 
