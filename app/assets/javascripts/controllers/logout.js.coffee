@@ -1,6 +1,9 @@
 Shyne.controller('LogoutCtrl', ($location, $scope, Session) ->
 
-  Session.logout()
+  Session.logout().then(
+    (user)->
+      $location.path '/'
+  )
 
 
 )
