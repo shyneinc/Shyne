@@ -82,6 +82,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
       $scope.user = user
       if user.role_type is 'Member'
         User.getMemberInfo(user.role_id).then((memberInfo) ->
+          $scope.memberDetailModel.industries = memberInfo.industries.split(", ")
           angular.extend(user, memberInfo)
         )
       else if user.role_type is 'Mentor'
@@ -247,6 +248,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
     )
 
   $scope.updateUser = () ->
+    $scope.user.industries = $scope.user.industries.join(", ")
     User.updateUser($scope.user).then((data) ->
       $scope.flash_message = 'User Information Updated.'
       $timeout (->
@@ -255,6 +257,21 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
         ), 5000
     , (data) ->
       $scope.resetpasswordFormError = data.errors
+    )
+
+  $scope.updateMemberDetail = () ->
+    $scope.user.industries = $scope.memberDetailModel.industries
+    User.updateUser($scope.user).then((data) ->
+      $scope.user.industries = $scope.user.industries.join(", ")
+      $scope.flash_message = 'User Information Updated.'
+      $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
+      $scope.updateMentor($scope.user) if $scope.user.role_type == 'Mentor'
+      $scope.updateMember($scope.user) if $scope.user.role_type == 'Member'
+    , (data) ->
+      $scope.memberdetailFormError = data.errors
     )
 
   $scope.updateUserInformation = () ->

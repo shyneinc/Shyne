@@ -501,133 +501,71 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 editable-field">
-                            <div class="circle">
-                                <div class="inner">
-                                    <img src="{{user.avatar.url}}" start-inline-edit/>
-                                </div>
+                          <div class="circle">
+                            <div class="inner">
+                              <img src="{{user.avatar.url}}" start-inline-edit/>
                             </div>
-                            <div class="edit-form">
-                                <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                <form novalidate role="form" name="userAvatarForm" class="css-form">
-                                  <div class="form-group">
-                                    <label for="userAvatar">Upload Profile Image <span class="text-danger">{{userFormError.avatar[0]}}</span></label>
-                                    <input id="userAvatar" type="file" class="form-control" onchange="angular.element(this).scope().updateAvatar(this)" hide-inline-edit>
-                                  </div>
-                                </form>
-                            </div>
+                          </div>
+                          <div class="fileUpload btn btn-primary btn-blue" ng-show="memberDetailForm.$visible">
+                              <span>Change Photo</span>
+                              <input id="userAvatar" type="file" class="upload" required="" onchange="angular.element(this).scope().updateAvatar(this)">
+                          </div>
                         </div>
                         <div class="col-md-9">
-                            <div class="editable-field">
-                                <h1>{{user.first_name}} {{user.last_name}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h1>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberNameForm" class="css-form" ng-submit="updateUser()">
-                                        <div class="form-group">
-                                            <label for="memberfirstName">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
-                                            <input name="firstName" ng-model="user.first_name" class="form-control" id="memberfirstName" placeholder="Enter first name" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
-                                            <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
+                          <form editable-form name="memberDetailForm" onaftersave="updateMemberDetail()">
+                            <div class="xeditable-fields">
+                              <div class="name-form-edit">
+                                <a class="edit-link" href="javascript:void(0)" ng-click="memberDetailForm.$show()" ng-show="!memberDetailForm.$visible">Edit</a>
+                                <!-- buttons to submit / cancel form -->
+                                <span ng-show="memberDetailForm.$visible">
+                                  <button type="submit" class="btn btn-primary" ng-disabled="memberDetailForm.$waiting">Save</button>
+                                  <button type="button" class="btn btn-default" ng-disabled="memberDetailForm.$waiting" ng-click="memberDetailForm.$cancel()">Cancel</button>
+                                </span>
+                              </div>
+                              <h1 ng-show="!memberDetailForm.$visible">{{user.first_name}} {{user.last_name}}</h1>
+                              <h4 ng-show="!memberDetailForm.$visible"><span class="glyphicon glyphicon-time"></span> {{user.time_zone}}</h4>
+                              <h4 ng-show="!memberDetailForm.$visible"><span class="glyphicon glyphicon-random"></span> {{user.industries}}</h4>
+                              <div class="form-controls" ng-show="memberDetailForm.$visible">
+                                <div style="padding-top:5px;">
+                                  <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
+                                  <span editable-text="user.last_name" e-name="last_name" e-required></span>
                                 </div>
+                                <div style="padding-top:5px;">
+                                  <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
+                                </div>
+                                <div style="padding-top:15px;">
+                                  <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                                    <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                  </tags-input>
+                                </div>
+                              </div>
                             </div>
-                            <!--<div class="editable-field">
-                                <span class="glyphicon glyphicon-envelope"></span> {{user.email}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberEmailForm" class="css-form" ng-submit="updateUser()">
-                                        <div class="form-group">
-                                            <label for="memberEmail">Email <span class="text-danger">{{memberFormError.email[0]}}</span></label>
-                                            <input name="email" ng-model="user.email" class="form-control" id="memberEmail" type="email" placeholder="Enter email address" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberEmailForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
+                          </form>
+                          <form editable-form name="changepasswordForm" onaftersave="updatePassword()">
+                            <div class="xeditable-fields">
+                              <div class="name-form-edit">
+                                <h4><span class="glyphicon glyphicon-lock"></span> <a href="javascript:void(0)" ng-click="changepasswordForm.$show()" ng-show="!changepasswordForm.$visible">Change Password</a></h4>
+                                <!-- buttons to submit / cancel form -->
+                                <span ng-show="changepasswordForm.$visible">
+                                  <button type="submit" class="btn btn-primary" ng-disabled="changepasswordForm.$waiting">Save</button>
+                                  <button type="button" class="btn btn-default" ng-disabled="changepasswordForm.$waiting" ng-click="changepasswordForm.$cancel()">Cancel</button>
+                                </span>
+                              </div>
+                              <div class="form-controls" ng-show="changepasswordForm.$visible">
+                                <div style="padding-top:5px;">
+                                  <div style="padding-top:5px;">
+                                    <span editable-password="user.current_password" e-name="current_password" e-required e-placeholder="Enter current password"></span>&nbsp;
+                                  </div>
+                                  <div style="padding-top:5px;">
+                                    <span editable-password="user.password" e-name="password" e-required e-placeholder="Enter new password"></span>
+                                  </div>
+                                  <div style="padding-top:5px;">
+                                    <span editable-password="user.confirmPassword" e-name="confirmPassword" e-required e-placeholder="Confirm password"></span>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
-                            <div class="editable-field">
-                                <span class="glyphicon glyphicon-earphone"></span> {{user.phone_number}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberPhoneForm" class="css-form" ng-submit="updateMember()">
-                                        <div class="form-group">
-                                            <label for="memberPhoneNumber">Phone Number <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
-                                            <input name="phoneNumber" ng-model="user.phone_number" class="form-control" id="memberPhoneNumber" placeholder="Enter phone number" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMember()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>-->
-                            <div class="editable-field">
-                                <h4><span class="glyphicon glyphicon-time"></span> {{user.time_zone}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h4>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberTimeZoneForm" class="css-form" ng-submit="updateUser()">
-                                        <div class="form-group">
-                                            <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
-                                            <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
-                                                <option value="Alaska">Alaska</option>
-                                                <option value="Arizona">Arizona</option>
-                                                <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                                <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                                <option value="Hawaii">Hawaii</option>
-                                                <option value="Indiana (East)">Indiana (East)</option>
-                                                <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                                <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                            </select>
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberTimeZoneForm.$invalid" ng-click="updateUser()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="editable-field">
-                                <h4><span class="glyphicon glyphicon-random"></span> {{user.industries}} <a href="" class="glyphicon glyphicon-pencil" start-inline-edit></a></h4>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberIndustriesForm" class="css-form" ng-submit="updateMember()">
-                                        <div class="form-group">
-                                            <label for="memberPhoneNumber">Industries <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
-                                            <input name="industries" ng-model="user.industries" class="form-control" id="memberIndustries" placeholder="E.g. Technology, finance, startups, large corporations" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPhoneForm.$invalid" ng-click="updateMember()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="editable-field">
-                                <h4><span class="glyphicon glyphicon-lock"></span> <a href="" start-inline-edit>Change Password</a></h4>
-                                <div class="edit-form">
-                                    <a href="" class="pull-right glyphicon glyphicon-remove-circle" hide-inline-edit></a>
-                                    <form novalidate role="form" name="memberPasswordForm" class="css-form" ng-submit="updatePassword()">
-                                        <div class="form-group">
-                                            <label for="memberPassword">CurrentPassword <span class="text-danger">{{memberFormError.password[0]}}</span></label>
-                                            <input name="current_password" ng-model="user.current_password" type="password" class="form-control" id="memberPassword" placeholder="Enter current password" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="memberPassword">New Password <span class="text-danger">{{memberFormError.password[0]}}</span></label>
-                                            <input name="password" ng-model="user.password" type="password" class="form-control" id="memberPassword" placeholder="Enter new password" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="memberPasswordConfirmation">Confirm Password <span class="text-danger">{{memberFormError.password_confirmation[0]}}</span></label>
-                                            <input name="password" ng-model="user.confirmPassword" type="password" class="form-control" id="memberPasswordConfirmation" placeholder="Confirm password" required="">
-                                        </div>
-                                        <div class="button-group">
-                                            <button type="button" class="btn btn-primary" type="submit" ng-disabled="memberPasswordForm.$invalid" ng-click="updatePassword()" hide-inline-edit>Update</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                          </form>
                         </div>
                     </div>
                 </div>
