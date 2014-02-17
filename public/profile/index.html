@@ -335,10 +335,10 @@
                                                 <tr>
                                                   <td class="time-period" colspan="2" width="100%">
                                                     <span editable-select="work_history.started_month" e-ng-options="t.value as t.text for t in monthList"></span>
-                                                    <span editable-text="work_history.started_year"></span>
+                                                    <span editable-text="work_history.started_year" e-maxlength="4"></span>
                                                     <span class="dashes"> - </span>
                                                     <span editable-select="work_history.ended_month" e-ng-options="t.value as t.text for t in monthList"></span>
-                                                    <span editable-text="work_history.ended_year"></span>
+                                                    <span editable-text="work_history.ended_year" e-maxlength="4"></span>
                                                   </td>
                                                   <td><button type="button" ng-show="workhistoryform.$visible" ng-click="deleteWorkHistory(work_history.id)" class="btn btn-danger pull-right">Remove</button></td>
                                                 </tr>

@@ -1574,6 +1574,10 @@ angular.module('xeditable').factory('editableThemes', function() {
                   break;
               }
               this.inputEl.addClass(this.theme.inputClass);
+
+              //customize and added max length
+              if(this.inputEl.attr('maxlength'))
+                this.inputEl.attr('maxlength', this.inputEl.attr('maxlength'));
             }
           break;
         }
