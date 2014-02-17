@@ -434,7 +434,8 @@
                                           <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
                                       </div>
                                     </div>
-                                    <section ng-show="!availabilityForm.$visible">{{ user.availability }} ({{ user.time_zone}} Timezone)</section>
+                                    <section ng-show="!availabilityForm.$visible">{{ user.availability }}</section>
+                                    <section class="timezone" ng-show="!availabilityForm.$visible">in {{ user.time_zone}}</section>
                                   </form>
                                 </div>
                               </div>
