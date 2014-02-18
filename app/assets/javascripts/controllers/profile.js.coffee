@@ -186,6 +186,15 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
       , 5000)
     )
 
+  $scope.updateMentorInfo = () ->
+    User.updateMentorInfo($scope.user).then(() ->
+      $scope.flash_message = 'User Information Updated.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    )
+
   $scope.updateMentorIndustries = () ->
     $scope.user.industries = $scope.editIndustryModel.industries
 
@@ -250,7 +259,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
     )
 
   $scope.updateUser = () ->
-    $scope.user.industries = $scope.user.industries.join(", ")
     User.updateUser($scope.user).then((data) ->
       $scope.flash_message = 'User Information Updated.'
       $timeout (->
