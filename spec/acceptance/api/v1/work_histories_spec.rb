@@ -20,7 +20,7 @@ resource 'WorkHistory' do
     example "Getting mentor's work history" do
       do_request
 
-      expect(response_body).to eq user.role.work_histories.to_json.to_json(:only => [:id, :mentor_id, :current_work, :title, :company, :date_started, :date_ended],
+      expect(response_body).to eq user.role.work_histories.to_json(:only => [:id, :mentor_id, :current_work, :title, :company, :date_started, :date_ended],
                                                                            :methods => [:started_month, :started_year, :ended_month, :ended_year])
       expect(status).to eq 200
     end
