@@ -5,7 +5,8 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
   before_filter :check_type, except: [:index, :show]
 
   def index
-    respond_with :api, @mentor.work_histories.load
+    respond_with :api, @mentor.work_histories.to_json(:only => [:id, :mentor_id, :current_work, :title, :company, :date_started, :date_ended],
+                                     :methods => [:started_month, :started_year, :ended_month, :ended_year])
   end
 
   def show
