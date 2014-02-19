@@ -1,4 +1,4 @@
-Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$routeParams', '$filter', '$q', 'Session', 'User', 'Workhistory',($http, $location, $scope, $timeout, $routeParams, $filter, $q, Session, User, Workhistory) ->
+Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$timeout', '$routeParams', '$filter', '$q', 'Session', 'User', 'Workhistory',($http, $location, $scope, $rootScope, $timeout, $routeParams, $filter, $q, Session, User, Workhistory) ->
 
   $scope.user = null
   $scope.userProfile = null
@@ -416,4 +416,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope','$timeout', '$ro
             $scope.historyFormError = data
           )
     $q.all results
+
+  $scope.removeFlashMessage = () ->
+    $rootScope.flash_message = null
 ])

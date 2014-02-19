@@ -8,6 +8,11 @@
           border-radius: $radius;
 }
 .home-index{
+  .featuredMentors.mentors{
+    background:#eee;
+	padding-bottom:40px;
+	margin-bottom:0px;
+  }
   .hero {
     @include gradient($white, $light-gray);
     color: #475664;
@@ -200,10 +205,12 @@
       .action {
         @include bottom-round-corners(6px);
         display: block;
-        background-color: $light-gray;
-        color: $red;
+        background-color:#2B8BC1;
+        color:#fff;
         border-top: 1px solid #DADDDF;
-        padding: 5px;
+        padding: 8px 12px 8px 12px;
+		text-align:center;
+		font-size:16px;
       }
     }
     .search-card {
