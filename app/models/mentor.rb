@@ -102,4 +102,8 @@ class Mentor < ActiveRecord::Base
   def current_company
     self.work_histories.where(:current_work => true).map(&:company).first
   end
+
+  def full_address
+    [self.city, self.state].join(", ")
+  end
 end

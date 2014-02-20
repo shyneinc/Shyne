@@ -1,0 +1,90 @@
+<div class="home-index">
+    <div ng-include src="'shared/masthead.html'"></div>
+
+    <div class="callsPage">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <div ng-include src="'shared/left_menu.html'"></div>
+              </div>
+              <div class="col-md-9 b-left">
+                  <div class="callsDetailRight">
+                      <h1>Calls<span class="cBal">Current Balance: $6.50</span></h1>
+                        <h2>Call Details</h2>
+                        <div class="callDetail">
+                            <div class="row">
+                              <div class="col-md-2">
+                                  <img src="/assets/sample.png" alt="" />
+                                </div>
+                                <div class="col-md-7">
+                                  <h3>{{ call_request.mentor.full_name }}</h3>
+                                    <div class="callDesc"><span class="glyphicon glyphicon-map-marker"></span> New, CA</div>
+                                    <div class="callDesc"><strong>Current:</strong> {{ call_request.mentor.currently_working_at}}</div>
+                                    <div class="callDesc"><strong>Previous:</strong> {{ call_request.mentor.previously_worked_at }}</div>
+                                    <div class="callDesc">Work Experience: {{ call_request.mentor.years_of_experience}} years</div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="rankStar">
+                                        <img src="/assets/star-1.png" alt="" />
+                                        <img src="/assets/star-1.png" alt="" />
+                                        <img src="/assets/star-1.png" alt="" />
+                                        <img src="/assets/star-1.png" alt="" />
+                                        <img src="/assets/star-1.png" alt="" />
+                                        <span class="callDesc">(0)</span>
+                                    </div>
+                                    <div class="clearfix">&nbsp;</div>
+                                    <div class="callDesc text-center">${{ call_request.mentor.rate_per_minute }}/Minute</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="callStatusBox">
+                          <ul>
+                              <li>Status
+                                  <ul>
+                                      <li>Pending</li>
+                                    </ul>
+                                </li>
+                                <li>Reason for call
+                                  <ul>
+                                      <li>{{ call_request.agenda }}</li>
+                                    </ul>
+                                </li>
+                                <li>Details
+                                  <ul>
+                                      <li>Rate<span>${{ call_request.mentor.rate_per_minute }}/min</span></li>
+                                        <li>Estimated Call Length<span>{{ call_request.proposed_duration }} minutes</span></li>
+                                        <li>Estimated Total<span>{{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</span></li>
+                                    </ul>
+                                </li>
+                                <li>Suggested Time
+                                  <ul>
+                                      <li>{{ call_request.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ call_request.scheduled_at | date:'hh:mm a' }}</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="callOption">
+                          <p ng-show="call_request.status == 'approved'">This call has been accepted and scheduled for Friday, February 21st, 2014 at 5:00 PM (PST)</p>
+                          <p ng-show="call_request.status == 'approved'">How to enter call:</p>
+                          <h3 ng-show="call_request.status == 'proposed'">Your Options</h3>
+                            <ul>
+                                <li class="text-left" ng-show="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
+                                <li class="text-left" ng-show="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
+                                <li><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')" ng-hide="call_request.status == 'approved'">Accept Call</a></li>
+                                <li><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest" ng-hide="call_request.status == 'approved'">Suggest a different time</a></li>
+                                <li><a class="btn btn-warning" href="#">Send Message</a></li>
+                                <li><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')"  ng-hide="call_request.status == 'approved'">Decline Call</a></li>
+                                <li><a class="btn btn-danger" href="javascript:void(0)">Cancel Call</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include src="'shared/footer.html'"></div>
+</div>

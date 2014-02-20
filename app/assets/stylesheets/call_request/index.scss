@@ -357,3 +357,142 @@
   height:auto !important;
   margin: 0 auto;
 }
+
+.callsPage{
+  background:#eceef3;
+  border-bottom: 1px solid #DADDDF;
+  .container{
+    background:#fff;
+    border-left: 1px solid #e7e9ed;
+    border-right: 1px solid #e7e9ed;
+  }
+  .b-left{
+    border-left: 1px solid #DADDDF;
+  }
+  .leftMenu{
+    list-style:none;
+    margin:20px 0px 0px 0px;
+    padding:0px 15px;
+    li{
+      display:inline-block;
+	  width:100%;
+	  padding:5px 0px;
+	  a{
+	    color:#475664;
+	    font-size:20px;
+	    &:hover{
+	      color:#2B8BC1;
+	      text-decoration:none;
+	    }
+	    .glyphicon{
+	      margin-right:10px;
+	    }
+	  }
+      ul{
+        padding:5px 0px 0px 30px;
+	    a{
+          font-size:18px;
+	    }
+      }
+    }
+  }
+  .callsDetailRight{
+    margin-top:20px;
+    h1{
+      margin-top:0px;
+	  margin-bottom:15px;
+	  padding-bottom:5px;
+	  border-bottom: 1px solid #DADDDF;
+      .cBal{
+        float:right;
+	    font-size:20px;
+	    padding-top:10px;
+	  }
+    }
+	.greenText{
+	  color:#4aac21;
+	}
+	.redText{
+	  color:#e5150f;
+	}
+	img{
+	  max-width:100%;
+	}
+	h3{
+	  color:#2B8BC1;
+	  margin-top:0px;
+	  margin-bottom:10px;
+	}
+	.callDetail{
+	  background:#f6f6f6;
+	  padding:10px;
+	  .callDesc{
+	    color:#475664;
+	    font-size:17px;
+	  }
+	  .rankStar{
+	    float:left;
+		width:100%;
+		img{
+		  float:left;
+		}
+		span{
+		  padding-left:20px;
+		  float:left;
+		}
+	  }
+	}
+	.callStatusBox{
+	  padding:10px;
+	  background:#f6f6f6;
+	  float:right;
+      width:100%;
+	  margin-bottom:0px;
+	  ul{
+		list-style:none;
+		padding:0px 50px;
+		float:right;
+		width:100%;
+		margin:0px;
+		li{
+		  color:#333;
+	      font-size:22px;
+		  float:right;
+		  width:100%;
+		  padding:8px 0px;
+		  li{
+	        font-size:18px;
+			padding:2px 0px;
+			span{
+			  float:right;
+			}
+		  }
+		}
+	  }
+	}
+	.callOption{
+	  padding:0px 60px;
+	  h3, p{
+	    color:#333;
+	    font-size:22px;
+	  }
+	  ul{
+	    list-style:none;
+		padding:0px;
+		margin:0 auto;
+		text-align:center;
+		width:300px;
+		li{
+		  display:block;
+		  font-size:18px;
+		  color:#333;
+		  .btn{
+		    font-size:18px;
+			width:100%;
+			margin-bottom:10px;
+		  }
+		}
+	  }
+	}
+  }
+}

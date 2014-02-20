@@ -1,0 +1,43 @@
+<div class="home-index">
+    <div ng-include src="'shared/masthead.html'"></div>
+
+    <div class="callsPage">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <div ng-include src="'shared/left_menu.html'"></div>
+              </div>
+              <div class="col-md-9 b-left">
+                <div class="callsDetailRight">
+                  <h1>Calls<span class="cBal">Current Balance: $6.50</span></h1>
+                  <div class="clearfix">&nbsp;</div>
+                  <table class="table table-striped" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <th width="25%" align="left">Name</th>
+                      <th width="24%" align="left">Date</th>
+                      <th width="17%" align="left">Status</th>
+                      <th width="17%" class="text-center">Length</th>
+                      <th width="17%" class="text-center">Amount</th>
+                  </tr>
+                  <tr ng-repeat="call_request in call_requests">
+                    <td align="left">{{ call_request.mentor.full_name }}</td>
+                    <td align="left">{{ call_request.created_at | date:'MMM dd, yyyy' }}</td>
+                    <td align="left">
+                      <div ng-if="call_request.status == 'proposed'">Pending</div>
+                      <div ng-if="call_request.status == 'approved'">Accepted</div>
+                      <div ng-if="call_request.status == 'changed'">Changed</div>
+                      <div ng-if="call_request.status == 'processed'">Processed</div>
+                      <div ng-if="call_request.status == 'declined'">Declined</div>
+                      <div ng-if="call_request.status == 'completed'">Complete</div>
+                    </td>
+                    <td align="center">{{ call_request.billable_duration | duration}}</td>
+                    <td align="center" class="redText">{{ (call_request.mentor.rate_per_minute * call_request.billable_duration) | currency:'$'}}</td>
+                  </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div ng-include src="'shared/footer.html'"></div>
+</div>

@@ -38,13 +38,13 @@
       <form novalidate role="form" name="avlTimeForm" class="css-form">
         <div class="formBox">
           <div class="formHeading">
-              <h3>Re-schedule your call time with {{callRequestModel.member.user.first_name}}</h3>
+              <h3>Re-schedule your call time with {{call_request.member.user.first_name}}</h3>
             </div>
             <div class="formContent">
               <div class="formRow">
                 <div class="suggestTime">
                   <label>Suggested Time</label>
-                  <span class="atText fleft">{{ callRequestModel.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ callRequestModel.scheduled_at | date:'hh:mm a' }}</span>
+                  <span class="atText fleft">{{ call_request.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ call_request.scheduled_at | date:'hh:mm a' }}</span>
 
                 </div>
               </div>

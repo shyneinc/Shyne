@@ -9,4 +9,12 @@ class Member < ActiveRecord::Base
 
   has_many :call_request
   has_many :reviews
+
+  def avatar
+    self.user.avatar.thumb.to_s
+  end
+
+  def photo_url
+    self.user.avatar.url.to_s
+  end
 end

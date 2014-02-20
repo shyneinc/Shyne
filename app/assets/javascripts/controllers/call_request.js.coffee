@@ -96,24 +96,4 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
       $scope.callRequestModelError = error
     )
 
-  $scope.acceptDeclineCallRequest = (status) ->
-    $("#loaderimgText").show()
-    User.acceptDeclineCallRequest($scope.callRequestModel, status).then(
-      (data)->
-        $("#loaderimgText").hide()
-        $location.path('/profile/' + $scope.callRequestModel.mentor.user_id)
-    , (error)->
-      $scope.callRequestModelError = error
-    )
-
-  $scope.updateCallRequest = () ->
-    $("#loaderimgText").show()
-    User.updateCallRequest($scope.callRescheduleModel, "changed", $scope.callRequestModel.id).then(
-      (data)->
-        $("#loaderimgText").hide()
-        $location.path('/profile/' + $scope.callRequestModel.mentor.user_id)
-    , (error)->
-      $scope.callRequestModelError = error
-    )
-
 ])

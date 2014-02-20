@@ -4,7 +4,11 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
 
   def index
     role = current_user.role_type.downcase
-    respond_with :api, CallRequest.find_by("#{role}_id" => current_user.role_id)
+    respond_with :api, CallRequest.where("#{role}_id" => current_user.role_id).to_json({:include =>
+                                                                                         {:mentor =>
+                                                                                          {:methods => [:full_name, :rate_per_minute, :phone_number]},
+                                                                                          :member => {:methods => [:full_name, :phone_number]}
+                                                                                         }})
   end
 
   def create
@@ -22,7 +26,11 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
 
   def show
     call_request = CallRequest.find(params[:id])
-    respond_with :api, call_request.to_json(:include => {:mentor => { :methods => [:rate_per_minute]}, :member => {:include => :user}})
+    respond_with :api, call_request.to_json(:include =>
+                                            {:mentor =>
+                                             { :methods => [:full_name, :full_address, :photo_url, :rate_per_minute, :currently_working_at, :previously_worked_at]},
+                                             :member => {:include => :user, :methods=> [:full_name, :photo_url]}
+                                            })
   end
 
   def destroy
