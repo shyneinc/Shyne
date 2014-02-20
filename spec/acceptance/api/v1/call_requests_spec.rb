@@ -17,7 +17,12 @@ resource 'CallRequest' do
 
   get "/api/call_requests" do
     example_request "Getting all call requests" do
-      expect(response_body).to eq CallRequest.find_by_member_id(user.role_id).to_json
+      role = user.role_type.downcase
+      expect(response_body).to be_json_eql CallRequest.where("#{role}_id" => user.role_id).to_json({:include =>
+                                                                                                                {:mentor =>
+                                                                                                                     {:methods => [:full_name, :rate_per_minute, :phone_number]},
+                                                                                                                 :member => {:methods => [:full_name, :phone_number]}
+                                                                                                                }})
       expect(status).to eq 200
     end
   end
