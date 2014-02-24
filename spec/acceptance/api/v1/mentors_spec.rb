@@ -83,7 +83,7 @@ resource 'Mentor' do
 
     example_request "Getting a specific mentor" do
       expect(response_body).to eq mentor.to_json({:include => [:user],
-                                                  :methods => [:full_name, :avatar, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at]})
+                                                  :methods => [:full_name, :avatar, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at, :avg_call_duration]})
       expect(status).to eq 200
     end
   end
