@@ -6,9 +6,9 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
     role = current_user.role_type.downcase
     respond_with :api, CallRequest.where("#{role}_id" => current_user.role_id).to_json({:include =>
                                                                                             {:mentor =>
-                                                                                                 {:methods => [:full_name, :rate_per_minute, :phone_number]},
+                                                                                                 {:methods => [:full_name, :rate_per_minute, :phone_number, :avg_call_duration, :get_avg_rating]},
                                                                                              :member => {:methods => [:full_name, :phone_number]}
-                                                                                            }})
+                                                                                            }, :methods => [:scheduled_date]})
   end
 
   def create
@@ -28,9 +28,9 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
     call_request = CallRequest.find(params[:id])
     respond_with :api, call_request.to_json(:include =>
                                                 {:mentor =>
-                                                     {:methods => [:full_name, :full_address, :photo_url, :rate_per_minute, :currently_working_at, :previously_worked_at]},
+                                                     {:methods => [:full_name, :full_address, :photo_url, :rate_per_minute, :currently_working_at, :previously_worked_at, :avg_call_duration, :get_avg_rating]},
                                                  :member => {:include => :user, :methods => [:full_name, :photo_url]}
-                                                })
+                                                }, :methods => [:scheduled_date])
   end
 
   def destroy

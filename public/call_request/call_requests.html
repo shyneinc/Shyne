@@ -20,7 +20,7 @@
                       <th width="17%" class="text-center">Amount</th>
                   </tr>
                   <tr ng-repeat="call_request in call_requests">
-                    <td align="left">{{ call_request.mentor.full_name }}</td>
+                    <td align="left"><a href="#/call_requests/{{call_request.id}}">{{ call_request.mentor.full_name }}</a></td>
                     <td align="left">{{ call_request.created_at | date:'MMM dd, yyyy' }}</td>
                     <td align="left">
                       <div ng-if="call_request.status == 'proposed'">Pending</div>

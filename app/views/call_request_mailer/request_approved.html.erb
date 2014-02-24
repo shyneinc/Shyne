@@ -13,7 +13,7 @@
                   <td align="left" width="5%" valign="top" style="padding:7px 0px 7px 0px;"><input type="checkbox" name="check"></td>
                   <td align="left" width="95%" valign="top" style="padding:7px 0px 7px 14px;">
                       <div style="font-family: Arial, Helvetica, sans-serif; font-size:13px; font-weight:bold; color:#4a4a4a;">How to call</div>
-                        <div style="font-family: Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal; color:#4a4a4a;">Dial: <a style="color:#1155cc; text-decoration:underline; font-weight:bold;" href="#">+<%= @mentor.phone_number %></a></div>
+                        <div style="font-family: Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal; color:#4a4a4a;">Dial: <a style="color:#1155cc; text-decoration:underline; font-weight:bold;" href="#">+<%= @call_request.twilio_number %></a></div>
                         <div style="font-family: Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal; color:#4a4a4a;">Access code: <strong><%= @call_request.passcode %></strong></div>
                     </td>
                 </tr>

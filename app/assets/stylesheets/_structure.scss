@@ -2,18 +2,18 @@
 
 header {
   background-color: $light-gray;
-  height: 50px;
+  height: 69px;
   border-bottom: 1px solid #DADDDF;
   .navbar-form {
     margin: 2px 0 0 0;
   }
   .logo {
     display: block;
-    width: 101px;
-    height: 39px;
+    width: 150px;
+    height: 60px;
     margin-top: 5px;
     background-color: $light-gray;
-    background-image: url('data:image/png;base64,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');
+    background-image: url(/assets/logo150.png);
     text-indent: -99999999px;
     overflow:hidden;
   }
@@ -53,7 +53,7 @@ header {
       color: #333;
       font-size: 14px;
       text-decoration: none;
-      padding: 10px;
+      padding: 20px 10px;
       background-color: $light-gray;
       &:hover, &:focus, &:active {
         background-color: $light-gray;
@@ -69,6 +69,7 @@ header {
     & > li > a.btn-blue{
       background: #0F6B9D;
       border-color: #0F6B9D;
+      margin-top:11px;
     }
     .dropdown-menu > li {
       & > a {

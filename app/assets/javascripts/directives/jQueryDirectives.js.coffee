@@ -9,7 +9,7 @@ ShyneDirectives.directive('popCard', () ->
 
 ShyneDirectives.directive('starRating', () ->
   restrict: 'E'
-  template: "<ul style=\"padding: 0;font-size:20px;\">" +
+  template: "<ul style=\"padding: 0;font-size:24px;\">" +
             "<li ng-repeat=\"star in stars\" style=\"color: #FF860D;\"" +
             "class=\"glyphicon\" ng-class=\"{true: \'glyphicon-star-empty\', false: 'glyphicon-star'}[star.empty]\"></li></ul>"
   link: (scope) ->

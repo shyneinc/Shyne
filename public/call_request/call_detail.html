@@ -25,58 +25,62 @@
                                 </div>
                                 <div class="col-md-3">
                                   <div class="rankStar">
-                                        <img src="/assets/star-1.png" alt="" />
-                                        <img src="/assets/star-1.png" alt="" />
-                                        <img src="/assets/star-1.png" alt="" />
-                                        <img src="/assets/star-1.png" alt="" />
-                                        <img src="/assets/star-1.png" alt="" />
-                                        <span class="callDesc">(0)</span>
+                                    <div class="col-md-8" style="padding-left:0px;padding-right:0px;">
+                                      <star-rating star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating>
                                     </div>
-                                    <div class="clearfix">&nbsp;</div>
-                                    <div class="callDesc text-center">${{ call_request.mentor.rate_per_minute }}/Minute</div>
+                                    <span class="callDesc">(0)</span>
+                                  </div>
+                                  <div class="clearfix">&nbsp;</div>
+                                  <div class="callDesc text-center">${{ call_request.mentor.rate_per_minute }}/Minute</div>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix">&nbsp;</div>
                         <div class="callStatusBox">
                           <ul>
-                              <li>Status
-                                  <ul>
-                                      <li>Pending</li>
-                                    </ul>
-                                </li>
-                                <li>Reason for call
-                                  <ul>
-                                      <li>{{ call_request.agenda }}</li>
-                                    </ul>
-                                </li>
-                                <li>Details
-                                  <ul>
-                                      <li>Rate<span>${{ call_request.mentor.rate_per_minute }}/min</span></li>
-                                        <li>Estimated Call Length<span>{{ call_request.proposed_duration }} minutes</span></li>
-                                        <li>Estimated Total<span>{{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</span></li>
-                                    </ul>
-                                </li>
-                                <li>Suggested Time
-                                  <ul>
-                                      <li>{{ call_request.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ call_request.scheduled_at | date:'hh:mm a' }}</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <li>Status
+                              <ul>
+                                <li ng-if="call_request.status == 'proposed'">Pending</li>
+                                <li ng-if="call_request.status == 'approved'">Accepted</li>
+                                <li ng-if="call_request.status == 'declined'">Declined</li>
+                                <li ng-if="call_request.status == 'changed'">Changed</li>
+                                <li ng-if="call_request.status == 'completed'">Completed</li>
+                              </ul>
+                            </li>
+                            <li>Reason for call
+                              <ul>
+                                <li>{{ call_request.agenda }}</li>
+                              </ul>
+                            </li>
+                            <li>Details
+                              <ul>
+                                <li>Rate<span>${{ call_request.mentor.rate_per_minute }}/min</span></li>
+                                <li>Estimated Call Length<span>{{ call_request.proposed_duration }} minutes</span></li>
+                                <li>Estimated Total<span>{{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</span></li>
+                              </ul>
+                            </li>
+                            <li>Suggested Time
+                              <ul>
+                                <li>{{ call_request.scheduled_date }}</li>
+                              </ul>
+                            </li>
+                          </ul>
                         </div>
                         <div class="clearfix">&nbsp;</div>
                         <div class="callOption">
-                          <p ng-show="call_request.status == 'approved'">This call has been accepted and scheduled for Friday, February 21st, 2014 at 5:00 PM (PST)</p>
-                          <p ng-show="call_request.status == 'approved'">How to enter call:</p>
-                          <h3 ng-show="call_request.status == 'proposed'">Your Options</h3>
+                          <p ng-if="call_request.status == 'approved'">This call has been accepted and scheduled for {{ call_request.scheduled_date }}</p>
+                          <p ng-if="call_request.status == 'declined'">Unfortunately it looks like this Mentor is unavailable to take a call right now. We’re sorry for the inconvenience, and hope you can find another one that matches your needs.</p>
+                          <p ng-if="call_request.status == 'completed'">This call was completed on {{ call_request.scheduled_date }}</p>
+                          <p ng-if="call_request.status == 'approved'">How to enter call:</p>
+                          <h3 ng-if="call_request.status == 'proposed' || call_request.status == 'changed'">Your Options</h3>
                             <ul>
-                                <li class="text-left" ng-show="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
-                                <li class="text-left" ng-show="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
-                                <li><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')" ng-hide="call_request.status == 'approved'">Accept Call</a></li>
-                                <li><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest" ng-hide="call_request.status == 'approved'">Suggest a different time</a></li>
-                                <li><a class="btn btn-warning" href="#">Send Message</a></li>
-                                <li><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')"  ng-hide="call_request.status == 'approved'">Decline Call</a></li>
-                                <li><a class="btn btn-danger" href="javascript:void(0)">Cancel Call</a></li>
+                                <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
+                                <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
+                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'changed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
+                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'changed'"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
+                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-warning" href="#">Send Message</a></li>
+                                <li ng-if="call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                                <li ng-if="call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)">Cancel Call</a></li>
                             </ul>
                         </div>
                         <div class="clearfix">&nbsp;</div>

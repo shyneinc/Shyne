@@ -20,7 +20,7 @@ class Api::V1::MentorsController < Api::V1::BaseController
   def show
     mentor = Mentor.find(params[:id])
     respond_with :api, mentor.to_json({:include => [:user],
-                                       :methods => [:full_name, :avatar, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at]})
+                                       :methods => [:full_name, :avatar, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at, :avg_call_duration]})
   end
 
   def create

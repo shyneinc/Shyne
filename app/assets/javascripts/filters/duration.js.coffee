@@ -1,4 +1,4 @@
-Shyne.filter("duration", ->
+Shyne.filter("duration", [
   "$locale"
   "$localeDurations"
   ($locale, $localeDurations) ->
@@ -43,4 +43,4 @@ Shyne.filter("duration", ->
         value = value % units[unit_name]
         i++
       words.join " "
-)
+])
