@@ -24,16 +24,15 @@ ShyneDirectives.directive('starRating', () ->
           index: i + 1
         i++
 
-      if newVal
-        scope.stars = []
-        starRating = scope.starRating
-        i = 0
+      scope.stars = []
+      starRating = scope.starRating
+      i = 0
 
-        while i < scope.maxStarRating
-          scope.stars.push
-            empty: i >= starRating
-            index: i + 1
-          i++
+      while i < scope.maxStarRating
+        scope.stars.push
+          empty: i >= starRating
+          index: i + 1
+        i++
   scope:
     starRating: "="
     maxStarRating: "="
