@@ -76,11 +76,13 @@
                             <ul>
                                 <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
                                 <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
-                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'changed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
-                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'changed'"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
-                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-warning" href="#">Send Message</a></li>
-                                <li ng-if="call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
-                                <li ng-if="call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)">Cancel Call</a></li>
+                                <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed')"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
+                                <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
+                                <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed')"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
+                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-warning" href="#/conversation">Send Message</a></li>
+                                <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                                <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                                <li ng-if="call_request.status == 'approved'"><a class="btn btn-danger" href="javascript:void(0)">Cancel Call</a></li>
                             </ul>
                         </div>
                         <div class="clearfix">&nbsp;</div>
