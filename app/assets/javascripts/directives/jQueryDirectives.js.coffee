@@ -47,3 +47,15 @@ ShyneDirectives.directive("stopEvent", ->
       e.stopPropagation()
 
 )
+
+ShyneDirectives.directive("ngConfirmClick", ->
+  restrict: 'A'
+  link: (scope, element, attr) ->
+    msg = attr.ngConfirmClick or "Are you sure?"
+    clickAction = attr.confirmedClick
+    element.bind "click", (event) ->
+      scope.$eval clickAction  if window.confirm(msg)
+      return
+
+    return
+)

@@ -45,6 +45,7 @@
                                 <li ng-if="call_request.status == 'declined'">Declined</li>
                                 <li ng-if="call_request.status == 'changed'">Changed</li>
                                 <li ng-if="call_request.status == 'completed'">Completed</li>
+                                <li ng-if="call_request.status == 'cancelled'">Cancelled</li>
                               </ul>
                             </li>
                             <li>Reason for call
@@ -82,7 +83,7 @@
                                 <li ng-if="call_request.status == 'proposed' || call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-warning" href="#/conversation">Send Message</a></li>
                                 <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
                                 <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
-                                <li ng-if="call_request.status == 'approved'"><a class="btn btn-danger" href="javascript:void(0)">Cancel Call</a></li>
+                                <li ng-if="call_request.status == 'approved'"><a class="btn btn-danger" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled')">Cancel Call</a></li>
                             </ul>
                         </div>
                         <div class="clearfix">&nbsp;</div>

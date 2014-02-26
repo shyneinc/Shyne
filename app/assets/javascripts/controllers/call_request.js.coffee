@@ -86,8 +86,8 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
   $scope.SubmitCallRequest = () ->
     $("#loaderimgText").show()
     User.createCallRequest($scope.callRequestModel, $scope.user.role_id, mentor_id).then(
-      (data)->
-        Conversation.createConversation($scope.callRequestModel, $scope.mentor.user.id).then((data)->
+      (call_request)->
+        Conversation.createConversation($scope.callRequestModel, $scope.mentor.user.id, call_request.id).then((data)->
           $("#loaderimgText").hide()
           $rootScope.flash_message = "You're all done! We'll send you an email once the Mentor responds."
           $location.path('/profile/' + $scope.mentor.user_id)
