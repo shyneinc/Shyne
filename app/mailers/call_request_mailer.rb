@@ -75,6 +75,6 @@ class CallRequestMailer < ActionMailer::Base
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} was cancelled" )
+    mail(to: @member.email, cc: @mentor.email, subject: "Shyne: Call Cancelled" )
   end
 end
