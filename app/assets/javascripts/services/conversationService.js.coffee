@@ -23,14 +23,15 @@ ShyneService.factory('Conversation', ['$location','$http','$q',($location, $http
     )
     deferred.promise
 
-  createConversation: (conversationModel, userId) ->
+  createConversation: (conversationModel, userId, call_request_id) ->
     deferred = $q.defer()
 
     $http.post('/api/conversations',
       conversation:
         body: conversationModel.agenda,
         subject: conversationModel.agenda,
-        user_id: userId
+        user_id: userId,
+        call_request_id: call_request_id
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->
