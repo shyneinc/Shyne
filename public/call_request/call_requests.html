@@ -29,9 +29,10 @@
                       <div ng-if="call_request.status == 'processed'">Processed</div>
                       <div ng-if="call_request.status == 'declined'">Declined</div>
                       <div ng-if="call_request.status == 'completed'">Complete</div>
+                      <div ng-if="call_request.status == 'cancelled'">Cancelled</div>
                     </td>
-                    <td align="center"><span ng-hide="call_request.status == 'declined'">{{ call_request.billable_duration | duration:'minute':'minute'}}</span></td>
-                    <td align="center" class="redText"><span ng-hide="call_request.status == 'declined'">{{ (call_request.mentor.rate_per_minute * call_request.billable_duration) | currency:'$'}}</span></td>
+                    <td align="center"><span ng-hide="call_request.status == 'declined' || call_request.status == 'cancelled'">{{ call_request.billable_duration | duration:'minute':'minute'}}</span></td>
+                    <td align="center" class="redText"><span ng-hide="call_request.status == 'declined' || call_request.status == 'cancelled'">{{ (call_request.mentor.rate_per_minute * call_request.billable_duration) | currency:'$'}}</span></td>
                   </tr>
                   </table>
                 </div>

@@ -44,3 +44,8 @@ class CallRequestStatus::Declined < CallRequestStatus
   end
 end
 
+class CallRequestStatus::Cancelled < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_cancelled(owner)
+  end
+end
