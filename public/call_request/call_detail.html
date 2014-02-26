@@ -9,7 +9,7 @@
               </div>
               <div class="col-md-9 b-left">
                   <div class="callsDetailRight">
-                      <h1>Calls<span class="cBal">Current Balance: $6.50</span></h1>
+                      <h1>Calls<span class="cBal">Current Balance: {{ (call_request.mentor.rate_per_minute * call_request.mentor.avg_call_duration) | currency:"$"}}</span></h1>
                         <h2>Call Details</h2>
                         <div class="callDetail">
                             <div class="row">
