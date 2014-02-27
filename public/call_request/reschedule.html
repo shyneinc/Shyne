@@ -38,31 +38,33 @@
       <form novalidate role="form" name="avlTimeForm" class="css-form">
         <div class="formBox">
           <div class="formHeading">
-              <h3>Re-schedule your call time with {{call_request.member.user.first_name}}</h3>
+              <h3>Suggest a different time</h3>
             </div>
             <div class="formContent">
               <div class="formRow">
                 <div class="suggestTime">
-                  <label>Suggested Time</label>
-                  <span class="atText fleft">{{ call_request.scheduled_at | date:'EEEE, MMMM dd, yyyy' }} at {{ call_request.scheduled_at | date:'hh:mm a' }}</span>
+                  <label>The call has currently been requested for:</label>
+                  <span class="atText fleft">{{ call_request.scheduled_date }}</span>
 
                 </div>
               </div>
               <div class="formRow">
                 <div class="suggestTime">
-                  <label>Suggest a time (in your timezone) for {{mentor.user.first_name}} to accept a call. The Mentor has the option of accepting your time or can reply back with another time that might be a better fit.</label>
+                  <label>Suggest a time (in your timezone) for the call. The other party has the option of accept your new time or can reply back with another time that might be a better fit.</label>
                   <input type="text" class="form-control width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRescheduleModel.scheduled_at" required="">
                   <span class="atText fleft">at</span>
                   <input ng-model="callRescheduleModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
                 </div>
               </div>
               <div class="formRow">
-                <p>Note: We don't recommend requesting a call within 12 hours, as our Mentors might not be able to respond back in time. Please also be courteous of any timezone differences.</p>
+                <div class="expireDateDetail">
+                  <span class="text-danger">{{callRequestModelError}}</span>
+                </div>
               </div>
             </div>
         </div>
         <div class="bottomBtn">
-          <button class="btn btn-continue fright" type="button" ng-click="updateCallRequest()">Submit</button>
+          <button class="btn btn-continue fright" type="button" ng-disabled="avlTimeForm.$invalid" ng-click="updateCallRequest()">Submit</button>
         </div>
       </div>
   </div>

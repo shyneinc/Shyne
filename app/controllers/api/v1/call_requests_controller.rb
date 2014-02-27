@@ -49,10 +49,14 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
   end
 
   def has_account?
-    if current_user.role_type == 'Member' && !current_user.balanced_customer.cards.any?
-      render :json => {:error => 'Member does not have a credit card on file'}, :status => 402
-    elsif current_user.role_type == 'Mentor' && !current_user.balanced_customer.bank_accounts.any?
-      render :json => {:error => 'Mentor does not have a bank account on file'}, :status => 402
+    begin
+      if current_user.role_type == 'Member' && !current_user.balanced_customer.cards.any?
+        render :json => {:error => 'Your credit card information is not available'}, :status => 401
+  #     elsif current_user.role_type == 'Mentor' && !current_user.balanced_customer.bank_accounts.any?
+  #       render :json => {:error => 'Mentor does not have a bank account on file'}, :status => 402
+      end
+    rescue Exception => e
+      render :json => {:error => "Error:: something went wrong. Please try again later."}, :status => 401
     end
   end
 end

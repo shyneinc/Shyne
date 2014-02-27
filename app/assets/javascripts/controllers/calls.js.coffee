@@ -40,6 +40,7 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
           $scope.call_request = callRequest
         )
     , (error)->
+      $("#loaderimgText").hide()
       $scope.callRequestModelError = error
     )
 
@@ -48,10 +49,9 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
     Calls.updateCallRequest($scope.callRescheduleModel, "changed", $scope.call_request.id).then(
       (data)->
         $("#loaderimgText").hide()
-        Calls.getCallRequest($routeParams.id).then((callRequest) ->
-          $scope.call_request = callRequest
-        )
+        $location.path('/call_requests/' + $scope.call_request.id)
     , (error)->
+      $("#loaderimgText").hide()
       $scope.callRequestModelError = error
     )
 ])

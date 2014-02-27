@@ -1,97 +1,120 @@
-<div class="home-index">
-    <div ng-include src="'shared/masthead.html'"></div>
+<div ng-include src="'shared/masthead.html'"></div>
 
-    <div class="callsPage">
-        <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <div ng-include src="'shared/left_menu.html'"></div>
-              </div>
-              <div class="col-md-9 b-left">
-                  <div class="callsDetailRight">
-                      <h1>Calls<span class="cBal">Current Balance: {{ (call_request.mentor.rate_per_minute * call_request.mentor.avg_call_duration) | currency:"$"}}</span></h1>
-                        <h2>Call Details</h2>
-                        <div class="callDetail">
-                            <div class="row">
-                              <div class="col-md-2">
-                                  <img src="/assets/sample.png" alt="" />
+<section ng-hide="user">
+  <div class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="text-center info-message">
+            <h2>Please <a href="#/login">log in</a> to access schedule call</h2>
+            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="callsPage" ng-show="user">
+  <div class="loaderimgText" style="display:none;" id="loaderimgText">
+    <div><img src="/assets/ajax-loader.gif" /></div>
+    <span style="font-size:20px;">Submitting...</span>
+    <div class="backTransparant"></div>
+  </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div ng-include src="'shared/left_menu.html'"></div>
+          </div>
+          <div class="col-md-9 b-left">
+              <div class="callsDetailRight">
+                  <h1>Calls<span class="cBal">Current Balance: {{ (call_request.mentor.rate_per_minute * call_request.mentor.avg_call_duration) | currency:"$"}}</span></h1>
+                    <h2>Call Details</h2>
+                    <div class="callDetail">
+                        <div class="row">
+                          <div class="col-md-2">
+                              <img src="/assets/sample.png" alt="" />
+                            </div>
+                            <div class="col-md-7">
+                              <h3>{{ call_request.mentor.full_name }}</h3>
+                                <div class="callDesc"><span class="glyphicon glyphicon-map-marker"></span> New, CA</div>
+                                <div class="callDesc"><strong>Current:</strong> {{ call_request.mentor.currently_working_at}}</div>
+                                <div class="callDesc"><strong>Previous:</strong> {{ call_request.mentor.previously_worked_at }}</div>
+                                <div class="callDesc">Work Experience: {{ call_request.mentor.years_of_experience}} years</div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="rankStar">
+                                <div class="col-md-8" style="padding-left:0px;padding-right:0px;">
+                                  <star-rating star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating>
                                 </div>
-                                <div class="col-md-7">
-                                  <h3>{{ call_request.mentor.full_name }}</h3>
-                                    <div class="callDesc"><span class="glyphicon glyphicon-map-marker"></span> New, CA</div>
-                                    <div class="callDesc"><strong>Current:</strong> {{ call_request.mentor.currently_working_at}}</div>
-                                    <div class="callDesc"><strong>Previous:</strong> {{ call_request.mentor.previously_worked_at }}</div>
-                                    <div class="callDesc">Work Experience: {{ call_request.mentor.years_of_experience}} years</div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="rankStar">
-                                    <div class="col-md-8" style="padding-left:0px;padding-right:0px;">
-                                      <star-rating star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating>
-                                    </div>
-                                    <span class="callDesc">(0)</span>
-                                  </div>
-                                  <div class="clearfix">&nbsp;</div>
-                                  <div class="callDesc text-center">${{ call_request.mentor.rate_per_minute }}/Minute</div>
-                                </div>
+                                <span class="callDesc">(0)</span>
+                              </div>
+                              <div class="clearfix">&nbsp;</div>
+                              <div class="callDesc text-center">${{ call_request.mentor.rate_per_minute }}/Minute</div>
                             </div>
                         </div>
-                        <div class="clearfix">&nbsp;</div>
-                        <div class="callStatusBox">
-                          <ul>
-                            <li>Status
-                              <ul>
-                                <li ng-if="call_request.status == 'proposed'">Pending</li>
-                                <li ng-if="call_request.status == 'approved'">Accepted</li>
-                                <li ng-if="call_request.status == 'declined'">Declined</li>
-                                <li ng-if="call_request.status == 'changed'">Changed</li>
-                                <li ng-if="call_request.status == 'completed'">Completed</li>
-                                <li ng-if="call_request.status == 'cancelled'">Cancelled</li>
-                              </ul>
-                            </li>
-                            <li>Reason for call
-                              <ul>
-                                <li>{{ call_request.agenda }}</li>
-                              </ul>
-                            </li>
-                            <li>Details
-                              <ul>
-                                <li>Rate<span>${{ call_request.mentor.rate_per_minute }}/min</span></li>
-                                <li>Estimated Call Length<span>{{ call_request.proposed_duration }} minutes</span></li>
-                                <li>Estimated Total<span>{{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</span></li>
-                              </ul>
-                            </li>
-                            <li>Suggested Time
-                              <ul>
-                                <li>{{ call_request.scheduled_date }}</li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="clearfix">&nbsp;</div>
-                        <div class="callOption">
-                          <p ng-if="call_request.status == 'approved'">This call has been accepted and scheduled for {{ call_request.scheduled_date }}</p>
-                          <p ng-if="call_request.status == 'declined'">Unfortunately it looks like this Mentor is unavailable to take a call right now. We’re sorry for the inconvenience, and hope you can find another one that matches your needs.</p>
-                          <p ng-if="call_request.status == 'completed'">This call was completed on {{ call_request.scheduled_date }}</p>
-                          <p ng-if="call_request.status == 'approved'">How to enter call:</p>
-                          <h3 ng-if="call_request.status == 'proposed' || call_request.status == 'changed'">Your Options</h3>
-                            <ul>
-                                <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
-                                <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
-                                <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed')"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
-                                <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
-                                <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed')"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
-                                <li ng-if="call_request.status == 'proposed' || call_request.status == 'approved' || call_request.status == 'changed'"><a class="btn btn-warning" href="#/conversation">Send Message</a></li>
-                                <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
-                                <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
-                                <li ng-if="call_request.status == 'approved'"><a class="btn btn-danger" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled')">Cancel Call</a></li>
-                            </ul>
-                        </div>
-                        <div class="clearfix">&nbsp;</div>
                     </div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="callStatusBox">
+                      <ul>
+                        <li>Status
+                          <ul>
+                            <li ng-if="call_request.status == 'proposed'">Pending</li>
+                            <li ng-if="call_request.status == 'approved'">Accepted</li>
+                            <li ng-if="call_request.status == 'declined'">Declined</li>
+                            <li ng-if="call_request.status == 'changed'">Changed</li>
+                            <li ng-if="call_request.status == 'completed'">Completed</li>
+                            <li ng-if="call_request.status == 'cancelled'">Cancelled</li>
+                          </ul>
+                        </li>
+                        <li>Reason for call
+                          <ul>
+                            <li>{{ call_request.agenda }}</li>
+                          </ul>
+                        </li>
+                        <li>Details
+                          <ul>
+                            <li>Rate<span>${{ call_request.mentor.rate_per_minute }}/min</span></li>
+                            <li>Estimated Call Length<span>{{ call_request.proposed_duration }} minutes</span></li>
+                            <li>Estimated Total<span>{{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</span></li>
+                          </ul>
+                        </li>
+                        <li>Suggested Time
+                          <ul>
+                            <li>{{ call_request.scheduled_date }}</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="callOption">
+                      <p ng-if="call_request.status == 'approved'">This call has been accepted and scheduled for {{ call_request.scheduled_date }}</p>
+                      <p ng-if="call_request.status == 'declined'">Unfortunately it looks like this Mentor is unavailable to take a call right now. We’re sorry for the inconvenience, and hope you can find another one that matches your needs.</p>
+                      <p ng-if="call_request.status == 'completed'">This call was completed on {{ call_request.scheduled_date }}</p>
+                      <p ng-if="call_request.status == 'approved'">How to enter call:</p>
+                      <h3 ng-if="call_request.status != 'completed'">Your Options</h3>
+                      <div class="formRow">
+                        <div class="expireDateDetail">
+                          <span class="text-danger">{{callRequestModelError}}</span>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                      </div>
+                      <ul>
+                          <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
+                          <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
+                          <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
+                          <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
+                          <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed')"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
+                          <li><a class="btn btn-warning" href="#/conversation">Send Message</a></li>
+                          <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                          <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                          <li ng-if="call_request.status == 'approved'"><a class="btn btn-danger" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled')">Cancel Call</a></li>
+                      </ul>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div ng-include src="'shared/footer.html'"></div>
 </div>
+
+<div ng-include src="'shared/footer.html'"></div>
