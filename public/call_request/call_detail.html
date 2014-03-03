@@ -14,6 +14,9 @@
     </div>
   </div>
 </section>
+<div class="flash-message" ng-show="flash_message">
+    <div class="inner" title="Click to hide this message" ng-click="removeFlashMessage()">{{flash_message}}</div>
+</div>
 <div class="callsPage" ng-show="user">
   <div class="loaderimgText" style="display:none;" id="loaderimgText">
     <div><img src="/assets/ajax-loader.gif" /></div>
@@ -88,7 +91,7 @@
                     <div class="clearfix">&nbsp;</div>
                     <div class="callOption">
                       <p ng-if="call_request.status == 'approved'">This call has been accepted and scheduled for {{ call_request.scheduled_date }}</p>
-                      <p ng-if="call_request.status == 'declined'">Unfortunately it looks like this Mentor is unavailable to take a call right now. We’re sorry for the inconvenience, and hope you can find another one that matches your needs.</p>
+                      <p ng-if="call_request.status == 'declined'">This call request has been declined.</p>
                       <p ng-if="call_request.status == 'completed'">This call was completed on {{ call_request.scheduled_date }}</p>
                       <p ng-if="call_request.status == 'approved'">How to enter call:</p>
                       <h3 ng-if="call_request.status != 'completed'">Your Options</h3>
@@ -105,8 +108,8 @@
                           <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
                           <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed')"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
                           <li><a class="btn btn-warning" href="#/conversation">Send Message</a></li>
-                          <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
-                          <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                          <li ng-if="user.role_type == 'Mentor' && call_request.status == 'proposed'"><a class="btn btn-danger" href="javascript:void(0)" ng-confirm-click="Are you sure you want to decline this call request?" confirmed-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
+                          <li ng-if="user.role_type == 'Member' && call_request.status == 'changed'"><a class="btn btn-danger" href="javascript:void(0)" ng-confirm-click="Are you sure you want ot decline this call request?" confirmed-click="acceptDeclineCallRequest('declined')">Decline Call</a></li>
                           <li ng-if="call_request.status == 'approved'"><a class="btn btn-danger" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled')">Cancel Call</a></li>
                       </ul>
                     </div>
