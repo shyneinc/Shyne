@@ -20,7 +20,7 @@ describe Mentor do
       it { should validate_presence_of :phone_number }
       #it { should ensure_length_of(:phone_number).is_equal_to(11) }
       it { should_not allow_value('some random string').for(:linkedin) }
-      it { should allow_value('http://www.linkedin.com/in/williamhgates').for(:linkedin) }
+      it { should allow_value('www.linkedin.com/in/williamhgates').for(:linkedin) }
     end
   end
 
