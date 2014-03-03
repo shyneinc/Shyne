@@ -29,7 +29,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         years_of_experience: years_of_experience,
         phone_number: "1#{phone_number}",
         availability: availability,
-        linkedin: "http://#{linkedin}"
+        linkedin: linkedin
     ).success((data)->
       if data.id
         deferred.resolve(angular.extend(data, {role_type: 'Mentor'}))

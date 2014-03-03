@@ -40,7 +40,12 @@ class Api::V1::MentorsController < Api::V1::BaseController
 
   def update
     if current_user.role_type == 'Mentor'
-      respond_with :api, Mentor.update(current_user.role_id, mentor_params)
+      @mentor = Mentor.find(current_user.role_id)
+      if @mentor.update(mentor_params)
+        respond_with :api, @mentor
+      else
+        render :json => {:errors => @mentor.errors}, :status => 401
+      end
     else
       render :json => {:error => 'User is not a mentor'}, :status => 401
     end

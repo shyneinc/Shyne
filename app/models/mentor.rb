@@ -4,7 +4,7 @@ class Mentor < ActiveRecord::Base
   validates :user, :headline, :city, :state, :years_of_experience, :availability, :phone_number, presence: true
   validates :years_of_experience, :numericality => {:greater_than_or_equal_to => 0}
   validates :headline, length: {maximum: 280}, allow_blank: false
-  validates :linkedin, :format => { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
+  validates :linkedin, :format => { :with => /(^$)|(^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
                                     :message => "Please enter the address of your LinkedIn profile (e.g. www.linkedin.com/in/johnsmith)"}
 
   phony_normalize :phone_number, :default_country_code => 'US'

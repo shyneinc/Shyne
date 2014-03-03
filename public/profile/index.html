@@ -484,7 +484,7 @@
                                       <hr class="grayHR">
                                       <section>
                                         <span class="pdT8 glyphicon glyphicon-link"></span>
-                                        <span editable-url="user.linkedin" e-placeholder="Enter the URL to your Linkedin Profile" e-required><a href="{{ user.linkedin }}">LinkedIn</a></span>
+                                        <span editable-text="user.linkedin" e-pattern="[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$" e-placeholder="Enter the URL to your Linkedin Profile" e-required><a href="{{ user.linkedin }}">LinkedIn</a></span>
                                       </section>
                                       <hr class="grayHR">
                                   </div>
@@ -556,13 +556,13 @@
                               <div class="form-controls" ng-show="changepasswordForm.$visible">
                                 <div style="padding-top:5px;">
                                   <div style="padding-top:5px;">
-                                    <span editable-password="user.current_password" e-name="current_password" e-required e-placeholder="Enter current password"></span>&nbsp;
+                                    <span editable-password="changePasswordModel.current_password" e-name="current_password" e-required e-placeholder="Enter current password"></span>&nbsp;
                                   </div>
                                   <div style="padding-top:5px;">
-                                    <span editable-password="user.password" e-name="password" e-required e-placeholder="Enter new password"></span>
+                                    <span editable-password="changePasswordModel.password" e-name="password" e-required e-placeholder="Enter new password"></span>
                                   </div>
                                   <div style="padding-top:5px;">
-                                    <span editable-password="user.confirmPassword" e-name="confirmPassword" e-required e-placeholder="Confirm password"></span>
+                                    <span editable-password="changePasswordModel.confirmPassword" e-name="confirmPassword" e-required e-placeholder="Confirm password"></span>
                                   </div>
                                 </div>
                               </div>

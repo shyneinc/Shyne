@@ -19,6 +19,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.is_industries = false
   $scope.memberDetailModel = {}
   $scope.editIndustryModel = {}
+  $scope.changePasswordModel = null
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -125,6 +126,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
      $scope.user.time_zone = $scope.memberModel.timeZone
      angular.extend($scope.user, data)
      User.updateUser($scope.user)
+     $scope.refresh(true)
     , (data) ->
       $scope.memberFormError = data
     )
@@ -141,28 +143,20 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     ).then((data) ->
       angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
-      $scope.userInfo = { user: { time_zone: $scope.mentorModel.timeZone} }
-      User.updateUser($scope.userInfo)
     , (data) ->
       $scope.mentorFormError = data
     )
 
   $scope.createWorkHistory = () ->
     $scope.refresh(true)
+    $scope.user.industries = $scope.historyModel.industries
+    $scope.user.skills = $scope.historyModel.skills
+    #update industries and program of mentor
+    User.updateMentor($scope.user)
+    #create work current and previous history of mentor
     window.setTimeout(() ->
-      $scope.user.industries = $scope.historyModel.industries
-      $scope.user.skills = $scope.historyModel.skills
-      #update industries and program of mentor
-      User.updateMentor($scope.user)
-      #create work current and previous history of mentor
-
-      Workhistory.createWorkHistory($scope.historyModel,
-        $scope.user.role_id
-      ).then((data) ->
-        angular.extend($scope.work_history, data)
-      , (data) ->
-        $scope.historyFormError = data
-      )
+      Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id)
+      $scope.refresh(true)
     , 1000)
     window.setTimeout(() ->
       $scope.historyModel = {role: null}
@@ -187,7 +181,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     )
 
   $scope.updateMentorInfo = () ->
-    User.updateMentorInfo($scope.user).then(() ->
+    User.updateMentorInfo($scope.user).then((data) ->
       $scope.flash_message = 'User Information Updated.'
       window.setTimeout(() ->
         $scope.flash_message = null
@@ -298,8 +292,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     )
 
   $scope.updatePassword = () ->
-    User.updatePassword($scope.user).then((data) ->
+    User.updatePassword($scope.changePasswordModel).then((data) ->
       $scope.flash_message = 'Your Password has been updated!'
+      $scope.changePasswordModel = null
       $timeout (->
           $scope.flash_message = null
           $scope.$digest()
