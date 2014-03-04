@@ -19,7 +19,10 @@
     </div>
   </header>
 <div class="flash-message" ng-show="flash_message">
-    <div class="inner" title="Click to hide this message" ng-click="removeFlashMessage()">{{flash_message}}</div>
+  <div class="inner">
+    <div class="message">{{flash_message}}</div>
+    <a class="closeIcon" title="Click to hide this message" ng-click="removeFlashMessage()">x</a>
+  </div>
 </div>
   <section ng-show="userProfile">
         <div class="mentor-section mainBg">
@@ -117,7 +120,7 @@
                                     </section>
                                     <hr class="grayHR">
                                     <section>
-                                      <span class="glyphicon glyphicon-link"></span><a href="{{ userProfile.linkedin }}" target="_blank">LinkedIn</a>
+                                      <span class="glyphicon glyphicon-link"></span><a href="http://{{ userProfile.linkedin }}" target="_blank">LinkedIn</a>
                                     </section>
                                     <hr class="grayHR">
                                     <section class="editable-field">

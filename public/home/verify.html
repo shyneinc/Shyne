@@ -11,7 +11,10 @@
         </div>
     </header>
     <div class="flash-message" ng-show="flash_message">
-        <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+      <div class="inner">
+        <div class="message">{{flash_message}}</div>
+        <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
+      </div>
     </div>
     <div class="hero">
         <div class="container">

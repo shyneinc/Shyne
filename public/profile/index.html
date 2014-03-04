@@ -20,7 +20,10 @@
         </div>
     </header>
     <div class="flash-message" ng-show="flash_message">
-        <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+        <div class="inner">
+          <div class="message">{{flash_message}}</div>
+          <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
+        </div>
     </div>
 
     <section ng-hide="user">
@@ -71,7 +74,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="becomeMemberPhoneNumber">Phone Number(Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
+                                        <label for="becomeMemberPhoneNumber">Cell Phone Number (Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
                                         <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="becomeMemberPhoneNumber" required="">
                                     </div>
                                     <div class="form-group">
@@ -465,7 +468,7 @@
                                       <hr class="grayHR">
                                       <section><span class="glyphicon glyphicon-bookmark"></span>{{user.years_of_experience}} years experience</section>
                                       <hr class="grayHR">
-                                      <section><span class="glyphicon glyphicon-link"></span><a href="{{ user.linkedin }}" target="_blank">LinkedIn</a></section>
+                                      <section><span class="glyphicon glyphicon-link"></span><a href="http://{{ user.linkedin }}" target="_blank">LinkedIn</a></section>
                                       <hr class="grayHR">
                                       <section><span class="glyphicon glyphicon-phone"></span>0 calls</section>
                                       <hr class="grayHR">
@@ -484,7 +487,7 @@
                                       <hr class="grayHR">
                                       <section>
                                         <span class="pdT8 glyphicon glyphicon-link"></span>
-                                        <span editable-text="user.linkedin" e-pattern="[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$" e-placeholder="Enter the URL to your Linkedin Profile" e-required><a href="{{ user.linkedin }}">LinkedIn</a></span>
+                                        <span editable-text="user.linkedin" e-pattern="[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$" e-placeholder="Enter the URL to your Linkedin Profile" e-required><a href="http://{{ user.linkedin }}">LinkedIn</a></span>
                                       </section>
                                       <hr class="grayHR">
                                   </div>
