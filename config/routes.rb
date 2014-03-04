@@ -55,8 +55,6 @@ Shyne::Application.routes.draw do
 
       resources :search, only: [:index]
 
-      resources :meta, only: [:index]
-
       resources :credit_cards, except: [:update]
 
       resources :bank_accounts, except: [:update]
