@@ -46,7 +46,12 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
 
   $scope.updateCallRequest = () ->
     $("#loaderimgText").show()
-    Calls.updateCallRequest($scope.callRescheduleModel, "changed", $scope.call_request.id).then(
+    if $scope.user.role_type == 'Mentor'
+      status = 'changed_mentor'
+    else
+      status = 'changed_member'
+
+    Calls.updateCallRequest($scope.callRescheduleModel, status, $scope.call_request.id).then(
       (data)->
         $("#loaderimgText").hide()
         $rootScope.flash_message = "You're suggested a new time! We'll send you an email once the Mentor responds."

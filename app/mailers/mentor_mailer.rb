@@ -1,5 +1,5 @@
 class MentorMailer < ActionMailer::Base
-  default from: "no-reply@shyne.io"
+  default from: "Shyne@shyne.io"
 
   def approval_email(mentor)
     @mentor = mentor

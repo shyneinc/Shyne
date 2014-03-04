@@ -139,8 +139,26 @@ footer {
     text-align: center;
     width: 400px;
     &:hover {
-      background-color: $green;
+      //background-color: $green;
+    }
+    
+    .message {
+      width: 90%;
+      display: inline;
+    }
+    .closeIcon {
+      float: right;
+      font-size: 21px;
+      font-weight: normal;
+      line-height: 1;
+      color: white;
+      padding-right:5px;
+    
+      &:hover, &:focus {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
   }
-  cursor: pointer;
 }

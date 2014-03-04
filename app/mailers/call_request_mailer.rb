@@ -4,14 +4,14 @@ require 'date'
 include Icalendar # You should do this in your class to limit namespace overlap
 
 class CallRequestMailer < ActionMailer::Base
-  default from: "no-reply@shyne.io"
+  default from: "Shyne@shyne.io"
 
   def request_proposed(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @mentor.email, cc: @member.email, subject: "Shyne: You've received a Call Request!" )
+    mail(to: @mentor.email, cc: @member.email, subject: "You've received a Call Request!" )
   end
 
   def request_approved(call_request)
@@ -23,19 +23,27 @@ class CallRequestMailer < ActionMailer::Base
 
     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
 
-    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled on #{call_request.scheduled_at.strftime("%a, %b %d")} at #{call_request.scheduled_at.strftime("%H:%M%p")}" ) do |format|
+    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
       format.ics{
         render :text => cal, :layout => false
       }
     end
   end
 
-  def request_changed(call_request)
+  def request_changed_mentor(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @member.email, cc: @mentor.email, subject: "#{@mentor.user.first_name} suggested another time for your call request" )
+    mail(to: @member.email, cc: @mentor.email, subject: "#{@mentor.user.first_name} suggested another time for your Call Request" )
+  end
+
+  def request_changed_member(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+
+    mail(to: @mentor.email, cc: @member.email, subject: "#{@member.user.first_name} suggested another time for your Call Request" )
   end
 
   def send_reminder(call_request)
@@ -62,7 +70,7 @@ class CallRequestMailer < ActionMailer::Base
     mail(to: @mentor.email, subject: "Payment has been processed for your call with #{@member.full_name}")
   end
 
-  def request_declined(call_request)
+  def request_declined_mentor(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
@@ -70,11 +78,27 @@ class CallRequestMailer < ActionMailer::Base
     mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} was declined" )
   end
 
-  def request_cancelled(call_request)
+  def request_declined_member(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @member.email, cc: @mentor.email, subject: "Shyne: Call Cancelled" )
+    mail(to: @mentor.email, cc: @member.email, subject: "Call with #{@member.user.first_name} was declined" )
+  end
+
+  def request_cancelled_mentor(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+
+    mail(to: @member.email, cc: @mentor.email, subject: "Call Cancelled" )
+  end
+
+  def request_cancelled_member(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+
+    mail(to: @mentor.email, cc: @member.email, subject: "Call Cancelled" )
   end
 end

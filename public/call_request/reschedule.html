@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="text-center info-message">
-            <h2>Please <a href="#/login">log in</a> to access schedule call</h2>
+            <h2>Please <a href="#/login">log in</a> with your Shyne account to continue</h2>
             <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
           </div>
         </div>
@@ -14,20 +14,7 @@
   </div>
 </section>
 <div ng-show="user">
-  <div ng-show="user.role_type == 'Member'">
-    <div class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="text-center info-message">
-                        <h3>Please login with mentor to re-schedule a call</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <div ng-show="user.role_type == 'Mentor'" class="mainBg">
+  <div class="mainBg">
     <div class="loaderimgText" style="display:none;" id="loaderimgText">
       <div><img src="/assets/ajax-loader.gif" /></div>
       <span style="font-size:20px;">Submitting...</span>

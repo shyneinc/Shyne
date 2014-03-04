@@ -18,10 +18,41 @@ class CallRequestStatus::Approved < CallRequestStatus
   end
 end
 
-class CallRequestStatus::Changed < CallRequestStatus
+class CallRequestStatus::ChangedMentor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_changed(owner)
+    CallRequestMailer.delay.request_changed_mentor(owner)
     Twilio::Sms.delay.send("Your call request has been changed.", owner.member.phone_number.to_s)
+  end
+end
+
+class CallRequestStatus::ChangedMember < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_changed_member(owner)
+    Twilio::Sms.delay.send("Your call request has been changed.", owner.mentor.phone_number.to_s)
+  end
+end
+
+class CallRequestStatus::DeclinedMentor < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_declined_mentor(owner)
+  end
+end
+
+class CallRequestStatus::DeclinedMember < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_declined_member(owner)
+  end
+end
+
+class CallRequestStatus::CancelledMentor < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_cancelled_mentor(owner)
+  end
+end
+
+class CallRequestStatus::CancelledMember < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_cancelled_member(owner)
   end
 end
 
@@ -35,17 +66,5 @@ end
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_processed(owner)
-  end
-end
-
-class CallRequestStatus::Declined < CallRequestStatus
-  def send_status
-    CallRequestMailer.delay.request_declined(owner)
-  end
-end
-
-class CallRequestStatus::Cancelled < CallRequestStatus
-  def send_status
-    CallRequestMailer.delay.request_cancelled(owner)
   end
 end

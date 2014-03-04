@@ -9,18 +9,18 @@ module Ical::Reminder
       shortdate = options[:date].to_s(:short)
 
       cal.event do
-        dtstart     date.utc 
+        dtstart     date.utc
         dtend       date.utc
-        summary     "Scheduled call with #{options[:mentor]}"
-        location    "#{ENV['TWILIO_NUMBER']} Passcode:#{options[:passcode]}"
+        summary     "Call Scheduled with #{options[:mentor]}"
+        location    "#{ENV['TWILIO_NUMBER'].phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}"
         klass       "PRIVATE"
 
         alarm do
           action        "EMAIL"
           description   "You have a schedule call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
-          summary       "Shyne: Call Reminder" 
-          attendees     "#{email}" 
+          summary       "Shyne: Call Reminder"
+          attendees     "#{email}"
           trigger       "-PT15M" # 15 minutes before
         end
 
@@ -28,7 +28,7 @@ module Ical::Reminder
           action        "EMAIL"
           description   "You have a schedule call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
           summary       "Shyne: Call Reminder"
-          attendees     "#{email}" 
+          attendees     "#{email}"
           trigger       "-PT5M" # 15 minutes before
         end
       end

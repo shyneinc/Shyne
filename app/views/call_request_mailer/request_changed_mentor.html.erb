@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<p>
+Hey <%= @member.user.first_name %>,
+</p>
+<p>
+It looks like <%= @mentor.user.first_name %> is a bit busy at the time you requested the call. <%= @mentor.user.first_name %> suggested a new time to speak:
+</p>
+<p>
+<%= @call_request.scheduled_date %>
+</p>
+<p>
+<a href="<%= "#{root_url}/#/call_requests/#{@call_request.id}" %>">Click here</a> to view new Call Request.
+</p>
+<p>
+Thanks for using our platform, <br />
+The Shyne Team
+<p>
+</body>
+</html>
