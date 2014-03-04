@@ -12,7 +12,7 @@ module Ical::Reminder
         dtstart     date.utc
         dtend       date.utc
         summary     "Call Scheduled with #{options[:mentor]}"
-        location    "#{ENV['TWILIO_NUMBER'].phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
+        location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}"
         klass       "PRIVATE"
 
