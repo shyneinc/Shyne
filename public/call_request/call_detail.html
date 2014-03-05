@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="text-center info-message">
-            <h2>Please <a href="#/login">log in</a> to access schedule call</h2>
+            <h2>Please <a href="#/login">log in</a> to your Shyne account to continue</h2>
             <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
           </div>
         </div>
@@ -105,7 +105,7 @@
                         <div class="clearfix">&nbsp;</div>
                       </div>
                       <ul>
-                          <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.mentor.phone_number }}</li>
+                          <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.twilio_number }}</li>
                           <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
                           <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
                           <li ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>

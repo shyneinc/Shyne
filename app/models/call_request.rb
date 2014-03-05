@@ -97,11 +97,16 @@ class CallRequest < ActiveRecord::Base
   end
 
   def twilio_number
-    ENV['TWILIO_NUMBER']
+    #ENV['TWILIO_NUMBER']
+    19094804755
   end
 
   def scheduled_date
     self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%A, %B %d, %Y at %I:%M %p (%Z)")
+  end
+
+  def schedule_date
+    self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%a, %b %d @ %I:%M %p (%Z)")
   end
 
   private

@@ -4,7 +4,7 @@ require 'date'
 include Icalendar # You should do this in your class to limit namespace overlap
 
 class CallRequestMailer < ActionMailer::Base
-  default from: "Shyne@shyne.io"
+  default from: "Shyne <no-reply@shyne.io>"
 
   def request_proposed(call_request)
     @member = call_request.member
@@ -18,7 +18,7 @@ class CallRequestMailer < ActionMailer::Base
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
-    @date = call_request.scheduled_at
+    @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
     @passcode = call_request.passcode
 
     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)

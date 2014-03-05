@@ -6,11 +6,11 @@ module Ical::Reminder
     if !options.empty? && email != nil
       cal = Calendar.new
       date = options[:date].to_datetime
-      shortdate = options[:date].to_s(:short)
+      shortdate = date.to_s(:short)
 
       cal.event do
-        dtstart     date.utc
-        dtend       date.utc
+        dtstart     date
+        dtend       date
         summary     "Call Scheduled with #{options[:mentor]}"
         location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}"
