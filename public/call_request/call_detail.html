@@ -105,7 +105,7 @@
                         <div class="clearfix">&nbsp;</div>
                       </div>
                       <ul>
-                          <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.twilio_number }}</li>
+                          <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.twilio_number | tel }}</li>
                           <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
                           <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
                           <li ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
