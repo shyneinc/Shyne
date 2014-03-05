@@ -97,8 +97,7 @@ class CallRequest < ActiveRecord::Base
   end
 
   def twilio_number
-    #ENV['TWILIO_NUMBER']
-    19094804755
+    ENV['TWILIO_NUMBER']
   end
 
   def scheduled_date
