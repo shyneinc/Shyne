@@ -36,8 +36,15 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
     Calls.acceptDeclineCallRequest($scope.call_request, status).then(
       (data)->
         $("#loaderimgText").hide()
+
+        if status == 'approved'
+          $rootScope.flash_message = "Your call has been scheduled! Please look below for dialing instructions."
+
+        if status == 'cancelled_mentor' or status == 'cancelled_member'
+          $scope.flash_message = "This call has officially been cancelled. We will let the other party know. Thanks"
+
         Calls.getCallRequest($routeParams.id).then((callRequest) ->
-          $scope.call_request = callRequest
+          $rootScope.call_request = callRequest
         )
     , (error)->
       $("#loaderimgText").hide()
@@ -54,7 +61,7 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
     Calls.updateCallRequest($scope.callRescheduleModel, status, $scope.call_request.id).then(
       (data)->
         $("#loaderimgText").hide()
-        $rootScope.flash_message = "You're suggested a new time! We'll send you an email once the Mentor responds."
+        $rootScope.flash_message = "You've suggested a new time! We will send you an email once the other party responds."
         $location.path('/call_requests/' + $scope.call_request.id)
     , (error)->
       $("#loaderimgText").hide()

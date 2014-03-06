@@ -4,7 +4,7 @@
   <div class="hero">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-7 col-md-offset-2">
           <div class="text-center info-message">
             <h2>Please <a href="#/login">log in</a> to your Shyne account to continue</h2>
             <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
@@ -96,7 +96,12 @@
                       <p ng-if="call_request.status == 'approved'">This call has been accepted and scheduled for {{ call_request.scheduled_date }}</p>
                       <p ng-if="call_request.status == 'declined_mentor' || call_request.status == 'declined_member'">This call request has been declined.</p>
                       <p ng-if="call_request.status == 'completed'">This call was completed on {{ call_request.scheduled_date }}</p>
+                      <p ng-if="call_request.status == 'cancelled_mentor' || call_request.status == 'cancelled_member'">This call has been cancelled.</p>
                       <p ng-if="call_request.status == 'approved'">How to enter call:</p>
+                      <ul ng-if="call_request.status == 'approved'">
+                          <li class="text-left">Dial: +{{ call_request.twilio_number | tel }}</li>
+                          <li class="text-left">Enter Access code: {{ call_request.passcode}}</li>
+                      </ul>
                       <h3 ng-if="call_request.status != 'completed'">Your Options</h3>
                       <div class="formRow">
                         <div class="expireDateDetail">
@@ -105,8 +110,6 @@
                         <div class="clearfix">&nbsp;</div>
                       </div>
                       <ul>
-                          <li class="text-left" ng-if="call_request.status == 'approved'">Dial: +{{ call_request.twilio_number | tel }}</li>
-                          <li class="text-left" ng-if="call_request.status == 'approved'">Access code: {{ call_request.passcode}}</li>
                           <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
                           <li ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'"><a class="btn btn-success" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')">Accept Call</a></li>
                           <li ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')"><a class="btn btn-info" href="#/call_requests/{{ call_request.id }}/suggest">Suggest a different time</a></li>
