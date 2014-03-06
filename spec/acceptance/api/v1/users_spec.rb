@@ -16,7 +16,8 @@ resource 'User' do
     example_request "Show current user" do
       expect(response_body).to be_json_eql({:info => "Current User",
                                             :user => user,
-                                            :confirmed => user.confirmed?
+                                            :confirmed => user.confirmed?,
+                                            :sign_in_count => user.sign_in_count
                                            }.to_json)
       expect(status).to eq 200
     end
