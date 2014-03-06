@@ -40,7 +40,14 @@
                           </div>
                           <div class="form-group">
                               <label for="mentorState">State <span class="text-danger">{{memberFormError.state[0]}}</span></label>
-                              <input name="state" ng-model="user.state" class="form-control" id="mentorState" placeholder="Enter State" required="">
+                              <select class="form-control" ng-model="user.state">
+                                <option value="">Select State</option>
+                                <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                              </select>
+                          </div>
+                          <div class="form-group">
+                              <label for="mentorPhoneNumber">Cell Phone Number (Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
+                              <input name="phoneNumber" ng-model="user.phone_number" ui-mask="9-999-999-9999" class="form-control" required="">
                           </div>
                           <div class="form-group">
                               <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
@@ -72,6 +79,10 @@
                           <div class="form-group">
                               <label for="memberLastName">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
                               <input name="lastName" ng-model="user.last_name" class="form-control" id="memberLastName" placeholder="Enter last name" required="">
+                          </div>
+                          <div class="form-group">
+                              <label for="memberPhoneNumber">Cell Phone Number (Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
+                              <input name="phoneNumber" ng-model="user.phone_number" ui-mask="9-999-999-9999" class="form-control" required="">
                           </div>
                           <div class="form-group">
                               <label for="memberTimeZone">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
