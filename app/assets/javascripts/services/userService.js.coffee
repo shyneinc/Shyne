@@ -133,6 +133,38 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
+  updateMemberInfo: (user) ->
+    deferred = $q.defer()
+    $http.put('/api/members',
+      member:
+        phone_number:
+          user.phone_number
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data)
+    )
+    deferred.promise
+
+  updateMentorInfo: (user) ->
+    deferred = $q.defer()
+    $http.put('/api/mentors',
+      mentor:
+        headline: user.headline,
+        city: user.city,
+        state: user.state
+        years_of_experience: user.years_of_experience,
+        phone_number: user.phone_number,
+        availability: user.availability,
+        linkedin: user.linkedin,
+        skills: user.skills
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data)
+    )
+    deferred.promise
+
   updateMentorIndustry: (user) ->
     deferred = $q.defer()
     $http.put('/api/mentors',
