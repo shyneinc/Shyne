@@ -162,3 +162,41 @@ footer {
     }
   }
 }
+
+.footer-flash-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  .inner {
+    margin: 0 auto;
+    background-color: $dark-blue;
+    color: $white;
+    padding: 10px 0;
+    @include top-round-corners(6px);
+    text-align: center;
+    width: 400px;
+    &:hover {
+      //background-color: $green;
+    }
+    
+    .message {
+      width: 90%;
+      display: inline;
+    }
+    .closeIcon {
+      float: right;
+      font-size: 21px;
+      font-weight: normal;
+      line-height: 1;
+      color: white;
+      padding-right:5px;
+    
+      &:hover, &:focus {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

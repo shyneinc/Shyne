@@ -8,7 +8,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       user = current_user
     end
     if user
-      render :json => {:info => "Current User", :user => user, :confirmed => user.confirmed?}, :status => 200
+      render :json => {:info => "Current User", :user => user, :confirmed => user.confirmed?, :sign_in_count => user.sign_in_count}, :status => 200
     else
       render :json => {}, :status => 401
     end

@@ -50,3 +50,11 @@ ShyneDirectives.directive('timepicker', () ->
         ngModel.$setViewValue selectedValue
     )
 )
+
+ShyneDirectives.directive('hideFooterFlashMessage', () ->
+  (scope, element) ->
+    element.click(() ->
+      scope.footer_flash_message = null
+      scope.$digest()
+    )
+)

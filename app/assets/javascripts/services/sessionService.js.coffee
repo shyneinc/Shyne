@@ -50,6 +50,7 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       deferred.resolve(_currentUser)
     else
       $http.get('/api/users').success((data)->
+        data.user.sign_in_count = data.sign_in_count
         _currentUser = data.user
         deferred.resolve(_currentUser)
       ).error((data)->
