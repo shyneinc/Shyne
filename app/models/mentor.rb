@@ -21,7 +21,7 @@ class Mentor < ActiveRecord::Base
   has_many :work_histories
 
   include PgSearch
-  multisearchable :against => [:full_name, :headline, :location, :skills, :industries, :worked_at, :position],
+  multisearchable :against => [:full_name, :headline, :location, :skills, :industries, :schools, :worked_at, :position],
                   ignoring: :accents,
                   :if => :approved?
 
@@ -39,6 +39,7 @@ class Mentor < ActiveRecord::Base
   scope :featured, -> { where(featured: true) }
   scope :skills, -> (skill) { where("skills like ?", "%#{skill}%") }
   scope :industries, -> (industry) { where("industries like ?", "%#{industry}%") }
+  scope :schools, -> (school) { where("schools like ?", "%#{school}%") }
   scope :not_deleted, lambda { self.joins("join users on users.id = mentors.user_id").where('users.deleted_at IS NULL') }
 
   def rate_per_minute

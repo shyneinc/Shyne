@@ -19,6 +19,7 @@ FactoryGirl.define do
     linkedin { "www.linkedin.com/in/" + Faker::Lorem.word }
     skills nil
     industries nil
+    schools nil
     location nil
     years_of_experience { rand(30) }
     phone_number "15626453725"
