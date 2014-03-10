@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="becomeMemberIndustries">What industries are you interested in? <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
-                                        <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                                        <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
                                           <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                         </tags-input>
                                     </div>
@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="mentorHeadline">Please enter a short headline about your career (280 character limit) <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
-                                        <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" maxlength="280" placeholder="e.g. 5+ years working in online marketing in the tech industry in San Francisco" required="" auto-focus>
+                                        <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" maxlength="280" placeholder="e.g. 5+ years working in online marketing in the tech industry in San Francisco" required="">
                                     </div>
                                     <div class="button-group">
                                         <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Continue</button>
@@ -167,9 +167,9 @@
                   <label for="historyPosition">What is your current position?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
                       <table>
                         <tr>
-                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="Position" required="" auto-focus></td>
+                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="Position" required=""></td>
                           <td>&nbsp;</td>
-                          <td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required="" auto-focus></td>
+                          <td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required=""></td>
                         </tr>
                         <tr>
                           <td>
@@ -228,13 +228,13 @@
                   </div>
                   <div class="form-group">
                       <label for="historyIndustries">What are the main industries you're familiar with?<span class="text-danger">{{historyFormError.industries[0]}}</span></label>
-                      <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                      <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
                         <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                       </tags-input>
                   </div>
                   <div class="form-group">
                       <label for="historyPrograms">List some skills and programs that you’ve become comfortable with<span class="text-danger">{{historyFormError.skills[0]}}</span></label>
-                      <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g. Ruby on Rails, Financial Analysis, SQL, Digital Marketing, B2B Sales" required="" auto-focus>
+                      <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g. Ruby on Rails, Financial Analysis, SQL, Digital Marketing, B2B Sales" required="">
                   </div>
                   <div class="button-group">
                       <button type="button" class="btn btn-success btn-xlarge" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
@@ -382,8 +382,27 @@
                                         </div>
                                       </div>
                                       <p ng-show="!industriesForm.$visible">{{ user.industries }}</p>
-                                      <tags-input ng-show="industriesForm.$visible" ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                                      <tags-input ng-show="industriesForm.$visible" ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
                                         <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                      </tags-input>
+                                    </form>
+                                  </div>
+
+                                  <div class="col-md-12 contentBox clearfix">
+                                    <form editable-form name="schoolsForm" class="css-form" onaftersave="updateMentorSchools()">
+                                      <div class="xeditable-fields">
+                                        <h3 class="boxHeader">{{ user.first_name }} studied in this schools</h3>
+                                        <div class="form-edit">
+                                          <a href="javascript:void(0)" ng-click="schoolsForm.$show()" ng-show="!schoolsForm.$visible">Edit</a>
+                                          <span ng-show="schoolsForm.$visible">
+                                            <button type="submit" class="btn btn-primary" ng-disabled="schoolsForm.$waiting">Save</button>
+                                            <button type="button" class="btn btn-default" ng-disabled="schoolsForm.$waiting" ng-click="schoolsForm.$cancel()">Cancel</button>
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <p ng-show="!schoolsForm.$visible">{{ user.schools }}</p>
+                                      <tags-input ng-show="schoolsForm.$visible" ng-model="editSchoolModel.schools" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
+                                        <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                       </tags-input>
                                     </form>
                                   </div>
@@ -539,7 +558,7 @@
                                   <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
                                 </div>
                                 <div style="padding-top:15px;">
-                                  <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="" auto-focus>
+                                  <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
                                     <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                   </tags-input>
                                 </div>

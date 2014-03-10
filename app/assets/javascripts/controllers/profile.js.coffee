@@ -19,6 +19,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.is_industries = false
   $scope.memberDetailModel = {}
   $scope.editIndustryModel = {}
+  $scope.editSchoolModel = {}
   $scope.changePasswordModel = null
 
   for i in timeZoneArray
@@ -30,8 +31,17 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.industries.push(i[1])
   )
 
+  $scope.schools = []
+  User.getSchools().then((schools) ->
+    for i in schools
+      $scope.schools.push(i[1])
+  )
+
   $scope.loadIndustries = (query) ->
     return User.searchData($scope.industries, query)
+
+  $scope.loadSchools = (query) ->
+    return User.searchData($scope.schools, query)
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -91,7 +101,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
           $scope.editIndustryModel.industries = mentorInfo.industries.split(", ")
-          $scope.user.user_industries = mentorInfo.industries
+          $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
           angular.extend(user, mentorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
@@ -199,7 +209,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     User.updateMentor($scope.user).then(() ->
       $scope.user.industries = $scope.user.industries.join(", ")
       $scope.flash_message = 'User Information Updated.'
-      $scope.is_industries = true
       window.setTimeout(() ->
         $scope.flash_message = null
         $scope.$digest()
@@ -418,4 +427,18 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.removeFlashMessage = () ->
     $rootScope.flash_message = null
+
+  $scope.updateMentorSchools = () ->
+    $scope.user.schools = $scope.editSchoolModel.schools
+    $scope.user.industries = $scope.editIndustryModel.industries
+
+    User.updateMentor($scope.user).then(() ->
+      $scope.user.schools = $scope.user.schools.join(", ")
+      $scope.user.industries = $scope.user.industries.join(", ")
+      $scope.flash_message = 'User Information Updated.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    )
 ])

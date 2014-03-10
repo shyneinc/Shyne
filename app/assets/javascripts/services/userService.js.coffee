@@ -126,6 +126,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         linkedin: user.linkedin,
         industries: user.industries.join(", "),
         skills: user.skills
+        schools: user.schools.join(", "),
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->
@@ -359,6 +360,16 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     ).success((data) ->
       deferred.resolve(data)
     ).error((data)->
+      deferred.reject(data.error)
+    )
+    deferred.promise
+
+  getSchools: () ->
+    deferred = $q.defer()
+
+    $http.get('/api/schools').success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
       deferred.reject(data.error)
     )
     deferred.promise
