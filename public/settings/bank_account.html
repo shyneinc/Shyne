@@ -27,15 +27,18 @@
                         <h2>Change Bank Account Information</h2>
                         <form novalidate role="form" name="bankAccountForm" class="css-form" ng-submit="addBankAccount()">
                           <div class="form-group">
-                              <label>Name <span class="text-danger">{{bankAccountFormError}}</span></label>
+                              <img src="/assets/cheque.png" alt="" />
+                          </div>
+                          <div class="form-group">
+                              <label>Name <span class="text-danger">{{ bankAccountFormError.name }}</span></label>
                               <input name="name" ng-model="bankAccountModel.name" class="form-control" id="bankAccountName" placeholder="Enter name" required="">
                           </div>
                           <div class="form-group">
-                              <label>Account Number</label>
+                              <label>Account Number <span class="text-danger">{{ bankAccountFormError.account_number }}</span></label>
                               <input name="accountNumber" ng-model="bankAccountModel.account_number" class="form-control" id="bankAccountAccountNumber" placeholder="Enter account number" required="">
                           </div>
                           <div class="form-group">
-                              <label>Routing Number</label>
+                              <label>Routing Number <span class="text-danger">{{ bankAccountFormError.routing_number }}</span></label>
                               <input name="routingNumber" ng-model="bankAccountModel.routing_number" class="form-control" id="bankAccountRoutingNumber" placeholder="Enter routing number" required="">
                           </div>
                           <div class="button-group">

@@ -284,13 +284,13 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  addBankAccount: (bankAccount) ->
+  addBankAccount: (name, account_number, routing_number) ->
     deferred = $q.defer()
     $http.post('/api/bank_accounts',
       bank_account:
-        name: bankAccount.name,
-        account_number: bankAccount.account_number,
-        routing_number: bankAccount.routing_number,
+        name: name,
+        account_number: account_number,
+        routing_number: routing_number,
         type: 'checking'
     ).success((data) ->
       deferred.resolve(data)

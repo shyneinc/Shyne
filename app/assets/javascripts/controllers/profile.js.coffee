@@ -21,6 +21,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.editIndustryModel = {}
   $scope.editSchoolModel = {}
   $scope.changePasswordModel = null
+  $scope.bankAccountModel = {}
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -329,7 +330,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     )
 
   $scope.addBankAccount = () ->
-    User.addBankAccount($scope.bankAccountModel).then((data) ->
+    bank_account = $scope.bankAccountModel
+    User.addBankAccount(bank_account.name, bank_account.account_number, bank_account.routing_number).then((data) ->
       $scope.refresh(false)
       $scope.flash_message = 'Bank account detail added successfully!'
       $timeout (->
@@ -337,7 +339,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           $location.path '/settings/'
         ), 5000
     , (data) ->
-      $scope.creditCardFormError = data.error
+      $scope.bankAccountFormError = data
     )
 
   if $routeParams.user_id != undefined and $routeParams.user_id != null
