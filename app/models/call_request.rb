@@ -82,7 +82,7 @@ class CallRequest < ActiveRecord::Base
 
   def debit_amount
     rate_in_cents = self.mentor.rate_per_minute * 100
-    duration_in_mins = self.billable_duration/60
+    duration_in_mins = self.billable_duration.to_i/60
     rate_in_cents * duration_in_mins
   end
 
