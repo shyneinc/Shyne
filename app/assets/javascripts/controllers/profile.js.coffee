@@ -1,5 +1,6 @@
 Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$timeout', '$routeParams', '$filter', '$q', 'Session', 'User', 'Workhistory',($http, $location, $scope, $rootScope, $timeout, $routeParams, $filter, $q, Session, User, Workhistory) ->
 
+  $rootScope.location = $location
   $scope.user = null
   $scope.userProfile = null
   $scope.work_history = null
@@ -158,6 +159,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     ).then((data) ->
       angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
+      $scope.user.time_zone = $scope.mentorModel.timeZone
+      User.updateUser($scope.user)
+      $scope.user.schools = $scope.mentorModel.schools
     , (data) ->
       $scope.mentorFormError = data
     )

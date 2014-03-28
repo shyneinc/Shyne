@@ -59,3 +59,26 @@ ShyneDirectives.directive("ngConfirmClick", ->
 
     return
 )
+
+ShyneDirectives.directive('fancyCheckbox', () ->
+  (scope, element) ->
+    element.on('click', () ->
+      if $(".checkBtn input").length
+        $(".checkBtn").each ->
+          $(this).removeClass "c_on"
+          return
+
+        $(".checkBtn input:checked").each ->
+          $(this).parent("span").addClass "c_on"
+          return
+
+      if $(".radioBtn input").length
+        $(".radioBtn").each ->
+          $(this).removeClass "r_on"
+          return
+
+        $(".radioBtn input:checked").each ->
+          $(this).parent("span").addClass "r_on"
+          return
+    )
+)

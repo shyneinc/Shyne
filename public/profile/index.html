@@ -1,24 +1,5 @@
-<div class="profile-index">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user" class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#/conversation">Messages</a></li>
-                            <li><a href="#/call_requests">Calls</a></li>
-                            <li><a href="#/settings">Settings</a></li>
-                            <li><a href="#/logout">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <a class="logo" href="#" ng-click="home()">Shyne</a>
-        </div>
-    </header>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
     <div class="flash-message" ng-show="flash_message">
         <div class="inner">
           <div class="message">{{flash_message}}</div>
@@ -46,205 +27,280 @@
             <div class="hero">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="welcome-message" >
-                                <div class="text-center" ng-hide="welcomeModel.role">
-                                    <h1>Welcome!  How would you like  to  use Shyne?</h1>
-                                    <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">I'd like to Join as a Member</button></p>
-                                    <div class="welcome-note">Members  can schedule  calls with  Mentors for career  advice, interview tips, & insider info  on  popular companies and positions.</div>
-                                    <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">I'd like to Apply to become a Mentor</button></p>
-                                    <div class="welcome-note">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</div>
-                                    <div class="remember-note">Remember:  It's  FREE  to  join  as  either  a Mentor  or  Member. Also, Members can always  apply to  become  Mentors later on.</div>
+                      <div class="welcome-message" >
+                          <div class="text-center" ng-hide="welcomeModel.role">
+                              <h1>Welcome!  How would you like  to  use Shyne?</h1>
+                              <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">I'd like to Join as a Member</button></p>
+                              <div class="welcome-note">Members  can schedule  calls with  Mentors for career  advice, interview tips, & insider info  on  popular companies and positions.</div>
+                              <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">I'd like to Apply to become a Mentor</button></p>
+                              <div class="welcome-note">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</div>
+                              <div class="remember-note">Remember:  It's  FREE  to  join  as  either  a Mentor  or  Member. Also, Members can always  apply to  become  Mentors later on.</div>
+                          </div>
+                      </div>
+                      <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
+                          <h2>Become a Member of Shyne!</h2>
+                          <form novalidate role="form" name="memberForm" class="css-form" ng-submit="becomeMember()">
+                              <div class="form-group">
+                                  <label for="memberTimeZone">What timezone are you in? <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
+                                  <select id="memberTimeZone" ng-model="memberModel.timeZone" class="form-control">
+                                      <option value="Alaska">Alaska</option>
+                                      <option value="Arizona">Arizona</option>
+                                      <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                      <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                      <option value="Hawaii">Hawaii</option>
+                                      <option value="Indiana (East)">Indiana (East)</option>
+                                      <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                      <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                  <label for="becomeMemberPhoneNumber">Cell Phone Number (Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
+                                  <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="becomeMemberPhoneNumber" required="">
+                              </div>
+                              <div class="form-group">
+                                  <label for="becomeMemberIndustries">What industries are you interested in? <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
+                                  <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
+                                    <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                  </tags-input>
+                              </div>
+                              <div class="button-group button-signup">
+                                  <button type="button" class="btn btn-primary btn-signup" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Join Now</button>
+                                  <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
+                              </div>
+                          </form>
+                      </div>
+                      <section class="applicationMentors" ng-show="welcomeModel.role == 'Mentor'">
+                        <div class="container">
+                          <h2>Application to be a Mentor <span class="OC15BUG">Step 1 of 2</span></h2>
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <div class="callDetail">
+                                  <form novalidate role="form" name="mentorForm" ng-submit="becomeMentor()">
+                                    <div class="formBox mt20">
+                                      <div class="OC15BUG pb5 mt10 bdb">Your Logistics</div>
+                                      <div class="row">
+                                        <div class="col-sm-6">
+                                          <label for="mentorCity" class="O11BU">City</label>
+                                          <input type="text" name="city" ng-model="mentorModel.city" id="mentorCity" placeholder="Enter the City" required="">
+                                          <div class="error">{{mentorFormError.city[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <label for="mentorState" class="O11BU">State</label>
+                                          <div class="dropDown">
+                                            <select class="" ng-model="mentorModel.state">
+                                              <option value="">Select State</option>
+                                              <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                                            </select>
+                                          </div>
+                                          <div class="error">{{mentorFormError.state[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <label class="O11BU">cell number <span>– Hidden, never shared</span></label>
+                                          <input type="text" name="phoneNumber" ng-model="mentorModel.phoneNumber" ui-mask="1 (999) 999 – 9999" id="mentorPhoneNumber" required="">
+                                          <div class="error">{{mentorFormError.phone_number[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <label class="O11BU">Timezone</label>
+                                          <div class="dropDown">
+                                            <select id="memberTimeZone" ng-model="mentorModel.timeZone">
+                                              <option value="Alaska">Alaska</option>
+                                              <option value="Arizona">Arizona</option>
+                                              <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                              <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                              <option value="Hawaii">Hawaii</option>
+                                              <option value="Indiana (East)">Indiana (East)</option>
+                                              <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                              <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                            </select>
+                                          </div>
+                                          <div class="error">{{mentorFormError.time_zone[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                          <label class="O11BU">Give a short description of your general availability for calls</label>
+                                          <input type="text" name="availability" ng-model="mentorModel.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 12PM to 6PM and weekends from 1PM to 4PM." required="">
+                                          <div class="error">{{mentorFormError.availability[0]}}</div>
+                                        </div>
+                                      </div>
+                                      <div class="cl">&nbsp;</div>
+                                      <div class="OC15BUG pb5 mt10 bdb">Your history</div>
+                                      <div class="row">
+                                        <div class="col-sm-6">
+                                          <label class="O11BU">What is your linkedin url?</label>
+                                          <input type="text" name="linkedin" ng-model="mentorModel.linkedin" id="mentorLinkedin" placeholder="Ex: www.linkedin.com/in/johnsmith" required="">
+                                          <div class="error">{{mentorFormError.linkedin[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <label class="O11BU">Number of years worked</label>
+                                          <input type="text" name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" id="mentorYearsOfExperience" placeholder="Number of years" required="">
+                                          <div class="error">{{mentorFormError.years_of_experience[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <label class="O11BU">Most recent university attended</label>
+                                          <tags-input ng-model="mentorModel.schools" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                                            <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                          </tags-input>
+                                          <div class="error">{{mentorFormError.schools[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                          <label class="O11BU">what industries have you worked in?</label>
+                                          <input type="text" name="city" placeholder="Ex: Finance, Non-Profits, Education">
+                                          <div class="error">{{mentorFormError.schools[0]}}</div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                          <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
+                                          <input type="text" name="skills" ng-model="historyModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                                        </div>
+                                      </div>
+                                      <div class="cl">&nbsp;</div>
+                                      <div class="OC15BUG pb5 mt10 bdb">tell us a little more about yourself</div>
+                                      <div class="row">
+                                        <div class="col-sm-12">
+                                          <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
+                                          <label class="chLeft">{{ 280 - mentorModel.headline.length }}</label>
+                                          <textarea ng-model="mentorModel.headline" id="mentorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="bottomBtn">
+                                          <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Continue <span class="iconSp arrow-right"></span></button>
+                                          <a href="" class="cancel mr20 fr" ng-click="clearRole()">Cancel</a>
+                                      </div>
+                                    </div>
+                                  </form>
                                 </div>
-                            </div>
-                            <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
-                                <h2>Become a Member of Shyne!</h2>
-                                <form novalidate role="form" name="memberForm" class="css-form" ng-submit="becomeMember()">
-                                    <div class="form-group">
-                                        <label for="memberTimeZone">What timezone are you in? <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
-                                        <select id="memberTimeZone" ng-model="memberModel.timeZone" class="form-control">
-                                            <option value="Alaska">Alaska</option>
-                                            <option value="Arizona">Arizona</option>
-                                            <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                            <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                            <option value="Hawaii">Hawaii</option>
-                                            <option value="Indiana (East)">Indiana (East)</option>
-                                            <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                            <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="becomeMemberPhoneNumber">Cell Phone Number (Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="becomeMemberPhoneNumber" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="becomeMemberIndustries">What industries are you interested in? <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
-                                        <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                                          <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                                        </tags-input>
-                                    </div>
-                                    <div class="button-group button-signup">
-                                        <button type="button" class="btn btn-primary btn-signup" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Join Now</button>
-                                        <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="jumbotron" ng-show="welcomeModel.role == 'Mentor'">
-                                <h2 align="center">Application to Become a Mentor</h2>
-                                <form novalidate role="form" name="mentorForm" class="css-form" ng-submit="becomeMentor()">
-
-                                    <div class="form-group mgBtm">
-                                        <label for="mentorLocation">Where are you located?<span class="text-danger">{{mentorFormError.state[0]}}</span></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mentorCity">City</label>
-                                        <input name="city" ng-model="mentorModel.city" class="form-control width60" id="mentorCity" placeholder="Enter the City" required="">
-
-                                        <label for="mentorState">State</label>
-                                        <select class="form-control width30" ng-model="mentorModel.state">
-                                          <option value="">Select State</option>
-                                          <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mentorYearsOfExperience">How many years of work experience do you have? <span class="text-danger">{{mentorFormError.years_of_experience[0]}}</span></label><br />
-                                        <input name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" class="form-control width40" id="mentorYearsOfExperience" placeholder="Enter number of years worked" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mentorPhoneNumber">Phone Number (Please note this is not shared with anyone) <span class="text-danger">{{mentorFormError.phone_number[0]}}</span></label>
-                                        <input name="phoneNumber" ng-model="mentorModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="mentorPhoneNumber" required="">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="mentorAvailability">When is the best time you're available to take phone calls to give advice? <span class="text-danger">{{mentorFormError.availability[0]}}</span></label>
-                                        <input name="availability" ng-model="mentorModel.availability" class="form-control" id="mentorAvailability" placeholder="e.g. Weekdays from 5-7pm, Saturdays from 1-3pm" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mentorLinkedin">What is your LinkedIn URL? <span class="text-danger">{{mentorFormError.linkedin[0]}}</span></label>
-                                        <input name="linkedin" ng-model="mentorModel.linkedin" class="form-control" id="mentorLinkedin" placeholder="Enter the URL to your Linkedin Profile" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="memberTimeZone">What timezone are you in? <span class="text-danger">{{mentorFormError.time_zone[0]}}</span></label>
-                                        <select id="memberTimeZone" ng-model="mentorModel.timeZone" class="form-control">
-                                            <option value="Alaska">Alaska</option>
-                                            <option value="Arizona">Arizona</option>
-                                            <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                            <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                            <option value="Hawaii">Hawaii</option>
-                                            <option value="Indiana (East)">Indiana (East)</option>
-                                            <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                            <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mentorHeadline">Please enter a short headline about your career (280 character limit) <span class="text-danger">{{mentorFormError.headline[0]}}</span></label>
-                                        <input name="headline" ng-model="mentorModel.headline" class="form-control" id="mentorHeadline" maxlength="280" placeholder="e.g. 5+ years working in online marketing in the tech industry in San Francisco" required="">
-                                    </div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Continue</button>
-                                        <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
-                                    </div>
-                                </form>
-                            </div>
-
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="darkBoxRight mt20">
+                                  <div class="OC15BUG mb20">The perks of being a mentor</div>
+                                  <p class="O12R">Receive requests from members who are interested in learning more about your career.</p>
+                                  <div class="clAll bdb mb20 mt20"></div>
+                                  <p class="O12R">Get paid by the minute. Money deposited straight into your bank account within 48 hours!</p>
+                                </div>
+                              </div>
+                          </div>
                         </div>
+                      </section>
                     </div>
                 </div>
             </div>
         </div>
 
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-8 col-md-offset-2">
-          <div class="jumbotron" ng-show="historyModel.role == 'Mentor'">
-              <h2 align="center"><strong>Mentor Application</strong></h2>
-              <span class="stepHeader">Step 2 of 2</span>
-              <form novalidate role="form" name="historyForm" class="css-form" ng-submit="createWorkHistory()">
-
-                  <div class="form-group">
-                  <label for="historyPosition">What is your current position?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-                      <table>
-                        <tr>
-                          <td><input name="current_title" ng-model="historyModel.current_title" class="form-control" id="historyCurrentTitle" maxlength="50" placeholder="Position" required=""></td>
-                          <td>&nbsp;</td>
-                          <td><input name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Company Name" required=""></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" class="form-control" required="">
-                              <option value="">Month Started</option>
-                            </select>
-                          </td>
-                          <td>&nbsp;</td>
-                          <td>
-                            <input name="staredCurrentYear" ng-model="historyModel.startedCurrentYearOption" class="form-control" id="historyStartedCurrentYear" maxlength="4" placeholder="Year" required="">
-                          </td>
-                        </tr>
-                      </table>
-                  </div>
-                  <div class="form-group" ng-hide="previousPosition">
-                      <label for="historyPosition">What positions have you held previously?<span class="text-danger">{{historyFormError.title[0]}}</span></label>
-
-                      <div ng-controller="RepeatPositionCtrl">
-                        <div ng-repeat="historyModel in historyModel.positions">
-                        <table>
-                          <tr>
-                            <td><input ng-model="historyModel.previous_title_text" class="form-control" placeholder="Position"></td>
-                            <td>&nbsp;</td>
-                            <td><input ng-model="historyModel.previous_company_text" class="form-control" maxlength="50" placeholder="Company Name"></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedPreviousMonthOption" class="form-control">
+        <section class="applicationMentors" ng-show="historyModel.role == 'Mentor'">
+          <div class="container">
+            <h2>Application to be a Mentor <span class="OC15BUG">Step 2 of 2</span></h2>
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="callDetail">
+                  <form novalidate role="form" name="historyForm" ng-submit="createWorkHistory()">
+                    <div class="formBox mt20">
+                      <div class="OC15BUG pb5 mt10 bdb">What is your current position?</div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <label class="O11BU">Position</label>
+                          <input type="text" name="current_title" ng-model="historyModel.current_title" id="historyCurrentTitle" maxlength="50" placeholder="Enter your position" required="">
+                        </div>
+                        <div class="col-sm-6">
+                          <label class="O11BU">Company name</label>
+                          <input type="text" name="current_company" ng-model="historyModel.current_company" class="form-control" id="historyCurrentCompany" maxlength="50" placeholder="Enter your company name" required="">
+                        </div>
+                        <div class="col-sm-6">
+                          <label class="O11BU">Month started</label>
+                            <div class="dropDown">
+                              <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" required="">
                                 <option value="">Month Started</option>
                               </select>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                              <input name="staredPreviousYear" ng-model="historyModel.startedPreviousYearOption" class="form-control" id="historyStartedPreviousYear" maxlength="4" placeholder="Year">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <select data-ng-options="o.name for o in endedMonthOptions" ng-model="historyModel.endedPreviousMonthOption" class="form-control">
-                                <option value="">Month Ended</option>
-                            </select>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                              <input name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" class="form-control" id="historyEndedPreviousYear" maxlength="4" placeholder="Year">
-                            </td>
-                            <td><button type="button" class="btn btn-primary btn-danger" type="button" ng-click="removePosition($index)">-</button></td>
-                          </tr>
-                        </table>
+                            </div>
                         </div>
-                        <button type="button" class="btn btn-primary" type="button" ng-click="addPosition()">+</button>&nbsp;Add Position
+                        <div class="col-sm-6">
+                          <label class="O11BU">Year Started</label>
+                          <input type="text" name="staredCurrentYear" ng-model="historyModel.startedCurrentYearOption" id="historyStartedCurrentYear" maxlength="4" placeholder="Ex: 2014" required="">
+                        </div>
                       </div>
-                  </div>
-                  <div class="fLeft">
-                    <input type="checkbox" ng-model="previousPosition"> I have not held any previous positions.
-                  </div>
-                  <div class="form-group">
-                      <label for="historyIndustries">What are the main industries you're familiar with?<span class="text-danger">{{historyFormError.industries[0]}}</span></label>
-                      <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                        <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                      </tags-input>
-                  </div>
-                  <div class="form-group">
-                      <label for="historyPrograms">List some skills and programs that you’ve become comfortable with<span class="text-danger">{{historyFormError.skills[0]}}</span></label>
-                      <input name="skills" ng-model="historyModel.skills" class="form-control" id="historySkills" maxlength="280" placeholder="E.g. Ruby on Rails, Financial Analysis, SQL, Digital Marketing, B2B Sales" required="">
-                  </div>
-                  <div class="button-group">
-                      <button type="button" class="btn btn-success btn-xlarge" type="submit" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit Application</button>
-                      <a href="#/profile" class="cancel-link">Cancel</a>
-                  </div>
-              </form>
+                      <div class="cl">&nbsp;</div>
+                      <div class="OC15BUG pb5 mt10 mb20 bdb" ng-hide="previousPosition || historyModel.positions.length > 0">what positions have you held previously?</div>
+                      <div ng-controller="RepeatPositionCtrl">
+                        <div class="row" ng-hide="historyModel.positions.length > 0">
+                          <div class="col-sm-6" ng-hide="previousPosition">
+                            <a href="javascript:void(0)" class="addBtnFull O11BU" ng-click="addPosition()">Add a position <span class="iconSp plus-icon fr"></span></a>
+                          </div>
+                          <div class="col-sm-6">
+                            <span class="checkBtn iconSp mt10"><input type="checkbox" name="r1" ng-model="previousPosition" ng-click="historyModel.positions = []" fancy-checkbox>I haven’t held any previous positions</span>
+                          </div>
+                        </div>
+                        <div ng-repeat="historyModel in historyModel.positions">
+                          <div class="clAll bdb mt20"></div>
+                          <div class="OC15BUG fl">Add a position</div>
+                          <a href="javascript:void(0)" class="cancel fr" ng-click="removePosition($index)"><span class="iconSp close-icon"></span> Cancel</a>
+                          <div class="clAll bdb mt20"></div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <label class="O11BU">Position</label>
+                              <input type="text" ng-model="historyModel.previous_title_text" placeholder="Enter your position">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Company name</label>
+                              <input type="text" ng-model="historyModel.previous_company_text" maxlength="50" placeholder="Enter your company name">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Month started</label>
+                              <div class="dropDown">
+                                <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" required="">
+                                  <option value="">Month Started</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Year Started</label>
+                              <input type="text" name="staredPreviousYear" ng-model="historyModel.startedPreviousYearOption" id="historyStartedPreviousYear" maxlength="4" placeholder="Ex: 2013">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Month ended</label>
+                              <div class="dropDown">
+                                <select data-ng-options="o.name for o in endedMonthOptions" ng-model="historyModel.endedPreviousMonthOption">
+                                  <option value="">Month Ended</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Year ended</label>
+                              <input type="text" name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" id="historyEndedPreviousYear" maxlength="4" placeholder="Ex: 2014">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="clAll mb10"></div>
+                        <a href="javascript:void(0)" class="addBtn mt20 mb10 fr" ng-click="addPosition()" ng-show="historyModel.positions.length > 0"><span class="iconSp plus-icon"></span> add another position</a>
+                      </div>
+                      <div class="cl bdb mb10">&nbsp;</div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label class="O11BU">What are the main industries you’ve worked in?</label>
+                          <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="Example: Finance, Non-Profits, Social Networking" required="">
+                            <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                          </tags-input>
+                        </div>
+                        <div class="col-sm-12">
+                          <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
+                          <input type="text" name="skills" ng-model="historyModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                        </div>
+                      </div>
+                      <div class="bottomBtn mb10">
+                        <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Continue <span class="iconSp arrow-right"></span></button>
+                        <a href="#/profile" class="cancel mr20 fr"><span class="iconSp close-icon"></span> Cancel</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="darkBoxRight mt20">
+                  <div class="OC15BUG mb20">The perks of being a mentor</div>
+                    <p class="O12R">Receive requests from members who are interested in learning more about your career.</p>
+                    <div class="clAll bdb mb20 mt20"></div>
+                    <p class="O12R">Get paid by the minute. Money deposited straight into your bank account within 48 hours!</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
 
         <div class="mentor-section mainBg" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor'">
             <div class="hero">
@@ -602,9 +658,5 @@
           <a class="closeIcon" title="Click to hide this message" hide-footer-flash-message>x</a>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="inner text-center">&copy; 2013 Shyne</div>
-        </div>
-    </footer>
+  </div>
 </div>
