@@ -9,6 +9,7 @@
 #= require ng-tags-input
 #= require ui-utils
 #= require angular-resource
+#= require angular-blocks
 #= require xeditable
 #= require setup
 #= require_directory ./controllers
@@ -33,7 +34,7 @@ Shyne.config(["$httpProvider", ($httpProvider) ->
   $httpProvider.responseInterceptors.push interceptor
 ])
 
-Shyne.config ["$routeProvider", ($routeProvider) ->
+Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
   $routeProvider.when("/",
     templateUrl: "/home/index.html"
     controller: 'HomeCtrl'
