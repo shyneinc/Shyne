@@ -13,12 +13,7 @@
  *= require jquery.ui.datepicker
  *= require jquery-ui/redmond
  *= require jquery.timepicker
- *= require _structure
  *= require ng-tags-input.min
- *= require _typography
  *= require xeditable
- *= require_directory ./home
- *= require_directory ./profile
- *= require_directory ./call_request
- *= require_directory ./conversations
+ *= require style
  */
