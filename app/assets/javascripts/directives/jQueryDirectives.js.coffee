@@ -7,38 +7,35 @@ ShyneDirectives.directive('popCard', () ->
     )
 )
 
-ShyneDirectives.directive('starRating', () ->
+ShyneDirectives.directive('starRatingOrange', () ->
   restrict: 'E'
-  template: "<ul style=\"padding: 0;font-size:24px;\">" +
-            "<li ng-repeat=\"star in stars\" style=\"color: #FF860D;\"" +
-            "class=\"glyphicon\" ng-class=\"{true: \'glyphicon-star-empty\', false: 'glyphicon-star'}[star.empty]\"></li></ul>"
+  template: "<span class=\"spOrg{{ stars }}\"></span>"
   link: (scope) ->
     scope.$watch "starRating", (oldVal, newVal) ->
-      scope.stars = []
-      maxStarRating = scope.maxStarRating
-      i = 0
-
-      while i < scope.maxStarRating
-        scope.stars.push
-          empty: true
-          index: i + 1
-        i++
-
-      scope.stars = []
+      scope.stars = ' star-0-0'
       starRating = scope.starRating
-      i = 0
+      if starRating > 0
+        scope.stars = ' star-' + starRating.toString().replace(".", "-")
 
-      while i < scope.maxStarRating
-        scope.stars.push
-          empty: i >= starRating
-          index: i + 1
-        i++
   scope:
     starRating: "="
-    maxStarRating: "="
     ratingChanged: "&"
 )
 
+ShyneDirectives.directive('starRatingBlue', () ->
+  restrict: 'E'
+  template: "<span class=\"fr spBlue {{ stars }}\"></span>"
+  link: (scope) ->
+    scope.$watch "starRating", (oldVal, newVal) ->
+      scope.stars = ' star-0-0'
+      starRating = scope.starRating
+      if starRating > 0
+        scope.stars = ' star-' + starRating.toString().replace(".", "-")
+
+  scope:
+    starRating: "="
+    ratingChanged: "&"
+)
 
 ShyneDirectives.directive("stopEvent", ->
   restrict: "A"
