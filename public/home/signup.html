@@ -1,73 +1,58 @@
-<div class="home-form">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
-        </div>
-    </header>
-
-    <div class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="text-center info-message" ng-show="user">
-                        <h2>Welcome to Shyne, {{user.first_name}}</h2>
-                        <p>
-                            To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
-                        </p>
-                    </div>
-                    <div class="jumbotron" ng-hide="user">
-                        <h2>Ready for reliable career advice? <br /> We're excited for you to join Shyne!</h2>
-                        <form novalidate role="form" name="signupForm" class="css-form" ng-submit="signup()">
-                            <div class="form-group">
-                                <span class="text-danger">{{signUpError.first_name[0]}}</span>
-                                <input ng-model="signupModel.firstName" class="form-control" id="loginFirstName" placeholder="First name" required="" auto-focus>
-                            </div>
-                            <div class="form-group">
-                                <span class="text-danger">{{signUpError.last_name[0]}}</span>
-                                <input ng-model="signupModel.lastName" class="form-control" id="loginLastName" placeholder="Last name" required="">
-                            </div>
-                            <div class="form-group">
-                                <span class="text-danger">{{signUpError.email[1]}}</span>
-                                <input name="email" ng-model="signupModel.email" type="email" class="form-control" id="loginEmail" placeholder="Email Address" required="">
-                            </div>
-                            <div class="form-group">
-                                <span class="text-danger">{{signUpError.password[0]}}</span>
-                                <input name="password" ng-model="signupModel.password" type="password" class="form-control" id="loginPassword" placeholder="Password" required="">
-                            </div>
-                            <div class="form-group">
-                                <span class="text-danger">{{signUpError.password_confirmation[0]}}</span>
-                                <input name="password" ng-model="signupModel.confirmPassword" type="password" class="form-control" id="loginConfirmPassword" placeholder="Confirm Password" required="">
-                            </div>
-                            <!--<div class="form-group">
-                                <label for="timeZone">Time Zone <span class="text-danger">{{signUpError.time_zone[0]}}</span></label>
-                                <select id="timeZone" ng-model="signupModel.timeZone" class="form-control">
-                                    <option value="Alaska">Alaska</option>
-                                    <option value="Arizona">Arizona</option>
-                                    <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                    <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                    <option value="Hawaii">Hawaii</option>
-                                    <option value="Indiana (East)">Indiana (East)</option>
-                                    <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                    <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                </select>
-                            </div>-->
-                            <div class="button-group button-signup">
-                                <p class="text-danger">{{error}}</p>
-                                <button type="button" class="btn btn-success btn-signup" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button><br/><br/>
-                                <a class="pt5" href="#/login">Already a member? Log in</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section class="signUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="text-center info-message" ng-show="user">
+              <h2>Welcome to Shyne, {{user.first_name}}</h2>
+              <p>
+                  To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
+              </p>
             </div>
+            <div ng-hide="user">
+              <h3>Ready for reliable career advice? <br /> We're excited for you to join Shyne!</h3>
+              <form novalidate role="form" name="signupForm" ng-submit="signup()">
+                <div class="formBox">
+                  <div class="R20R pb5 bdb">Please enter your information</div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label class="O11BU mt20">First Name</label>
+                      <input type="text" ng-model="signupModel.firstName" id="loginFirstName" placeholder="First name" required="" auto-focus>
+                      <div class="error">{{signUpError.first_name[0]}}</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="O11BU mt20">Last Name</label>
+                      <input type="text" ng-model="signupModel.lastName" id="loginLastName" placeholder="Last name" required="">
+                      <div class="error">{{signUpError.last_name[0]}}</div>
+                    </div>
+                    <div class="col-sm-12">
+                      <label class="O11BU mt20">Email Address</label>
+                      <input name="email" ng-model="signupModel.email" type="email" id="loginEmail" placeholder="Email Address" required="">
+                      <div class="error">{{signUpError.email[1]}}</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="O11BU mt20">Password</label>
+                      <input name="password" ng-model="signupModel.password" type="password" id="loginPassword" placeholder="Password" required="">
+                      <div class="error">{{signUpError.password[0]}}</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="O11BU mt20">Confirm Password</label>
+                      <input name="password" ng-model="signupModel.confirmPassword" type="password" id="loginConfirmPassword" placeholder="Confirm Password" required="">
+                      <div class="error">{{signUpError.password_confirmation[0]}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottomBtn">
+                  <p class="text-danger">{{error}}</p>
+                  <a class="O13SB tcOrg mt10 fl" href="#/login">Already a member? Log in</a>
+                  <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-
-   <div ng-include src="'shared/footer.html'"></div>
+      </div>
+    </section>
+  </div>
 </div>
