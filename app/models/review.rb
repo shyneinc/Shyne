@@ -5,4 +5,8 @@ class Review < ActiveRecord::Base
   belongs_to :mentor
   belongs_to :member
   belongs_to :call
+
+  def created_date
+    self.created_at.strftime("%^B %d")
+  end
 end

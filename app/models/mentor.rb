@@ -81,7 +81,7 @@ class Mentor < ActiveRecord::Base
   handle_asynchronously :calc_avg_duration, :priority => 10
 
   def get_avg_rating
-    self.reviews.average('rating').to_f
+    self.reviews.average('rating').to_f.to_s
   end
 
   def currently_working_at

@@ -17,4 +17,8 @@ class Member < ActiveRecord::Base
   def photo_url
     self.user.avatar.url.to_s
   end
+
+  def get_avg_rating
+    self.reviews.average('rating').to_f.to_s
+  end
 end
