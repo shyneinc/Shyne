@@ -22,7 +22,7 @@
         </div>
     </section>
 
-    <section ng-show="user">
+    <div ng-show="user">
         <div ng-hide="user.role_type">
             <div class="hero">
                 <div class="container">
@@ -143,8 +143,8 @@
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">what industries have you worked in?</label>
-                                          <input type="text" name="city" placeholder="Ex: Finance, Non-Profits, Education">
-                                          <div class="error">{{mentorFormError.schools[0]}}</div>
+                                          <input type="text" name="industries" placeholder="Ex: Finance, Non-Profits, Education">
+                                          <div class="error">{{mentorFormError.industries[0]}}</div>
                                         </div>
                                         <div class="col-sm-12">
                                           <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
@@ -302,279 +302,91 @@
           </div>
         </section>
 
-        <div class="mentor-section mainBg" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor'">
-            <div class="hero">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 profile-page">
-                          <div class="row">
-                            <div class="col-md-8">
-                              <div class="row">
-                                <div class="col-md-12 left-side">
-                                  <div class="col-md-3">
-                                      <div class="circle">
-                                          <div class="inner">
-                                              <img ng-src="{{user.avatar.url}}" />
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <form editable-form name="topdetailForm" onaftersave="updateUser()">
-                                    <div class="col-md-9 clearfix">
-                                      <div class="xeditable-fields">
-                                        <h1 ng-hide="topdetailForm.$visible">{{ user.first_name }} {{ user.last_name }}</h1>
-                                        <div class="fileUpload btn btn-primary btn-blue" ng-show="topdetailForm.$visible">
-                                            <span>Change Photo</span>
-                                            <input id="userAvatar" type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
-                                        </div>
-                                        <div class="name-form-edit">
-                                          <h1><a class="edit-link" href="javascript:void(0)" ng-click="topdetailForm.$show()" ng-show="!topdetailForm.$visible">Edit</a></h1>
-                                          <!-- buttons to submit / cancel form -->
-                                          <h1 ng-show="topdetailForm.$visible"></h1>
-                                          <span ng-show="topdetailForm.$visible">
-                                            <button type="submit" class="btn btn-primary" ng-disabled="topdetailForm.$waiting">Save</button>
-                                            <button type="button" class="btn btn-default" ng-disabled="topdetailForm.$waiting" ng-click="topdetailForm.$cancel()">Cancel</button>
-                                          </span>
-                                        </div>
-                                        <div class="form-controls" ng-show="topdetailForm.$visible">
-                                          <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
-                                          <span editable-text="user.last_name" e-name="last_name" e-required></span>
-                                        </div>
-                                      </div>
-                                      <div class="fleft currentWork">{{ user.currently_working_at }}</div></td></tr>
-                                      <div class="fleft experience">{{ user.years_of_experience }} years experience</div>
-                                      <div class="fleft paddL0 col-md-9">
-                                        <div class="col-md-4 paddL0 starRating">
-                                          <star-rating star-rating="user.get_avg_rating" max-star-rating="5"></star-rating>
-                                        </div>
-                                        <div class="col-md-5 paddL0 currentWork">
-                                          ({{ reviews.length }} Reviews)
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="col-md-12 headline clearfix editable-field">
-                                      <span class="fleft" editable-text="user.headline" e-name="headline" e-required>{{ user.headline }}</span>
-                                    </div>
-                                  </form>
-                                  <div class="col-md-12 profileBox clearfix">
-                                    <form editable-form name="workhistoryform" class="css-form" onaftersave="updateWorkHistories()" oncancel="cancel()">
-                                      <div class="xeditable-fields">
-                                        <h3 class="boxHeader">Work History</h3>
-                                        <div class="form-edit">
-                                          <a href="javascript:void(0)" ng-show="!workhistoryform.$visible" ng-click="workhistoryform.$show()">Edit</a>
-                                        </div>
-                                        <div class="btn-form" ng-show="workhistoryform.$visible">
-                                          <span class="plus-sign">+</span><button type="button" ng-disabled="workhistoryform.$waiting" ng-click="addWorkHistory()" class="btn btn-default pull-left">Add Position</button>
-                                          <button type="button" ng-disabled="workhistoryform.$waiting" ng-click="workhistoryform.$cancel()" class="btn btn-default pull-right">Cancel</button>
-                                          <button type="submit" ng-disabled="workhistoryform.$waiting" class="btn btn-primary pull-right mrR5">Save</button>
-                                        </div>
-                                      </div>
-                                      <table class="editable-table">
-                                        <tr ng-repeat="work_history in work_histories | filter:filterWorkHistory">
-                                          <td width="100%">
-                                            <p ng-hide="workhistoryform.$visible">{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})</p>
-                                            <div class="jumbotron" ng-show="workhistoryform.$visible">
-                                              <table width="100%">
-                                                <tr class="history-edit">
-                                                  <td>
-                                                    <div class="form-group">
-                                                      <label>Company</label>
-                                                      <span editable-text="work_history.company" e-required></span>
-                                                    </div>
-                                                    <div class="form-group">
-                                                      <label>Title</label>
-                                                      <span editable-text="work_history.title" e-required></span>
-                                                    </div>
-                                                  </td>
-                                                  <td></td>
-                                                </tr>
-                                                <tr>
-                                                  <td><label>Time Period</label></td>
-                                                </tr>
-                                                <tr>
-                                                  <td class="time-period" colspan="2" width="100%">
-                                                    <span editable-select="work_history.started_month" e-ng-options="t.value as t.text for t in monthList" e-required></span>
-                                                    <span editable-text="work_history.started_year" e-maxlength="4" e-required></span>
-                                                    <span class="dashes"> - </span>
-                                                    <span editable-select="work_history.ended_month" e-ng-options="t.value as t.text for t in monthList"></span>
-                                                    <span editable-text="work_history.ended_year" e-maxlength="4"></span>
-                                                  </td>
-                                                  <td><button type="button" ng-show="workhistoryform.$visible" ng-click="deleteWorkHistory(work_history.id)" class="btn btn-danger pull-right">Remove</button></td>
-                                                </tr>
-                                              </table>
-                                          </td>
-                                        </tr>
-                                      </table>
-                                    </form>
-                                  </div>
-
-                                  <div class="col-md-12 contentBox clearfix">
-                                    <form editable-form name="skillForm" onaftersave="updateUser()">
-                                      <div class="xeditable-fields">
-                                        <h3 class="boxHeader">Skills</h3>
-                                        <div class="form-edit">
-                                          <a href="javascript:void(0)" ng-click="skillForm.$show()" ng-show="!skillForm.$visible">Edit</a>
-                                          <span ng-show="skillForm.$visible">
-                                            <button type="submit" class="btn btn-primary" ng-disabled="skillForm.$waiting">Save</button>
-                                            <button type="button" class="btn btn-default" ng-disabled="skillForm.$waiting" ng-click="skillForm.$cancel()">Cancel</button>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <p editable-text="user.skills" e-name="skills" e-required>{{ user.skills }}</p>
-                                    </form>
-                                  </div>
-
-                                  <div class="col-md-12 contentBox clearfix">
-                                    <form editable-form name="industriesForm" class="css-form" onaftersave="updateMentorIndustries()">
-                                      <div class="xeditable-fields">
-                                        <h3 class="boxHeader">{{ user.first_name }} generally works in these industries</h3>
-                                        <div class="form-edit">
-                                          <a href="javascript:void(0)" ng-click="industriesForm.$show()" ng-show="!industriesForm.$visible">Edit</a>
-                                          <span ng-show="industriesForm.$visible">
-                                            <button type="submit" class="btn btn-primary" ng-disabled="industriesForm.$waiting">Save</button>
-                                            <button type="button" class="btn btn-default" ng-disabled="industriesForm.$waiting" ng-click="industriesForm.$cancel()">Cancel</button>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <p ng-show="!industriesForm.$visible">{{ user.industries }}</p>
-                                      <tags-input ng-show="industriesForm.$visible" ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                                        <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                                      </tags-input>
-                                    </form>
-                                  </div>
-
-                                  <div class="col-md-12 contentBox clearfix">
-                                    <form editable-form name="schoolsForm" class="css-form" onaftersave="updateMentorSchools()">
-                                      <div class="xeditable-fields">
-                                        <h3 class="boxHeader">{{ user.first_name }} studied in this schools</h3>
-                                        <div class="form-edit">
-                                          <a href="javascript:void(0)" ng-click="schoolsForm.$show()" ng-show="!schoolsForm.$visible">Edit</a>
-                                          <span ng-show="schoolsForm.$visible">
-                                            <button type="submit" class="btn btn-primary" ng-disabled="schoolsForm.$waiting">Save</button>
-                                            <button type="button" class="btn btn-default" ng-disabled="schoolsForm.$waiting" ng-click="schoolsForm.$cancel()">Cancel</button>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <p ng-show="!schoolsForm.$visible">{{ user.schools }}</p>
-                                      <tags-input ng-show="schoolsForm.$visible" ng-model="editSchoolModel.schools" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                                        <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                                      </tags-input>
-                                    </form>
-                                  </div>
-
-                                  <div class="col-md-12 profile-page review-section">
-                                    <div class="col-md-12 profile-page">
-                                      <h3>Reviews ({{reviews.length}})</h3>
-                                      <div>&nbsp;</div>
-                                      <div class="row" ng-repeat="review in reviews">
-                                        <div class="col-md-12 review">
-                                          <div class="col-md-2"><img ng-src="{{review.member.user.avatar.medium.url }}" /></div>
-                                          <div class="col-md-10">
-                                            <h4>{{ review.member.user.first_name }} {{ review.member.user.last_name }}</h4>
-                                            <div class="review-body">{{ review.review }}</div>
-                                            <div>{{ review.created_at | timeago }}</div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div ng-show="reviews.length == 0">
-                                        <p>No any review available</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="text-center mentorRate">${{ user.rate_per_minute}} per minute</div>
-                              <div class="text-center"><a href="#/call_request/{{user.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
-                              <div class="availibilityBox">
-                                <div class="availibility">
-                                  <form editable-form name="availabilityForm" onaftersave="updateUser()">
-                                    <div class="xeditable-fields">
-                                      <h3 class="boxHeader text-center">Availability</h3>
-                                      <div class="form-edit">
-                                        <!-- button to show form -->
-                                        <a href="javascript:void(0)" ng-click="availabilityForm.$show()" ng-show="!availabilityForm.$visible">
-                                          Edit
-                                        </a>
-                                        <!-- buttons to submit / cancel form -->
-                                        <span ng-show="availabilityForm.$visible">
-                                          <button type="submit" class="btn btn-primary" ng-disabled="availabilityForm.$waiting">
-                                            Save
-                                          </button>
-                                          <button type="button" class="btn btn-default" ng-disabled="availabilityForm.$waiting" ng-click="availabilityForm.$cancel()">
-                                            Cancel
-                                          </button>
-                                        </span>
-                                      </div>
-                                      <div class="form-fields">
-                                          <span editable-text="user.availability" e-name="availability" e-required></span>
-                                          <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList" e-required></span>
-                                      </div>
-                                    </div>
-                                    <section ng-show="!availabilityForm.$visible">{{ user.availability }}</section>
-                                    <section class="timezone" ng-show="!availabilityForm.$visible">in {{ user.time_zone}}</section>
-                                  </form>
-                                </div>
-                              </div>
-                              <div class="user-detail">
-                                <form editable-form name="rightdetailForm" onaftersave="updateMentorInfo()">
-                                  <div class="xeditable-fields">
-                                    <h3 class="boxHeader">{{ user.first_name}}'s details</h3>
-                                    <div class="form-edit">
-                                      <!-- button to show form -->
-                                      <a href="javascript:void(0)" ng-click="rightdetailForm.$show()" ng-show="!rightdetailForm.$visible">
-                                        Edit
-                                      </a>
-                                      <!-- buttons to submit / cancel form -->
-                                      <span ng-show="rightdetailForm.$visible">
-                                        <button type="submit" class="btn btn-primary" ng-disabled="rightdetailForm.$waiting">
-                                          Save
-                                        </button>
-                                        <button type="button" class="btn btn-default" ng-disabled="rightdetailForm.$waiting" ng-click="rightdetailForm.$cancel()">
-                                          Cancel
-                                        </button>
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <div class="detail-content" ng-show="!rightdetailForm.$visible">
-                                      <section><span class="glyphicon glyphicon-map-marker"></span>{{ user.city}}, {{user.state }}</section>
-                                      <hr class="grayHR">
-                                      <section><span class="glyphicon glyphicon-bookmark"></span>{{user.years_of_experience}} years experience</section>
-                                      <hr class="grayHR">
-                                      <section><span class="glyphicon glyphicon-link"></span><a href="http://{{ user.linkedin }}" target="_blank">LinkedIn</a></section>
-                                      <hr class="grayHR">
-                                      <section><span class="glyphicon glyphicon-phone"></span>0 calls</section>
-                                      <hr class="grayHR">
-                                  </div>
-                                  <div class="detail-content" ng-show="rightdetailForm.$visible">
-                                      <section>
-                                        <span class="pdT8 glyphicon glyphicon-map-marker"></span>
-                                        <span editable-text="user.city" e-required></span>
-                                        <span editable-select="user.state" e-name="state" e-ng-options="t.value as t.text for t in stateList" e-required></span>
-                                      </section>
-                                      <hr class="grayHR">
-                                      <section>
-                                        <span class="pdT8 glyphicon glyphicon-bookmark"></span>
-                                        <span editable-text="user.years_of_experience" e-required>{{user.years_of_experience}} years experience</span>
-                                      </section>
-                                      <hr class="grayHR">
-                                      <section>
-                                        <span class="pdT8 glyphicon glyphicon-link"></span>
-                                        <span editable-text="user.linkedin" e-pattern="[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$" e-placeholder="Enter the URL to your Linkedin Profile" e-required><a href="http://{{ user.linkedin }}">LinkedIn</a></span>
-                                      </section>
-                                      <hr class="grayHR">
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor'">
+          <div class="container">
+            <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC15BUG">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span></h2>
+          </div>
+          <div class="profileBox">
+            <div class="container">
+              <div class="profileDetails">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="profileImage">
+                      <img ng-src="{{user.avatar.url}}" src="/assets/no_image.png" alt="">
+                      <span class="caretL"></span>
+                      <span class="caretR"></span>
+                    </div>
+                    <div class="userInfo">
+                      <ul>
+                        <li><span class="iconPro i_ribbon"></span>{{ user.years_of_experience }} years work experience</li>
+                        <li><span class="iconPro i_phone"></span>12 calls</li>
+                        <li><span class="iconPro i_education"></span>{{ user.schools }}</li>
+                        <li><span class="iconPro i_review"></span>{{ reviews.length }} reviews</li>
+                        <li><span class="iconPro i_pin"></span>{{ user.city}}, {{user.state }}</li>
+                        <li><span class="iconPro i_star"></span><star-rating-orange star-rating="user.get_avg_rating"></star-rating></li>
+                      </ul>
+                    </div>
+                    <p class="R16R">{{ user.headline }}</p>
+                  </div>
+                  <div class="col-sm-4">
+                    <a href="#/call_request/{{user.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call Now</a>
+                    <div class="O12BU mb20 text-center">call rate is $2/min</div>
+                    <div class="darkBoxRight">
+                      <div class="OC16BUB mb10">availability</div>
+                      <p class="O12R">{{ user.availability }}</p>
+                      <div class="O11BU mb10"><span class="iconPro i_clock"></span>Scheduled in {{ user.time_zone}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="experience">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="proBox mb50">
+                    <div class="OC16BUB fl">Experience</div>
+                    <a href="http://{{ user.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
+                    <div class="clAll bdb pt5"></div>
+                    <ul>
+                      <li ng-repeat="work_history in work_histories | filter:filterWorkHistory">
+                        <span class="iconPro i_case"></span>
+                        <span class="O11BU">{{ work_history.title }}</span> at <strong class="tcOrg">{{work_history.company}}</strong> <i>– {{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }}</i>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="proBox">
+                    <div class="OC16BUB">Member reviews <span class="O11BU tcGry">{{ reviews.length }} total</span></div>
+                    <div class="clAll bdb pt5"></div>
+                    <div class="memberReview">
+                      <div class="revRow" ng-repeat="review in reviews">
+                        <div class="mrImage"><img ng-src="{{review.member.user.avatar.medium.url }}" src="/assets/no_image.png" alt=""><span class="caret"></span></div>
+                        <div class="O11BU fl"><span class="iconPro i_review"></span>{{ review.member.user.first_name }} {{ review.member.user.last_name }} <span class="O12R">on</span> {{ review.created_date }}</div>
+                        <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating>
+                        <div class="clAll"></div>
+                        <p>{{ review.review }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div class="col-sm-4">
+                  <div class="OC16BUB">Skills</div>
+                    <div class="clAll bdb pt5 mb10"></div>
+                    <div class="skills">
+                      <span ng-repeat="skill in user_skills">{{ skill }}</span>
+                    </div>
+                    <div class="cl mb20">&nbsp;</div>
+                    <div class="OC16BUB">industries worked in</div>
+                    <div class="clAll bdb pt5"></div>
+                    <ul>
+                      <li ng-repeat="industry in user_industries"><span class="iconPro i_check"></span><span class="vam">{{ industry }}</span></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div class="member-section" ng-show="user.role_type == 'Member'">
             <div class="hero">
@@ -651,7 +463,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <div class="footer-flash-message" ng-show="footer_flash_message">
         <div class="inner">
           <div class="message">{{footer_flash_message}}</div>

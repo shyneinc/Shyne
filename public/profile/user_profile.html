@@ -1,151 +1,95 @@
-<div class="profile-index">
-  <header>
-    <div class="container">
-      <nav class="masthead">
-        <ul class="nav navbar-nav pull-right">
-          <li ng-hide="user"><a href="#/login">Log In</a></li>
-          <li ng-show="user" class="dropdown">
-            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
-              <li><a href="#/conversation">Messages</a></li>
-              <li><a href="#/settings">Settings</a></li>
-              <li><a href="#/logout">Log out</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <a class="logo" href="#" ng-click="home()">Shyne</a>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <div class="flash-message" ng-show="flash_message">
+      <div class="inner">
+        <div class="message">{{flash_message}}</div>
+        <a class="closeIcon" title="Click to hide this message" ng-click="removeFlashMessage()">x</a>
+      </div>
     </div>
-  </header>
-<div class="flash-message" ng-show="flash_message">
-  <div class="inner">
-    <div class="message">{{flash_message}}</div>
-    <a class="closeIcon" title="Click to hide this message" ng-click="removeFlashMessage()">x</a>
-  </div>
-</div>
-  <section ng-show="userProfile">
-        <div class="mentor-section mainBg">
-            <div class="hero">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 profile-page">
-                        	<div class="row">
-                                <div class="col-md-8">
-                                	<div class="row">
-                                        <div class="col-md-12 left-side">
-                                          <div class="col-md-3">
-                                              <div class="circle">
-                                                  <div class="inner">
-                                                      <img ng-src="{{userProfile.avatar.url}}" start-inline-edit/>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-8 clearfix">
-                                              <h1>{{userProfile.first_name}} {{userProfile.last_name}}</h1>
-                                              <div class="fleft currentWork">{{ userProfile.currently_working_at }}</div>
-                                              <div class="fleft experience">{{ userProfile.years_of_experience }} years experience</div>
-                                              <div class="fleft paddL0 col-md-9">
-                                                <div class="col-md-5 paddL0">
-                                                  <star-rating star-rating="userProfile.get_avg_rating" max-star-rating="5"></star-rating>
-                                                </div>
-                                                <div class="col-md-5 paddL0">
-                                                  ({{ user_reviews.length }} reviews)
-                                                </div>
-                                              </div>
-                                          </div>
-
-                                          <div class="col-md-12 headline clearfix">
-                                            <span class="fleft">{{ userProfile.headline }}</span>
-                                          </div>
-
-                                          <div class="col-md-12 profileBox clearfix">
-                                            <h3 class="boxHeader">Work History</h3>
-                                            <div ng-repeat="work_history in user_work_histories">
-                                              <p>{{ work_history.title }} at {{work_history.company}} ({{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }})</p>
-                                            </div>
-                                          </div>
-
-                                          <div class="col-md-12 contentBox clearfix">
-                                            <h3 class="boxHeader">Skills</h3>
-                                            <p>{{ userProfile.skills }}</p>
-                                          </div>
-
-                                          <div class="col-md-12 contentBox clearfix">
-                                            <h3 class="boxHeader">{{ userProfile.first_name }} generally works in these industries</h3>
-                                            <p>{{ userProfile.industries }}</p>
-                                          </div>
-
-                                          <div class="col-md-12 contentBox clearfix">
-                                            <h3 class="boxHeader">{{ userProfile.first_name }} studied in this schools</h3>
-                                            <p>{{ userProfile.schools }}</p>
-                                          </div>
-
-                                          <div class="col-md-12 profile-page review-section">
-                                              <div class="col-md-12 profile-page">
-                                                <h3>Reviews ({{user_reviews.length}})</h3>
-                                                <div>&nbsp;</div>
-                                                <div class="row" ng-repeat="review in user_reviews">
-                                                  <div class="col-md-12 review">
-                                                    <div class="col-md-2"><img ng-src="{{review.member.user.avatar.medium.url }}" /></div>
-                                                    <div class="col-md-10">
-                                                      <h4>{{ review.member.user.first_name }} {{ review.member.user.last_name }}</h4>
-                                                      <div class="review-body">{{ review.review }}</div>
-                                                      <div>{{ review.created_at | timeago }}</div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div ng-show="user_reviews.length == 0">
-                                                  <p>No any review available</p>
-                                                </div>
-                                              </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                <div class="text-center mentorRate">${{ userProfile.rate_per_minute}} per minute</div>
-                                <div class="text-center"><a href="#/call_request/{{userProfile.role_id}}" class="btn btn-primary btn-blue-large">Schedule Call Now</a></div>
-                                <div class="availibilityBox">
-                                  <div class="availibility">
-                                    <h3 class="boxHeader">Availability</h3>
-                                    <section>{{ userProfile.availability }}</section>
-                                    <section class="timezone">in {{ userProfile.time_zone}}</section>
-                                  </div>
-                                </div>
-                                <div class="user-detail">
-                                  <h3 class="boxHeader">{{ userProfile.first_name}}'s details</h3>
-                                  <div class="detail-content">
-                                    <section>
-                                      <span class="glyphicon glyphicon-map-marker"></span>{{ userProfile.city}}, {{userProfile.state }}
-                                    </section>
-                                    <hr class="grayHR">
-                                    <section>
-                                      <span class="glyphicon glyphicon-bookmark"></span>{{userProfile.years_of_experience}} years experience
-                                    </section>
-                                    <hr class="grayHR">
-                                    <section>
-                                      <span class="glyphicon glyphicon-link"></span><a href="http://{{ userProfile.linkedin }}" target="_blank">LinkedIn</a>
-                                    </section>
-                                    <hr class="grayHR">
-                                    <section class="editable-field">
-                                      <span class="glyphicon glyphicon-phone"></span>0 calls
-                                    </section>
-                                    <hr class="grayHR">
-                                  </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer>
+    <section ng-show="userProfile" class="profile">
+      <div class="container">
+        <h2>{{ userProfile.first_name }} {{ userProfile.last_name }} <span class="OC15BUG">{{ userProfile.current_position }} at <span class="tcOrg">{{ userProfile.current_company }}</span></span></h2>
+      </div>
+      <div class="profileBox">
         <div class="container">
-            <div class="inner text-center">&copy; 2013 Shyne</div>
+          <div class="profileDetails">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="profileImage">
+                  <img ng-src="{{userProfile.avatar.url}}" src="/assets/no_image.png" alt="">
+                  <span class="caretL"></span>
+                  <span class="caretR"></span>
+                </div>
+                <div class="userInfo">
+                  <ul>
+                    <li><span class="iconPro i_ribbon"></span>{{ userProfile.years_of_experience }} years work experience</li>
+                    <li><span class="iconPro i_phone"></span>12 calls</li>
+                    <li><span class="iconPro i_education"></span>{{ userProfile.schools }}</li>
+                    <li><span class="iconPro i_review"></span>{{ user_reviews.length }} reviews</li>
+                    <li><span class="iconPro i_pin"></span>{{ userProfile.city}}, {{userProfile.state }}</li>
+                    <li><span class="iconPro i_star"></span><star-rating-orange star-rating="userProfile.get_avg_rating"></star-rating></li>
+                  </ul>
+                </div>
+                <p class="R16R">{{ userProfile.headline }}</p>
+              </div>
+              <div class="col-sm-4">
+                <a href="#/call_request/{{userProfile.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call Now</a>
+                <div class="O12BU mb20 text-center">call rate is $2/min</div>
+                <div class="darkBoxRight">
+                  <div class="OC16BUB mb10">availability</div>
+                  <p class="O12R">{{ userProfile.availability }}</p>
+                  <div class="O11BU mb10"><span class="iconPro i_clock"></span>Scheduled in {{ userProfile.time_zone}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="container">
+        <div class="experience">
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="proBox mb50">
+                <div class="OC16BUB fl">Experience</div>
+                <a href="http://{{ userProfile.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
+                <div class="clAll bdb pt5"></div>
+                <ul>
+                  <li ng-repeat="work_history in user_work_histories">
+                    <span class="iconPro i_case"></span>
+                    <span class="O11BU">{{ work_history.title }}</span> at <strong class="tcOrg">{{work_history.company}}</strong> <i>– {{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }}</i>
+                  </li>
+                </ul>
+              </div>
+              <div class="proBox">
+                <div class="OC16BUB">Member reviews <span class="O11BU tcGry">{{ user_reviews.length }} total</span></div>
+                <div class="clAll bdb pt5"></div>
+                <div class="memberReview">
+                  <div class="revRow" ng-repeat="review in user_reviews">
+                    <div class="mrImage"><img ng-src="{{review.member.user.avatar.medium.url }}" src="/assets/no_image.png" alt=""><span class="caret"></span></div>
+                    <div class="O11BU fl"><span class="iconPro i_review"></span>{{ review.member.user.first_name }} {{ review.member.user.last_name }} <span class="O12R">on</span> {{ review.created_date }}</div>
+                    <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating>
+                    <div class="clAll"></div>
+                    <p>{{ review.review }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="OC16BUB">Skills</div>
+                <div class="clAll bdb pt5 mb10"></div>
+                <div class="skills">
+                  <span ng-repeat="skill in user_skills">{{ skill }}</span>
+                </div>
+                <div class="cl mb20">&nbsp;</div>
+                <div class="OC16BUB">industries worked in</div>
+                <div class="clAll bdb pt5"></div>
+                <ul>
+                  <li ng-repeat="industry in user_industries"><span class="iconPro i_check"></span><span class="vam">{{ industry }}</span></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
