@@ -18,7 +18,7 @@ resource 'Review' do
     example "Getting all mentor reviews" do
       do_request
 
-      expect(response_body).to eq mentor.reviews.to_json
+      expect(response_body).to eq mentor.reviews.to_json({:include => [:member => {:include => :user}, :methods => [:get_avg_rating]], :methods => [:created_date]})
       expect(status).to eq 200
     end
   end
