@@ -92,6 +92,12 @@ class CallRequest < ActiveRecord::Base
     debit_amount - shyne_commission
   end
 
+  def estimated_debit_amount
+    rate_in_cents = self.mentor.rate_per_minute * 100
+    duration_in_mins = self.proposed_duration
+    rate_in_cents * duration_in_mins
+  end
+
   def description
     "Call# #{self.id} with #{self.member.full_name} & #{self.mentor.full_name}"
   end
