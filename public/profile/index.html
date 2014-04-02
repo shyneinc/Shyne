@@ -25,48 +25,74 @@
             <div class="hero">
                 <div class="container">
                     <div class="row">
-                      <div class="welcome-message" >
-                          <div class="text-center" ng-hide="welcomeModel.role">
-                              <h1>Welcome!  How would you like  to  use Shyne?</h1>
-                              <p><button class="btn btn-default btn-green" ng-click="showMemberForm()">I'd like to Join as a Member</button></p>
-                              <div class="welcome-note">Members  can schedule  calls with  Mentors for career  advice, interview tips, & insider info  on  popular companies and positions.</div>
-                              <p><button class="btn btn-default btn-red" ng-click="showMentorForm()">I'd like to Apply to become a Mentor</button></p>
-                              <div class="welcome-note">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</div>
-                              <div class="remember-note">Remember:  It's  FREE  to  join  as  either  a Mentor  or  Member. Also, Members can always  apply to  become  Mentors later on.</div>
+                      <section class="welcomeMember" ng-hide="welcomeModel.role">
+                        <div class="container">
+                          <h2>Welcome! How would you like to use Shyne?</h2>
+                          <div class="cl">&nbsp;</div>
+                          <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-center"><button ng-click="showMemberForm()" class="btn grd-org btnOrgLg">I'd like to Join as a Member</button></p>
+                                <p class="R16R">Members  can schedule  calls with  Mentors for career  advice, interview tips, &amp; insider info  on  popular companies and positions.</p>
+                                <div class="cl">&nbsp;</div>
+                                <p class="text-center"><button ng-click="showMentorForm()" class="btn grd-org btnOrgLg">I'd like to Apply to become a Mentor</button></p>
+                                <p class="R16R">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</p>
+                                <div class="cl">&nbsp;</div>
+                                <p class="R16R">Remember:  It's  FREE  to  join  as  either  a Mentor  or  Member. Also, Members can always  apply to  become  Mentors later on.</p>
+                            </div>
                           </div>
-                      </div>
-                      <div class="jumbotron" ng-show="welcomeModel.role == 'Member'">
-                          <h2>Become a Member of Shyne!</h2>
-                          <form novalidate role="form" name="memberForm" class="css-form" ng-submit="becomeMember()">
-                              <div class="form-group">
-                                  <label for="memberTimeZone">What timezone are you in? <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
-                                  <select id="memberTimeZone" ng-model="memberModel.timeZone" class="form-control">
-                                      <option value="Alaska">Alaska</option>
-                                      <option value="Arizona">Arizona</option>
-                                      <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                                      <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                                      <option value="Hawaii">Hawaii</option>
-                                      <option value="Indiana (East)">Indiana (East)</option>
-                                      <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                                      <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-                                  </select>
-                              </div>
-                              <div class="form-group">
-                                  <label for="becomeMemberPhoneNumber">Cell Phone Number (Note: This is not shared with anyone, and only used to schedule calls) <span class="text-danger">{{memberFormError.phone_number[0]}}</span></label>
-                                  <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="becomeMemberPhoneNumber" required="">
-                              </div>
-                              <div class="form-group">
-                                  <label for="becomeMemberIndustries">What industries are you interested in? <span class="text-danger">{{memberFormError.industries[0]}}</span></label>
-                                  <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                                    <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                                  </tags-input>
-                              </div>
-                              <div class="button-group button-signup">
-                                  <button type="button" class="btn btn-primary btn-signup" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Join Now</button>
-                                  <a href="" class="cancel-link" ng-click="clearRole()">Cancel</a>
-                              </div>
-                          </form>
-                      </div>
+                        </div>
+                      </section>
+                      <section class="settings" ng-show="welcomeModel.role == 'Member'">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                              <h2>Become a Member of Shyne!</h2>
+                              <div class="clAll"></div>
+                              <form novalidate role="form" name="memberForm" ng-submit="becomeMember()">
+                                <div class="formBox mt20">
+                                  <div class="formContent">
+                                    <div class="row rowMar">
+                                      <div class="col-sm-6">
+                                        <label class="O11BU">What timezone are you in? </label>
+                                        <div class="dropDown">
+                                          <select id="memberTimeZone" ng-model="memberModel.timeZone">
+                                            <option value="Alaska">Alaska</option>
+                                            <option value="Arizona">Arizona</option>
+                                            <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                            <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                            <option value="Hawaii">Hawaii</option>
+                                            <option value="Indiana (East)">Indiana (East)</option>
+                                            <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                            <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                          </select>
+                                        </div>
+                                        <div class="error">{{memberFormError.time_zone[0]}}</div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label class="O11BU">Cell Phone Number</label>
+                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" class="form-control" id="becomeMemberPhoneNumber" required="">
+                                        <div class="error">{{memberFormError.phone_number[0]}}</div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <label class="O11BU">What industries are you interested in?</label>
+                                        <tags-input ng-model="memberModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
+                                          <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                        </tags-input>
+                                        <div class="error">{{memberFormError.industries[0]}}</div>
+                                      </div>
+                                    </div>
+                                    <div class="cl">&nbsp;</div>
+                                  </div>
+                                </div>
+                                <div class="bottomBtn">
+                                  <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="memberForm.$invalid" ng-click="becomeMember()">Join Now</button>
+                                  <a href="" class="cancel mr20 fr" ng-click="clearRole()"><span class="iconSp close-icon"></span> Cancel</a>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
                       <section class="applicationMentors" ng-show="welcomeModel.role == 'Mentor'">
                         <div class="container">
                           <h2>Application to be a Mentor <span class="OC15BUG">Step 1 of 2</span></h2>
