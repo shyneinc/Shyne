@@ -1,48 +1,77 @@
-<div class="home-form">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user"><a href="#/logout">Log Out</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
-        </div>
-    </header>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
     <div class="flash-message" ng-show="flash_message">
       <div class="inner">
         <div class="message">{{flash_message}}</div>
         <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
       </div>
     </div>
-    <div class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <a href="#/profile" class="back-link"><span class="back-link-arrow-left">Back</span></a>
-                </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="jumbotron setting-nav">
-                      <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#/basicinfo">Basic Information<i class="chev-right"></i></a></li>
-                        <li><a href="#/changepassword">Change Password<i class="chev-right"></i></a></li>
-                        <li ng-hide="user.role_type == 'Mentor'"><a href="#/creditcard">Change Credit Card<i class="chev-right"></i></a></li>
-                        <li ng-hide="user.role_type == 'Member'"><a href="#/bankaccount">Change Bank Account<i class="chev-right"></i></a></li>
-                        <li><a href="#/emailnotification">Email Notifications<i class="chev-right"></i></a></li>
-                        <li><a href="#/account">Account Status ({{user.confirmed && "Activate" || "Deactivate" }})<i class="chev-right"></i></a></li>
-                      </ul>
-                    </div>
-                </div>
-                <!--<div class="col-md-6 col-md-offset-3">
-                    <div class="jumbotron">
-                      <div class="col-md-6 col-md-offset-3 clearfix">
-                        <a href="#/profile" class="link-red">Delete Account</a>
-                      </div>
-                    </div>
-                </div>-->
-            </div>
+    <section class="settings">
+      <div class="container">
+        <h2 ng-show="settings.tab == 'basic_info'">Basic Information</h2>
+        <h2 ng-show="settings.tab == 'change_password'">Change Password</h2>
+        <h2 ng-show="settings.tab == 'credit_card'">Credit Card information</h2>
+        <h2 ng-show="settings.tab == 'bank_account'">Change Bank Account Information</h2>
+        <h2 ng-show="settings.tab == 'email_notification'">Email Notificationsn</h2>
+        <h2 ng-show="settings.tab == 'account_status'">Account Status ({{user.confirmed && "Activate" || "Deactivate" }})</h2>
+        <div class="clAll"></div>
+        <div class="btn-group btn-group-justified">
+          <div class="btn-group">
+            <a href="" class="btn btn-default {{ settings.tab == 'basic_info' && 'active' || '' }}" ng-click="settings.tab = 'basic_info'">Basic Information<span class="caretB"></span></a>
+          </div>
+          <div class="btn-group">
+            <a href="" class="btn btn-default {{ settings.tab == 'change_password' && 'active' || '' }}"  ng-click="settings.tab = 'change_password'">Change Password<span class="caretB"></span></a>
+          </div>
+          <div class="btn-group" ng-show="user.role_type == 'Member'">
+            <a href="" class="btn btn-default {{ settings.tab == 'credit_card' && 'active' || '' }}"  ng-click="settings.tab = 'credit_card'">Change Credit Card<span class="caretB"></span></a>
+          </div>
+          <div class="btn-group" ng-show="user.role_type == 'Mentor'">
+            <a href="" class="btn btn-default {{ settings.tab == 'bank_account' && 'active' || '' }}"  ng-click="settings.tab = 'bank_account'">Bank Account <span class="caretB"></span></a>
+          </div>
+          <div class="btn-group">
+            <a href="" class="btn btn-default {{ settings.tab == 'email_notification' && 'active' || '' }}"  ng-click="settings.tab = 'email_notification'">Email Notifications<span class="caretB"></span></a>
+          </div>
+          <div class="btn-group">
+            <a href="" class="btn btn-default {{ settings.tab == 'account_status' && 'active' || '' }}"  ng-click="settings.tab = 'account_status'">Account Status<span class="caretB"></span></a>
+          </div>
         </div>
-    </div>
-    <div ng-include src="'shared/footer.html'"></div>
+
+        <div class="settingDetail row" ng-show="settings.tab == 'basic_info'">
+          <div class="col-md-10 col-md-offset-1">
+            <div ng-include src="'settings/basic_information.html'"></div>
+          </div>
+        </div>
+
+        <div class="settingDetail row" ng-show="settings.tab == 'change_password'">
+          <div class="col-md-10 col-md-offset-1">
+            <div ng-include src="'settings/changepassword.html'"></div>
+          </div>
+        </div>
+
+        <div class="settingDetail row" ng-show="settings.tab == 'credit_card'">
+          <div class="col-md-10 col-md-offset-1">
+            <div ng-include src="'settings/creditcard.html'"></div>
+          </div>
+        </div>
+
+        <div class="settingDetail row" ng-show="settings.tab == 'bank_account'">
+          <div class="col-md-10 col-md-offset-1">
+            <div ng-include src="'settings/bank_account.html'"></div>
+          </div>
+        </div>
+
+        <div class="settingDetail row" ng-show="settings.tab == 'email_notification'">
+          <div class="col-md-10 col-md-offset-1">
+            <div ng-include src="'settings/emailnotifications.html'"></div>
+          </div>
+        </div>
+
+        <div class="settingDetail row" ng-show="settings.tab == 'account_status'">
+          <div class="col-md-10 col-md-offset-1">
+            <div ng-include src="'settings/account_status.html'"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>

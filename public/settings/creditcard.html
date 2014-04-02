@@ -1,52 +1,45 @@
-<div class="home-form">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
+<form novalidate role="form" name="callDetailForm" ng-submit="addCreditCard()">
+  <div class="formBox mt20">
+      <div class="formContent">
+        <div class="R20R">Please change your payment information</div>
+        <div class="clAll bdb mb10 mt20"></div>
+
+        <div class="formContent">
+          <div class="row rowMar">
+            <div class="col-sm-4">
+              <label class="O11BU">Credit card number</label>
+              <input type="text" name="cardNumber" ng-model="creditCardModel.card_number" id="creditCardCardNumber" placeholder="Credit Card #" required="">
+              <div class="error">{{creditCardFormError}}</div>
+            </div>
+            <div class="col-sm-2">
+              <label class="O11BU">CVV</label>
+              <input type="text" name="SecurityCode" ng-model="creditCardModel.security_code" id="creditCardSecurityCode" placeholder="CVV" required="">
+            </div>
+            <div class="col-sm-3">
+              <label class="O11BU">Expiration date</label>
+              <div class="dropDown">
+                <select class="form-control width48 monthSelect" ng-model="creditCardModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label class="O11BU phoneDN">&nbsp;</label>
+              <div class="dropDown">
+                <select class="form-control width48" ng-model="creditCardModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
+              </div>
+            </div>
+          </div>
+          <div class="clAll bdb mb20 mt20"></div>
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="O12R">Your credit card will not be charged until after the call is complete. Somethng reassuring about security could also go here.</p>
+            </div>
+          </div>
         </div>
-    </header>
-    <div class="flash-message" ng-show="flash_message">
-      <div class="inner">
-        <div class="message">{{flash_message}}</div>
-        <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
       </div>
     </div>
-    <div class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <a href="#/settings" class="back-link"><span class="back-link-arrow-left">Back</span></a>
-                </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="jumbotron" ng-show="user">
-                        <h2>Change Credit Card information</h2>
-                        <form novalidate role="form" name="creditCardForm" class="css-form" ng-submit="addCreditCard()">
-                          <div class="form-group">
-                              <label>Card Number <span class="text-danger">{{creditCardFormError}}</span></label>
-                              <input name="cardNumber" ng-model="creditCardModel.card_number" class="form-control" id="creditCardCardNumber" placeholder="Credit Card #" required="">
-                          </div>
-                          <div class="form-group">
-                              <label>Security Code</label>
-                              <input name="SecurityCode" ng-model="creditCardModel.security_code" class="form-control" id="creditCardSecurityCode" placeholder="CVC" required="">
-                          </div>
-                          <div class="form-group">
-                              <label class="width100">Expiration Date?</label>
-                              <select class="form-control width48 monthSelect" ng-model="creditCardModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
-                              <select class="form-control width48" ng-model="creditCardModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
-                          </div>
-                          <div class="button-group">
-                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="creditCardForm.$invalid" ng-click="addCreditCard()">Update</button>
-                          </div>
-                      </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div ng-include src="'shared/footer.html'"></div>
-</div>
+  </div>
+  <div class="bottomBtn">
+    <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="creditCardForm.$invalid" ng-click="addCreditCard()">Update</button>
+    <a class="btn grd-blue btnBlueLg" href="#/profile">Back</a>
+  </div>
+</form>

@@ -1,31 +1,12 @@
-<div class="home-form">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
-        </div>
-    </header>
-    <div class="flash-message" ng-show="flash_message">
-        <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
-    </div>
-    <div class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <a href="#/settings" class="back-link"><span class="back-link-arrow-left">Back</span></a>
-                </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="jumbotron" ng-show="user">
-                        <h2>Account Status ({{user.confirmed && "Activate" || "Deactivate" }})</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div ng-include src="'shared/footer.html'"></div>
-</div>
+<form name="callDetailForm" role="form">
+  <div class="formBox mt20">
+      <div class="formContent">
+        <h3>Account Status ({{user.confirmed && "Activate" || "Deactivate" }})</h3>
+        <div class="cl">&nbsp;</div>
+      </div>
+  </div>
+  <div class="bottomBtn">
+      <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="accountstatusForm.$invalid">Save</button>
+      <a class="btn grd-blue btnBlueLg" href="#/profile">Back</a>
+  </div>
+</form>

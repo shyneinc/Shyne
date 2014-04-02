@@ -1,54 +1,31 @@
-<div class="home-form">
-    <header>
-        <div class="container">
-            <nav class="masthead">
-                <ul class="nav navbar-nav pull-right">
-                    <li ng-hide="user"><a href="#/login">Log In</a></li>
-                    <li ng-show="user"><a href="#" ng-click="logout()">Log Out</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="#/">Shyne</a>
+<form novalidate role="form" name="bankAccountForm" class="css-form" ng-submit="addBankAccount()">
+  <div class="formBox mt20">
+    <div class="formContent">
+      <div class="row rowMar">
+        <div class="col-sm-12">
+            <img src="/assets/cheque.png" alt="" />
         </div>
-    </header>
-    <div class="flash-message" ng-show="flash_message">
-      <div class="inner">
-        <div class="message">{{flash_message}}</div>
-        <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
+        <div class="col-sm-6">
+            <label class="O11BU">Name</label>
+            <input type="text" name="name" ng-model="bankAccountModel.name" id="bankAccountName" placeholder="Enter name" required="">
+            <div class="error">{{ bankAccountFormError.name }}</div>
+        </div>
+        <div class="col-sm-6">
+            <label class="O11BU">Account Number</label>
+            <input type="text" name="accountNumber" ng-model="bankAccountModel.account_number" id="bankAccountAccountNumber" placeholder="Enter account number" required="">
+            <div class="error">{{ bankAccountFormError.account_number }}</div>
+        </div>
+        <div class="col-sm-6">
+            <label class="O11BU">Routing Number</label>
+            <input type="text" name="routingNumber" ng-model="bankAccountModel.routing_number" id="bankAccountRoutingNumber" placeholder="Enter routing number" required="">
+            <div class="error">{{ bankAccountFormError.routing_number }}</div>
+        </div>
       </div>
+      <div class="cl">&nbsp;</div>
     </div>
-    <div class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <a href="#/settings" class="back-link"><span class="back-link-arrow-left">Back</span></a>
-                </div>
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="jumbotron" ng-show="user">
-                        <h2>Change Bank Account Information</h2>
-                        <form novalidate role="form" name="bankAccountForm" class="css-form" ng-submit="addBankAccount()">
-                          <div class="form-group">
-                              <img src="/assets/cheque.png" alt="" />
-                          </div>
-                          <div class="form-group">
-                              <label>Name <span class="text-danger">{{ bankAccountFormError.name }}</span></label>
-                              <input name="name" ng-model="bankAccountModel.name" class="form-control" id="bankAccountName" placeholder="Enter name" required="">
-                          </div>
-                          <div class="form-group">
-                              <label>Account Number <span class="text-danger">{{ bankAccountFormError.account_number }}</span></label>
-                              <input name="accountNumber" ng-model="bankAccountModel.account_number" class="form-control" id="bankAccountAccountNumber" placeholder="Enter account number" required="">
-                          </div>
-                          <div class="form-group">
-                              <label>Routing Number <span class="text-danger">{{ bankAccountFormError.routing_number }}</span></label>
-                              <input name="routingNumber" ng-model="bankAccountModel.routing_number" class="form-control" id="bankAccountRoutingNumber" placeholder="Enter routing number" required="">
-                          </div>
-                          <div class="button-group">
-                              <button type="button" class="btn btn-primary" type="submit" ng-disabled="bankAccountForm.$invalid" ng-click="addBankAccount()">Save</button>
-                          </div>
-                      </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div ng-include src="'shared/footer.html'"></div>
-</div>
+  </div>
+  <div class="bottomBtn">
+    <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="bankAccountForm.$invalid" ng-click="addBankAccount()">Save</button>
+    <a class="btn grd-blue btnBlueLg" href="#/profile">Back</a>
+  </div>
+</form>
