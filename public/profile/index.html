@@ -7,19 +7,17 @@
         </div>
     </div>
 
-    <section ng-hide="user">
-        <div class="hero">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="text-center info-message">
-                            <h2>Please <a href="#/login">log in</a> to access your profile</h2>
-                            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
-                        </div>
-                    </div>
-                </div>
+    <section ng-hide="user" class="applicationMentors">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-2">
+            <div class="text-center">
+              <h3>Please <a class="tcOrg" href="#/login">log in</a> to access your profile</h3>
+              <p>Don't have an account yet, <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <div ng-show="user">
