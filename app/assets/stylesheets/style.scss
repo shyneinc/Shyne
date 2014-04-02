@@ -208,7 +208,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .iconSp {
-  background-image: url(/assets/sprite.png);
+  background-image: url(../images/sprite.png);
   background-repeat: no-repeat;
   display: inline-block;
 }
@@ -799,7 +799,7 @@ h3 {
 /* Header Top Banner */
 
 .headerTop {
-  background: url(/assets/header_top_bg.png) center top no-repeat;
+  background: url(../images/header_top_bg.png) center top no-repeat;
   background-size: cover;
   border-bottom: 1px solid #2f5866;
   .leftSide {
@@ -890,7 +890,7 @@ h3 {
     padding-left: 10px;
   }
   .carousel-control {
-    background-image: url(/assets/slider_arrow.png);
+    background-image: url(../images/slider_arrow.png);
     background-repeat: no-repeat;
     width: 32px;
     height: 32px;
@@ -1019,7 +1019,7 @@ h3 {
       position: absolute;
       left: 0;
       top: 5px;
-      background: url(/assets/round_bg.png) left top no-repeat;
+      background: url(../images/round_bg.png) left top no-repeat;
       width: 50px;
       height: 50px;
       font-family: 'Roboto Slab', serif;
@@ -1047,7 +1047,7 @@ h3 {
 /* Why Mentors */
 
 .whyMentors {
-  background: url(/assets/why_mentors_bg.png) center top no-repeat;
+  background: url(../images/why_mentors_bg.png) center top no-repeat;
   background-size: cover;
   border-bottom: 1px solid #2f5866;
   border-top: 1px solid #2f5866;
@@ -1111,7 +1111,7 @@ h3 {
   }
   .cBox {
     .arrowCl {
-      background: url(/assets/lc_arrow.png) center top no-repeat;
+      background: url(../images/lc_arrow.png) center top no-repeat;
       width: 42px;
       height: 42px;
       position: absolute;
@@ -1119,7 +1119,7 @@ h3 {
       top: 42px;
     }
     .arrowCr {
-      background: url(/assets/rc_arrow.png) center top no-repeat;
+      background: url(../images/rc_arrow.png) center top no-repeat;
       width: 42px;
       height: 42px;
       position: absolute;
@@ -1202,7 +1202,7 @@ h3 {
         &.active span {
           &.caretB {
             display: inline-block;
-            background: url(/assets/bc_arrow.png) center top no-repeat;
+            background: url(../images/bc_arrow.png) center top no-repeat;
             width: 13px;
             height: 9px;
             position: absolute;
@@ -1335,7 +1335,7 @@ h3 {
 /* Profile */
 
 .iconPro {
-  background-image: url(/assets/sprite.png);
+  background-image: url(../images/sprite.png);
   background-repeat: no-repeat;
   display: inline-block;
   width: 22px;
@@ -1596,7 +1596,7 @@ h3 {
 }
 
 .spBlue {
-  background-image: url(/assets/sprite-star-blue.png);
+  background-image: url(../images/sprite-star-blue.png);
   background-repeat: no-repeat;
   width: 67px;
   height: 12px;
@@ -1605,7 +1605,7 @@ h3 {
 }
 
 .spOrg {
-  background-image: url(/assets/sprite-star-org.png);
+  background-image: url(../images/sprite-star-org.png);
   background-repeat: no-repeat;
   width: 67px;
   height: 12px;
@@ -1669,7 +1669,7 @@ h3 {
 }
 
 .hiwSp {
-  background-image: url(/assets/howItWork.png);
+  background-image: url(../images/howItWork.png);
   background-repeat: no-repeat;
   width: 75px;
   height: 75px;
@@ -1734,7 +1734,7 @@ h3 {
       }
       &.active span.caretB, &:hover span.caretB {
         display: inline-block;
-        background: url(/assets/bc_arrow.png) center top no-repeat;
+        background: url(../images/bc_arrow.png) center top no-repeat;
         width: 13px;
         height: 9px;
         position: absolute;
@@ -1758,6 +1758,31 @@ h3 {
 
 .settingDetail .formBox label {
   margin-top: 10px;
+}
+
+/* Messages */
+
+.messages .memberReview {
+  .revRow {
+    &:first-child {
+      margin-top: -20px;
+    }
+    padding-left: 30px;
+    min-height: 90px;
+    p {
+      padding-left: 0px;
+      white-space: pre-wrap;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+  .mrImage {
+    top: 20px;
+  }
+}
+
+.msgReplyBox {
+  margin-top: 20px;
 }
 
 /* Responsive Media CSS */

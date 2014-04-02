@@ -25,6 +25,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.bankAccountModel = {}
   $scope.user_industries = []
   $scope.user_skills = []
+  $scope.settings = {tab: 'basic_info'}
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
