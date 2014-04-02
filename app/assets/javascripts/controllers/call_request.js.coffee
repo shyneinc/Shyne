@@ -1,5 +1,6 @@
 Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$timeout', '$routeParams', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $rootScope, $timeout, $routeParams, Session, User, Workhistory, Conversation) ->
 
+  $rootScope.location = $location
   $scope.user = null
   $scope.mentor = null
   $scope.callRequestModel = {form: 'cal_details'}

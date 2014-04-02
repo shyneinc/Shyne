@@ -1,5 +1,6 @@
 Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeParams', '$rootScope', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, $rootScope, Session, User, Workhistory, Conversation) ->
 
+  $rootScope.location = $location
   $scope.user = null
   $scope.conversationModel = null
   $scope.conversations = null

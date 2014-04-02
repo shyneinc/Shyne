@@ -1,5 +1,6 @@
-Shyne.controller('HomeCtrl', ['$location','$scope','Session',($location, $scope, Session) ->
+Shyne.controller('HomeCtrl', ['$location', '$rootScope', '$scope','Session',($location, $rootScope, $scope, Session) ->
 
+  $rootScope.location = $location
   $scope.showIndex = true
   $scope.signupModel = {timeZone: 'Alaska'}
   $scope.signUpError = {}

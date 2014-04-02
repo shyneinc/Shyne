@@ -1,5 +1,6 @@
 Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '$routeParams', 'Session', 'User', 'Workhistory', 'Conversation', 'Calls',($location, $scope, $rootScope, $timeout, $routeParams, Session, User, Workhistory, Conversation, Calls) ->
 
+  $rootScope.location = $location
   $scope.user = null
   $scope.mentor = null
   $scope.call_requests = null
