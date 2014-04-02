@@ -23,6 +23,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.editSchoolModel = {}
   $scope.changePasswordModel = null
   $scope.bankAccountModel = {}
+  $scope.user_industries = []
+  $scope.user_skills = []
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -103,6 +105,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
           $scope.editIndustryModel.industries = mentorInfo.industries.split(", ")
+          $scope.user_industries = mentorInfo.industries.split(", ")
+          $scope.user_skills = mentorInfo.skills.split(", ")
           $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
           angular.extend(user, mentorInfo)
         )
