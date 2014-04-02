@@ -39,9 +39,9 @@
 
           <div data-ride="carousel" class="carousel slide" id="carousel">
             <div class="carousel-inner">
-              <div class="item active" ng-repeat="mentor in mentors">
+              <div class="item active">
                 <div class="row">
-                  <div class="col-sm-4">
+                  <div class="col-sm-4" data-ng-repeat="mentor in mentors">
                     <div class="fmUserBox">
                       <div class="fmImage" ng-click="viewProfile(mentor.user_id)"><img src="/assets/no_image.png" alt="" ng-src="{{mentor.photo_url}}"><span class="caret"></span></div>
                         <div class="fmName">{{mentor.full_name}}</div>
