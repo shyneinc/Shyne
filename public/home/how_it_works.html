@@ -1,40 +1,41 @@
-<div class="home-index">
-    <div ng-include src="'shared/masthead.html'"></div>
-
-    <div class="hero">
-        <div class="container">
-            <h1>How It Works</h1>
-            <div class="list-row row">
-                <div class="col-md-9">
-                    <h2><span class="glyphicon glyphicon-list-alt"></span> Apply to become a Mentor</h2>
-                    <h2><span class="glyphicon glyphicon-info-sign"></span> Create a profile so our users can contact you to schedule a call</h2>
-                    <h2><span class="glyphicon glyphicon-phone-alt"></span> Take calls at your convenience.</h2>
-                    <h2><span class="glyphicon glyphicon-usd"></span> Money transferred straight to your bank account within 48 hours of the call</h2>
-                </div>
-                <div class="col-md-3">&nbsp;</div>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section class="howItWork">
+      <div class="container">
+        <h2>How It Works</h2>
+        <div class="workDetail">
+          <div class="row rowMar">
+            <div class="col-sm-3">
+              <span class="hiwSp apply"></span>
+              <div class="R20R">Apply to become a Mentor</div>
             </div>
-        </div>
-        <div class="banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Our Mentors make $60-180/hr (depending on experience)</h2>
-                    </div>
-                    <div class="col-md-3">&nbsp;</div>
-                    <div class="col-md-3">
-                        <a href="#/signup" class="signup-circle">
-                            <span class="inner">
-                              <span class="deep">
-                                <sup>JOIN FOR</sup>
-                                <strong>FREE</strong>
-                              </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
+            <div class="col-sm-3">
+              <span class="hiwSp profile"></span>
+              <div class="R20R">Create a profile so our users can contact you to schedule a call</div>
             </div>
+            <div class="col-sm-3">
+              <span class="hiwSp call"></span>
+              <div class="R20R">Take calls at your convenience.</div>
+            </div>
+            <div class="col-sm-3">
+              <span class="hiwSp money"></span>
+              <div class="R20R">Money transferred straight to your bank account within 48 hours of the call</div>
+            </div>
+          </div>
         </div>
-    </div>
-
-    <div ng-include src="'shared/footer.html'"></div>
+      </div>
+    </section>
+    <section class="ourMentors howItWork">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="joinOurMentors">Our Mentors make $60-180/hr (depending on experience)</div>
+          </div>
+          <div class="col-sm-3 text-right">
+            <a href="#/signup" class="btn grd-org btnOrgLg">JOIN FOR FREE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
