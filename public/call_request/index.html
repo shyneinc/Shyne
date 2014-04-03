@@ -1,19 +1,18 @@
 <div data-extend-template="/layouts/layout.html">
   <div data-block="content">
-    <section ng-hide="user">
-      <div class="hero mainBg maxHeight">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-md-offset-2">
-              <div class="text-center info-message">
-                <h2>Please <a href="#/login">log in</a> with your Shyne account to continue</h2>
-                <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
-              </div>
+    <section ng-hide="user" class="applicationMentors">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-2">
+            <div class="text-center">
+              <h2>Please <a class="tcOrg" href="#/login">log in</a> with your Shyne account to continue</h2>
+              <p>Don't have an account yet, <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <div ng-show="user">
       <div ng-show="user.role_type == 'Mentor'">
         <div class="hero mainBg maxHeight">

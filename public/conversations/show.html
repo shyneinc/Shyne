@@ -1,58 +1,54 @@
-<div ng-include src="'shared/masthead.html'"></div>
-<section ng-hide="user">
-  <div class="hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="text-center info-message">
-            <h2>Please <a href="#/login">log in</a> to access messages</h2>
-            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section ng-hide="user">
+      <div class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="text-center info-message">
+                <h2>Please <a href="#/login">log in</a> to access messages</h2>
+                <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<div class="mainBg" ng-show="user">
-  <div class="container">
-    <div class="conversations">
-      <div class="messaheShowHeading">
-        <h2>Conversation with: {{ conversations.messages[0].recipients[0].first_name }} {{ conversations.messages[0].recipients[0].last_name }}</h2>
-      </div>
-      <div class="conversationsList">
-          <ul>
-              <li ng-repeat="message in conversations.messages | orderBy:'id':false">
+    <div class="mainBg" ng-if="user">
+      <section class="messages">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+            <h2>Conversation with: {{ conversations.messages[0].recipients[0].first_name }} {{ conversations.messages[0].recipients[0].last_name }}</h2>
+            <div class="clAll mb20"></div>
+            <div class="proBox">
+              <div class="memberReview">
+                <div class="revRow" ng-repeat="message in conversations.messages | orderBy:'id':false">
                   <div ng-hide="true"> {{ message.id}} </div>
+                  <div class="O12BU fl">From: <a class="tcOrg" href="#/profile/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a></div>
+                  <div class="O12BU fr">{{ message.created_at | date:'MMM dd' }}</div>
+                  <div class="clAll mb5"></div>
+                  <div class="mrImage"><img src="/assets/no_image.png" ng-src="{{message.sender.avatar.medium.url}}"><span class="caret"></span></div>
+                  <p>{{ message.body }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="msgReplyBox">
+              <div class="R16R">Reply to: {{ conversations.messages[0].recipients[0].first_name }} {{ conversations.messages[0].recipients[0].last_name }}</div>
+                <form novalidate role="form" name="conversationForm" class="css-form" ng-submit="replyOnConversation()">
                   <div>
-                      <div class="fLeft"><strong>From:</strong> <a href="#/profile">{{message.sender.first_name}} {{message.sender.last_name}}</a></div>
-                      <div class="fRight"><b>{{ message.created_at | date:'MMM dd' }}</b></div>
+                    <textarea class="form-control width65" rows="3" ng-model="conversationModel.body" required="" maxlength="280"></textarea>
                   </div>
-                  <div class="clearb">&nbsp;</div>
-                  <div class="messageTextDiv col-md-9">
-                    <div class="photo fLeft msgPhoto col-md-2">
-                        <img src="/assets/sample.png" ng-src="{{message.sender.avatar.medium.url}}" width="100" height="100">
-                    </div>
-                    <div class="fLeft messageText col-md-10">
-                        <span>{{ message.body }}</span>
-                    </div>
+                  <div>
+                    <button type="button" class="btn grd-org btnOrgLg fr mt10" type="submit" ng-disabled="conversationForm.$invalid" ng-click="replyOnConversation()">Send Message</button>
                   </div>
-              </li>
-          </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container" ng-show="user">
-    <div class="replyBox">
-      <h4>Reply to: {{ conversations.messages[0].recipients[0].first_name }} {{ conversations.messages[0].recipients[0].last_name }}</h4>
-      <form novalidate role="form" name="conversationForm" class="css-form" ng-submit="replyOnConversation()">
-        <div>
-          <textarea class="form-control width65" rows="3" ng-model="conversationModel.body" required="" maxlength="280"></textarea>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <button type="button" class="btn btn-success btn-reply" type="submit" ng-disabled="conversationForm.$invalid" ng-click="replyOnConversation()">Send Message</button>
-        </div>
-      </form>
+      </section>
     </div>
   </div>
 </div>
