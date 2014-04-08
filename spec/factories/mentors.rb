@@ -29,7 +29,7 @@ FactoryGirl.define do
     status_changed_at nil
     avg_call_duration nil
     avg_rating nil
-    total_reviews nil
+    total_reviews 0
     user
 
     factory :mentor_with_reviews do
