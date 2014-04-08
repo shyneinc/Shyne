@@ -105,9 +105,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          $scope.editIndustryModel.industries = mentorInfo.industries.split(", ")
-          $scope.user_industries = mentorInfo.industries.split(", ")
-          $scope.user_skills = mentorInfo.skills.split(", ")
+          $scope.editIndustryModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
+          $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
+          $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
           $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
           angular.extend(user, mentorInfo)
         )
@@ -167,6 +167,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.user.time_zone = $scope.mentorModel.timeZone
       User.updateUser($scope.user)
       $scope.user.schools = $scope.mentorModel.schools
+      $scope.historyModel.industries = $scope.mentorModel.industries
     , (data) ->
       $scope.mentorFormError = data
     )
