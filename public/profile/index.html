@@ -27,7 +27,7 @@
                     <div class="row">
                       <section class="welcomeMember" ng-hide="welcomeModel.role">
                         <div class="container">
-                          <h2>Welcome! How would you like to use Shyne?</h2>
+                          <h2 class="text-center">Welcome! How would you like to use Shyne?</h2>
                           <div class="cl">&nbsp;</div>
                           <div class="row">
                             <div class="col-md-12">
@@ -37,7 +37,6 @@
                                 <p class="text-center"><button ng-click="showMentorForm()" class="btn grd-org btnOrgLg">I'd like to Apply to become a Mentor</button></p>
                                 <p class="R16R">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</p>
                                 <div class="cl">&nbsp;</div>
-                                <p class="R16R">Remember:  It's  FREE  to  join  as  either  a Mentor  or  Member. Also, Members can always  apply to  become  Mentors later on.</p>
                             </div>
                           </div>
                         </div>
@@ -105,7 +104,7 @@
                                       <div class="row">
                                         <div class="col-sm-6">
                                           <label for="mentorCity" class="O11BU">City</label>
-                                          <input type="text" name="city" ng-model="mentorModel.city" id="mentorCity" placeholder="Enter the City" required="">
+                                          <input type="text" name="city" ng-model="mentorModel.city" id="mentorCity" placeholder="Enter your city" required="">
                                           <div class="error">{{mentorFormError.city[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
@@ -140,8 +139,8 @@
                                           <div class="error">{{mentorFormError.time_zone[0]}}</div>
                                         </div>
                                         <div class="col-sm-12">
-                                          <label class="O11BU">Give a short description of your general availability for calls</label>
-                                          <input type="text" name="availability" ng-model="mentorModel.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 12PM to 6PM and weekends from 1PM to 4PM." required="">
+                                          <label class="O11BU">When do you prefer our members to request calls with you?</label>
+                                          <input type="text" name="availability" ng-model="mentorModel.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm" required="">
                                           <div class="error">{{mentorFormError.availability[0]}}</div>
                                         </div>
                                       </div>
@@ -150,7 +149,7 @@
                                       <div class="row">
                                         <div class="col-sm-6">
                                           <label class="O11BU">What is your linkedin url?</label>
-                                          <input type="text" name="linkedin" ng-model="mentorModel.linkedin" id="mentorLinkedin" placeholder="Ex: www.linkedin.com/in/johnsmith" required="">
+                                          <input type="text" name="linkedin" ng-model="mentorModel.linkedin" id="mentorLinkedin" placeholder="Ex: www.linkedin.com/in/johnk" required="">
                                           <div class="error">{{mentorFormError.linkedin[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
@@ -167,7 +166,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">what industries have you worked in?</label>
-                                          <input type="text" name="industries" placeholder="Ex: Finance, Non-Profits, Education">
+                                          <tags-input ng-model="mentorModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
+                                            <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                                          </tags-input>
                                           <div class="error">{{mentorFormError.industries[0]}}</div>
                                         </div>
                                         <div class="col-sm-12">
@@ -297,7 +298,7 @@
                       <div class="row">
                         <div class="col-sm-12">
                           <label class="O11BU">What are the main industries you’ve worked in?</label>
-                          <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="Example: Finance, Non-Profits, Social Networking" required="">
+                          <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
                             <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                           </tags-input>
                         </div>
@@ -343,11 +344,11 @@
                     <div class="userInfo">
                       <ul>
                         <li><span class="iconPro i_ribbon"></span>{{ user.years_of_experience }} years work experience</li>
-                        <li><span class="iconPro i_phone"></span>12 calls</li>
+                        <li><span class="iconPro i_phone"></span>{{ user.total_calls }} calls</li>
                         <li><span class="iconPro i_education"></span>{{ user.schools }}</li>
                         <li><span class="iconPro i_review"></span>{{ reviews.length }} reviews</li>
                         <li><span class="iconPro i_pin"></span>{{ user.city}}, {{user.state }}</li>
-                        <li><span class="iconPro i_star"></span><star-rating-orange star-rating="user.get_avg_rating"></star-rating></li>
+                        <li><span class="iconPro i_star"></span><star-rating-orange star-rating="user.get_avg_rating"></star-rating-orange></li>
                       </ul>
                     </div>
                     <p class="R16R">{{ user.headline }}</p>
@@ -356,9 +357,9 @@
                     <a href="#/call_request/{{user.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call Now</a>
                     <div class="O12BU mb20 text-center">call rate is $2/min</div>
                     <div class="darkBoxRight">
-                      <div class="OC16BUB mb10">availability</div>
+                      <div class="OC16BUB mb10 text-center">availability</div>
                       <p class="O12R">{{ user.availability }}</p>
-                      <div class="O11BU mb10"><span class="iconPro i_clock"></span>Scheduled in {{ user.time_zone}}</div>
+                      <div class="O11BU mb10"><span class="iconPro i_clock"></span>{{ user.time_zone}}</div>
                     </div>
                   </div>
                 </div>
@@ -387,7 +388,7 @@
                       <div class="revRow" ng-repeat="review in reviews">
                         <div class="mrImage"><img ng-src="{{review.member.user.avatar.medium.url }}" src="/assets/no_image.png" alt=""><span class="caret"></span></div>
                         <div class="O11BU fl"><span class="iconPro i_review"></span>{{ review.member.user.first_name }} {{ review.member.user.last_name }} <span class="O12R">on</span> {{ review.created_date }}</div>
-                        <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating>
+                        <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating-blue>
                         <div class="clAll"></div>
                         <p>{{ review.review }}</p>
                       </div>
@@ -412,81 +413,73 @@
           </div>
         </section>
 
-        <div class="member-section" ng-show="user.role_type == 'Member'">
-            <div class="hero">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 editable-field">
-                          <div class="circle">
-                            <div class="inner">
-                              <img src="{{user.avatar.url}}" start-inline-edit/>
-                            </div>
-                          </div>
-                          <div class="fileUpload btn btn-primary btn-blue" ng-show="memberDetailForm.$visible">
-                              <span>Change Photo</span>
-                              <input id="userAvatar" type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
-                          </div>
+        <section class="memberProfile" ng-show="user.role_type == 'Member'">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <form editable-form name="memberDetailForm" onaftersave="updateMemberDetail()">
+                  <div class="OC16BUB fl">Member Profile</div>
+                  <a class="O13SB tcOrg fr" href=""  ng-click="memberDetailForm.$show()" ng-show="!memberDetailForm.$visible">Edit your profile</a>
+                  <div class="cl">&nbsp;</div>
+                  <div class="callDetail">
+                    <div class="formBox mt20">
+                      <div class="profileImage">
+                        <img src="{{user.avatar.url}}" />
+                        <span class="caretL"></span>
+                        <span class="caretR"></span>
+                      </div>
+                      <div class="addFile" ng-show="memberDetailForm.$visible">
+                          <span class="fileInput grd-org">Change Photo</span>
+                          <input id="userAvatar" type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
+                      </div>
+                      <div class="userInfo" ng-show="!memberDetailForm.$visible">
+                        <div class="memberTitle pb10 mb5">{{user.first_name}} {{user.last_name}}</div>
+                        <ul>
+                          <li><span class="iconPro i_clock"></span>{{user.time_zone}}</li>
+                          <li><span class="iconPro i_pin"></span>{{user.city}}, {{user.state}}</li>
+                        </ul>
+                        <ul class="lastRow">
+                          <li><span class="iconPro i_case"></span>{{user.industries}}</li>
+                        </ul>
+                      </div>
+                      <div class="userInfo edit" ng-show="memberDetailForm.$visible">
+                        <div class="memberTitle mb5">
+                          <span editable-text="user.first_name" e-name="first_name" e-placeholder="First name" e-required></span>
+                          <span editable-text="user.last_name" e-name="last_name" e-placeholder="Last name" e-required></span>
                         </div>
-                        <div class="col-md-9">
-                          <form editable-form name="memberDetailForm" onaftersave="updateMemberDetail()">
-                            <div class="xeditable-fields">
-                              <div class="name-form-edit">
-                                <a class="edit-link" href="javascript:void(0)" ng-click="memberDetailForm.$show()" ng-show="!memberDetailForm.$visible">Edit</a>
-                                <!-- buttons to submit / cancel form -->
-                                <span ng-show="memberDetailForm.$visible">
-                                  <button type="submit" class="btn btn-primary" ng-disabled="memberDetailForm.$waiting">Save</button>
-                                  <button type="button" class="btn btn-default" ng-disabled="memberDetailForm.$waiting" ng-click="memberDetailForm.$cancel()">Cancel</button>
-                                </span>
-                              </div>
-                              <h1 ng-show="!memberDetailForm.$visible">{{user.first_name}} {{user.last_name}}</h1>
-                              <h4 ng-show="!memberDetailForm.$visible"><span class="glyphicon glyphicon-time"></span> {{user.time_zone}}</h4>
-                              <h4 ng-show="!memberDetailForm.$visible"><span class="glyphicon glyphicon-random"></span> {{user.industries}}</h4>
-                              <div class="form-controls" ng-show="memberDetailForm.$visible">
-                                <div style="padding-top:5px;">
-                                  <span editable-text="user.first_name" e-name="first_name" e-required></span>&nbsp;
-                                  <span editable-text="user.last_name" e-name="last_name" e-required></span>
-                                </div>
-                                <div style="padding-top:5px;">
-                                  <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
-                                </div>
-                                <div style="padding-top:15px;">
-                                  <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                                    <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                                  </tags-input>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                          <form editable-form name="changepasswordForm" onaftersave="updatePassword()">
-                            <div class="xeditable-fields">
-                              <div class="name-form-edit">
-                                <h4><span class="glyphicon glyphicon-lock"></span> <a href="javascript:void(0)" ng-click="changepasswordForm.$show()" ng-show="!changepasswordForm.$visible">Change Password</a></h4>
-                                <!-- buttons to submit / cancel form -->
-                                <span ng-show="changepasswordForm.$visible">
-                                  <button type="submit" class="btn btn-primary" ng-disabled="changepasswordForm.$waiting">Save</button>
-                                  <button type="button" class="btn btn-default" ng-disabled="changepasswordForm.$waiting" ng-click="changepasswordForm.$cancel()">Cancel</button>
-                                </span>
-                              </div>
-                              <div class="form-controls" ng-show="changepasswordForm.$visible">
-                                <div style="padding-top:5px;">
-                                  <div style="padding-top:5px;">
-                                    <span editable-password="changePasswordModel.current_password" e-name="current_password" e-required e-placeholder="Enter current password"></span>&nbsp;
-                                  </div>
-                                  <div style="padding-top:5px;">
-                                    <span editable-password="changePasswordModel.password" e-name="password" e-required e-placeholder="Enter new password"></span>
-                                  </div>
-                                  <div style="padding-top:5px;">
-                                    <span editable-password="changePasswordModel.confirmPassword" e-name="confirmPassword" e-required e-placeholder="Confirm password"></span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
+                        <ul>
+                          <li>
+                            <span class="iconPro i_clock"></span>
+                            <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
+                          </li>
+                          <li>
+                            <span class="iconPro i_pin"></span>
+                            <span editable-text="user.city" e-name="city" e-placeholder="Enter City" e-required></span>
+                            <span editable-text="user.state" e-name="state" e-placeholder="Enter state" e-required></span>
+                          </li>
+                        </ul>
+                        <ul class="lastRow">
+                          <li>
+                            <span class="iconPro i_case"></span>
+                            <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
+                                <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                              </tags-input>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="clAll"></div>
+                      <div ng-show="memberDetailForm.$visible">
+                        <button class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="memberDetailForm.$waiting">Save</button>
+                        <button class="btn grd-blue btnBlueLg ml20 fr" type="button" ng-disabled="memberDetailForm.$waiting" ng-click="memberDetailForm.$cancel()">Cancel</button>
+                        <div class="clAll"></div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                </form>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
     </div>
     <div class="footer-flash-message" ng-show="footer_flash_message">
         <div class="inner">
