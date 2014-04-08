@@ -541,7 +541,7 @@ tagsInput.directive('tiAutosize', function() {
                 span.text(value);
                 span.css('display', '');
                 try {
-                    element.css('width', span.prop('offsetWidth') + 'px');
+                    element.css('width', '100%');
                 }
                 finally {
                     span.css('display', 'none');
