@@ -14,19 +14,19 @@
     </section>
 
     <div ng-show="user">
-      <div ng-show="user.role_type == 'Mentor'">
+      <section ng-show="user.role_type == 'Mentor'">
         <div class="hero mainBg maxHeight">
           <div class="container">
             <div class="row">
               <div class="col-md-7 col-md-offset-2">
-                <div class="text-center info-message">
-                  <h3>Mentors cannot currently request calls. You must be a Member to schedule a call. We will be fixing this soon!</h3>
+                <div class="text-center">
+                  <h3>Mentors cannot currently request calls. You must be a Member to schedule a call. <br /> <br /> We will be fixing this soon!</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <section class="scheduleCall">
         <div ng-show="user.role_type == 'Member'" class="mainBg maxHeight">
           <div class="loaderimgText" style="display:none;" id="loaderimgText">
