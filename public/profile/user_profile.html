@@ -23,11 +23,11 @@
                 <div class="userInfo">
                   <ul>
                     <li><span class="iconPro i_ribbon"></span>{{ userProfile.years_of_experience }} years work experience</li>
-                    <li><span class="iconPro i_phone"></span>12 calls</li>
+                    <li><span class="iconPro i_phone"></span>{{ userProfile.total_calls }} calls</li>
                     <li><span class="iconPro i_education"></span>{{ userProfile.schools }}</li>
                     <li><span class="iconPro i_review"></span>{{ user_reviews.length }} reviews</li>
                     <li><span class="iconPro i_pin"></span>{{ userProfile.city}}, {{userProfile.state }}</li>
-                    <li><span class="iconPro i_star"></span><star-rating-orange star-rating="userProfile.get_avg_rating"></star-rating></li>
+                    <li><span class="iconPro i_star"></span><star-rating-orange star-rating="userProfile.get_avg_rating"></star-rating-orange></li>
                   </ul>
                 </div>
                 <p class="R16R">{{ userProfile.headline }}</p>
@@ -67,7 +67,7 @@
                   <div class="revRow" ng-repeat="review in user_reviews">
                     <div class="mrImage"><img ng-src="{{review.member.user.avatar.medium.url }}" src="/assets/no_image.png" alt=""><span class="caret"></span></div>
                     <div class="O11BU fl"><span class="iconPro i_review"></span>{{ review.member.user.first_name }} {{ review.member.user.last_name }} <span class="O12R">on</span> {{ review.created_date }}</div>
-                    <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating>
+                    <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating-blue>
                     <div class="clAll"></div>
                     <p>{{ review.review }}</p>
                   </div>
