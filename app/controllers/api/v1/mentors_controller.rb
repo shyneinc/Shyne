@@ -14,13 +14,13 @@ class Api::V1::MentorsController < Api::V1::BaseController
     end
 
     respond_with :api, mentors.to_json(:only => [:id, :user_id, :city, :state, :rate_per_minute, :years_of_experience],
-                                       :methods => [:current_position, :current_company, :full_name, :photo_url, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at])
+                                       :methods => [:current_position, :current_company, :full_name, :photo_url, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at, :total_reviews])
   end
 
   def show
     mentor = Mentor.find(params[:id])
     respond_with :api, mentor.to_json({:include => [:user],
-                                       :methods => [:full_name, :avatar, :rate_per_minute, :get_avg_rating, :current_position, :current_company, :currently_working_at, :previously_worked_at, :avg_call_duration]})
+                                       :methods => [:full_name, :avatar, :rate_per_minute, :get_avg_rating, :current_position, :current_company, :currently_working_at, :previously_worked_at, :avg_call_duration, :total_calls]})
   end
 
   def create
