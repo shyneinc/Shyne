@@ -21,6 +21,8 @@ b, strong {
 }
 
 input {
+  text-decoration: none;
+  outline: none;
   &[type="file"]:focus, &[type="radio"]:focus, &[type="checkbox"]:focus {
     text-decoration: none;
     outline: none;
@@ -445,7 +447,7 @@ textarea {
     opacity: 0;
   }
   .fileInput {
-    padding-right: 30px;
+    padding-right: 0px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -648,6 +650,22 @@ h3 {
   letter-spacing: 0.5px;
 }
 
+.OC16BU {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 26px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.R22R {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 32px;
+  font-family: 'Roboto Slab', serif;
+}
+
 .R20R {
   font-size: 20px;
   font-weight: 400;
@@ -702,6 +720,32 @@ h3 {
   position: absolute;
   right: -10px;
   top: -1px;
+}
+
+.caretT {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-bottom: 10px solid #b1c6cc;
+  border-right: 0px solid transparent;
+  border-left: 9px solid transparent;
+  position: absolute;
+  left: -1px;
+  top: -10px;
+}
+
+.caretB {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 10px solid #b1c6cc;
+  border-right: 0px solid transparent;
+  border-left: 9px solid transparent;
+  position: absolute;
+  left: -1px;
+  bottom: -10px;
 }
 
 /* Navigation */
@@ -1466,25 +1510,82 @@ h3 {
 
 /* Member Profile */
 
-.member {
-  .profileBox {
-    min-height: 250px;
-  }
+.memberProfile .profileImage {
+  left: 48px;
+}
+
+.memberTitle {
+  font-size: 28px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  color: #474b4c;
+  line-height: 36px;
+  padding-left: 205px;
+  width: 100%;
+}
+
+.memberProfile {
   .addFile {
     width: 175px;
     position: absolute;
-    left: 0;
-    top: 180px;
+    left: 48px;
+    top: 125px;
+    opacity: 0.9;
   }
   .userInfo {
     padding-bottom: 10px;
     min-height: 120px;
-    ul li {
-      width: 94%;
-      &:nth-child(2) {
-        border-top: 0px solid #e3e6e7;
+    padding-left: 0px;
+    ul {
+      padding-left: 205px;
+      margin-bottom: 10px;
+      &.lastRow {
+        padding-left: 0px;
+      }
+      li {
+        width: 100%;
+        margin: 0px;
+        padding: 12px 0px 12px 32px;
+        &:nth-child(2) {
+          border-top: 0px solid #e3e6e7;
+        }
+        .iconPro {
+          top: 10px;
+        }
+      }
+      &.lastRow li:first-child {
+        border-top: none;
       }
     }
+  }
+}
+
+.userInfo.edit {
+  /* position:absolute; left:0; top:0; z-index:2; padding:25px 48px;*/
+  ul li input[type="text"] {
+    padding: 10px 8px;
+  }
+}
+
+.memberTitle {
+  float: left;
+  input[type="text"] {
+    margin-bottom: 2px;
+    line-height: 18px;
+    font-family: 'Open Sans',sans-serif;
+    width: 48%;
+    margin-right: 4%;
+    float: left;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.memberProfile .userInfo.edit ul li {
+  padding: 5px 0px 6px 32px;
+  .iconPro {
+    top: 14px;
   }
 }
 
@@ -1785,6 +1886,97 @@ h3 {
   margin-top: 20px;
 }
 
+/* Search Result */
+
+.searchBox {
+  background: #fbfdfd;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #b1c7cc;
+  border-top: 1px solid #b1c7cc;
+  margin: 0px 0px 0px 0px;
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  input {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: #9caaad;
+    min-height: 50px;
+    padding-left: 45px;
+  }
+  .glyphicon-search {
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    font-size: 22px;
+    color: #9caaad;
+  }
+}
+
+.sResultBox {
+  background: #fbfdfd;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #b1c7cc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sBoxRow {
+  position: relative;
+  padding: 42px 50px 50px 140px;
+  border-bottom: 2px solid #b0c7cb;
+  min-height: 220px;
+  &:first-child! {}
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.resultImage {
+  position: absolute;
+  left: -9px;
+  top: 50px;
+  width: 120px;
+  height: 120px;
+  background: #fefefe;
+  border: 1px solid #b1c6cc;
+  padding: 7px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.searchInfo {
+  margin: 0px 0px 0px -6%;
+  padding: 0px;
+  list-style: none;
+  float: left;
+  li {
+    width: 44%;
+    float: left;
+    margin-left: 6%;
+    padding: 8px 0px 8px 32px;
+    border-bottom: 1px solid #e3e6e7;
+    font-size: 12px;
+    font-weight: 400;
+    color: #474b4c;
+    position: relative;
+    &:nth-child(1), &:nth-child(2) {
+      border-top: 1px solid #e3e6e7;
+    }
+    .iconPro {
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+  }
+}
+
 /* Responsive Media CSS */
 @media (min-width: 1200px) {
   .container {
@@ -1823,6 +2015,9 @@ h3 {
       border-top: 0px solid #e3e6e7;
     }
   }
+  .searchInfo {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1845,6 +2040,12 @@ h3 {
   }
   .front section, .not-front section {
     padding: 30px 0px;
+  }
+  .mb50 {
+    margin-bottom: 30px;
+  }
+  .mt50 {
+    margin-top: 30px;
   }
   h2 {
     font-size: 32px;
@@ -1911,6 +2112,27 @@ h3 {
     text-align: center;
     margin-top: 20px;
   }
+  .memberProfile {
+    .profileImage, .addFile {
+      left: 20px;
+    }
+  }
+  .sBoxRow {
+    padding: 15px 20px 20px 130px;
+  }
+  .resultImage {
+    top: 22px;
+  }
+  .searchInfo {
+    margin-left: 0px;
+    li {
+      &:nth-child(2) {
+        border-top: none;
+      }
+      margin-left: 0px;
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -1943,6 +2165,29 @@ h3 {
   .btn-group-justified > .btn-group .btn.active span.caretB {
     display: none;
   }
+  .profileImage {
+    left: 50%;
+    margin-left: -87.5px;
+  }
+  .memberProfile {
+    .profileImage, .addFile {
+      left: 50%;
+      margin-left: -87.5px;
+    }
+  }
+  .memberTitle, .memberProfile .userInfo ul {
+    padding-left: 0px;
+  }
+  .userInfo {
+    padding: 165px 0px 30px 0px;
+    width: 100%;
+    ul li {
+      margin-left: 0;
+    }
+  }
+  .memberProfile .userInfo ul {
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1973,19 +2218,36 @@ h3 {
       padding: 10px 0px 0px;
     }
   }
-  .profileImage {
-    left: 50%;
-    margin-left: -87.5px;
-  }
-  .userInfo {
-    padding: 165px 0px 30px 0px;
+  .memberTitle input[type="text"] {
+    margin-right: 0px;
     width: 100%;
-    ul li {
-      margin-left: 0;
+    margin-top: 5px;
+    &:last-child {
+      margin-right: 0px;
+      width: 100%;
+      margin-top: 5px;
     }
   }
   .changePassword .bottomBtn .btn {
     padding-left: 18px;
     padding-right: 18px;
+  }
+  .searchBox {
+    .input-group-btn {
+      display: inline-block;
+      width: 100%;
+      button {
+        display: inline-block;
+        width: 100%;
+      }
+    }
+    .input-group .form-control {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  .sBoxRow {
+    padding: 150px 20px 20px 20px;
   }
 }

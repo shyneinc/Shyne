@@ -107,4 +107,12 @@ class Mentor < ActiveRecord::Base
   def full_address
     [self.city, self.state].join(", ")
   end
+
+  def total_calls
+    self.call_requests.map{ |p| p.calls.where(status: :completed)}.size
+  end
+
+  def total_reviews
+    self.reviews.size
+  end
 end
