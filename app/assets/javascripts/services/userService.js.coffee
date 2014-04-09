@@ -18,7 +18,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  becomeMentor: (headline, city, state, years_of_experience, phone_number, availability, linkedin) ->
+  becomeMentor: (headline, city, state, years_of_experience, phone_number, availability, linkedin, industries, schools, skills) ->
     deferred = $q.defer()
 
     $http.post('/api/mentors',
@@ -29,7 +29,10 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         years_of_experience: years_of_experience,
         phone_number: "1#{phone_number}",
         availability: availability,
-        linkedin: linkedin
+        linkedin: linkedin,
+        industries: industries.join(", "),
+        skills: skills,
+        schools: schools.join(", ")
     ).success((data)->
       if data.id
         deferred.resolve(angular.extend(data, {role_type: 'Mentor'}))
@@ -129,7 +132,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         availability: user.availability,
         linkedin: user.linkedin,
         industries: user.industries.join(", "),
-        skills: user.skills
+        skills: user.skills,
         schools: user.schools.join(", "),
     ).success((data) ->
       deferred.resolve(data)

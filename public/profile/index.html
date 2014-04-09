@@ -188,7 +188,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                           <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
-                                          <input type="text" name="skills" ng-model="historyModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                                          <input type="text" name="skills" ng-model="mentorModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
                                         </div>
                                       </div>
                                       <div class="cl">&nbsp;</div>
@@ -283,7 +283,7 @@
                             <div class="col-sm-6">
                               <label class="O11BU">Month started</label>
                               <div class="dropDown">
-                                <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedCurrentMonthOption" required="">
+                                <select data-ng-options="o.name for o in startedMonthOptions" ng-model="historyModel.startedPreviousMonthOption" required="">
                                   <option value="">Month Started</option>
                                 </select>
                               </div>
@@ -310,20 +310,8 @@
                         <a href="javascript:void(0)" class="addBtn mt20 mb10 fr" ng-click="addPosition()" ng-show="historyModel.positions.length > 0"><span class="iconSp plus-icon"></span> add another position</a>
                       </div>
                       <div class="cl bdb mb10">&nbsp;</div>
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <label class="O11BU">What are the main industries you’ve worked in?</label>
-                          <tags-input ng-model="historyModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
-                            <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                          </tags-input>
-                        </div>
-                        <div class="col-sm-12">
-                          <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
-                          <input type="text" name="skills" ng-model="historyModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
-                        </div>
-                      </div>
                       <div class="bottomBtn mb10">
-                        <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Continue <span class="iconSp arrow-right"></span></button>
+                        <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit</button>
                         <a href="#/profile" class="cancel mr20 fr"><span class="iconSp close-icon"></span> Cancel</a>
                       </div>
                     </div>

@@ -160,22 +160,24 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.mentorModel.yearsOfExperience,
       $scope.mentorModel.phoneNumber,
       $scope.mentorModel.availability,
-      $scope.mentorModel.linkedin
+      $scope.mentorModel.linkedin,
+      $scope.mentorModel.industries,
+      $scope.mentorModel.schools,
+      $scope.mentorModel.skills
     ).then((data) ->
       angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
       $scope.user.time_zone = $scope.mentorModel.timeZone
       User.updateUser($scope.user)
-      $scope.user.schools = $scope.mentorModel.schools
-      $scope.historyModel.industries = $scope.mentorModel.industries
     , (data) ->
       $scope.mentorFormError = data
     )
 
   $scope.createWorkHistory = () ->
     $scope.refresh(true)
-    $scope.user.industries = $scope.historyModel.industries
-    $scope.user.skills = $scope.historyModel.skills
+    $scope.user.industries = $scope.mentorModel.industries
+    $scope.user.schools = $scope.mentorModel.schools
+    $scope.user.skills = $scope.mentorModel.skills
     #update industries and program of mentor
     User.updateMentor($scope.user)
     #create work current and previous history of mentor
