@@ -41,7 +41,7 @@
                           </div>
                         </div>
                       </section>
-                      <section class="settings" ng-show="welcomeModel.role == 'Member'">
+                      <section class="applicationMentors" ng-show="welcomeModel.role == 'Member'">
                         <div class="container">
                           <div class="row">
                             <div class="col-md-8 col-md-offset-2">
@@ -51,6 +51,21 @@
                                 <div class="formBox mt20">
                                   <div class="formContent">
                                     <div class="row rowMar">
+                                      <div class="col-sm-6">
+                                        <label for="mentorCity" class="O11BU">City</label>
+                                        <input type="text" name="city" ng-model="memberModel.city" id="mentorCity" placeholder="Enter your city" required="">
+                                        <div class="error">{{memberFormError.city[0]}}</div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label for="mentorState" class="O11BU">State</label>
+                                        <div class="dropDown">
+                                          <select class="" ng-model="memberModel.state">
+                                            <option value="">Select State</option>
+                                            <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                                          </select>
+                                        </div>
+                                        <div class="error">{{memberFormError.state[0]}}</div>
+                                      </div>
                                       <div class="col-sm-6">
                                         <label class="O11BU">What timezone are you in? </label>
                                         <div class="dropDown">

@@ -143,7 +143,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.welcomeModel.role = null
 
   $scope.becomeMember = () ->
-    User.becomeMember($scope.memberModel.phoneNumber, $scope.memberModel.industries, $scope.memberModel.timeZone).then((data)->
+    User.becomeMember($scope.memberModel.phoneNumber, $scope.memberModel.industries, $scope.memberModel.timeZone, $scope.memberModel.city, $scope.memberModel.state).then((data)->
      $scope.user.time_zone = $scope.memberModel.timeZone
      angular.extend($scope.user, data)
      User.updateUser($scope.user)

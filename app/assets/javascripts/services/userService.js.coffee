@@ -1,13 +1,13 @@
 ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
 
-  becomeMember: (phoneNumber, industries, time_zone)->
+  becomeMember: (phoneNumber, industries, time_zone, city, state)->
     deferred = $q.defer()
     $http.post('/api/members',
       member:
-        phone_number:
-          "1#{phoneNumber}"
-        industries:
-          industries.join(", ")
+        city: city
+        state: state
+        phone_number: "1#{phoneNumber}"
+        industries: industries.join(", ")
     ).success((data)->
       if data.id
         deferred.resolve(angular.extend(data, {role_type: 'Member', time_zone: time_zone}))
@@ -106,6 +106,10 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
           user.phone_number
         industries:
           user.industries
+        city:
+          user.city
+        state:
+          user.state
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->
@@ -140,6 +144,10 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       member:
         phone_number:
           user.phone_number
+        city:
+          user.city
+        state:
+          user.state
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->

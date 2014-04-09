@@ -46,6 +46,6 @@ class Api::V1::MembersController < Api::V1::BaseController
   private
 
   def member_params
-    params.require(:member).permit(:phone_number, :industries)
+    params.require(:member).permit(:phone_number, :industries, :city, :state)
   end
 end
