@@ -1,59 +1,69 @@
-<div ng-include src="'shared/masthead.html'"></div>
-<section ng-hide="user">
-  <div class="hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 col-md-offset-2">
-          <div class="text-center info-message">
-            <h2>Please <a href="#/login">log in</a> with your Shyne account to continue</h2>
-            <p>Don't have an account yet, <a href="#/signup">sign up now</a> for free.</p>
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section ng-hide="user">
+      <div class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-md-offset-2">
+              <div class="text-center">
+                <h2>Please <a href="#/login">log in</a> to your Shyne account to continue</h2>
+                <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<div ng-show="user">
-  <div class="mainBg">
-    <div class="loaderimgText" style="display:none;" id="loaderimgText">
-      <div><img src="/assets/ajax-loader.gif" /></div>
-      <span style="font-size:20px;">Submitting...</span>
-      <div class="backTransparant"></div>
-    </div>
-    <!-- Availabel times -->
-    <div class="detailForm">
-      <form novalidate role="form" name="avlTimeForm" class="css-form">
-        <div class="formBox">
-          <div class="formHeading">
-              <h3>Suggest a different time</h3>
-            </div>
-            <div class="formContent">
-              <div class="formRow">
-                <div class="suggestTime">
-                  <label>The call has currently been requested for:</label>
-                  <span class="atText fleft">{{ call_request.scheduled_date }}</span>
-
-                </div>
-              </div>
-              <div class="formRow">
-                <div class="suggestTime">
-                  <label>Suggest a new time (in your timezone) for the call. The other party has the option of accept your new time or can reply back with another time that might be a better fit.</label>
-                  <input type="text" class="form-control width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRescheduleModel.scheduled_at" required="">
-                  <span class="atText fleft">at</span>
-                  <input ng-model="callRescheduleModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
-                </div>
-              </div>
-              <div class="formRow">
-                <div class="expireDateDetail">
-                  <span class="text-danger">{{callRequestModelError}}</span>
-                </div>
-              </div>
-            </div>
+    </section>
+    <div ng-show="user">
+      <section class="scheduleCall">
+        <div class="loaderimgText" style="display:none;" id="loaderimgText">
+          <div><img src="/assets/ajax-loader.gif" /></div>
+          <span style="font-size:20px;">Submitting...</span>
+          <div class="backTransparant"></div>
         </div>
-        <div class="bottomBtn">
-          <button class="btn btn-continue fright" type="button" ng-disabled="avlTimeForm.$invalid" ng-click="updateCallRequest()">Submit</button>
+        <!-- Availabel times -->
+        <div class="container">
+          <h2>Suggest a different time</h2>
+          <div class="callDetail">
+            <form novalidate role="form" name="avlTimeForm">
+              <div class="formBox mt20">
+                  <div class="formContent">
+                    <label class="O11BU mb10">The call has currently been requested for:</label>
+                    <span class="atText fleft">{{ call_request.scheduled_date }}</span>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <label>Suggest a new time (in your timezone) for the call. The other party has the option of accept your new time or can reply back with another time that might be a better fit.</label>
+                      </div>
+                    </div>
+                    <div class="clAll bdb mb10 mt20"></div>
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <input type="text" class="width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRescheduleModel.scheduled_at" required="">
+                        </div>
+                        <div class="col-sm-1">
+                          <label class="atText fleft mt10">at</label>
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="dropDown">
+                            <input ng-model="callRescheduleModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="formRow">
+                      <div class="expireDateDetail">
+                        <span class="text-danger">{{callRequestModelError}}</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="bottomBtn">
+                <a href="#/call_request/{{callRequestModel.id}}" class="btn grd-blue btnBlueLg">Go Back</a>
+                <button class="btn grd-org btnOrgLg fr" type="button" ng-disabled="avlTimeForm.$invalid" ng-click="updateCallRequest()">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-  </div>
 
-</div>
+    </div>
