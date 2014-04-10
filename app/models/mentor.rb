@@ -96,6 +96,10 @@ class Mentor < ActiveRecord::Base
     self.work_histories.map(&:title).join(" ")
   end
 
+  def previous_companies
+    self.work_histories.where(:current_work => false).map(&:company).join(", ")
+  end
+
   def current_position
     self.work_histories.where(:current_work => true).map(&:title).first
   end
