@@ -21,7 +21,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.memberDetailModel = {}
   $scope.editIndustryModel = {}
   $scope.editSchoolModel = {}
-  $scope.changePasswordModel = null
+  $scope.changePasswordModel = {}
   $scope.bankAccountModel = {}
   $scope.user_industries = []
   $scope.user_skills = []
