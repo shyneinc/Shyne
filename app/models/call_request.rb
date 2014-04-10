@@ -107,7 +107,7 @@ class CallRequest < ActiveRecord::Base
   end
 
   def scheduled_date
-    self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%A, %B %d, %Y at %I:%M %p (%Z)")
+    self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%A, %B #{self.scheduled_at.day.ordinalize}, at %I:%M%p")
   end
 
   def scheduled_date_short
