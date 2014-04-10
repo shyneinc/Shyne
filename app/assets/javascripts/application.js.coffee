@@ -122,6 +122,9 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   ).when("/call_requests/:id/suggest",
     templateUrl: "/call_request/reschedule.html"
     controller: 'CallCtrl'
+  ).when("/thankyou",
+    templateUrl: "/users/thankyou.html"
+    controller: 'ThankYouCtrl'
   )
 
 ]

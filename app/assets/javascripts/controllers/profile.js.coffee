@@ -187,6 +187,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     , 1000)
     window.setTimeout(() ->
       $scope.historyModel = {role: null}
+      $location.path '/thankyou/'
     , 1000)
 
   $scope.updateMember = () ->
