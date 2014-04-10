@@ -6,7 +6,7 @@
           <div class="col-md-7 col-md-offset-2">
             <div class="text-center">
               <h2>Please <a class="tcOrg" href="#/login">log in</a> with your Shyne account to continue</h2>
-              <p>Don't have an account yet, <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+              <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
             </div>
           </div>
         </div>
@@ -65,10 +65,10 @@
                   <div class="clAll bdb mb10 mt20"></div>
 
                   <div class="formContent">
-                    <label class="O11BU mb10">What would you like {{mentor.user.first_name}} to focus on for this call?</label>
+                    <label class="O11BU mb10">What would you like to talk to {{mentor.user.first_name}} about?</label>
                     <div class="row">
                       <div class="col-sm-12">
-                        <textarea class="form-control width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280" placeholder="Example: I’m studying Digital Design at FSU. How can I build up my portfolio and get a good internship?"></textarea>
+                        <textarea class="width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280" placeholder="Example: I'd love to learn more about what it's like to work in marketing at Google, and what kind of background is needed to land a position like yours."></textarea>
                       </div>
                     </div>
                     <div class="clAll bdb mb10 mt20"></div>
@@ -76,7 +76,7 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="dropDown">
-                          <select data-ng-options="o.name for o in proposedDurationOptions" ng-model="callRequestModel.proposed_duration" class="form-control width65"></select>
+                          <select data-ng-options="o.name for o in proposedDurationOptions" ng-model="callRequestModel.proposed_duration" class="width65"></select>
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -116,11 +116,11 @@
                     <label class="O11BU mb10">Suggest a time (in your timezone) for {{mentor.user.first_name}} to take the call</label>
                     <div class="row">
                       <div class="col-sm-6">
-                        <input type="text" class="form-control width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
+                        <input type="text" class="width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
                       </div>
                       <div class="col-sm-6">
                         <div class="dropDown">
-                          <input ng-model="callRequestModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
+                          <input ng-model="callRequestModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="width40 fleft" required="">
                         </div>
                       </div>
                     </div>
@@ -152,22 +152,22 @@
                     <div class="row rowMar">
                       <div class="col-sm-4">
                         <label class="O11BU">Credit card number</label>
-                        <input type="text" class="form-control width40" ng-model="callRequestModel.card_number" placeholder="Credit Card #" required="">
+                        <input type="text" class="width40" ng-model="callRequestModel.card_number" placeholder="Credit Card #" required="">
                       </div>
                       <div class="col-sm-2">
                         <label class="O11BU">CVV</label>
-                        <input type="text" class="form-control width10" ng-model="callRequestModel.security_code" placeholder="CVV" required="" maxlength="4">
+                        <input type="text" class="width10" ng-model="callRequestModel.security_code" placeholder="CVV" required="" maxlength="4">
                       </div>
                       <div class="col-sm-3">
                         <label class="O11BU">Expiration date</label>
                         <div class="dropDown">
-                          <select class="form-control width40 fleft" ng-model="callRequestModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
+                          <select class="width40 fleft" ng-model="callRequestModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
                         </div>
                       </div>
                       <div class="col-sm-3">
                         <label class="O11BU phoneDN">&nbsp;</label>
                         <div class="dropDown">
-                          <select class="form-control width40" ng-model="callRequestModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
+                          <select class="width40" ng-model="callRequestModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
                         </div>
                       </div>
                   </div>
