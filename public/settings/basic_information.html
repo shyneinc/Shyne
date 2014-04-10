@@ -1,4 +1,4 @@
-<div ng-show="user && user.role_type == 'Mentor'">
+<div ng-show="user">
   <form novalidate role="form" name="memberNameForm" ng-submit="updateUserInformation()">
     <div class="formBox mt20">
       <div class="formContent">
@@ -37,7 +37,7 @@
           <div class="col-sm-6">
             <label class="O11BU">Time Zone <span class="text-danger">{{memberFormError.time_zone[0]}}</span></label>
             <div class="dropDown">
-              <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
+              <select id="memberTimeZone" ng-model="user.time_zone">
                   <option value="Alaska">Alaska</option>
                   <option value="Arizona">Arizona</option>
                   <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
@@ -56,55 +56,6 @@
     <div class="bottomBtn">
       <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUserInformation()">Save</button>
       <a class="btn grd-blue btnBlueLg" href="#/profile">Back</a>
-    </div>
-  </form>
-</div>
-
-
-<div ng-show="user && user.role_type == 'Member'">
-  <form novalidate role="form" name="memberNameForm" ng-submit="updateUserInformation()">
-    <div class="formBox mt20">
-      <div class="formContent">
-        <div class="row">
-          <div class="col-sm-6">
-              <label class="O11BU">First Name <span class="text-danger">{{memberFormError.first_name[0]}}</span></label>
-              <input type="text" name="firstName" ng-model="user.first_name" id="memberfirstName" placeholder="Enter first name" required="">
-              <div class="error">{{memberFormError.first_name[0]}}</div>
-          </div>
-          <div class="col-sm-6">
-              <label class="O11BU">Last Name <span class="text-danger">{{memberFormError.last_name[0]}}</span></label>
-              <input type="text" name="lastName" ng-model="user.last_name" id="memberLastName" placeholder="Enter last name" required="">
-              <div class="error">{{memberFormError.last_name[0]}}</div>
-          </div>
-          <div class="col-sm-6">
-            <label class="O11BU">Cell Phone Number</label>
-            <input type="text" name="phoneNumber" ng-model="user.phone_number" ui-mask="9-999-999-9999" required="">
-            <div class="O12R">(Note: This is not shared with anyone, and only used to schedule calls)</div>
-            <div class="error">{{memberFormError.phone_number[0]}}</div>
-          </div>
-          <div class="col-sm-6">
-            <label class="O11BU">Time Zone</label>
-            <div class="dropDown">
-              <select id="memberTimeZone" ng-model="user.time_zone" class="form-control">
-                  <option value="Alaska">Alaska</option>
-                  <option value="Arizona">Arizona</option>
-                  <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
-                  <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
-                  <option value="Hawaii">Hawaii</option>
-                  <option value="Indiana (East)">Indiana (East)</option>
-                  <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
-                  <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
-              </select>
-            </div>
-            <div class="error">{{memberFormError.time_zone[0]}}</div>
-          </div>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </div>
-    </div>
-    <div class="bottomBtn">
-        <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="memberNameForm.$invalid" ng-click="updateUserInformation()">Save</button>
-        <a class="btn grd-blue btnBlueLg" href="#/profile">Back</a>
     </div>
   </form>
 </div>
