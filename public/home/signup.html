@@ -4,9 +4,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            <div class="text-center info-message" ng-show="user">
+            <div class="text-center" ng-show="user">
               <h2>Welcome to Shyne, {{user.first_name}}</h2>
-              <p>
+              <p class="R20R">
                   To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
               </p>
             </div>
@@ -37,6 +37,7 @@
                       <div class="error">{{signUpError.password_confirmation[0]}}</div>
                     </div>
                   </div>
+                  <div class="clAll mt10"></div>
                 </div>
                 <div class="bottomBtn">
                   <a class="O13SB tcOrg mt10 fl" href="#/login">Already a member? Log in</a>
