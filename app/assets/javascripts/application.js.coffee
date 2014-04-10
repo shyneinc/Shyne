@@ -125,6 +125,18 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   ).when("/thankyou",
     templateUrl: "/users/thankyou.html"
     controller: 'ThankYouCtrl'
+  ).when("/contactus",
+    templateUrl: "/footer/contactus.html"
+    controller: 'HomeCtrl'
+  ).when("/blog",
+    templateUrl: "/footer/blog.html"
+    controller: 'HomeCtrl'
+  ).when("/faq",
+    templateUrl: "/footer/faq.html"
+    controller: 'HomeCtrl'
+  ).when("/terms",
+    templateUrl: "/footer/terms.html"
+    controller: 'HomeCtrl'
   )
 
 ]
