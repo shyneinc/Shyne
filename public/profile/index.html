@@ -155,7 +155,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                           <label class="O11BU">When do you prefer our members to request calls with you?</label>
-                                          <input type="text" name="availability" ng-model="mentorModel.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm" required="">
+                                          <input type="text" name="availability" ng-model="mentorModel.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
                                           <div class="error">{{mentorFormError.availability[0]}}</div>
                                         </div>
                                       </div>
@@ -263,7 +263,12 @@
                             <a href="javascript:void(0)" class="addBtnFull O11BU" ng-click="addPosition()">Add a position <span class="iconSp plus-icon fr"></span></a>
                           </div>
                           <div class="col-sm-6">
-                            <span class="checkBtn iconSp mt10"><input type="checkbox" name="r1" ng-model="previousPosition" ng-click="historyModel.positions = []" fancy-checkbox>I haven’t held any previous positions</span>
+                            <div class="checkBox">
+                              <span class="checkBtn iconSp">
+                                <input type="checkbox" name="r1" ng-model="previousPosition" ng-click="historyModel.positions = []" fancy-checkbox>
+                              </span>
+                              I haven’t held any previous positions
+                            </div>
                           </div>
                         </div>
                         <div ng-repeat="historyModel in historyModel.positions">
