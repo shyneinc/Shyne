@@ -2,7 +2,7 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
 
   $rootScope.location = $location
   $scope.user = null
-  $scope.conversationModel = null
+  $scope.conversationModel = {}
   $scope.conversations = null
   $scope.conversation_id = $routeParams.conversation_id
 
