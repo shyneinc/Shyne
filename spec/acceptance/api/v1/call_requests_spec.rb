@@ -20,7 +20,7 @@ resource 'CallRequest' do
       role = user.role_type.downcase
       expect(response_body).to be_json_eql CallRequest.where("#{role}_id" => user.role_id).to_json({:include =>
                                                                                                                 {:mentor =>
-                                                                                                                     {:methods => [:full_name, :rate_per_minute, :phone_number, :avg_call_duration, :get_avg_rating]},
+                                                                                                                     {:methods => [:full_name, :rate_per_minute, :phone_number, :avg_call_duration, :get_avg_rating, :previous_companies, :current_position, :current_company, :total_reviews]},
                                                                                                                  :member => {:methods => [:full_name, :phone_number]}
                                                                                                                 }, :methods => [:scheduled_date, :credit_amount, :debit_amount]})
       expect(status).to eq 200
