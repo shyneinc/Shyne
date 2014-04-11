@@ -13,24 +13,28 @@
       </div>
     </section>
     <div class="mainBg" ng-if="user">
-      <section class="messages">
+      <section class="callDashboard">
         <div class="container">
+          <h2>Dashboard <span class="OC16BU tcOrg">Messages</span></h2>
           <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <h2>Messages</h2>
-              <div class="clAll mb20"></div>
-              <div class="proBox">
-                <div class="memberReview">
-                  <div class="revRow" ng-repeat="conversation in conversations" ng-click="showConversation(conversation.id)">
-                    <div class="O12BU fl">From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a></div>
-                    <div class="O12BU fr">{{ conversation.messages[0].created_at | date:'MMM dd' }}</b></div>
-                    <div class="clAll mb5"></div>
+            <div class="col-md-3">
+              <div ng-include src="'shared/left_menu.html'"></div>
+            </div>
+            <div class="col-md-9">
+              <div class="callDetail mt20 pt10">
+                <div class="proBox">
+                  <div class="memberReview">
+                    <div class="revRow" ng-repeat="conversation in conversations" ng-click="showConversation(conversation.id)">
+                      <div class="O12BU fl">From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a></div>
+                      <div class="O12BU fr">{{ conversation.messages[0].created_at | date:'MMM dd' }}</b></div>
+                      <div class="clAll mb5"></div>
 
-                    <div class="mrImage">
-                      <img src="/assets/no_image.png" ng-src="{{conversation.messages[0].sender.avatar.medium.url}}">
-                      <span class="caret"></span>
+                      <div class="mrImage">
+                        <img src="/assets/no_image.png" ng-src="{{conversation.messages[0].sender.avatar.medium.url}}">
+                        <span class="caret"></span>
+                      </div>
+                      <p>{{ conversation.messages[0].body }}</p>
                     </div>
-                    <p>{{ conversation.messages[0].body }}</p>
                   </div>
                 </div>
               </div>
