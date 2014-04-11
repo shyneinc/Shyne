@@ -225,10 +225,101 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .ti30 {
   text-indent: 30px;
 }
+
 .iconSp {
   background-image: url(/assets/sprite.png);
   background-repeat: no-repeat;
   display: inline-block;
+}
+
+.iconPro {
+  background-image: url(/assets/sprite.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.i_phone {
+  background-position: 0px -120px;
+}
+
+.i_ribbon {
+  background-position: 0px -150px;
+}
+
+.i_case {
+  background-position: 0px -180px;
+}
+
+.i_check {
+  background-position: 0px -210px;
+}
+
+.i_link {
+  background-position: 0px -240px;
+}
+
+.i_clock {
+  background-position: 0px -270px;
+}
+
+.i_star {
+  background-position: 0px -300px;
+}
+
+.i_review {
+  background-position: 0px -330px;
+}
+
+.i_pin {
+  background-position: 0px -360px;
+}
+
+.i_education {
+  background-position: 0px -390px;
+}
+
+.i_message {
+  background-position: 0px -420px;
+}
+
+.i_setting {
+  background-position: 0px -450px;
+}
+
+.i_logout {
+  background-position: 0px -480px;
+}
+
+.i_arrow_bullet_r {
+  background-position: 0px -510px;
+}
+
+.i_message_sign {
+  background-position: 0px -540px;
+}
+
+.i_clock_sign {
+  background-position: 0px -570px;
+}
+
+.i_close_sign {
+  background-position: 0px -600px;
+}
+
+.i_check_sign {
+  background-position: 0px -630px;
+}
+
+.i_facebook {
+  background-position: 0px -660px;
+}
+
+.i_twitter {
+  background-position: 0px -690px;
 }
 
 .arrow-right {
@@ -324,36 +415,6 @@ textarea {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.dropDown select, .addBtnFull {
-  outline: none;
-  display: inline-block;
-  cursor: pointer;
-  color: #626e71;
-  font-size: 13px;
-  font-weight: 600;
-  height: 40px;
-  width: 100%;
-  padding: 8px 10px 8px 10px;
-  border: 1px solid #cdd4d6;
-  line-height: 20px;
-  background: #fafcfd;
-  background: -moz-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafcfd), color-stop(100%, #f3f7f9));
-  background: -webkit-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
-  background: -o-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
-  background: -ms-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
-  background: linear-gradient(to bottom, #fafcfd 0%, #f3f7f9 100%);
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
 .dropDown {
   position: relative;
   display: inline-block;
@@ -397,18 +458,49 @@ textarea {
     -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   }
+  select {
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+    color: #626e71;
+    font-size: 13px;
+    font-weight: 600;
+    height: 40px;
+    width: 100%;
+    padding: 8px 10px 8px 10px;
+    border: 1px solid #cdd4d6;
+    line-height: 20px;
+    background: #fafcfd;
+    background: -moz-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafcfd), color-stop(100%, #f3f7f9));
+    background: -webkit-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+    background: -o-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+    background: -ms-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+    background: linear-gradient(to bottom, #fafcfd 0%, #f3f7f9 100%);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 }
 
-.addBtn {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #6b7779;
-  letter-spacing: 0.5px;
+.addBtnFull {
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  color: #626e71;
+  font-size: 13px;
+  font-weight: 600;
+  height: 40px;
+  width: 100%;
+  padding: 8px 10px 8px 10px;
   border: 1px solid #cdd4d6;
-  line-height: 30px;
-  min-height: 30px;
-  padding: 0px 10px 0px 8px;
+  line-height: 20px;
   background: #fafcfd;
   background: -moz-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafcfd), color-stop(100%, #f3f7f9));
@@ -421,29 +513,65 @@ textarea {
   display: inline-block;
   position: relative;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.addBtn {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6b7779;
+  letter-spacing: 0.5px;
+  border: 1px solid #cdd4d6;
+  line-height: 30px;
+  min-height: 30px;
+  padding: 0px 10px 0px 8px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background: #fafcfd;
+  background: -moz-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafcfd), color-stop(100%, #f3f7f9));
+  background: -webkit-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+  background: -o-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+  background: -ms-linear-gradient(top, #fafcfd 0%, #f3f7f9 100%);
+  background: linear-gradient(to bottom, #fafcfd 0%, #f3f7f9 100%);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 /* Fancy Checkbox */
 
-.checkBtn {
+.checkBox {
+  position: relative;
   font-size: 13px;
   font-weight: 400;
   color: #626e71;
   line-height: 20px;
-  background-position: 0px -68px;
-  position: relative;
   padding-left: 26px;
-  input {
+  .checkBtn {
+    background-position: 0px -68px;
+    position: relative;
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 18px;
-    height: 18px;
-    opacity: 0;
-    cursor: pointer;
-  }
-  &.c_on {
-    background-position: 0px -93px;
+    width: 20px;
+    height: 20px;
+    input {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 18px;
+      height: 18px;
+      opacity: 0;
+      cursor: pointer;
+    }
+    &.c_on {
+      background-position: 0px -93px;
+    }
   }
 }
 
@@ -1390,6 +1518,18 @@ h3 {
   width: 100%;
 }
 
+.bankCard {
+  float: left;
+  width: 100%;
+  a, img {
+    float: left;
+    margin: 9px 12px 0px 0px;
+  }
+  a img {
+    margin: 0px;
+  }
+}
+
 /* ==== step 2 */
 
 .bgLightBlue {
@@ -1442,101 +1582,11 @@ h3 {
   clear: both;
 }
 
-.signUp .formBox .row .col-sm-6:nth-child(2n+3) {
+.signUp .formBox .row .col-sm-6:nth-child(2n+3), .changePassword .formBox .row .col-sm-6:nth-child(2n+3) {
   clear: none;
 }
 
 /* Profile */
-
-.iconPro {
-  background-image: url(/assets/sprite.png);
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
-.i_phone {
-  background-position: 0px -120px;
-}
-
-.i_ribbon {
-  background-position: 0px -150px;
-}
-
-.i_case {
-  background-position: 0px -180px;
-}
-
-.i_check {
-  background-position: 0px -210px;
-}
-
-.i_link {
-  background-position: 0px -240px;
-}
-
-.i_clock {
-  background-position: 0px -270px;
-}
-
-.i_star {
-  background-position: 0px -300px;
-}
-
-.i_review {
-  background-position: 0px -330px;
-}
-
-.i_pin {
-  background-position: 0px -360px;
-}
-
-.i_education {
-  background-position: 0px -390px;
-}
-
-.i_message {
-  background-position: 0px -420px;
-}
-
-.i_setting {
-  background-position: 0px -450px;
-}
-
-.i_logout {
-  background-position: 0px -480px;
-}
-
-.i_arrow_bullet_r {
-  background-position: 0px -510px;
-}
-
-.i_message_sign {
-  background-position: 0px -540px;
-}
-
-.i_clock_sign {
-  background-position: 0px -570px;
-}
-
-.i_close_sign {
-  background-position: 0px -600px;
-}
-
-.i_check_sign {
-  background-position: 0px -630px;
-}
-
-.i_facebook {
-  background-position: 0px -660px;
-}
-
-.i_twitter {
-  background-position: 0px -690px;
-}
 
 .iconText {
   position: relative;
@@ -2051,7 +2101,6 @@ h3 {
   padding: 42px 50px 50px 140px;
   border-bottom: 2px solid #b0c7cb;
   min-height: 220px;
-  &:first-child! {}
   &:last-child {
     border-bottom: none;
   }
@@ -2321,6 +2370,9 @@ footer {
     padding-left: 5px;
     padding-right: 5px;
   }
+  .applicationMentors .checkBox {
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -2336,6 +2388,11 @@ footer {
   }
   .whyMentors .commentBox.first .cBox {
     padding: 20px;
+  }
+  .settings .btn-group > .btn-group .btn {
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
@@ -2450,6 +2507,14 @@ footer {
       padding-left: 110px;
     }
   }
+  .bankCard {
+    a, img {
+      margin-top: 4px;
+    }
+    a img {
+      margin: 0px;
+    }
+  }
   .formBox {
     padding: 20px 20px 15px;
   }
@@ -2501,6 +2566,9 @@ footer {
   }
   .callDashboard .searchInfo {
     margin-bottom: 15px;
+  }
+  .applicationMentors .checkBox {
+    margin-top: 10px;
   }
 }
 

@@ -151,15 +151,26 @@
                   <div class="formContent">
                     <div class="row rowMar">
                       <div class="col-sm-4">
-                        <label class="O11BU">Credit card number</label>
-                        <input type="text" class="width40" ng-model="callRequestModel.card_number" placeholder="Credit Card #" required="">
+                        <label class="O11BU tcblue">Credit card number</label>
+                        <input type="text" class="width40" ng-model="callRequestModel.card_number" placeholder="Credit card #" required="">
                       </div>
                       <div class="col-sm-2">
-                        <label class="O11BU">CVV</label>
+                        <label class="O11BU tcblue">CVV</label>
                         <input type="text" class="width10" ng-model="callRequestModel.security_code" placeholder="CVV" required="" maxlength="4">
                       </div>
                       <div class="col-sm-3">
-                        <label class="O11BU">Expiration date</label>
+                        <div class="bankCard">
+                          <a href=""><img src="/assets/visa_card.png" alt=""></a>
+                          <a href=""><img src="/assets/master_card.png" alt=""></a>
+                          <a href=""><img src="/assets/discover_card.png" alt=""></a>
+                          <a href=""><img src="/assets/american_card.png" alt=""></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clAll bdb mt20"></div>
+                    <div class="row rowMar mt10 pt5">
+                      <div class="col-sm-3">
+                        <label class="O11BU tcblue">Expiration date</label>
                         <div class="dropDown">
                           <select class="width40 fleft" ng-model="callRequestModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
                         </div>
@@ -174,7 +185,7 @@
                   <div class="clAll bdb mb20 mt20"></div>
                   <div class="row">
                     <div class="col-sm-12">
-                      <p class="O12R">Your credit card will not be charged until after the call is complete. Somethng reassuring about security could also go here.</p>
+                      <p class="O12R">Your credit card will not be charged until after the call is complete.</p>
                     </div>
                   </div>
                 </div>
@@ -182,7 +193,7 @@
               <div class="bottomBtn">
                 <button class="btn grd-blue btnBlueLg" type="button" ng-click="availableTimes()">Go Back</button>
                 <button class="btn grd-org btnOrgLg fr" type="button" ng-disabled="paymentInfoForm.$invalid" ng-click="ConfirmDetails()">Continue</button>
-                <div id="spinner" class="loaderIcon">
+                <div id="spinner" class="loaderIcon" style="display:none;">
                   <img src="/assets/loader.gif" />
                 </div>
               </div>
