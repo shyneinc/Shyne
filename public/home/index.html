@@ -25,7 +25,7 @@
                 <a href="#/search/Square"><img src="/assets/square.png" alt=""></a>
                 <a href="#/search/KPMG"><img src="/assets/kpmg.png" alt=""></a>
               </div>
-              <p>We have Mentors from top tier companies around the globe. Pick their brains on what they did to land their jobs!.</p>
+              <p>We have Mentors from top tier companies around the globe. Pick their brains on what they did to land their jobs!</p>
             </div>
           </div>
         </div>
@@ -44,9 +44,9 @@
                 <div class="col-sm-4" data-ng-repeat="mentor in mentors">
                   <div class="fmUserBox">
                     <div class="fmImage" ng-click="viewProfile(mentor.user_id)"><img src="/assets/no_image.png" alt="" ng-src="{{mentor.photo_url}}"><span class="caret"></span></div>
-                    <div class="fmName">{{mentor.full_name}}</div>
+                    <div class="fmCat">{{mentor.full_name}}</div>
                     <div class="fmDesc">{{mentor.current_position}}</div>
-                    <div class="fmCat">{{mentor.current_company}}</div>
+                    <div class="fmName">{{mentor.current_company}}</div>
                     <div class="fmPrice">${{mentor.rate_per_minute}}<span>/MIN</span></div>
                     <div class="fmCall"><a class="btn grd-blue" href="#/profile/{{mentor.user_id}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a></div>
                   </div>
