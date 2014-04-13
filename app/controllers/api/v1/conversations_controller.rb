@@ -31,6 +31,7 @@ class Api::V1::ConversationsController < Api::V1::BaseController
 
   def create
     recipient = User.where(id: conversation_params[:user_id]).first
+    #TODO: If call_request_id is present, set subject to call_request.description
     conversation = current_user.send_message(recipient, conversation_params[:body], conversation_params[:subject]).conversation
     render :json => conversation, :status => 201
   end
@@ -54,7 +55,7 @@ class Api::V1::ConversationsController < Api::V1::BaseController
   end
 
   def conversation_params
-    params.require(:conversation).permit(:user_id, :subject, :body)
+    params.require(:conversation).permit(:user_id, :subject, :body, :call_request_id)
   end
 
 end
