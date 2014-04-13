@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  def notifications_email(object)
+    self.email
+  end
+
   def balanced_customer
     return Balanced::Customer.find(self.customer_uri) if self.customer_uri
 
