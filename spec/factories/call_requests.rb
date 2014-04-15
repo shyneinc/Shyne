@@ -12,7 +12,7 @@ FactoryGirl.define do
     mentor
 
     factory :approved_call_request, :parent => :call_request do |call_request|
-      status CallRequestStatus::Approved.new
+      status CallRequestStatus::ApprovedMentor.new
       scheduled_at 2.hours.ago
       calls {
         [build(:call, status: CallStatus::Completed.new, duration: 60, from_number: "19496665341"),
