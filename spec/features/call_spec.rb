@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'twilio-test-toolkit'
 
 describe "CallController" do
-  let(:call_request) { create(:call_request, :status => :approved) }
+  let(:call_request) { create(:call_request, :status => :approved_mentor) }
   let(:call) { ttt_call(api_call_initiate_path, 11234567890, 19094804755) }
 
   describe "#initiate" do
