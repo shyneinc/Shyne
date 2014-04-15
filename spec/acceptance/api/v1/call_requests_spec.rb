@@ -67,7 +67,7 @@ resource 'CallRequest' do
 
     example "Updating a call request" do
       explanation "Once the mentor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request"
-      call_request = attributes_for(:call_request, :status => CallRequestStatus::Approved.new)
+      call_request = attributes_for(:call_request, :status => CallRequestStatus::ApprovedMentor.new)
       do_request(call_request: call_request)
 
       expect(status).to eq 204
