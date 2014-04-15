@@ -6,6 +6,8 @@ ActiveAdmin.register Member do
     column :user
     column :phone_number
     column :industries
+    column :city
+    column :state
     default_actions
   end
 
@@ -19,7 +21,7 @@ ActiveAdmin.register Member do
 
   controller do
     def permitted_params
-      params.permit member: [:phone_number, :industries, :user_id]
+      params.permit member: [:phone_number, :industries, :city, :state, :user_id]
     end
   end
 end
