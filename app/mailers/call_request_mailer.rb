@@ -14,20 +14,38 @@ class CallRequestMailer < ActionMailer::Base
     mail(to: @mentor.email, subject: "You've received a Call Request!" )
   end
 
-  def request_approved(call_request)
+  def request_approved_mentor(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
     @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
     @passcode = call_request.passcode
 
-    cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
+#     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
+#
+#     mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
+#       format.ics{
+#         render :text => cal, :layout => false
+#       }
+#     end
+    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" )
+  end
 
-    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
-      format.ics{
-        render :text => cal, :layout => false
-      }
-    end
+  def request_approved_member(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+    @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
+    @passcode = call_request.passcode
+
+#     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
+#
+#     mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
+#       format.ics{
+#         render :text => cal, :layout => false
+#       }
+#     end
+    mail(to: @mentor.email, cc: @member.email, subject: "Call with #{@member.user.first_name} scheduled for #{call_request.scheduled_date}" )
   end
 
   def request_changed_mentor(call_request)

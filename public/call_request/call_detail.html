@@ -70,7 +70,7 @@
                                 <li>
                                     <span class="tcblue">Status: </span>
                                     <span class="tcOrg" ng-if="call_request.status == 'proposed'">Pending</span>
-                                    <span class="tcOrg" ng-if="call_request.status == 'approved'">Accepted</span>
+                                    <span class="tcOrg" ng-if="call_request.status == 'approved_mentor' || call_request.status == 'approved_member'">Accepted</span>
                                     <span class="tcOrg" ng-if="call_request.status == 'declined_mentor' || call_request.status == 'declined_member'">Declined</span>
                                     <span class="tcOrg" ng-if="call_request.status == 'changed_mentor' || call_request.status == 'changed_member'">Changed</span>
                                     <span class="tcOrg" ng-if="call_request.status == 'completed'">Completed</span>
@@ -88,15 +88,15 @@
                             <div class="clearfix">&nbsp;</div>
                           </div>
                           <div class="bottomBtn">
-                              <a ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')" class="btn grd-org btnOrgLg" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')"><span class="iconPro i_check_sign"></span>Accept Call</a>
-                              <a ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'" class="btn grd-org btnOrgLg" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved')"><span class="iconPro i_check_sign"></span>Accept Call</a>
+                              <a ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')" class="btn grd-org btnOrgLg" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved_mentor')"><span class="iconPro i_check_sign"></span>Accept Call</a>
+                              <a ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'" class="btn grd-org btnOrgLg" href="javascript:void(0)" ng-click="acceptDeclineCallRequest('approved_member')"><span class="iconPro i_check_sign"></span>Accept Call</a>
                               <a ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')" class="btn grd-lightBlue btnBlueLt" href="#/call_requests/{{ call_request.id }}/suggest"><span class="iconPro i_clock_sign"></span>Reschedule</a>
                               <a ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'" class="btn grd-lightBlue btnBlueLt" href="#/call_requests/{{ call_request.id }}/suggest"><span class="iconPro i_clock_sign"></span>Reschedule</a>
                               <a class="btn grd-lightBlue btnBlueLt tcOrg" href="#/conversation"><span class="iconPro i_message_sign"></span>Message</a>
                               <a ng-if="user.role_type == 'Mentor' && (call_request.status == 'proposed' || call_request.status == 'changed_member')" class="btn grd-lightBlue btnBlueLt tcRed" href="javascript:void(0)" ng-confirm-click="Are you sure you want to decline this call request?" confirmed-click="acceptDeclineCallRequest('declined_mentor')"><span class="iconPro i_close_sign"></span>Decline Call</a>
                               <a ng-if="user.role_type == 'Member' && call_request.status == 'changed_mentor'" class="btn grd-lightBlue btnBlueLt tcRed" href="javascript:void(0)" ng-confirm-click="Are you sure you want ot decline this call request?" confirmed-click="acceptDeclineCallRequest('declined_member')"><span class="iconPro i_close_sign"></span>Decline Call</a>
-                              <a ng-if="user.role_type == 'Mentor' && call_request.status == 'approved'" class="btn grd-lightBlue btnBlueLt tcRed" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled_mentor')"><span class="iconPro i_close_sign"></span>Cancel Call</a>
-                              <a ng-if="user.role_type == 'Member' && call_request.status == 'approved'" class="btn grd-lightBlue btnBlueLt tcRed" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled_member')"><span class="iconPro i_close_sign"></span>Cancel Call</a>
+                              <a ng-if="user.role_type == 'Mentor' && call_request.status == 'approved_mentor'" class="btn grd-lightBlue btnBlueLt tcRed" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled_mentor')"><span class="iconPro i_close_sign"></span>Cancel Call</a>
+                              <a ng-if="user.role_type == 'Member' && call_request.status == 'approved_member'" class="btn grd-lightBlue btnBlueLt tcRed" href="javascript:void(0)" ng-confirm-click="This call has already been scheduled. Are you sure you would like to cancel it?" confirmed-click="acceptDeclineCallRequest('cancelled_member')"><span class="iconPro i_close_sign"></span>Cancel Call</a>
                           </div>
                         </div>
                       </div>
