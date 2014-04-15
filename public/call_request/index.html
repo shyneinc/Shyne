@@ -211,17 +211,11 @@
                   </div>
                   <div class="callTitle R22">Confirm the details of your call with {{mentor.full_name}}</div>
                   <div class="clAll bdb mb10 mt20"></div>
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="O11BU">rate: <span class="tcblue">${{mentor.rate_per_minute}}/min</span></div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="O11BU">Estimated length: <span class="tcblue">{{ callRequestModel.proposed_duration.id }} min</span></div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="O11BU text-right">Estimated cost: <span class="tcblue">{{ callRequestModel.proposed_duration.id * mentor.rate_per_minute | currency:"$"}}</span></div>
-                    </div>
-                  </div>
+                  <ul class="bListOne">
+                    <li class="O11BU">rate: <span class="tcblue">${{mentor.rate_per_minute}}/min</span></li>
+                    <li class="O11BU">Estimated length: <span class="tcblue">{{ callRequestModel.proposed_duration.id }} min</span></li>
+                    <li class="O11BU">Estimated cost: <span class="tcblue">{{ callRequestModel.proposed_duration.id * mentor.rate_per_minute | currency:"$"}}</span></li>
+                  </ul>
                   <div class="clAll bdb mb10 mt10"></div>
                   <div class="formContent">
                     <label class="O11BU mb10">Reason for your call</label>
