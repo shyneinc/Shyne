@@ -31,9 +31,11 @@ class Api::V1::ConversationsController < Api::V1::BaseController
 
   def create
     recipient = User.where(id: conversation_params[:user_id]).first
-    #TODO: If call_request_id is present, set subject to call_request.description
-    call_request = CallRequest.find(conversation_params[:call_request_id])
-    conversation = current_user.send_message(recipient, conversation_params[:body], call_request.description).conversation
+    call_request = nil
+    if(conversation_params[:call_request_id])
+      call_request = CallRequest.find(conversation_params[:call_request_id])
+    conversation = current_user.send_message(recipient, conversation_params[:body], call_request.description || nil).conversation
+    #TODO: Append call_request URL in the message body
     render :json => conversation, :status => 201
   end
 
