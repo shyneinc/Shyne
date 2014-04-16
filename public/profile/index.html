@@ -20,6 +20,18 @@
       </div>
     </section>
 
+    <section ng-show="user && user.role_type == 'Mentor' && user.mentor_status != 'approved'" class="applicationMentors">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-2">
+            <div class="text-center">
+              <p class="R20R">We will email you shortly about the status of your application.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div ng-show="user">
         <div ng-hide="user.role_type">
             <div class="hero">
@@ -335,7 +347,7 @@
           </div>
         </section>
 
-        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor'">
+        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && user.mentor_status == 'approved'">
           <div class="container">
             <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span></h2>
           </div>
