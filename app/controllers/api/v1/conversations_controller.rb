@@ -31,11 +31,15 @@ class Api::V1::ConversationsController < Api::V1::BaseController
 
   def create
     recipient = User.where(id: conversation_params[:user_id]).first
-    call_request = nil
+    conversation = nil
     if(conversation_params[:call_request_id])
       call_request = CallRequest.find(conversation_params[:call_request_id])
-    conversation = current_user.send_message(recipient, conversation_params[:body], call_request.description || nil).conversation
-    #TODO: Append call_request URL in the message body
+      conversation = current_user.send_message(recipient, conversation_params[:body], call_request.description).conversation
+      #TODO: Append call_request URL in the message body
+    else
+      conversation = current_user.send_message(recipient, conversation_params[:body], conversation_params[:subject]).conversation
+    end
+
     render :json => conversation, :status => 201
   end
 
