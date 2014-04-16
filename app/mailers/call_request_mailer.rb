@@ -21,14 +21,13 @@ class CallRequestMailer < ActionMailer::Base
     @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
     @passcode = call_request.passcode
 
-     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
+    cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
 
-     mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
-       format.ics{
-         render :text => cal, :layout => false
-       }
-     end
-    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" )
+    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
+     format.ics{
+       render :text => cal, :layout => false
+     }
+    end
   end
 
   def request_approved_member(call_request)
@@ -38,14 +37,13 @@ class CallRequestMailer < ActionMailer::Base
     @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
     @passcode = call_request.passcode
 
-     cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
+    cal = Ical::Reminder.post({date: @date, passcode: @passcode, mentor: @mentor.full_name}, @member.email)
 
-     mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
-       format.ics{
-         render :text => cal, :layout => false
-       }
-     end
-    mail(to: @mentor.email, cc: @member.email, subject: "Call with #{@member.user.first_name} scheduled for #{call_request.scheduled_date}" )
+    mail(to: @member.email, cc: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}" ) do |format|
+     format.ics{
+       render :text => cal, :layout => false
+     }
+    end
   end
 
   def request_changed_mentor(call_request)

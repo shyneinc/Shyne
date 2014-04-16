@@ -3,8 +3,8 @@ require "spec_helper"
 describe CallRequestMailer do
   let(:call_request) { create(:call_request) }
 
-  describe '#request_approved' do
-    let(:approved_call_request) { CallRequestMailer.request_approved(call_request) }
+  describe '#request_approved_mentor' do
+    let(:approved_call_request) { CallRequestMailer.request_approved_mentor(call_request) }
 
     it "renders approved subject" do
       approved_call_request.subject.should == "Call with #{call_request.mentor.user.first_name} scheduled for #{call_request.scheduled_date}"
@@ -24,6 +24,10 @@ describe CallRequestMailer do
     it "contains the scheduled date and time" do
       pending
     end
+  end
+
+  describe '#request_approved_member' do
+    pending
   end
 
   describe '#request_proposed' do
