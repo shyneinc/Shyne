@@ -18,7 +18,7 @@ class CallRequest < ActiveRecord::Base
   just_define_datetime_picker :scheduled_at
 
   def calculate_billable_duration
-    if self.status.approved? && self.scheduled_at < (DateTime.now - 1.hour)
+    if self.approved? && self.scheduled_at < (DateTime.now - 1.hour)
       @callers = self.calls.where(status: :completed)
       if @callers.count > 1
         @call_durations = Hash.new
@@ -78,6 +78,10 @@ class CallRequest < ActiveRecord::Base
 
   def mentor_credited?
     ["paid", "pending"].include? self.payment_transactions.where(type: "credit").order(created_at: :desc).limit(1).pluck(:status).first
+  end
+
+  def approved?
+    self.status.approved_mentor? || self.status.approved_member?
   end
 
   def debit_amount
