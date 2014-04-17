@@ -12,10 +12,9 @@
         </div>
       </div>
     </section>
-    <div class="flash-message" ng-show="flash_message">
-      <div class="inner">
-        <div class="message">{{flash_message}}</div>
-        <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
+    <div class="container" ng-show="flash_message">
+      <div class="col-md-7 col-md-offset-2 successMsg mb10">
+        <span class="iconPro i_check_w"></span>{{flash_message}} <a class="iconPro i_close_b fr" title="Click to hide this message" hide-flash-message></a>
       </div>
     </div>
     <section class="settings" ng-if="user">
