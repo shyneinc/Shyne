@@ -68,7 +68,7 @@
                     <label class="O11BU mb10">What would you like to talk to {{mentor.user.first_name}} about?</label>
                     <div class="row">
                       <div class="col-sm-12">
-                        <textarea class="width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280" placeholder="Example: I'd love to learn more about what it's like to work in marketing at Google, and what kind of background is needed to land a position like yours."></textarea>
+                        <textarea class="width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280" placeholder="Example: I'd love to learn more about what it's like to work in marketing at Google, and what background is needed for this position."></textarea>
                       </div>
                     </div>
                     <div class="clAll bdb mb10 mt20"></div>
@@ -80,7 +80,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <p class="O12R">Please note that your call can go over the amount of time you choose! This is just to give our Mentors a rough estimate on how long to expect the call to last.</p>
+                        <p class="O12R">Please note that your call can go over the amount of time you choose! This is just to give our Mentors a rough estimate.</p>
                       </div>
                     </div>
                   </div>
@@ -127,7 +127,7 @@
                     <div class="clAll mb20"></div>
                     <div class="row">
                       <div class="col-sm-12">
-                        <p class="O12R">The mentor can accept your time or suggest another time that might be a better fit. We don’t recommend requesting a call within 12 hours, as our Mentors might not be able to respond back in time.</p>
+                        <p class="O12R">The mentor can accept your time or suggest another time that might be a better fit. We don’t recommend requesting a call within 12 hours, as that's a bit too soon.</p>
                       </div>
                     </div>
                   </div>
@@ -140,7 +140,7 @@
             </div>
 
             <!-- Payment Info -->
-            <div class="callDetail" ng-show="callRequestModel.form == 'payment_info'">
+            <div class="callDetail">
               <form novalidate role="form" name="paymentInfoForm">
                 <div class="formBox mt20">
                   <div class="R20R">Please enter your payment information</div>
@@ -209,14 +209,15 @@
                     <span class="caretL"></span>
                     <span class="caretR"></span>
                   </div>
-                  <div class="callTitle R22">Confirm the details of your call with {{mentor.full_name}}</div>
-                  <div class="clAll bdb mb10 mt20"></div>
+                  <div class="callTitle R22">Confirm Details</div>
+                  <div class="clAll mt10 mt20"></div>
+                  <div class="clAll mt10 mt20"></div>
                   <ul class="bListOne">
                     <li class="O11BU">rate: <span class="tcblue">${{mentor.rate_per_minute}}/min</span></li>
                     <li class="O11BU">Estimated length: <span class="tcblue">{{ callRequestModel.proposed_duration.id }} min</span></li>
                     <li class="O11BU">Estimated cost: <span class="tcblue">{{ callRequestModel.proposed_duration.id * mentor.rate_per_minute | currency:"$"}}</span></li>
                   </ul>
-                  <div class="clAll bdb mb10 mt10"></div>
+                  <div class="clAll"></div>
                   <div class="formContent">
                     <label class="O11BU mb10">Reason for your call</label>
                     <div class="row">

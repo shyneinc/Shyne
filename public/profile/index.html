@@ -1,10 +1,9 @@
 <div data-extend-template="/layouts/layout.html">
   <div data-block="content">
-    <div class="flash-message" ng-show="flash_message">
-        <div class="inner">
-          <div class="message">{{flash_message}}</div>
-          <a class="closeIcon" title="Click to hide this message" hide-flash-message>x</a>
-        </div>
+    <div class="container" ng-show="flash_message">
+      <div class="successMsg mb10">
+        <span class="iconPro i_check_w"></span>{{flash_message}} <a class="iconPro i_close_b fr" hide-flash-message></a>
+      </div>
     </div>
 
     <section ng-hide="user" class="applicationMentors">

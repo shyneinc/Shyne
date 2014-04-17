@@ -45,7 +45,7 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
           $scope.flash_message = "This call has officially been cancelled. We will let the other party know. Thanks"
 
         Calls.getCallRequest($routeParams.id).then((callRequest) ->
-          $rootScope.call_request = callRequest
+          $scope.call_request = callRequest
         )
     , (error)->
       $("#loaderimgText").hide()
