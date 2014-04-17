@@ -335,6 +335,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background-position: 0px -750px;
 }
 
+.i_check_w {
+  background-position: 0px -780px;
+}
+
+.i_close_b {
+  background-position: 0px -810px;
+}
+
 .arrow-right {
   background-position: 0px -2px;
   width: 12px;
@@ -390,6 +398,20 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: left;
 }
 
+.successMsg {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  background: #1d8613;
+  border: 1px solid #167307;
+  list-style: none;
+  padding: 8px 2px 8px 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  text-align: left;
+}
+
 input {
   &[type="text"], &[type="password"], &[type="search"], &[type="email"] {
     background: #f8fbfc;
@@ -419,7 +441,7 @@ textarea {
   resize: none;
   font-size: 13px;
   font-weight: 600;
-  min-height: 40px;
+  min-height: 115px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -604,7 +626,7 @@ textarea {
     cursor: pointer;
     opacity: 0;
   }
-  .fileInput {
+  .btnEdit {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -616,7 +638,7 @@ textarea {
   }
 }
 
-.fileInput {
+.btnEdit {
   outline: none;
   display: inline-block;
   cursor: pointer;
@@ -624,7 +646,6 @@ textarea {
   font-size: 11px;
   font-weight: 700;
   height: 30px;
-  width: 100%;
   padding: 4px 15px 4px 8px;
   border-color: #007491 #005b72 #004253;
   border-width: 1px;
@@ -639,10 +660,13 @@ textarea {
   -webkit-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.addFile .iconPro {
-  margin-right: 4px;
+  .iconPro {
+    margin-right: 4px;
+  }
+  &.grd-blue:hover {
+    color: #fff;
+    background: #00708d;
+  }
 }
 
 .grd-org {
@@ -1756,11 +1780,9 @@ section.profile {
 }
 
 .editProfile {
-  .addFile {
-    margin-left: 120px;
-  }
   .userDesc {
     min-height: 65px;
+    padding-left: 120px;
   }
   .formBox {
     label {
@@ -2743,6 +2765,21 @@ footer {
     left: 50%;
     margin-left: -60px;
   }
+  .userInfo .proEdit {
+    position: relative;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+    top: -10px;
+    left: 0;
+  }
+  .posRel.tc {
+    &.clAll {
+      margin-top: 50px;
+    }
+    .proEdit {
+      position: relative;
+    }
+  }
 }
 
 @media (max-width: 360px) {
@@ -2811,5 +2848,10 @@ footer {
     &:last-child {
       margin-bottom: 0px;
     }
+  }
+  .editProfile .userDesc {
+    padding-left: 0px;
+    padding-top: 85px;
+    text-align: center;
   }
 }
