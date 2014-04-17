@@ -1219,6 +1219,7 @@ h3 {
       background: #fefefe;
       border: 1px solid #b1c6cc;
       padding: 4px;
+      cursor: pointer;
       -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -1244,7 +1245,7 @@ h3 {
       padding-bottom: 8px;
     }
     .fmDesc {
-      font-size: 12px;
+      font-size: 14px;
       color: #7a8283;
       font-weight: 400;
       padding-bottom: 8px;
@@ -2070,15 +2071,15 @@ section.profile {
   top: 0px;
 }
 
-.apply_icon {
+.i_apply {
   background-position: 0px 0px;
 }
 
-.profile_icon {
+.i_profile {
   background-position: 0px -85px;
 }
 
-.call_icon {
+.i_call {
   background-position: 0px -170px;
 }
 
