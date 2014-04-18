@@ -1785,17 +1785,12 @@ section.profile {
     min-height: 65px;
     padding-left: 120px;
   }
-  .formBox {
-    label {
-      color: #00637c;
-      margin-top: 10px;
-      margin-bottom: 3px;
-      &.chLeft {
-        color: #869092;
-      }
-    }
-    .row .col-sm-6 {
-      clear: none;
+  .formBox label {
+    color: #00637c;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    &.chLeft {
+      color: #869092;
     }
   }
 }

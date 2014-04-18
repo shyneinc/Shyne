@@ -79,3 +79,15 @@ ShyneDirectives.directive('fancyCheckbox', () ->
           return
     )
 )
+
+ShyneDirectives.directive("openDialog", ->
+  openDialog = link: (scope, element, attrs) ->
+    openDialog = ->
+      element = $(attrs.modalName)
+      element.modal "show"
+      return
+    element.bind "click", openDialog
+    return
+
+  openDialog
+)

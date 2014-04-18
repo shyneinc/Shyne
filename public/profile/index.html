@@ -1,7 +1,7 @@
 <div data-extend-template="/layouts/layout.html">
   <div data-block="content">
     <div class="container" ng-show="flash_message">
-      <div class="successMsg mb10">
+      <div class="col-md-7 col-md-offset-2 successMsg mb10">
         <span class="iconPro i_check_w"></span>{{flash_message}} <a class="iconPro i_close_b fr" hide-flash-message></a>
       </div>
     </div>
@@ -348,7 +348,9 @@
 
         <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && user.mentor_status == 'approved'">
           <div class="container">
-            <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span></h2>
+            <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span>
+              <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro i_edit_w"></span>Edit your profile</a>
+            </h2>
           </div>
           <div class="profileBox">
             <div class="container">
@@ -361,6 +363,7 @@
                       <span class="caretR"></span>
                     </div>
                     <div class="userInfo">
+                      <div class="proEdit" ng-show="edit_profile"><a href="javascript:void(0)" open-dialog modal-name="#myModal"><span class="iconPro i_edit_r"></span>Edit your details</a></div>
                       <ul>
                         <li><span class="iconPro i_ribbon"></span>{{ user.years_of_experience }} years work experience</li>
                         <li><span class="iconPro i_phone"></span>{{ user.total_calls }} calls</li>
@@ -373,6 +376,9 @@
                     <p class="R16R">{{ user.headline }}</p>
                   </div>
                   <div class="col-sm-4">
+                    <div class="posRel tc clAll" ng-show="edit_profile">
+                      <div class="proEdit"><a href="javascript:void(0)" open-dialog modal-name="#callsettingModal"><span class="iconPro i_edit_r"></span>Edit Call settings</a></div>
+                    </div>
                     <a href="#/call_request/{{user.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule Call Now</a>
                     <div class="O12BU mb20 text-center">call rate is $2/min</div>
                     <div class="darkBoxRight">
@@ -387,6 +393,7 @@
           </div>
           <div class="container">
             <div class="experience">
+              <div class="proEdit mb10 ml20" ng-show="edit_profile"><a href="javascript:void(0)" open-dialog modal-name="#experienceModal"><span class="iconPro i_edit_r"></span>Edit your Experience, skills, and industries</a></div>
               <div class="row">
                 <div class="col-sm-8">
                   <div class="proBox mb50">
@@ -430,6 +437,254 @@
               </div>
             </div>
           </div>
+
+          <!-- Edit call detail Modal Box Start -->
+          <div class="modal fade" id="callsettingModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="callDetail editProfile">
+                    <form novalidate role="form" name="profileForm" ng-submit="updateUserInformationModal()">
+                      <div class="formBox">
+                        <div class="clAll"></div>
+                        <div class="formContent">
+                          <div class="OC15BUG">Edit call settings</div>
+                          <div class="clAll bdb mt10 mb5"></div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <label class="O11BU">When do you prefer our members to request calls with you?</label>
+                              <input type="text" name="availability" ng-model="user.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
+                              <div class="error">{{mentorModalFormError.availability[0]}}</div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Timezone</label>
+                              <div class="dropDown">
+                                <select id="memberTimeZone" ng-model="user.time_zone">
+                                  <option value="Alaska">Alaska</option>
+                                  <option value="Arizona">Arizona</option>
+                                  <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                  <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                  <option value="Hawaii">Hawaii</option>
+                                  <option value="Indiana (East)">Indiana (East)</option>
+                                  <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                  <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                </select>
+                              </div>
+                              <div class="error">{{mentorModalFormError.time_zone[0]}}</div>
+                            </div>
+                          </div>
+                          <div class="bottomBtn">
+                            <a class="cancel mr20" href="javascript:void(0)" id="closeButton" data-dismiss="modal"><span class="iconSp close-icon"></span> Cancel</a>
+                            <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="profileForm.$invalid" ng-click="updateUserInformationModal()">Save Changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Box End -->
+
+          <!-- Edit information detail Modal Box Start -->
+          <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="callDetail editProfile">
+                    <form novalidate role="form" name="detailForm" ng-submit="updateUserInformationModal()">
+                      <div class="formBox">
+                        <div class="callerImage">
+                          <img src="images/no_image.png" ng-src="{{user.avatar.url}}" alt="">
+                          <span class="caretL"></span>
+                          <span class="caretR"></span>
+                        </div>
+                        <div class="userDesc">
+                          <div class="addFile">
+                            <span class="btnEdit grd-blue"><span class="iconPro i_edit_w"></span>Change your profile picture</span>
+                            <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
+                          </div>
+                        </div>
+                        <div class="clAll"></div>
+                        <div class="formContent">
+                          <div class="OC15BUG">Edit your details</div>
+                          <div class="clAll bdb mt10 mb5"></div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <label class="O11BU">City</label>
+                              <input type="text" name="city" ng-model="user.city" placeholder="Enter your city name" required="">
+                              <div class="error">{{mentorModalFormError.city[0]}}</div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">state</label>
+                              <div class="dropDown">
+                                <select class="" ng-model="user.state" required="">
+                                  <option value="">Select State</option>
+                                  <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                                </select>
+                              </div>
+                              <div class="error">{{mentorModalFormError.state[0]}}</div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Most recent university attended</label>
+                              <tags-input ng-model="editSchoolModel.schools" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                                <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                              </tags-input>
+                              <div class="error">{{mentorModalFormError.schools[0]}}</div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Timezone</label>
+                              <div class="dropDown">
+                                <select id="memberTimeZone" ng-model="user.time_zone">
+                                  <option value="Alaska">Alaska</option>
+                                  <option value="Arizona">Arizona</option>
+                                  <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                  <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                  <option value="Hawaii">Hawaii</option>
+                                  <option value="Indiana (East)">Indiana (East)</option>
+                                  <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                  <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                </select>
+                              </div>
+                              <div class="error">{{mentorModalFormError.time_zone[0]}}</div>
+                            </div>
+                          </div>
+                          <div class="clAll bdb mt20 mb5"></div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <label class="O11BU">Current position</label>
+                              <input type="text" ng-model="user.current_position" placeholder="Enter your position" required="">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <label class="O11BU">Current company</label>
+                              <input type="text" ng-model="user.current_company" placeholder="Enter your company name" required="">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Total years of experience</label>
+                              <input type="text" ng-model="user.years_of_experience" placeholder="Number of years" required="">
+                            </div>
+                            <div class="col-sm-12">
+                              <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
+                              <label class="chLeft">{{ 280 - user.headline.length }}</label>
+                              <textarea ng-model="user.headline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management."></textarea>
+                              <div class="error">{{mentorModalFormError.headline[0]}}</div>
+                            </div>
+                          </div>
+                          <div class="bottomBtn">
+                            <a class="cancel mr20" href="#" data-dismiss="modal"><span class="iconSp close-icon"></span> Cancel</a>
+                            <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="detailForm.$invalid" ng-click="updateUserInformationModal()">Save Changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Edit information detail Modal Box End -->
+
+
+          <!-- Experience Modal Box Start -->
+          <div class="modal fade" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="callDetail editProfile">
+                    <form novalidate role="form" name="experienceForm" ng-submit="updateUserInformationModal()">
+                      <div class="formBox">
+                        <div class="OC15BUG pb5 bdb">What is your current position?</div>
+                        <div ng-repeat="work_history in work_histories | filter:filterWorkHistory">
+                          <div class="row">
+                            <div class="col-sm-12" ng-hide="$index == 0">
+                              <div class="OC15BUG fl">Add a position</div>
+                              <a href="javascript:void(0)" class="cancel fr" ng-click="deleteWorkHistory(work_history.id)"><span class="iconSp close-icon"></span> Cancel</a>
+                              <div class="clAll bdb mt20"></div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <label class="O11BU">Position</label>
+                              <input type="text" ng-model="work_history.title" placeholder="Enter your position" required="">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Company name</label>
+                              <input type="text" ng-model="work_history.company" maxlength="50" placeholder="Enter your company name" required="">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Month started</label>
+                              <div class="dropDown">
+                                <select data-ng-options="t.value as t.text for t in monthList" ng-model="work_history.started_month" required=""></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Year Started</label>
+                              <input type="text" name="staredPreviousYear" ng-model="work_history.started_year" id="historyStartedPreviousYear" maxlength="4" placeholder="Ex: 2013" required="">
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Month ended</label>
+                              <div class="dropDown">
+                                <select data-ng-options="t.value as t.text for t in monthList" ng-model="work_history.ended_month"></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Year ended</label>
+                              <input type="text" name="staredEndedYear" ng-model="work_history.ended_year" id="historyEndedPreviousYear" maxlength="4" placeholder="Ex: 2014">
+                            </div>
+                          </div>
+                          <div class="cl">&nbsp;</div>
+                        </div>
+                        <div class="OC15BUG pb5 mt10 mb20 bdb" ng-show="work_histories.length == 1">what positions have you held previously?</div>
+                        <div class="row">
+                          <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length > 1">
+                          </div>
+                          <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length > 1">
+                              <a href="javascript:void(0)" class="addBtnFull O11BU fr" ng-click="addWorkHistory()"><span class="iconSp plus-icon"></span> add another position</a>
+                          </div>
+                          <div class="col-sm-6" ng-hide="previousPosition" ng-show="(work_histories | filter:filterWorkHistory).length == 1">
+                            <a class="addBtnFull O11BU" href="javascript:void(0)" ng-click="addWorkHistory()" ng-show="(work_histories | filter:filterWorkHistory).length == 1">Add a position <span class="iconSp plus-icon fr"></span></a>
+                          </div>
+                          <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length == 1">
+                            <div class="checkBox">
+                              <span class="checkBtn iconSp">
+                                <input type="checkbox" name="r1" ng-model="previousPosition" fancy-checkbox>
+                              </span>
+                              I haven’t held any previous positions
+                            </div>
+                          </div>
+                        </div>
+                        <div class="clAll bdb mt20"></div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <label class="O11BU">What are the main industries you’ve worked in?</label>
+                            <tags-input ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
+                              <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                            </tags-input>
+                            <div class="error">{{mentorFormError.industries[0]}}</div>
+                          </div>
+                          <div class="col-sm-12">
+                            <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
+                            <input type="text" ng-model="user.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                            <div class="error">{{mentorModalFormError.skills[0]}}</div>
+                          </div>
+                        </div>
+                        <div class="bottomBtn">
+                          <button class="btn grd-org btnOrgLg ml20 fr" type="button" ng-disabled="experienceForm.$invalid" ng-click="updateExperienceModal()">Save Changes</button>
+                          <a href="#" data-dismiss="modal" class="cancel mr20 fl" ng-click="cancel()"><span class="iconSp close-icon"></span> Cancel</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Box End -->
+
+
         </section>
 
         <section class="memberProfile" ng-show="user.role_type == 'Member'">

@@ -131,7 +131,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   for i in $scope.state_list
     $scope.stateList.push({ value : i, text: i})
 
-  $scope.refresh(false)
+  $scope.refresh(true)
 
   $scope.showMemberForm = () ->
     $scope.welcomeModel.role = 'Member'
@@ -307,7 +307,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.updateUserInformation = () ->
     User.updateUser($scope.user).then((data) ->
-      $scope.flash_message = 'User Information Updated.'
+      $scope.flash_message = 'Your profile has been updated.'
+      $scope.refresh(false)
       $timeout (->
           $scope.flash_message = null
           $scope.$digest()
@@ -316,6 +317,59 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       User.updateMemberInfo($scope.user) if $scope.user.role_type == 'Member'
     , (data) ->
       $scope.memberFormError = data.errors
+    )
+
+  $scope.updateUserInformationModal = () ->
+    User.updateUser($scope.user).then((data) ->
+      $scope.user.title = $scope.user.current_position
+      $scope.user.company = $scope.user.current_company
+      $scope.user.started_month = $scope.work_histories[0].date_started.split(" ")[0]
+      $scope.user.started_year = $scope.work_histories[0].date_started.split(" ")[1]
+      $scope.user.ended_month = null
+      $scope.user.ended_year = null
+      $scope.user.schools = $scope.editSchoolModel.schools
+      $scope.user.industries = $scope.editIndustryModel.industries
+
+      Workhistory.updateWorkHistory($scope.user, $scope.user.role_id, $scope.work_histories[0].id).then((data) ->
+        User.updateMentor($scope.user).then((data) ->
+          $('#myModal, #callsettingModal').modal('hide')
+          $(window).scrollTop(0)
+          $scope.refresh(false)
+          $scope.flash_message = 'Your profile has been updated.'
+          $timeout (->
+            $scope.flash_message = null
+            $scope.$digest()
+          ), 5000
+        , (data) ->
+          $scope.historyFormError = data
+        )
+      , (data) ->
+        $scope.mentorModalFormError = data.errors
+      )
+    , (data) ->
+      $scope.mentorModalFormError = data.errors
+    )
+
+  $scope.updateExperienceModal = () ->
+    $scope.user.schools = $scope.editSchoolModel.schools
+    $scope.user.industries = $scope.editIndustryModel.industries
+
+    User.updateMentor($scope.user).then((data) ->
+      $scope.updateWorkHistories()
+      $('#experienceModal').modal('hide')
+      $(window).scrollTop(0)
+      $scope.refresh(false)
+      $scope.flash_message = 'Your profile has been updated.'
+      $timeout (->
+        $scope.flash_message = null
+        $scope.$digest()
+      ), 5000
+    , (data) ->
+      $scope.historyFormError = data
+    , (data) ->
+      $scope.mentorModalFormError = data.errors
+    , (data) ->
+      $scope.mentorModalFormError = data.errors
     )
 
   $scope.updatePassword = () ->
@@ -376,7 +430,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   # add user
   $scope.addWorkHistory = ->
     $scope.work_histories.push
-      id: $scope.work_histories.length + 1
+      id: (Math.floor Math.random() * 55)
       title: ""
       company: ""
       started_month: "January"
@@ -391,7 +445,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     filtered = $filter("filter")($scope.work_histories,
       id: id
     )
-    filtered[0].isDeleted = true  if filtered.length
+    if filtered.length
+      filtered[0].isDeleted = true
     return
 
   # cancel all changes
@@ -402,10 +457,13 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       work_history = $scope.work_histories[i]
 
       # undelete
-      delete work_history.isDeleted  if work_history.isDeleted
+      if work_history.isDeleted
+        delete work_history.isDeleted
 
       # remove new
-      $scope.work_histories.splice i, 1  if work_history.isNew
+      if work_history.isNew
+        $scope.work_histories.splice i, 1
+
     return
 
   $scope.updateWorkHistories = () ->
