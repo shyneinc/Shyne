@@ -91,7 +91,7 @@ ShyneDirectives.directive("openDialog", ->
         if e.isDefaultPrevented()
           return
         if e.which is 27
-          $('#closeButton').trigger('click')
+          scope.$apply "cancel()"
           element.modal "hide"
         return
       , this)
