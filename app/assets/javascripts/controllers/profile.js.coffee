@@ -120,7 +120,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
       # display last step to upload photo for both type of user
       if (user.sign_in_count == 1 || user.sign_in_count == 2 ) && $scope.user.role_type != null && $scope.user.avatar == null
-        $scope.footer_flash_message = "Last step: Upload a photo and you’re all set!"
+        $scope.footer_flash_message = 'Last step: Click "Edit your profile" on the right to add a photo, and you’re all set!'
     )
 
   $scope.state_list = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY','LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC',

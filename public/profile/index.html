@@ -6,6 +6,12 @@
       </div>
     </div>
 
+    <div class="container" ng-show="footer_flash_message">
+      <div class="col-md-8 col-md-offset-2 successMsg mb10">
+        <span class="iconPro i_check_w"></span>{{footer_flash_message}} <a class="iconPro i_close_b fr" title="Click to hide this message" hide-footer-flash-message></a>
+      </div>
+    </div>
+
     <section ng-hide="user" class="applicationMentors">
       <div class="container">
         <div class="row">
@@ -368,9 +374,9 @@
                         <li><span class="iconPro i_ribbon"></span>{{ user.years_of_experience }} years work experience</li>
                         <li><span class="iconPro i_phone"></span>{{ user.total_calls }} calls</li>
                         <li><span class="iconPro i_education"></span>{{ user.schools }}</li>
-                        <li><span class="iconPro i_review"></span>{{ reviews.length }} reviews</li>
+                        <li style="display:none;"><span class="iconPro i_review"></span>{{ reviews.length }} reviews</li>
                         <li><span class="iconPro i_pin"></span>{{ user.city}}, {{user.state }}</li>
-                        <li><span class="iconPro i_star"></span><star-rating-orange star-rating="user.get_avg_rating"></star-rating-orange></li>
+                        <li style="display:none;"><span class="iconPro i_star"></span><star-rating-orange star-rating="user.get_avg_rating"></star-rating-orange></li>
                       </ul>
                     </div>
                     <p class="R16R">{{ user.headline }}</p>
@@ -407,7 +413,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="proBox">
+                  <div class="proBox" style="display:none;">
                     <div class="OC16BUB">Member reviews <span class="O11BU tcGry">{{ reviews.length }} total</span></div>
                     <div class="clAll bdb pt5"></div>
                     <div class="memberReview">
@@ -754,12 +760,6 @@
             </div>
           </div>
         </section>
-    </div>
-    <div class="footer-flash-message" ng-show="footer_flash_message">
-        <div class="inner">
-          <div class="message">{{footer_flash_message}}</div>
-          <a class="closeIcon" title="Click to hide this message" hide-footer-flash-message>x</a>
-        </div>
     </div>
   </div>
 </div>

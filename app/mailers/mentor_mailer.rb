@@ -3,7 +3,7 @@ class MentorMailer < ActionMailer::Base
 
   def approval_email(mentor)
     @mentor = mentor
-    mail(to: mentor.user.email, subject: "You've been approved to be a mentor on Shyne!")
+    mail(to: mentor.user.email, subject: "You've been approved to be a Mentor on Shyne!")
   end
 
   def declined_email(mentor)

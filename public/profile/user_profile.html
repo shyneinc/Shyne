@@ -24,9 +24,9 @@
                     <li><span class="iconPro i_ribbon"></span>{{ userProfile.years_of_experience }} years work experience</li>
                     <li><span class="iconPro i_phone"></span>{{ userProfile.total_calls }} calls</li>
                     <li><span class="iconPro i_education"></span>{{ userProfile.schools }}</li>
-                    <li><span class="iconPro i_review"></span>{{ user_reviews.length }} reviews</li>
+                    <li style="display:none;"><span class="iconPro i_review"></span>{{ user_reviews.length }} reviews</li>
                     <li><span class="iconPro i_pin"></span>{{ userProfile.city}}, {{userProfile.state }}</li>
-                    <li><span class="iconPro i_star"></span><star-rating-orange star-rating="userProfile.get_avg_rating"></star-rating-orange></li>
+                    <li style="display:none;"><span class="iconPro i_star"></span><star-rating-orange star-rating="userProfile.get_avg_rating"></star-rating-orange></li>
                   </ul>
                 </div>
                 <p class="R16R">{{ userProfile.headline }}</p>
@@ -59,7 +59,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="proBox">
+              <div class="proBox" style="display:none;">
                 <div class="OC16BUB">Member reviews <span class="O11BU tcGry">{{ user_reviews.length }} total</span></div>
                 <div class="clAll bdb pt5"></div>
                 <div class="memberReview">
