@@ -333,7 +333,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
       Workhistory.updateWorkHistory($scope.user, $scope.user.role_id, $scope.work_histories[0].id).then((data) ->
         User.updateMentor($scope.user).then((data) ->
-          $('#myModal, #callsettingModal').modal('hide')
+          $('#myModal').modal('hide')
           $(window).scrollTop(0)
           $scope.refresh(false)
           $scope.flash_message = 'Your profile has been updated.'
@@ -342,8 +342,28 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
             $scope.$digest()
           ), 5000
         , (data) ->
-          $scope.historyFormError = data
+          $scope.mentorModalFormError = data.errors
         )
+      , (data) ->
+        $scope.mentorModalFormError = data.errors
+      )
+    , (data) ->
+      $scope.mentorModalFormError = data.errors
+    )
+
+  $scope.updateCallSettingModal = () ->
+    $scope.user.schools = $scope.editSchoolModel.schools
+    $scope.user.industries = $scope.editIndustryModel.industries
+    User.updateUser($scope.user).then((data) ->
+      User.updateMentor($scope.user).then((data) ->
+        $('#callsettingModal').modal('hide')
+        $(window).scrollTop(0)
+        $scope.refresh(false)
+        $scope.flash_message = 'Your profile has been updated.'
+        $timeout (->
+          $scope.flash_message = null
+          $scope.$digest()
+        ), 5000
       , (data) ->
         $scope.mentorModalFormError = data.errors
       )
