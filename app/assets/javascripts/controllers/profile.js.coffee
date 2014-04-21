@@ -485,6 +485,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       if work_history.isNew
         $scope.work_histories.splice i, 1
 
+    $scope.previousPosition = true if $scope.work_histories.length == 1
+
     return
 
   $scope.updateWorkHistories = () ->
