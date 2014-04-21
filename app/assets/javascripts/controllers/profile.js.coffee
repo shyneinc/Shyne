@@ -113,6 +113,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo
+          $scope.previousPosition = true if $scope.work_histories.length == 1
         )
         User.getReviews(user.role_id).then((reviews) ->
           $scope.reviews = reviews

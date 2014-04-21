@@ -630,13 +630,13 @@
                               <label class="O11BU">Year Started</label>
                               <input type="text" name="staredPreviousYear" ng-model="work_history.started_year" id="historyStartedPreviousYear" maxlength="4" placeholder="Ex: 2013" required="">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" ng-hide="$index == 0">
                               <label class="O11BU">Month ended</label>
                               <div class="dropDown">
                                 <select data-ng-options="t.value as t.text for t in monthList" ng-model="work_history.ended_month"></select>
                               </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" ng-hide="$index == 0">
                               <label class="O11BU">Year ended</label>
                               <input type="text" name="staredEndedYear" ng-model="work_history.ended_year" id="historyEndedPreviousYear" maxlength="4" placeholder="Ex: 2014">
                             </div>
@@ -655,7 +655,7 @@
                           </div>
                           <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length == 1">
                             <div class="checkBox">
-                              <span class="checkBtn iconSp">
+                              <span class="checkBtn iconSp {{ previousPosition == true ? 'c_on' : '' }}">
                                 <input type="checkbox" name="r1" ng-model="previousPosition" fancy-checkbox>
                               </span>
                               I haven’t held any previous positions
