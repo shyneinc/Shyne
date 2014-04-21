@@ -1,0 +1,40 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section class="login">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                  <div class="text-center info-message" ng-show="user">
+                      <h2>Welcome to Shyne, {{user.first_name}}</h2>
+                      <p>
+                          To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
+                      </p>
+                  </div>
+                  <div ng-hide="user">
+                      <form novalidate role="form" name="loginForm" ng-submit="login()">
+                        <div class="formBox mt20">
+                          <h2>Log In</h2>
+                          <div class="clAll mb20"></div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                                <input type="text" name="email" ng-model="loginModel.email" type="email" id="loginEmail" placeholder="Email Address" required="" auto-focus>
+                                <div class="error">{{loginError}}</div>
+                            </div>
+                            <div class="cl">&nbsp;</div>
+                            <div class="col-sm-12">
+                                <input name="password" ng-model="loginModel.password" type="password" id="loginPassword" placeholder="Password" required="">
+                            </div>
+                          </div>
+                          <div class="bottomBtn">
+                              <input type="submit" class="btn grd-org btnOrgLg fr" ng-disabled="loginForm.$invalid" value="Log in" />
+                              <a href="#/resetpassword" class="O13SB tcOrg mt10 fl">Forgot your password?</a>
+                          </div>
+                        </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+  </div>
+</div>

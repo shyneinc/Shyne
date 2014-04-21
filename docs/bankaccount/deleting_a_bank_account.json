@@ -1,0 +1,32 @@
+{
+  "resource": "BankAccount",
+  "http_method": "DELETE",
+  "route": "/api/bank_accounts/:id",
+  "description": "Deleting a bank account",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/bank_accounts/BA4D3Psrn2EQscHmL9egtm5G",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=VE1MRTNqcWx3ZTcyMjVXUVJGSkVsM2Q5UUFHMmZOZEVrQjlTckw4VTRUclhMZ2o5TVdEV0lOcVAxazBPL2oxRkpHaEJVQzFZcStUZ25za0FBdTlEVHVrSk1sMzJlYjVDZXZjT3dudENZSG9NN0xoL0grSkZHd1Z3d1hZT1ltZ0lFazdQc3FHZ1FaekRJTG0xeGEvQTFzWnNwTkRMQVo0czNYcTVRdzZ1QzlnPS0tUTdPNy9lYVliSEwyc3YvaUpQaHNpdz09--d6c13d7ef90db949ef4d0a715af9a7b0aef099c9; path=/; HttpOnly","X-Request-Id":"a0fb7bf5-4622-4fc5-81a1-02cfbfbb81cc","X-Runtime":"1.014058"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

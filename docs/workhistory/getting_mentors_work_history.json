@@ -1,0 +1,35 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "GET",
+  "route": "/api/mentors/:mentor_id/work_histories",
+  "description": "Getting mentor's work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors/68/work_histories",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":2,\"company\":\"Krajcik-Halvorson\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2015-01-27\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.452-10:00\",\"updated_at\":\"2013-12-12T17:13:22.452-10:00\",\"title\":\"Human Functionality Associate\"},{\"id\":3,\"company\":\"Corkery, Batz and Fahey\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2015-02-23\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.471-10:00\",\"updated_at\":\"2013-12-12T17:13:22.471-10:00\",\"title\":\"Investor Identity Associate\"},{\"id\":4,\"company\":\"Hansen Inc\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2014-02-06\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.491-10:00\",\"updated_at\":\"2013-12-12T17:13:22.491-10:00\",\"title\":\"District Security Representative\"},{\"id\":5,\"company\":\"Dibbert, Zieme and Bednar\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2014-01-26\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.646-10:00\",\"updated_at\":\"2013-12-12T17:13:22.646-10:00\",\"title\":\"Chief Markets Specialist\"},{\"id\":6,\"company\":\"Reichel LLC\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2015-04-03\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.667-10:00\",\"updated_at\":\"2013-12-12T17:13:22.667-10:00\",\"title\":\"District Paradigm Supervisor\"},{\"id\":7,\"company\":\"Fay and Sons\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2015-08-05\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.687-10:00\",\"updated_at\":\"2013-12-12T17:13:22.687-10:00\",\"title\":\"Forward Response Assistant\"},{\"id\":8,\"company\":\"Rutherford, Stokes and Dach\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2015-02-07\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.708-10:00\",\"updated_at\":\"2013-12-12T17:13:22.708-10:00\",\"title\":\"Dynamic Marketing Associate\"},{\"id\":9,\"company\":\"Lehner-Greenfelder\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2014-11-18\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.729-10:00\",\"updated_at\":\"2013-12-12T17:13:22.729-10:00\",\"title\":\"Direct Division Associate\"},{\"id\":10,\"company\":\"Gottlieb and Sons\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2014-11-21\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.749-10:00\",\"updated_at\":\"2013-12-12T17:13:22.749-10:00\",\"title\":\"Lead Web Engineer\"},{\"id\":11,\"company\":\"Franecki, Reichel and Gorczany\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2016-05-07\",\"current_work\":false,\"mentor_id\":68,\"created_at\":\"2013-12-12T17:13:22.769-10:00\",\"updated_at\":\"2013-12-12T17:13:22.769-10:00\",\"title\":\"Corporate Marketing Strategist\"}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"025b49d887da767bad417c619320c820\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=eCtybWFIQjhOZzRLWk1vR1VXbXYweFpDN05XRUdWbWE0NGdqSytHVkpHUkxMaGhnZkVneVJ3VHo5Vlo1MnRrRlJ4dWRQc0NRNUNmemJOTHFkRTVIZlF1ZkY4Vm1XRGt2TkhXWE5KMDlSYVpqdzl2VUp6bGJReWMxU3dtSkliWE1MSWRMZFpqcGZiRDZWVGFaQkxldzJiVlNSRzFSMFNMNnhKa2h1Q1lxUkZVPS0tZUtXSllLZmtDUk5XbDVYampjUE1pUT09--692ddd8af5aa2d112f6294797aefb574064a712d; path=/; HttpOnly","X-Request-Id":"eb418547-4af1-444e-9bdf-2778a92f0fcc","X-Runtime":"0.226866","Content-Length":"2588"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

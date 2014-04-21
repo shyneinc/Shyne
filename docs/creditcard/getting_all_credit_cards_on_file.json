@@ -1,0 +1,31 @@
+{
+  "resource": "CreditCard",
+  "http_method": "GET",
+  "route": "/api/credit_cards",
+  "description": "Getting all credit cards on file",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/credit_cards",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=VG1wYnpyME5MQ3pKMG9GdVp5VHlRak9jczRnS20zdzFUdzJMNjJ6UG56LzdSaUVPY1hMSWFXQTVDeExvYmlTTlgzUFdWblNwVnRHckJyb01DS3lJaTRIVDBBRXNGbWhlZHRJNHpNNGVkblh0VHZaSGhqblRsd3Fad0xucDNnRWdUQ0FNRWR2UlBXMXY0TnNYcG8vWDZVM0VnNTVxV0FLNlBSVlZNTS9XWjVnPS0tOXJGaEpBRldla0xnTmRKdTJYTjk2QT09--f9496837e4ff881fa1086b24b43e51858f6dce7f; path=/; HttpOnly","X-Request-Id":"3cd6a81d-48c0-4795-8ea2-60b392188f1b","X-Runtime":"2.572041","Content-Length":"2"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

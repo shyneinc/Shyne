@@ -1,0 +1,31 @@
+{
+  "resource": "Member",
+  "http_method": "GET",
+  "route": "/api/members",
+  "description": "Getting all members",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/members",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":129,\"created_at\":\"2013-12-12T20:14:00.647-07:00\",\"updated_at\":\"2013-12-12T20:14:00.647-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":130,\"created_at\":\"2013-12-12T20:14:01.595-07:00\",\"updated_at\":\"2013-12-12T20:14:01.595-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":131,\"created_at\":\"2013-12-12T20:14:02.370-07:00\",\"updated_at\":\"2013-12-12T20:14:02.370-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":132,\"created_at\":\"2013-12-12T20:14:03.303-07:00\",\"updated_at\":\"2013-12-12T20:14:03.303-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":133,\"created_at\":\"2013-12-12T20:14:04.093-07:00\",\"updated_at\":\"2013-12-12T20:14:04.093-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":134,\"created_at\":\"2013-12-12T20:14:05.091-07:00\",\"updated_at\":\"2013-12-12T20:14:05.091-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":135,\"created_at\":\"2013-12-12T20:14:05.849-07:00\",\"updated_at\":\"2013-12-12T20:14:05.849-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":136,\"created_at\":\"2013-12-12T20:14:06.847-07:00\",\"updated_at\":\"2013-12-12T20:14:06.847-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":137,\"created_at\":\"2013-12-12T20:14:07.549-07:00\",\"updated_at\":\"2013-12-12T20:14:07.549-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"},{\"id\":138,\"created_at\":\"2013-12-12T20:14:08.475-07:00\",\"updated_at\":\"2013-12-12T20:14:08.475-07:00\",\"user_id\":null,\"phone_number\":\"15626453725\"}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"818040cd4bc3973e87aab9efc2877f86\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"04a656b9-05bd-4a4b-bfb1-4bd98a91f5e0","X-Runtime":"0.051165","Content-Length":"1451"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

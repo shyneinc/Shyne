@@ -1,0 +1,42 @@
+{
+  "resource": "Search",
+  "http_method": "GET",
+  "route": "/api/search",
+  "description": "Getting all matching search results",
+  "explanation": "This endpoint will search for Mentor's full name, headline, location, experties and work history to find a match",
+  "parameters": [
+    {
+      "required": true,
+      "name": "q",
+      "description": "Search query"
+    },
+    {
+      "required": false,
+      "name": "pg",
+      "description": "Page number"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/search?q=banking&pg=1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "q": "banking",
+        "pg": "1"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"info\":\"No results found\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"8d091c0eadd59e1cca4dfaa373b51ade\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"ab1cd292-0be9-4e08-8e2c-3cb42ccc93c8","X-Runtime":"0.993148","Content-Length":"27"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

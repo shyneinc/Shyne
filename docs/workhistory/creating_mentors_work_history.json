@@ -1,0 +1,66 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "POST",
+  "route": "/api/mentors/:mentor_id/work_histories",
+  "description": "Creating mentor's work history",
+  "explanation": "Once the user is registered as mentor and logged in, they can add their work history",
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "company",
+      "description": "Company"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "title",
+      "description": "Job Title"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "date_started",
+      "description": "Date Started"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "date_ended",
+      "description": "Date Ended"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "current_work",
+      "description": "Current Work?"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/mentors/67/work_histories",
+      "request_body": "work[company]=Wisoky%2C+Nikolaus+and+Prohaska&work[title]=International+Implementation+Analyst&work[date_started]=2013-09-17&work[date_ended]=2016-05-21&work[current_work]=false&work[mentor_id]=67",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":1,\"company\":\"Wisoky, Nikolaus and Prohaska\",\"date_started\":\"2013-09-17\",\"date_ended\":\"2016-05-21\",\"current_work\":false,\"mentor_id\":67,\"created_at\":\"2013-12-12T18:13:21.308-09:00\",\"updated_at\":\"2013-12-12T18:13:21.308-09:00\",\"title\":\"International Implementation Analyst\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/67/work_histories.1","Content-Type":"application/json; charset=utf-8","ETag":"\"f5b663d10f3776ba42ee8c3bad321402\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=MmZPN0IrM2QraWxhN1VYZGtCMmNoYm1RWEdxQ05tR1AwTVVvYW1CUmxiWUN6b0FabzVJem92WHVnTTREaDE3TStINHJUcWR0T1hyRGNLcE1IUUhpRjRwOGJ3eXB2amxRWmhjd0xoU0Y5eTQ4Y1RCdEk2cmVSc1VyTXY0M1hpTnZQbG96aUlhRXhSUVJhRkozeTltVTlXK1NxNlg0SGlCdmlWd09ERnoyRDNjPS0tVVlwdzRqa2J0Q0ZKR1BydUc4U2NyQT09--ccd5c00aca408b51524392b75d5b58706b391fd9; path=/; HttpOnly","X-Request-Id":"08f2c69c-62a7-46cd-a517-35739488b5e7","X-Runtime":"0.299745","Content-Length":"277"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

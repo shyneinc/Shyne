@@ -1,0 +1,32 @@
+{
+  "resource": "Member",
+  "http_method": "DELETE",
+  "route": "/api/members",
+  "description": "Deleting a member",
+  "explanation": "Delete current user's member profile",
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/members",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=elFzWWpiQzNaVUhOK0FhYXo5TktleERJeUZVWWJDdURuVjNERnk3bjNVSlhFTHltWjJQcmJwL1RtVzZaVkJnZnVJLzBVZmxyQ05sWW1mdzhuaWxxOVZCSmZ1Mk9ZY0d4MmN5cjVKRkVqTmdyQ3J2UnVXdC8zMndEa0p5cFJpRGl1bG5UNTQxdVUxYUZaL3plU0FjQm5wWHE3N0NCbTJ4anlxRzVpUXFVV1U4PS0tUzNydlFmT2s5WVkvU2wxdEl5aXZuUT09--54bdf05a408730c4b99b34a47af210822ff1f2e3; path=/; HttpOnly","X-Request-Id":"19b664f4-81b8-4e0d-9e83-04f8fbd71218","X-Runtime":"0.188791"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

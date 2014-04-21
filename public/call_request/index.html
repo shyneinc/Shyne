@@ -1,0 +1,245 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section ng-hide="user" class="applicationMentors">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-2">
+            <div class="text-center">
+              <h2>Please <a class="tcOrg" href="#/login">log in</a> with your Shyne account to continue</h2>
+              <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div ng-show="user">
+      <section ng-show="user.role_type == 'Mentor'">
+        <div class="hero mainBg maxHeight">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7 col-md-offset-2">
+                <div class="text-center">
+                  <h3>We apologize, but Mentors cannot currently request calls. You must be a Member to schedule a call. <br /> <br /> We will be fixing this soon!</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="scheduleCall">
+        <div ng-show="user.role_type == 'Member'" class="mainBg maxHeight">
+          <div class="loaderimgText" style="display:none;" id="loaderimgText">
+            <div><img src="/assets/ajax-loader.gif" /></div>
+            <span style="font-size:20px;">Submitting...</span>
+            <div class="backTransparant"></div>
+          </div>
+          <div class="container">
+            <h2>Schedule a call</h2>
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default" ng-class="{ 'active' : callRequestModel.form == 'cal_details' }"><span class="no">1</span> call details <span class="caretB"></span></button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default" ng-class="{ 'active' : callRequestModel.form == 'avl_times' }"><span class="no">2</span> schedule <span class="caretB"></span></button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default" ng-class="{ 'active' : callRequestModel.form == 'payment_info' }"><span class="no">3</span> payment <span class="caretB"></span></button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default" ng-class="{ 'active' : callRequestModel.form == 'confirm_details' }"><span class="no">4</span> confirm <span class="caretB"></span></button>
+              </div>
+            </div>
+            <!-- call details -->
+            <div class="callDetail" ng-show="callRequestModel.form == 'cal_details'">
+
+              <form novalidate role="form" name="callDetailForm">
+                <div class="formBox mt20">
+                  <div class="callerImage">
+                    <img src="{{mentor.user.avatar.url}}" />
+                    <span class="caretL"></span>
+                    <span class="caretR"></span>
+                  </div>
+                  <div class="callTitle">{{mentor.full_name}}</div>
+                  <div class="rate">rate is ${{mentor.rate_per_minute}}/min</div>
+                  <div class="clAll bdb mb10 mt20"></div>
+
+                  <div class="formContent">
+                    <label class="O11BU mb10">What would you like to talk to {{mentor.user.first_name}} about?</label>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <textarea class="width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280" placeholder="Example: I'd love to learn more about what it's like to work in marketing at Google, and what background is needed for this position."></textarea>
+                      </div>
+                    </div>
+                    <div class="clAll bdb mb10 mt20"></div>
+                    <label class="O11BU mb10">roughly speaking, how long would you like this call to last?</label>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="dropDown">
+                          <select data-ng-options="o.name for o in proposedDurationOptions" ng-model="callRequestModel.proposed_duration" class="width65"></select>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <p class="O12R">Please note that your call can go over the amount of time you choose! This is just to give our Mentors a rough estimate.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottomBtn">
+                  <a href="#" class="btn grd-blue btnBlueLg">Go Back</a>
+                  <button class="btn grd-org btnOrgLg fr" type="button" ng-disabled="callDetailForm.$invalid" ng-click="availableTimes()">Continue</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Availabel times -->
+            <div class="callDetail" ng-show="callRequestModel.form == 'avl_times'">
+              <form novalidate role="form" name="avlTimeForm">
+                <div class="formBox mt20">
+                  <div class="callerImage">
+                    <img src="{{mentor.user.avatar.url}}" />
+                    <span class="caretL"></span>
+                    <span class="caretR"></span>
+                  </div>
+                  <div class="callTitle">{{mentor.full_name}}</div>
+                  <div class="rate">rate is ${{mentor.rate_per_minute}}/min</div>
+                  <div class="clAll bdb mb10 mt20"></div>
+                  <div class="formContent">
+                    <label class="O11BU mb10">{{mentor.user.first_name}} is generally available to speak at the following times:</label>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="bgLightBlue avlTime">{{ mentor.availability }}</div>
+                        <div class="O13SB mt20 iconText"><span class="iconPro i_clock"></span><span class="iText">Times above listed in {{mentor.user.time_zone}}</div>
+                      </div>
+                    </div>
+                    <div class="clAll bdb mb10 mt20"></div>
+                    <label class="O11BU mb10">Suggest a time (in your timezone) for {{mentor.user.first_name}} to take the call</label>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <input type="text" class="width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="dropDown">
+                          <input ng-model="callRequestModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="width40 fleft" required="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clAll mb20"></div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="O12R">The mentor can accept your time or suggest another time that might be a better fit. We don’t recommend requesting a call within 12 hours, as that's a bit too soon.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottomBtn">
+                  <button class="btn grd-blue btnBlueLg" type="button" ng-click="calDetails()">Go Back</button>
+                  <button class="btn grd-org btnOrgLg fr" type="button" ng-disabled="avlTimeForm.$invalid" ng-click="PaymentInfo(false)">Continue</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Payment Info -->
+            <div class="callDetail" ng-show="callRequestModel.form == 'payment_info'">
+              <form novalidate role="form" name="paymentInfoForm">
+                <div class="formBox mt20">
+                  <div class="R20R">Please enter your payment information</div>
+                  <div class="clAll bdb mb10 mt20"></div>
+
+                  <span class="text-danger">{{creditCardError}}</span>
+
+                  <div class="formContent">
+                    <div class="row rowMar">
+                      <div class="col-sm-4">
+                        <label class="O11BU tcblue">Credit card number</label>
+                        <input type="text" class="width40" ng-model="callRequestModel.card_number" placeholder="Credit card #" required="">
+                      </div>
+                      <div class="col-sm-2">
+                        <label class="O11BU tcblue">CVV</label>
+                        <input type="text" class="width10" ng-model="callRequestModel.security_code" placeholder="CVV" required="" maxlength="4">
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="bankCard">
+                          <a href=""><img src="/assets/visa_card.png" alt=""></a>
+                          <a href=""><img src="/assets/master_card.png" alt=""></a>
+                          <a href=""><img src="/assets/discover_card.png" alt=""></a>
+                          <a href=""><img src="/assets/american_card.png" alt=""></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clAll bdb mt20"></div>
+                    <div class="row rowMar mt10 pt5">
+                      <div class="col-sm-3">
+                        <label class="O11BU tcblue">Expiration date</label>
+                        <div class="dropDown">
+                          <select class="width40 fleft" ng-model="callRequestModel.expired_month" data-ng-options="o.name for o in expiredMonths"></select>
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <label class="O11BU phoneDN">&nbsp;</label>
+                        <div class="dropDown">
+                          <select class="width40" ng-model="callRequestModel.expired_year" data-ng-options="o.name for o in expiredYears"></select>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="clAll bdb mb20 mt20"></div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <p class="O12R">Your credit card will not be charged until after the call is complete.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bottomBtn">
+                <button class="btn grd-blue btnBlueLg" type="button" ng-click="availableTimes()">Go Back</button>
+                <button class="btn grd-org btnOrgLg fr" type="button" ng-disabled="paymentInfoForm.$invalid" ng-click="ConfirmDetails()">Continue</button>
+                <div id="spinner" class="loaderIcon" style="display:none;">
+                  <img src="/assets/loader.gif" />
+                </div>
+              </div>
+            </form>
+          </div>
+
+            <!-- confirm details -->
+            <div class="callDetail" ng-show="callRequestModel.form == 'confirm_details'">
+              <form novalidate role="form" name="confirmDetailForm">
+                <div class="formBox mt20">
+                  <div class="callerImage">
+                    <img src="{{mentor.user.avatar.url}}" />
+                    <span class="caretL"></span>
+                    <span class="caretR"></span>
+                  </div>
+                  <div class="callTitle R22">Confirm Details</div>
+                  <div class="clAll mt10 mt20"></div>
+                  <div class="clAll mt10 mt20"></div>
+                  <ul class="bListOne">
+                    <li class="O11BU">rate: <span class="tcblue">${{mentor.rate_per_minute}}/min</span></li>
+                    <li class="O11BU">Estimated length: <span class="tcblue">{{ callRequestModel.proposed_duration.id }} min</span></li>
+                    <li class="O11BU">Estimated cost: <span class="tcblue">{{ callRequestModel.proposed_duration.id * mentor.rate_per_minute | currency:"$"}}</span></li>
+                  </ul>
+                  <div class="clAll"></div>
+                  <div class="formContent">
+                    <label class="O11BU mb10">Reason for your call</label>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="bgLightBlue avlTime">{{ callRequestModel.agenda }}</div>
+                        <div class="O11BU mt20 iconText"><span class="iconPro i_clock"></span><span class="iText">Requested time: <span class="tcblue">{{ callRequestModel.scheduled_at | date:'EEEE, MMMM dd, yyyy' }}</span> at <span class="tcblue">{{ callRequestModel.scheduled_time }}</span></span></div>
+                      </div>
+                    </div>
+                    <div class="clAll bdb mb10 mt20"></div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="O12R">A conference line number will be provided once the call is confirmed. Your credit card will not be charged until after a call is complete.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottomBtn">
+                  <button class="btn grd-blue btnBlueLg" type="button" ng-click="PaymentInfo(true)">Go Back</button>
+                  <button class="btn grd-org btnOrgLg fr" type="button" ng-click="SubmitCallRequest()">Submit</button>
+                </div>
+            </div>
+        </div>
+      </section>
+  </div>
+</div>

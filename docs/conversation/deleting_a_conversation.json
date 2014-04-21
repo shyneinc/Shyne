@@ -1,0 +1,32 @@
+{
+  "resource": "Conversation",
+  "http_method": "DELETE",
+  "route": "/api/conversations/:id",
+  "description": "Deleting a conversation",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/conversations/61",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"99914b932bd37a50b983c5e7c90ae93b\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=SkhRL0R0RGZQYnl2R0Rhc2poWVN2K1g5UmFxaEVqRHE5ZnAzclVLbEcvUjZ0bERXNU8yTWZqVzhKaHlyVXhKYXhGZFVtd2wvQS9Ja29nM04yb2loNkY3c3h4ODBLQ0M1K1N3K05Jeks1cngxZDV4ZTUvUjU1UWRTdlJ3ek9MUVdtK0VQSVh3U1NUazRlam1EL2NLUjdmYzhycE1VUnVPNjI2ck9jYm1mckVRPS0teHFRTmVhZTYxQ0w5RWRmUnZDZzJNQT09--0d4d992bad70d757866b400ab5aff8bd8589cd81; path=/; HttpOnly","X-Request-Id":"2c9e9181-29f6-4c0b-a8d2-447864ce69fc","X-Runtime":"0.122675","Content-Length":"2"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

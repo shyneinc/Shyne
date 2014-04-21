@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Shyne</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body style="background:#e6eff2;">
+<div style=" width:630px; margin:50px auto;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#00637c url(<%= "#{root_url}assets/email/e_header_bg.png" %>) left top repeat-x; padding:15px 48px 10px 48px; border:1px solid #103140; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; border-radius: 4px 4px 0px 0px;">
+            <tr>
+              <td width="28%"><img alt="" src="<%= "#{root_url}assets/logo.png" %>"></td>
+              <td width="72%" style="font-family: 'Open Sans Condensed', sans-serif; font-size:16px; font-weight:700; color:#fff; text-transform:uppercase;">Call with <%= @mentor.user.first_name %> scheduled for <%= @call_request.scheduled_date %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#fff; padding:32px 49px 15px 49px; border:1px solid #b1c7cc; -webkit-border-radius: 0px 0px 4px 4px; -moz-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px;">
+            <tr>
+              <td width="100%" align="left" valign="top" colspan="2" style="font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:600; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">Hey <%= @member.user.first_name %>,</td>
+            </tr>
+            <tr>
+              <td width="100%" align="left" valign="top" colspan="2">
+
+              </td>
+            </tr>
+            <tr>
+              <td width="100%" align="left" valign="top" colspan="2">
+                <p style=" padding:0px; margin:0px; font-family: 'Open Sans', sans-serif; font-size:11px; font-weight:700; color:#474b4c; line-height:21px;">We’re happy to announce that your call request has been accepted!</p>
+                <ul style="list-style-type:none;padding:0px 0px 25px 25px; margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px;">
+                  <li>The call has been set for <%= @call_request.scheduled_date_short %></li>
+                  <li style="padding:0px 0px 20px 0px;">1. Here’s how to enter the call:</li>
+                  <li>A) Dial <%= @call_request.twilio_number.phony_formatted!(:normalize => :US, :format => :international, :spaces => '-') %> at the scheduled time</li>
+                  <li>B) And then enter this Passcode: <%= @call_request.passcode %></li>
+                </ul>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">That’s it! Your Mentor will join the conference call ready to speak.</p>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 0px;">Member Etiquette:</p>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 25px;">All that we ask is to be respectful and courteous when taking calls with our Mentors. Please do not ask them to give you a referral to their company (if they ask you on their own, then no problem!).</p>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">Welcome to Shyne!</p>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px;">Sincerely,</p>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">The Shyne Team</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+</div>
+</body>
+</html>

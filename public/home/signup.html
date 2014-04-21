@@ -1,0 +1,53 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section class="signUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="text-center" ng-show="user">
+              <h2>Welcome to Shyne, {{user.first_name}}</h2>
+              <p class="R20R">
+                  To log in with a different account, please <a href="#" ng-click="logout()">log out</a> first.
+              </p>
+            </div>
+            <div ng-hide="user">
+              <h3 class="text-center">We're excited for you to join Shyne!</h3>
+              <form novalidate role="form" name="signupForm" ng-submit="signup()">
+                <div class="formBox">
+                  <div class="R20R pb5 bdb">Please enter your information</div>
+                  <div class="row">
+                    <div class="col-sm-6 mt20">
+                      <input type="text" ng-model="signupModel.firstName" id="loginFirstName" placeholder="First name" required="" auto-focus>
+                      <div class="error">{{signUpError.first_name[0]}}</div>
+                    </div>
+                    <div class="col-sm-6 mt20">
+                      <input type="text" ng-model="signupModel.lastName" id="loginLastName" placeholder="Last name" required="">
+                      <div class="error">{{signUpError.last_name[0]}}</div>
+                    </div>
+                    <div class="col-sm-12 mt20">
+                      <input name="email" ng-model="signupModel.email" type="email" id="loginEmail" placeholder="Email Address" required="">
+                      <div class="error">{{signUpError.email[1]}}</div>
+                    </div>
+                    <div class="col-sm-6 mt20">
+                      <input name="password" ng-model="signupModel.password" type="password" id="loginPassword" placeholder="Password" required="">
+                      <div class="error">{{signUpError.password[0]}}</div>
+                    </div>
+                    <div class="col-sm-6 mt20">
+                      <input name="password" ng-model="signupModel.confirmPassword" type="password" id="loginConfirmPassword" placeholder="Confirm Password" required="">
+                      <div class="error">{{signUpError.password_confirmation[0]}}</div>
+                    </div>
+                  </div>
+                  <div class="clAll mt10"></div>
+                </div>
+                <div class="bottomBtn">
+                  <a class="O13SB tcOrg mt10 fl" href="#/login">Already a member? Log in</a>
+                  <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="signupForm.$invalid" ng-click="signup()">Sign Up</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

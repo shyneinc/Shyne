@@ -1,0 +1,73 @@
+{
+  "resource": "User",
+  "http_method": "POST",
+  "route": "/api/users",
+  "description": "Registering a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "user",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": false,
+      "scope": "user",
+      "name": "avatar",
+      "description": "Avatar"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password_confirmation",
+      "description": "Password Confirmation"
+    },
+    {
+      "required": false,
+      "scope": "user",
+      "name": "time_zone",
+      "description": "Time Zone ('Hawaii', 'Alaska', 'Pacific Time (US & Canada)', 'Arizona', 'Mountain Time (US & Canada)', 'Central Time (US & Canada)', 'Eastern Time (US & Canada)', 'Indiana (East)')"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/users",
+      "request_body": "user[first_name]=Weldon&user[last_name]=Kohler&user[email]=user15_1386904335%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0xae1cf6c%3E&user[username]=weldonkohler&user[time_zone]=Central+Time+%28US+%26+Canada%29&user[customer_uri]",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":301,\"email\":\"user15_1386904335@shyne.io\",\"created_at\":\"2013-12-12T20:12:15.877-07:00\",\"updated_at\":\"2013-12-12T20:12:16.034-07:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Weldon\",\"last_name\":\"Kohler\",\"avatar\":{\"url\":\"https://secure.gravatar.com/avatar/3a03abf679be5b4c01e11f47ca6ea078?size=300\\u0026d=mm\",\"medium\":{\"url\":\"https://secure.gravatar.com/avatar/3a03abf679be5b4c01e11f47ca6ea078?size=101\\u0026d=mm\"},\"thumb\":{\"url\":\"https://secure.gravatar.com/avatar/3a03abf679be5b4c01e11f47ca6ea078?size=50\\u0026d=mm\"}},\"username\":\"weldonkohler\",\"time_zone\":\"Central Time (US \\u0026 Canada)\",\"customer_uri\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"/api/users","Content-Type":"application/json; charset=utf-8","ETag":"\"77e5df92aa6074a1547219aacdbbfa84\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=VVlpckpFaUplejZqU0ZnWTIzQkRUb1FtQXdSQjlpRGlpek9jWHNkc1ZteDBZK1lCR05pbWQvSU44WUdVSGJ3cWdkREttc1grMnpIVGpLVGRuZ3JFQjBnUE9UK2FJOGttQVZjTytqNG1YSTZsSXZUQlJrdU9HK1Z4VlZjL2RWZS9xcnVia3VxazFSYlVOSkNudzJRT1lob2ZzbHE3ajdIekpyOUhMVzJ6OFd3PS0tUUlGc2FvaVB4VjJBN0tLTTMrcDZKdz09--9cba48d64a6bfcd32d170ea995b5a619e13db27a; path=/; HttpOnly","X-Request-Id":"368ce2bd-716e-4d47-a006-aea1472d2b3d","X-Runtime":"0.905770","Content-Length":"620"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

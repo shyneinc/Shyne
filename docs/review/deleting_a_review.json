@@ -1,0 +1,41 @@
+{
+  "resource": "Review",
+  "http_method": "DELETE",
+  "route": "/api/mentors/:mentor_id/reviews/:id",
+  "description": "Deleting a review",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "id",
+      "description": "Review ID"
+    },
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/mentors/93/reviews/4",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dXJJZlpLTWpHY0txUHk1c2hpeHVsaHgwQTJtTDBRTHd0UmZxdERUS1RIWXlsS1ZPemIrTlU0dGgwaVEzWGlsOVBCT09aMVYzakxQYzdxWlo2OXdUdG5OdExHcndNUk1nMndkVnhMMnZub0NZdzgvRmlQNllSSEJhc0M5YlJDS1FETXBOeGpmS3VaNVZXalQyU3F6USt6VVhaSW51OExFbmQ2MlBtMTlWWFlnPS0tR0s0Qk1udHNpSFc5bXE4akRDaXY5UT09--7274536497738093bc079bd277c1ef650ca71806; path=/; HttpOnly","X-Request-Id":"6f7f2976-9bb9-4db3-9277-dbe715514602","X-Runtime":"0.070107"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

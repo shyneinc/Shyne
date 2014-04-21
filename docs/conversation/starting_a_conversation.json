@@ -1,0 +1,49 @@
+{
+  "resource": "Conversation",
+  "http_method": "POST",
+  "route": "/api/conversations",
+  "description": "Starting a conversation",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "conversation",
+      "name": "user_id",
+      "description": "User ID of the recepient"
+    },
+    {
+      "required": true,
+      "scope": "conversation",
+      "name": "subject",
+      "description": "Subject"
+    },
+    {
+      "required": true,
+      "scope": "conversation",
+      "name": "body",
+      "description": "Body"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/conversations",
+      "request_body": "conversation[user_id]=309&conversation[subject]=Hello&conversation[body]=World",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":59,\"subject\":\"Hello\",\"created_at\":\"2013-12-12T17:12:33.070-10:00\",\"updated_at\":\"2013-12-12T17:12:33.070-10:00\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"f7e4318865c961ad387b5e0103cf5970\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=YWg5Z2o3aE5lYUROTkUzOElZV3FmQmdqUW54emNSazk4U1lqTnFRTXZZMWFLdE13ZnI1L010cUZheFQ3UEJNc251cnZ2SGY5K0t3b295V2lacjJoUXpid3JKaTdFQXU3WStPUklhT2h3NC9tVXQ2UUFQWHNGLzlTUEVTcGNKWUVvZkdvZ3NPSk92M1lmQ00wSlhodWlBNmVLc0U0REE4clVzWFArNlVtVVp3PS0tb0ppdmx1ZExxMTZOSzNtL0JoWWR4Zz09--a5a3d58773190549adc34ae783e4ba44bb50ad6b; path=/; HttpOnly","X-Request-Id":"47b067bd-6225-4a64-9827-8c934263e3a8","X-Runtime":"0.726089","Content-Length":"117"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

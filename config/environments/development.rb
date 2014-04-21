@@ -1,5 +1,6 @@
 Shyne::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  $stdout.sync = true
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -15,6 +16,8 @@ Shyne::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -26,4 +29,14 @@ Shyne::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
+  ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
+  ENV['TWILIO_NUMBER'] = "+19094804755"
+
+  config.after_initialize do 
+    Delayed::Job.scaler = :local
+  end
+
+  ENV['BALANCED_SECRET'] = "ak-test-psocIlwyJODZ2X9btAVVy70GNSjHPiBe"
 end

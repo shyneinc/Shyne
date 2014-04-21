@@ -1,0 +1,44 @@
+<form novalidate role="form" name="bankAccountForm" class="css-form" ng-submit="addBankAccount()">
+  <div class="formBox mt20">
+    <div class="formContent">
+      <div class="R20R">Your Bank Account</div>
+      <div class="clAll bdb mb5 mt20"></div>
+      <div class="formContent">
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="O11BU">Name</label>
+            <input type="text" name="name" ng-model="bankAccountModel.name" id="bankAccountName" placeholder="Enter full name" required="">
+            <div class="error">{{ bankAccountFormError.name }}</div>
+          </div>
+        </div>
+        <div class="clAll bdb mb5 mt20"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-12">
+                    <label class="O11BU">Account Number</label>
+                    <input type="text" name="accountNumber" ng-model="bankAccountModel.account_number" id="bankAccountAccountNumber" placeholder="Enter account number" required="">
+                    <div class="error">{{ bankAccountFormError.account_number }}</div>
+                </div>
+                <div class="col-sm-12">
+                    <label class="O11BU">Routing Number</label>
+                    <input type="text" name="routingNumber" ng-model="bankAccountModel.routing_number" id="bankAccountRoutingNumber" placeholder="9 digit number" required="">
+                    <div class="error">{{ bankAccountFormError.routing_number }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label class="O11BU">Example check</label>
+              <img class="cl db" src="/assets/card_number.png" alt="">
+            </div>
+          </div>
+          <div class="clAll mt10"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottomBtn">
+    <button type="button" class="btn grd-org btnOrgLg fr" type="submit" ng-disabled="bankAccountForm.$invalid" ng-click="addBankAccount()">Update</button>
+    <a class="btn grd-blue btnBlueLg" href="#/profile">Back</a>
+  </div>
+</form>

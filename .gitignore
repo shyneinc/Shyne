@@ -1,5 +1,6 @@
 *.rbc
 *.sassc
+*.DS_Store
 .sass-cache
 capybara-*.html
 .rspec
@@ -15,3 +16,10 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 /.idea/*
+public/uploads/*
+public/assets/*
+.ruby-version
+*.crt
+*.csr
+*.key
+.env

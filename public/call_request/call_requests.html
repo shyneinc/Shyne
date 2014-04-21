@@ -1,0 +1,58 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section ng-hide="user">
+      <div class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-md-offset-2">
+              <div class="text-center">
+                <h2>Please <a href="#/login">log in</a> to your Shyne account to continue</h2>
+                <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="callDashboard" ng-show="user">
+      <div class="container">
+        <h2>Dashboard <span class="OC16BU tcOrg">Calls</span></h2>
+        <div class="row">
+          <div class="col-md-3">
+            <div ng-include src="'shared/left_menu.html'"></div>
+          </div>
+          <div class="col-md-9">
+            <div class="callDetail mt20 pt10">
+              <div class="formBox">
+                <table class="table" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <th width="25%" align="left">Name</th>
+                    <th width="24%" align="left">Date</th>
+                    <th width="17%" align="left">Status</th>
+                    <th width="17%" class="text-center">Length</th>
+                    <th width="17%" class="text-center">Amount</th>
+                  </tr>
+                  <tr ng-repeat="call_request in call_requests">
+                    <td align="left"><a href="#/call_requests/{{call_request.id}}">{{ call_request.mentor.full_name }}</a></td>
+                    <td align="left">{{ call_request.created_at | date:'MMM dd, yyyy' }}</td>
+                    <td align="left">
+                      <div ng-if="call_request.status == 'proposed'">Pending</div>
+                      <div ng-if="call_request.status == 'approved_mentor' || call_request.status == 'approved_mentor'">Accepted</div>
+                      <div ng-if="call_request.status == 'changed'">Changed</div>
+                      <div ng-if="call_request.status == 'processed'">Processed</div>
+                      <div ng-if="call_request.status == 'declined'">Declined</div>
+                      <div ng-if="call_request.status == 'completed'">Complete</div>
+                      <div ng-if="call_request.status == 'cancelled'">Cancelled</div>
+                    </td>
+                    <td align="center"><span ng-hide="call_request.status == 'declined' || call_request.status == 'cancelled'">{{ call_request.billable_duration | duration:'second':'second'}}</span></td>
+                    <td align="center" class="redText"><span ng-hide="call_request.status == 'declined' || call_request.status == 'cancelled'">{{ (call_request.credit_amount/100) | currency:'$'}}</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

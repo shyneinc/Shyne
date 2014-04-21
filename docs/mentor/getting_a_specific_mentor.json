@@ -1,0 +1,31 @@
+{
+  "resource": "Mentor",
+  "http_method": "GET",
+  "route": "/api/mentors/:id",
+  "description": "Getting a specific mentor",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/mentors/72",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":72,\"created_at\":\"2013-12-12T22:13:28.237-05:00\",\"updated_at\":\"2013-12-12T22:13:28.237-05:00\",\"user_id\":null,\"headline\":\"Praesentium fuga quidem nihil voluptatem esse aut et ab temporibus libero odit voluptatem quae.\",\"years_of_experience\":15,\"phone_number\":\"15626453725\",\"availability\":\"Omnis officia maxime debitis et ducimus et eos autem consequuntur dicta at.\",\"status_changed_at\":null,\"featured\":true,\"experties\":[\"Legal Services\"],\"linkedin\":\"http://linkedin.com/quia\",\"mentor_status\":\"applied\",\"location\":\"Hansenton, MI\",\"avg_call_duration\":null,\"avg_rating\":null,\"total_reviews\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"bb8ca9dd17c2495c10970b680efe26e0\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"946fc234-227a-4f6f-be98-52e3a20bcf3a","X-Runtime":"0.095398","Content-Length":"597"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

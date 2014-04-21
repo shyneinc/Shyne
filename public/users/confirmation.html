@@ -1,0 +1,18 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <div class="flash-message" ng-show="flash_message">
+        <div class="inner" title="Click to hide this message" hide-flash-message>{{flash_message}}</div>
+    </div>
+    <section class="applicationMentors">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2>Thanks for joining Shyne! </h2>
+              <div class="cl">&nbsp;</div>
+              <p class="R20R"> A confirmation email has been sent to: <span class="tcblue">{{user.email}}</span>. Please click on the link to activate your account.</p>
+              <div class="cl">&nbsp;</div>
+              <p class="R20R">If you don’t see it in your e-mail, please check your junk mail OR <a class="tcOrg" href="javascript:void(0)" ng-click="resendconfirmation()">click here</a> to resend confirmation email.</p>
+            </div>
+        </div>
+    </div>
+</div>

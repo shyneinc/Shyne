@@ -1,0 +1,73 @@
+{
+  "resource": "User",
+  "http_method": "PUT",
+  "route": "/api/users",
+  "description": "Updating a user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": "user",
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": false,
+      "scope": "user",
+      "name": "avatar",
+      "description": "Avatar"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password",
+      "description": "Password"
+    },
+    {
+      "required": true,
+      "scope": "user",
+      "name": "password_confirmation",
+      "description": "Password Confirmation"
+    },
+    {
+      "required": false,
+      "scope": "user",
+      "name": "time_zone",
+      "description": "Time Zone ('Hawaii', 'Alaska', 'Pacific Time (US & Canada)', 'Arizona', 'Mountain Time (US & Canada)', 'Central Time (US & Canada)', 'Eastern Time (US & Canada)', 'Indiana (East)')"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/users",
+      "request_body": "user[first_name]=Yvette&user[last_name]=Dooley&user[email]=user18_1386904340%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0xae1cf6c%3E&user[username]=yvettedooley&user[time_zone]=Pacific+Time+%28US+%26+Canada%29&user[customer_uri]",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=U3dEbUttSTNYbCsrQ3hpU0phdmlzMVBUb0dlSHN2empJanpHLzYyenNtcjBPQW00NXMvdlV1L2lWZG5JRUlzMGRTUitRLzBvMXU1Q2h4REZOb3c5QjUrcW5qbVg1bTAzTVVLREhvOTQvNWQyT3dJYVlSR0xxdTFrOFREbTBRdERyeFY1eGpabytnWFJ2NW9BVVN2dlprT0ZoeTZ3aU5TOFArWHZIWWZhbEJvPS0tMmZENzN5QjJQazJQVWQ5NzBPZ1NaQT09--f85ed2f552feaf16a9e3c4f9663e21f41349a91a; path=/; HttpOnly","X-Request-Id":"8aca440a-9ff7-41ae-8a2b-41da3984f46a","X-Runtime":"1.165927"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

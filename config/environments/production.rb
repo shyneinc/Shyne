@@ -20,27 +20,27 @@ Shyne::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(mangle: false)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  config.assets.version = '1.1'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -55,7 +55,7 @@ Shyne::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  config.action_controller.asset_host = "//d32h3llz1iowhs.cloudfront.net"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -77,4 +77,31 @@ Shyne::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  ENV['AWS_ACCESS_KEY'] = "AKIAJM7FCUEYPATUV54Q"
+  ENV['AWS_SECRET_KEY'] = "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"
+  ENV['AWS_BUCKET'] = "shyne"
+  ENV['AWS_CDN'] = "//d1tskns84uy35v.cloudfront.net"
+
+  ENV['TWILIO_SID'] = "AC4f20ae17644502d367b100f451b5b8e0"
+  ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
+  ENV['TWILIO_NUMBER'] = "+19094804755"
+
+  config.after_initialize do 
+    Delayed::Job.scaler = :heroku_cedar
+  end
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
+
+  config.action_mailer.default_url_options = { host: "http://www.shyne.io" }
+
+  ENV['BALANCED_SECRET'] = "ak-prod-2oqfCOzdSCp4MmI5uMad1K7vNafl1P4dC"
 end

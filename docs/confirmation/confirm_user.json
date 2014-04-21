@@ -1,0 +1,36 @@
+{
+  "resource": "Confirmation",
+  "http_method": "GET",
+  "route": "/api/confirmations",
+  "description": "Confirm user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "confirmation_token",
+      "description": "Confirm user"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/confirmations?confirmation_token=psibytpqPJapqZidept-",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "confirmation_token": "psibytpqPJapqZidept-"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"confirmed\":true}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"21713856efd516145dacb27ce02e1922\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=andpMk5tSzh1SEFqRzBwWS9LV0FwZVhTcmY1VVg5NVVaMDhWT3JNNzdtVzJ5M3c5UUJEWGVNMkFKalNGaFlFRUFsN0FXd0hNTktWbmFsbzl5TnpZdUtlQ00zRlpwdWhUb2tYMmFmOXVvc0NoRGlCeWo1U3oyUDB0NzVTVnJJL3NqNU8veVR6TTM5d0QzdzB2NmNjUXBqVk5OUE92emk5QlhFTGZyZkNrYXhGbUhYZGtWNW1BQUhYUFMxdTI3Y2ZTLS1OM29mcGFQU0FBcGd3YWZkRURIcmtnPT0%3D--aa8ff4af213f6237be6667e5a44ed13f5eefc357; path=/; HttpOnly","X-Request-Id":"198dc12c-a508-4070-8223-a428feee0c61","X-Runtime":"0.892371","Content-Length":"18"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

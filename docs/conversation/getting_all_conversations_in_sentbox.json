@@ -1,0 +1,42 @@
+{
+  "resource": "Conversation",
+  "http_method": "GET",
+  "route": "/api/conversations",
+  "description": "Getting all conversations in sentbox",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": false,
+      "name": "box",
+      "description": "Box [inbox (default), sentbox, trash]"
+    },
+    {
+      "required": false,
+      "name": "page",
+      "description": "Page [1 (default)]"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/conversations?box=sentbox&page=1",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "box": "sentbox",
+        "page": "1"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=ZE1YY0pLbjVOVE52ZHVQTnYyTXdVOWRZbUpqOGt4S1FxcE1rT1BvNEY2dW9kT1NIMkY5NHpCL3cxU0E5MlBmSWY2ekd1UlBXSFByeWswZTJPbGVWTVlVbmRSbWtTSjBvcmkzaC80MUcyNVFhbElJZEJsN3BHQStFWFVwNnZXb1N2WVZLL2RkTWMzK08zUmh6YThvNEdJeEpTbXcyK3VJMjE5QW81THkraW4wPS0tRVdQc3UvK2JoSUl4WEp2clF0Ly83dz09--ca6ba7ce1807777078a8fb199ee895717a71e92c; path=/; HttpOnly","X-Request-Id":"87626f4f-87d7-4d71-bd71-847695ee1136","X-Runtime":"0.069769","Content-Length":"2"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

@@ -1,30 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="Shyne" ng-controller="AppCtrl">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shyne</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= csrf_meta_tags %>
+<html ng-app="Shyne">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyne</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800|Open+Sans+Condensed:300,700|Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#"><i class="icon-globe"></i>&nbsp;Shyne</a>
-          <div class="navbar-content">
-            <ul class="nav  pull-right"></ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-narrow">
-        <%= bootstrap_flash %>
-        <div ng-view></div>
-    </div>
-
-    <%= javascript_include_tag "application" %>
+<div id="wrap" ng-view></div>
+<%= javascript_include_tag "application" %>
 </body>
 </html>

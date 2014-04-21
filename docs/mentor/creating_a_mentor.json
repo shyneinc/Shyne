@@ -1,0 +1,73 @@
+{
+  "resource": "Mentor",
+  "http_method": "POST",
+  "route": "/api/mentors",
+  "description": "Creating a mentor",
+  "explanation": "Once the user is registered and logged in, create a mentor profile",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "headline",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "experties",
+      "description": "Experties (eg. '{Accounting, Finance}')"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "years_of_experience",
+      "description": "Years of Experience"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "phone_number",
+      "description": "Phone Number"
+    },
+    {
+      "required": true,
+      "scope": "mentor",
+      "name": "availability",
+      "description": "Availability"
+    },
+    {
+      "required": false,
+      "scope": "mentor",
+      "name": "linkedin",
+      "description": "LinkedIn url"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/mentors",
+      "request_body": "mentor[headline]=Culpa+perspiciatis+quos+occaecati+aut+molestiae+qui+perferendis+voluptas+et+delectus+temporibus+ab+a.&mentor[location]=New+Cora%2C+GU&mentor[linkedin]=http%3A%2F%2Flinkedin.com%2Fvoluptatum&mentor[experties]=%7BLegal+Services%7D&mentor[years_of_experience]=20&mentor[phone_number]=15626453725&mentor[availability]=Ut+veniam+illum+deserunt+dolores+nulla+minus+quod+at+placeat+nihil+saepe+consequatur+quia+ducimus.&mentor[featured]&mentor[mentor_status]=applied&mentor[status_changed_at]&mentor[avg_call_duration]&mentor[avg_rating]&mentor[total_reviews]",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":73,\"created_at\":\"2013-12-12T18:13:29.649-09:00\",\"updated_at\":\"2013-12-12T18:13:29.649-09:00\",\"user_id\":337,\"headline\":\"Culpa perspiciatis quos occaecati aut molestiae qui perferendis voluptas et delectus temporibus ab a.\",\"years_of_experience\":20,\"phone_number\":\"15626453725\",\"availability\":\"Ut veniam illum deserunt dolores nulla minus quod at placeat nihil saepe consequatur quia ducimus.\",\"status_changed_at\":null,\"featured\":null,\"experties\":[\"Legal Services\"],\"linkedin\":\"http://linkedin.com/voluptatum\",\"mentor_status\":\"applied\",\"location\":\"New Cora, GU\",\"avg_call_duration\":null,\"avg_rating\":null,\"total_reviews\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/73","Content-Type":"application/json; charset=utf-8","ETag":"\"b6755087759e8a4e842605726c2c4ebe\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=djJNV1Vrdm9QSEhMbWFpdTFtZlEyQnBFRU43VGw0TEJuZzdkRlVvMmNZcEM5REYvcCs4TnlsSnRjUzZrN3Uwd2VzenJGd0ZGQUZ3MlBZV3FHZXdwVTFCSU9Udjk3cTRRdTA1bWM0NG5NSm43TGE4cmQ4MUl4Z3d3ZXE4VWVYQ2FrRlpkUEhuRlpzcEdaUC95eVBGWWkrS082N3l4QmtjVTRucnFJQW1uVkw4PS0tamwzNHdNZmQ5M29Ua3JEcTVOMXFLUT09--ed0999e0f0682bb11871613ca55ac685f8ed39a8; path=/; HttpOnly","X-Request-Id":"d2ae52d6-7345-4bf6-91c4-2a7494ea3cd9","X-Runtime":"0.272987","Content-Length":"630"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

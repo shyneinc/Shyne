@@ -1,0 +1,37 @@
+{
+  "resource": "Member",
+  "http_method": "POST",
+  "route": "/api/members",
+  "description": "Creating a member",
+  "explanation": "Once the user is registered and logged in, create a member profile",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "member",
+      "name": "phone_number",
+      "description": "Phone number"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/members",
+      "request_body": "member[phone_number]=15626453725",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":128,\"created_at\":\"2013-12-12T20:13:59.571-07:00\",\"updated_at\":\"2013-12-12T20:13:59.571-07:00\",\"user_id\":359,\"phone_number\":\"15626453725\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/members/128","Content-Type":"application/json; charset=utf-8","ETag":"\"2dce2fa588465e36455767be264c25ba\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=SUtla2VOUDhNcWZ0d0xEeTZKVWUxa0RRRmJjam1kbm9oTTdSeWVtT3pLQVRRejUrUkpza1N3VVlDbzhiWHFMaXlIZkRmMjlkb1lmSzdrd1ExU3RkM1lMaWJIdk4reUpZTGJWNXVmZmVUbjdVUDVlakQxeldqWE52WEEwZTQvR2lla1JOcmg3VGNjcG9Ud0RzSU5QWkdFYnh3TURQYkxhdVJlaE9CZ3NQN0NJPS0teWhGeG5LNDhYR012UDBHN2t3TWVGUT09--898e1aae2a9065ba7fc97a6652c711d5790143a4; path=/; HttpOnly","X-Request-Id":"23131880-0610-401d-995c-a5418cc3b7eb","X-Runtime":"0.372137","Content-Length":"143"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

@@ -1,0 +1,94 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <div class="container" ng-show="flash_message">
+      <div class="successMsg mb10">
+        <span class="iconPro i_check_w"></span>{{flash_message}} <a class="iconPro i_close_b fr" title="Click to hide this message" ng-click="removeFlashMessage()"></a>
+      </div>
+    </div>
+    <section ng-show="userProfile" class="profile">
+      <div class="container">
+        <h2>{{ userProfile.first_name }} {{ userProfile.last_name }} <span class="OC15BUG">{{ userProfile.current_position }} at <span class="tcOrg">{{ userProfile.current_company }}</span></span></h2>
+      </div>
+      <div class="profileBox">
+        <div class="container">
+          <div class="profileDetails">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="profileImage">
+                  <img ng-src="{{userProfile.avatar.url}}" src="/assets/no_image.png" alt="">
+                  <span class="caretL"></span>
+                  <span class="caretR"></span>
+                </div>
+                <div class="userInfo">
+                  <ul>
+                    <li><span class="iconPro i_ribbon"></span>{{ userProfile.years_of_experience }} years work experience</li>
+                    <li><span class="iconPro i_phone"></span>{{ userProfile.total_calls }} calls</li>
+                    <li><span class="iconPro i_education"></span>{{ userProfile.schools }}</li>
+                    <li style="display:none;"><span class="iconPro i_review"></span>{{ user_reviews.length }} reviews</li>
+                    <li><span class="iconPro i_pin"></span>{{ userProfile.city}}, {{userProfile.state }}</li>
+                    <li style="display:none;"><span class="iconPro i_star"></span><star-rating-orange star-rating="userProfile.get_avg_rating"></star-rating-orange></li>
+                  </ul>
+                </div>
+                <p class="R16R">{{ userProfile.headline }}</p>
+              </div>
+              <div class="col-sm-4">
+                <a href="#/call_request/{{userProfile.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule Call Now</a>
+                <div class="O12BU mb20 text-center">call rate is $2/min</div>
+                <div class="darkBoxRight">
+                  <div class="OC16BUB mb10 text-center">availability</div>
+                  <p class="O12R">{{ userProfile.availability }}</p>
+                  <div class="O11BU mb10"><span class="iconPro i_clock"></span>{{ userProfile.time_zone}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="experience">
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="proBox mb50">
+                <div class="OC16BUB fl">Experience</div>
+                <a href="http://{{ userProfile.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
+                <div class="clAll bdb pt5"></div>
+                <ul>
+                  <li ng-repeat="work_history in user_work_histories">
+                    <span class="iconPro i_case"></span>
+                    <span class="O11BU">{{ work_history.title }}</span> at <strong class="tcOrg">{{work_history.company}}</strong> <i>– {{ work_history.date_started }} - {{work_history.current_work && "Present" || work_history.date_ended }}</i>
+                  </li>
+                </ul>
+              </div>
+              <div class="proBox" style="display:none;">
+                <div class="OC16BUB">Member reviews <span class="O11BU tcGry">{{ user_reviews.length }} total</span></div>
+                <div class="clAll bdb pt5"></div>
+                <div class="memberReview">
+                  <div class="revRow" ng-repeat="review in user_reviews">
+                    <div class="mrImage"><img ng-src="{{review.member.user.avatar.medium.url }}" src="/assets/no_image.png" alt=""><span class="caret"></span></div>
+                    <div class="O11BU fl"><span class="iconPro i_review"></span>{{ review.member.user.first_name }} {{ review.member.user.last_name }} <span class="O12R">on</span> {{ review.created_date }}</div>
+                    <star-rating-blue star-rating="review.member.user.get_avg_rating"></star-rating-blue>
+                    <div class="clAll"></div>
+                    <p>{{ review.review }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="OC16BUB">Skills</div>
+                <div class="clAll bdb pt5 mb10"></div>
+                <div class="skills">
+                  <span ng-repeat="skill in user_skills">{{ skill }}</span>
+                </div>
+                <div class="cl mb20">&nbsp;</div>
+                <div class="OC16BUB">industries worked in</div>
+                <div class="clAll bdb pt5"></div>
+                <ul>
+                  <li ng-repeat="industry in user_industries"><span class="iconPro i_check"></span><span class="vam">{{ industry }}</span></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

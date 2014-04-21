@@ -1,0 +1,54 @@
+{
+  "resource": "Review",
+  "http_method": "POST",
+  "route": "/api/mentors/:mentor_id/reviews",
+  "description": "Create a review",
+  "explanation": "Once the call is completed, a member can write a review",
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "scope": "review",
+      "name": "review",
+      "description": "Review"
+    },
+    {
+      "required": true,
+      "scope": "review",
+      "name": "rating",
+      "description": "Rating (between 0-5)"
+    },
+    {
+      "required": false,
+      "scope": "review",
+      "name": "call_id",
+      "description": "Call ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/mentors/88/reviews",
+      "request_body": "review[review]=Dolorem+enim+facere+molestiae+autem+cupiditate+culpa+doloribus+molestias+sed+eaque+animi+consequatur+perferendis+fugiat.&review[rating]=3.0",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":2,\"review\":\"Dolorem enim facere molestiae autem cupiditate culpa doloribus molestias sed eaque animi consequatur perferendis fugiat.\",\"rating\":\"3.0\",\"mentor_id\":88,\"member_id\":140,\"call_id\":null,\"created_at\":\"2013-12-12T20:14:15.277-07:00\",\"updated_at\":\"2013-12-12T20:14:15.277-07:00\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/mentors/88/reviews.2","Content-Type":"application/json; charset=utf-8","ETag":"\"35b23b72a6d58e19e2169fe85c01ba7a\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=b3hyNU5OYU5kT1lwcGJGRzBLNFoyVzFtOGkyQjNHTGM1aWcwV2NsV0IrL1IrdEFQRTB6NWJ4NFNQWlQrNU8renRhMU9lYk1TeUJYMk1Bd0szdDI4Qy9BZm1wcTlVM2lZd0tDK3RoczN1SW1aa3l5RjFaS2U2TS9JUGc4ZmJ6dFNTdGZPTHZHengxTzBxMUExUzZ6M25la0tQZWVNcERIMDYxZEhLS2RtN3dnPS0tbU5GZ1IyTE1NUGhYWDJWRFNBK3dldz09--f8ee205cc1c5019fd2a9b2cea751fefe8cc292dc; path=/; HttpOnly","X-Request-Id":"de36f654-8ce2-42de-80fc-8b3d5dbfdfda","X-Runtime":"3.403604","Content-Length":"291"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

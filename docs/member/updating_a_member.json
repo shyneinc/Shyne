@@ -1,0 +1,37 @@
+{
+  "resource": "Member",
+  "http_method": "PUT",
+  "route": "/api/members",
+  "description": "Updating a member",
+  "explanation": "Update current user's member profile",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "member",
+      "name": "phone_number",
+      "description": "Phone number"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/members",
+      "request_body": "member[phone_number]=15626453725",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=MVhkTnFQc2tXNnF4YjE1c01ITjYxRjFSVFZaSXNLUlZFNVFNYVFxSCtCaFgvOURFZHFpbGI0RlFNZmNWRjU5bm9JWm1MRHZRRFFPZjJSSXRIeTJNZWRpOHNzS0d6a0VlU1FrdS9DZjFGQ1pNQU5hdlh6WUE0Wm45cmJ3aVhVN3RKcmUvOWZvbmF5eVIxVElHcFhjcWlzNjdUK1dOTFFPSXkrc3dVekdMQlA0PS0tZlc4WmJTOC9nM2plZE1TTWhtUVRjQT09--596197dd72d69ab098cf30b4569ca9e9abd304f2; path=/; HttpOnly","X-Request-Id":"372695f6-f18c-4c69-a9fb-31a80df4c6aa","X-Runtime":"0.216320"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

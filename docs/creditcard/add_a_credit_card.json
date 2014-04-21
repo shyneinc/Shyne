@@ -1,0 +1,61 @@
+{
+  "resource": "CreditCard",
+  "http_method": "POST",
+  "route": "/api/credit_cards",
+  "description": "Add a credit card",
+  "explanation": "Add a credit card on file for the currently logged-in member",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "credit_card",
+      "name": "card_number",
+      "description": "Credit Card Number"
+    },
+    {
+      "required": true,
+      "scope": "credit_card",
+      "name": "expiration_year",
+      "description": "Expiration Year (YYYY)"
+    },
+    {
+      "required": true,
+      "scope": "credit_card",
+      "name": "expiration_month",
+      "description": "Expiration Month (MM)"
+    },
+    {
+      "required": true,
+      "scope": "credit_card",
+      "name": "security_code",
+      "description": "Security/CVV Code"
+    },
+    {
+      "required": true,
+      "scope": "credit_card",
+      "name": "postal_code",
+      "description": "Postal/Zip Code"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/credit_cards",
+      "request_body": "credit_card[card_number]=4111111111111111&credit_card[expiration_year]=2014&credit_card[expiration_month]=12&credit_card[security_code]=123&credit_card[postal_code]=90210",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"security_code_check\":\"passed\",\"_type\":\"card\",\"hash\":\"842a1d42de7e43322ff3854c264f219147d25e459a990b4534988f1fa4d82f44\",\"last_four\":\"1111\",\"_uris\":{},\"brand\":\"Visa\",\"expiration_month\":12,\"meta\":{\"client_ip_address\":\"54.196.191.215\"},\"postal_code\":\"90210\",\"country_code\":\"USA\",\"id\":\"CC24BxU18aYkzOK0F7igwPuo\",\"customer\":null,\"account\":null,\"postal_code_check\":\"failed\",\"name\":null,\"expiration_year\":2014,\"created_at\":\"2013-12-13T03:11:32.060638Z\",\"uri\":\"/v1/marketplaces/TEST-MPSD1HtoRyM9L7EzVNkrXES/cards/CC24BxU18aYkzOK0F7igwPuo\",\"card_type\":\"visa\",\"is_valid\":true,\"is_verified\":true,\"street_address\":\"\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"2c70016f569ee3ed904ba39e31e6ff1d\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=cHNidGwvS3NKeERva1NaSUwwbjlHYWVuWHMxY0UxQ3k1dnJtMStpZXpoRkpGQVNTVWR5MzVNdXhDZ2NZbERGWjdkakIrbm41YVo0YVFFK0V0VkNBbzZ4TEViZ0lSYlU5STc5OC91ZFU1K1RXSzhId2czWXNnZHllM1NxeksraEU1MkQxQXhtMDdoZkx0L2VRZFB5bE82Q2E1NEo2MDUyYjFtRGlXQ1U4RmZZPS0tK0VMQjg3cEErMlZlOUE4M0RpR290Zz09--0843d1b16e8ab22208ccf88bf171897b19d50cbc; path=/; HttpOnly","X-Request-Id":"8e1ea461-ba33-4eaa-8287-8bde9995dc3c","X-Runtime":"5.040742","Content-Length":"606"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

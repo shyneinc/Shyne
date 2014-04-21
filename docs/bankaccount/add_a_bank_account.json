@@ -1,0 +1,55 @@
+{
+  "resource": "BankAccount",
+  "http_method": "POST",
+  "route": "/api/bank_accounts",
+  "description": "Add a bank account",
+  "explanation": "Add a bank account on file for the currently logged-in mentor",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "bank_account",
+      "name": "name",
+      "description": "Account Holder's Name"
+    },
+    {
+      "required": true,
+      "scope": "bank_account",
+      "name": "account_number",
+      "description": "Account Number"
+    },
+    {
+      "required": true,
+      "scope": "bank_account",
+      "name": "routing_number",
+      "description": "Routing Number"
+    },
+    {
+      "required": true,
+      "scope": "bank_account",
+      "name": "type",
+      "description": "Checking/Savings"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/bank_accounts",
+      "request_body": "bank_account[name]=Johann+Bernoulli&bank_account[account_number]=9900000002&bank_account[routing_number]=021000021&bank_account[type]=Checking",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"credits_uri\":\"/v1/bank_accounts/BA4sXEo1MB5ma2qeJ1Q2WYnm/credits\",\"bank_name\":\"JPMORGAN CHASE BANK\",\"_type\":\"bank_account\",\"customer\":null,\"_uris\":{\"debits_uri\":{\"_type\":\"page\",\"key\":\"debits\"},\"verifications_uri\":{\"_type\":\"page\",\"key\":\"verifications\"},\"credits_uri\":{\"_type\":\"page\",\"key\":\"credits\"}},\"fingerprint\":\"2ef53fa3f76e47c5930f77fe0a59aa103b5abfd5622f08305b786808ec574a1e\",\"can_debit\":false,\"id\":\"BA4sXEo1MB5ma2qeJ1Q2WYnm\",\"verifications_uri\":\"/v1/bank_accounts/BA4sXEo1MB5ma2qeJ1Q2WYnm/verifications\",\"routing_number\":\"021000021\",\"verification_uri\":null,\"name\":\"Johann Bernoulli\",\"created_at\":\"2013-12-13T03:13:43.962806Z\",\"uri\":\"/v1/bank_accounts/BA4sXEo1MB5ma2qeJ1Q2WYnm\",\"meta\":{},\"debits_uri\":\"/v1/bank_accounts/BA4sXEo1MB5ma2qeJ1Q2WYnm/debits\",\"account_number\":\"xxxxxx0002\",\"type\":\"checking\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"6e4f5de030cb0c4ffd0cbb20e283edaf\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=eUF4cjBseTJKb0ZDSm1kSWRNNWltUFV5emZnNlJJeGU1ZG8zOXBjcVpEUWp6ZlhDQ2R4TFFUaWdKcDhTWW5saU51RWJQejhJRnJwMlFoV0I4aFZPNVdubHhIWWN4MS9aemY4UzBneEVoQW94TUd0L3hEMTkzcEtXMGtaSXBIdGgxK0tHYzVJc3NqcVhlTkRNOEx0Zk1BUm1uaWlGc2NhRlpDU0lrWjFrYlpJPS0tU1NaUloraTk4blZjbDdtU0JxaGVZUT09--52496f8e1d6b8359bc2463e3fbc8dc0e80b0b6ff; path=/; HttpOnly","X-Request-Id":"c5cde790-fee7-4f32-8d94-7d464886f6b9","X-Runtime":"4.386571","Content-Length":"808"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

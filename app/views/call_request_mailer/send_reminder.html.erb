@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<div style=" width:510px; border:1px solid #d6d5d0;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="left">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom: solid 1px #eeeded; width:482px; margin:14px 14px 0px 14px;">
+          <tr>
+            <td width="5%" valign="top" style="padding:4px 14px 14px 0px;">
+              <img style="border-radius: 110px;" width="54" height="54" src="<%= "#{root_url}#{@member.user.avatar.url}" %>" />
+            </td>
+            <td width="95%" style="padding:0px 0px 14px 0px;">
+              <h2 style=" font-family:Arial, Helvetica, sans-serif; font-size:20px; font-weight:bold; color:#393939; margin:0px 0px 5px 0px;"><%= @member.full_name %></h2>
+              <div style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal; color:#686868; margin:0px 0px 5px 0px;"><strong>1</strong> Completed Calls</div>
+              <div style=" font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal; color:#686868; margin:0px;"><%= @member.created_at.strftime("%B %Y") %></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="left">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td valign="top" style="padding:14px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:normal; color:#4a4a4a;">
+              “<%= @call_request.agenda %>”
+            </td>
+          </tr>
+          <tr>
+              <td valign="top" style="padding:0px 14px 0px 14px;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ededed; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#4a4a4a; padding:2px 0px 2px 0px">
+                <tr>
+                        <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Rate Per Minute</td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;">$<%= @mentor.rate_per_minute %></td>
+                      </tr>
+                      <tr>
+                        <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Requested call length</td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;"><%= @call_request.proposed_duration %> Minutes</td>
+                      </tr>
+                      <tr>
+                        <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Estimated Income</td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;"><%= number_to_currency(@call_request.proposed_duration * @mentor.rate_per_minute, :locale => :us) %></td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding:9px 14px 14px 14px;">
+              <div style="border-bottom: 1px solid #eeeded; padding:8px 0px; font-family: Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#4a4a4a;"><%= @call_request.scheduled_at.strftime("%a, %b %d @%H%P") %> (PDT)</div>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding:5px 14px 25px 14px;">
+              <a href="<%= "#{root_url}/#/request/#{@call_request.id}" %>" style=" font-family: Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#fff; padding:10px; background:#7bb71b; border:1px solid #419e28; border-radius:4px; text-decoration:none; display:block; text-align:center;">View request</a>
+            </td>
+          </tr>
+          </table>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

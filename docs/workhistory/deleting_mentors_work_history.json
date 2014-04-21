@@ -1,0 +1,41 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "DELETE",
+  "route": "/api/mentors/:mentor_id/work_histories/:id",
+  "description": "Deleting mentor's work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "Work History ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/mentors/70/work_histories/13",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=MnFpMERQbHVSekNJVEdUaTdOY0dRbEpXRCsreEtZUFp6ejdrZHBjU3hRRWFMU1RkK2Z2RThnd0Q3T0FkQVFjblgyWGc3cDJqNWVJaW4yNm9pSUNNTlhMd2pnYVVvYWxjdkEyNE5RTTE5Y2VRaC9TMHFQYkRvU0FtZHpySXNIcHRpUm5DTWlNMVVmbU9PSU5QWUZES2dZSmsreUNSanMwTktyUTg2dk8yZUprPS0tRFdVajhYRmk2WVFaZ2JmUWJhQllSdz09--08402ff5f2ec449e1ef7ab38e1e8deff9971b9f5; path=/; HttpOnly","X-Request-Id":"b4ba92a0-4592-4e63-a16c-14f675397795","X-Runtime":"0.070557"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

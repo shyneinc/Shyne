@@ -1,0 +1,121 @@
+$blue: #3DA0FC;
+$dark-blue: #066CB9;
+$black: #222;
+$gray: #4A5763;
+$green: #45C9C3;
+$light-green: #00CFC7;
+$light-gray: #F6F9FA;
+$red: #FF493E;
+$white: #FFF;
+$gold: #FDB406;
+
+body {
+  background-color: $white;
+  color: #333;
+  font-family: Helvetica, Arial;
+}
+
+a {
+  color: $dark-blue;
+  text-decoration: none;
+  &:hover {
+    color: $gray;
+    text-decoration: underline;
+  }
+}
+
+@mixin round-corners($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin top-round-corners($radius) {
+  -moz-border-radius: $radius $radius 0 0;
+  -webkit-border-radius: $radius $radius 0 0;
+  border-radius: $radius $radius 0 0;
+}
+
+@mixin bottom-round-corners($radius) {
+  -moz-border-radius: 0 0 $radius $radius;
+  -webkit-border-radius: 0 0 $radius $radius;
+  border-radius: 0 0 $radius $radius;
+}
+
+@mixin box-shadow($width, $color) {
+  -webkit-box-shadow: $width $width $width $width $color;
+  box-shadow: $width $width $width $width $color;
+}
+
+@mixin circle($radius) {
+  width: $radius;
+  height: $radius;
+  @include round-corners($radius);
+  line-height: $radius;
+  text-align: center;
+  display: block;
+}
+
+@mixin gradient($from, $to) {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+  background-image: -o-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: -moz-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: -webkit-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: -ms-linear-gradient(bottom, $from 0%, $to 100%);
+  background-image: linear-gradient(to bottom, $from 0%, $to 100%);
+}
+
+.btn-red {
+  @include gradient(#FF645B, #FF493F);
+  border-color: #FF645B;
+  color: $white;
+  font-size: 24px;
+  width: 55%;
+  &:hover, &:active, &:focus {
+    @include gradient(#FD8882, #FF493F);
+    border-color: #FF645B;
+    color: $white;
+  }
+}
+
+.btn-green {
+  @include gradient(#25D5CF, #00CFC7);
+  border-color: $white;
+  color: $white;
+  font-size: 24px;
+  width: 55%;
+  &:hover, &:active, &:focus {
+    @include gradient(#54DED9, #00CFC7);
+    border-color: $white;
+    color: $white;
+  }
+}
+
+input.ng-invalid.ng-dirty {
+  border-color: #b94a48;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  &:focus {
+    border-color: #953b39;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+  }
+}
+
+input.ng-valid.ng-dirty {
+  border-color: #468847;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  &:focus {
+    border-color: #356635;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+  }
+}
+
+.text-danger {
+  color: #ff0000;
+  &:hover {
+    color: #ff0000;
+  }
+}

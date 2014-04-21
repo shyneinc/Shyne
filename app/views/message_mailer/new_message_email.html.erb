@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Hey <%= @message.recipients.first.first_name %>,
+    </p>
+    <blockquote>
+      <p>
+        You've received a new message on Shyne.
+      </p>
+    </blockquote>
+    <p>
+      <%= link_to "Clike here to reply", "#{root_url}#/conversation/#{@message.conversation_id}" %>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "PUT",
+  "route": "/api/mentors/:mentor_id/work_histories/:id",
+  "description": "Updating mentor's work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "mentor_id",
+      "description": "Mentor ID"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "Work History ID"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "company",
+      "description": "Company"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "title",
+      "description": "Job Title"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "date_started",
+      "description": "Date Started"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "date_ended",
+      "description": "Date Ended"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "current_work",
+      "description": "Current Work?"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/mentors/69/work_histories/12",
+      "request_body": "work[company]=Funk-Pfeffer&work[title]=National+Marketing+Liason&work[date_started]=2013-09-17&work[date_ended]=2014-05-18&work[current_work]=false&work[mentor_id]=69",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=QjlBRGJGV0VERWNUYnNZRWxQbU5WWW9NWlBaa29ocVQ0cE4rNk1vMU5za1ZsMVh5NFBMTnVsQzZWUnBxSlc1cUpZZkRrNldVUFZ0UUpGKy8wMjBTTE5qcmxpRGMwejJjOVlrWE8wbFBGOUJDcHl2NlE0Z2xwZkpvc0luQno1UFNBZFpKV0FUSEt2UC81TFlocGZ3SGw5V2VOS2grNkZrazBNU2tNa3ZoU21NPS0tNk1NU1Bkb0FZT0ZiVnZxbXY2ZmRwUT09--c8c010c6eff31c3e450f28834989d91162bae11e; path=/; HttpOnly","X-Request-Id":"00fe3cd0-6159-482e-b8ac-4e17cd5ca314","X-Runtime":"0.089485"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

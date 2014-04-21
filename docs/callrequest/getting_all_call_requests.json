@@ -1,0 +1,31 @@
+{
+  "resource": "CallRequest",
+  "http_method": "GET",
+  "route": "/api/call_requests",
+  "description": "Getting all call requests",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/call_requests",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":3,\"member_id\":116,\"mentor_id\":60,\"passcode\":97451,\"status\":\"proposed\",\"scheduled_at\":\"2013-12-15T15:20:49.000-05:00\",\"created_at\":\"2013-12-12T22:11:50.691-05:00\",\"updated_at\":\"2013-12-12T22:11:50.691-05:00\",\"billable_duration\":null}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d9bfef08c60e6fedaa73254c245feb23\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=TjdtckpKam8wNHFFRTNhNldoTWhYT3lTZGF3OUxLTlQwVFVBeHF3bnluQytOUENyK0VKV01seWhoV2dXVDlaZkZ6SXRMOUExZ0M3NTZpQzJqSStZZzFlZXJSZjRCeFJsRzBTUlJpZUV2VGJwL0pnM1RUbVR4Zm0wQWZyTXE2WC82V2wzVURZTjlVbDQwdllHV2FLcTQwQ09UVXEvbDByakRaQXJNRERtMHFVPS0tQ3JURFN3c01HbmxyN3UvMElRdHJGUT09--36b63768d2db4990006b56776d838226d4421007; path=/; HttpOnly","X-Request-Id":"56fb8eb3-214e-460c-bf46-3c3a3de1fd2b","X-Runtime":"0.066916","Content-Length":"238"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "resource": "CreditCard",
+  "http_method": "DELETE",
+  "route": "/api/credit_cards/:id",
+  "description": "Deleting a credit card",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/credit_cards/CC2fexKpFs3UJI9xnELw69dw",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dGEwV1pqV2dQNFQrbEhQMW1nUG9kdHlZTmhpWUpXdmdFS1ZlUmZISlJYTnZGdUdTRnNodS9BckxERHV0UHdqWEZrSkxleUVZSGVSV043QTRCUGFvOGxmT21qL1BMZUc4NkhoQi9tZCtEeldJQVIwQ05yN2tOaGJ0dldOZ0JDWk12bC9GWWpXOHZ3WkVHSFNyVU96anZyQWxzZHI4TlpBMWswQ1pSWUowT1FzPS0tVVp0WlZxcGkvUW1UMHdLNUtnWnRvQT09--46f72cec369e7025b2117bf48861b867e8b59b52; path=/; HttpOnly","X-Request-Id":"2205f78e-e75b-4726-a2ef-4c143d1e5281","X-Runtime":"0.948216"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}
