@@ -480,7 +480,7 @@
                             </div>
                           </div>
                           <div class="bottomBtn">
-                            <a class="cancel mr20" href="javascript:void(0)" id="closeButton" data-dismiss="modal"><span class="iconSp close-icon"></span> Cancel</a>
+                            <a class="cancel mr20" href="javascript:void(0)" id="closeButton" data-dismiss="modal" ng-click="cancel()" id="closeButton"><span class="iconSp close-icon"></span> Cancel</a>
                             <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="profileForm.$invalid" ng-click="updateCallSettingModal()">Save Changes</button>
                           </div>
                         </div>
@@ -580,7 +580,7 @@
                             </div>
                           </div>
                           <div class="bottomBtn">
-                            <a class="cancel mr20" href="#" data-dismiss="modal"><span class="iconSp close-icon"></span> Cancel</a>
+                            <a class="cancel mr20" href="javascript:void(0)" data-dismiss="modal" ng-click="cancel()" id="closeButton"><span class="iconSp close-icon"></span> Cancel</a>
                             <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="detailForm.$invalid" ng-click="updateUserInformationModal()">Save Changes</button>
                           </div>
                         </div>
@@ -679,7 +679,7 @@
                         </div>
                         <div class="bottomBtn">
                           <button class="btn grd-org btnOrgLg ml20 fr" type="button" ng-disabled="experienceForm.$invalid" ng-click="updateExperienceModal()">Save Changes</button>
-                          <a href="#" data-dismiss="modal" class="cancel mr20 fl" ng-click="cancel()"><span class="iconSp close-icon"></span> Cancel</a>
+                          <a href="#" data-dismiss="modal" class="cancel mr20 fl" ng-click="cancel()" id="closeButton"><span class="iconSp close-icon"></span> Cancel</a>
                         </div>
                       </div>
                     </form>

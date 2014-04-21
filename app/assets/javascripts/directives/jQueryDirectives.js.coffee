@@ -81,11 +81,21 @@ ShyneDirectives.directive('fancyCheckbox', () ->
 )
 
 ShyneDirectives.directive("openDialog", ->
+  restrict: "A"
   openDialog = link: (scope, element, attrs) ->
     openDialog = ->
       element = $(attrs.modalName)
       element.modal "show"
-      return
+
+      element.on "keyup.dismiss.bs.modal", $.proxy((e) ->
+        if e.isDefaultPrevented()
+          return
+        if e.which is 27
+          $('#closeButton').trigger('click')
+          element.modal "hide"
+        return
+      , this)
+
     element.bind "click", openDialog
     return
 
