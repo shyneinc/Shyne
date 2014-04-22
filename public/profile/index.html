@@ -25,7 +25,7 @@
       </div>
     </section>
 
-    <section ng-show="user && user.role_type == 'Mentor' && user.mentor_status != 'approved'" class="applicationMentors">
+    <section ng-hide="isApproved" class="applicationMentors">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
@@ -190,7 +190,7 @@
                                           <div class="error">{{mentorFormError.years_of_experience[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
-                                          <label class="O11BU">Most recent university attended</label>
+                                          <label class="O11BU">Universities you attended</label>
                                           <tags-input ng-model="mentorModel.schools" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
                                             <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                           </tags-input>
@@ -355,7 +355,7 @@
         <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && user.mentor_status == 'approved'">
           <div class="container">
             <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span>
-              <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro i_edit_w"></span>Edit your profile</a>
+              <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro {{ edit_profile && 'i_eye_w' || 'i_edit_w' }}"></span>{{ edit_profile && 'View your profile' || 'Edit your profile' }}</a>
             </h2>
           </div>
           <div class="profileBox">
@@ -502,7 +502,7 @@
                     <form novalidate role="form" name="detailForm" ng-submit="updateUserInformationModal()">
                       <div class="formBox">
                         <div class="callerImage">
-                          <img src="images/no_image.png" ng-src="{{user.avatar.url}}" alt="">
+                          <img src="/assets/no_image.png" ng-src="{{user.avatar.url}}" alt="">
                           <span class="caretL"></span>
                           <span class="caretR"></span>
                         </div>

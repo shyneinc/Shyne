@@ -14,6 +14,7 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'delayed_job_web'
 gem 'clockwork'
+gem 'newrelic_rpm'
 
 gem 'nokogiri'
 gem 'jbuilder', '~> 1.2'

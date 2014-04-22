@@ -53,6 +53,9 @@ describe CallRequest do
       let(:completed_call_request) { create(:completed_call_request) }
 
       before(:all) do
+        mock_accounts = [OpenStruct.new({"routing" => "021000021", "account" => "9900000002"})]
+        completed_call_request.mentor.stub_chain(:balanced_customer, :bank_accounts).and_return(mock_accounts)
+
         mock_debit = OpenStruct.new({"_type" => "debit", "amount" => 100, "status" => "succeeded", "uri" => "test"})
         mock_credit = OpenStruct.new({"_type" => "credit", "amount" => 70, "status" => "paid", "uri" => "test"})
         completed_call_request.member.stub_chain(:balanced_customer, :debit).and_return(mock_debit)

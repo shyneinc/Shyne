@@ -56,15 +56,17 @@ class CallRequest < ActiveRecord::Base
       end
 
       if self.member_debited? && !self.mentor_credited?
-        credit = self.mentor.balanced_customer.credit(
-            :amount => self.credit_amount,
-            :description => self.description,
-            :appears_on_statement_as => "Shyne / #{self.member.full_name}",
-            :meta => {
-                :call_request_id => self.id
-            }
-        )
-        self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+        if self.mentor.balanced_customer.bank_accounts.any?
+          credit = self.mentor.balanced_customer.credit(
+              :amount => self.credit_amount,
+              :description => self.description,
+              :appears_on_statement_as => "Shyne / #{self.member.full_name}",
+              :meta => {
+                  :call_request_id => self.id
+              }
+          )
+          self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+        end
       end
 
       if self.member_debited? && self.mentor_credited?
