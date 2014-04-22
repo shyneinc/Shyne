@@ -26,6 +26,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.user_industries = []
   $scope.user_skills = []
   $scope.settings = {tab: 'basic_info'}
+  $scope.isApproved = true
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -109,6 +110,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
           $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
+          $scope.isApproved = false if mentorInfo.mentor_status != 'approved'
           angular.extend(user, mentorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
@@ -132,7 +134,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   for i in $scope.state_list
     $scope.stateList.push({ value : i, text: i})
 
-  $scope.refresh(true)
+  $scope.refresh(false)
 
   $scope.showMemberForm = () ->
     $scope.welcomeModel.role = 'Member'
