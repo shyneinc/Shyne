@@ -355,7 +355,7 @@
         <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && user.mentor_status == 'approved'">
           <div class="container">
             <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span>
-              <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro i_edit_w"></span>{{ edit_profile && 'View your profile' || 'Edit your profile' }}</a>
+              <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro {{ edit_profile && 'i_eye_w' || 'i_edit_w' }}"></span>{{ edit_profile && 'View your profile' || 'Edit your profile' }}</a>
             </h2>
           </div>
           <div class="profileBox">
