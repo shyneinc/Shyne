@@ -386,7 +386,7 @@
                       <div class="proEdit"><a href="javascript:void(0)" open-dialog modal-name="#callsettingModal"><span class="iconPro i_edit_r"></span>Edit Call settings</a></div>
                     </div>
                     <a href="#/call_request/{{user.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule Call Now</a>
-                    <div class="O12BU mb20 text-center">call rate is $2/min</div>
+                    <div class="O12BU mb20 text-center">call rate is ${{ user.rate_per_minute }}/min</div>
                     <div class="darkBoxRight">
                       <div class="OC16BUB mb10 text-center">availability</div>
                       <p class="O12R">{{ user.availability }}</p>
