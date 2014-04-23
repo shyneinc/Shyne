@@ -138,3 +138,30 @@ ShyneDirectives.directive('resizable', ($window) ->
 
     return
 )
+
+ShyneDirectives.directive('carousel', () ->
+  (scope, element) ->
+    $(element).carousel({interval: false})
+)
+
+ShyneDirectives.directive('nextCarousel', () ->
+  (scope, element) ->
+    element.on('click', () ->
+      carousel = $('#carousel')
+      this.$active = carousel.find('.item.active')
+      this.$items = this.$active.parent().children()
+      return if (this.$items.index(this.$active) == this.$items.length - 1)
+      carousel.carousel('next')
+    )
+)
+
+ShyneDirectives.directive('prevCarousel', () ->
+  (scope, element) ->
+    element.on('click', () ->
+      carousel = $('#carousel')
+      this.$active = carousel.find('.item.active')
+      this.$items = this.$active.parent().children()
+      return if (this.$items.index(this.$active) == 0)
+      carousel.carousel('prev')
+    )
+)
