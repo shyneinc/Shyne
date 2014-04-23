@@ -33,7 +33,7 @@ Shyne::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '0.1.0'
+  config.assets.version = '0.1.6'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -53,6 +53,8 @@ Shyne::Application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+
+  config.font_assets.origin = 'https://www.shyne.io'
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = "//d32h3llz1iowhs.cloudfront.net"
