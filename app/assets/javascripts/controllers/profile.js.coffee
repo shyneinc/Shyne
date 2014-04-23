@@ -27,6 +27,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.user_skills = []
   $scope.settings = {tab: 'basic_info'}
   $scope.isApproved = true
+  $scope.isPhotoNotUploaded = false
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -112,6 +113,10 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
           $scope.isApproved = false if mentorInfo.mentor_status != 'approved'
           angular.extend(user, mentorInfo)
+          if user.sign_in_count < 3 && mentorInfo.user.avatar.url.match(/^http([s]?):\/\/.*/)
+            $scope.isPhotoNotUploaded = true
+          else
+            $scope.isPhotoNotUploaded = false
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo
@@ -277,6 +282,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     User.updateAvatar(element.files).then((data) ->
       Session.getCurrentUser(true).then((user)->
         $scope.user.avatar = user.avatar
+        $scope.user.user.avatar = user.avatar
+        $scope.isPhotoNotUploaded = false
       )
     , (data) ->
       $scope.resetpasswordFormError = data.errors
