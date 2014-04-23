@@ -17,17 +17,21 @@
           <li><a href="#/our-mission" ng-class="{ 'signUp' : location.path() == '/our-mission' }">Our Mission</a></li>
           <li ng-hide="user"><a href="#/login" ng-class="{ 'signUp' : location.path() == '/login' }">Log In</a></li>
           <li ng-hide="user"><a href="#/signup" ng-class="{ 'signUp' : location.path() == '/signup' }">Sign Up</a></li>
-          <li ng-show="user" class="dropdown">
-            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#/profile">Profile</a></li>
-              <li><a href="#/call_requests">Calls</a></li>
-              <li><a href="#/conversation">Messages</a></li>
-              <li><a href="#/settings">Settings</a></li>
-              <li><a href="#/logout">Log out</a></li>
+          <li ng-show="user">
+            <ul class="userDropdown">
+              <li class="dropdown">
+                <div class="userLogin"><img src="/assets/no_image.png" ng-src="{{ user.user.avatar.thumb.url }}" alt=""></div>
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#/profile">Profile</a></li>
+                  <li><a href="#/call_requests">Calls</a></li>
+                  <li><a href="#/conversation">Messages</a></li>
+                  <li><a href="#/settings">Settings</a></li>
+                  <li><a href="#/logout">Log out</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
-
         </ul>
       </div><!--/.nav-collapse -->
     </div>
