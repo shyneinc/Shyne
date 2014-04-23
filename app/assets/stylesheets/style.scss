@@ -1169,6 +1169,10 @@ h3 {
   background: #fff;
   padding: 3px;
   border: 1px solid #103140;
+  img {
+    max-height: 35px;
+    width: 100%;
+  }
 }
 
 /* Header Top Banner */
