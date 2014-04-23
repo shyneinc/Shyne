@@ -32,6 +32,7 @@ gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'
 gem 'angularstrap-rails', '~> 0.7.6'
 gem 'just-datetime-picker'
+gem 'font_assets'
 
 gem 'carrierwave'
 gem "fog", "~> 1.15.0"
