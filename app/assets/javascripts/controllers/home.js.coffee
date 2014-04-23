@@ -5,18 +5,26 @@ Shyne.controller('HomeCtrl', ['$location', '$rootScope', '$scope','Session',($lo
   $scope.signupModel = {timeZone: 'Alaska'}
   $scope.signUpError = {}
   $scope.user = null
-  $scope.mentors = null
+  $scope.featured_mentors = null
   $scope.searchModel = { search_text: '' }
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
   )
 
-  mentorIdx = 0
-
   Session.getFeaturedMentors().then((data)->
-    $scope.mentors = data.splice(mentorIdx, 4)
+    $scope.featured_mentors = _.shuffle(data).chunk(3)
   )
+
+  #chunk array in multi dimensional array
+  Array::chunk = (chunkSize) ->
+    R = []
+    i = 0
+
+    while i < @length
+      R.push @slice(i, i + chunkSize)
+      i += chunkSize
+    R
 
   $scope.viewProfile = (mentor) ->
     $location.path '/profile/'

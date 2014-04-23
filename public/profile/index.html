@@ -364,9 +364,13 @@
                 <div class="row">
                   <div class="col-sm-8">
                     <div class="profileImage">
-                      <img ng-src="{{user.avatar.url}}" src="/assets/no_image.png" alt="">
+                      <img ng-src="{{user.user.avatar.url}}" src="/assets/no_image.png" alt="">
                       <span class="caretL"></span>
                       <span class="caretR"></span>
+                      <div class="addFile uploadLg" ng-show="isPhotoNotUploaded">
+                        <span class="btnEdit grd-org">Upload Picture</span>
+                        <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
+                      </div>
                     </div>
                     <div class="userInfo">
                       <div class="proEdit" ng-show="edit_profile"><a href="javascript:void(0)" open-dialog modal-name="#myModal"><span class="iconPro i_edit_r"></span>Edit your details</a></div>
@@ -502,7 +506,7 @@
                     <form novalidate role="form" name="detailForm" ng-submit="updateUserInformationModal()">
                       <div class="formBox">
                         <div class="callerImage">
-                          <img src="/assets/no_image.png" ng-src="{{user.avatar.url}}" alt="">
+                          <img src="/assets/no_image.png" ng-src="{{user.user.avatar.url}}" alt="">
                           <span class="caretL"></span>
                           <span class="caretR"></span>
                         </div>

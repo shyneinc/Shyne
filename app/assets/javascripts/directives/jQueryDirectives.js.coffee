@@ -101,3 +101,67 @@ ShyneDirectives.directive("openDialog", ->
 
   openDialog
 )
+
+ShyneDirectives.directive('resizable', ($window) ->
+  (scope, element) ->
+    w = angular.element($window)
+    scope.getWindowDimensions = ->
+      h: w.height()
+      w: w.width()
+
+    scope.$watch scope.getWindowDimensions, ((newValue, oldValue) ->
+      scope.windowHeight = newValue.h
+      scope.windowWidth = newValue.w
+
+      # Footer position
+      windowHeight = newValue.h
+      wrapperHeight = (newValue.h - $(".footer").outerHeight())
+      if $("footer").outerHeight() < 82
+        footerHeight = 138
+      else
+        footerHeight = $("footer").outerHeight()
+
+      $(".wrapper").css
+        "padding-bottom": footerHeight
+        "min-height": windowHeight
+
+      $(".ie7 .wrapper").css
+        "padding-bottom": footerHeight
+        "min-height": wrapperHeight
+
+      return
+    ), true
+
+    w.bind "resize", ->
+      scope.$apply()
+      return
+
+    return
+)
+
+ShyneDirectives.directive('carousel', () ->
+  (scope, element) ->
+    $(element).carousel({interval: false})
+)
+
+ShyneDirectives.directive('nextCarousel', () ->
+  (scope, element) ->
+    element.on('click', () ->
+      carousel = $('#carousel')
+      this.$active = carousel.find('.item.active')
+      this.$items = this.$active.parent().children()
+      return if (this.$items.index(this.$active) == this.$items.length - 1)
+      carousel.carousel('next')
+    )
+)
+
+ShyneDirectives.directive('prevCarousel', () ->
+  (scope, element) ->
+    element.on('click', () ->
+      carousel = $('#carousel')
+      this.$active = carousel.find('.item.active')
+      this.$items = this.$active.parent().children()
+      return if (this.$items.index(this.$active) == 0)
+      carousel.carousel('prev')
+    )
+)

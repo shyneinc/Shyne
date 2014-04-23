@@ -35,6 +35,9 @@
                       </div>
                       <p>{{ conversation.messages[0].body }}</p>
                     </div>
+                    <div class="text-center" ng-show="conversations.length == 0">
+                      <strong>You have no new messages.</strong>
+                    </div>
                   </div>
                 </div>
               </div>

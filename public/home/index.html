@@ -37,9 +37,9 @@
         <h2 class="text-center">Featured Mentors</h2>
         <p class="descText">A sampling of our fantastic mentors who want to help you Shyne.</p>
 
-        <div data-ride="carousel" class="carousel slide" id="carousel">
+        <div data-ride="carousel" class="carousel slide" id="carousel" carousel>
           <div class="carousel-inner">
-            <div class="item active">
+            <div class="item" ng-class="$index == 0 ? 'active' : ''" data-ng-repeat="mentors in featured_mentors">
               <div class="row">
                 <div class="col-sm-4" data-ng-repeat="mentor in mentors">
                   <div class="fmUserBox">
@@ -54,8 +54,8 @@
               </div>
             </div>
           </div>
-          <a data-slide="prev" href="javascript:void(0)" class="left carousel-control"></a>
-          <a data-slide="next" href="javascript:void(0)" class="right carousel-control"></a>
+          <a data-slide="prev" href="javascript:void(0)" class="left carousel-control" prev-carousel></a>
+          <a data-slide="next" href="javascript:void(0)" class="right carousel-control" next-carousel></a>
         </div>
       </div>
     </section>
