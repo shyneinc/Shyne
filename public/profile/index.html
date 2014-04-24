@@ -191,7 +191,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">Universities you attended</label>
-                                          <tags-input ng-model="mentorModel.schools" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                                          <tags-input ng-model="mentorModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
                                             <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                           </tags-input>
                                           <div class="error">{{mentorFormError.schools[0]}}</div>
@@ -538,7 +538,7 @@
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">Most recent university attended</label>
-                              <tags-input ng-model="editSchoolModel.schools" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                              <tags-input ng-model="editSchoolModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
                                 <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                               </tags-input>
                               <div class="error">{{mentorModalFormError.schools[0]}}</div>
