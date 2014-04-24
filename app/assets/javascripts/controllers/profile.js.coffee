@@ -25,6 +25,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.bankAccountModel = {}
   $scope.user_industries = []
   $scope.user_skills = []
+  $scope.user_profile_industries = []
+  $scope.user_profile_skills = []
   $scope.settings = {tab: 'basic_info'}
   $scope.isApproved = true
   $scope.isPhotoNotUploaded = false
@@ -444,6 +446,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.userProfile = userProfile
       User.getMentorInfo(userProfile.role_id).then((mentorInfo) ->
         angular.extend(userProfile, mentorInfo)
+        $scope.user_profile_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
+        $scope.user_profile_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
       )
       Workhistory.getWorkHistories(userProfile.role_id).then((workHistoriesInfo) ->
         $scope.user_work_histories = workHistoriesInfo
