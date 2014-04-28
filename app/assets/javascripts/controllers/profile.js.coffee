@@ -476,8 +476,23 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       started_year: ""
       ended_month: "December"
       ended_year: ""
+      current_work: false
       isNew: true
     return
+
+  $scope.addWorkHistoryForEdit = ->
+    if $scope.work_histories.length == 0
+      $scope.work_histories.push
+        id: (Math.floor Math.random() * 55)
+        title: ""
+        company: ""
+        started_month: "January"
+        started_year: ""
+        ended_month: "December"
+        ended_year: ""
+        current_work: false
+        isNew: true
+      return
 
   # mark work history as deleted
   $scope.deleteWorkHistory = (id) ->
@@ -511,9 +526,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     results = []
     i = $scope.work_histories.length
 
-    while i--
-      work_history = $scope.work_histories[i]
-
+    $.each($scope.work_histories, (key, work_history) ->
+      if key == 0
+        work_history.current_work = true
       if work_history.isDeleted
         Workhistory.deleteWorkHistory($scope.user.role_id, work_history.id).then((data) ->
           $scope.work_histories.splice i, 1
@@ -537,6 +552,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           , (data) ->
             $scope.historyFormError = data
           )
+    )
     $q.all results
 
   $scope.removeFlashMessage = () ->

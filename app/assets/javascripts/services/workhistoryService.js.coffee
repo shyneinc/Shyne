@@ -62,8 +62,8 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
         title: history_model.title,
         company: history_model.company,
         date_started: "#{history_model.started_month} #{history_model.started_year}",
-        date_ended: "#{history_model.ended_month} #{history_model.ended_year}",
-        current_work: false,
+        date_ended: (if history_model.current_work == false then "#{history_model.ended_month} #{history_model.ended_year}" else ""),
+        current_work: history_model.current_work,
         mentor_id: mentor_id
     ).success((data) ->
       deferred.resolve(data)
