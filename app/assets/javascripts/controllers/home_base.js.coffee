@@ -14,14 +14,6 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
     $scope.user = user
   )
 
-  Session.searchMentors($scope.search_text).then((data)->
-    $scope.searchModel.search_text = $routeParams.q
-    if data.info
-      $scope.searchError = data
-      data = []
-    $scope.search_mentors = data
-  )
-
   $scope.login = () ->
     u = $scope.loginModel
     Session.login(u.email, u.password).then(
@@ -67,15 +59,30 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
           $location.path '/profile/'
         ), 200
     , (error)->
+      if $scope.user != null
+        $scope.flash_message = "Your email is already verified."
+        $timeout (->
+          $scope.flash_message = null
+          $location.path '/profile/'
+        ), 500
+        return
       $scope.flash_message = error[0]
       $timeout(->
         $scope.flash_message = null
       , 5000)
     )
 
-  if $routeParams.token != null
+  if $routeParams.token != undefined && $routeParams.token != null
     $scope.verify()
 
   $scope.viewProfile = (user_id) ->
     $location.path('/profile/' + user_id)
+
+  Session.searchMentors($scope.search_text).then((data)->
+    $scope.searchModel.search_text = $routeParams.q
+    if data.info
+      $scope.searchError = data
+      data = []
+    $scope.search_mentors = data
+  )
 ])

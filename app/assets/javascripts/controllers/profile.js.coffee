@@ -109,12 +109,12 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
+          angular.extend(user, mentorInfo)
           $scope.editIndustryModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
           $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
           $scope.isApproved = false if mentorInfo.mentor_status != 'approved'
-          angular.extend(user, mentorInfo)
           if user.sign_in_count < 3 && mentorInfo.user.avatar.url.match(/^http([s]?):\/\/.*/)
             $scope.isPhotoNotUploaded = true
           else
@@ -162,6 +162,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.memberFormError = data
     )
 
+
   $scope.becomeMentor = () ->
     User.becomeMentor(
       $scope.mentorModel.headline,
@@ -175,6 +176,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.mentorModel.schools,
       $scope.mentorModel.skills
     ).then((data) ->
+      Session.getCurrentUser(true).then((user)->
+        $scope.user = user
+      )
       angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
       $scope.user.time_zone = $scope.mentorModel.timeZone
@@ -190,6 +194,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.user.skills = $scope.mentorModel.skills
     #update industries and program of mentor
     User.updateMentor($scope.user)
+
     #create work current and previous history of mentor
     window.setTimeout(() ->
       Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id)
@@ -471,8 +476,23 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       started_year: ""
       ended_month: "December"
       ended_year: ""
+      current_work: false
       isNew: true
     return
+
+  $scope.addWorkHistoryForEdit = ->
+    if $scope.work_histories.length == 0
+      $scope.work_histories.push
+        id: (Math.floor Math.random() * 55)
+        title: ""
+        company: ""
+        started_month: "January"
+        started_year: ""
+        ended_month: "December"
+        ended_year: ""
+        current_work: false
+        isNew: true
+      return
 
   # mark work history as deleted
   $scope.deleteWorkHistory = (id) ->
@@ -504,10 +524,12 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.updateWorkHistories = () ->
     results = []
-    i = $scope.work_histories.length
 
-    while i--
-      work_history = $scope.work_histories[i]
+    $.each($scope.work_histories, (key, work_history) ->
+      if key == 0
+        work_history.current_work = true
+      else
+        work_history.current_work = false
 
       if work_history.isDeleted
         Workhistory.deleteWorkHistory($scope.user.role_id, work_history.id).then((data) ->
@@ -532,6 +554,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           , (data) ->
             $scope.historyFormError = data
           )
+    )
     $q.all results
 
   $scope.removeFlashMessage = () ->

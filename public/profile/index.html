@@ -317,14 +317,14 @@
                             <div class="col-sm-6">
                               <label class="O11BU">Month ended</label>
                               <div class="dropDown">
-                                <select data-ng-options="o.name for o in endedMonthOptions" ng-model="historyModel.endedPreviousMonthOption">
+                                <select data-ng-options="o.name for o in endedMonthOptions" ng-model="historyModel.endedPreviousMonthOption" required="">
                                   <option value="">Month Ended</option>
                                 </select>
                               </div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">Year ended</label>
-                              <input type="text" name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" id="historyEndedPreviousYear" maxlength="4" placeholder="Ex: 2014">
+                              <input type="text" name="staredEndedYear" ng-model="historyModel.endedPreviousYearOption" id="historyEndedPreviousYear" maxlength="4" placeholder="Ex: 2014" required="">
                             </div>
                           </div>
                         </div>
@@ -334,7 +334,6 @@
                       <div class="cl bdb mb10">&nbsp;</div>
                       <div class="bottomBtn mb10">
                         <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit</button>
-                        <a href="#/profile" class="cancel mr20 fr"><span class="iconSp close-icon"></span> Cancel</a>
                       </div>
                     </div>
                   </form>
@@ -403,7 +402,7 @@
           </div>
           <div class="container">
             <div class="experience">
-              <div class="proEdit mb10 ml20" ng-show="edit_profile"><a href="javascript:void(0)" open-dialog modal-name="#experienceModal"><span class="iconPro i_edit_r"></span>Edit your Experience, skills, and industries</a></div>
+              <div class="proEdit mb10 ml20" ng-show="edit_profile"><a href="javascript:void(0)" open-dialog modal-name="#experienceModal" ng-click="addWorkHistoryForEdit()"><span class="iconPro i_edit_r"></span>Edit your Experience, skills, and industries</a></div>
               <div class="row">
                 <div class="col-sm-8">
                   <div class="proBox mb50">
