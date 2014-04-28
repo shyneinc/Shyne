@@ -109,12 +109,12 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
+          angular.extend(user, mentorInfo)
           $scope.editIndustryModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
           $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
           $scope.isApproved = false if mentorInfo.mentor_status != 'approved'
-          angular.extend(user, mentorInfo)
           if user.sign_in_count < 3 && mentorInfo.user.avatar.url.match(/^http([s]?):\/\/.*/)
             $scope.isPhotoNotUploaded = true
           else
@@ -162,6 +162,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.memberFormError = data
     )
 
+
   $scope.becomeMentor = () ->
     User.becomeMentor(
       $scope.mentorModel.headline,
@@ -175,6 +176,9 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.mentorModel.schools,
       $scope.mentorModel.skills
     ).then((data) ->
+      Session.getCurrentUser(true).then((user)->
+        $scope.user = user
+      )
       angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
       $scope.user.time_zone = $scope.mentorModel.timeZone
@@ -190,15 +194,16 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.user.skills = $scope.mentorModel.skills
     #update industries and program of mentor
     User.updateMentor($scope.user)
+
     #create work current and previous history of mentor
     window.setTimeout(() ->
       Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id)
       $scope.refresh(true)
-    , 1000)
+    , 1500)
     window.setTimeout(() ->
       $scope.historyModel = {role: null}
       $location.path '/thankyou/'
-    , 1000)
+    , 1500)
 
   $scope.updateMember = () ->
     User.updateMember($scope.user).then(() ->
