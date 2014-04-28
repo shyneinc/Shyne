@@ -60,7 +60,11 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
         ), 200
     , (error)->
       if $scope.user != null
-        $location.path '/profile/'
+        $scope.flash_message = "Your email is already verified."
+        $timeout (->
+          $scope.flash_message = null
+          $location.path '/profile/'
+        ), 500
         return
       $scope.flash_message = error[0]
       $timeout(->
