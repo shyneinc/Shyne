@@ -199,11 +199,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     window.setTimeout(() ->
       Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id)
       $scope.refresh(true)
-    , 1500)
+    , 1000)
     window.setTimeout(() ->
       $scope.historyModel = {role: null}
       $location.path '/thankyou/'
-    , 1500)
+    , 1000)
 
   $scope.updateMember = () ->
     User.updateMember($scope.user).then(() ->
