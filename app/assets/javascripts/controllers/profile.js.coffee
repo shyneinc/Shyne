@@ -524,11 +524,13 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.updateWorkHistories = () ->
     results = []
-    i = $scope.work_histories.length
 
     $.each($scope.work_histories, (key, work_history) ->
       if key == 0
         work_history.current_work = true
+      else
+        work_history.current_work = false
+
       if work_history.isDeleted
         Workhistory.deleteWorkHistory($scope.user.role_id, work_history.id).then((data) ->
           $scope.work_histories.splice i, 1
