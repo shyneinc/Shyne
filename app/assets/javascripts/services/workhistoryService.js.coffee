@@ -17,22 +17,23 @@ ShyneService.factory('Workhistory', ['$location','$http','$q',($location, $http,
     )
     deferred.promise
 
-    $.each(history_model.positions, (key,valueObj) ->
-      $http.post('/api/mentors/'+mentor_id+'/work_histories',
-        work_history:
-          title: valueObj.previous_title_text,
-          company: valueObj.previous_company_text,
-          date_started: "#{valueObj.startedPreviousMonthOption.id} #{valueObj.startedPreviousYearOption}",
-          date_ended: "#{valueObj.endedPreviousMonthOption.id} #{valueObj.endedPreviousYearOption}",
-          current_work: false,
-          mentor_id: mentor_id
-      ).success((data) ->
-        deferred.resolve(data)
-      ).error((data) ->
-        deferred.reject(data.error)
-      )
-      deferred.promise
+  addWorkHistoryDetail: (history_model, mentor_id) ->
+    deferred = $q.defer()
+
+    $http.post('/api/mentors/'+mentor_id+'/work_histories',
+      work_history:
+        title: history_model.previous_title_text,
+        company: history_model.previous_company_text,
+        date_started: "#{history_model.startedPreviousMonthOption.id} #{history_model.startedPreviousYearOption}",
+        date_ended: "#{history_model.endedPreviousMonthOption.id} #{history_model.endedPreviousYearOption}",
+        current_work: false,
+        mentor_id: mentor_id
+    ).success((data) ->
+      deferred.resolve(data)
+    ).error((data) ->
+      deferred.reject(data.error)
     )
+    deferred.promise
 
   getWorkHistories: (mentor_id) ->
     deferred = $q.defer()

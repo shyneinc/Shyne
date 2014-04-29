@@ -191,24 +191,32 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     )
 
   $scope.createWorkHistory = () ->
+    results = []
+    $scope.added_work_history = false
     $scope.loading = true
     $scope.refresh(true)
     $scope.user.industries = $scope.mentorModel.industries
     $scope.user.schools = $scope.mentorModel.schools
     $scope.user.skills = $scope.mentorModel.skills
     #update industries and program of mentor
-    User.updateMentor($scope.user)
+    User.updateMentor($scope.user).then(() ->
 
-    #create work current and previous history of mentor
-    window.setTimeout(() ->
-      Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id)
-      $scope.refresh(true)
-    , 1000)
-    window.setTimeout(() ->
-      $scope.historyModel = {role: null}
-      $scope.loading = false
-      $location.path '/thankyou/'
-    , 1000)
+      #create work current and previous history of mentor
+      Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id).then((data) ->
+        $.each($scope.historyModel.positions, (key,valueObj) ->
+          Workhistory.addWorkHistoryDetail(valueObj, $scope.user.role_id)
+        )
+
+        $scope.refresh(true)
+        $scope.loading = false
+        $scope.historyModel = {role: null}
+        $location.path '/thankyou/'
+
+      , (data) ->
+        $scope.loading = false
+        $scope.workhistoryFormError = data
+      )
+    )
 
   $scope.updateMember = () ->
     $scope.loading = true
