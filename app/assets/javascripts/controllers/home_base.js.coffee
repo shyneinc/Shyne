@@ -9,26 +9,33 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
   $scope.search_text = $routeParams.q
   $scope.search_mentors = null
   $scope.searchModel = { search_text: null }
+  $scope.loading = false
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
   )
 
   $scope.login = () ->
+    $scope.loading = true
     u = $scope.loginModel
     Session.login(u.email, u.password).then(
       (user)->
+        $scope.loading = false
         $location.path '/profile/'
     , (error)->
+      $scope.loading = false
       $scope.loginError = error
     )
 
   $scope.signup = () ->
+    $scope.loading = true
     u = $scope.signupModel
     Session.register(u.firstName, u.lastName, u.email, u.password, u.confirmPassword, u.timeZone).then(
       (user)->
+        $scope.loading = false
         $location.path '/confirmation/'
     , (error)->
+      $scope.loading = false
       $scope.signUpError = error
     )
 
