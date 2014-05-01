@@ -17,7 +17,7 @@ class CallRequest < ActiveRecord::Base
 
   just_define_datetime_picker :scheduled_at
 
-  default_scope order('created_at DESC')
+  default_scope { order('created_at DESC') }
 
   def calculate_billable_duration
     if self.approved? && self.scheduled_at < (DateTime.now - 1.hour)
