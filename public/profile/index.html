@@ -351,7 +351,42 @@
           </div>
         </section>
 
-        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && user.mentor_status == 'approved'">
+        <section class="photoLastStep" ng-show="historyModel.role == 'upload_photo'">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8  col-md-offset-2">
+                <h2>Last step! Add a photo</h2>
+                <div class="clAll"></div>
+                <div class="callDetail mt20">
+                  <form novalidate role="form" name="uploadphotoForm" ng-submit="submitApplication()">
+                    <input type="hidden" ng-model="upload_photo" required="">
+                    <div class="formBox mt20">
+                      <div class="profileImage">
+                        <img ng-src="{{uploadPhotoModel.uploaded_photo}}" src="/assets/no_image.png" alt="">
+                        <span class="caretL"></span>
+                        <span class="caretR"></span>
+                        <div class="addFile uploadLg" ng-show="!isPhotoUploaded">
+                          <span class="btnEdit grd-org">Upload Picture</span>
+                          <input type="file" class="upload" onchange="angular.element(this).scope().uploadPicture(this)" required="">
+                        </div>
+                      </div>
+                      <div class="userInfo" ng-show="isPhotoUploaded">
+                        <div class="proEdit">
+                          <a href="javascript:void(0)" ng-click="changePhoto()"><span class="iconPro i_edit_r"></span>Change photo</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bottomBtn">
+                      <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="uploadphotoForm.$invalid" ng-click="submitApplication()">Submit Application</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && historyModel.role != 'upload_photo' && user.mentor_status == 'approved'">
           <div class="container">
             <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span>
               <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro {{ edit_profile && 'i_eye_w' || 'i_edit_w' }}"></span>{{ edit_profile && 'View your profile' || 'Edit your profile' }}</a>
