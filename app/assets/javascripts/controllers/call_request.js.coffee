@@ -73,14 +73,14 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
     $scope.callRequestModel.form = 'confirm_details' if $scope.user.customer_uri != null and !forceRedirect
 
   $scope.ConfirmDetails = () ->
-    $("#spinner").show()
+    $scope.loading = true
     User.addCreditCard($scope.callRequestModel).then(
       (data)->
-        $("#spinner").hide()
+        $scope.loading = false
         $scope.creditCardError = ''
         $scope.callRequestModel.form = 'confirm_details'
     , (error)->
-        $("#spinner").hide()
+        $scope.loading = false
         $scope.creditCardError = error
     )
 

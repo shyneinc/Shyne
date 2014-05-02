@@ -165,3 +165,23 @@ ShyneDirectives.directive('prevCarousel', () ->
       carousel.carousel('prev')
     )
 )
+
+ShyneDirectives.directive("loading", ->
+  restrict: "E"
+  replace: true
+  template: "<div class=\"loading\">
+              <div class=\"loaderimgText\" id=\"loaderimgText\">
+              <div><img src=\"/assets/ajax-loader.gif\" /></div>
+              <div class=\"backTransparant\"></div>
+              </div>
+            </div>"
+  link: (scope, element, attr) ->
+    scope.$watch "loading", (val) ->
+      if val
+        $(element).show()
+      else
+        $(element).hide()
+      return
+
+    return
+)
