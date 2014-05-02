@@ -1857,6 +1857,19 @@ section.profile {
   }
 }
 
+.photoLastStep {
+  .userInfo .proEdit {
+    margin-left: 0px;
+    top: 0;
+  }
+  .profileImage {
+    left: 40px;
+  }
+  .formBox {
+    min-height: 200px;
+  }
+}
+
 .modal-body {
   padding: 0px;
 }
@@ -2796,6 +2809,9 @@ footer {
   .applicationMentors .checkBox {
     margin-top: 10px;
   }
+  .photoLastStep .profileImage {
+    left: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2838,6 +2854,10 @@ footer {
       margin-left: -87.5px;
     }
   }
+  .photoLastStep .profileImage {
+    left: 50%;
+    margin-left: -87.5px;
+  }
   .memberTitle, .memberProfile .userInfo ul {
     padding-left: 0px;
   }
@@ -2871,6 +2891,13 @@ footer {
     }
     .proEdit {
       position: relative;
+    }
+  }
+  .photoLastStep .formBox {
+    width: 100%;
+    display: inline-block;
+    .userInfo {
+      padding-bottom: 0px;
     }
   }
 }

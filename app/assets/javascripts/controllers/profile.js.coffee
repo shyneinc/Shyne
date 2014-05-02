@@ -30,6 +30,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.settings = {tab: 'basic_info'}
   $scope.isApproved = true
   $scope.isPhotoNotUploaded = false
+  $scope.isPhotoUploaded = false
+  $scope.uploadPhotoModel = { uploaded_photo: null}
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -194,7 +196,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     results = []
     $scope.added_work_history = false
     $scope.loading = true
-    $scope.refresh(true)
     $scope.user.industries = $scope.mentorModel.industries
     $scope.user.schools = $scope.mentorModel.schools
     $scope.user.skills = $scope.mentorModel.skills
@@ -207,16 +208,20 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           Workhistory.addWorkHistoryDetail(valueObj, $scope.user.role_id)
         )
 
-        $scope.refresh(true)
+        $scope.historyModel = {role: 'upload_photo'}
         $scope.loading = false
-        $scope.historyModel = {role: null}
-        $location.path '/thankyou/'
 
       , (data) ->
         $scope.loading = false
         $scope.workhistoryFormError = data
       )
     )
+
+  $scope.submitApplication = () ->
+    $scope.loading = true
+    $scope.refresh(true)
+    $scope.loading = false
+    $location.path '/thankyou/'
 
   $scope.updateMember = () ->
     $scope.loading = true
@@ -326,7 +331,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       )
     , (data) ->
       $scope.loading = false
-      $scope.resetpasswordFormError = data.errors
+      $scope.uploadphotoFormError = data.errors
     )
 
   $scope.updateUser = () ->
@@ -639,4 +644,21 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         $scope.$digest()
       , 5000)
     )
+
+  $scope.uploadPicture = (element) ->
+    $scope.loading = true
+    User.updateAvatar(element.files).then((data) ->
+      Session.getCurrentUser(true).then((user)->
+        $scope.uploadPhotoModel.uploaded_photo = user.avatar.url
+        $scope.isPhotoUploaded = true
+        $scope.loading = false
+        $scope.upload_photo = true
+      )
+    , (data) ->
+      $scope.loading = false
+      $scope.uploadphotoFormError = data.errors
+    )
+
+  $scope.changePhoto = () ->
+    $scope.isPhotoUploaded = false
 ])
