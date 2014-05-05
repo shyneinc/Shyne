@@ -6,7 +6,8 @@ class Api::V1::MembersController < Api::V1::BaseController
   end
 
   def show
-    respond_with :api, Member.find(params[:id])
+    member = Member.find(params[:id])
+    respond_with :api, member.to_json({:include => [:user]})
   end
 
   def create

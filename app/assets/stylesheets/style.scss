@@ -1917,13 +1917,6 @@ section.profile {
 }
 
 .memberProfile {
-  .addFile {
-    width: 175px;
-    position: absolute;
-    left: 48px;
-    top: 125px;
-    opacity: 0.9;
-  }
   .userInfo {
     padding-bottom: 10px;
     min-height: 120px;
@@ -2777,7 +2770,7 @@ footer {
     margin-top: 20px;
   }
   .memberProfile {
-    .profileImage, .addFile {
+    .profileImage {
       left: 20px;
     }
   }
@@ -2849,7 +2842,7 @@ footer {
     margin-left: -87.5px;
   }
   .memberProfile {
-    .profileImage, .addFile {
+    .profileImage {
       left: 50%;
       margin-left: -87.5px;
     }
