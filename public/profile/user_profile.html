@@ -50,7 +50,7 @@
             <div class="col-sm-8">
               <div class="proBox mb50">
                 <div class="OC16BUB fl">Experience</div>
-                <a href="http://{{ userProfile.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
+                <a href="{{ userUrlPrefix }}{{ userProfile.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
                 <div class="clAll bdb pt5"></div>
                 <ul>
                   <li ng-repeat="work_history in user_work_histories">

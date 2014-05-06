@@ -33,7 +33,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
     Session.register(u.firstName, u.lastName, u.email, u.password, u.confirmPassword, u.timeZone).then(
       (user)->
         $scope.loading = false
-        $location.path '/confirmation/'
+        $location.path '/profile/'
     , (error)->
       $scope.loading = false
       $scope.signUpError = error

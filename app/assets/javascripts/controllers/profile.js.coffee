@@ -32,6 +32,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.isPhotoNotUploaded = false
   $scope.isPhotoUploaded = false
   $scope.uploadPhotoModel = { uploaded_photo: null}
+  $scope.urlPrefix = null
+  $scope.userUrlPrefix = null
 
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
@@ -108,10 +110,18 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         User.getMemberInfo(user.role_id).then((memberInfo) ->
           $scope.memberDetailModel.industries = memberInfo.industries.split(", ")
           angular.extend(user, memberInfo)
+          if user.sign_in_count < 3 && memberInfo.user.avatar.url.match(/^http([s]?):\/\/.*/)
+            $scope.isPhotoNotUploaded = true
+          else
+            $scope.isPhotoNotUploaded = false
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
           angular.extend(user, mentorInfo)
+
+          #prepend in missing url
+          $scope.urlPrefix = 'https://' if !mentorInfo.linkedin.match(/^http([s]?):\/\/.*/)
+
           $scope.editIndustryModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
           $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
@@ -347,22 +357,27 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.resetpasswordFormError = data.errors
     )
 
-  $scope.updateMemberDetail = () ->
+  $scope.updateMemberDetailModal = () ->
     $scope.loading = true
     $scope.user.industries = $scope.memberDetailModel.industries
     User.updateUser($scope.user).then((data) ->
       $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.flash_message = 'User Information Updated.'
-      $timeout (->
-          $scope.flash_message = null
-          $scope.$digest()
-        ), 5000
-      $scope.updateMentor($scope.user) if $scope.user.role_type == 'Mentor'
-      $scope.updateMember($scope.user) if $scope.user.role_type == 'Member'
-      $scope.loading = false
+      $scope.updateMember($scope.user).then((data) ->
+        $('#memberModal').modal('hide')
+        $(window).scrollTop(0)
+        $scope.loading = false
+        $scope.flash_message = 'Your profile has been updated.'
+        $timeout (->
+            $scope.flash_message = null
+            $scope.$digest()
+          ), 5000
+      , (data) ->
+        $scope.loading = false
+        $scope.memberModelFormError = data.errors
+      )
     , (data) ->
       $scope.loading = false
-      $scope.memberdetailFormError = data.errors
+      $scope.memberModelFormError = data.errors
     )
 
   $scope.updateUserInformation = () ->
@@ -520,6 +535,10 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.userProfile = userProfile
       User.getMentorInfo(userProfile.role_id).then((mentorInfo) ->
         angular.extend(userProfile, mentorInfo)
+
+        #prepend in missing url
+        $scope.userUrlPrefix = 'https://' if !mentorInfo.linkedin.match(/^http([s]?):\/\/.*/)
+
         $scope.user_profile_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
         $scope.user_profile_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
       )
@@ -574,6 +593,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   # cancel all changes
   $scope.cancel = ->
+    return if $scope.user.role_type == 'Member'
+
     i = $scope.work_histories.length
 
     while i--

@@ -100,7 +100,7 @@
                                         <div class="error">{{memberFormError.time_zone[0]}}</div>
                                       </div>
                                       <div class="col-sm-6">
-                                        <label class="O11BU">Cell Phone Number</label>
+                                        <label class="O11BU">Cell number <span>– <i>Hidden, never shared</i></span></label>
                                         <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" id="becomeMemberPhoneNumber" required="">
                                         <div class="error">{{memberFormError.phone_number[0]}}</div>
                                       </div>
@@ -442,7 +442,7 @@
                 <div class="col-sm-8">
                   <div class="proBox mb50">
                     <div class="OC16BUB fl">Experience</div>
-                    <a href="http://{{ user.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
+                    <a href="{{ urlPrefix }}{{ user.linkedin }}" target="_blank" class="O12B tcOrg fr"><span class="iconPro i_link"></span>Linkedin</a>
                     <div class="clAll bdb pt5"></div>
                     <ul>
                       <li ng-repeat="work_history in work_histories | filter:filterWorkHistory">
@@ -737,20 +737,20 @@
               <div class="col-md-8 col-md-offset-2">
                 <form editable-form name="memberDetailForm" onaftersave="updateMemberDetail()">
                   <div class="OC16BUB fl">Member Profile</div>
-                  <a class="O13SB tcOrg fr" href=""  ng-click="memberDetailForm.$show()" ng-show="!memberDetailForm.$visible">Edit your profile</a>
+                  <a class="O13SB tcOrg fr" href="javascript:void(0)" open-dialog modal-name="#memberModal">Edit your profile</a>
                   <div class="cl">&nbsp;</div>
                   <div class="callDetail">
                     <div class="formBox mt20">
                       <div class="profileImage">
-                        <img src="{{user.avatar.url}}" />
+                        <img src="/assets/no_image.png" ng-src="{{user.user.avatar.url}}" />
                         <span class="caretL"></span>
                         <span class="caretR"></span>
+                        <div class="addFile uploadLg" ng-show="isPhotoNotUploaded">
+                        <span class="btnEdit grd-org">Upload Picture</span>
+                        <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
                       </div>
-                      <div class="addFile" ng-show="memberDetailForm.$visible">
-                          <span class="fileInput grd-org">Change Photo</span>
-                          <input id="userAvatar" type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
                       </div>
-                      <div class="userInfo" ng-show="!memberDetailForm.$visible">
+                      <div class="userInfo">
                         <div class="memberTitle pb10 mb5">{{user.first_name}} {{user.last_name}}</div>
                         <ul>
                           <li><span class="iconPro i_clock"></span>{{user.time_zone}}</li>
@@ -760,43 +760,93 @@
                           <li><span class="iconPro i_case"></span>{{user.industries}}</li>
                         </ul>
                       </div>
-                      <div class="userInfo edit" ng-show="memberDetailForm.$visible">
-                        <div class="memberTitle mb5">
-                          <span editable-text="user.first_name" e-name="first_name" e-placeholder="First name" e-required></span>
-                          <span editable-text="user.last_name" e-name="last_name" e-placeholder="Last name" e-required></span>
-                        </div>
-                        <ul>
-                          <li>
-                            <span class="iconPro i_clock"></span>
-                            <span editable-select="user.time_zone" e-name="time_zone" e-ng-options="t.value as t.text for t in timeZoneList"></span>
-                          </li>
-                          <li>
-                            <span class="iconPro i_pin"></span>
-                            <span editable-text="user.city" e-name="city" e-placeholder="Enter City" e-required></span>
-                            <span editable-text="user.state" e-name="state" e-placeholder="Enter state" e-required></span>
-                          </li>
-                        </ul>
-                        <ul class="lastRow">
-                          <li>
-                            <span class="iconPro i_case"></span>
-                            <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
-                                <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
-                              </tags-input>
-                          </li>
-                        </ul>
-                      </div>
                       <div class="clAll"></div>
-                      <div ng-show="memberDetailForm.$visible">
-                        <button class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="memberDetailForm.$waiting">Save</button>
-                        <button class="btn grd-blue btnBlueLg ml20 fr" type="button" ng-disabled="memberDetailForm.$waiting" ng-click="memberDetailForm.$cancel()">Cancel</button>
-                        <div class="clAll"></div>
-                      </div>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
+
+          <!-- Edit information detail Modal Box Start -->
+          <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="callDetail editProfile">
+                    <form novalidate role="form" name="detailForm" ng-submit="updateMemberDetailModal()">
+                      <div class="formBox">
+                        <div class="callerImage">
+                          <img src="/assets/no_image.png" ng-src="{{user.avatar.url}}" alt="">
+                          <span class="caretL"></span>
+                          <span class="caretR"></span>
+                        </div>
+                        <div class="userDesc">
+                          <div class="addFile">
+                            <span class="btnEdit grd-blue"><span class="iconPro i_edit_w"></span>Change your profile picture</span>
+                            <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
+                          </div>
+                        </div>
+                        <div class="clAll"></div>
+                        <div class="formContent">
+                          <div class="OC15BUG">Edit your details</div>
+                          <div class="clAll bdb mt10 mb5"></div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <label class="O11BU">City</label>
+                              <input type="text" name="city" ng-model="user.city" placeholder="Enter your work city" required="">
+                              <div class="error">{{mentorModalFormError.city[0]}}</div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">state</label>
+                              <div class="dropDown">
+                                <select class="" ng-model="user.state" required="">
+                                  <option value="">Select State</option>
+                                  <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                                </select>
+                              </div>
+                              <div class="error">{{mentorModalFormError.state[0]}}</div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label class="O11BU">Timezone</label>
+                              <div class="dropDown">
+                                <select id="memberTimeZone" ng-model="user.time_zone">
+                                  <option value="Alaska">Alaska</option>
+                                  <option value="Arizona">Arizona</option>
+                                  <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                  <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                  <option value="Hawaii">Hawaii</option>
+                                  <option value="Indiana (East)">Indiana (East)</option>
+                                  <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                  <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                                </select>
+                              </div>
+                              <div class="error">{{mentorModalFormError.time_zone[0]}}</div>
+                            </div>
+                            <div class="col-sm-12">
+                              <label class="O11BU">What industries are you interested in?</label>
+                              <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
+                                <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                              </tags-input>
+                              <div class="error">{{memberFormError.industries[0]}}</div>
+                            </div>
+                          </div>
+                          <div class="clAll bdb mt20 mb5"></div>
+                          <div class="bottomBtn">
+                            <a class="cancel mr20" href="javascript:void(0)" data-dismiss="modal"><span class="iconSp close-icon"></span> Cancel</a>
+                            <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="detailForm.$invalid" ng-click="updateMemberDetailModal()">Save Changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Edit information detail Modal Box End -->
+
         </section>
     </div>
   </div>

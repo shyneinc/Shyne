@@ -45,7 +45,7 @@ resource 'Member' do
     let(:id) { member.id }
 
     example_request "Getting a specific member" do
-      expect(response_body).to eq member.to_json
+      expect(response_body).to eq member.to_json({:include => [:user]})
       expect(status).to eq 200
     end
   end
