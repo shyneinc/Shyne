@@ -76,10 +76,10 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
     controller: 'HomeBaseCtrl'
   ).when("/search",
     templateUrl: "/home/search_mentors.html"
-    controller: 'HomeBaseCtrl'
+    controller: 'SearchCtrl'
   ).when("/search/:q",
     templateUrl: "/home/search_mentors.html"
-    controller: 'HomeBaseCtrl'
+    controller: 'SearchCtrl'
   ).when("/confirmation",
     templateUrl: "/users/confirmation.html"
     controller: 'ProfileCtrl'
