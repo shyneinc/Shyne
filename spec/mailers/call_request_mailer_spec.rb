@@ -7,7 +7,7 @@ describe CallRequestMailer do
     let(:approved_call_request) { CallRequestMailer.request_approved_mentor(call_request) }
 
     it "renders approved subject" do
-      approved_call_request.subject.should == "Call with #{call_request.mentor.user.first_name} scheduled for #{call_request.scheduled_date}"
+      approved_call_request.subject.should == "Call with #{call_request.member.user.first_name} scheduled for #{call_request.scheduled_date}"
     end
     it "renders the receiver email" do
       approved_call_request.to.should eql [call_request.member.email]
