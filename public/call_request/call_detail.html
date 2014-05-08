@@ -48,7 +48,7 @@
                             <div class="pb10 O11BU tcblue">{{ call_request.mentor.current_position }} at <span class="tcOrg">{{ call_request.mentor.current_company }}</span></div>
                             <ul class="searchInfo">
                               <li><span class="iconPro i_ribbon"></span>{{ call_request.mentor.years_of_experience}} years work experience</li>
-                              <li><span class="iconPro i_star"></span><star-rating-orange star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5">{{call_request.mentor.total_reviews }} reviews</span></li>
+                              <li><span class="iconPro i_star"></span><star-rating-orange star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5" ng-hide="true">{{call_request.mentor.total_reviews }} reviews</span></li>
                               <li><span class="iconPro i_pin"></span>{{ call_request.mentor.full_address }}</li>
                               <li><span class="iconPro i_case"></span>Previous: {{ call_request.mentor.previous_companies }}</li>
                             </ul>
