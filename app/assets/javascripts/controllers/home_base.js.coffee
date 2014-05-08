@@ -1,4 +1,4 @@
-Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout','$routeParams','Session','Confirmation', ($location, $rootScope, $scope, $timeout, $routeParams, Session, Confirmation) ->
+Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout','$routeParams','Session','Confirmation', 'User', 'Workhistory', ($location, $rootScope, $scope, $timeout, $routeParams, Session, Confirmation, User, Workhistory) ->
 
   $rootScope.location = $location
   $scope.showIndex = true
@@ -6,10 +6,9 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
   $scope.signUpError = {}
   $scope.user = null
   $scope.token = $routeParams.token
-  $scope.search_text = $routeParams.q
-  $scope.search_mentors = null
-  $scope.searchModel = { search_text: null }
   $scope.loading = false
+  $rootScope.industries = null
+  $rootScope.schools = null
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
@@ -20,6 +19,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
     u = $scope.loginModel
     Session.login(u.email, u.password).then(
       (user)->
+        $scope.prepareIndustriesAndSchools()
         $scope.loading = false
         $location.path '/profile/'
     , (error)->
@@ -32,6 +32,7 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
     u = $scope.signupModel
     Session.register(u.firstName, u.lastName, u.email, u.password, u.confirmPassword, u.timeZone).then(
       (user)->
+        $scope.prepareIndustriesAndSchools()
         $scope.loading = false
         $location.path '/profile/'
     , (error)->
@@ -45,21 +46,10 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
       $scope.user = null
     )
 
-  $scope.searchMentors = () ->
-    search_text = $scope.searchModel.search_text
-    Session.searchMentors(search_text).then(
-      (data)->
-        if data.info
-          $scope.searchError = data
-          data = []
-        $scope.search_mentors = data
-    , (error)->
-      $scope.signUpError = error
-    )
-
   $scope.verify = () ->
     Confirmation.verify($scope.token).then(
       () ->
+        $scope.prepareIndustriesAndSchools()
         $scope.flash_message = "Thank you! Your email has been verified."
         $timeout (->
           $scope.flash_message = null
@@ -82,14 +72,16 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
   if $routeParams.token != undefined && $routeParams.token != null
     $scope.verify()
 
-  $scope.viewProfile = (user_id) ->
-    $location.path('/profile/' + user_id)
+  $scope.prepareIndustriesAndSchools = () ->
+    $rootScope.industries = []
+    $rootScope.schools = []
+    Workhistory.getIndustries().then((industries) ->
+      for i in industries
+        $rootScope.industries.push(i[1])
+    )
 
-  Session.searchMentors($scope.search_text).then((data)->
-    $scope.searchModel.search_text = $routeParams.q
-    if data.info
-      $scope.searchError = data
-      data = []
-    $scope.search_mentors = data
-  )
+    User.getSchools().then((schools) ->
+      for i in schools
+        $rootScope.schools.push(i[1])
+    )
 ])

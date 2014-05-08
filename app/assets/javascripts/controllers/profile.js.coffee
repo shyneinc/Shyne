@@ -35,26 +35,33 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.urlPrefix = null
   $scope.userUrlPrefix = null
 
+  $scope.prepareIndustriesAndSchools = () ->
+    Workhistory.getIndustries().then((industries) ->
+      for i in industries
+        $rootScope.industries.push(i[1])
+    )
+
+    User.getSchools().then((schools) ->
+      for i in schools
+        $rootScope.schools.push(i[1])
+    )
+
+  if $rootScope.industries != undefined && $rootScope.industries != null && $rootScope.schools != undefined && $rootScope.schools != null
+    $rootScope.industries = $rootScope.industries
+    $rootScope.schools = $rootScope.schools
+  else
+    $rootScope.industries = []
+    $rootScope.schools = []
+    $scope.prepareIndustriesAndSchools()
+
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
 
-  $scope.industries = []
-  Workhistory.getIndustries().then((industries) ->
-    for i in industries
-      $scope.industries.push(i[1])
-  )
-
-  $scope.schools = []
-  User.getSchools().then((schools) ->
-    for i in schools
-      $scope.schools.push(i[1])
-  )
-
   $scope.loadIndustries = (query) ->
-    return User.searchData($scope.industries, query)
+    return User.searchData($rootScope.industries, query)
 
   $scope.loadSchools = (query) ->
-    return User.searchData($scope.schools, query)
+    return User.searchData($rootScope.schools, query)
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
