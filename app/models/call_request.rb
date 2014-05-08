@@ -122,6 +122,10 @@ class CallRequest < ActiveRecord::Base
     self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%I:%M%p on %A, #{self.scheduled_at.day.ordinalize}")
   end
 
+  def scheduled_date_time
+    self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%I:%M%p at %A, #{self.scheduled_at.day.ordinalize}")
+  end
+
   private
   def generate_passcode
     begin
