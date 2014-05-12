@@ -240,6 +240,17 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.loading = false
     $location.path '/thankyou/'
 
+  $scope.updateMember = () ->
+    $scope.loading = true
+    User.updateMember($scope.user).then(() ->
+      $scope.loading = false
+      $scope.flash_message = 'User Information Updated.'
+      window.setTimeout(() ->
+        $scope.flash_message = null
+        $scope.$digest()
+      , 5000)
+    )
+
   $scope.password_reset = () ->
     $scope.loading = true
     User.password_reset($scope.forgotModel).then((data) ->
