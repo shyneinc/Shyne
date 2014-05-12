@@ -4,8 +4,10 @@
 #= require jquery.ui.datepicker
 #= require jquery.timepicker
 #= require underscore
+#= require moment.min
 #= require angular
 #= require angular-route
+#= require angular-moment
 #= require ng-tags-input
 #= require ui-utils
 #= require angular-resource

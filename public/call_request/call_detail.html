@@ -48,9 +48,9 @@
                             <div class="pb10 O11BU tcblue">{{ call_request.mentor.current_position }} at <span class="tcOrg">{{ call_request.mentor.current_company }}</span></div>
                             <ul class="searchInfo">
                               <li><span class="iconPro i_ribbon"></span>{{ call_request.mentor.years_of_experience}} years work experience</li>
-                              <li><span class="iconPro i_star"></span><star-rating-orange star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5" ng-hide="true">{{call_request.mentor.total_reviews }} reviews</span></li>
                               <li><span class="iconPro i_pin"></span>{{ call_request.mentor.full_address }}</li>
                               <li><span class="iconPro i_case"></span>Previous: {{ call_request.mentor.previous_companies }}</li>
+                              <li ng-hide="true"><span class="iconPro i_star"></span><star-rating-orange star-rating="call_request.mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5" ng-hide="true">{{call_request.mentor.total_reviews }} reviews</span></li>
                             </ul>
                           </div>
                         </div>
@@ -60,7 +60,7 @@
                           <div class="row">
                             <div class="col-md-8">
                               <ul class="dashList listOc16">
-                                <li><span class="tcblue">Requested time:</span> {{ call_request.scheduled_date }}</li>
+                                <li><span class="tcblue">Requested time:</span> {{ call_request.scheduled_at | amDateFormat: 'dddd, MMMM Do, [AT] hh:mma' }}</li>
                                 <li><span class="tcblue">Estimated total:</span> {{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</li>
                               </ul>
                             </div>
@@ -89,7 +89,7 @@
 
                           <ul class="dashList listOc16">
                             <li ng-show="call_request.status == 'approved_mentor' || call_request.status == 'approved_member'">
-                                This call has been scheduled for {{ call_request.scheduled_date_time }}
+                                This call has been scheduled for {{ call_request.scheduled_at | amDateFormat: 'hh:mma [AT] dddd, Do' }}
                             </li>
                           </ul>
                           <div class="bottomBtn">

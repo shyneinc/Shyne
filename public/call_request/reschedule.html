@@ -29,7 +29,7 @@
               <div class="formBox mt20">
                   <div class="formContent">
                     <label class="O11BU mb10">The call has currently been requested for:</label>
-                    <span class="atText fleft">{{ call_request.scheduled_date }}</span>
+                    <span class="atText fleft">{{ call_request.scheduled_at | amDateFormat: 'dddd, MMMM Do, [AT] hh:mma' }}</span>
                     <div class="row">
                       <div class="col-sm-12">
                         <label>Suggest a new time (in your timezone) for the call. The other party has the option of accept your new time or can reply back with another time that might be a better fit.</label>
