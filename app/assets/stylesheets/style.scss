@@ -2968,3 +2968,37 @@ footer {
     text-align: center;
   }
 }
+
+.rplybtnOrgLg {
+  padding: 5px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #fff;
+  line-height: 19px;
+  min-height: 32px;
+  white-space: normal;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #a95e34 #7d4120 #4e220a #7d4120;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.rplybtnOrgLg {
+  &.full {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  &:hover, &:focus {
+    background: #c05d27;
+    color: #fff;
+  }
+}

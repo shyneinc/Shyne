@@ -24,7 +24,7 @@
               <div class="callDetail mt20 pt10">
                 <div class="proBox">
                   <div class="memberReview">
-                    <div class="revRow" ng-repeat="conversation in conversations" ng-click="showConversation(conversation.id)">
+                    <div class="revRow" ng-repeat="conversation in conversations">
                       <div class="O12BU fl">From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a></div>
                       <div class="O12BU fr">{{ conversation.messages[0].created_at | date:'MMM dd' }}</b></div>
                       <div class="clAll mb5"></div>
@@ -34,6 +34,9 @@
                         <span class="caret"></span>
                       </div>
                       <p>{{ conversation.messages[0].body }}</p>
+                      <div class="replyBtn">
+                        <a class="grd-org rplybtnOrgLg fr" href="#/conversation/{{conversation.id}}">Reply</a>
+                      </div>
                     </div>
                     <div class="text-center" ng-show="conversations.length == 0">
                       <strong>You have no new messages.</strong>
