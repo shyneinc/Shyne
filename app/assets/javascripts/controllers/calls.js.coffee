@@ -54,10 +54,9 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
 
   $scope.updateCallRequest = () ->
     $("#loaderimgText").show()
-    if $scope.user.role_type == 'Mentor'
-      status = 'changed_mentor'
-    else
-      status = 'changed_member'
+
+    #status changes when mentor or member update call request
+    status = $scope.user.role_type == 'Mentor' && 'changed_mentor' || 'changed_member'
 
     Calls.updateCallRequest($scope.callRescheduleModel, status, $scope.call_request.id).then(
       (data)->
