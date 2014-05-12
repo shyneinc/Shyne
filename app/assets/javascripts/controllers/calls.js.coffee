@@ -38,8 +38,8 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
       (data)->
         $("#loaderimgText").hide()
 
-        if status == 'approved'
-          $rootScope.flash_message = "Your call has been scheduled! Please look below for dialing instructions."
+        if status == 'approved_mentor' or status == 'approved_member'
+          $rootScope.flash_message = "You're all set! This call has officially been confirmed & scheduled."
 
         if status == 'cancelled_mentor' or status == 'cancelled_member'
           $scope.flash_message = "This call has officially been cancelled. We will let the other party know. Thanks"
