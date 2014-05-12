@@ -12,7 +12,6 @@
 #= require ui-utils
 #= require angular-resource
 #= require angular-blocks
-#= require xeditable
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services
