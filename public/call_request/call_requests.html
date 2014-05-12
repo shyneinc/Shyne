@@ -38,7 +38,7 @@
                     <td align="left">
                       <div ng-if="call_request.status == 'proposed'">Pending</div>
                       <div ng-if="call_request.status == 'approved_mentor' || call_request.status == 'approved_mentor'">Accepted</div>
-                      <div ng-if="call_request.status == 'changed'">Changed</div>
+                      <div ng-if="call_request.status == 'changed_mentor' || call_request.status == 'changed_member'">Changed</div>
                       <div ng-if="call_request.status == 'processed'">Processed</div>
                       <div ng-if="call_request.status == 'declined'">Declined</div>
                       <div ng-if="call_request.status == 'completed'">Complete</div>

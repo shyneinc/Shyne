@@ -12,18 +12,6 @@ describe CallRequestMailer do
     it "renders the receiver email" do
       approved_call_request.to.should eql [call_request.member.email]
     end
-    it "renders the sender email" do
-      approved_call_request.from.should eql ['no-reply@shyne.io']
-    end
-    it "contains the mentor" do
-      approved_call_request.body.encoded.should match(call_request.mentor.full_name)
-    end
-    it "contains the passcode" do
-      approved_call_request.body.encoded.should match(call_request.passcode.to_s)
-    end
-    it "contains the scheduled date and time" do
-      pending
-    end
   end
 
   describe '#request_approved_member' do
