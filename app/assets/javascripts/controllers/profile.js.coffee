@@ -240,17 +240,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.loading = false
     $location.path '/thankyou/'
 
-  $scope.updateMember = () ->
-    $scope.loading = true
-    User.updateMember($scope.user).then(() ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
   $scope.password_reset = () ->
     $scope.loading = true
     User.password_reset($scope.forgotModel).then((data) ->
@@ -320,7 +309,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.user.industries = $scope.memberDetailModel.industries
     User.updateUser($scope.user).then((data) ->
       $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.updateMember($scope.user).then((data) ->
+      User.updateMember($scope.user).then((data) ->
         $('#memberModal').modal('hide')
         $(window).scrollTop(0)
         $scope.loading = false
