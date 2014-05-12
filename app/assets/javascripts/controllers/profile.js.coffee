@@ -240,53 +240,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.loading = false
     $location.path '/thankyou/'
 
-  $scope.updateMember = () ->
-    $scope.loading = true
-    User.updateMember($scope.user).then(() ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateMentor = () ->
-    $scope.loading = true
-    User.updateMentor($scope.user).then(() ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateMentorInfo = () ->
-    $scope.loading = true
-    User.updateMentorInfo($scope.user).then((data) ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateMentorIndustries = () ->
-    $scope.loading = true
-    $scope.user.industries = $scope.editIndustryModel.industries
-
-    User.updateMentor($scope.user).then(() ->
-      $scope.loading = false
-      $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
   $scope.password_reset = () ->
     $scope.loading = true
     User.password_reset($scope.forgotModel).then((data) ->
@@ -349,19 +302,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     , (data) ->
       $scope.loading = false
       $scope.uploadphotoFormError = data.errors
-    )
-
-  $scope.updateUser = () ->
-    $scope.loading = true
-    User.updateUser($scope.user).then((data) ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      $timeout (->
-          $scope.flash_message = null
-          $scope.$digest()
-        ), 5000
-    , (data) ->
-      $scope.resetpasswordFormError = data.errors
     )
 
   $scope.updateMemberDetailModal = () ->
@@ -656,22 +596,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.removeFlashMessage = () ->
     $rootScope.flash_message = null
-
-  $scope.updateMentorSchools = () ->
-    $scope.loading = true
-    $scope.user.schools = $scope.editSchoolModel.schools
-    $scope.user.industries = $scope.editIndustryModel.industries
-
-    User.updateMentor($scope.user).then(() ->
-      $scope.user.schools = $scope.user.schools.join(", ")
-      $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
 
   $scope.uploadPicture = (element) ->
     $scope.loading = true
