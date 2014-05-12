@@ -1,4 +1,4 @@
-Shyne.controller('SearchCtrl', ['$location','$rootScope', '$scope','$timeout','$routeParams','Session', ($location, $rootScope, $scope, $timeout, $routeParams, Session) ->
+Shyne.controller('SearchCtrl', ['$location','$rootScope', '$scope','$timeout','$routeParams','Session', 'Search', ($location, $rootScope, $scope, $timeout, $routeParams, Session, Search) ->
 
   $rootScope.location = $location
   $scope.user = null
@@ -15,7 +15,7 @@ Shyne.controller('SearchCtrl', ['$location','$rootScope', '$scope','$timeout','$
 
   $scope.searchMentors = () ->
     search_text = $scope.searchModel.search_text
-    Session.searchMentors(search_text).then(
+    Search.searchMentors(search_text).then(
       (data)->
         if data.info
           $scope.searchError = data
@@ -28,7 +28,7 @@ Shyne.controller('SearchCtrl', ['$location','$rootScope', '$scope','$timeout','$
   $scope.viewProfile = (user_id) ->
     $location.path('/profile/' + user_id)
 
-  Session.searchMentors($scope.search_text).then((data)->
+  Search.searchMentors($scope.search_text).then((data)->
     $scope.searchModel.search_text = $routeParams.q
     if data.info
       $scope.searchError = data
