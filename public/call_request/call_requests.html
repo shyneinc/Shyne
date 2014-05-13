@@ -37,7 +37,7 @@
                     <td align="left">{{ call_request.created_at | date:'MMM dd, yyyy' }}</td>
                     <td align="left">
                       <div ng-if="call_request.status == 'proposed'">Pending</div>
-                      <div ng-if="call_request.status == 'approved_mentor' || call_request.status == 'approved_mentor'">Accepted</div>
+                      <div ng-if="call_request.status == 'approved_mentor' || call_request.status == 'approved_member'">Accepted</div>
                       <div ng-if="call_request.status == 'changed_mentor' || call_request.status == 'changed_member'">Changed</div>
                       <div ng-if="call_request.status == 'processed'">Processed</div>
                       <div ng-if="call_request.status == 'declined'">Declined</div>
@@ -46,9 +46,6 @@
                     </td>
                     <td align="center"><span ng-hide="call_request.status == 'declined' || call_request.status == 'cancelled'">{{ call_request.billable_duration | duration:'second':'second'}}</span></td>
                     <td align="center" class="redText"><span ng-hide="call_request.status == 'declined' || call_request.status == 'cancelled'">{{ (call_request.credit_amount/100) | currency:'$'}}</span></td>
-                  </tr>
-                  <tr ng-show="call_requests.length == 0">
-                    <td colspan="5" class="text-center"><strong>You have not taken any calls yet.</strong></td>
                   </tr>
                 </table>
                 <div class="text-center" ng-show="call_requests.length == 0">
