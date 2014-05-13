@@ -25,7 +25,16 @@
                 <div class="proBox">
                   <div class="memberReview">
                     <div class="revRow" ng-repeat="conversation in conversations">
-                      <div class="O12BU fl">From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a></div>
+                      <div class="O12BU fl">
+                        <div ng-switch="conversation.messages[0].sender.role_type">
+                          <div ng-switch-when="Member">
+                            From: <span class="tcOrg">{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</span>
+                          </div>
+                          <div ng-switch-when="Mentor">
+                            From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a>
+                          </div>
+                        </div>
+                      </div>
                       <div class="O12BU fr">{{ conversation.messages[0].created_at | date:'MMM dd' }}</b></div>
                       <div class="clAll mb5"></div>
 
