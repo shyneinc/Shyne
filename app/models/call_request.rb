@@ -122,6 +122,11 @@ class CallRequest < ActiveRecord::Base
     self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%I:%M%p on %A, #{self.scheduled_at.day.ordinalize}")
   end
 
+  def conversation_id
+    conversation = Conversation.where("subject LIKE '%?%'", self.id)
+    conversation.first.id if conversation.present?
+  end
+
   private
   def generate_passcode
     begin
