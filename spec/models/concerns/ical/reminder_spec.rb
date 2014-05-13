@@ -14,7 +14,7 @@ describe "ReminderSpec" do
       expect(call).to include("BEGIN:VALARM", "END:VALARM")
     end
     it "has location" do
-      expect(call).to include("#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}")
+      expect(call).to include("#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted(:normalize => :US, :format => :international, :spaces => '-')}")
     end
     it "has passcode" do
       expect(call).to include("Passcode:12345")

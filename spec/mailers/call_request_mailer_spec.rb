@@ -7,17 +7,34 @@ describe CallRequestMailer do
     let(:approved_call_request) { CallRequestMailer.request_approved_mentor(call_request) }
 
     it "renders approved subject" do
-      #approved_call_request.subject.should == "Call with #{call_request.member.user.first_name} scheduled for #{call_request.scheduled_date}"
-      pending
+      approved_call_request.subject.should == "Call with #{call_request.member.user.first_name} scheduled for #{call_request.scheduled_date}"
     end
     it "renders the receiver email" do
-      #approved_call_request.to.should eql [call_request.member.email]
-      pending
+      approved_call_request.to.should eql [call_request.member.email]
     end
+    it "renders the sender email" do
+     approved_call_request.from.should eql ['no-reply@shyne.io']
+   end
+   #it "contains the mentor" do
+   #  approved_call_request.body.encoded.should match(call_request.mentor.full_name)
+   #end
+   it "contains the passcode" do
+     approved_call_request.body.encoded.should match(call_request.passcode.to_s)
+   end
+   it "contains the scheduled date and time" do
+     pending
+   end    
   end
 
   describe '#request_approved_member' do
-    pending
+    let(:approved_call_request) { CallRequestMailer.request_approved_member(call_request) }
+    
+    it "renders approved subject" do
+      approved_call_request.subject.should == "Call with #{call_request.mentor.user.first_name} scheduled for #{call_request.scheduled_date}"
+    end
+    it "renders the receiver email" do
+      approved_call_request.to.should eql [call_request.mentor.email]
+    end
   end
 
   describe '#request_proposed' do

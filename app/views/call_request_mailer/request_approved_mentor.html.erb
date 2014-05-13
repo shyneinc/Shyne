@@ -44,7 +44,7 @@
                 <ul style="list-style-type:none;padding:0px 0px 25px 25px; margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px;">
                   <li>The call has been set for <%= @call_request.scheduled_date_short %></li>
                   <li style="padding:0px 0px 20px 0px;">1. Here’s how to enter the call:</li>
-                  <li>A) Dial <%= @call_request.twilio_number.phony_formatted!(:normalize => :US, :format => :international, :spaces => '-') %> at the scheduled time</li>
+                  <li>A) Dial <%= Phony.normalize(@call_request.twilio_number).phony_formatted(:normalize => :US, :format => :international, :spaces => '-') %> at the scheduled time</li>
                   <li>B) And then enter this Passcode: <%= @call_request.passcode %></li>
                 </ul>
                 <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">That’s it! Your Mentor will join the conference call ready to speak.</p>
