@@ -31,7 +31,7 @@
         <td>
           <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#fff; padding:32px 49px 15px 49px; border:1px solid #b1c7cc; -webkit-border-radius: 0px 0px 4px 4px; -moz-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px;">
             <tr>
-              <td width="100%" align="left" valign="top" colspan="2" style="font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:600; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">Hey <%= @mentor.user.first_name %>,</td>
+              <td width="100%" align="left" valign="top" colspan="2" style="font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:600; color:#474b4c; line-height:21px; padding:0px 0px 10px 0px;">Hey <%= @mentor.user.first_name %>,</td>
             </tr>
             <tr>
               <td width="100%" align="left" valign="top" colspan="2">
@@ -42,7 +42,7 @@
               <td width="100%" align="left" valign="top" colspan="2">
                 <p style=" padding:0px; margin:0px; text-transform:uppercase; font-family: 'Open Sans', sans-serif; font-size:11px; font-weight:700; color:#474b4c; line-height:21px;">Your call with <%= @member.user.first_name %> has been set for <%= @call_request.scheduled_date_short %></p>
                 <ul style="list-style-type:none;padding:0px 0px 25px 25px; margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px;">
-                  <li style="padding:0px 0px 20px 0px;">1. Here’s how to enter the call:</li>
+                  <li style="padding:10px 0px 10px 0px;font-weight:700;">1. Here’s how to enter the call:</li>
                   <li>A) Dial <%= Phony.normalize(@call_request.twilio_number).phony_formatted(:normalize => :US, :format => :international, :spaces => '-') %> at the scheduled time</li>
                   <li>B) And then enter this Passcode: <%= @call_request.passcode %></li>
                 </ul>
