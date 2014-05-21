@@ -1,4 +1,4 @@
-Shyne.controller('LogoutCtrl', ($location, $scope, Session) ->
+Shyne.controller('LogoutCtrl', ($location, $scope, $rootScope, Session) ->
 
   Session.logout().then(
     (user)->

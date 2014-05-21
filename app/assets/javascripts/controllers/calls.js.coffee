@@ -38,11 +38,11 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
       (data)->
         $("#loaderimgText").hide()
 
-        if status == 'approved'
-          $rootScope.flash_message = "Your call has been scheduled! Please look below for dialing instructions."
+        if status == 'approved_mentor' or status == 'approved_member'
+          $rootScope.flash_message = "This call has officially been scheduled! Please check your email for instructions on entering the call."
 
         if status == 'cancelled_mentor' or status == 'cancelled_member'
-          $scope.flash_message = "This call has officially been cancelled. We will let the other party know. Thanks"
+          $rootScope.flash_message = "This call has officially been cancelled. We will let the other party know. Thanks"
 
         Calls.getCallRequest($routeParams.id).then((callRequest) ->
           $scope.call_request = callRequest
@@ -54,10 +54,9 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
 
   $scope.updateCallRequest = () ->
     $("#loaderimgText").show()
-    if $scope.user.role_type == 'Mentor'
-      status = 'changed_mentor'
-    else
-      status = 'changed_member'
+
+    #status changes when mentor or member update call request
+    status = $scope.user.role_type == 'Mentor' && 'changed_mentor' || 'changed_member'
 
     Calls.updateCallRequest($scope.callRescheduleModel, status, $scope.call_request.id).then(
       (data)->

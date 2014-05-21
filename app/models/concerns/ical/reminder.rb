@@ -11,14 +11,14 @@ module Ical::Reminder
       cal.event do
         dtstart     date
         dtend       date
-        summary     "Call Scheduled with #{options[:mentor]}"
-        location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
-        description "Shyne: you have a scheduled call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}"
+        summary     "Call Scheduled with #{options[:guest]}"
+        location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
+        description "Shyne: you have a scheduled call with #{options[:guest]} at #{shortdate}. Passcode: #{options[:passcode]}"
         klass       "PRIVATE"
 
         alarm do
           action        "EMAIL"
-          description   "You have a schedule call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
+          description   "You have a schedule call with #{options[:guest]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
           summary       "Shyne: Call Reminder"
           attendees     "#{email}"
           trigger       "-PT15M" # 15 minutes before
@@ -26,7 +26,7 @@ module Ical::Reminder
 
         alarm do
           action        "EMAIL"
-          description   "You have a schedule call with #{options[:mentor]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
+          description   "You have a schedule call with #{options[:guest]} at #{shortdate}. Passcode: #{options[:passcode]}" # email body (required)
           summary       "Shyne: Call Reminder"
           attendees     "#{email}"
           trigger       "-PT5M" # 15 minutes before

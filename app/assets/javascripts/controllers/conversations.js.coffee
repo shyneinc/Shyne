@@ -35,8 +35,7 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
     )
 
   $scope.createConversation = () ->
-    $scope.refresh(true)
-    Conversation.createConversation($scope.conversationModel, $scope.user.id
+    Conversation.createConversation($scope.conversationModel, $scope.user.user.id
     ).then((data) ->
       angular.extend($scope.conversation, data)
     , (data) ->

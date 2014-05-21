@@ -54,6 +54,8 @@
                                 <p class="text-center"><button ng-click="showMentorForm()" class="btn grd-org btnOrgLg w340">I'd like to Apply to become a Mentor</button></p>
                                 <p class="R16R">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</p>
                                 <div class="cl">&nbsp;</div>
+                                <p class="R16R">Note: Shyne is currently only available in the USA.</p>
+                                <div class="cl">&nbsp;</div>
                             </div>
                           </div>
                         </div>
@@ -101,7 +103,7 @@
                                       </div>
                                       <div class="col-sm-6">
                                         <label class="O11BU">Cell number <span>– <i>Hidden, never shared</i></span></label>
-                                        <input name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" id="becomeMemberPhoneNumber" required="">
+                                        <input type="text" name="phoneNumber" ng-model="memberModel.phoneNumber" ui-mask="1-999-999-9999" id="becomeMemberPhoneNumber" required="">
                                         <div class="error">{{memberFormError.phone_number[0]}}</div>
                                       </div>
                                       <div class="col-sm-12">
@@ -735,35 +737,33 @@
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <form editable-form name="memberDetailForm" onaftersave="updateMemberDetail()">
-                  <div class="OC16BUB fl">Member Profile</div>
-                  <a class="O13SB tcOrg fr" href="javascript:void(0)" open-dialog modal-name="#memberModal">Edit your profile</a>
-                  <div class="cl">&nbsp;</div>
-                  <div class="callDetail">
-                    <div class="formBox mt20">
-                      <div class="profileImage">
-                        <img src="/assets/no_image.png" ng-src="{{user.user.avatar.url}}" />
-                        <span class="caretL"></span>
-                        <span class="caretR"></span>
-                        <div class="addFile uploadLg" ng-show="isPhotoNotUploaded">
-                        <span class="btnEdit grd-org">Upload Picture</span>
-                        <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
-                      </div>
-                      </div>
-                      <div class="userInfo">
-                        <div class="memberTitle pb10 mb5">{{user.first_name}} {{user.last_name}}</div>
-                        <ul>
-                          <li><span class="iconPro i_clock"></span>{{user.time_zone}}</li>
-                          <li><span class="iconPro i_pin"></span>{{user.city}}, {{user.state}}</li>
-                        </ul>
-                        <ul class="lastRow">
-                          <li><span class="iconPro i_case"></span>{{user.industries}}</li>
-                        </ul>
-                      </div>
-                      <div class="clAll"></div>
+                <div class="OC16BUB fl">Member Profile</div>
+                <a class="O13SB tcOrg fr" href="javascript:void(0)" open-dialog modal-name="#memberModal">Edit your profile</a>
+                <div class="cl">&nbsp;</div>
+                <div class="callDetail">
+                  <div class="formBox mt20">
+                    <div class="profileImage">
+                      <img src="/assets/no_image.png" ng-src="{{user.user.avatar.url}}" />
+                      <span class="caretL"></span>
+                      <span class="caretR"></span>
+                      <div class="addFile uploadLg" ng-show="isPhotoNotUploaded">
+                      <span class="btnEdit grd-org">Upload Picture</span>
+                      <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
                     </div>
+                    </div>
+                    <div class="userInfo">
+                      <div class="memberTitle pb10 mb5">{{user.first_name}} {{user.last_name}}</div>
+                      <ul>
+                        <li><span class="iconPro i_clock"></span>{{user.time_zone}}</li>
+                        <li><span class="iconPro i_pin"></span>{{user.city}}, {{user.state}}</li>
+                      </ul>
+                      <ul class="lastRow">
+                        <li><span class="iconPro i_case"></span>{{user.industries}}</li>
+                      </ul>
+                    </div>
+                    <div class="clAll"></div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>

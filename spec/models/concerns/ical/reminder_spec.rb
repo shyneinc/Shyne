@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rspec_api_documentation/dsl'
 
 describe "ReminderSpec" do
-  let(:call) { Ical::Reminder.post({passcode: "12345", mentor: "John Doe", date: DateTime.now + 2.days}, "test@email.com") }
+  let(:call) { Ical::Reminder.post({passcode: "12345", guest: "John Doe", date: DateTime.now + 2.days}, "test@email.com") }
   describe "#post" do
     it "returns an object" do
       expect(call).to_not eql nil
@@ -14,7 +14,7 @@ describe "ReminderSpec" do
       expect(call).to include("BEGIN:VALARM", "END:VALARM")
     end
     it "has location" do
-      expect(call).to include("#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted!(:normalize => :US, :format => :international, :spaces => '-')}")
+      expect(call).to include("#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted(:normalize => :US, :format => :international, :spaces => '-')}")
     end
     it "has passcode" do
       expect(call).to include("Passcode:12345")
@@ -24,7 +24,7 @@ describe "ReminderSpec" do
     end
     #i still need to test this because this is manually implemented and not coming from ruby
     it "raise error if wrong arguments" do
-      lambda { Ical::Reminder.post({passcode: "12345", mentor: "John Doe", date: DateTime.now}) }.should raise_error
+      lambda { Ical::Reminder.post({passcode: "12345", guest: "John Doe", date: DateTime.now}) }.should raise_error
     end
   end
 end

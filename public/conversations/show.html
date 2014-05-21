@@ -29,7 +29,16 @@
                   <div class="memberReview">
                     <div class="revRow" ng-repeat="message in conversations.messages | orderBy:'id':false">
                       <div ng-hide="true"> {{ message.id}} </div>
-                      <div class="O12BU fl">From: <a class="tcOrg" href="#/profile/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a></div>
+                      <div class="O12BU fl">
+                        <div ng-switch="message.sender.role_type">
+                          <div ng-switch-when="Member">
+                            From: <span class="tcOrg">{{message.sender.first_name}} {{message.sender.last_name}}</span>
+                          </div>
+                          <div ng-switch-when="Mentor">
+                            From: <a class="tcOrg" href="#/profile/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a>
+                          </div>
+                        </div>
+                      </div>
                       <div class="O12BU fr">{{ message.created_at | date:'MMM dd' }}</div>
                       <div class="clAll mb5"></div>
                       <div class="mrImage"><img src="/assets/no_image.png" ng-src="{{message.sender.avatar.medium.url}}"><span class="caret"></span></div>

@@ -4,13 +4,14 @@
 #= require jquery.ui.datepicker
 #= require jquery.timepicker
 #= require underscore
+#= require moment.min
 #= require angular
 #= require angular-route
+#= require angular-moment
 #= require ng-tags-input
 #= require ui-utils
 #= require angular-resource
 #= require angular-blocks
-#= require xeditable
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services
@@ -76,10 +77,10 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
     controller: 'HomeBaseCtrl'
   ).when("/search",
     templateUrl: "/home/search_mentors.html"
-    controller: 'HomeBaseCtrl'
+    controller: 'SearchCtrl'
   ).when("/search/:q",
     templateUrl: "/home/search_mentors.html"
-    controller: 'HomeBaseCtrl'
+    controller: 'SearchCtrl'
   ).when("/confirmation",
     templateUrl: "/users/confirmation.html"
     controller: 'ProfileCtrl'

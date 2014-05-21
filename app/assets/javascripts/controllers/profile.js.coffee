@@ -35,26 +35,33 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.urlPrefix = null
   $scope.userUrlPrefix = null
 
+  $scope.prepareIndustriesAndSchools = () ->
+    Workhistory.getIndustries().then((industries) ->
+      for i in industries
+        $rootScope.industries.push(i[1])
+    )
+
+    User.getSchools().then((schools) ->
+      for i in schools
+        $rootScope.schools.push(i[1])
+    )
+
+  if $rootScope.industries != undefined && $rootScope.industries != null && $rootScope.schools != undefined && $rootScope.schools != null
+    $rootScope.industries = $rootScope.industries
+    $rootScope.schools = $rootScope.schools
+  else
+    $rootScope.industries = []
+    $rootScope.schools = []
+    $scope.prepareIndustriesAndSchools()
+
   for i in timeZoneArray
     $scope.timeZoneList.push({ value : i, text: i})
 
-  $scope.industries = []
-  Workhistory.getIndustries().then((industries) ->
-    for i in industries
-      $scope.industries.push(i[1])
-  )
-
-  $scope.schools = []
-  User.getSchools().then((schools) ->
-    for i in schools
-      $scope.schools.push(i[1])
-  )
-
   $scope.loadIndustries = (query) ->
-    return User.searchData($scope.industries, query)
+    return User.searchData($rootScope.industries, query)
 
   $scope.loadSchools = (query) ->
-    return User.searchData($scope.schools, query)
+    return User.searchData($rootScope.schools, query)
 
   #month started ended
   month_arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -233,53 +240,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.loading = false
     $location.path '/thankyou/'
 
-  $scope.updateMember = () ->
-    $scope.loading = true
-    User.updateMember($scope.user).then(() ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateMentor = () ->
-    $scope.loading = true
-    User.updateMentor($scope.user).then(() ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateMentorInfo = () ->
-    $scope.loading = true
-    User.updateMentorInfo($scope.user).then((data) ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
-  $scope.updateMentorIndustries = () ->
-    $scope.loading = true
-    $scope.user.industries = $scope.editIndustryModel.industries
-
-    User.updateMentor($scope.user).then(() ->
-      $scope.loading = false
-      $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
-
   $scope.password_reset = () ->
     $scope.loading = true
     User.password_reset($scope.forgotModel).then((data) ->
@@ -344,25 +304,12 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.uploadphotoFormError = data.errors
     )
 
-  $scope.updateUser = () ->
-    $scope.loading = true
-    User.updateUser($scope.user).then((data) ->
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      $timeout (->
-          $scope.flash_message = null
-          $scope.$digest()
-        ), 5000
-    , (data) ->
-      $scope.resetpasswordFormError = data.errors
-    )
-
   $scope.updateMemberDetailModal = () ->
     $scope.loading = true
     $scope.user.industries = $scope.memberDetailModel.industries
     User.updateUser($scope.user).then((data) ->
       $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.updateMember($scope.user).then((data) ->
+      User.updateMember($scope.user).then((data) ->
         $('#memberModal').modal('hide')
         $(window).scrollTop(0)
         $scope.loading = false
@@ -649,22 +596,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.removeFlashMessage = () ->
     $rootScope.flash_message = null
-
-  $scope.updateMentorSchools = () ->
-    $scope.loading = true
-    $scope.user.schools = $scope.editSchoolModel.schools
-    $scope.user.industries = $scope.editIndustryModel.industries
-
-    User.updateMentor($scope.user).then(() ->
-      $scope.user.schools = $scope.user.schools.join(", ")
-      $scope.user.industries = $scope.user.industries.join(", ")
-      $scope.loading = false
-      $scope.flash_message = 'User Information Updated.'
-      window.setTimeout(() ->
-        $scope.flash_message = null
-        $scope.$digest()
-      , 5000)
-    )
 
   $scope.uploadPicture = (element) ->
     $scope.loading = true

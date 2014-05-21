@@ -24,6 +24,6 @@ en:
   mailboxer:
     message_mailer:
       subject_new: "You have a new message"
-      subject_reply: "You got reply on message"
+      subject_reply: "You received a new message"
     notification_mailer:
       subject: "Mailboxer new notification: %{subject}"
