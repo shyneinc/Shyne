@@ -198,8 +198,10 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     ).then((data) ->
       Session.getCurrentUser(true).then((user)->
         $scope.user = user
+        User.getMentorInfo(user.role_id).then((mentorInfo) ->
+          angular.extend(user, mentorInfo)
+        )
       )
-      angular.extend($scope.user, data)
       $scope.historyModel.role = 'Mentor'
       $scope.user.time_zone = $scope.mentorModel.timeZone
       User.updateUser($scope.user)
