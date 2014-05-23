@@ -4,6 +4,7 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
   $scope.user = null
   $scope.mentor = null
   $scope.call_requests = null
+  $scope.call_request_id = $routeParams.id
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
