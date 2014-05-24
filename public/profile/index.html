@@ -43,8 +43,9 @@
                 <div class="container">
                     <div class="row">
                       <section class="welcomeMember" ng-hide="welcomeModel.role">
-                        <div class="container">
-                          <h2 class="text-center">Welcome! How would you like to use Shyne?</h2>
+                        <div class="container posRel">
+                          <div class="bannerBox">Currently only available in <span>USA</span></div>
+                          <h2 class="text-center">How would you like to use Shyne?</h2>
                           <div class="cl">&nbsp;</div>
                           <div class="row">
                             <div class="col-md-12">
@@ -53,8 +54,6 @@
                                 <div class="cl">&nbsp;</div>
                                 <p class="text-center"><button ng-click="showMentorForm()" class="btn grd-org btnOrgLg w340">I'd like to Apply to become a Mentor</button></p>
                                 <p class="R16R">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</p>
-                                <div class="cl">&nbsp;</div>
-                                <p class="R16R">Note: Shyne is currently only available in the USA.</p>
                                 <div class="cl">&nbsp;</div>
                             </div>
                           </div>
@@ -357,7 +356,7 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-8  col-md-offset-2">
-                <h2>Last step! Add a photo</h2>
+                <h2>Last step: Add a photo</h2>
                 <div class="clAll"></div>
                 <div class="callDetail mt20">
                   <form novalidate role="form" name="uploadphotoForm" ng-submit="submitApplication()">
@@ -376,6 +375,8 @@
                         <div class="proEdit">
                           <a href="javascript:void(0)" ng-click="changePhoto()"><span class="iconPro i_edit_r"></span>Change photo</a>
                         </div>
+                        <div class="cl">&nbsp;</div>
+                        <div class="mt20 pt5 R20R tcblue"><i>The more professional the better.</i></div>
                       </div>
                     </div>
                     <div class="bottomBtn">

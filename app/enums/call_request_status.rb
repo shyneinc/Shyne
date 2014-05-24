@@ -7,35 +7,35 @@ end
 class CallRequestStatus::Proposed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_proposed(owner)
-    Twilio::Sms.delay.send("Your have a new call request!", owner.mentor.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("Your have a new call request!", owner.mentor.phone_number.to_s)
   end
 end
 
 class CallRequestStatus::ApprovedMember < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_approved_member(owner)
-    Twilio::Sms.delay.send("Your call request is approved!", owner.member.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("Your call request is approved!", owner.member.phone_number.to_s)
   end
 end
 
 class CallRequestStatus::ApprovedMentor < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_approved_mentor(owner)
-    Twilio::Sms.delay.send("Your call request is approved!", owner.mentor.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("Your call request is approved!", owner.mentor.phone_number.to_s)
   end
 end
 
 class CallRequestStatus::ChangedMentor < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_changed_mentor(owner)
-    Twilio::Sms.delay.send("Your call request has been changed.", owner.member.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("Your call request has been changed.", owner.member.phone_number.to_s)
   end
 end
 
 class CallRequestStatus::ChangedMember < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_changed_member(owner)
-    Twilio::Sms.delay.send("Your call request has been changed.", owner.mentor.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("Your call request has been changed.", owner.mentor.phone_number.to_s)
   end
 end
 
@@ -66,7 +66,7 @@ end
 class CallRequestStatus::Completed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_completed(owner)
-    Twilio::Sms.delay.send("Your call is completed!", owner.member.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("Your call is completed!", owner.member.phone_number.to_s)
   end
 end
 
