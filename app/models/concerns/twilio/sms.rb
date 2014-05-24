@@ -3,7 +3,7 @@ module Twilio::Sms
 
   @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
 
-  def self.send(message, to_number)
+  def self.send_sms(message, to_number)
     if @client
       @client.account.sms.messages.create({
                                               :to => "#{to_number}",
@@ -15,13 +15,13 @@ module Twilio::Sms
 
   def self.send_approval(to_number)
     if @client
-      self.send("Your call request has been approved!", to_number)
+      self.send_sms("Your call request has been approved!", to_number)
     end
   end
 
   def self.send_request(to_number)
     if @client
-      self.send("You have a call request!", to_number)
+      self.send_sms("You have a call request!", to_number)
     end
   end
 end
