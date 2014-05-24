@@ -4,25 +4,25 @@ require 'rspec_api_documentation/dsl'
 describe "SmsConcern" do
 
   # it will get **Net::OpenTimeout** if no internet
-  describe "#send" do
+  describe "#send_sms" do
     it "returns a resource object" do
-      expect(Twilio::Sms.send("hello there!", "+19099739129").body).to_not eql nil
+      expect(Twilio::Sms.send_sms("hello there!", "+19099739129").body).to_not eql nil
     end
 
     it "sends an sms to an international number" do
-      expect(Twilio::Sms.send("hello there!", "+19099739129").body).to eql("hello there!")
+      expect(Twilio::Sms.send_sms("hello there!", "+19099739129").body).to eql("hello there!")
     end
 
     it "sends an sms to a non-international number" do
-      expect(Twilio::Sms.send("hello there!", "9099739129").body).to eql("hello there!")
+      expect(Twilio::Sms.send_sms("hello there!", "9099739129").body).to eql("hello there!")
     end
 
     it "raises an error if the number is invalid" do
-      lambda { Twilio::Sms.send("hello there!", "99739129") }.should raise_error
+      lambda { Twilio::Sms.send_sms("hello there!", "99739129") }.should raise_error
     end
 
     it "raises an error for invalid number of arguments" do
-      lambda { Twilio::Sms.send("99739129") }.should raise_error
+      lambda { Twilio::Sms.send_sms("99739129") }.should raise_error
     end
   end
 
