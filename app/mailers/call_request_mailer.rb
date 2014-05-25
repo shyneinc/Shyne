@@ -25,6 +25,9 @@ class CallRequestMailer < ActionMailer::Base
     mail.attachments['event.ics'] = { :mime_type => 'text/calendar', :content => cal }
 
     mail(to: @member.email, subject: "Call with #{@member.user.first_name} scheduled for #{call_request.scheduled_date}")
+
+    #Also notify the other party
+    request_approved_member(call_request)
   end
 
   def request_approved_member(call_request)
@@ -38,6 +41,9 @@ class CallRequestMailer < ActionMailer::Base
     mail.attachments['event.ics'] = { :mime_type => 'text/calendar', :content => cal }
 
     mail(to: @mentor.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}")
+
+    #Also notify the other party
+    request_approved_mentor(call_request)
   end
 
   def request_changed_mentor(call_request)
