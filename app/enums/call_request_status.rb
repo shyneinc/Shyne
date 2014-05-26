@@ -13,14 +13,16 @@ end
 
 class CallRequestStatus::ApprovedMember < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_approved_member(owner)
+    CallRequestMailer.delay.send_approval_email_to_member(owner)
+    CallRequestMailer.delay.send_approval_email_to_mentor(owner)
     Twilio::Sms.delay.send_sms("Your call request is approved!", owner.member.phone_number.to_s)
   end
 end
 
 class CallRequestStatus::ApprovedMentor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_approved_mentor(owner)
+    CallRequestMailer.delay.send_approval_email_to_member(owner)
+    CallRequestMailer.delay.send_approval_email_to_mentor(owner)
     Twilio::Sms.delay.send_sms("Your call request is approved!", owner.mentor.phone_number.to_s)
   end
 end
