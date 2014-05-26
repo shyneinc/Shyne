@@ -360,4 +360,13 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       deferred.reject(data.error)
     )
     deferred.promise
+
+  getCreditCardInfo: () ->
+    deferred = $q.defer()
+    $http.get('/api/credit_cards').success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
 ])
