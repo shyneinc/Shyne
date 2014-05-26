@@ -121,13 +121,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
             $scope.isPhotoNotUploaded = true
           else
             $scope.isPhotoNotUploaded = false
-
-          if $rootScope.creditCardInfo != undefined && $rootScope.creditCardInfo != null
-            $rootScope.creditCardInfo = $rootScope.creditCardInfo
-          else
-            User.getCreditCardInfo().then((creditCardInfo) ->
-              $rootScope.creditCardInfo = creditCardInfo
-            )
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
