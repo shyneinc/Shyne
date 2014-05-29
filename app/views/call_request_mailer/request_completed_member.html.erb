@@ -51,7 +51,7 @@
                     </tr>
                     <tr>
                         <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Total Transaction:</td>
-                        <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= @call_request.total_transaction %></td>
+                        <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= number_with_precision(@call_request.total_transaction, precision: 2) %></td>
                     </tr>
                 </table>
             </td>
