@@ -79,7 +79,6 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         password: user.password,
         password_confirmation: user.password_confirmation,
         time_zone: user.time_zone
-        customer_uri: user.customer_uri
     ).success((data) ->
       deferred.resolve(data)
     ).error((data) ->

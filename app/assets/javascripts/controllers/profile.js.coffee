@@ -639,8 +639,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.deleteCreditCard = () ->
     $scope.loading = true
     User.deleteCreditCard($rootScope.creditCardInfo[0].id).then((data) ->
-      $scope.user.customer_uri = null
-      User.updateUser($scope.user)
       $scope.loading = false
       $rootScope.creditCardInfo = {}
       $scope.flash_message = 'Credit card removed successfully!'
@@ -656,8 +654,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.deleteBankAccount = () ->
     $scope.loading = true
     User.deleteBankAccount($rootScope.bankAccountInfo[0].id).then((data) ->
-      $scope.user.customer_uri = null
-      User.updateUser($scope.user)
       $scope.loading = false
       $rootScope.bankAccountInfo = {}
       $scope.flash_message = 'Bank account removed successfully!'
