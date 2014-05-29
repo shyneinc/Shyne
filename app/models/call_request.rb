@@ -127,6 +127,14 @@ class CallRequest < ActiveRecord::Base
     conversation.first.id if conversation.present?
   end
 
+  def total_transaction
+    self.debit_amount.to_d / 100
+  end
+
+  def shyne_service_fee
+    (self.debit_amount * 0.03) / 100
+  end
+
   private
   def generate_passcode
     begin

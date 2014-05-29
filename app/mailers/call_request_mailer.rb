@@ -64,12 +64,20 @@ class CallRequestMailer < ActionMailer::Base
     mail(to: @mentor.email, cc: @member.email, subject: "Reminder for your scheduled call" )
   end
 
-  def request_completed(call_request)
+  def request_completed_mentor(call_request)
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @mentor.email, subject: "Summary of your call with #{@member.full_name}")
+    mail(to: @mentor.email, subject: "Income for your call with #{@member.full_name}")
+  end
+
+  def request_completed_member(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+
+    mail(to: @member.email, subject: "Receipt for your call with #{@mentor.full_name}")
   end
 
   def request_processed(call_request)
@@ -110,5 +118,13 @@ class CallRequestMailer < ActionMailer::Base
     @call_request = call_request
 
     mail(to: @mentor.email, subject: "Call Cancelled" )
+  end
+
+  def send_income_email_to_mentor(call_request)
+    @member = call_request.member
+    @mentor = call_request.mentor
+    @call_request = call_request
+
+    mail(to: @mentor.email, cc: @member.email, subject: "It’s time to get paid! Please link bank account" )
   end
 end
