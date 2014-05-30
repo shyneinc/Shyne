@@ -39,7 +39,7 @@
             </tr>
             <tr>
               <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Call Length:</td>
-              <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;"><%= distance_of_time_in_words(@call_request.billable_duration, 0, include_seconds: true) %></td>
+              <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;"><%= distance_of_time_in_words(@call_request.billable_duration, 0, include_seconds: true) if @call_request.billable_duration %></td>
             </tr>
             <tr>
               <td width="100%" align="left" valign="top" colspan="2" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:700; color:#474b4c; line-height:21px; padding:10px 0px 0px 0px;">Transaction Details</td>
