@@ -46,7 +46,7 @@ class CallRequest < ActiveRecord::Base
         debit = self.member.balanced_customer.debit(
             :amount => self.debit_amount,
             :description => self.description,
-            :appears_on_statement_as => "Shyne / #{self.mentor.full_name}",
+            :appears_on_statement_as => "Shyne - #{self.mentor.full_name}",
             :on_behalf_of => self.mentor.balanced_customer,
             :meta => {
                 :call_request_id => self.id
@@ -60,7 +60,7 @@ class CallRequest < ActiveRecord::Base
           credit = self.mentor.balanced_customer.credit(
               :amount => self.credit_amount,
               :description => self.description,
-              :appears_on_statement_as => "Shyne / #{self.member.full_name}",
+              :appears_on_statement_as => "Shyne - #{self.member.full_name}",
               :meta => {
                   :call_request_id => self.id
               }
