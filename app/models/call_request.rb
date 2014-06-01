@@ -91,7 +91,7 @@ class CallRequest < ActiveRecord::Base
   def debit_amount
     rate_in_cents = self.mentor.rate_per_minute * 100
     duration_in_mins = self.billable_duration.to_f/60
-    rate_in_cents * duration_in_mins
+    rate_in_cents * duration_in_mins.round
   end
   
   def shyne_commission
