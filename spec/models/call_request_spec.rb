@@ -88,6 +88,16 @@ describe CallRequest do
       end
     end
 
+    context "#shyne_commission" do
+      before(:each) do
+        call_request.stub(:debit_amount).and_return(100)
+      end
+
+      it "returns the correct amount to be taken out as commission" do
+        expect(call_request.shyne_commission).to eq 30
+      end
+    end
+
     context "#credit_amount" do
       before(:each) do
         call_request.stub(:debit_amount).and_return(100)

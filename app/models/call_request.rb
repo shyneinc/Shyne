@@ -93,10 +93,12 @@ class CallRequest < ActiveRecord::Base
     duration_in_mins = self.billable_duration.to_f/60
     rate_in_cents * duration_in_mins
   end
+  
+  def shyne_commission
+    debit_amount * 0.3
+  end
 
   def credit_amount
-    debit_amount = self.debit_amount
-    shyne_commission = debit_amount * 0.3
     debit_amount - shyne_commission
   end
 
@@ -125,14 +127,6 @@ class CallRequest < ActiveRecord::Base
   def conversation_id
     conversation = Conversation.where("subject LIKE '%?%'", self.id)
     conversation.first.id if conversation.present?
-  end
-
-  def total_transaction
-    self.debit_amount.to_d / 100
-  end
-
-  def shyne_service_fee
-    (self.debit_amount * 0.03) / 100
   end
 
   private
