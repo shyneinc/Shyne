@@ -23,12 +23,12 @@ describe CallRequestMailer do
     end
     it "contains the scheduled date and time" do
      pending
-    end    
+    end
   end
 
   describe '#send_approval_email_to_member' do
     let(:approved_call_request) { CallRequestMailer.send_approval_email_to_member(call_request) }
-    
+
     it "renders approved subject" do
       approved_call_request.subject.should == "Call with #{call_request.mentor.user.first_name} scheduled for #{call_request.scheduled_date}"
     end
@@ -46,7 +46,7 @@ describe CallRequestMailer do
     end
     it "contains the scheduled date and time" do
      pending
-    end    
+    end
   end
 
   describe '#request_proposed' do
@@ -85,13 +85,13 @@ describe CallRequestMailer do
   end
 
   describe '#request_completed' do
-    let(:completed_call_request) { CallRequestMailer.request_completed(call_request) }
+    let(:completed_call_request) { CallRequestMailer.request_completed_mentor(call_request) }
 
     it "renders the receiver email" do
       completed_call_request.to.should eql [call_request.mentor.email]
     end
     it "renders completed subject" do
-      completed_call_request.subject.should == "Summary of your call with #{call_request.member.full_name}"
+      completed_call_request.subject.should == "Income for your call with #{call_request.member.full_name}"
     end
   end
 

@@ -8,6 +8,8 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
   $scope.loading = false
   $rootScope.industries = null
   $rootScope.schools = null
+  $rootScope.creditCardInfo = null
+  $rootScope.bankAccountInfo = null
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user

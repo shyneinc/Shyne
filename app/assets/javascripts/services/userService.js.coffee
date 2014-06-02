@@ -360,4 +360,40 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       deferred.reject(data.error)
     )
     deferred.promise
+
+  getCreditCardInfo: () ->
+    deferred = $q.defer()
+    $http.get('/api/credit_cards').success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
+
+  deleteCreditCard: (credit_card_id) ->
+    deferred = $q.defer()
+    $http.delete('/api/credit_cards/' + credit_card_id).success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data.error)
+    )
+    deferred.promise
+
+  getBankAccountInfo: () ->
+    deferred = $q.defer()
+    $http.get('/api/bank_accounts').success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data)
+    )
+    deferred.promise
+
+  deleteBankAccount: (bank_account_id) ->
+    deferred = $q.defer()
+    $http.delete('/api/bank_accounts/' + bank_account_id).success((data) ->
+      deferred.resolve(data)
+    ).error((data)->
+      deferred.reject(data.error)
+    )
+    deferred.promise
 ])

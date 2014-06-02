@@ -16,8 +16,8 @@ describe "CallController" do
 
     it "has a greeting" do
       call.within_gather do |gather|
-        expect(gather).to have_say("Greetings! Welcome to Shyne!")
-        expect(gather).to have_say("Enter Passcode:")
+        expect(gather).to have_say("Hello! Welcome to Shyne!")
+        expect(gather).to have_say("Please enter the passcode given in your confirmation email:")
       end
     end
 

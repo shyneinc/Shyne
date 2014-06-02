@@ -121,6 +121,14 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
             $scope.isPhotoNotUploaded = true
           else
             $scope.isPhotoNotUploaded = false
+
+          if $rootScope.creditCardInfo != undefined && $rootScope.creditCardInfo != null
+            $rootScope.creditCardInfo = $rootScope.creditCardInfo
+          else
+            if user.customer_uri != null
+              User.getCreditCardInfo().then((creditCardInfo) ->
+                $rootScope.creditCardInfo = creditCardInfo
+              )
         )
       else if user.role_type is 'Mentor'
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
@@ -146,6 +154,14 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         User.getReviews(user.role_id).then((reviews) ->
           $scope.reviews = reviews
         )
+
+        if $rootScope.bankAccountInfo != undefined && $rootScope.bankAccountInfo != null
+          $rootScope.bankAccountInfo = $rootScope.bankAccountInfo
+        else
+          if user.customer_uri != null
+            User.getBankAccountInfo().then((bankAccountInfo) ->
+              $rootScope.bankAccountInfo = bankAccountInfo
+            )
 
       # display last step to upload photo for both type of user
       if (user.sign_in_count == 1 || user.sign_in_count == 2 ) && $scope.user.role_type != null && $scope.user.avatar == null
@@ -454,6 +470,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.refresh(false)
       $scope.loading = false
       $scope.flash_message = 'Credit card detail added successfully!'
+      $rootScope.creditCardInfo = []
+      $rootScope.creditCardInfo.push(data)
       $timeout (->
           $scope.flash_message = null
           $location.path '/settings/'
@@ -470,6 +488,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.refresh(false)
       $scope.loading = false
       $scope.flash_message = 'Bank account detail added successfully!'
+      $rootScope.bankAccountInfo = []
+      $rootScope.bankAccountInfo.push(data)
       $timeout (->
           $scope.flash_message = null
           $location.path '/settings/'
@@ -615,4 +635,34 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   $scope.changePhoto = () ->
     $scope.isPhotoUploaded = false
+
+  $scope.deleteCreditCard = () ->
+    $scope.loading = true
+    User.deleteCreditCard($rootScope.creditCardInfo[0].id).then((data) ->
+      $scope.loading = false
+      $rootScope.creditCardInfo = {}
+      $scope.flash_message = 'Credit card removed successfully!'
+      $timeout (->
+          $scope.flash_message = null
+          $location.path '/settings/'
+        ), 5000
+    , (data) ->
+      $scope.loading = false
+      $scope.CCFormError = data
+    )
+
+  $scope.deleteBankAccount = () ->
+    $scope.loading = true
+    User.deleteBankAccount($rootScope.bankAccountInfo[0].id).then((data) ->
+      $scope.loading = false
+      $rootScope.bankAccountInfo = {}
+      $scope.flash_message = 'Bank account removed successfully!'
+      $timeout (->
+          $scope.flash_message = null
+          $location.path '/settings/'
+        ), 5000
+    , (data) ->
+      $scope.loading = false
+      $scope.BAFormError = data
+    )
 ])

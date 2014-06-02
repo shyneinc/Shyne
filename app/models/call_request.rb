@@ -46,7 +46,7 @@ class CallRequest < ActiveRecord::Base
         debit = self.member.balanced_customer.debit(
             :amount => self.debit_amount,
             :description => self.description,
-            :appears_on_statement_as => "Shyne / #{self.mentor.full_name}",
+            :appears_on_statement_as => "Shyne - #{self.mentor.full_name}",
             :on_behalf_of => self.mentor.balanced_customer,
             :meta => {
                 :call_request_id => self.id
@@ -60,7 +60,7 @@ class CallRequest < ActiveRecord::Base
           credit = self.mentor.balanced_customer.credit(
               :amount => self.credit_amount,
               :description => self.description,
-              :appears_on_statement_as => "Shyne / #{self.member.full_name}",
+              :appears_on_statement_as => "Shyne - #{self.member.full_name}",
               :meta => {
                   :call_request_id => self.id
               }
@@ -90,13 +90,15 @@ class CallRequest < ActiveRecord::Base
 
   def debit_amount
     rate_in_cents = self.mentor.rate_per_minute * 100
-    duration_in_mins = self.billable_duration.to_i/60
-    rate_in_cents * duration_in_mins
+    duration_in_mins = self.billable_duration.to_f/60
+    rate_in_cents * duration_in_mins.round
+  end
+  
+  def shyne_commission
+    debit_amount * 0.3
   end
 
   def credit_amount
-    debit_amount = self.debit_amount
-    shyne_commission = debit_amount * 0.3
     debit_amount - shyne_commission
   end
 
