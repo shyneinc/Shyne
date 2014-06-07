@@ -43,7 +43,8 @@ class CallRequest < ActiveRecord::Base
   def process_payment
     if self.status.completed? && self.billable_duration > 0
       if !self.member_debited?
-        debit = self.member.balanced_customer.debit(
+        begin
+          debit = self.member.balanced_customer.debit(
             :amount => self.debit_amount,
             :description => self.description,
             :appears_on_statement_as => "Shyne - #{self.mentor.full_name}",
@@ -51,21 +52,30 @@ class CallRequest < ActiveRecord::Base
             :meta => {
                 :call_request_id => self.id
             }
-        )
-        self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
+          )
+          self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
+        rescue => e
+          #Log Error
+          NewRelic::Agent.notice_error(e, {})
+        end
       end
 
       if self.member_debited? && !self.mentor_credited?
         if self.mentor.balanced_customer.bank_accounts.any?
-          credit = self.mentor.balanced_customer.credit(
+          begin
+            credit = self.mentor.balanced_customer.credit(
               :amount => self.credit_amount,
               :description => self.description,
               :appears_on_statement_as => "Shyne - #{self.member.full_name}",
               :meta => {
                   :call_request_id => self.id
               }
-          )
-          self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+            )
+            self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+          rescue => e
+            #Log Error
+            NewRelic::Agent.notice_error(e, {})
+          end
         end
       end
 

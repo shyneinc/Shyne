@@ -1232,10 +1232,6 @@ h3 {
   background: #fff;
   padding: 3px;
   border: 1px solid #103140;
-  img {
-    height: 100%;
-    width: 100%;
-  }
 }
 
 /* Header Top Banner */
@@ -1967,6 +1963,7 @@ section.profile {
 
 .memberProfile .profileImage {
   left: 48px;
+  z-index: 9;
 }
 
 .memberTitle {
@@ -1981,10 +1978,7 @@ section.profile {
 
 .memberProfile {
   .addFile {
-    width: 175px;
-    position: absolute;
-    left: 48px;
-    top: 125px;
+    /* width:175px; position:absolute; left:48px; top:125px;*/
     opacity: 0.9;
   }
   .userInfo {
