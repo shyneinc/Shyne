@@ -54,6 +54,7 @@ class CallRequest < ActiveRecord::Base
             }
           )
           self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
+          self.status = :processed_member
         rescue => e
           #Log Error
           NewRelic::Agent.notice_error(e, {})
@@ -72,6 +73,7 @@ class CallRequest < ActiveRecord::Base
               }
             )
             self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+            self.status = :processed_mentor
           rescue => e
             #Log Error
             NewRelic::Agent.notice_error(e, {})

@@ -72,6 +72,18 @@ class CallRequestStatus::Completed < CallRequestStatus
   end
 end
 
+class CallRequestStatus::ProcessedMember < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_processed(owner)
+  end
+end
+
+class CallRequestStatus::ProcessedMentor < CallRequestStatus
+  def send_status
+    CallRequestMailer.delay.request_processed(owner)
+  end
+end
+
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_processed(owner)
