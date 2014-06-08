@@ -41,7 +41,7 @@ class CallRequest < ActiveRecord::Base
   end
 
   def process_payment
-    if self.status.completed? && self.billable_duration > 0
+    if self.completed? && self.billable_duration > 0
       if !self.member_debited?
         begin
           debit = self.member.balanced_customer.debit(
@@ -99,6 +99,10 @@ class CallRequest < ActiveRecord::Base
 
   def approved?
     self.status.approved_mentor? || self.status.approved_member?
+  end
+
+  def completed?
+    self.status.completed? || self.status.processed_member? || self.status.processed_mentor?
   end
 
   def debit_amount
