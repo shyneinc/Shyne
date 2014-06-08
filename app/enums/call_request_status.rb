@@ -91,6 +91,6 @@ end
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.send_call_receipt_to_member(owner)
-    CallRequestMailer.delay.send_bank_reminder_to_mentor(owner)
+    CallRequestMailer.delay.send_call_income_to_mentor(owner)
   end
 end
