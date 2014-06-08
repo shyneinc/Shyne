@@ -83,8 +83,9 @@ class CallRequest < ActiveRecord::Base
 
       if self.member_debited? && self.mentor_credited?
         self.status = :processed
-        self.save
       end
+
+      self.save
     end
   end
 

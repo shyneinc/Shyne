@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Shyne</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body style="background:#e6eff2; padding:50px 0; margin:0;">
+<div style=" width:630px; margin:50px auto;">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#00637c url(<%= "#{root_url}assets/email/e_header_bg.png" %>) left top repeat-x; padding:15px 48px 10px 48px; border:1px solid #103140; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; border-radius: 4px 4px 0px 0px;">
+          <tr>
+            <td width="28%"><img alt="" src="<%= "#{root_url}assets/logo.png" %>"></td>
+            <td width="72%" style="font-family: 'Open Sans Condensed', sans-serif; font-size:16px; font-weight:700; color:#fff; text-transform:uppercase;">Income for your call with <%= @mentor.user.first_name %></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#fff; padding:20px 49px 20px 49px; border:1px solid #b1c7cc; -webkit-border-radius: 0px 0px 4px 4px; -moz-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px;">
+          <tr>
+            <td width="100%" align="left" valign="top" colspan="2">
+              <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px;">Hey <%= @mentor.user.first_name %>,</p>
+              <p></p>
+              <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px;">We wanted to let you know that the money has been deposited into your bank account, and that this completes the transaction.</p>
+              <p></p>
+              <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px;">Below is a quick recap of the call:</p>
+              <p></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" align="left" valign="top" colspan="2" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:700; color:#474b4c; line-height:21px; padding:0px;">Call Details</td>
+          </tr>
+          <tr>
+            <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Member:</td>
+            <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;"><%= @member.user.full_name %></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Call Length:</td>
+            <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;"><%= distance_of_time_in_words(@call_request.billable_duration, 0, include_seconds: true) if @call_request.billable_duration %></td>
+          </tr>
+          <tr>
+            <td width="100%" align="left" valign="top" colspan="2" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:700; color:#474b4c; line-height:21px; padding:10px 0px 0px 0px;">Transaction Details</td>
+          </tr>
+          <tr>
+            <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Rate:</td>
+            <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= @mentor.rate_per_minute %>/min</td>
+          </tr>
+          <tr>
+            <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Total Transaction:</td>
+            <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= number_with_precision(@call_request.debit_amount/100, precision: 2) %></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Shyne Service Fee:</td>
+            <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= number_with_precision(@call_request.shyne_commission/100, precision: 2) %></td>
+          </tr>
+          <tr>
+            <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Total Profit:</td>
+            <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= number_with_precision(@call_request.credit_amount/100, precision: 2) %></td>
+          </tr>
+          <tr>
+            <td width="100%" align="left" valign="top" colspan="2">
+              <p></p>
+              <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px;">We're truly grateful for your time, and we thank you for choosing Shyne.</p>
+              <p></p>
+              <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px;">We hope to see you again soon!</p>
+              <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">The Shyne Team</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

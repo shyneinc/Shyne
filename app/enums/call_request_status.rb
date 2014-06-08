@@ -67,25 +67,30 @@ end
 
 class CallRequestStatus::Completed < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_completed_mentor(owner)
-    CallRequestMailer.delay.request_completed_member(owner)
+    CallRequestMailer.delay.send_call_summary_to_mentor(owner)
+    CallRequestMailer.delay.send_call_summary_to_member(owner)
   end
 end
 
 class CallRequestStatus::ProcessedMember < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_processed(owner)
+    CallRequestMailer.delay.send_call_receipt_to_member(owner)
+
+    if owner.mentor.balanced_customer.bank_accounts.none?
+      CallRequestMailer.delay.send_bank_reminder_to_mentor(owner)
+    end
   end
 end
 
 class CallRequestStatus::ProcessedMentor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_processed(owner)
+    CallRequestMailer.delay.send_call_income_to_mentor(owner)
   end
 end
 
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_processed(owner)
+    CallRequestMailer.delay.send_call_receipt_to_member(owner)
+    CallRequestMailer.delay.send_bank_reminder_to_mentor(owner)
   end
 end
