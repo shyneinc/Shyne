@@ -74,8 +74,6 @@ end
 
 class CallRequestStatus::ProcessedMember < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.send_call_receipt_to_member(owner)
-
     if owner.mentor.balanced_customer.bank_accounts.none?
       CallRequestMailer.delay.send_bank_reminder_to_mentor(owner)
     end
@@ -84,13 +82,12 @@ end
 
 class CallRequestStatus::ProcessedMentor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.send_call_income_to_mentor(owner)
+    #Do nothing
   end
 end
 
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.send_call_receipt_to_member(owner)
-    CallRequestMailer.delay.send_call_income_to_mentor(owner)
+    #Do nothing
   end
 end
