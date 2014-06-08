@@ -7,7 +7,7 @@ end
 class CallRequestStatus::Proposed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_proposed(owner)
-    Twilio::Sms.delay.send_sms("Your have a new call request!", owner.mentor.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("You have a new call request!", owner.mentor.phone_number.to_s)
   end
 end
 

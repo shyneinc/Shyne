@@ -12,7 +12,7 @@ class CallRequest < ActiveRecord::Base
   has_many :payment_transactions
 
   after_validation :generate_passcode, :on => :create
-  after_update :send_status, :if => :status_changed?
+  after_save :send_status, :if => :status_changed?
   after_update :calc_mentor_duration, :if => :billable_duration_changed?
 
   just_define_datetime_picker :scheduled_at
