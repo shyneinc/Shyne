@@ -4,5 +4,5 @@ require 'clockwork'
 
 include Clockwork
 
-every(4.hours, 'Calculate billable call durations') { Delayed::Job.enqueue CalcBillableDurationJob.new }
+every(2.hours, 'Calculate billable call durations') { Delayed::Job.enqueue CalcBillableDurationJob.new }
 every(1.day, 'Process payment', :at => '00:00') { Delayed::Job.enqueue ProcessPaymentJob.new }

@@ -34,8 +34,8 @@ class Api::V1::ConversationsController < Api::V1::BaseController
     conversation = nil
     if(conversation_params[:call_request_id])
       call_request = CallRequest.find(conversation_params[:call_request_id])
-      conversation = current_user.send_message(recipient, conversation_params[:body], call_request.description).conversation
-      #TODO: Append call_request URL in the message body
+      body = conversation_params[:body] + "<br><br>----<br><br>This message is pertaining to this call: " + "<a href='/#/call_requests/#{call_request.id}'></a>"
+      conversation = current_user.send_message(recipient, body, call_request.description).conversation
     else
       conversation = current_user.send_message(recipient, conversation_params[:body], conversation_params[:subject]).conversation
     end

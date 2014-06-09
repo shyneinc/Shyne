@@ -7,7 +7,7 @@ end
 class CallRequestStatus::Proposed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_proposed(owner)
-    Twilio::Sms.delay.send_sms("Your have a new call request!", owner.mentor.phone_number.to_s)
+    Twilio::Sms.delay.send_sms("You have a new call request!", owner.mentor.phone_number.to_s)
   end
 end
 
@@ -67,13 +67,27 @@ end
 
 class CallRequestStatus::Completed < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_completed_mentor(owner)
-    CallRequestMailer.delay.request_completed_member(owner)
+    CallRequestMailer.delay.send_call_summary_to_mentor(owner)
+    CallRequestMailer.delay.send_call_summary_to_member(owner)
+  end
+end
+
+class CallRequestStatus::ProcessedMember < CallRequestStatus
+  def send_status
+    if owner.mentor.balanced_customer.bank_accounts.none?
+      CallRequestMailer.delay.send_bank_reminder_to_mentor(owner)
+    end
+  end
+end
+
+class CallRequestStatus::ProcessedMentor < CallRequestStatus
+  def send_status
+    #Do nothing
   end
 end
 
 class CallRequestStatus::Processed < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_processed(owner)
+    #Do nothing
   end
 end

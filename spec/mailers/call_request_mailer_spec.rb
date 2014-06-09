@@ -84,14 +84,14 @@ describe CallRequestMailer do
     pending
   end
 
-  describe '#request_completed' do
-    let(:completed_call_request) { CallRequestMailer.request_completed_mentor(call_request) }
+  describe '#send_call_summary_to_mentor' do
+    let(:completed_call_request) { CallRequestMailer.send_call_summary_to_mentor(call_request) }
 
     it "renders the receiver email" do
       completed_call_request.to.should eql [call_request.mentor.email]
     end
     it "renders completed subject" do
-      completed_call_request.subject.should == "Income for your call with #{call_request.member.full_name}"
+      completed_call_request.subject.should == "Summary for your call with #{call_request.member.user.first_name}"
     end
   end
 

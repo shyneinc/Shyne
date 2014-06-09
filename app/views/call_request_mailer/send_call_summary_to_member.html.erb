@@ -22,7 +22,7 @@
               <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#00637c url(<%= "#{root_url}assets/email/e_header_bg.png" %>) left top repeat-x; padding:15px 48px 10px 48px; border:1px solid #103140; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; border-radius: 4px 4px 0px 0px;">
                     <tr>
                         <td width="28%"><img alt="" src="<%= "#{root_url}assets/logo.png" %>"></td>
-                        <td width="72%" style="font-family: 'Open Sans Condensed', sans-serif; font-size:16px; font-weight:700; color:#fff; text-transform:uppercase;">Receipt for your call with <%= @mentor.user.first_name %></td>
+                        <td width="72%" style="font-family: 'Open Sans Condensed', sans-serif; font-size:16px; font-weight:700; color:#fff; text-transform:uppercase;">Summary for your call with <%= @mentor.user.first_name %></td>
                     </tr>
                 </table>
             </td>
@@ -34,7 +34,7 @@
                         <td width="100%" align="left" valign="top" colspan="2" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:700; color:#474b4c; line-height:21px; padding:0px;">Call Details</td>
                     </tr>
                     <tr>
-                        <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Member:</td>
+                        <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Mentor:</td>
                         <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;"><%= @mentor.user.full_name %></td>
                     </tr>
                     <tr>
@@ -52,6 +52,9 @@
                     <tr>
                         <td width="50%" align="left" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">Total Transaction:</td>
                         <td width="50%" align="right" valign="top" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 0px 25px;">$<%= number_with_precision(@call_request.debit_amount/100, precision: 2) %></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" align="left" valign="top" colspan="2" style=" font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:600; color:#474b4c; line-height:21px; padding:10px 0px 0px 0px;"><p>Your card on file will be charged for the transaction amount. You will be notified once the payment has been processed.</p></td>
                     </tr>
                 </table>
             </td>

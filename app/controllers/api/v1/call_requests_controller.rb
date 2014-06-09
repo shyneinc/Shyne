@@ -13,10 +13,6 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
 
   def create
     call_request = CallRequest.create(call_request_params)
-    if call_request
-      CallRequestMailer.delay.request_proposed(call_request)
-      Twilio::Sms.delay.send_sms("Your have a new call request!", call_request.mentor.phone_number.to_s)
-    end
     respond_with :api, call_request
   end
 

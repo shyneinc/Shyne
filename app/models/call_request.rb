@@ -12,7 +12,7 @@ class CallRequest < ActiveRecord::Base
   has_many :payment_transactions
 
   after_validation :generate_passcode, :on => :create
-  after_update :send_status, :if => :status_changed?
+  after_save :send_status, :if => :status_changed?
   after_update :calc_mentor_duration, :if => :billable_duration_changed?
 
   just_define_datetime_picker :scheduled_at
@@ -41,7 +41,7 @@ class CallRequest < ActiveRecord::Base
   end
 
   def process_payment
-    if self.status.completed? && self.billable_duration > 0
+    if self.completed? && self.billable_duration > 0
       if !self.member_debited?
         begin
           debit = self.member.balanced_customer.debit(
@@ -54,6 +54,8 @@ class CallRequest < ActiveRecord::Base
             }
           )
           self.payment_transactions.create(type: debit._type, amount: debit.amount/100, status: debit.status, uri: debit.uri)
+          self.status = :processed_member
+          CallRequestMailer.delay.send_call_receipt_to_member(self)
         rescue => e
           #Log Error
           NewRelic::Agent.notice_error(e, {})
@@ -72,6 +74,8 @@ class CallRequest < ActiveRecord::Base
               }
             )
             self.payment_transactions.create(type: credit._type, amount: credit.amount/100, status: credit.status, uri: credit.uri)
+            self.status = :processed_mentor
+            CallRequestMailer.delay.send_call_income_to_mentor(self)
           rescue => e
             #Log Error
             NewRelic::Agent.notice_error(e, {})
@@ -81,8 +85,9 @@ class CallRequest < ActiveRecord::Base
 
       if self.member_debited? && self.mentor_credited?
         self.status = :processed
-        self.save
       end
+
+      self.save
     end
   end
 
@@ -96,6 +101,10 @@ class CallRequest < ActiveRecord::Base
 
   def approved?
     self.status.approved_mentor? || self.status.approved_member?
+  end
+
+  def completed?
+    self.status.completed? || self.status.processed_member? || self.status.processed_mentor?
   end
 
   def debit_amount
