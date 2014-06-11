@@ -42,7 +42,7 @@
                       <div class="O12BU fr">{{ message.created_at | date:'MMM dd' }}</div>
                       <div class="clAll mb5"></div>
                       <div class="mrImage"><img src="/assets/no_image.png" ng-src="{{message.sender.avatar.medium.url}}"><span class="caret"></span></div>
-                      <p>{{ message.body }}</p>
+                      <p ng-bind-html="stringToHTML(message.body)"></p>
                     </div>
                   </div>
                 </div>
