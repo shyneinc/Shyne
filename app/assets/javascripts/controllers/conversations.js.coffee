@@ -1,4 +1,4 @@
-Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeParams', '$rootScope', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, $rootScope, Session, User, Workhistory, Conversation) ->
+Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeParams', '$rootScope', '$sce', 'Session', 'User', 'Workhistory', 'Conversation',($location, $scope, $timeout, $routeParams, $rootScope, $sce, Session, User, Workhistory, Conversation) ->
 
   $rootScope.location = $location
   $scope.user = null
@@ -57,4 +57,7 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
     , (data) ->
       $scope.conversationModelError = data
     )
+
+  $scope.stringToHTML = (htmlContent) ->
+    $sce.trustAsHtml(htmlContent)
 ])
