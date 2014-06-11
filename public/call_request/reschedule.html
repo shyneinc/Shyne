@@ -37,17 +37,25 @@
                     </div>
                     <div class="clAll bdb mb10 mt20"></div>
                       <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                           <input type="text" class="width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRescheduleModel.scheduled_at" required="">
                         </div>
                         <div class="col-sm-1">
                           <label class="atText fleft mt10">at</label>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                           <div class="dropDown">
                             <input ng-model="callRescheduleModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
                           </div>
                         </div>
+                        <div class="col-sm-3">
+                        <div class="dropDown">
+                          <select ng-model="callRescheduleModel.am_pm">
+                            <option value="PM">PM</option>
+                            <option value="AM">AM</option>
+                          </select>
+                        </div>
+                      </div>
                       </div>
                     </div>
                     <div class="formRow">

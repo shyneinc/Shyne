@@ -115,12 +115,20 @@
                     <div class="clAll bdb mb10 mt20"></div>
                     <label class="O11BU mb10">Suggest a time (in your timezone) for {{mentor.user.first_name}} to take the call</label>
                     <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-5">
                         <input type="text" class="width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-4">
                         <div class="dropDown">
                           <input ng-model="callRequestModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="width40 fleft" required="">
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="dropDown">
+                          <select ng-model="callRequestModel.am_pm">
+                            <option value="PM">PM</option>
+                            <option value="AM">AM</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -223,7 +231,7 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="bgLightBlue avlTime">{{ callRequestModel.agenda }}</div>
-                        <div class="O11BU mt20 iconText"><span class="iconPro i_clock"></span><span class="iText">Requested time: <span class="tcblue">{{ callRequestModel.scheduled_at | date:'EEEE, MMMM dd, yyyy' }}</span> at <span class="tcblue">{{ callRequestModel.scheduled_time }}</span></span></div>
+                        <div class="O11BU mt20 iconText"><span class="iconPro i_clock"></span><span class="iText">Requested time: <span class="tcblue">{{ callRequestModel.scheduled_at | date:'EEEE, MMMM dd, yyyy' }}</span> at <span class="tcblue">{{ callRequestModel.scheduled_time }} {{ callRequestModel.am_pm }}</span></span></div>
                       </div>
                     </div>
                     <div class="clAll bdb mb10 mt20"></div>

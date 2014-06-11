@@ -5,6 +5,7 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
   $scope.mentor = null
   $scope.call_requests = null
   $scope.call_request_id = $routeParams.id
+  $scope.callRescheduleModel = {am_pm: "PM"}
 
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
@@ -71,4 +72,17 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
 
   $scope.removeFlashMessage = () ->
     $rootScope.flash_message = null
+
+  $scope.sendMessage = (call_request) ->
+    $scope.loading = true
+    if $scope.user.role_type == 'Member'
+      user_id = $scope.call_request.mentor.user_id
+
+    if $scope.user.role_type == 'Mentor'
+      user_id = $scope.call_request.member.user_id
+
+    Conversation.createConversation($scope.call_request, user_id, $scope.call_request.id).then((data)->
+      $scope.loading = false
+      $rootScope.flash_message = "Message sent successfully!"
+    )
 ])

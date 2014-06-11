@@ -3,7 +3,7 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
   $rootScope.location = $location
   $scope.user = null
   $scope.mentor = null
-  $scope.callRequestModel = {form: 'cal_details'}
+  $scope.callRequestModel = {form: 'cal_details', am_pm: "PM"}
   $scope.callRequestModel.status = "proposed"
 
   $scope.refresh = (forceUpdate) ->

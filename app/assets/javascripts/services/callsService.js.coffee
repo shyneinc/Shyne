@@ -36,7 +36,7 @@ ShyneService.factory('Calls', ['$location','$http','$q',($location, $http, $q) -
     scheduled_date = "#{scheduled_date[2]}-#{scheduled_date[0]}-#{scheduled_date[1]}"
     $http.put('/api/call_requests/' + request_id,
       call_request:
-        scheduled_at: "#{scheduled_date} #{callRequest.scheduled_time}",
+        scheduled_at: "#{scheduled_date} #{callRequest.scheduled_time} #{callRequest.am_pm}",
         status: status
     ).success((data) ->
       deferred.resolve(data)
