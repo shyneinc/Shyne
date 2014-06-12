@@ -142,3 +142,17 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   )
 
 ]
+
+Shyne.run ($rootScope, $route, $window) ->
+  #get previous route and assign before page load
+  $rootScope.$on "$locationChangeStart", (e, currentRoute, previousRoute) ->
+    $rootScope.oldUrl = previousRoute
+    $rootScope.oldHash = $window.location.hash
+    return
+
+  #assign in routescope variable after success
+  $rootScope.$on "$routeChangeSuccess", (e, currentRoute, previousRoute) ->
+    $rootScope.previousUrl = $rootScope.oldHash
+    return
+
+  return

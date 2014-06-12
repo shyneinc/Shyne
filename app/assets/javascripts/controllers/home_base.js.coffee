@@ -22,7 +22,15 @@ Shyne.controller('HomeBaseCtrl', ['$location','$rootScope', '$scope','$timeout',
       (user)->
         $scope.prepareIndustriesAndSchools()
         $scope.loading = false
-        $location.path '/profile/'
+        if $rootScope.previousUrl
+          oldUrl = $rootScope.previousUrl.replace "#", ""
+          rootArray = ["/", "/login", "/logout", "/signup", "/how", "/our-mission", "/search"]
+          if oldUrl not in rootArray
+            $location.path(oldUrl)
+          else
+            $location.path '/profile/'
+        else
+          $location.path '/profile/'
     , (error)->
       $scope.loading = false
       $scope.loginError = error
