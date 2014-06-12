@@ -72,17 +72,4 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
 
   $scope.removeFlashMessage = () ->
     $rootScope.flash_message = null
-
-  $scope.sendMessage = (call_request) ->
-    $scope.loading = true
-    if $scope.user.role_type == 'Member'
-      user_id = $scope.call_request.mentor.user_id
-
-    if $scope.user.role_type == 'Mentor'
-      user_id = $scope.call_request.member.user_id
-
-    Conversation.createConversation($scope.call_request, user_id, $scope.call_request.id).then((data)->
-      $scope.loading = false
-      $rootScope.flash_message = "Message sent successfully!"
-    )
 ])

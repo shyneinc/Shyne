@@ -115,6 +115,9 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   ).when("/conversation/:conversation_id",
     templateUrl: "/conversations/show.html"
     controller: 'ConversationsCtrl'
+  ).when("/conversation/create/:call_request_id",
+    templateUrl: "/conversations/create.html"
+    controller: 'ConversationsCtrl'
   ).when("/call_requests",
     templateUrl: "/call_request/call_requests.html"
     controller: 'CallCtrl'
