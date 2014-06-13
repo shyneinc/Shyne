@@ -63,6 +63,12 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
 
   $scope.callRequestModel.expired_year = $scope.expiredYears[0]
 
+  time_arr = ["01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"]
+  $scope.timeList = []
+
+  for i in time_arr
+    $scope.timeList.push({ value : i, text: i})
+
   $scope.calDetails = () ->
     $scope.callRequestModel.form = 'cal_details'
   $scope.availableTimes = () ->

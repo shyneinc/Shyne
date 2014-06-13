@@ -45,7 +45,9 @@
                         </div>
                         <div class="col-sm-4">
                           <div class="dropDown">
-                            <input ng-model="callRescheduleModel.scheduled_time"  id="scheduled_time" placeholder="Schedule Time" timepicker class="form-control width40 fleft" required="">
+                            <select data-ng-options="t.value as t.text for t in timeList" ng-model="callRescheduleModel.scheduled_time" required="">
+                            <option value="">Time</option>
+                          </select>
                           </div>
                         </div>
                         <div class="col-sm-3">

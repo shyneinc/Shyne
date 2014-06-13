@@ -7,6 +7,12 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
   $scope.call_request_id = $routeParams.id
   $scope.callRescheduleModel = {am_pm: "PM"}
 
+  time_arr = ["01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"]
+  $scope.timeList = []
+
+  for i in time_arr
+    $scope.timeList.push({ value : i, text: i})
+
   $scope.refresh = (forceUpdate) ->
     Session.getCurrentUser(forceUpdate).then((user)->
       $scope.user = user
