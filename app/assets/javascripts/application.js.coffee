@@ -12,6 +12,7 @@
 #= require ui-utils
 #= require angular-resource
 #= require angular-blocks
+#= require angular-sanitize
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services
@@ -114,6 +115,9 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   ).when("/conversation/:conversation_id",
     templateUrl: "/conversations/show.html"
     controller: 'ConversationsCtrl'
+  ).when("/conversation/create/:call_request_id",
+    templateUrl: "/conversations/create.html"
+    controller: 'ConversationsCtrl'
   ).when("/call_requests",
     templateUrl: "/call_request/call_requests.html"
     controller: 'CallCtrl'
@@ -141,3 +145,17 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   )
 
 ]
+
+Shyne.run ($rootScope, $route, $window) ->
+  #get previous route and assign before page load
+  $rootScope.$on "$locationChangeStart", (e, currentRoute, previousRoute) ->
+    $rootScope.oldUrl = previousRoute
+    $rootScope.oldHash = $window.location.hash
+    return
+
+  #assign in routescope variable after success
+  $rootScope.$on "$routeChangeSuccess", (e, currentRoute, previousRoute) ->
+    $rootScope.previousUrl = $rootScope.oldHash
+    return
+
+  return

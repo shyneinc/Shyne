@@ -1,0 +1,48 @@
+<div data-extend-template="/layouts/layout.html">
+  <div data-block="content">
+    <section ng-hide="user">
+      <div class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="text-center info-message">
+                <h2>Please <a href="#/login">log in</a> to access messages</h2>
+                <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mainBg" ng-if="user">
+      <section class="callDashboard">
+        <div class="container">
+          <h2>Dashboard <span class="OC16BU tcOrg">Messages</span><span class="iconPro i_arrow_bullet_r mt10"></span><span class="OC16BUB">Send Message</span></h2>
+          <div class="row">
+            <div class="col-sm-3">
+              <div ng-include src="'shared/left_menu.html'"></div>
+            </div>
+            <div class="col-md-9">
+              <div class="callDetail mt20 pt10">
+                <div class="msgReplyBox">
+                  <div class="R16R">Reply to: {{ reply_to }}</div>
+                    <form novalidate role="form" name="conversationForm" class="css-form" ng-submit="createConversation()">
+                      <div>
+                        <textarea class="width65" rows="3" ng-model="conversationModel.body" required="" maxlength="280"></textarea>
+                      </div>
+                      <div>
+                        <a href="#/call_requests/{{ call_request.id }}" class="btn grd-blue btnBlueLg mt10">Go Back</a>
+                        <button type="button" class="btn grd-org btnOrgLg fr mt10" type="submit" ng-disabled="conversationForm.$invalid" ng-click="createConversation()">Send Message</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

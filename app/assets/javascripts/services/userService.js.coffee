@@ -261,7 +261,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         agenda: callRequest.agenda,
         member_id: parseInt(memberId),
         mentor_id: parseInt(mentorId),
-        scheduled_at: "#{scheduled_date} #{callRequest.scheduled_time}",
+        scheduled_at: "#{scheduled_date} #{callRequest.scheduled_time} #{callRequest.am_pm}",
         proposed_duration: callRequest.proposed_duration.id,
         status: callRequest.status
     ).success((data) ->

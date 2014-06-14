@@ -26,10 +26,12 @@ ShyneDirectives.directive('timepicker', () ->
   require: "ngModel"
   link: (scope, el, attr, ngModel) ->
     $(el).timepicker
-      timeFormat: 'h:i A'
+      timeFormat: 'h:i'
       useSelect : true
       noneOption: true
       className: 'form-control width40'
+      minTime: '01:00am'
+      maxTime: '12:30am'
     el.change(() ->
       selectedValue = $(this).val()
       scope.$apply ->

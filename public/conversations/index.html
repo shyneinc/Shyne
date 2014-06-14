@@ -42,10 +42,11 @@
                         <img src="/assets/no_image.png" ng-src="{{conversation.messages[0].sender.avatar.medium.url}}">
                         <span class="caret"></span>
                       </div>
-                      <p>{{ conversation.messages[0].body }}</p>
+                      <p ng-bind-html="stringToHTML(conversation.messages[0].body)"></p>
                       <div class="replyBtn">
-                        <a class="grd-org rplybtnOrgLg fr" href="#/conversation/{{conversation.id}}">Reply</a>
+                        <a class="grd-org rplybtnOrgLg fr" href="#/conversation/{{conversation.id}}">View</a>
                       </div>
+                      <div class="clAll mb5"></div>
                     </div>
                     <div class="text-center" ng-show="conversations.length == 0">
                       <strong>You have no new messages.</strong>
