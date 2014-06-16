@@ -101,7 +101,7 @@ class CallRequestMailer < ActionMailer::Base
     @mentor = call_request.mentor
     @call_request = call_request
 
-    mail(to: @mentor.email, cc: @member.email, subject: "It's time to get paid! Please link bank account" )
+    mail(to: @mentor.email, subject: "It's time to get paid! Please link bank account" )
   end
 
   def request_declined_mentor(call_request)
