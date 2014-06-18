@@ -116,7 +116,7 @@ class Mentor < ActiveRecord::Base
   end
 
   def total_calls
-    Call.where(status: :completed, call_request_id: self.call_requests.where(status: :completed).pluck(:id)).size
+    self.call_requests.where(status: [:completed, :processed_member, :processed_mentor, :processed]).size
   end
 
   def total_reviews
