@@ -18,8 +18,8 @@ FactoryGirl.define do
     state { Faker::Address.state_abbr }
     linkedin { "http://www.linkedin.com/in/" + Faker::Lorem.word }
     skills nil
-    industries nil
-    schools nil
+    industries { Faker::Lorem.word }
+    schools { Faker::Lorem.word }
     location nil
     years_of_experience { rand(30) }
     phone_number "15626453725"

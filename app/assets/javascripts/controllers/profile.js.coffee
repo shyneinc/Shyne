@@ -440,7 +440,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       ), 5000
     , (data) ->
       $scope.loading = false
-      $scope.historyFormError = data
+      $scope.mentorModalFormError = data.errors
     , (data) ->
       $scope.loading = false
       $scope.mentorModalFormError = data.errors
@@ -562,24 +562,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   # cancel all changes
   $scope.cancel = ->
-    return if $scope.user.role_type == 'Member'
-
-    i = $scope.work_histories.length
-
-    while i--
-      work_history = $scope.work_histories[i]
-
-      # undelete
-      if work_history.isDeleted
-        delete work_history.isDeleted
-
-      # remove new
-      if work_history.isNew
-        $scope.work_histories.splice i, 1
-
-    $scope.previousPosition = true if $scope.work_histories.length == 1
-
-    return
+    $scope.refresh(false)
 
   $scope.updateWorkHistories = () ->
     results = []

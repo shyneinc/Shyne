@@ -207,6 +207,7 @@
                                         <div class="col-sm-12">
                                           <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
                                           <input type="text" name="skills" ng-model="mentorModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                                          <div class="error">{{mentorFormError.skills[0]}}</div>
                                         </div>
                                       </div>
                                       <div class="cl">&nbsp;</div>
@@ -216,6 +217,7 @@
                                           <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
                                           <label class="chLeft">{{ 280 - mentorModel.headline.length }}</label>
                                           <textarea ng-model="mentorModel.headline" id="mentorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
+                                          <div class="error">{{mentorFormError.headline[0]}}</div>
                                         </div>
                                       </div>
                                       <div class="bottomBtn">
@@ -710,7 +712,7 @@
                             <tags-input ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
                               <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                             </tags-input>
-                            <div class="error">{{mentorFormError.industries[0]}}</div>
+                            <div class="error">{{mentorModalFormError.industries[0]}}</div>
                           </div>
                           <div class="col-sm-12">
                             <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
