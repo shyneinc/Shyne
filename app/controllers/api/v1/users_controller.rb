@@ -25,7 +25,12 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def update
-    respond_with :api, User.update(current_user.id, user_params)
+    @user = User.update(current_user.id, user_params)
+    if @user.valid?
+      respond_with :api, @user
+    else
+      render :json => {:errors => @user.errors}, :status => 401
+    end
   end
 
   def destroy

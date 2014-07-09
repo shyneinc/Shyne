@@ -373,6 +373,9 @@
                           <input type="file" class="upload" onchange="angular.element(this).scope().uploadPicture(this)" required="">
                         </div>
                       </div>
+                      <div class="userInfo" ng-show="uploadphotoFormError">
+                        <div class="error">{{ uploadphotoFormError.avatar[0] }}</div>
+                      </div>
                       <div class="userInfo" ng-show="isPhotoUploaded">
                         <div class="proEdit">
                           <a href="javascript:void(0)" ng-click="changePhoto()"><span class="iconPro i_edit_r"></span>Change photo</a>
@@ -422,6 +425,7 @@
                         <li style="display:none;"><span class="iconPro i_star"></span><star-rating-orange star-rating="user.get_avg_rating"></star-rating-orange></li>
                       </ul>
                     </div>
+                    <div class="error">{{ uploadphotoFormError.avatar[0] }}</div>
                     <p class="R16R">{{ user.headline }}</p>
                   </div>
                   <div class="col-sm-4">
@@ -554,6 +558,7 @@
                             <span class="btnEdit grd-blue"><span class="iconPro i_edit_w"></span>Change your profile picture</span>
                             <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
                           </div>
+                          <div class="error">{{ uploadphotoFormError.avatar[0] }}</div>
                         </div>
                         <div class="clAll"></div>
                         <div class="formContent">
@@ -750,9 +755,9 @@
                       <span class="caretL"></span>
                       <span class="caretR"></span>
                       <div class="addFile uploadLg" ng-show="isPhotoNotUploaded">
-                      <span class="btnEdit grd-org">Upload Picture</span>
-                      <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
-                    </div>
+                        <span class="btnEdit grd-org">Upload Picture</span>
+                        <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
+                      </div>
                     </div>
                     <div class="userInfo">
                       <div class="memberTitle pb10 mb5">{{user.first_name}} {{user.last_name}}</div>
@@ -760,6 +765,7 @@
                         <li><span class="iconPro i_clock"></span>{{user.time_zone}}</li>
                         <li><span class="iconPro i_pin"></span>{{user.city}}, {{user.state}}</li>
                       </ul>
+                      <div class="error">{{ uploadphotoFormError.avatar[0] }}</div>
                       <ul class="lastRow">
                         <li><span class="iconPro i_case"></span>{{user.industries}}</li>
                       </ul>
@@ -790,6 +796,7 @@
                             <span class="btnEdit grd-blue"><span class="iconPro i_edit_w"></span>Change your profile picture</span>
                             <input type="file" class="upload" onchange="angular.element(this).scope().updateAvatar(this)">
                           </div>
+                          <div class="error">{{ uploadphotoFormError.avatar[0] }}</div>
                         </div>
                         <div class="clAll"></div>
                         <div class="formContent">
@@ -799,7 +806,7 @@
                             <div class="col-sm-6">
                               <label class="O11BU">City</label>
                               <input type="text" name="city" ng-model="user.city" placeholder="Enter your work city" required="">
-                              <div class="error">{{mentorModalFormError.city[0]}}</div>
+                              <div class="error">{{memberModelFormError.city[0]}}</div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">state</label>
@@ -809,7 +816,7 @@
                                   <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                 </select>
                               </div>
-                              <div class="error">{{mentorModalFormError.state[0]}}</div>
+                              <div class="error">{{memberModelFormError.state[0]}}</div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">Timezone</label>
@@ -825,14 +832,14 @@
                                   <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
                                 </select>
                               </div>
-                              <div class="error">{{mentorModalFormError.time_zone[0]}}</div>
+                              <div class="error">{{memberModelFormError.time_zone[0]}}</div>
                             </div>
                             <div class="col-sm-12">
                               <label class="O11BU">What industries are you interested in?</label>
                               <tags-input ng-model="memberDetailModel.industries" replace-spaces-with-dashes="false" placeholder="E.g. Technology, Investment Banking, Consulting, Startups, Retail" required="">
                                 <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                               </tags-input>
-                              <div class="error">{{memberFormError.industries[0]}}</div>
+                              <div class="error">{{memberModelFormError.industries[0]}}</div>
                             </div>
                           </div>
                           <div class="clAll bdb mt20 mb5"></div>
