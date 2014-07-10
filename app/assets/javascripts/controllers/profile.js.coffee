@@ -562,6 +562,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
 
   # cancel all changes
   $scope.cancel = ->
+    $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
+    $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
+    $scope.mentorModalFormError = null
+    $scope.memberModelFormError = null
+    $scope.uploadphotoFormError = null
     $scope.refresh(false)
 
   $scope.updateWorkHistories = () ->
@@ -610,6 +615,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         $scope.isPhotoUploaded = true
         $scope.loading = false
         $scope.upload_photo = true
+        $scope.uploadphotoFormError = null
       )
     , (data) ->
       $scope.loading = false
