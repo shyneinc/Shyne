@@ -17,7 +17,7 @@ FactoryGirl.define do
     city { Faker::Address.city }
     state { Faker::Address.state_abbr }
     linkedin { "http://www.linkedin.com/in/" + Faker::Lorem.word }
-    skills nil
+    skills { Faker::Lorem.word }
     industries { Faker::Lorem.word }
     schools { Faker::Lorem.word }
     location nil
