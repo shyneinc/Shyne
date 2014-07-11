@@ -212,19 +212,72 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.mentorModel.schools,
       $scope.mentorModel.skills
     ).then((data) ->
+      $scope.phoneNumber = $scope.mentorModel.phoneNumber
+      $scope.linkedin = $scope.mentorModel.linkedin
       Session.getCurrentUser(true).then((user)->
         $scope.user = user
         User.getMentorInfo(user.role_id).then((mentorInfo) ->
           angular.extend(user, mentorInfo)
+          $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
+          $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
         )
       )
       $scope.historyModel.role = 'Mentor'
       $scope.user.time_zone = $scope.mentorModel.timeZone
+      $scope.time_zone = $scope.mentorModel.timeZone
       User.updateUser($scope.user)
       $scope.loading = false
     , (data) ->
       $scope.loading = false
       $scope.mentorFormError = data
+    )
+
+  $scope.updateMentor = () ->
+    $scope.loading = true
+    $scope.user.industries = $scope.mentorModel.industries
+    $scope.user.schools = $scope.mentorModel.schools
+    $scope.phoneNumber = $scope.mentorModel.phoneNumber
+    $scope.linkedin = $scope.mentorModel.linkedin
+    $scope.time_zone = $scope.user.time_zone
+    User.updateMentor($scope.user).then(() ->
+      User.updateUser($scope.user).then(() ->
+        Session.getCurrentUser(true).then((user)->
+          $scope.user = user
+          User.getMentorInfo(user.role_id).then((mentorInfo) ->
+            angular.extend(user, mentorInfo)
+            $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
+            $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
+            $scope.user.time_zone = $scope.mentorModel.timeZone
+            Workhistory.getWorkHistories($scope.user.role_id).then((workHistoriesInfo) ->
+              $scope.work_histories = workHistoriesInfo
+              $scope.previousPosition = true if $scope.work_histories.length == 1
+              if workHistoriesInfo.length == 0
+                $scope.historyModel.role = 'Mentor'
+              else
+                $scope.historyModel.role = 'update_work_history'
+
+              $scope.loading = false
+            )
+          )
+        )
+      , (data) ->
+        $scope.loading = false
+        $scope.mentorFormError = data
+      )
+    , (data) ->
+      $scope.loading = false
+      $scope.mentorFormError = data
+    )
+
+  $scope.updateWorkHistory = () ->
+    $scope.loading = true
+    $scope.updateWorkHistories()
+    $scope.added_work_history = false
+    Workhistory.getWorkHistories($scope.user.role_id).then((workHistoriesInfo) ->
+      $scope.work_histories = workHistoriesInfo
+      $scope.previousPosition = true if $scope.work_histories.length == 1
+      $scope.historyModel = {role: 'upload_photo'}
+      $scope.loading = false
     )
 
   $scope.createWorkHistory = () ->
@@ -243,6 +296,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           Workhistory.addWorkHistoryDetail(valueObj, $scope.user.role_id)
         )
 
+        Workhistory.getWorkHistories($scope.user.role_id).then((workHistoriesInfo) ->
+          $scope.work_histories = workHistoriesInfo
+          $scope.previousPosition = true if $scope.work_histories.length == 1
+          User.updateUser($scope.user)
+        )
         $scope.historyModel = {role: 'upload_photo'}
         $scope.loading = false
 
@@ -654,4 +712,13 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.loading = false
       $scope.BAFormError = data
     )
+
+  $scope.backToPreviousStep = (previous_page) ->
+    if previous_page == 'become_mentor'
+      $scope.user.phone_number = $scope.phoneNumber
+      $scope.user.linkedin = $scope.linkedin
+      $scope.user.time_zone = $scope.time_zone
+
+    $scope.historyModel.role = previous_page
+
 ])

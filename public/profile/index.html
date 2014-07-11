@@ -38,7 +38,7 @@
     </section>
 
     <div ng-show="user">
-        <div ng-hide="user.role_type">
+        <div ng-hide="user.role_type || historyModel.role">
             <div class="hero">
                 <div class="container">
                     <div class="row">
@@ -244,6 +244,120 @@
             </div>
         </div>
 
+        <section class="applicationMentors" ng-show="historyModel.role == 'become_mentor'">
+          <div class="container">
+            <h2>Application to be a Mentor <span class="OC15BUG">Step 1 of 2</span></h2>
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="callDetail">
+                    <form novalidate role="form" name="mentorStepForm" ng-submit="updateMentor()">
+                      <div class="formBox mt20">
+                        <div class="OC15BUG pb5 mt10 bdb">Your Logistics</div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <label for="mentorCity" class="O11BU">City</label>
+                            <input type="text" name="city" ng-model="user.city" id="mentorCity" placeholder="Enter your work city" required="">
+                            <div class="error">{{mentorFormError.city[0]}}</div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label for="mentorState" class="O11BU">State</label>
+                            <div class="dropDown">
+                              <select class="" ng-model="user.state">
+                                <option value="">Select State</option>
+                                <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
+                              </select>
+                            </div>
+                            <div class="error">{{mentorFormError.state[0]}}</div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">cell number <span>– <i>Hidden, never shared</i></span></label>
+                            <input type="text" name="phoneNumber" ng-model="user.phone_number" ui-mask="1 (999) 999 – 9999" id="mentorPhoneNumber" required="">
+                            <div class="error">{{mentorFormError.phone_number[0]}}</div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">Timezone</label>
+                            <div class="dropDown">
+                              <select id="memberTimeZone" ng-model="user.time_zone">
+                                <option value="Alaska">Alaska</option>
+                                <option value="Arizona">Arizona</option>
+                                <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
+                                <option value="Eastern Time (US & Canada)">Eastern Time (US & Canada)</option>
+                                <option value="Hawaii">Hawaii</option>
+                                <option value="Indiana (East)">Indiana (East)</option>
+                                <option value="Mountain Time (US & Canada)">Mountain Time (US & Canada)</option>
+                                <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
+                              </select>
+                            </div>
+                            <div class="error">{{mentorFormError.time_zone[0]}}</div>
+                          </div>
+                          <div class="col-sm-12">
+                            <label class="O11BU">When do you prefer our members to request calls with you?</label>
+                            <input type="text" name="availability" ng-model="user.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
+                            <div class="error">{{mentorFormError.availability[0]}}</div>
+                          </div>
+                        </div>
+                        <div class="cl">&nbsp;</div>
+                        <div class="OC15BUG pb5 mt10 bdb">Your history</div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <label class="O11BU">What is your linkedin url?</label>
+                            <input type="text" name="linkedin" ng-model="user.linkedin" id="mentorLinkedin" placeholder="Ex: www.linkedin.com/in/johnk" required="">
+                            <div class="error">{{mentorFormError.linkedin[0]}}</div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">Number of years worked</label>
+                            <input type="text" name="yearsOfExperience" ng-model="user.years_of_experience" id="mentorYearsOfExperience" placeholder="Number of years" required="">
+                            <div class="error">{{mentorFormError.years_of_experience[0]}}</div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">Universities you attended</label>
+                            <tags-input ng-model="mentorModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                              <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                            </tags-input>
+                            <div class="error">{{mentorFormError.schools[0]}}</div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">what industries have you worked in?</label>
+                            <tags-input ng-model="mentorModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
+                              <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
+                            </tags-input>
+                            <div class="error">{{mentorFormError.industries[0]}}</div>
+                          </div>
+                          <div class="col-sm-12">
+                            <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
+                            <input type="text" name="skills" ng-model="user.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                            <div class="error">{{mentorFormError.skills[0]}}</div>
+                          </div>
+                        </div>
+                        <div class="cl">&nbsp;</div>
+                        <div class="OC15BUG pb5 mt10 bdb">tell us a little more about yourself</div>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
+                            <label class="chLeft">{{ 280 - user.headline.length }}</label>
+                            <textarea ng-model="user.headline" id="mentorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
+                            <div class="error">{{mentorFormError.headline[0]}}</div>
+                          </div>
+                        </div>
+                        <div class="bottomBtn">
+                            <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="mentorStepForm.$invalid" ng-click="updateMentor()">Continue <span class="iconSp arrow-right"></span></button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="darkBoxRight mt20">
+                    <div class="OC15BUG mb20">Privacy Details</div>
+                    <p class="O12R">Your cell phone will never be dialed. Whenever a call is confirmed, we provide both parties with a third-party number to dial at the call time.</p>
+                    <div class="clAll bdb mb20 mt20"></div>
+                    <p class="O12R">You can always decline a call request if it doesn't fit your time or interest.</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </section>
+
         <section class="applicationMentors" ng-show="historyModel.role == 'Mentor'">
           <div class="container">
             <h2>Application to be a Mentor <span class="OC15BUG">Step 2 of 2</span></h2>
@@ -336,7 +450,102 @@
                       </div>
                       <div class="cl bdb mb10">&nbsp;</div>
                       <div class="bottomBtn mb10">
+                        <a href="" class="btn grd-org btnOrgLg" ng-click="backToPreviousStep('become_mentor')">Go Back</a>
                         <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="darkBoxRight mt20">
+                  <div class="OC15BUG mb20">Privacy Details</div>
+                    <p class="O12R">Your cell phone will never be dialed. Whenever a call is confirmed, we provide both parties with a third-party number to dial at the call time.</p>
+                    <div class="clAll bdb mb20 mt20"></div>
+                    <p class="O12R">You can always decline a call request if it doesn't fit your time or interest.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="applicationMentors" ng-show="historyModel.role == 'update_work_history'">
+          <div class="container">
+            <h2>Application to be a Mentor <span class="OC15BUG">Step 2 of 2</span></h2>
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="callDetail">
+                  <form novalidate role="form" name="historyUpdateForm" ng-submit="updateWorkHistory()">
+                    <div class="formBox mt20">
+                      <div class="OC15BUG pb5 mt10 bdb">What is your current position?</div>
+                      <div ng-repeat="work_history in work_histories | filter:filterWorkHistory">
+                        <div class="row">
+                          <div class="col-sm-12" ng-hide="$index == 0">
+                            <div class="clAll bdb mt20"></div>
+                            <div class="OC15BUG fl">Add a position</div>
+                            <a href="javascript:void(0)" class="cancel fr" ng-click="deleteWorkHistory(work_history.id)"><span class="iconSp close-icon"></span> Cancel</a>
+                            <div class="clAll bdb mt20"></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <label class="O11BU">Position</label>
+                            <input type="text" ng-model="work_history.title" placeholder="Enter your position">
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">Company name</label>
+                            <input type="text" ng-model="work_history.company" maxlength="50" placeholder="Enter your company name">
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">Month started</label>
+                            <div class="dropDown">
+                              <select data-ng-options="t.value as t.text for t in monthList" ng-model="work_history.started_month" required="">
+                                <option value="">Month Started</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="O11BU">Year Started</label>
+                            <input type="text" name="staredPreviousYear" ng-model="work_history.started_year" id="historyStartedPreviousYear" maxlength="4" placeholder="Ex: 2013">
+                          </div>
+                          <div class="col-sm-6" ng-hide="$index == 0">
+                            <label class="O11BU">Month ended</label>
+                            <div class="dropDown">
+                              <select data-ng-options="t.value as t.text for t in monthList" ng-model="work_history.ended_month">
+                                <option value="">Month Ended</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm-6" ng-hide="$index == 0">
+                            <label class="O11BU">Year ended</label>
+                            <input type="text" name="staredEndedYear" ng-model="work_history.ended_year" id="historyEndedPreviousYear" maxlength="4" placeholder="Ex: 2014">
+                          </div>
+                        </div>
+                        <div class="cl">&nbsp;</div>
+                      </div>
+                      <div class="OC15BUG pb5 mt10 mb20 bdb" ng-hide="previousPosition || work_histories.length > 1">what positions have you held previously?</div>
+                      <div class="row">
+                        <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length > 1">
+                        </div>
+                        <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length > 1">
+                            <a href="javascript:void(0)" class="addBtnFull O11BU fr" ng-click="addWorkHistory()"><span class="iconSp plus-icon"></span> add another position</a>
+                        </div>
+                        <div class="col-sm-6" ng-hide="previousPosition" ng-show="(work_histories | filter:filterWorkHistory).length == 1">
+                          <a class="addBtnFull O11BU" href="javascript:void(0)" ng-click="addWorkHistory()" ng-show="(work_histories | filter:filterWorkHistory).length == 1">Add a position <span class="iconSp plus-icon fr"></span></a>
+                        </div>
+                        <div class="col-sm-6" ng-show="(work_histories | filter:filterWorkHistory).length == 1">
+                          <div class="checkBox">
+                            <span class="checkBtn iconSp {{ previousPosition == true ? 'c_on' : '' }}">
+                              <input type="checkbox" name="r1" ng-model="previousPosition" fancy-checkbox>
+                            </span>
+                            I haven’t held any previous positions
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cl bdb mb10">&nbsp;</div>
+                      <div class="bottomBtn mb10">
+                        <a href="" class="btn grd-org btnOrgLg" ng-click="backToPreviousStep('become_mentor')">Go Back</a>
+                        <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyUpdateForm.$invalid" ng-click="updateWorkHistory()">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -385,6 +594,7 @@
                       </div>
                     </div>
                     <div class="bottomBtn">
+                      <a href="" class="btn grd-org btnOrgLg" ng-click="backToPreviousStep('update_work_history')">Go Back</a>
                       <button type="button" class="btn grd-org btnOrgLg fr" ng-disabled="uploadphotoForm.$invalid" ng-click="submitApplication()">Submit Application</button>
                     </div>
                   </form>
@@ -394,7 +604,7 @@
           </div>
         </section>
 
-        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'Mentor' && historyModel.role != 'upload_photo' && user.mentor_status == 'approved'">
+        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'update_work_history' && historyModel.role != 'become_mentor' && historyModel.role != 'Mentor' && historyModel.role != 'upload_photo' && user.mentor_status == 'approved'">
           <div class="container">
             <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span>
               <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro {{ edit_profile && 'i_eye_w' || 'i_edit_w' }}"></span>{{ edit_profile && 'View your profile' || 'Edit your profile' }}</a>
@@ -776,7 +986,6 @@
               </div>
             </div>
           </div>
-
 
           <!-- Edit information detail Modal Box Start -->
           <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
