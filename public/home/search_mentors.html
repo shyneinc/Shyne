@@ -32,8 +32,8 @@
                   <ul class="searchInfo">
                     <li><span class="iconPro i_ribbon"></span>{{mentor.years_of_experience}} years work experience</li>
                     <li><span class="iconPro i_pin"></span>{{mentor.city}}, {{mentor.state}}</li>
-                    <li><span class="iconPro i_case"></span>Previous: {{mentor.previous_companies}}</li>
-                    <li style="display:none;"><span class="iconPro i_star"></span><star-rating-orange star-rating="mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5">{{ mentor.total_reviews }} reviews</span></li>
+                    <li ng-show="mentor.previous_companies"><span class="iconPro i_case"></span>Previous: {{mentor.previous_companies}}</li>
+                    <li ng-hide="true"><span class="iconPro i_star"></span><star-rating-orange star-rating="mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5">{{ mentor.total_reviews }} reviews</span></li>
                   </ul>
                 </div>
                 <div class="col-md-4">
