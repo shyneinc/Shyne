@@ -348,6 +348,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .arrow-right {
+  background-position: -12px -2px;
+  width: 12px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.arrow-left {
   background-position: 0px -2px;
   width: 12px;
   height: 16px;
@@ -3006,8 +3013,11 @@ footer {
 
 @media (max-width: 360px) {
   .btnOrgLg {
-    padding: 10px 28px;
     line-height: 25px;
+    padding: 10px 22px;
+  }
+  .btnBlueLg, .btnRedLg {
+    padding: 10px 22px;
   }
   .whyMentors .commentBox.last {
     padding-bottom: 80px;
