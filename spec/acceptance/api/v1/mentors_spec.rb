@@ -100,6 +100,7 @@ resource 'Mentor' do
     parameter :location, "Location", :required => true, :scope => :mentor
     parameter :skills, "Skills (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
     parameter :industries, "Industries (eg. '{Accounting, Finance}')", :required => true, :scope => :mentor
+    parameter :schools, "Schools (eg. '{Alabama A & M University, Amridge University}')", :required => true, :scope => :mentor
     parameter :years_of_experience, "Years of Experience", :required => true, :scope => :mentor
     parameter :phone_number, "Phone Number", :required => true, :scope => :mentor
     parameter :availability, "Availability", :required => true, :scope => :mentor

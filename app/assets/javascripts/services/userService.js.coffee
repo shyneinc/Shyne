@@ -21,8 +21,11 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
   becomeMentor: (headline, city, state, years_of_experience, phone_number, availability, linkedin, industries, schools, skills) ->
     deferred = $q.defer()
 
-    if !linkedin.match(/^http([s]?):\/\/.*/)
+    if linkedin && !linkedin.match(/^http([s]?):\/\/.*/)
       linkedin = "https://#{linkedin}"
+
+    if phone_number
+      phone_number = "1#{phone_number}"
 
     $http.post('/api/mentors',
       mentor:
@@ -30,7 +33,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         city: city,
         state: state
         years_of_experience: years_of_experience,
-        phone_number: "1#{phone_number}",
+        phone_number: phone_number,
         availability: availability,
         linkedin: linkedin,
         industries: industries.join(", "),

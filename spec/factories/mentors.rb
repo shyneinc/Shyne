@@ -17,9 +17,9 @@ FactoryGirl.define do
     city { Faker::Address.city }
     state { Faker::Address.state_abbr }
     linkedin { "http://www.linkedin.com/in/" + Faker::Lorem.word }
-    skills nil
-    industries nil
-    schools nil
+    skills { Faker::Lorem.word }
+    industries { Faker::Lorem.word }
+    schools { Faker::Lorem.word }
     location nil
     years_of_experience { rand(30) }
     phone_number "15626453725"

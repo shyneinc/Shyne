@@ -1,7 +1,7 @@
 class Mentor < ActiveRecord::Base
   classy_enum_attr :mentor_status, default: :applied
 
-  validates :user, :headline, :city, :state, :years_of_experience, :availability, :phone_number, presence: true
+  validates :user, :headline, :city, :state, :years_of_experience, :availability, :phone_number, :industries, :schools, :skills, presence: true
   validates :years_of_experience, :numericality => {:greater_than_or_equal_to => 0}
   validates :headline, length: {maximum: 280}, allow_blank: false
 #   validates :linkedin, :format => { :with => /(^$)|(^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
