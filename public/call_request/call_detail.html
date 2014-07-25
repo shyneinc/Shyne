@@ -60,7 +60,7 @@
                           <div class="row">
                             <div class="col-md-8">
                               <ul class="dashList listOc16">
-                                <li><span class="tcblue">Requested time:</span> {{ call_request.scheduled_at | amDateFormat: 'dddd, MMMM Do, [AT] hh:mma' }}</li>
+                                <li><span class="tcblue">Requested time:</span> {{ user.role_type == 'Mentor' && call_request.scheduled_date || call_request.scheduled_date_member }}</li>
                                 <li><span class="tcblue">Estimated total:</span> {{ (call_request.mentor.rate_per_minute * call_request.proposed_duration) | currency:"$"}}</li>
                               </ul>
                             </div>
@@ -89,7 +89,7 @@
 
                           <ul class="dashList listOc16">
                             <li ng-show="call_request.status == 'approved_mentor' || call_request.status == 'approved_member'">
-                                This call has been scheduled for {{ call_request.scheduled_at | amDateFormat: 'hh:mma [AT] dddd, Do' }}
+                                This call has been scheduled for {{ user.role_type == 'Mentor' && call_request.scheduled_date_short || call_request.scheduled_date_short_member }}
                             </li>
                           </ul>
                           <div class="bottomBtn">

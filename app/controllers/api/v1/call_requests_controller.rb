@@ -8,7 +8,7 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
                                                                                             {:mentor =>
                                                                                                  {:methods => [:full_name, :rate_per_minute, :phone_number, :avg_call_duration, :get_avg_rating, :previous_companies, :current_position, :current_company, :total_reviews]},
                                                                                              :member => {:methods => [:full_name, :phone_number]}
-                                                                                            }, :methods => [:scheduled_date, :credit_amount, :debit_amount]})
+                                                                                            }, :methods => [:scheduled_date, :scheduled_date_member, :credit_amount, :debit_amount]})
   end
 
   def create
@@ -26,7 +26,7 @@ class Api::V1::CallRequestsController < Api::V1::BaseController
                                                 {:mentor =>
                                                      {:methods => [:full_name, :full_address, :photo_url, :rate_per_minute, :currently_working_at, :previously_worked_at, :avg_call_duration, :get_avg_rating, :previous_companies, :current_position, :current_company, :total_reviews]},
                                                  :member => {:include => :user, :methods => [:full_name, :photo_url]}
-                                                }, :methods => [:scheduled_date, :twilio_number, :credit_amount, :debit_amount, :conversation_id])
+                                                }, :methods => [:scheduled_date, :scheduled_date_member, :twilio_number, :credit_amount, :debit_amount, :conversation_id])
   end
 
   def destroy

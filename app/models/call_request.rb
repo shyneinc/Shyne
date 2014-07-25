@@ -112,7 +112,7 @@ class CallRequest < ActiveRecord::Base
     duration_in_mins = self.billable_duration.to_f/60
     rate_in_cents * duration_in_mins.round
   end
-  
+
   def shyne_commission
     debit_amount * 0.3
   end
@@ -139,8 +139,16 @@ class CallRequest < ActiveRecord::Base
     self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%A, %B #{self.scheduled_at.day.ordinalize}, at %I:%M%p")
   end
 
+  def scheduled_date_member
+    self.scheduled_at.in_time_zone(self.member.user.time_zone).strftime("%A, %B #{self.scheduled_at.day.ordinalize}, at %I:%M%p")
+  end
+
   def scheduled_date_short
     self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%I:%M%p on %A, #{self.scheduled_at.day.ordinalize}")
+  end
+
+  def scheduled_date_short_member
+    self.scheduled_at.in_time_zone(self.member.user.time_zone).strftime("%I:%M%p on %A, #{self.scheduled_at.day.ordinalize}")
   end
 
   def conversation_id

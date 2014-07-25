@@ -18,13 +18,13 @@ class CallRequestMailer < ActionMailer::Base
     @member = call_request.member
     @mentor = call_request.mentor
     @call_request = call_request
-    @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
+    @date = call_request.scheduled_at.in_time_zone(call_request.member.user.time_zone)
     @passcode = call_request.passcode
 
     cal = Ical::Reminder.post({date: @date, passcode: @passcode, guest: @mentor.full_name}, @member.email)
     mail.attachments['event.ics'] = { :mime_type => 'text/calendar', :content => cal }
 
-    mail(to: @member.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date}")
+    mail(to: @member.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date_member}")
   end
 
   def send_approval_email_to_mentor(call_request)
