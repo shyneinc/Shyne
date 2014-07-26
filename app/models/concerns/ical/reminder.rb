@@ -7,10 +7,11 @@ module Ical::Reminder
       cal = Calendar.new
       date = options[:date].to_datetime
       shortdate = date.to_s(:short)
+      tzid = ActiveSupport::TimeZone.find_tzinfo(timezone).name
 
       cal.event do
-        dtstart     date
-        dtend       date
+        dtstart     date, 'tzid' => tzid
+        dtend       date, 'tzid' => tzid
         summary     "Call Scheduled with #{options[:guest]}"
         location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:guest]} at #{shortdate}. Passcode: #{options[:passcode]}"
