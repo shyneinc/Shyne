@@ -1,3 +1,5 @@
+require 'icalendar/tzinfo'
+
 module Ical::Reminder
   extend ActiveSupport::Concern
   include Icalendar
@@ -7,6 +9,10 @@ module Ical::Reminder
       cal = Calendar.new
       date = options[:date].to_datetime
       shortdate = date.to_s(:short)
+      tzid = ActiveSupport::TimeZone.find_tzinfo(options[:timezone]).name
+      tz = TZInfo::Timezone.get(tzid)
+      timezone = tz.ical_timezone(date)
+      cal.add(timezone)
 
       cal.event do
         dtstart     date

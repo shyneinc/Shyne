@@ -135,20 +135,24 @@ class CallRequest < ActiveRecord::Base
     ENV['TWILIO_NUMBER']
   end
 
-  def scheduled_date
-    self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%A, %B #{self.scheduled_at.day.ordinalize}, at %I:%M%p")
+  def scheduled_date #TODO: Change this to scheduled_date_mentor
+    date = self.scheduled_at.in_time_zone(self.mentor.user.time_zone)
+    date.strftime("%A, %B #{date.day.ordinalize}, at %I:%M%p")
   end
 
   def scheduled_date_member
-    self.scheduled_at.in_time_zone(self.member.user.time_zone).strftime("%A, %B #{self.scheduled_at.day.ordinalize}, at %I:%M%p")
+    date = self.scheduled_at.in_time_zone(self.member.user.time_zone)
+    date.strftime("%A, %B #{date.day.ordinalize}, at %I:%M%p")
   end
 
-  def scheduled_date_short
-    self.scheduled_at.in_time_zone(self.mentor.user.time_zone).strftime("%I:%M%p on %A, #{self.scheduled_at.day.ordinalize}")
+  def scheduled_date_short #TODO: Change this to scheduled_date_short_mentor
+    date = self.scheduled_at.in_time_zone(self.mentor.user.time_zone)
+    date.strftime("%I:%M%p on %A, #{date.day.ordinalize}")
   end
 
   def scheduled_date_short_member
-    self.scheduled_at.in_time_zone(self.member.user.time_zone).strftime("%I:%M%p on %A, #{self.scheduled_at.day.ordinalize}")
+    date = self.scheduled_at.in_time_zone(self.member.user.time_zone)
+    date.strftime("%I:%M%p on %A, #{date.day.ordinalize}")
   end
 
   def conversation_id
