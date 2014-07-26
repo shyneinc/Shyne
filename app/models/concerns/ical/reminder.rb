@@ -1,3 +1,5 @@
+require 'icalendar/tzinfo'
+
 module Ical::Reminder
   extend ActiveSupport::Concern
   include Icalendar
