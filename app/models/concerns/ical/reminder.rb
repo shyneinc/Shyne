@@ -15,8 +15,8 @@ module Ical::Reminder
       cal.add(timezone)
 
       cal.event do
-        dtstart     date, 'tzid' => tzid
-        dtend       date, 'tzid' => tzid
+        dtstart     date
+        dtend       date
         summary     "Call Scheduled with #{options[:guest]}"
         location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:guest]} at #{shortdate}. Passcode: #{options[:passcode]}"

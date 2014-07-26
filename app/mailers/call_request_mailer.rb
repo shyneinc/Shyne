@@ -21,7 +21,7 @@ class CallRequestMailer < ActionMailer::Base
     @date = call_request.scheduled_at.in_time_zone(call_request.member.user.time_zone)
     @passcode = call_request.passcode
 
-    cal = Ical::Reminder.post({date: @date, timezone: @member.user.time_zone, passcode: @passcode, guest: @mentor.full_name}, @member.email)
+    cal = Ical::Reminder.post({date: call_request.scheduled_at, timezone: @member.user.time_zone, passcode: @passcode, guest: @mentor.full_name}, @member.email)
     mail.attachments['event.ics'] = { :mime_type => 'text/calendar', :content => cal }
 
     mail(to: @member.email, subject: "Call with #{@mentor.user.first_name} scheduled for #{call_request.scheduled_date_member}")
@@ -34,7 +34,7 @@ class CallRequestMailer < ActionMailer::Base
     @date = call_request.scheduled_at.in_time_zone(call_request.mentor.user.time_zone)
     @passcode = call_request.passcode
 
-    cal = Ical::Reminder.post({date: @date, timezone: @mentor.user.time_zone, passcode: @passcode, guest: @member.full_name}, @mentor.email)
+    cal = Ical::Reminder.post({date: call_request.scheduled_at, timezone: @mentor.user.time_zone, passcode: @passcode, guest: @member.full_name}, @mentor.email)
     mail.attachments['event.ics'] = { :mime_type => 'text/calendar', :content => cal }
 
     mail(to: @mentor.email, subject: "Call with #{@member.user.first_name} scheduled for #{call_request.scheduled_date}")
