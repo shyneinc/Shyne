@@ -8,6 +8,9 @@ module Ical::Reminder
       date = options[:date].to_datetime
       shortdate = date.to_s(:short)
       tzid = ActiveSupport::TimeZone.find_tzinfo(options[:timezone]).name
+      tz = TZInfo::Timezone.get tzid
+      timezone = tz.ical_timezone date
+      cal.add_timezone timezone
 
       cal.event do
         dtstart     date, 'tzid' => tzid
