@@ -7,7 +7,6 @@ module Ical::Reminder
   def self.post(options = {}, email)
     if !options.empty? && email != nil
       cal = Calendar.new
-      utc_date = options[:utc_date]
       date = options[:date].to_datetime
       shortdate = date.to_s(:short)
       tzid = ActiveSupport::TimeZone.find_tzinfo(options[:timezone]).name
@@ -16,8 +15,8 @@ module Ical::Reminder
       cal.add(timezone)
 
       cal.event do
-        dtstart     utc_date, 'tzid' => 'UTC'
-        dtend       utc_date, 'tzid' => 'UTC'
+        dtstart     date
+        dtend       date
         summary     "Call Scheduled with #{options[:guest]}"
         location    "#{Phony.normalize(ENV['TWILIO_NUMBER']).phony_formatted(:normalize => :US, :format => :international, :spaces => '-')}, Passcode:#{options[:passcode]}"
         description "Shyne: you have a scheduled call with #{options[:guest]} at #{shortdate}. Passcode: #{options[:passcode]}"

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rspec_api_documentation/dsl'
 
 describe "ReminderSpec" do
-  let(:call) { Ical::Reminder.post({passcode: "12345", date: DateTime.now + 2.days, utc_date: DateTime.now.utc + 2.days, timezone: "America/Chicago", guest: "John Doe"}, "test@email.com") }
+  let(:call) { Ical::Reminder.post({passcode: "12345", date: DateTime.now + 2.days, timezone: "America/Chicago", guest: "John Doe"}, "test@email.com") }
   describe "#post" do
     it "returns an object" do
       expect(call).to_not eql nil
