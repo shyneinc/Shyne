@@ -7,7 +7,7 @@
     </div>
     <section ng-show="userProfile" class="profile">
       <div class="container">
-        <h2>{{ userProfile.first_name }} {{ userProfile.last_name }} <span class="OC15BUG">{{ userProfile.current_position }} at <span class="tcOrg">{{ userProfile.current_company }}</span></span></h2>
+        <h2>{{ userProfile.first_name }} {{ userProfile.last_name }} <span class="OC15BUG" ng-show="userProfile.current_position">{{ userProfile.current_position }} at <span class="tcOrg">{{ userProfile.current_company }}</span></span></h2>
       </div>
       <div class="profileBox">
         <div class="container">
