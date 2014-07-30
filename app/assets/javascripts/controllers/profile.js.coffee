@@ -188,12 +188,15 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.welcomeModel.role = null
 
   $scope.becomeMember = () ->
+    $scope.loading = true
     User.becomeMember($scope.memberModel.phoneNumber, $scope.memberModel.industries, $scope.memberModel.timeZone, $scope.memberModel.city, $scope.memberModel.state).then((data)->
      $scope.user.time_zone = $scope.memberModel.timeZone
      angular.extend($scope.user, data)
      User.updateUser($scope.user)
      $scope.refresh(true)
+     $scope.loading = false
     , (data) ->
+      $scope.loading = false
       $scope.memberFormError = data
     )
 
@@ -214,18 +217,18 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     ).then((data) ->
       $scope.phoneNumber = $scope.mentorModel.phoneNumber
       $scope.linkedin = $scope.mentorModel.linkedin
-      Session.getCurrentUser(true).then((user)->
-        $scope.user = user
-        User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          angular.extend(user, mentorInfo)
-          $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-          $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
+      $scope.user.time_zone = $scope.mentorModel.timeZone
+      User.updateUser($scope.user).then(()->
+        Session.getCurrentUser(true).then((user)->
+          $scope.user = user
+          User.getMentorInfo(user.role_id).then((mentorInfo) ->
+            angular.extend(user, mentorInfo)
+            $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
+            $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
+          )
         )
       )
       $scope.historyModel.role = 'Mentor'
-      $scope.user.time_zone = $scope.mentorModel.timeZone
-      $scope.time_zone = $scope.mentorModel.timeZone
-      User.updateUser($scope.user)
       $scope.loading = false
     , (data) ->
       $scope.loading = false
@@ -238,16 +241,14 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.user.schools = $scope.mentorModel.schools
     $scope.phoneNumber = $scope.mentorModel.phoneNumber
     $scope.linkedin = $scope.mentorModel.linkedin
-    $scope.time_zone = $scope.user.time_zone
     User.updateMentor($scope.user).then(() ->
       User.updateUser($scope.user).then(() ->
         Session.getCurrentUser(true).then((user)->
           $scope.user = user
-          User.getMentorInfo(user.role_id).then((mentorInfo) ->
-            angular.extend(user, mentorInfo)
+          User.getMentorInfo($scope.user.role_id).then((mentorInfo) ->
+            angular.extend($scope.user, mentorInfo)
             $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
             $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
-            $scope.user.time_zone = $scope.mentorModel.timeZone
             Workhistory.getWorkHistories($scope.user.role_id).then((workHistoriesInfo) ->
               $scope.work_histories = workHistoriesInfo
               $scope.previousPosition = true if $scope.work_histories.length == 1
@@ -255,7 +256,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
                 $scope.historyModel.role = 'Mentor'
               else
                 $scope.historyModel.role = 'update_work_history'
-
               $scope.loading = false
             )
           )
@@ -717,7 +717,6 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     if previous_page == 'become_mentor'
       $scope.user.phone_number = $scope.phoneNumber
       $scope.user.linkedin = $scope.linkedin
-      $scope.user.time_zone = $scope.time_zone
 
     $scope.historyModel.role = previous_page
 
