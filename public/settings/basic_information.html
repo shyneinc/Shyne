@@ -21,9 +21,8 @@
           <div class="col-sm-6">
             <label class="O11BU">State</label>
             <div class="dropDown">
-              <select ng-model="user.state">
+              <select data-ng-options="t.value as t.text for t in stateList" ng-model="user.state" required="">
                 <option value="">Select State</option>
-                <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
               </select>
             </div>
             <div class="error">{{memberFormError.state[0]}}</div>

@@ -77,9 +77,8 @@
                                       <div class="col-sm-6">
                                         <label for="mentorState" class="O11BU">State</label>
                                         <div class="dropDown">
-                                          <select class="" ng-model="memberModel.state">
+                                          <select data-ng-options="t.value as t.text for t in stateList" ng-model="memberModel.state" required="">
                                             <option value="">Select State</option>
-                                            <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                           </select>
                                         </div>
                                         <div class="error">{{memberFormError.state[0]}}</div>
@@ -143,9 +142,8 @@
                                         <div class="col-sm-6">
                                           <label for="mentorState" class="O11BU">State</label>
                                           <div class="dropDown">
-                                            <select class="" ng-model="mentorModel.state">
+                                            <select data-ng-options="t.value as t.text for t in stateList" ng-model="mentorModel.state" required="">
                                               <option value="">Select State</option>
-                                              <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                             </select>
                                           </div>
                                           <div class="error">{{mentorFormError.state[0]}}</div>
@@ -262,9 +260,8 @@
                           <div class="col-sm-6">
                             <label for="mentorState" class="O11BU">State</label>
                             <div class="dropDown">
-                              <select class="" ng-model="user.state">
+                              <select data-ng-options="t.value as t.text for t in stateList" ng-model="user.state" required="">
                                 <option value="">Select State</option>
-                                <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                               </select>
                             </div>
                             <div class="error">{{mentorFormError.state[0]}}</div>
@@ -783,9 +780,8 @@
                             <div class="col-sm-6">
                               <label class="O11BU">state</label>
                               <div class="dropDown">
-                                <select class="" ng-model="user.state" required="">
+                                <select data-ng-options="t.value as t.text for t in stateList" ng-model="user.state" required="">
                                   <option value="">Select State</option>
-                                  <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                 </select>
                               </div>
                               <div class="error">{{mentorModalFormError.state[0]}}</div>
@@ -1020,9 +1016,8 @@
                             <div class="col-sm-6">
                               <label class="O11BU">state</label>
                               <div class="dropDown">
-                                <select class="" ng-model="user.state" required="">
+                                <select data-ng-options="t.value as t.text for t in stateList" ng-model="user.state" required="">
                                   <option value="">Select State</option>
-                                  <option value="{{o}}" data-ng-repeat="o in state_list">{{o}}</option>
                                 </select>
                               </div>
                               <div class="error">{{memberModelFormError.state[0]}}</div>
