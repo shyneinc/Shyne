@@ -34,7 +34,7 @@
             <td width="22%" align="left" valign="top">
               <div style=" border:1px solid #b1c7cc; width:75px; height:75px; padding:5px;">
                 <% if @member.user.avatar.present? %>
-                  <img alt="" style="width:100%;" src="<%= @member.user.avatar.url %>">
+                  <img alt="" style="width:100%;" src="<%= "#{ActionMailer::Base.default_url_options[:host]}#{@member.user.avatar.url}" %>">
                 <% else %>
                   <img alt="" style="width:100%;" src="<%= "#{root_url}assets/no_image.png" %>">
                 <% end %>
