@@ -12,7 +12,7 @@
           <tr>
             <td width="5%" valign="top" style="padding:4px 14px 14px 0px;">
               <% if @member.user.avatar.present? %>
-                <img style="border-radius: 110px;" width="54" height="54" src="<%= "#{ActionMailer::Base.default_url_options[:host]}#{@member.user.avatar.url}" %>" />
+                <img style="border-radius: 110px;" width="54" height="54" src="<%= @member.user.avatar.url %>" />
               <% else %>
                 <img style="border-radius: 110px;" width="54" height="54" src="<%= "#{root_url}assets/no_image.png" %>" />
               <% end %>
