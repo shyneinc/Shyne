@@ -13,6 +13,8 @@
 #= require angular-resource
 #= require angular-blocks
 #= require angular-sanitize
+#= require angulartics.min
+#= require angulartics-ga.min
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services
