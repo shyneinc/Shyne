@@ -1,6 +1,51 @@
 {
   "resources": [
     {
+      "name": "Advisor",
+      "examples": [
+        {
+          "description": "Creating an advisor",
+          "link": "advisor/creating_an_advisor.json",
+          "groups": "all"
+        },
+        {
+          "description": "Deleting an advisor",
+          "link": "advisor/deleting_an_advisor.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting a specific advisor",
+          "link": "advisor/getting_a_specific_advisor.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting all approved advisors",
+          "link": "advisor/getting_all_approved_advisors.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting approved & featured advisors",
+          "link": "advisor/getting_approved__featured_advisors.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting approved advisors with specific industry expertise",
+          "link": "advisor/getting_approved_advisors_with_specific_industry_expertise.json",
+          "groups": "all"
+        },
+        {
+          "description": "Getting approved advisors with specific skill",
+          "link": "advisor/getting_approved_advisors_with_specific_skill.json",
+          "groups": "all"
+        },
+        {
+          "description": "Updating an advisor",
+          "link": "advisor/updating_an_advisor.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
       "name": "BankAccount",
       "examples": [
         {
@@ -161,46 +206,6 @@
       ]
     },
     {
-      "name": "Mentor",
-      "examples": [
-        {
-          "description": "Creating a mentor",
-          "link": "mentor/creating_a_mentor.json",
-          "groups": "all"
-        },
-        {
-          "description": "Deleting a mentor",
-          "link": "mentor/deleting_a_mentor.json",
-          "groups": "all"
-        },
-        {
-          "description": "Getting a specific mentor",
-          "link": "mentor/getting_a_specific_mentor.json",
-          "groups": "all"
-        },
-        {
-          "description": "Getting all approved mentors",
-          "link": "mentor/getting_all_approved_mentors.json",
-          "groups": "all"
-        },
-        {
-          "description": "Getting approved & featured mentors",
-          "link": "mentor/getting_approved__featured_mentors.json",
-          "groups": "all"
-        },
-        {
-          "description": "Getting approved mentors with specific experties",
-          "link": "mentor/getting_approved_mentors_with_specific_experties.json",
-          "groups": "all"
-        },
-        {
-          "description": "Updating a mentor",
-          "link": "mentor/updating_a_mentor.json",
-          "groups": "all"
-        }
-      ]
-    },
-    {
       "name": "Password",
       "examples": [
         {
@@ -229,13 +234,23 @@
           "groups": "all"
         },
         {
-          "description": "Getting all mentor reviews",
-          "link": "review/getting_all_mentor_reviews.json",
+          "description": "Getting all advisor reviews",
+          "link": "review/getting_all_advisor_reviews.json",
           "groups": "all"
         },
         {
           "description": "Update a review",
           "link": "review/update_a_review.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "School",
+      "examples": [
+        {
+          "description": "Show available schools",
+          "link": "school/show_available_schools.json",
           "groups": "all"
         }
       ]
@@ -289,23 +304,23 @@
       "name": "WorkHistory",
       "examples": [
         {
-          "description": "Creating mentor's work history",
-          "link": "workhistory/creating_mentors_work_history.json",
+          "description": "Creating advisor's work history",
+          "link": "workhistory/creating_advisors_work_history.json",
           "groups": "all"
         },
         {
-          "description": "Deleting mentor's work history",
-          "link": "workhistory/deleting_mentors_work_history.json",
+          "description": "Deleting advisor's work history",
+          "link": "workhistory/deleting_advisors_work_history.json",
           "groups": "all"
         },
         {
-          "description": "Getting mentor's work history",
-          "link": "workhistory/getting_mentors_work_history.json",
+          "description": "Getting advisor's work history",
+          "link": "workhistory/getting_advisors_work_history.json",
           "groups": "all"
         },
         {
-          "description": "Updating mentor's work history",
-          "link": "workhistory/updating_mentors_work_history.json",
+          "description": "Updating advisor's work history",
+          "link": "workhistory/updating_advisors_work_history.json",
           "groups": "all"
         }
       ]

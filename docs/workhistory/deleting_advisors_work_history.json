@@ -1,0 +1,41 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "DELETE",
+  "route": "/api/advisors/:advisor_id/work_histories/:id",
+  "description": "Deleting advisor's work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "advisor_id",
+      "description": "Advisor ID"
+    },
+    {
+      "required": true,
+      "name": "id",
+      "description": "Work History ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/api/advisors/269/work_histories/39",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=L3FCWWZKV050SnBFSmI2b25wckdWTzQ2bS9xRDkwVktzS1RnV29aUWlqU2I5ZEYrUk0wc0JROUpIL3cxWTVQekNiditWM3VvMTk2YW9Sb3R4dXhHTFlpMzlkNlVWcTNBcVdCTC9mMHRCNnBzUkRrdDVLallta1kwckR5akxQOUZXcFgxMXZKbEZleHlnM1VGUWVVdm5KYWdScDlyMGd3MGpnNyt0ejZobXB3PS0tZEt6V0JCN1A2cEV6K09Wd2g2b2hmdz09--0c509be7388414faaeea56c29648e23e7d7802e8; path=/; HttpOnly","X-Request-Id":"d87cbc75-4fb4-450c-a244-8f0732d9e0b9","X-Runtime":"0.023718"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

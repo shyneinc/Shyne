@@ -16,7 +16,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/members",
-      "request_body": "member[phone_number]=15626453725",
+      "request_body": "member[phone_number]=15626453725&member[industries]=harum&member[city]&member[state]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -29,7 +29,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=MVhkTnFQc2tXNnF4YjE1c01ITjYxRjFSVFZaSXNLUlZFNVFNYVFxSCtCaFgvOURFZHFpbGI0RlFNZmNWRjU5bm9JWm1MRHZRRFFPZjJSSXRIeTJNZWRpOHNzS0d6a0VlU1FrdS9DZjFGQ1pNQU5hdlh6WUE0Wm45cmJ3aVhVN3RKcmUvOWZvbmF5eVIxVElHcFhjcWlzNjdUK1dOTFFPSXkrc3dVekdMQlA0PS0tZlc4WmJTOC9nM2plZE1TTWhtUVRjQT09--596197dd72d69ab098cf30b4569ca9e9abd304f2; path=/; HttpOnly","X-Request-Id":"372695f6-f18c-4c69-a9fb-31a80df4c6aa","X-Runtime":"0.216320"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=SlF4ZVMwSi9oOVdRWkhEMXh4dGsyS2Znb0VtL2x5eU80a3pOb0VTSHJWak9ITFFyTEZJZTdzZFJKQU12UW5Ma3hkU1ZaeUkyOER2OVlvM2pTdllrMjlxZ2VmaUhSRVhMWVNUZkZmQzZrYVlwSHRoMjcwZnRiZVhTWEg4UmFZakQ1cGlMQVN1NGtnQTU3eXdpT1ltUDdXWTNwem9Pc0hITXk2M1JkZ0NpRGRrPS0tSFdBemE5ZjNwRWtlS3dxb1F5ZGo1Zz09--64b0118855e4ed08f35ac37bc4dbff9c36412dc1; path=/; HttpOnly","X-Request-Id":"73698038-4a1a-4a80-947a-217b584ff600","X-Runtime":"0.106437"},
       "response_content_type": null,
       "curl": null
 }

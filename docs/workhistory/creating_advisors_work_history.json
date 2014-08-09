@@ -1,0 +1,66 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "POST",
+  "route": "/api/advisors/:advisor_id/work_histories",
+  "description": "Creating advisor's work history",
+  "explanation": "Once the user is registered as advisor and logged in, they can add their work history",
+  "parameters": [
+    {
+      "required": true,
+      "name": "advisor_id",
+      "description": "Advisor ID"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "company",
+      "description": "Company"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "title",
+      "description": "Job Title"
+    },
+    {
+      "required": true,
+      "scope": "work",
+      "name": "date_started",
+      "description": "Date Started"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "date_ended",
+      "description": "Date Ended"
+    },
+    {
+      "required": false,
+      "scope": "work",
+      "name": "current_work",
+      "description": "Current Work?"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/advisors/270/work_histories",
+      "request_body": "work_history[company]=Casper-Nikolaus&work_history[title]=Product+Communications+Assistant&work_history[date_started]=September+2013&work_history[date_ended]=2014-02-17&work_history[current_work]=false&work_history[advisor_id]=270",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"id\":40,\"company\":\"Casper-Nikolaus\",\"date_started\":\"September 2013\",\"date_ended\":\"2014-02-17\",\"current_work\":false,\"advisor_id\":270,\"created_at\":\"2014-08-09T13:12:32.711-05:00\",\"updated_at\":\"2014-08-09T13:12:32.711-05:00\",\"title\":\"Product Communications Assistant\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/advisors/270/work_histories.40","Content-Type":"application/json; charset=utf-8","ETag":"\"eea8fc05bc2d603173673c04f26cfb40\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=b3lYUGJubEUvWXVnc2VJelJWNTFDbTJ3RlUzZ2dPME56eDV3dVRiUFh2WkJvVWh3MnV6MWUrRXBneWhjNmtEQndXQkQ5V2tFam9raW0xUlBhTWJFaEhwS3h4b2VEWUVleTBwVWFYZEJDUDZmUnJRV2xVQWJPTzNtR2MzMGhORHpNWnJRL09RdXN6MHhNMlk4eGJWa2xObDFKalBhbDBRaHF2NUpFcC9ycnZBPS0tNHQxOURlNk4rVGlWcFVIM2FHS1lNZz09--369c0878691d16160bd615f7662ab8c7229accce; path=/; HttpOnly","X-Request-Id":"98f1e2fd-a819-4e9b-b54f-9ad5d576ab27","X-Runtime":"0.126789","Content-Length":"266"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

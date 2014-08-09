@@ -22,7 +22,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/sessions",
-      "request_body": "user[email]=user30_1386904367%40shyne.io&user[password]=password",
+      "request_body": "user[email]=user15_1407607881%40shyne.io&user[password]=password",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -34,8 +34,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":322,\"email\":\"user30_1386904367@shyne.io\",\"created_at\":\"2013-12-12T20:12:47.892-07:00\",\"updated_at\":\"2013-12-12T20:12:48.700-07:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Allan\",\"last_name\":\"Kulas\",\"avatar\":{\"url\":\"/uploads/user/avatar/322/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/322/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/322/thumb_spongebob.jpeg\"}},\"username\":\"allankulas\",\"time_zone\":\"Central Time (US \\u0026 Canada)\",\"customer_uri\":null}}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"b4c986bffbf060aa83ba0842471c4f77\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=anN0bjJrQndVRlVPLzVDUEpPQUdCYXkvVHFaQjl5MjlxVEIrMklHYnFCRlowN3lwSGpHYXM5dVd2RkNKUXFLdWZ4Tnp1aVFqUkpUcEV5Nk54cERjaFdscEpoVmJNZk1SRUdWcm1CYWZxSzJFQjJTUFZLU0wrcHVxVDIzRFcyR1hScURiWkhPaGVITWxFM28xV2tSQll6V1V1alBhNlVoNXA4SkRMeFRSM1ZMWHEvbksrY2U2bDZid0dLUEQ5WHQ5LS1nQXhjME5IVFIrQUlNU0xGeWRWQ2h3PT0%3D--836a85d2724c317c5841a6c2a9f110feb5c0c65b; path=/; HttpOnly","X-Request-Id":"d184ef19-3a1f-497c-9f9f-fabf8fc5bcf5","X-Runtime":"1.331335","Content-Length":"517"},
+      "response_body": "{\"info\":\"Logged in\",\"user\":{\"id\":532,\"email\":\"user15_1407607881@shyne.io\",\"created_at\":\"2014-08-09T14:11:21.530-04:00\",\"updated_at\":\"2014-08-09T14:11:21.631-04:00\",\"role_id\":null,\"role_type\":null,\"first_name\":\"Lucius\",\"last_name\":\"Hand\",\"avatar\":{\"url\":\"/uploads/user/avatar/532/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/532/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/532/thumb_spongebob.jpeg\"}},\"username\":\"luciushand\",\"time_zone\":\"Arizona\",\"customer_uri\":null,\"deleted_at\":null}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"5e42dfee17e6e18a7925aebb7f819eda\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=eTFRdVhKSHJYa2twTTZYeEc1S0U3YkFGa3hDeWg2blFQdzE2cFVXTENjRWs1ZDNRVUNqcllhSEJXTnlZMUN1Y3NldUJnU1RKWmhSZnhndkhQbC9Db09HelcyaWFKS2x2eTZ3THg5THVPdGo4OGZ4MGZBdUlua09pSkU2c3VQVE5LZ2tyWUVRZ0I5VjB0VE9QRXg4SnVmamljNS82K2d0NzFhb1dxU0IrR1ltcndzTSsveFdvNnV1dmlXemJXQ1JLLS16anhEalRuRkZTVFhzWVprQVFmN2ZRPT0%3D--05e61db14d930d659e0da506cc48fe20303c5d77; path=/; HttpOnly","X-Request-Id":"05391138-3c9a-476a-82fd-1c4ae55bf4fb","X-Runtime":"0.050540","Content-Length":"511"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

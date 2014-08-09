@@ -8,27 +8,39 @@
     {
       "required": true,
       "scope": "call_request",
+      "name": "agenda",
+      "description": "Agenda/Focus of the Call"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
       "name": "member_id",
       "description": "Member ID"
     },
     {
       "required": true,
       "scope": "call_request",
-      "name": "mentor_id",
-      "description": "Mentor ID"
+      "name": "advisor_id",
+      "description": "Advisor ID"
     },
     {
       "required": true,
       "scope": "call_request",
       "name": "scheduled_at",
       "description": "Scheduled At"
+    },
+    {
+      "required": true,
+      "scope": "call_request",
+      "name": "proposed_duration",
+      "description": "Proposed duration time"
     }
   ],
   "requests": [
     {
       "request_method": "POST",
       "request_path": "/api/call_requests",
-      "request_body": "call_request[status]=proposed&call_request[scheduled_at]=2013-12-30+12%3A28%3A15&call_request[billable_duration]&call_request[member_id]=115&call_request[mentor_id]=59",
+      "request_body": "call_request[agenda]=Minima+fuga+quia+dolorum+aut+tenetur+non+non+qui+omnis+incidunt+consequuntur+facilis+alias+assumenda.&call_request[status]=proposed&call_request[scheduled_at]=2014-09-01+03%3A09%3A04&call_request[billable_duration]&call_request[proposed_duration]=30&call_request[member_id]=231&call_request[advisor_id]=267",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -40,8 +52,8 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"id\":2,\"member_id\":115,\"mentor_id\":59,\"passcode\":90634,\"status\":\"proposed\",\"scheduled_at\":\"2013-12-30T12:28:15.000-07:00\",\"created_at\":\"2013-12-12T20:11:48.692-07:00\",\"updated_at\":\"2013-12-12T20:11:48.692-07:00\",\"billable_duration\":null}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/call_requests/2","Content-Type":"application/json; charset=utf-8","ETag":"\"018155aeba20de8bf6d70bdbf88326ff\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=UDdHNXl6RjA5bTRmanZZVUIzL0FabEV6aVVCN09ib3FLeWdPTWl2c3YxcDlqVUZhMFh0QzFwZmozUmZ4S0JMM0dnT1YzYkFVNzhCNVhIL2JWN01uVmhwcjU2Qk03NjE3Z2FuanpDV1diNjFTOUNUeU95cjRLVnRjalhNZkRpTjBVSjJhU3lHSDd6SCs4Tm9nNHdhQnJNaFNyaE1SZUZvRmZyMzJIZit6RUZBPS0tSjZKQUd1OTc3THdITUlyOXo4NExYZz09--7408410ae87d4801885dfb56fd9f7d10152f5db8; path=/; HttpOnly","X-Request-Id":"3125cf0c-f763-44d2-9b67-e98b2835c3d3","X-Runtime":"0.204704","Content-Length":"238"},
+      "response_body": "{\"id\":130,\"member_id\":231,\"advisor_id\":267,\"passcode\":63191,\"status\":\"proposed\",\"scheduled_at\":\"2014-09-01T03:09:04.000-04:00\",\"created_at\":\"2014-08-09T14:12:26.989-04:00\",\"updated_at\":\"2014-08-09T14:12:26.989-04:00\",\"billable_duration\":null,\"agenda\":\"Minima fuga quia dolorum aut tenetur non non qui omnis incidunt consequuntur facilis alias assumenda.\",\"proposed_duration\":30}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Location":"http://example.org/api/call_requests/130","Content-Type":"application/json; charset=utf-8","ETag":"\"8c78666e53d5cd3d131d6bb465d79e80\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=NFI1V0JFTjF3NVR0WDdkNk9yUDl5MnZkUkg1SXZXVEZhOStodFV5RC91dXJzazllT0ViS1pPSWFEYllyYnJFM3JQUkhYWXo4eXNxMWRqUnc5bDUrdkpTd1dwNjhPaDlIdCs2ZXg0dldVNlhPZld1OXFPakJocjFIVlhCVlhnK21TZmFnTC93SmFyNCszeEJ6ajVra0ZiR1lxc0pqVWwwa2pYbFNIZGpacVc0PS0tNENkYjYrM2Z2T1dPZ1MwVUJpR01XUT09--25e276bebd46ff77f6e7642f521b222ec986a9d3; path=/; HttpOnly","X-Request-Id":"6ef42343-b880-4896-8a0a-a45bf5823e2c","X-Runtime":"4.323208","Content-Length":"378"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }
