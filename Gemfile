@@ -27,6 +27,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'raddocs'
 gem 'kaminari'
 gem 'active_model_serializers'
+gem 'dalli'
 
 gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'
