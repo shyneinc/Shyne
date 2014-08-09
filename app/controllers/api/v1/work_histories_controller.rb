@@ -43,7 +43,7 @@ class Api::V1::WorkHistoriesController < Api::V1::BaseController
 
   def check_type
     if current_user.role_type != 'Advisor'
-      render :json => {:error => 'User is not a advisor'}, :status => 401
+      render :json => {:error => 'User is not an advisor'}, :status => 401
     end
   end
 end

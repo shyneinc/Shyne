@@ -64,8 +64,8 @@ resource 'Advisor' do
     parameter :availability, "Availability", :required => true, :scope => :advisor
     parameter :linkedin, "LinkedIn url", :required => false, :scope => :advisor
 
-    example "Creating a advisor" do
-      explanation "Once the user is registered and logged in, create a advisor profile"
+    example "Creating an advisor" do
+      explanation "Once the user is registered and logged in, create an advisor profile"
       advisor = attributes_for(:advisor, :featured => nil).except(:id)
       do_request(advisor: advisor)
 
@@ -106,7 +106,7 @@ resource 'Advisor' do
     parameter :availability, "Availability", :required => true, :scope => :advisor
     parameter :linkedin, "LinkedIn url", :required => false, :scope => :advisor
 
-    example "Updating a advisor" do
+    example "Updating an advisor" do
       explanation "Update current user's advisor profile"
       advisor = attributes_for(:advisor, :featured => nil).except(:id)
 
@@ -124,7 +124,7 @@ resource 'Advisor' do
       login_as user, scope: :user
     end
 
-    example_request "Deleting a advisor" do
+    example_request "Deleting an advisor" do
       explanation "Delete current user's advisor profile"
 
       expect(status).to eq 204

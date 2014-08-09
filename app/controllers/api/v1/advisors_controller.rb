@@ -47,7 +47,7 @@ class Api::V1::AdvisorsController < Api::V1::BaseController
         render :json => {:errors => @advisor.errors}, :status => 401
       end
     else
-      render :json => {:error => 'User is not a advisor'}, :status => 401
+      render :json => {:error => 'User is not an advisor'}, :status => 401
     end
   end
 
@@ -58,7 +58,7 @@ class Api::V1::AdvisorsController < Api::V1::BaseController
       @advisor.user.save
       respond_with :api, @advisor.destroy
     else
-      render :json => {:error => 'User is not a advisor'}, :status => 401
+      render :json => {:error => 'User is not an advisor'}, :status => 401
     end
   end
 

@@ -38,13 +38,13 @@ describe Advisor do
 
   describe "Public class methods" do
     context "#full_name" do
-      it "returns a advisor's full name as a string" do
+      it "returns an advisor's full name as a string" do
         expect(advisor.full_name).to eq "#{advisor.user.first_name} #{advisor.user.last_name}"
       end
     end
 
     context "#email" do
-      it "returns a advisor's email as a string" do
+      it "returns an advisor's email as a string" do
         expect(advisor.email).to eq "#{advisor.user.email}"
       end
     end
