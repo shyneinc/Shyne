@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809010357) do
+ActiveRecord::Schema.define(version: 20140809011749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140809010357) do
     t.datetime "status_changed_at"
     t.boolean  "featured"
     t.string   "linkedin"
-    t.string   "mentor_status"
+    t.string   "advisor_status"
     t.string   "location"
     t.decimal  "avg_call_duration"
     t.decimal  "avg_rating"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20140809010357) do
 
   create_table "call_requests", force: true do |t|
     t.integer  "member_id"
-    t.integer  "mentor_id"
+    t.integer  "advisor_id"
     t.integer  "passcode"
     t.string   "status"
     t.datetime "scheduled_at"
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 20140809010357) do
     t.integer  "proposed_duration"
   end
 
+  add_index "call_requests", ["advisor_id"], name: "index_call_requests_on_advisor_id", using: :btree
   add_index "call_requests", ["member_id"], name: "index_call_requests_on_member_id", using: :btree
-  add_index "call_requests", ["mentor_id"], name: "index_call_requests_on_mentor_id", using: :btree
 
   create_table "calls", force: true do |t|
     t.integer  "call_request_id"
@@ -203,16 +203,16 @@ ActiveRecord::Schema.define(version: 20140809010357) do
   create_table "reviews", force: true do |t|
     t.text     "review"
     t.decimal  "rating"
-    t.integer  "mentor_id"
+    t.integer  "advisor_id"
     t.integer  "member_id"
     t.integer  "call_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "reviews", ["advisor_id"], name: "index_reviews_on_advisor_id", using: :btree
   add_index "reviews", ["call_id"], name: "index_reviews_on_call_id", using: :btree
   add_index "reviews", ["member_id"], name: "index_reviews_on_member_id", using: :btree
-  add_index "reviews", ["mentor_id"], name: "index_reviews_on_mentor_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string "name"
@@ -257,7 +257,7 @@ ActiveRecord::Schema.define(version: 20140809010357) do
     t.string   "date_started"
     t.string   "date_ended"
     t.boolean  "current_work"
-    t.integer  "mentor_id"
+    t.integer  "advisor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"

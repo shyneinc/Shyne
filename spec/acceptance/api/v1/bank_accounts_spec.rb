@@ -5,7 +5,7 @@ include Warden::Test::Helpers
 resource 'BankAccount' do
   header "Accept", "application/vnd.shyne.v1"
 
-  let(:user) { create(:mentor_user) }
+  let(:user) { create(:advisor_user) }
 
   before do
     login_as user, scope: :user
@@ -31,7 +31,7 @@ resource 'BankAccount' do
     parameter :type, "Checking/Savings", :required => true, :scope => :bank_account
 
     example "Add a bank account" do
-      explanation "Add a bank account on file for the currently logged-in mentor"
+      explanation "Add a bank account on file for the currently logged-in advisor"
       do_request(bank_account: @test_ba)
 
       #TODO: Test response

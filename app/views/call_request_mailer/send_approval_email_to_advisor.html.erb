@@ -15,14 +15,14 @@
 
 </head>
 <body style="background:#e6eff2; padding:50px 0; margin:0;">
-  <div style=" width:630px; margin:0px auto;">
+<div style=" width:630px; margin:0px auto;">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr>
         <td>
           <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#00637c url(<%= "#{root_url}assets/email/e_header_bg.png" %>) left top repeat-x; padding:15px 48px 10px 48px; border:1px solid #103140; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; border-radius: 4px 4px 0px 0px;">
             <tr>
               <td width="28%"><img alt="" src="<%= "#{root_url}assets/logo.png" %>"></td>
-              <td width="72%" style="font-family: 'Open Sans Condensed', sans-serif; font-size:16px; font-weight:700; color:#fff; text-transform:uppercase;">Call with <%= @mentor.user.first_name %> was declined</td>
+              <td width="72%" style="font-family: 'Open Sans Condensed', sans-serif; font-size:16px; font-weight:700; color:#fff; text-transform:uppercase;">Call with <%= @member.user.first_name %> scheduled for <%= @call_request.scheduled_date %></td>
             </tr>
           </table>
         </td>
@@ -31,15 +31,22 @@
         <td>
           <table border="0" cellpadding="0" cellspacing="0" width="100%" style=" background:#fff; padding:32px 49px 15px 49px; border:1px solid #b1c7cc; -webkit-border-radius: 0px 0px 4px 4px; -moz-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px;">
             <tr>
-              <td width="100%" align="left" valign="top" colspan="2" style="font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:600; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">Hey <%= @member.user.first_name %>,</td>
+              <td width="100%" align="left" valign="top" colspan="2" style="font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:600; color:#474b4c; line-height:21px; padding:0px 0px 10px 0px;">Hey <%= @advisor.user.first_name %>,</td>
             </tr>
             <tr>
               <td width="100%" align="left" valign="top" colspan="2">
+
               </td>
             </tr>
             <tr>
               <td width="100%" align="left" valign="top" colspan="2">
-                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">It looks like <%= @mentor.user.first_name %> is a bit too busy to answer calls right now. We truly apologize for the inconvenience, but hope you can find someone else on our site that fits your needs.</p>
+                <p style=" padding:0px; margin:0px; text-transform:uppercase; font-family: 'Open Sans', sans-serif; font-size:11px; font-weight:700; color:#474b4c; line-height:21px;">Your call with <%= @member.user.first_name %> has been set for <%= @call_request.scheduled_date_short %></p>
+                <ul style="list-style-type:none;padding:0px 0px 25px 25px; margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px;">
+                  <li style="padding:10px 0px 10px 0px;font-weight:700;">1. Here’s how to enter the call:</li>
+                  <li>A) Dial <%= Phony.normalize(@call_request.twilio_number).phony_formatted(:normalize => :US, :format => :international, :spaces => '-') %> at the scheduled time</li>
+                  <li>B) And then enter this Passcode: <%= @call_request.passcode %></li>
+                </ul>
+                <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">That’s it! The member will join the conference call ready to speak. Please be courteous to your customer and make sure to be on-time for the call.</p>
                 <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px;">Sincerely,</p>
                 <p style=" margin:0px; font-family: 'Open Sans', sans-serif; font-size:13px; font-weight:400; color:#474b4c; line-height:21px; padding:0px 0px 25px 0px;">The Shyne Team</p>
               </td>
@@ -48,6 +55,6 @@
         </td>
       </tr>
     </table>
-  </div>
+</div>
 </body>
 </html>

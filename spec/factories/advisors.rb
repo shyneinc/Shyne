@@ -2,17 +2,17 @@ require 'faker'
 
 FactoryGirl.define do
 
-  factory :mentor_user, class: "User" do
-    association :role, factory: :mentor
+  factory :advisor_user, class: "User" do
+    association :role, factory: :advisor
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    sequence(:email) { |n| "mentor_user#{n}@shyne.io" }
+    sequence(:email) { |n| "advisor_user#{n}@shyne.io" }
     password "password"
     password_confirmation "password"
     time_zone { ActiveSupport::TimeZone.us_zones.sample.name }
   end
 
-  factory :mentor do
+  factory :advisor do
     headline { Faker::Lorem.sentence(10) }
     city { Faker::Address.city }
     state { Faker::Address.state_abbr }
@@ -25,22 +25,22 @@ FactoryGirl.define do
     phone_number "15626453725"
     availability { Faker::Lorem.sentence(10) }
     featured { [true, false].sample }
-    mentor_status MentorStatus::Applied.new
+    advisor_status AdvisorStatus::Applied.new
     status_changed_at nil
     avg_call_duration nil
     avg_rating nil
     total_reviews 0
     user
 
-    factory :mentor_with_reviews do
-      after(:create) do |mentor, evaluator|
-        create_list(:review, 5, mentor: mentor)
+    factory :advisor_with_reviews do
+      after(:create) do |advisor, evaluator|
+        create_list(:review, 5, advisor: advisor)
       end
     end
 
-    factory :mentor_with_calls do
-      after(:create) do |mentor, evaluator|
-        create(:completed_call_request, mentor: mentor)
+    factory :advisor_with_calls do
+      after(:create) do |advisor, evaluator|
+        create(:completed_call_request, advisor: advisor)
       end
     end
   end

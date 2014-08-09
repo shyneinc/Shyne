@@ -9,6 +9,6 @@ FactoryGirl.define do
     date_started { startdate.strftime("%B %Y") }
     date_ended { startdate + rand(1000) }
     current_work false
-    mentor
+    advisor
   end
 end

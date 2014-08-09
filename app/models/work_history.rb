@@ -1,6 +1,6 @@
 class WorkHistory < ActiveRecord::Base
-  validates :company, :mentor_id, :date_started, :title, presence: true
-  belongs_to :mentor
+  validates :company, :advisor_id, :date_started, :title, presence: true
+  belongs_to :advisor
 
   default_scope { order("current_work DESC, to_date(date_started, 'Month YYYY') DESC, id DESC") }
 
@@ -8,7 +8,7 @@ class WorkHistory < ActiveRecord::Base
   after_update :rebuild_pg_search_documents, :if => :company_changed?
 
   def rebuild_pg_search_documents
-    self.mentor.update_pg_search_document
+    self.advisor.update_pg_search_document
   end
 
   def started_month

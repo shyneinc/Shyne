@@ -16,7 +16,7 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs "Mentor Details" do
+    f.inputs "Advisor Details" do
       f.input :first_name
       f.input :last_name
       f.input :email
