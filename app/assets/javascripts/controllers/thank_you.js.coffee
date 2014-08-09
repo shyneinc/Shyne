@@ -13,13 +13,13 @@ Shyne.controller('ThankYouCtrl', ['$http', '$location', '$scope', '$rootScope','
           $scope.memberDetailModel.industries = memberInfo.industries.split(", ")
           angular.extend(user, memberInfo)
         )
-      else if user.role_type is 'Mentor'
-        User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          $scope.editIndustryModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-          $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-          $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
-          $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
-          angular.extend(user, mentorInfo)
+      else if user.role_type is 'Advisor'
+        User.getAdvisorInfo(user.role_id).then((advisorInfo) ->
+          $scope.editIndustryModel.industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+          $scope.user_industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+          $scope.user_skills = advisorInfo.skills.split(", ") if advisorInfo.skills != null
+          $scope.editSchoolModel.schools = advisorInfo.schools.split(", ") if advisorInfo.schools != null
+          angular.extend(user, advisorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo

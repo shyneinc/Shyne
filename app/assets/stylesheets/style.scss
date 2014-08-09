@@ -1314,9 +1314,9 @@ h3 {
   }
 }
 
-/* Featured Mentors */
+/* Featured Advisors */
 
-.featuredMentors {
+.featuredAdvisors {
   border-bottom: 1px solid #c2d2d6;
   background-color: #fafcfd;
   background-image: -moz-linear-gradient(top, #fafcfd, #e6eff2);
@@ -1451,9 +1451,9 @@ h3 {
   }
 }
 
-/* Life Mentors */
+/* Life Advisors */
 
-.lifeMentors {
+.lifeAdvisors {
   background: #fff;
   h2 {
     margin-bottom: 50px;
@@ -1490,10 +1490,10 @@ h3 {
   }
 }
 
-/* Why Mentors */
+/* Why Advisors */
 
-.whyMentors {
-  background: url(/assets/why_mentors_bg.png) center top no-repeat;
+.whyAdvisors {
+  background: url(/assets/why_advisors_bg.png) center top no-repeat;
   background-size: cover;
   border-bottom: 1px solid #2f5866;
   border-top: 1px solid #2f5866;
@@ -1575,15 +1575,15 @@ h3 {
   }
 }
 
-/* Our Mentors */
+/* Our Advisors */
 
-.ourMentors {
+.ourAdvisors {
   background: #fff;
   .btnOrgLg {
     font-size: 20px;
     margin-left: 20px;
   }
-  .joinOurMentors {
+  .joinOurAdvisors {
     font-size: 31px;
     font-family: 'Roboto Slab', serif;
     font-weight: 400;
@@ -1767,9 +1767,9 @@ ul.bListOne {
   }
 }
 
-/* Application Mentors */
+/* Application Advisors */
 
-.applicationMentors .formBox label {
+.applicationAdvisors .formBox label {
   color: #00637c;
   margin-top: 15px;
   margin-bottom: 3px;
@@ -2259,7 +2259,7 @@ section.profile {
   min-height: 95px;
 }
 
-.howItWork.ourMentors .joinOurMentors {
+.howItWork.ourAdvisors .joinOurAdvisors {
   font-size: 25px;
 }
 
@@ -2698,13 +2698,13 @@ footer {
     padding-left: 5px;
     padding-right: 5px;
   }
-  .applicationMentors .checkBox {
+  .applicationAdvisors .checkBox {
     margin-top: 10px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  .featuredMentors .fmUserBox {
+  .featuredAdvisors .fmUserBox {
     padding-bottom: 100px;
     .fmCall {
       position: absolute;
@@ -2714,7 +2714,7 @@ footer {
       text-align: center;
     }
   }
-  .whyMentors .commentBox.first .cBox {
+  .whyAdvisors .commentBox.first .cBox {
     padding: 20px;
   }
   .settings .btn-group > .btn-group .btn {
@@ -2731,10 +2731,10 @@ footer {
 }
 
 @media (max-width: 979px) {
-  .whyMentors .cBox {
+  .whyAdvisors .cBox {
     padding: 25px;
   }
-  .applicationMentors .formBox {
+  .applicationAdvisors .formBox {
     padding: 15px 20px;
   }
   .userInfo ul li {
@@ -2825,7 +2825,7 @@ footer {
   .arrowCl, .arrowCr {
     display: none;
   }
-  .whyMentors {
+  .whyAdvisors {
     .commentBox {
       &.first .cBox {
         margin-left: 0px;
@@ -2875,7 +2875,7 @@ footer {
   .O11BU.text-right {
     text-align: left;
   }
-  .ourMentors .text-right {
+  .ourAdvisors .text-right {
     text-align: center;
     margin-top: 20px;
   }
@@ -2909,7 +2909,7 @@ footer {
   .callDashboard .searchInfo {
     margin-bottom: 15px;
   }
-  .applicationMentors .checkBox {
+  .applicationAdvisors .checkBox {
     margin-top: 10px;
   }
   .photoLastStep .profileImage {
@@ -2924,7 +2924,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .applicationMentors .formBox label.chLeft {
+  .applicationAdvisors .formBox label.chLeft {
     width: 100%;
     text-align: right;
     margin-top: 0px;
@@ -3019,11 +3019,11 @@ footer {
   .btnBlueLg, .btnRedLg {
     padding: 10px 22px;
   }
-  .whyMentors .commentBox.last {
+  .whyAdvisors .commentBox.last {
     padding-bottom: 80px;
   }
-  .ourMentors {
-    .joinOurMentors {
+  .ourAdvisors {
+    .joinOurAdvisors {
       text-align: center;
     }
     .btnOrgLg {

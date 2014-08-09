@@ -2,11 +2,11 @@
   <div data-block="content">
     <section class="searchBox">
       <div class="container">
-        <form role="form" name="searchForm" ng-submit="searchMentors()">
+        <form role="form" name="searchForm" ng-submit="searchAdvisors()">
           <div class="input-group">
             <input type="text" placeholder="Search for a person, company, or position" ng-model="searchModel.search_text">
             <span class="input-group-btn">
-                <button type="button" class="btn btnBlueLg grd-blue" ng-click="searchMentors()">Search</button>
+                <button type="button" class="btn btnBlueLg grd-blue" ng-click="searchAdvisors()">Search</button>
             </span>
             <span class="glyphicon glyphicon-search"></span>
           </div>
@@ -16,29 +16,29 @@
     <section class="searchResult">
       <div class="container">
         <div class="OC15BUG mb50">Search result for "{{searchModel.search_text}}"</div>
-          <div ng-show="search_mentors.length == 0" class="alert alert-danger">{{searchError.info}}</div>
-          <div class="sResultBox" ng-hide="search_mentors.length == 0">
-            <div class="sBoxRow" ng-repeat="mentor in search_mentors">
-              <a href="#/profile/{{mentor.user_id}}">
+          <div ng-show="search_advisors.length == 0" class="alert alert-danger">{{searchError.info}}</div>
+          <div class="sResultBox" ng-hide="search_advisors.length == 0">
+            <div class="sBoxRow" ng-repeat="advisor in search_advisors">
+              <a href="#/profile/{{advisor.user_id}}">
                 <div class="resultImage">
-                    <img src="/assets/sample.jpg" ng-src="{{mentor.photo_url}}">
+                    <img src="/assets/sample.jpg" ng-src="{{advisor.photo_url}}">
                     <span class="caretLT"></span>
                     <span class="caretLB"></span>
                 </div>
               </a>
               <div class="row">
                 <div class="col-md-8">
-                  <div class="pb10 mb5"><a href="#/profile/{{mentor.user_id}}"><span class="R22R tcOrg">{{mentor.full_name}}</span></a> <span class="OC15BUG" ng-show="mentor.current_position">{{mentor.current_position}} at <span class="tcOrg">{{mentor.current_company}}</span></span></div>
+                  <div class="pb10 mb5"><a href="#/profile/{{advisor.user_id}}"><span class="R22R tcOrg">{{advisor.full_name}}</span></a> <span class="OC15BUG" ng-show="advisor.current_position">{{advisor.current_position}} at <span class="tcOrg">{{advisor.current_company}}</span></span></div>
                   <ul class="searchInfo">
-                    <li><span class="iconPro i_ribbon"></span>{{mentor.years_of_experience}} years work experience</li>
-                    <li><span class="iconPro i_pin"></span>{{mentor.city}}, {{mentor.state}}</li>
-                    <li ng-show="mentor.previous_companies"><span class="iconPro i_case"></span>Previous: {{mentor.previous_companies}}</li>
-                    <li ng-hide="true"><span class="iconPro i_star"></span><star-rating-orange star-rating="mentor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5">{{ mentor.total_reviews }} reviews</span></li>
+                    <li><span class="iconPro i_ribbon"></span>{{advisor.years_of_experience}} years work experience</li>
+                    <li><span class="iconPro i_pin"></span>{{advisor.city}}, {{advisor.state}}</li>
+                    <li ng-show="advisor.previous_companies"><span class="iconPro i_case"></span>Previous: {{advisor.previous_companies}}</li>
+                    <li ng-hide="true"><span class="iconPro i_star"></span><star-rating-orange star-rating="advisor.get_avg_rating" max-star-rating="5"></star-rating-orange> <span class="O12B tcOrg pl5">{{ advisor.total_reviews }} reviews</span></li>
                   </ul>
                 </div>
                 <div class="col-md-4">
-                  <a class="btn grd-org btnOrgLg full mb20" href="#/profile/{{mentor.user_id}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a>
-                  <div class="OC15BUG text-center">rate is ${{mentor.rate_per_minute}}/min</div>
+                  <a class="btn grd-org btnOrgLg full mb20" href="#/profile/{{advisor.user_id}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a>
+                  <div class="OC15BUG text-center">rate is ${{advisor.rate_per_minute}}/min</div>
                 </div>
               </div>
             </div>
