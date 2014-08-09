@@ -2,7 +2,7 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
 
   $rootScope.location = $location
   $scope.user = null
-  $scope.mentor = null
+  $scope.advisor = null
   $scope.callRequestModel = {form: 'cal_details', am_pm: "PM"}
   $scope.callRequestModel.status = "proposed"
 
@@ -13,9 +13,9 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
         User.getMemberInfo(user.role_id).then((memberInfo) ->
           angular.extend(user, memberInfo)
         )
-      else if user.role_type is 'Mentor'
-        User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          angular.extend(user, mentorInfo)
+      else if user.role_type is 'Advisor'
+        User.getAdvisorInfo(user.role_id).then((advisorInfo) ->
+          angular.extend(user, advisorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo
@@ -24,11 +24,11 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
 
   $scope.refresh(false)
 
-  mentor_id = $routeParams.mentor_id
+  advisor_id = $routeParams.advisor_id
 
-  if $routeParams.mentor_id != null and $routeParams.mentor_id != undefined
-    User.getMentorInfo(mentor_id).then((mentorInfo) ->
-      $scope.mentor = mentorInfo
+  if $routeParams.advisor_id != null and $routeParams.advisor_id != undefined
+    User.getAdvisorInfo(advisor_id).then((advisorInfo) ->
+      $scope.advisor = advisorInfo
     )
 
   request_id = $routeParams.request_id
@@ -92,11 +92,11 @@ Shyne.controller('CallRequestCtrl', ['$location', '$scope', '$rootScope', '$time
 
   $scope.SubmitCallRequest = () ->
     $("#loaderimgText").show()
-    User.createCallRequest($scope.callRequestModel, $scope.user.role_id, mentor_id).then(
+    User.createCallRequest($scope.callRequestModel, $scope.user.role_id, advisor_id).then(
       (call_request)->
         $("#loaderimgText").hide()
-        $rootScope.flash_message = "You're all done! We'll send you an email once the Mentor responds."
-        $location.path('/profile/' + $scope.mentor.user_id)
+        $rootScope.flash_message = "You're all done! We'll send you an email once the Advisor responds."
+        $location.path('/profile/' + $scope.advisor.user_id)
     , (error)->
       $scope.callRequestModelError = error
     )

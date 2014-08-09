@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409102452) do
+ActiveRecord::Schema.define(version: 20140809011749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,34 @@ ActiveRecord::Schema.define(version: 20140409102452) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "advisors", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.text     "headline"
+    t.integer  "years_of_experience"
+    t.string   "phone_number"
+    t.text     "availability"
+    t.datetime "status_changed_at"
+    t.boolean  "featured"
+    t.string   "linkedin"
+    t.string   "advisor_status"
+    t.string   "location"
+    t.decimal  "avg_call_duration"
+    t.decimal  "avg_rating"
+    t.integer  "total_reviews"
+    t.string   "city"
+    t.string   "state"
+    t.string   "industries"
+    t.string   "skills"
+    t.string   "schools"
+  end
+
+  add_index "advisors", ["user_id"], name: "index_advisors_on_user_id", using: :btree
+
   create_table "call_requests", force: true do |t|
     t.integer  "member_id"
-    t.integer  "mentor_id"
+    t.integer  "advisor_id"
     t.integer  "passcode"
     t.string   "status"
     t.datetime "scheduled_at"
@@ -65,8 +90,8 @@ ActiveRecord::Schema.define(version: 20140409102452) do
     t.integer  "proposed_duration"
   end
 
+  add_index "call_requests", ["advisor_id"], name: "index_call_requests_on_advisor_id", using: :btree
   add_index "call_requests", ["member_id"], name: "index_call_requests_on_member_id", using: :btree
-  add_index "call_requests", ["mentor_id"], name: "index_call_requests_on_mentor_id", using: :btree
 
   create_table "calls", force: true do |t|
     t.integer  "call_request_id"
@@ -120,31 +145,6 @@ ActiveRecord::Schema.define(version: 20140409102452) do
   end
 
   add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
-
-  create_table "mentors", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.text     "headline"
-    t.integer  "years_of_experience"
-    t.string   "phone_number"
-    t.text     "availability"
-    t.datetime "status_changed_at"
-    t.boolean  "featured"
-    t.string   "linkedin"
-    t.string   "mentor_status"
-    t.string   "location"
-    t.decimal  "avg_call_duration"
-    t.decimal  "avg_rating"
-    t.integer  "total_reviews"
-    t.string   "city"
-    t.string   "state"
-    t.string   "industries"
-    t.string   "skills"
-    t.string   "schools"
-  end
-
-  add_index "mentors", ["user_id"], name: "index_mentors_on_user_id", using: :btree
 
   create_table "notifications", force: true do |t|
     t.string   "type"
@@ -203,16 +203,16 @@ ActiveRecord::Schema.define(version: 20140409102452) do
   create_table "reviews", force: true do |t|
     t.text     "review"
     t.decimal  "rating"
-    t.integer  "mentor_id"
+    t.integer  "advisor_id"
     t.integer  "member_id"
     t.integer  "call_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "reviews", ["advisor_id"], name: "index_reviews_on_advisor_id", using: :btree
   add_index "reviews", ["call_id"], name: "index_reviews_on_call_id", using: :btree
   add_index "reviews", ["member_id"], name: "index_reviews_on_member_id", using: :btree
-  add_index "reviews", ["mentor_id"], name: "index_reviews_on_mentor_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string "name"
@@ -257,7 +257,7 @@ ActiveRecord::Schema.define(version: 20140409102452) do
     t.string   "date_started"
     t.string   "date_ended"
     t.boolean  "current_work"
-    t.integer  "mentor_id"
+    t.integer  "advisor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"

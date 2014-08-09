@@ -9,10 +9,10 @@ FactoryGirl.define do
     billable_duration nil
     proposed_duration 30
     member
-    mentor
+    advisor
 
     factory :approved_call_request, :parent => :call_request do |call_request|
-      status CallRequestStatus::ApprovedMentor.new
+      status CallRequestStatus::ApprovedAdvisor.new
       scheduled_at 2.hours.ago
       calls {
         [build(:call, status: CallStatus::Completed.new, duration: 60, from_number: "19496665341"),

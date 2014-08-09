@@ -1,6 +1,6 @@
 <div data-extend-template="/layouts/layout.html">
   <div data-block="content">
-    <section ng-hide="user" class="applicationMentors">
+    <section ng-hide="user" class="applicationAdvisors">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
@@ -14,13 +14,13 @@
     </section>
 
     <div ng-show="user">
-      <section ng-show="user.role_type == 'Mentor'">
+      <section ng-show="user.role_type == 'Advisor'">
         <div class="hero mainBg maxHeight">
           <div class="container">
             <div class="row">
               <div class="col-md-7 col-md-offset-2">
                 <div class="text-center">
-                  <h3>We apologize, but Mentors cannot currently request calls. You must be a Member to schedule a call. <br /> <br /> We will be fixing this soon!</h3>
+                  <h3>We apologize, but Advisors cannot currently request calls. You must be a Member to schedule a call. <br /> <br /> We will be fixing this soon!</h3>
                 </div>
               </div>
             </div>
@@ -56,16 +56,16 @@
               <form novalidate role="form" name="callDetailForm">
                 <div class="formBox mt20">
                   <div class="callerImage">
-                    <img src="{{mentor.user.avatar.url}}" />
+                    <img src="{{advisor.user.avatar.url}}" />
                     <span class="caretL"></span>
                     <span class="caretR"></span>
                   </div>
-                  <div class="callTitle">{{mentor.full_name}}</div>
-                  <div class="rate">rate is ${{mentor.rate_per_minute}}/min</div>
+                  <div class="callTitle">{{advisor.full_name}}</div>
+                  <div class="rate">rate is ${{advisor.rate_per_minute}}/min</div>
                   <div class="clAll bdb mb10 mt20"></div>
 
                   <div class="formContent">
-                    <label class="O11BU mb10">What would you like to talk to {{mentor.user.first_name}} about?</label>
+                    <label class="O11BU mb10">What would you like to talk to {{advisor.user.first_name}} about?</label>
                     <div class="row">
                       <div class="col-sm-12">
                         <textarea class="width65" rows="3" ng-model="callRequestModel.agenda" required="" maxlength="280" placeholder="Example: I'd love to learn more about what it's like to work in marketing at Google, and what background is needed for this position."></textarea>
@@ -80,7 +80,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <p class="O12R">Please note that your call can go over the amount of time you choose! This is just to give our Mentors a rough estimate.</p>
+                        <p class="O12R">Please note that your call can go over the amount of time you choose! This is just to give our Advisors a rough estimate.</p>
                       </div>
                     </div>
                   </div>
@@ -97,23 +97,23 @@
               <form novalidate role="form" name="avlTimeForm">
                 <div class="formBox mt20">
                   <div class="callerImage">
-                    <img src="{{mentor.user.avatar.url}}" />
+                    <img src="{{advisor.user.avatar.url}}" />
                     <span class="caretL"></span>
                     <span class="caretR"></span>
                   </div>
-                  <div class="callTitle">{{mentor.full_name}}</div>
-                  <div class="rate">rate is ${{mentor.rate_per_minute}}/min</div>
+                  <div class="callTitle">{{advisor.full_name}}</div>
+                  <div class="rate">rate is ${{advisor.rate_per_minute}}/min</div>
                   <div class="clAll bdb mb10 mt20"></div>
                   <div class="formContent">
-                    <label class="O11BU mb10">{{mentor.user.first_name}} is generally available to speak at the following times:</label>
+                    <label class="O11BU mb10">{{advisor.user.first_name}} is generally available to speak at the following times:</label>
                     <div class="row">
                       <div class="col-sm-12">
-                        <div class="bgLightBlue avlTime">{{ mentor.availability }}</div>
-                        <div class="O13SB mt20 iconText"><span class="iconPro i_clock"></span><span class="iText">Times above listed in {{mentor.user.time_zone}}</div>
+                        <div class="bgLightBlue avlTime">{{ advisor.availability }}</div>
+                        <div class="O13SB mt20 iconText"><span class="iconPro i_clock"></span><span class="iText">Times above listed in {{advisor.user.time_zone}}</div>
                       </div>
                     </div>
                     <div class="clAll bdb mb10 mt20"></div>
-                    <label class="O11BU mb10">Suggest a time (in your timezone) for {{mentor.user.first_name}} to take the call</label>
+                    <label class="O11BU mb10">Suggest a time (in your timezone) for {{advisor.user.first_name}} to take the call</label>
                     <div class="row">
                       <div class="col-sm-5">
                         <input type="text" class="width40 fleft" id="scheduled_at" placeholder="Select Date" datepicker ng-model="callRequestModel.scheduled_at" required="">
@@ -137,7 +137,7 @@
                     <div class="clAll mb20"></div>
                     <div class="row">
                       <div class="col-sm-12">
-                        <p class="O12R">The mentor can accept your time or suggest another time that might be a better fit. We don’t recommend requesting a call within 12 hours, as that's a bit too soon.</p>
+                        <p class="O12R">The advisor can accept your time or suggest another time that might be a better fit. We don’t recommend requesting a call within 12 hours, as that's a bit too soon.</p>
                       </div>
                     </div>
                   </div>
@@ -215,7 +215,7 @@
               <form novalidate role="form" name="confirmDetailForm">
                 <div class="formBox mt20">
                   <div class="callerImage">
-                    <img src="{{mentor.user.avatar.url}}" />
+                    <img src="{{advisor.user.avatar.url}}" />
                     <span class="caretL"></span>
                     <span class="caretR"></span>
                   </div>
@@ -223,9 +223,9 @@
                   <div class="clAll mt10 mt20"></div>
                   <div class="clAll mt10 mt20"></div>
                   <ul class="bListOne">
-                    <li class="O11BU">rate: <span class="tcblue">${{mentor.rate_per_minute}}/min</span></li>
+                    <li class="O11BU">rate: <span class="tcblue">${{advisor.rate_per_minute}}/min</span></li>
                     <li class="O11BU">Estimated length: <span class="tcblue">{{ callRequestModel.proposed_duration.id }} min</span></li>
-                    <li class="O11BU">Estimated cost: <span class="tcblue">{{ callRequestModel.proposed_duration.id * mentor.rate_per_minute | currency:"$"}}</span></li>
+                    <li class="O11BU">Estimated cost: <span class="tcblue">{{ callRequestModel.proposed_duration.id * advisor.rate_per_minute | currency:"$"}}</span></li>
                   </ul>
                   <div class="clAll"></div>
                   <div class="formContent">

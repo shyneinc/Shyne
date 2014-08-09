@@ -58,9 +58,9 @@ ShyneService.factory('Session', ['$location','$http','$q',($location, $http, $q)
       )
     deferred.promise
 
-  getFeaturedMentors: () ->
+  getFeaturedAdvisors: () ->
     deferred = $q.defer()
-    $http.get('/api/mentors?featured=true').success((data)->
+    $http.get('/api/advisors?featured=true').success((data)->
       deferred.resolve(data)
     ).error((data)->
       deferred.reject(data)

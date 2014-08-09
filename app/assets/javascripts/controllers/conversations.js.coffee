@@ -14,9 +14,9 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
         User.getMemberInfo(user.role_id).then((memberInfo) ->
           angular.extend(user, memberInfo)
         )
-      else if user.role_type is 'Mentor'
-        User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          angular.extend(user, mentorInfo)
+      else if user.role_type is 'Advisor'
+        User.getAdvisorInfo(user.role_id).then((advisorInfo) ->
+          angular.extend(user, advisorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo
@@ -29,9 +29,9 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
     Calls.getCallRequest($routeParams.call_request_id).then((callRequest) ->
       $scope.call_request = callRequest
       if $scope.user.role_type is 'Member'
-        $scope.reply_to = callRequest.mentor.full_name
+        $scope.reply_to = callRequest.advisor.full_name
 
-      if $scope.user.role_type is 'Mentor'
+      if $scope.user.role_type is 'Advisor'
         $scope.reply_to = callRequest.member.full_name
     )
 
@@ -77,9 +77,9 @@ Shyne.controller('ConversationsCtrl', ['$location', '$scope','$timeout','$routeP
   $scope.createConversation = (call_request) ->
     $scope.loading = true
     if $scope.user.role_type is 'Member'
-      user_id = $scope.call_request.mentor.user_id
+      user_id = $scope.call_request.advisor.user_id
 
-    if $scope.user.role_type is 'Mentor'
+    if $scope.user.role_type is 'Advisor'
       user_id = $scope.call_request.member.user_id
 
     Conversation.createConversation($scope.conversationModel, user_id, $scope.call_request.id).then((data)->

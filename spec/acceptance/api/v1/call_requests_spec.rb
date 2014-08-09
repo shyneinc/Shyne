@@ -6,7 +6,7 @@ resource 'CallRequest' do
   header "Accept", "application/vnd.shyne.v1"
 
   let(:user) { create(:member_user) }
-  let(:mentor) { create(:mentor) }
+  let(:advisor) { create(:advisor) }
   let!(:call_request) { create(:call_request, member: user.role) }
 
   before do
@@ -19,7 +19,7 @@ resource 'CallRequest' do
     example_request "Getting all call requests" do
       role = user.role_type.downcase
       expect(response_body).to be_json_eql CallRequest.where("#{role}_id" => user.role_id).to_json({:include =>
-                                                                                                                {:mentor =>
+                                                                                                                {:advisor =>
                                                                                                                      {:methods => [:full_name, :rate_per_minute, :phone_number, :avg_call_duration, :get_avg_rating, :previous_companies, :current_position, :current_company, :total_reviews]},
                                                                                                                  :member => {:methods => [:full_name, :phone_number]}
                                                                                                                 }, :methods => [:scheduled_date, :scheduled_date_member, :credit_amount, :debit_amount]})
@@ -34,7 +34,7 @@ resource 'CallRequest' do
   post "/api/call_requests" do
     parameter :agenda, "Agenda/Focus of the Call", :required => true, :scope => :call_request
     parameter :member_id, "Member ID", :required => true, :scope => :call_request
-    parameter :mentor_id, "Mentor ID", :required => true, :scope => :call_request
+    parameter :advisor_id, "Advisor ID", :required => true, :scope => :call_request
     parameter :scheduled_at, "Scheduled At", :required => true, :scope => :call_request
     parameter :proposed_duration, "Proposed duration time", :required => true, :scope => :call_request
 
@@ -42,7 +42,7 @@ resource 'CallRequest' do
       explanation "Once the member is authenticated and has a CC on file, they can propose or change a call request"
       call_request = attributes_for(:call_request, member: user.role).except(:id, :passcode)
       call_request[:member_id] = user.role.id
-      call_request[:mentor_id] = mentor.id
+      call_request[:advisor_id] = advisor.id
 
       do_request(call_request: call_request)
 
@@ -59,15 +59,15 @@ resource 'CallRequest' do
   put "/api/call_requests/:id" do
     parameter :id, "Call Request ID", required: true
     parameter :member_id, "Member ID", :required => true, :scope => :call_request
-    parameter :mentor_id, "Mentor ID", :required => true, :scope => :call_request
+    parameter :advisor_id, "Advisor ID", :required => true, :scope => :call_request
     parameter :scheduled_at, "Scheduled At", :required => true, :scope => :call_request
     parameter :request_status, "Status (Proposed (default), Approved, Changed)", :required => false, :scope => :call_request
 
     let(:id) { call_request.id }
 
     example "Updating a call request" do
-      explanation "Once the mentor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request"
-      call_request = attributes_for(:call_request, :status => CallRequestStatus::ApprovedMentor.new)
+      explanation "Once the advisor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request"
+      call_request = attributes_for(:call_request, :status => CallRequestStatus::ApprovedAdvisor.new)
       do_request(call_request: call_request)
 
       expect(status).to eq 204

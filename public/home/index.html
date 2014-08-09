@@ -6,7 +6,7 @@
           <div class="col-sm-6">
             <div class="leftSide">
               <h1>Get personalized career advice. Quickly.</h1>
-              <p>Talk to people that work at companies you're interested in. Schedule a call with any of our Mentors in just minutes.</p>
+              <p>Talk to people that work at companies you're interested in. Schedule a call with any of our Advisors in just minutes.</p>
               <a ng-hide="user" href="#/signup" class="btn grd-org btnOrgLg">Are you ready to Shyne? Join for free!</a>
               <a ng-show="user" href="#/profile" class="btn grd-org btnOrgLg">Are you ready to Shyne? Join for free!</a>
             </div>
@@ -25,43 +25,43 @@
                 <a href="#/search/Square"><img src="/assets/square.png" alt=""></a>
                 <a href="#/search/KPMG"><img src="/assets/kpmg.png" alt=""></a>
               </div>
-              <p>We have Mentors from top tier companies around the globe. Pick their brains on what they did to land their jobs!</p>
+              <p>We have Advisors from top tier companies around the globe. Pick their brains on what they did to land their jobs!</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="featuredMentors">
+    <section class="featuredAdvisors">
       <div class="container">
-        <h2 class="text-center">Featured Mentors</h2>
-        <p class="descText">Schedule a 20, 30, or 40-minute call with any of our mentors.</p>
+        <h2 class="text-center">Featured Advisors</h2>
+        <p class="descText">Schedule a 20, 30, or 40-minute call with any of our advisors.</p>
 
         <div data-ride="carousel" class="carousel slide" id="carousel" carousel>
           <div class="carousel-inner">
-            <div class="item" ng-class="$index == 0 ? 'active' : ''" data-ng-repeat="mentors in featured_mentors">
+            <div class="item" ng-class="$index == 0 ? 'active' : ''" data-ng-repeat="advisors in featured_advisors">
               <div class="row">
-                <div class="col-sm-4" data-ng-repeat="mentor in mentors">
+                <div class="col-sm-4" data-ng-repeat="advisor in advisors">
                   <div class="fmUserBox">
-                    <div class="fmImage" ng-click="viewProfile(mentor.user_id)"><img src="/assets/no_image.png" alt="" ng-src="{{mentor.photo_url}}"><span class="caret"></span></div>
-                    <div class="fmCat">{{mentor.full_name}}</div>
-                    <div class="fmDesc">{{mentor.current_position}}</div>
-                    <div class="fmName">{{mentor.current_company}}</div>
-                    <div class="fmPrice">${{mentor.rate_per_minute}}<span>/MIN</span></div>
-                    <div class="fmCall"><a class="btn grd-blue" href="#/profile/{{mentor.user_id}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a></div>
+                    <div class="fmImage" ng-click="viewProfile(advisor.user_id)"><img src="/assets/no_image.png" alt="" ng-src="{{advisor.photo_url}}"><span class="caret"></span></div>
+                    <div class="fmCat">{{advisor.full_name}}</div>
+                    <div class="fmDesc">{{advisor.current_position}}</div>
+                    <div class="fmName">{{advisor.current_company}}</div>
+                    <div class="fmPrice">${{advisor.rate_per_minute}}<span>/MIN</span></div>
+                    <div class="fmCall"><a class="btn grd-blue" href="#/profile/{{advisor.user_id}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <a data-slide="prev" href="javascript:void(0)" class="left carousel-control" prev-carousel ng-show="featured_mentors.length > 1"></a>
-          <a data-slide="next" href="javascript:void(0)" class="right carousel-control" next-carousel ng-show="featured_mentors.length > 1"></a>
+          <a data-slide="prev" href="javascript:void(0)" class="left carousel-control" prev-carousel ng-show="featured_advisors.length > 1"></a>
+          <a data-slide="next" href="javascript:void(0)" class="right carousel-control" next-carousel ng-show="featured_advisors.length > 1"></a>
         </div>
       </div>
     </section>
-    <section class="lifeMentors">
+    <section class="lifeAdvisors">
       <div class="container">
-        <h2 class="text-center">Life of a Mentor</h2>
+        <h2 class="text-center">Life of an Advisor</h2>
         <div class="row">
           <div class="col-sm-4">
             <div class="lmBox">
@@ -88,9 +88,9 @@
       </div>
     </section>
 
-    <section class="whyMentors">
+    <section class="whyAdvisors">
       <div class="container">
-        <h2 class="text-center">Why Should You Become a Mentor?</h2>
+        <h2 class="text-center">Why Should You Become an Advisor?</h2>
         <div class="commentBox first">
           <div class="row">
             <div class="col-sm-6 text-right">
@@ -104,7 +104,7 @@
         <div class="commentBox last">
           <div class="row">
             <div class="col-sm-6">
-              <div class="cBox">This is exactly what Shyne does! Just apply to become a Mentor and our users will contact you to schedule calls when they need simple yet effective advice about your background and work experience.<span class="arrowCr"></span></div>
+              <div class="cBox">This is exactly what Shyne does! Just apply to become an Advisor and our users will contact you to schedule calls when they need simple yet effective advice about your background and work experience.<span class="arrowCr"></span></div>
             </div>
             <div class="col-sm-6">
               <div class="qName">What if you could get paid to give career advice that you usually give for free?</div>
@@ -114,9 +114,9 @@
       </div>
     </section>
 
-    <section class="ourMentors">
+    <section class="ourAdvisors">
       <div class="container">
-        <div class="joinOurMentors">Our Mentors make $60-180/hr. Interested in joining? <a class="btn grd-org btnOrgLg" href="#/signup">Apply Now</a></div>
+        <div class="joinOurAdvisors">Our Advisors make $60-180/hr. Interested in joining? <a class="btn grd-org btnOrgLg" href="#/signup">Apply Now</a></div>
       </div>
     </section>
   </div>

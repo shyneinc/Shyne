@@ -39,7 +39,7 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ededed; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#4a4a4a; padding:2px 0px 2px 0px">
                 <tr>
                         <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Rate Per Minute</td>
-                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;">$<%= @mentor.rate_per_minute %></td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;">$<%= @advisor.rate_per_minute %></td>
                       </tr>
                       <tr>
                         <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Requested call length</td>
@@ -47,7 +47,7 @@
                       </tr>
                       <tr>
                         <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Estimated Income</td>
-                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;"><%= number_to_currency(@call_request.proposed_duration * @mentor.rate_per_minute, :locale => :us) %></td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;"><%= number_to_currency(@call_request.proposed_duration * @advisor.rate_per_minute, :locale => :us) %></td>
                       </tr>
                   </table>
               </td>

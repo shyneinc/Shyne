@@ -16,7 +16,7 @@ class Api::V1::CallController < ActionController::Base
 
   def start
     #TODO: Make sure people don't try to call-in before the scheduled time or tell them to call back later
-    @call_request = CallRequest.find_by passcode: params[:Digits], status: [:approved_member, :approved_mentor]
+    @call_request = CallRequest.find_by passcode: params[:Digits], status: [:approved_member, :approved_advisor]
     @caller_number = params[:From]
     @sid = params[:CallSid]
 

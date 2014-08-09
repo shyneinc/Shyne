@@ -2,7 +2,7 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
 
   $rootScope.location = $location
   $scope.user = null
-  $scope.mentor = null
+  $scope.advisor = null
   $scope.call_requests = null
   $scope.call_request_id = $routeParams.id
   $scope.callRescheduleModel = {am_pm: "PM"}
@@ -20,9 +20,9 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
         User.getMemberInfo(user.role_id).then((memberInfo) ->
           angular.extend(user, memberInfo)
         )
-      else if user.role_type is 'Mentor'
-        User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          angular.extend(user, mentorInfo)
+      else if user.role_type is 'Advisor'
+        User.getAdvisorInfo(user.role_id).then((advisorInfo) ->
+          angular.extend(user, advisorInfo)
         )
         Workhistory.getWorkHistories(user.role_id).then((workHistoriesInfo) ->
           $scope.work_histories = workHistoriesInfo
@@ -46,10 +46,10 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
       (data)->
         $("#loaderimgText").hide()
 
-        if status == 'approved_mentor' or status == 'approved_member'
+        if status == 'approved_advisor' or status == 'approved_member'
           $rootScope.flash_message = "This call has officially been scheduled! Please check your email for instructions on entering the call."
 
-        if status == 'cancelled_mentor' or status == 'cancelled_member'
+        if status == 'cancelled_advisor' or status == 'cancelled_member'
           $rootScope.flash_message = "This call has officially been cancelled. We will let the other party know. Thanks"
 
         Calls.getCallRequest($routeParams.id).then((callRequest) ->
@@ -63,8 +63,8 @@ Shyne.controller('CallCtrl', ['$location', '$scope', '$rootScope', '$timeout', '
   $scope.updateCallRequest = () ->
     $("#loaderimgText").show()
 
-    #status changes when mentor or member update call request
-    status = $scope.user.role_type == 'Mentor' && 'changed_mentor' || 'changed_member'
+    #status changes when advisor or member update call request
+    status = $scope.user.role_type == 'Advisor' && 'changed_advisor' || 'changed_member'
 
     Calls.updateCallRequest($scope.callRescheduleModel, status, $scope.call_request.id).then(
       (data)->

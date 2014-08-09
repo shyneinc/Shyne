@@ -38,12 +38,12 @@ Shyne::Application.routes.draw do
       match '/users' => 'users#update', :via => :put
       match '/users' => 'users#destroy', :via => :delete
 
-      resources :mentors, except: [:update, :destroy] do
+      resources :advisors, except: [:update, :destroy] do
         resources :work_histories
         resources :reviews
       end
-      match '/mentors' => 'mentors#update', :via => :put
-      match '/mentors' => 'mentors#destroy', :via => :delete
+      match '/advisors' => 'advisors#update', :via => :put
+      match '/advisors' => 'advisors#destroy', :via => :delete
 
       resources :members, except: [:update, :destroy]
       match '/members' => 'members#update', :via => :put
