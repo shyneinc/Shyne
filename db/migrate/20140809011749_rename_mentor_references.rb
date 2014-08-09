@@ -4,5 +4,7 @@ class RenameMentorReferences < ActiveRecord::Migration
     rename_column :call_requests, :mentor_id, :advisor_id
     rename_column :reviews, :mentor_id, :advisor_id
     rename_column :work_histories, :mentor_id, :advisor_id
+
+    User.where(:role_type => 'Mentor').update_all(:role_type => 'Advisor')
   end
 end
