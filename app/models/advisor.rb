@@ -55,6 +55,10 @@ class Advisor < ActiveRecord::Base
     end
   end
 
+  def slug
+    self.user.slug
+  end
+
   def avatar
     self.user.avatar.thumb.to_s
   end
