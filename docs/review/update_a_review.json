@@ -1,7 +1,7 @@
 {
   "resource": "Review",
   "http_method": "PUT",
-  "route": "/api/mentors/:mentor_id/reviews/:id",
+  "route": "/api/advisors/:advisor_id/reviews/:id",
   "description": "Update a review",
   "explanation": null,
   "parameters": [
@@ -12,8 +12,8 @@
     },
     {
       "required": true,
-      "name": "mentor_id",
-      "description": "Mentor ID"
+      "name": "advisor_id",
+      "description": "Advisor ID"
     },
     {
       "required": true,
@@ -37,8 +37,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/mentors/91/reviews/3",
-      "request_body": "review[review]=Iure+nihil+qui+inventore+deleniti+expedita+vel+omnis+cupiditate+quasi+aut.&review[rating]=0.0",
+      "request_path": "/api/advisors/254/reviews/28",
+      "request_body": "review[review]=Non+totam+ea+quia+dolore+consequatur+nostrum+dolores+error+itaque+accusamus.&review[rating]=4.0",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -51,7 +51,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=U3hteVFWK1U2LzczUUZ3TWpVb3IwV2h1WjJ4UHhZSjFDOWRsa1R2cVE3eXBZaTRia3dKVkRWKy96L1RnZWp0QXlWbllyK1BwbXk5bGZ6azB0M1hsM2pTb3ZObTVFOEc4eTlieFl1RjRPNnpQaFh4MUJUUFBXTVVYenRyL2J4YVpBUlFjcW9Ebm56RjBTQ1owSGN6T2ZJZm1EY1lWRVhMeTFLKzlkQlB5SzBRPS0tYVJWRmFWMWltYWhDdk1nQkJ2NFR3Zz09--2c62f1e6fb3360a1e312adefa919e33b675df240; path=/; HttpOnly","X-Request-Id":"b7608c95-fc51-417a-bffd-6612b79476e8","X-Runtime":"0.086735"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=MFFVWmt2aHphRDdJTWdrb2VCdXhZUlhuWDVuUmJJTFF0a3dCYmhDcjFvT0RtUGV5b0k3YlRRVGlIQ21xVzV3M0xhS3ZoNDVlVTlBYWxLRklmZllMOFVOK3BGbEdHMG1RZHY3Y3FKeTBWTEYyLy9XbTR2Ukh5djZhLzExREUyMDNHck5jUnJuY3pVRDV4L29YeUdEdmhZVWVtNlMzYTQrOGZ1blpnYi81aVhVPS0tTUs1NlhTeG1WRjMvWlBrblpoKzdtdz09--f1cca62b5537c1791094e5dc31acab9f243a7cc2; path=/; HttpOnly","X-Request-Id":"577c785e-1c02-4f15-8eea-2e8ca953ac79","X-Runtime":"0.048196"},
       "response_content_type": null,
       "curl": null
 }

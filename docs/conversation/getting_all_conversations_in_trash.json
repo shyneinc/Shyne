@@ -34,7 +34,7 @@
       "response_status": 200,
       "response_status_text": "OK",
       "response_body": "[]",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=TjZsTllPQTJjNkl0SkhvZ3YreEdPL1RKV3NhR2xNMUl2ZTkzMVp6cE1FVXJRZWJFYUdDRHR6VVpJUmhPYUFvNTNZcmoyNU9aWEhxQ1AvOFNLSGNyOTZDQm1STnplcHBqOGdiMEdLVFM4Q0dVdVkwZzdGbDQ0TkhOSU0vZDdKZEdzdWZqUExXUzRESHdoWUxuWkllUFlUK2Vwcm8rS3E4ZU81dHBIaW9sSFVJPS0tWVkzZC9JQVVJMEdDQ2FQOTgvbTRPZz09--c8d79526851ac2b8e3aee4d615d2995659a84206; path=/; HttpOnly","X-Request-Id":"ae6797c4-fab7-4cb3-a71e-5acac7bcf9f6","X-Runtime":"0.098322","Content-Length":"2"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"d751713988987e9331980363e24189ce\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=VlZYeUZvcy9xZ1g1OXhBOVpsd0s4YTNsZTNLQ3hmd1ZGQWx5QnN0VlRhWWFKNlpwRGc4VjlZYmNoNVZrSlNRNlpaMmRYZXpQaEhWRGJVbm9OUlN5dHVoU2VsRXhadit1QkZPeEhNZzhlTklhQ1N4VVVvMUEyRnUzTHpZWDc5WFVlaHk1eURoL0RjaFBodFVOb2I0NHBoc29wWUh2Q0gxZTlFZlZNR2ZxVkswPS0tVmpyZEY1R2Z1U3g1eUtncjZwK2hzZz09--c13640375db4a8b8cb38f94c21606c9a2b081b44; path=/; HttpOnly","X-Request-Id":"b51c06ba-acfe-450f-9f12-54947589a73b","X-Runtime":"0.008263","Content-Length":"2"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

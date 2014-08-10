@@ -6,8 +6,8 @@ resource 'Conversation' do
   header "Accept", "application/vnd.shyne.v1"
 
   let(:user) { create(:member_user) }
-  let(:mentor) { create(:mentor) }
-  let(:conversation) { user.send_message(mentor.user, "World", "Hello").conversation }
+  let(:advisor) { create(:advisor) }
+  let(:conversation) { user.send_message(advisor.user, "World", "Hello").conversation }
 
   before do
     login_as user, scope: :user
@@ -54,7 +54,7 @@ resource 'Conversation' do
     parameter :body, "Body", :required => true, :scope => :conversation
 
     example "Starting a conversation" do
-      do_request(conversation: {user_id: mentor.user.id, subject: "Hello", body: "World"})
+      do_request(conversation: {user_id: advisor.user.id, subject: "Hello", body: "World"})
 
       expect(user.mailbox.sentbox.count).to eq 1
       expect(status).to eq 201

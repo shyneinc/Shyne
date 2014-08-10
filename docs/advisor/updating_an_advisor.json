@@ -1,0 +1,85 @@
+{
+  "resource": "Advisor",
+  "http_method": "PUT",
+  "route": "/api/advisors",
+  "description": "Updating an advisor",
+  "explanation": "Update current user's advisor profile",
+  "parameters": [
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "headline",
+      "description": "Headline"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "location",
+      "description": "Location"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "skills",
+      "description": "Skills (eg. '{Accounting, Finance}')"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "industries",
+      "description": "Industries (eg. '{Accounting, Finance}')"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "schools",
+      "description": "Schools (eg. '{Alabama A & M University, Amridge University}')"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "years_of_experience",
+      "description": "Years of Experience"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "phone_number",
+      "description": "Phone Number"
+    },
+    {
+      "required": true,
+      "scope": "advisor",
+      "name": "availability",
+      "description": "Availability"
+    },
+    {
+      "required": false,
+      "scope": "advisor",
+      "name": "linkedin",
+      "description": "LinkedIn url"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/advisors",
+      "request_body": "advisor[headline]=Nihil+consequatur+aut+doloribus+non+ab+laboriosam+ea+velit+dolor+aut+deserunt.&advisor[city]=Sageside&advisor[state]=NC&advisor[linkedin]=http%3A%2F%2Fwww.linkedin.com%2Fin%2Freprehenderit&advisor[skills]=nisi&advisor[industries]=ut&advisor[schools]=quo&advisor[location]&advisor[years_of_experience]=29&advisor[phone_number]=15626453725&advisor[availability]=Et+esse+earum+ut+optio+expedita+provident+facilis+dolores+nisi+non+recusandae+quod+labore.&advisor[featured]&advisor[advisor_status]=applied&advisor[status_changed_at]&advisor[avg_call_duration]&advisor[avg_rating]&advisor[total_reviews]=0",
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=c2Mzc2VySmUzY2Ria0ZybHFHNWlBbW5jTHNaN1RzdEdnclpDZnJHUFM2cWRHM0tpcExDZDhMSUFSZ3FSQWxxYUhEK0tUMDhwWDBhU1RkSGFsS3lIaEkrVlllVDZLSGZGMThtYjNTdXlHWUlQZFZBcnR4MVJBdmFzTjIyMHlZWGpodkJ1TUZSL2xPcGtVa2tOemV6Wlc2SVlyV01EZ0lpWnk5Y29nVFNyU21FPS0tZG5QU3JsTklqUEI4MmRkcHV1TFFyUT09--0389a9cdeed1a30bd89fc1a73cfc373f3151debe; path=/; HttpOnly","X-Request-Id":"c4c9dcab-1c3b-4d75-8588-73e43b1de5f8","X-Runtime":"0.079398"},
+      "response_content_type": null,
+      "curl": null
+}
+  ]
+}

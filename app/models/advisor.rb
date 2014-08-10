@@ -1,5 +1,5 @@
-class Mentor < ActiveRecord::Base
-  classy_enum_attr :mentor_status, default: :applied
+class Advisor < ActiveRecord::Base
+  classy_enum_attr :advisor_status, default: :applied
 
   validates :user, :headline, :city, :state, :years_of_experience, :availability, :phone_number, :industries, :schools, :skills, presence: true
   validates :years_of_experience, :numericality => {:greater_than_or_equal_to => 0}
@@ -28,22 +28,22 @@ class Mentor < ActiveRecord::Base
                   ignoring: :accents,
                   :if => :approved?
 
-  after_update :send_status_email, :if => :mentor_status_changed?
+  after_update :send_status_email, :if => :advisor_status_changed?
 
   def send_status_email
-    if self.mentor_status.approved?
-      MentorMailer.approval_email(self).deliver
-    elsif self.mentor_status.declined?
-      MentorMailer.declined_email(self).deliver
+    if self.advisor_status.approved?
+      AdvisorMailer.approval_email(self).deliver
+    elsif self.advisor_status.declined?
+      AdvisorMailer.declined_email(self).deliver
     end
   end
 
-  scope :approved, -> { where(mentor_status: :approved) }
+  scope :approved, -> { where(advisor_status: :approved) }
   scope :featured, -> { where(featured: true) }
   scope :skills, ->(skill) { where("skills like ?", "%#{skill}%") }
   scope :industries, ->(industry) { where("industries like ?", "%#{industry}%") }
   scope :schools, ->(school) { where("schools like ?", "%#{school}%") }
-  scope :not_deleted, lambda { self.joins("join users on users.id = mentors.user_id").where('users.deleted_at IS NULL') }
+  scope :not_deleted, lambda { self.joins("join users on users.id = advisors.user_id").where('users.deleted_at IS NULL') }
 
   def rate_per_minute
     if self.years_of_experience < 2
@@ -68,7 +68,7 @@ class Mentor < ActiveRecord::Base
   end
 
   def approved?
-    self.mentor_status.approved?
+    self.advisor_status.approved?
   end
 
   def calc_avg_rating
@@ -116,7 +116,7 @@ class Mentor < ActiveRecord::Base
   end
 
   def total_calls
-    self.call_requests.where(status: [:completed, :processed_member, :processed_mentor, :processed]).size
+    self.call_requests.where(status: [:completed, :processed_member, :processed_advisor, :processed]).size
   end
 
   def total_reviews

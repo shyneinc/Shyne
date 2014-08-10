@@ -21,7 +21,7 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/conversations/58",
+      "request_path": "/api/conversations/9",
       "request_body": "conversation[subject]=Hello+Again&conversation[body]=World",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -35,7 +35,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=NURjb0FqT0lTZXk1MGpUaFdQWnVsZ1lzRFAwYTkydEhaYWVQWFNyRTBCenVCcU1Qa1h5SGxGMk53bzNQL0JJbkRIak82cjB3d29hNmFaRXVIbGxIVnRwUzlsZkR3dENVMzc2M0Y4SE95S2piSVFkY0JCVUwvMWZTSUE0ckkxSXYrUm1mRGpMYTltZWFReVN1YVpXY0E0SFB4KzEwM2JaN2Jlc3VxajhnRXFVPS0tbTk2dXF0dXl3UmFOMWVQTlRWckVJdz09--c47a40038b5f007b7b5991a3288647152dc29dfb; path=/; HttpOnly","X-Request-Id":"97363fca-d2db-4600-bdd4-a5cc6ea29ae4","X-Runtime":"1.111051"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=aEpkR2lQR0NiOGcxMDVsRWNvdnlLWnJBak9pM1U5WmhyOTdMcWQ5LzVObktOYldCTG1Yanc0ZzNxZUxrOEJUZXFJUWhqYTZDYWUrR0lQQmE5TmNVQW9lVjBibUltbTFtSFpQcmdNOXJnOVUwek1hRzY3bG55R2pxQzJNRVhqb3NwSDQyb1ZST0RKSWhjUlVraVFJQ3VJdUFMQkpzbXpTWmUwZlAzdHNsaWo4PS0tZ1ZLcktPYStONDhPVHlVdFdRTGdXdz09--fa0f1b70858ce41991f9652797299e0da9162920; path=/; HttpOnly","X-Request-Id":"9aaf1af0-df37-4bfb-9fde-f63d444f42b9","X-Runtime":"0.278534"},
       "response_content_type": null,
       "curl": null
 }

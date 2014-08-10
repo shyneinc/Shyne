@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <section ng-hide="user" class="applicationMentors">
+    <section ng-hide="user" class="applicationAdvisors">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
@@ -25,7 +25,7 @@
       </div>
     </section>
 
-    <section ng-hide="isApproved" class="applicationMentors">
+    <section ng-hide="isApproved" class="applicationAdvisors">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
@@ -45,21 +45,21 @@
                       <section class="welcomeMember" ng-hide="welcomeModel.role">
                         <div class="container posRel">
                           <div class="bannerBox">Currently only available in <span>USA</span></div>
-                          <h2 class="text-center">How would you like to use Shyne?</h2>
+                          <h3 class="text-center">Welcome! How would you like to use Shyne?</h3>
                           <div class="cl">&nbsp;</div>
                           <div class="row">
                             <div class="col-md-12">
                                 <p class="text-center"><button ng-click="showMemberForm()" class="btn grd-org btnOrgLg w340">I'd like to Join as a Member</button></p>
-                                <p class="R16R">Members  can schedule  calls with  Mentors for career  advice, interview tips, &amp; insider info  on  popular companies and positions.</p>
+                                <p class="R16R">Members  can schedule  calls with  Advisors for career  advice, interview tips, &amp; insider info  on  popular companies and positions.</p>
                                 <div class="cl">&nbsp;</div>
-                                <p class="text-center"><button ng-click="showMentorForm()" class="btn grd-org btnOrgLg w340">I'd like to Apply to become a Mentor</button></p>
-                                <p class="R16R">Mentors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</p>
+                                <p class="text-center"><button ng-click="showAdvisorForm()" class="btn grd-org btnOrgLg w350">I'd like to Apply to become an Advisor</button></p>
+                                <p class="R16R">Advisors  get paid  to  give  career  advice  to  Members seeking assistance. Take  phone calls whenever  you're  free  to  help  and get paid  by  the minute!</p>
                                 <div class="cl">&nbsp;</div>
                             </div>
                           </div>
                         </div>
                       </section>
-                      <section class="applicationMentors" ng-show="welcomeModel.role == 'Member'">
+                      <section class="applicationAdvisors" ng-show="welcomeModel.role == 'Member'">
                         <div class="container">
                           <div class="row">
                             <div class="col-md-8 col-md-offset-2">
@@ -70,12 +70,12 @@
                                   <div class="formContent">
                                     <div class="row rowMar">
                                       <div class="col-sm-6">
-                                        <label for="mentorCity" class="O11BU">City</label>
-                                        <input type="text" name="city" ng-model="memberModel.city" id="mentorCity" placeholder="Enter your work city" required="">
+                                        <label for="advisorCity" class="O11BU">City</label>
+                                        <input type="text" name="city" ng-model="memberModel.city" id="advisorCity" placeholder="Enter your work city" required="">
                                         <div class="error">{{memberFormError.city[0]}}</div>
                                       </div>
                                       <div class="col-sm-6">
-                                        <label for="mentorState" class="O11BU">State</label>
+                                        <label for="advisorState" class="O11BU">State</label>
                                         <div class="dropDown">
                                           <select data-ng-options="t.value as t.text for t in stateList" ng-model="memberModel.state" required="">
                                             <option value="">Select State</option>
@@ -124,39 +124,39 @@
                           </div>
                         </div>
                       </section>
-                      <section class="applicationMentors" ng-show="welcomeModel.role == 'Mentor'">
+                      <section class="applicationAdvisors" ng-show="welcomeModel.role == 'Advisor'">
                         <div class="container">
-                          <h2>Application to be a Mentor <span class="OC15BUG">Step 1 of 2</span></h2>
+                          <h2>Application to be an Advisor <span class="OC15BUG">Step 1 of 2</span></h2>
                             <div class="row">
                               <div class="col-sm-8">
                                 <div class="callDetail">
-                                  <form novalidate role="form" name="mentorForm" ng-submit="becomeMentor()">
+                                  <form novalidate role="form" name="advisorForm" ng-submit="becomeAdvisor()">
                                     <div class="formBox mt20">
                                       <div class="OC15BUG pb5 mt10 bdb">Your Logistics</div>
                                       <div class="row">
                                         <div class="col-sm-6">
-                                          <label for="mentorCity" class="O11BU">City</label>
-                                          <input type="text" name="city" ng-model="mentorModel.city" id="mentorCity" placeholder="Enter your work city" required="">
-                                          <div class="error">{{mentorFormError.city[0]}}</div>
+                                          <label for="advisorCity" class="O11BU">City</label>
+                                          <input type="text" name="city" ng-model="advisorModel.city" id="advisorCity" placeholder="Enter your work city" required="">
+                                          <div class="error">{{advisorFormError.city[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
-                                          <label for="mentorState" class="O11BU">State</label>
+                                          <label for="advisorState" class="O11BU">State</label>
                                           <div class="dropDown">
-                                            <select data-ng-options="t.value as t.text for t in stateList" ng-model="mentorModel.state" required="">
+                                            <select data-ng-options="t.value as t.text for t in stateList" ng-model="advisorModel.state" required="">
                                               <option value="">Select State</option>
                                             </select>
                                           </div>
-                                          <div class="error">{{mentorFormError.state[0]}}</div>
+                                          <div class="error">{{advisorFormError.state[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">cell number <span>– <i>Hidden, never shared</i></span></label>
-                                          <input type="text" name="phoneNumber" ng-model="mentorModel.phoneNumber" ui-mask="1 (999) 999 – 9999" id="mentorPhoneNumber" required="">
-                                          <div class="error">{{mentorFormError.phone_number[0]}}</div>
+                                          <input type="text" name="phoneNumber" ng-model="advisorModel.phoneNumber" ui-mask="1 (999) 999 – 9999" id="advisorPhoneNumber" required="">
+                                          <div class="error">{{advisorFormError.phone_number[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">Timezone</label>
                                           <div class="dropDown">
-                                            <select id="memberTimeZone" ng-model="mentorModel.timeZone">
+                                            <select id="memberTimeZone" ng-model="advisorModel.timeZone">
                                               <option value="Alaska">Alaska</option>
                                               <option value="Arizona">Arizona</option>
                                               <option value="Central Time (US & Canada)">Central Time (US & Canada)</option>
@@ -167,12 +167,12 @@
                                               <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
                                             </select>
                                           </div>
-                                          <div class="error">{{mentorFormError.time_zone[0]}}</div>
+                                          <div class="error">{{advisorFormError.time_zone[0]}}</div>
                                         </div>
                                         <div class="col-sm-12">
                                           <label class="O11BU">When do you prefer our members to request calls with you?</label>
-                                          <input type="text" name="availability" ng-model="mentorModel.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
-                                          <div class="error">{{mentorFormError.availability[0]}}</div>
+                                          <input type="text" name="availability" ng-model="advisorModel.availability" id="advisorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
+                                          <div class="error">{{advisorFormError.availability[0]}}</div>
                                         </div>
                                       </div>
                                       <div class="cl">&nbsp;</div>
@@ -180,32 +180,32 @@
                                       <div class="row">
                                         <div class="col-sm-6">
                                           <label class="O11BU">What is your linkedin url?</label>
-                                          <input type="text" name="linkedin" ng-model="mentorModel.linkedin" id="mentorLinkedin" placeholder="Ex: www.linkedin.com/in/johnk" required="">
-                                          <div class="error">{{mentorFormError.linkedin[0]}}</div>
+                                          <input type="text" name="linkedin" ng-model="advisorModel.linkedin" id="advisorLinkedin" placeholder="Ex: www.linkedin.com/in/johnk" required="">
+                                          <div class="error">{{advisorFormError.linkedin[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">Number of years worked</label>
-                                          <input type="text" name="yearsOfExperience" ng-model="mentorModel.yearsOfExperience" id="mentorYearsOfExperience" placeholder="Number of years" required="">
-                                          <div class="error">{{mentorFormError.years_of_experience[0]}}</div>
+                                          <input type="text" name="yearsOfExperience" ng-model="advisorModel.yearsOfExperience" id="advisorYearsOfExperience" placeholder="Number of years" required="">
+                                          <div class="error">{{advisorFormError.years_of_experience[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">Universities you attended</label>
-                                          <tags-input ng-model="mentorModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                                          <tags-input ng-model="advisorModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
                                             <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                           </tags-input>
-                                          <div class="error">{{mentorFormError.schools[0]}}</div>
+                                          <div class="error">{{advisorFormError.schools[0]}}</div>
                                         </div>
                                         <div class="col-sm-6">
                                           <label class="O11BU">what industries have you worked in?</label>
-                                          <tags-input ng-model="mentorModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
+                                          <tags-input ng-model="advisorModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
                                             <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                                           </tags-input>
-                                          <div class="error">{{mentorFormError.industries[0]}}</div>
+                                          <div class="error">{{advisorFormError.industries[0]}}</div>
                                         </div>
                                         <div class="col-sm-12">
                                           <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
-                                          <input type="text" name="skills" ng-model="mentorModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
-                                          <div class="error">{{mentorFormError.skills[0]}}</div>
+                                          <input type="text" name="skills" ng-model="advisorModel.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
+                                          <div class="error">{{advisorFormError.skills[0]}}</div>
                                         </div>
                                       </div>
                                       <div class="cl">&nbsp;</div>
@@ -213,13 +213,13 @@
                                       <div class="row">
                                         <div class="col-sm-12">
                                           <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
-                                          <label class="chLeft">{{ 280 - mentorModel.headline.length }}</label>
-                                          <textarea ng-model="mentorModel.headline" id="mentorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
-                                          <div class="error">{{mentorFormError.headline[0]}}</div>
+                                          <label class="chLeft">{{ 280 - advisorModel.headline.length }}</label>
+                                          <textarea ng-model="advisorModel.headline" id="advisorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
+                                          <div class="error">{{advisorFormError.headline[0]}}</div>
                                         </div>
                                       </div>
                                       <div class="bottomBtn">
-                                          <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="mentorForm.$invalid" ng-click="becomeMentor()">Continue <span class="iconSp arrow-right"></span></button>
+                                          <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="advisorForm.$invalid" ng-click="becomeAdvisor()">Continue <span class="iconSp arrow-right"></span></button>
                                           <a href="" class="cancel mr20 fr" ng-click="clearRole()">Cancel</a>
                                       </div>
                                     </div>
@@ -242,34 +242,34 @@
             </div>
         </div>
 
-        <section class="applicationMentors" ng-show="historyModel.role == 'become_mentor'">
+        <section class="applicationAdvisors" ng-show="historyModel.role == 'become_advisor'">
           <div class="container">
-            <h2>Application to be a Mentor <span class="OC15BUG">Step 1 of 2</span></h2>
+            <h2>Application to be an Advisor <span class="OC15BUG">Step 1 of 2</span></h2>
               <div class="row">
                 <div class="col-sm-8">
                   <div class="callDetail">
-                    <form novalidate role="form" name="mentorStepForm" ng-submit="updateMentor()">
+                    <form novalidate role="form" name="advisorStepForm" ng-submit="updateAdvisor()">
                       <div class="formBox mt20">
                         <div class="OC15BUG pb5 mt10 bdb">Your Logistics</div>
                         <div class="row">
                           <div class="col-sm-6">
-                            <label for="mentorCity" class="O11BU">City</label>
-                            <input type="text" name="city" ng-model="user.city" id="mentorCity" placeholder="Enter your work city" required="">
-                            <div class="error">{{mentorFormError.city[0]}}</div>
+                            <label for="advisorCity" class="O11BU">City</label>
+                            <input type="text" name="city" ng-model="user.city" id="advisorCity" placeholder="Enter your work city" required="">
+                            <div class="error">{{advisorFormError.city[0]}}</div>
                           </div>
                           <div class="col-sm-6">
-                            <label for="mentorState" class="O11BU">State</label>
+                            <label for="advisorState" class="O11BU">State</label>
                             <div class="dropDown">
                               <select data-ng-options="t.value as t.text for t in stateList" ng-model="user.state" required="">
                                 <option value="">Select State</option>
                               </select>
                             </div>
-                            <div class="error">{{mentorFormError.state[0]}}</div>
+                            <div class="error">{{advisorFormError.state[0]}}</div>
                           </div>
                           <div class="col-sm-6">
                             <label class="O11BU">cell number <span>– <i>Hidden, never shared</i></span></label>
-                            <input type="text" name="phoneNumber" ng-model="user.phone_number" ui-mask="1 (999) 999 – 9999" id="mentorPhoneNumber" required="">
-                            <div class="error">{{mentorFormError.phone_number[0]}}</div>
+                            <input type="text" name="phoneNumber" ng-model="user.phone_number" ui-mask="1 (999) 999 – 9999" id="advisorPhoneNumber" required="">
+                            <div class="error">{{advisorFormError.phone_number[0]}}</div>
                           </div>
                           <div class="col-sm-6">
                             <label class="O11BU">Timezone</label>
@@ -285,12 +285,12 @@
                                 <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
                               </select>
                             </div>
-                            <div class="error">{{mentorFormError.time_zone[0]}}</div>
+                            <div class="error">{{advisorFormError.time_zone[0]}}</div>
                           </div>
                           <div class="col-sm-12">
                             <label class="O11BU">When do you prefer our members to request calls with you?</label>
-                            <input type="text" name="availability" ng-model="user.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
-                            <div class="error">{{mentorFormError.availability[0]}}</div>
+                            <input type="text" name="availability" ng-model="user.availability" id="advisorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
+                            <div class="error">{{advisorFormError.availability[0]}}</div>
                           </div>
                         </div>
                         <div class="cl">&nbsp;</div>
@@ -298,32 +298,32 @@
                         <div class="row">
                           <div class="col-sm-6">
                             <label class="O11BU">What is your linkedin url?</label>
-                            <input type="text" name="linkedin" ng-model="user.linkedin" id="mentorLinkedin" placeholder="Ex: www.linkedin.com/in/johnk" required="">
-                            <div class="error">{{mentorFormError.linkedin[0]}}</div>
+                            <input type="text" name="linkedin" ng-model="user.linkedin" id="advisorLinkedin" placeholder="Ex: www.linkedin.com/in/johnk" required="">
+                            <div class="error">{{advisorFormError.linkedin[0]}}</div>
                           </div>
                           <div class="col-sm-6">
                             <label class="O11BU">Number of years worked</label>
-                            <input type="text" name="yearsOfExperience" ng-model="user.years_of_experience" id="mentorYearsOfExperience" placeholder="Number of years" required="">
-                            <div class="error">{{mentorFormError.years_of_experience[0]}}</div>
+                            <input type="text" name="yearsOfExperience" ng-model="user.years_of_experience" id="advisorYearsOfExperience" placeholder="Number of years" required="">
+                            <div class="error">{{advisorFormError.years_of_experience[0]}}</div>
                           </div>
                           <div class="col-sm-6">
                             <label class="O11BU">Universities you attended</label>
-                            <tags-input ng-model="mentorModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
+                            <tags-input ng-model="advisorModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
                               <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                             </tags-input>
-                            <div class="error">{{mentorFormError.schools[0]}}</div>
+                            <div class="error">{{advisorFormError.schools[0]}}</div>
                           </div>
                           <div class="col-sm-6">
                             <label class="O11BU">what industries have you worked in?</label>
-                            <tags-input ng-model="mentorModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
+                            <tags-input ng-model="advisorModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
                               <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                             </tags-input>
-                            <div class="error">{{mentorFormError.industries[0]}}</div>
+                            <div class="error">{{advisorFormError.industries[0]}}</div>
                           </div>
                           <div class="col-sm-12">
                             <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
                             <input type="text" name="skills" ng-model="user.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
-                            <div class="error">{{mentorFormError.skills[0]}}</div>
+                            <div class="error">{{advisorFormError.skills[0]}}</div>
                           </div>
                         </div>
                         <div class="cl">&nbsp;</div>
@@ -332,12 +332,12 @@
                           <div class="col-sm-12">
                             <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
                             <label class="chLeft">{{ 280 - user.headline.length }}</label>
-                            <textarea ng-model="user.headline" id="mentorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
-                            <div class="error">{{mentorFormError.headline[0]}}</div>
+                            <textarea ng-model="user.headline" id="advisorHeadline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management." required=""></textarea>
+                            <div class="error">{{advisorFormError.headline[0]}}</div>
                           </div>
                         </div>
                         <div class="bottomBtn">
-                            <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="mentorStepForm.$invalid" ng-click="updateMentor()">Continue <span class="iconSp arrow-right"></span></button>
+                            <button type="button" class="btn grd-org btnOrgLg ml20 fr" type="submit" ng-disabled="advisorStepForm.$invalid" ng-click="updateAdvisor()">Continue <span class="iconSp arrow-right"></span></button>
                         </div>
                       </div>
                     </form>
@@ -355,9 +355,9 @@
           </div>
         </section>
 
-        <section class="applicationMentors" ng-show="historyModel.role == 'Mentor'">
+        <section class="applicationAdvisors" ng-show="historyModel.role == 'Advisor'">
           <div class="container">
-            <h2>Application to be a Mentor <span class="OC15BUG">Step 2 of 2</span></h2>
+            <h2>Application to be an Advisor <span class="OC15BUG">Step 2 of 2</span></h2>
             <div class="row">
               <div class="col-sm-8">
                 <div class="callDetail">
@@ -447,7 +447,7 @@
                       </div>
                       <div class="cl bdb mb10">&nbsp;</div>
                       <div class="bottomBtn mb10">
-                        <a href="" class="btn grd-org btnOrgLg fl" ng-click="backToPreviousStep('become_mentor')"><span class="iconSp arrow-left"></span> Back</a>
+                        <a href="" class="btn grd-org btnOrgLg fl" ng-click="backToPreviousStep('become_advisor')"><span class="iconSp arrow-left"></span> Back</a>
                         <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyForm.$invalid" ng-click="createWorkHistory()">Continue <span class="iconSp arrow-right"></span></button>
                       </div>
                     </div>
@@ -466,9 +466,9 @@
           </div>
         </section>
 
-        <section class="applicationMentors" ng-show="historyModel.role == 'update_work_history'">
+        <section class="applicationAdvisors" ng-show="historyModel.role == 'update_work_history'">
           <div class="container">
-            <h2>Application to be a Mentor <span class="OC15BUG">Step 2 of 2</span></h2>
+            <h2>Application to be an Advisor <span class="OC15BUG">Step 2 of 2</span></h2>
             <div class="row">
               <div class="col-sm-8">
                 <div class="callDetail">
@@ -541,7 +541,7 @@
                       </div>
                       <div class="cl bdb mb10">&nbsp;</div>
                       <div class="bottomBtn mb10">
-                        <a href="" class="btn grd-org btnOrgLg fl" ng-click="backToPreviousStep('become_mentor')"><span class="iconSp arrow-left"></span> Back</a>
+                        <a href="" class="btn grd-org btnOrgLg fl" ng-click="backToPreviousStep('become_advisor')"><span class="iconSp arrow-left"></span> Back</a>
                         <button type="button" class="btn grd-org btnOrgLg ml20 fr" ng-disabled="historyUpdateForm.$invalid" ng-click="updateWorkHistory()">Continue <span class="iconSp arrow-right"></span></button>
                       </div>
                     </div>
@@ -601,7 +601,7 @@
           </div>
         </section>
 
-        <section class="profile" ng-show="user.role_type == 'Mentor' && historyModel.role != 'update_work_history' && historyModel.role != 'become_mentor' && historyModel.role != 'Mentor' && historyModel.role != 'upload_photo' && user.mentor_status == 'approved'">
+        <section class="profile" ng-show="user.role_type == 'Advisor' && historyModel.role != 'update_work_history' && historyModel.role != 'become_advisor' && historyModel.role != 'Advisor' && historyModel.role != 'upload_photo' && user.advisor_status == 'approved'">
           <div class="container">
             <h2>{{ user.first_name }} {{ user.last_name }} <span class="OC16BU tcGry">{{ user.current_position }} at <span class="tcOrg">{{ user.current_company }}</span></span>
               <a class="btnEdit grd-blue mt10 fr" ng-click="edit_profile = !edit_profile"><span class="iconPro {{ edit_profile && 'i_eye_w' || 'i_edit_w' }}"></span>{{ edit_profile && 'View your profile' || 'Edit your profile' }}</a>
@@ -713,8 +713,8 @@
                           <div class="row">
                             <div class="col-sm-12">
                               <label class="O11BU">When do you prefer our members to request calls with you?</label>
-                              <input type="text" name="availability" ng-model="user.availability" id="mentorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
-                              <div class="error">{{mentorModalFormError.availability[0]}}</div>
+                              <input type="text" name="availability" ng-model="user.availability" id="advisorAvailability" placeholder="Ex: Weekdays from 6pm-8pm, weekends anytime" required="">
+                              <div class="error">{{advisorModalFormError.availability[0]}}</div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">Timezone</label>
@@ -730,7 +730,7 @@
                                   <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
                                 </select>
                               </div>
-                              <div class="error">{{mentorModalFormError.time_zone[0]}}</div>
+                              <div class="error">{{advisorModalFormError.time_zone[0]}}</div>
                             </div>
                           </div>
                           <div class="bottomBtn">
@@ -775,7 +775,7 @@
                             <div class="col-sm-6">
                               <label class="O11BU">City</label>
                               <input type="text" name="city" ng-model="user.city" placeholder="Enter your work city" required="">
-                              <div class="error">{{mentorModalFormError.city[0]}}</div>
+                              <div class="error">{{advisorModalFormError.city[0]}}</div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">state</label>
@@ -784,14 +784,14 @@
                                   <option value="">Select State</option>
                                 </select>
                               </div>
-                              <div class="error">{{mentorModalFormError.state[0]}}</div>
+                              <div class="error">{{advisorModalFormError.state[0]}}</div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">Most recent university attended</label>
                               <tags-input ng-model="editSchoolModel.schools" allowed-tags-pattern=".+" replace-spaces-with-dashes="false" placeholder="The name of your university" required="">
                                 <auto-complete source="loadSchools($query)" min-length="0" max-results-to-show="10"></auto-complete>
                               </tags-input>
-                              <div class="error">{{mentorModalFormError.schools[0]}}</div>
+                              <div class="error">{{advisorModalFormError.schools[0]}}</div>
                             </div>
                             <div class="col-sm-6">
                               <label class="O11BU">Timezone</label>
@@ -807,7 +807,7 @@
                                   <option value="Pacific Time (US & Canada)">Pacific Time (US & Canada)</option>
                                 </select>
                               </div>
-                              <div class="error">{{mentorModalFormError.time_zone[0]}}</div>
+                              <div class="error">{{advisorModalFormError.time_zone[0]}}</div>
                             </div>
                           </div>
                           <div class="clAll bdb mt20 mb5"></div>
@@ -830,7 +830,7 @@
                               <label class="O11BU">Give a short description that sums up your career &amp; expertise</label>
                               <label class="chLeft">{{ 280 - user.headline.length }}</label>
                               <textarea ng-model="user.headline" maxlength="280" placeholder="Ex: I’ve worked in the tech scene in San Francisco for almost 3 years. I’m a data guy that loves talking about startups and product management."></textarea>
-                              <div class="error">{{mentorModalFormError.headline[0]}}</div>
+                              <div class="error">{{advisorModalFormError.headline[0]}}</div>
                             </div>
                           </div>
                           <div class="bottomBtn">
@@ -923,12 +923,12 @@
                             <tags-input ng-model="editIndustryModel.industries" replace-spaces-with-dashes="false" placeholder="Ex: Technology, Banking, Startups" required="">
                               <auto-complete source="loadIndustries($query)" min-length="0" max-results-to-show="10"></auto-complete>
                             </tags-input>
-                            <div class="error">{{mentorModalFormError.industries[0]}}</div>
+                            <div class="error">{{advisorModalFormError.industries[0]}}</div>
                           </div>
                           <div class="col-sm-12">
                             <label class="O11BU">What are some skills and programs you’re comfortable with?</label>
                             <input type="text" ng-model="user.skills" id="historySkills" maxlength="280" placeholder="Ex: Ruby on Rails, Financial Analysis, Digital Marketing" required="">
-                            <div class="error">{{mentorModalFormError.skills[0]}}</div>
+                            <div class="error">{{advisorModalFormError.skills[0]}}</div>
                           </div>
                         </div>
                         <div class="bottomBtn">

@@ -52,7 +52,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/users",
-      "request_body": "user[first_name]=Yvette&user[last_name]=Dooley&user[email]=user18_1386904340%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0xae1cf6c%3E&user[username]=yvettedooley&user[time_zone]=Pacific+Time+%28US+%26+Canada%29&user[customer_uri]",
+      "request_body": "user[first_name]=Jacky&user[last_name]=Hane&user[email]=user20_1407607882%40shyne.io&user[password]=password&user[password_confirmation]=password&user[avatar]=%23%3CFile%3A0x000000093c9d90%3E&user[username]=jackyhane&user[time_zone]=Indiana+%28East%29&user[customer_uri]&user[deleted_at]",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -65,7 +65,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=U3dEbUttSTNYbCsrQ3hpU0phdmlzMVBUb0dlSHN2empJanpHLzYyenNtcjBPQW00NXMvdlV1L2lWZG5JRUlzMGRTUitRLzBvMXU1Q2h4REZOb3c5QjUrcW5qbVg1bTAzTVVLREhvOTQvNWQyT3dJYVlSR0xxdTFrOFREbTBRdERyeFY1eGpabytnWFJ2NW9BVVN2dlprT0ZoeTZ3aU5TOFArWHZIWWZhbEJvPS0tMmZENzN5QjJQazJQVWQ5NzBPZ1NaQT09--f85ed2f552feaf16a9e3c4f9663e21f41349a91a; path=/; HttpOnly","X-Request-Id":"8aca440a-9ff7-41ae-8a2b-41da3984f46a","X-Runtime":"1.165927"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=TTd2SDJsMzFOZ2FBVHF1bW12cUp5dHFxcWQwVWhpR09QeFBiMjJNYk1JMWdLMFgrSkFEcjRwNkNUd25rNFVoaUFTUjJjTEtmQVM3RmlaTkRpWXRKWTYwSzNPU29qV1l0emZ1bDZDZHVXZ0l0WGk2ZVM3STBrTlpQbTNnVDFYdDhzUzhnUGJ2Z1RxRkszS2hZQlVOVmptMTdCRnM4OEVESTNIbzJmdXZneFBjPS0tOUVVckdETG5nZVdPL1dvSkcyeGpYQT09--bfb90c79ad9bcf58aeb4fdcff40d2124b0b2a8a3; path=/; HttpOnly","X-Request-Id":"15b2f289-8b68-4691-94ba-0f61ce684a65","X-Runtime":"0.089521"},
       "response_content_type": null,
       "curl": null
 }

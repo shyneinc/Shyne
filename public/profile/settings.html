@@ -1,6 +1,6 @@
 <div data-extend-template="/layouts/layout.html">
   <div data-block="content">
-    <section ng-hide="user" class="applicationMentors">
+    <section ng-hide="user" class="applicationAdvisors">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
@@ -22,7 +22,7 @@
         <h2 ng-show="settings.tab == 'basic_info'">Basic Information</h2>
         <h2 ng-show="settings.tab == 'change_password'">Change Password</h2>
         <h2 ng-show="settings.tab == 'credit_card'">{{ (user.user.role_type == 'Member' && creditCardInfo.length > 0) && 'Current card on file' || 'No current credit card on file' }}</h2>
-        <h2 ng-show="settings.tab == 'bank_account'">{{ (user.user.role_type == 'Mentor' && bankAccountInfo.length > 0) && 'Current account on file' || 'No current bank account on file' }}</h2>
+        <h2 ng-show="settings.tab == 'bank_account'">{{ (user.user.role_type == 'Advisor' && bankAccountInfo.length > 0) && 'Current account on file' || 'No current bank account on file' }}</h2>
         <h2 ng-show="settings.tab == 'email_notification'">Email Notifications</h2>
         <h2 ng-show="settings.tab == 'account_status'">Account Status</h2>
         <div class="clAll"></div>
@@ -36,7 +36,7 @@
           <div class="btn-group" ng-show="user.role_type == 'Member'">
             <a href="" class="btn btn-default {{ settings.tab == 'credit_card' && 'active' || '' }}"  ng-click="settings.tab = 'credit_card'">Change Credit Card<span class="caretB"></span></a>
           </div>
-          <div class="btn-group" ng-show="user.role_type == 'Mentor'">
+          <div class="btn-group" ng-show="user.role_type == 'Advisor'">
             <a href="" class="btn btn-default {{ settings.tab == 'bank_account' && 'active' || '' }}"  ng-click="settings.tab = 'bank_account'">Bank Account <span class="caretB"></span></a>
           </div>
           <!--<div class="btn-group">

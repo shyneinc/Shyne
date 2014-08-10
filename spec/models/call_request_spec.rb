@@ -12,14 +12,14 @@ describe CallRequest do
       it { should validate_presence_of :agenda }
       it { should validate_presence_of :scheduled_at }
       it { should validate_presence_of :proposed_duration }
-      it { should validate_presence_of :mentor }
+      it { should validate_presence_of :advisor }
       it { should validate_presence_of :member }
     end
   end
 
   describe "ActiveRecord validations" do
     context "Associations" do
-      it { expect(call_request).to belong_to(:mentor) }
+      it { expect(call_request).to belong_to(:advisor) }
       it { expect(call_request).to belong_to(:member) }
       it { expect(call_request).to have_many(:calls) }
       it { expect(call_request).to have_many(:payment_transactions) }
@@ -28,7 +28,7 @@ describe CallRequest do
     context "Callbacks" do
       it { expect(call_request).to callback(:generate_passcode).after(:validation).on(:create) }
       it { expect(call_request).to callback(:send_status).after(:save) }
-      it { expect(call_request).to callback(:calc_mentor_duration).after(:update) }
+      it { expect(call_request).to callback(:calc_advisor_duration).after(:update) }
     end
   end
 
@@ -54,12 +54,12 @@ describe CallRequest do
 
       before(:all) do
         mock_accounts = [OpenStruct.new({"routing" => "021000021", "account" => "9900000002"})]
-        completed_call_request.mentor.stub_chain(:balanced_customer, :bank_accounts).and_return(mock_accounts)
+        completed_call_request.advisor.stub_chain(:balanced_customer, :bank_accounts).and_return(mock_accounts)
 
         mock_debit = OpenStruct.new({"_type" => "debit", "amount" => 100, "status" => "succeeded", "uri" => "test"})
         mock_credit = OpenStruct.new({"_type" => "credit", "amount" => 70, "status" => "paid", "uri" => "test"})
         completed_call_request.member.stub_chain(:balanced_customer, :debit).and_return(mock_debit)
-        completed_call_request.mentor.stub_chain(:balanced_customer, :credit).and_return(mock_credit)
+        completed_call_request.advisor.stub_chain(:balanced_customer, :credit).and_return(mock_credit)
 
         completed_call_request.process_payment
       end
@@ -68,8 +68,8 @@ describe CallRequest do
         expect(completed_call_request.member_debited?).to eq true
       end
 
-      it "credits the mentor" do
-        expect(completed_call_request.mentor_credited?).to eq true
+      it "credits the advisor" do
+        expect(completed_call_request.advisor_credited?).to eq true
       end
 
       it "sets the status to processed" do
@@ -80,7 +80,7 @@ describe CallRequest do
     context "#debit_amount" do
       before(:each) do
         call_request.stub(:billable_duration).and_return(900)
-        call_request.mentor.stub(:rate_per_minute).and_return(3)
+        call_request.advisor.stub(:rate_per_minute).and_return(3)
       end
 
       it "returns the correct amount to be debited from the member" do
@@ -103,14 +103,14 @@ describe CallRequest do
         call_request.stub(:debit_amount).and_return(100)
       end
 
-      it "returns the correct amount to be credited to the mentor" do
+      it "returns the correct amount to be credited to the advisor" do
         expect(call_request.credit_amount).to eq 70
       end
     end
 
     context "#description" do
-      it "returns the correct description with id, member and mentor names" do
-        expect(call_request.description).to include call_request.id.to_s, call_request.member.full_name, call_request.mentor.full_name
+      it "returns the correct description with id, member and advisor names" do
+        expect(call_request.description).to include call_request.id.to_s, call_request.member.full_name, call_request.advisor.full_name
       end
     end
   end

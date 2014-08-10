@@ -19,7 +19,7 @@ describe "ReminderSpec" do
     it "has passcode" do
       expect(call).to include("Passcode:12345")
     end
-    it "should mention the mentor" do
+    it "should mention the advisor" do
       expect(call).to include("call with John Doe")
     end
     #i still need to test this because this is manually implemented and not coming from ruby

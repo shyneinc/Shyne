@@ -9,7 +9,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.historyModel = {role: null}
   $scope.work_histories = null
   $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
-  $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
+  $scope.advisorModel = {timeZone: 'Pacific Time (US & Canada)'}
   $scope.previousPosition = false
   $scope.creditCardModel = {}
   $scope.reviews = null
@@ -130,19 +130,19 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
                 $rootScope.creditCardInfo = creditCardInfo
               )
         )
-      else if user.role_type is 'Mentor'
-        User.getMentorInfo(user.role_id).then((mentorInfo) ->
-          angular.extend(user, mentorInfo)
+      else if user.role_type is 'Advisor'
+        User.getAdvisorInfo(user.role_id).then((advisorInfo) ->
+          angular.extend(user, advisorInfo)
 
           #prepend in missing url
-          $scope.urlPrefix = 'https://' if !mentorInfo.linkedin.match(/^http([s]?):\/\/.*/)
+          $scope.urlPrefix = 'https://' if !advisorInfo.linkedin.match(/^http([s]?):\/\/.*/)
 
-          $scope.editIndustryModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-          $scope.user_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-          $scope.user_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
-          $scope.editSchoolModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
-          $scope.isApproved = false if mentorInfo.mentor_status != 'approved'
-          if user.sign_in_count < 3 && mentorInfo.user.avatar.url.match(/^http([s]?):\/\/.*/)
+          $scope.editIndustryModel.industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+          $scope.user_industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+          $scope.user_skills = advisorInfo.skills.split(", ") if advisorInfo.skills != null
+          $scope.editSchoolModel.schools = advisorInfo.schools.split(", ") if advisorInfo.schools != null
+          $scope.isApproved = false if advisorInfo.advisor_status != 'approved'
+          if user.sign_in_count < 3 && advisorInfo.user.avatar.url.match(/^http([s]?):\/\/.*/)
             $scope.isPhotoNotUploaded = true
           else
             $scope.isPhotoNotUploaded = false
@@ -181,8 +181,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   $scope.showMemberForm = () ->
     $scope.welcomeModel.role = 'Member'
 
-  $scope.showMentorForm = () ->
-    $scope.welcomeModel.role = 'Mentor'
+  $scope.showAdvisorForm = () ->
+    $scope.welcomeModel.role = 'Advisor'
 
   $scope.clearRole = () ->
     $scope.welcomeModel.role = null
@@ -201,59 +201,59 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     )
 
 
-  $scope.becomeMentor = () ->
+  $scope.becomeAdvisor = () ->
     $scope.loading = true
-    User.becomeMentor(
-      $scope.mentorModel.headline,
-      $scope.mentorModel.city,
-      $scope.mentorModel.state,
-      $scope.mentorModel.yearsOfExperience,
-      $scope.mentorModel.phoneNumber,
-      $scope.mentorModel.availability,
-      $scope.mentorModel.linkedin,
-      $scope.mentorModel.industries,
-      $scope.mentorModel.schools,
-      $scope.mentorModel.skills
+    User.becomeAdvisor(
+      $scope.advisorModel.headline,
+      $scope.advisorModel.city,
+      $scope.advisorModel.state,
+      $scope.advisorModel.yearsOfExperience,
+      $scope.advisorModel.phoneNumber,
+      $scope.advisorModel.availability,
+      $scope.advisorModel.linkedin,
+      $scope.advisorModel.industries,
+      $scope.advisorModel.schools,
+      $scope.advisorModel.skills
     ).then((data) ->
-      $scope.phoneNumber = $scope.mentorModel.phoneNumber
-      $scope.linkedin = $scope.mentorModel.linkedin
-      $scope.user.time_zone = $scope.mentorModel.timeZone
+      $scope.phoneNumber = $scope.advisorModel.phoneNumber
+      $scope.linkedin = $scope.advisorModel.linkedin
+      $scope.user.time_zone = $scope.advisorModel.timeZone
       User.updateUser($scope.user).then(()->
         Session.getCurrentUser(true).then((user)->
           $scope.user = user
-          User.getMentorInfo(user.role_id).then((mentorInfo) ->
-            angular.extend(user, mentorInfo)
-            $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-            $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
+          User.getAdvisorInfo(user.role_id).then((advisorInfo) ->
+            angular.extend(user, advisorInfo)
+            $scope.advisorModel.industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+            $scope.advisorModel.schools = advisorInfo.schools.split(", ") if advisorInfo.schools != null
           )
         )
       )
-      $scope.historyModel.role = 'Mentor'
+      $scope.historyModel.role = 'Advisor'
       $scope.loading = false
     , (data) ->
       $scope.loading = false
-      $scope.mentorFormError = data
+      $scope.advisorFormError = data
     )
 
-  $scope.updateMentor = () ->
+  $scope.updateAdvisor = () ->
     $scope.loading = true
-    $scope.user.industries = $scope.mentorModel.industries
-    $scope.user.schools = $scope.mentorModel.schools
-    $scope.phoneNumber = $scope.mentorModel.phoneNumber
-    $scope.linkedin = $scope.mentorModel.linkedin
-    User.updateMentor($scope.user).then(() ->
+    $scope.user.industries = $scope.advisorModel.industries
+    $scope.user.schools = $scope.advisorModel.schools
+    $scope.phoneNumber = $scope.advisorModel.phoneNumber
+    $scope.linkedin = $scope.advisorModel.linkedin
+    User.updateAdvisor($scope.user).then(() ->
       User.updateUser($scope.user).then(() ->
         Session.getCurrentUser(true).then((user)->
           $scope.user = user
-          User.getMentorInfo($scope.user.role_id).then((mentorInfo) ->
-            angular.extend($scope.user, mentorInfo)
-            $scope.mentorModel.industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-            $scope.mentorModel.schools = mentorInfo.schools.split(", ") if mentorInfo.schools != null
+          User.getAdvisorInfo($scope.user.role_id).then((advisorInfo) ->
+            angular.extend($scope.user, advisorInfo)
+            $scope.advisorModel.industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+            $scope.advisorModel.schools = advisorInfo.schools.split(", ") if advisorInfo.schools != null
             Workhistory.getWorkHistories($scope.user.role_id).then((workHistoriesInfo) ->
               $scope.work_histories = workHistoriesInfo
               $scope.previousPosition = true if $scope.work_histories.length == 1
               if workHistoriesInfo.length == 0
-                $scope.historyModel.role = 'Mentor'
+                $scope.historyModel.role = 'Advisor'
               else
                 $scope.historyModel.role = 'update_work_history'
               $scope.loading = false
@@ -262,11 +262,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         )
       , (data) ->
         $scope.loading = false
-        $scope.mentorFormError = data
+        $scope.advisorFormError = data
       )
     , (data) ->
       $scope.loading = false
-      $scope.mentorFormError = data
+      $scope.advisorFormError = data
     )
 
   $scope.updateWorkHistory = () ->
@@ -284,13 +284,13 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     results = []
     $scope.added_work_history = false
     $scope.loading = true
-    $scope.user.industries = $scope.mentorModel.industries
-    $scope.user.schools = $scope.mentorModel.schools
-    $scope.user.skills = $scope.mentorModel.skills
-    #update industries and program of mentor
-    User.updateMentor($scope.user).then(() ->
+    $scope.user.industries = $scope.advisorModel.industries
+    $scope.user.schools = $scope.advisorModel.schools
+    $scope.user.skills = $scope.advisorModel.skills
+    #update industries and program of advisor
+    User.updateAdvisor($scope.user).then(() ->
 
-      #create work current and previous history of mentor
+      #create work current and previous history of advisor
       Workhistory.createWorkHistory($scope.historyModel, $scope.user.role_id).then((data) ->
         $.each($scope.historyModel.positions, (key,valueObj) ->
           Workhistory.addWorkHistoryDetail(valueObj, $scope.user.role_id)
@@ -412,7 +412,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           $scope.flash_message = null
           $scope.$digest()
         ), 5000
-      User.updateMentorInfo($scope.user) if $scope.user.role_type == 'Mentor'
+      User.updateAdvisorInfo($scope.user) if $scope.user.role_type == 'Advisor'
       User.updateMemberInfo($scope.user) if $scope.user.role_type == 'Member'
       $scope.loading = false
     , (data) ->
@@ -433,7 +433,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       $scope.user.industries = $scope.editIndustryModel.industries
 
       Workhistory.updateWorkHistory($scope.user, $scope.user.role_id, $scope.work_histories[0].id).then((data) ->
-        User.updateMentor($scope.user).then((data) ->
+        User.updateAdvisor($scope.user).then((data) ->
           $('#myModal').modal('hide')
           $(window).scrollTop(0)
           $scope.refresh(false)
@@ -445,15 +445,15 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
           ), 5000
         , (data) ->
           $scope.loading = false
-          $scope.mentorModalFormError = data.errors
+          $scope.advisorModalFormError = data.errors
         )
       , (data) ->
         $scope.loading = false
-        $scope.mentorModalFormError = data.errors
+        $scope.advisorModalFormError = data.errors
       )
     , (data) ->
       $scope.loading = false
-      $scope.mentorModalFormError = data.errors
+      $scope.advisorModalFormError = data.errors
     )
 
   $scope.updateCallSettingModal = () ->
@@ -461,7 +461,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.user.schools = $scope.editSchoolModel.schools
     $scope.user.industries = $scope.editIndustryModel.industries
     User.updateUser($scope.user).then((data) ->
-      User.updateMentor($scope.user).then((data) ->
+      User.updateAdvisor($scope.user).then((data) ->
         $('#callsettingModal').modal('hide')
         $(window).scrollTop(0)
         $scope.refresh(false)
@@ -473,11 +473,11 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
         ), 5000
       , (data) ->
         $scope.loading = false
-        $scope.mentorModalFormError = data.errors
+        $scope.advisorModalFormError = data.errors
       )
     , (data) ->
       $scope.loading = false
-      $scope.mentorModalFormError = data.errors
+      $scope.advisorModalFormError = data.errors
     )
 
   $scope.updateExperienceModal = () ->
@@ -485,7 +485,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     $scope.user.schools = $scope.editSchoolModel.schools
     $scope.user.industries = $scope.editIndustryModel.industries
 
-    User.updateMentor($scope.user).then((data) ->
+    User.updateAdvisor($scope.user).then((data) ->
       $scope.updateWorkHistories()
       $('#experienceModal').modal('hide')
       $(window).scrollTop(0)
@@ -498,13 +498,13 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
       ), 5000
     , (data) ->
       $scope.loading = false
-      $scope.mentorModalFormError = data.errors
+      $scope.advisorModalFormError = data.errors
     , (data) ->
       $scope.loading = false
-      $scope.mentorModalFormError = data.errors
+      $scope.advisorModalFormError = data.errors
     , (data) ->
       $scope.loading = false
-      $scope.mentorModalFormError = data.errors
+      $scope.advisorModalFormError = data.errors
     )
 
   $scope.updatePassword = () ->
@@ -560,14 +560,14 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   if $routeParams.user_id != undefined and $routeParams.user_id != null
     User.getUser($routeParams.user_id).then((userProfile)->
       $scope.userProfile = userProfile
-      User.getMentorInfo(userProfile.role_id).then((mentorInfo) ->
-        angular.extend(userProfile, mentorInfo)
+      User.getAdvisorInfo(userProfile.role_id).then((advisorInfo) ->
+        angular.extend(userProfile, advisorInfo)
 
         #prepend in missing url
-        $scope.userUrlPrefix = 'https://' if !mentorInfo.linkedin.match(/^http([s]?):\/\/.*/)
+        $scope.userUrlPrefix = 'https://' if !advisorInfo.linkedin.match(/^http([s]?):\/\/.*/)
 
-        $scope.user_profile_industries = mentorInfo.industries.split(", ") if mentorInfo.industries != null
-        $scope.user_profile_skills = mentorInfo.skills.split(", ") if mentorInfo.skills != null
+        $scope.user_profile_industries = advisorInfo.industries.split(", ") if advisorInfo.industries != null
+        $scope.user_profile_skills = advisorInfo.skills.split(", ") if advisorInfo.skills != null
       )
       Workhistory.getWorkHistories(userProfile.role_id).then((workHistoriesInfo) ->
         $scope.user_work_histories = workHistoriesInfo
@@ -621,8 +621,8 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
   # cancel all changes
   $scope.cancel = ->
     $scope.memberModel = {timeZone: 'Pacific Time (US & Canada)'}
-    $scope.mentorModel = {timeZone: 'Pacific Time (US & Canada)'}
-    $scope.mentorModalFormError = null
+    $scope.advisorModel = {timeZone: 'Pacific Time (US & Canada)'}
+    $scope.advisorModalFormError = null
     $scope.memberModelFormError = null
     $scope.uploadphotoFormError = null
     $scope.refresh(false)
@@ -714,7 +714,7 @@ Shyne.controller('ProfileCtrl', ['$http', '$location', '$scope', '$rootScope','$
     )
 
   $scope.backToPreviousStep = (previous_page) ->
-    if previous_page == 'become_mentor'
+    if previous_page == 'become_advisor'
       $scope.user.phone_number = $scope.phoneNumber
       $scope.user.linkedin = $scope.linkedin
 

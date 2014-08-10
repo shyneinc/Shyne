@@ -11,7 +11,7 @@ describe WorkHistory do
     context "Basic validations" do
       it { should validate_presence_of :company }
       it { should validate_presence_of :date_started }
-      it { should validate_presence_of :mentor_id }
+      it { should validate_presence_of :advisor_id }
       it { should validate_presence_of :title }
     end
   end

@@ -3,20 +3,20 @@ require "spec_helper"
 describe CallRequestMailer do
   let(:call_request) { create(:call_request) }
 
-  describe '#send_approval_email_to_mentor' do
-    let(:approved_call_request) { CallRequestMailer.send_approval_email_to_mentor(call_request) }
+  describe '#send_approval_email_to_advisor' do
+    let(:approved_call_request) { CallRequestMailer.send_approval_email_to_advisor(call_request) }
 
     it "renders approved subject" do
       approved_call_request.subject.should == "Call with #{call_request.member.user.first_name} scheduled for #{call_request.scheduled_date}"
     end
     it "renders the receiver email" do
-      approved_call_request.to.should eql [call_request.mentor.email]
+      approved_call_request.to.should eql [call_request.advisor.email]
     end
     it "renders the sender email" do
      approved_call_request.from.should eql ['no-reply@shyne.io']
     end
-    it "contains the mentor" do
-      approved_call_request.body.encoded.should match(call_request.mentor.user.first_name)
+    it "contains the advisor" do
+      approved_call_request.body.encoded.should match(call_request.advisor.user.first_name)
     end
     it "contains the passcode" do
      approved_call_request.body.encoded.should match(call_request.passcode.to_s)
@@ -30,7 +30,7 @@ describe CallRequestMailer do
     let(:approved_call_request) { CallRequestMailer.send_approval_email_to_member(call_request) }
 
     it "renders approved subject" do
-      approved_call_request.subject.should == "Call with #{call_request.mentor.user.first_name} scheduled for #{call_request.scheduled_date_member}"
+      approved_call_request.subject.should == "Call with #{call_request.advisor.user.first_name} scheduled for #{call_request.scheduled_date_member}"
     end
     it "renders the receiver email" do
       approved_call_request.to.should eql [call_request.member.email]
@@ -53,14 +53,14 @@ describe CallRequestMailer do
     let(:proposed_call_request) { CallRequestMailer.request_proposed(call_request) }
 
     it "renders the receiver email" do
-      proposed_call_request.to.should eql [call_request.mentor.email]
+      proposed_call_request.to.should eql [call_request.advisor.email]
     end
     it "render proposed subject" do
       proposed_call_request.subject.should == "You've received a Call Request!"
     end
   end
 
-  describe '#request_changed_mentor' do
+  describe '#request_changed_advisor' do
     pending
   end
 
@@ -68,7 +68,7 @@ describe CallRequestMailer do
     pending
   end
 
-  describe '#request_declined_mentor' do
+  describe '#request_declined_advisor' do
     pending
   end
 
@@ -76,7 +76,7 @@ describe CallRequestMailer do
     pending
   end
 
-  describe '#request_cancelled_mentor' do
+  describe '#request_cancelled_advisor' do
     pending
   end
 
@@ -84,11 +84,11 @@ describe CallRequestMailer do
     pending
   end
 
-  describe '#send_call_summary_to_mentor' do
-    let(:completed_call_request) { CallRequestMailer.send_call_summary_to_mentor(call_request) }
+  describe '#send_call_summary_to_advisor' do
+    let(:completed_call_request) { CallRequestMailer.send_call_summary_to_advisor(call_request) }
 
     it "renders the receiver email" do
-      completed_call_request.to.should eql [call_request.mentor.email]
+      completed_call_request.to.should eql [call_request.advisor.email]
     end
     it "renders completed subject" do
       completed_call_request.subject.should == "Summary for your call with #{call_request.member.user.first_name}"
@@ -99,7 +99,7 @@ describe CallRequestMailer do
     let(:call_request_reminder) { CallRequestMailer.send_reminder(call_request) }
 
     it "renders a receiver email" do
-      call_request_reminder.to.should eql [call_request.mentor.email]
+      call_request_reminder.to.should eql [call_request.advisor.email]
     end
     it "renders a reminder subject" do
       call_request_reminder.subject.should == 'Reminder for your scheduled call'

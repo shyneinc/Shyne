@@ -13,6 +13,8 @@
 #= require angular-resource
 #= require angular-blocks
 #= require angular-sanitize
+#= require angulartics.min
+#= require angulartics-ga.min
 #= require setup
 #= require_directory ./controllers
 #= require_directory ./services
@@ -55,8 +57,8 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   ).when("/logout",
     templateUrl: "/home/logout.html"
     controller: 'LogoutCtrl'
-  ).when("/mentors",
-    templateUrl: "/home/become_mentors.html"
+  ).when("/advisors",
+    templateUrl: "/home/become_advisors.html"
     controller: 'HomeBaseCtrl'
   ).when("/how",
     templateUrl: "/home/how_it_works.html"
@@ -77,10 +79,10 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
     templateUrl: "/home/our_mission.html"
     controller: 'HomeBaseCtrl'
   ).when("/search",
-    templateUrl: "/home/search_mentors.html"
+    templateUrl: "/home/search_advisors.html"
     controller: 'SearchCtrl'
   ).when("/search/:q",
-    templateUrl: "/home/search_mentors.html"
+    templateUrl: "/home/search_advisors.html"
     controller: 'SearchCtrl'
   ).when("/confirmation",
     templateUrl: "/users/confirmation.html"
@@ -106,7 +108,7 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
   ).when("/account",
     templateUrl: "/settings/account_status.html"
     controller: 'ProfileCtrl'
-  ).when("/call_request/:mentor_id",
+  ).when("/call_request/:advisor_id",
     templateUrl: "/call_request/index.html"
     controller: 'CallRequestCtrl'
   ).when("/conversation",

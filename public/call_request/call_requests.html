@@ -33,12 +33,12 @@
                     <th width="17%" class="text-center">Amount</th>
                   </tr>
                   <tr ng-repeat="call_request in call_requests">
-                    <td align="left"><a href="#/call_requests/{{call_request.id}}">{{ call_request.mentor.full_name }}</a></td>
+                    <td align="left"><a href="#/call_requests/{{call_request.id}}">{{ call_request.advisor.full_name }}</a></td>
                     <td align="left">{{ call_request.created_at | date:'MMM dd, yyyy' }}</td>
                     <td align="left">
                       <div ng-if="call_request.status == 'proposed'">Pending</div>
-                      <div ng-if="call_request.status == 'approved_mentor' || call_request.status == 'approved_member'">Accepted</div>
-                      <div ng-if="call_request.status == 'changed_mentor' || call_request.status == 'changed_member'">Changed</div>
+                      <div ng-if="call_request.status == 'approved_advisor' || call_request.status == 'approved_member'">Accepted</div>
+                      <div ng-if="call_request.status == 'changed_advisor' || call_request.status == 'changed_member'">Changed</div>
                       <div ng-if="call_request.status == 'processed'">Processed</div>
                       <div ng-if="call_request.status == 'declined'">Declined</div>
                       <div ng-if="call_request.status == 'completed'">Complete</div>

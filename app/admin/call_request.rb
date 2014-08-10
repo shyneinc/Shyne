@@ -4,7 +4,7 @@ ActiveAdmin.register CallRequest do
   index do
     selectable_column
     column :passcode
-    column :mentor_id
+    column :advisor_id
     column :member_id
     column :scheduled_at
     column :status
@@ -14,7 +14,7 @@ ActiveAdmin.register CallRequest do
 
   form do |f|
     f.inputs "Call Request Details" do
-      f.input :mentor, collection: Mentor.all
+      f.input :advisor, collection: Advisor.all
       f.input :member, collection: Member.all
       f.input :scheduled_at, :as => :just_datetime_picker
       f.input :status, as: :select, collection: CallRequestStatus.select_options, include_blank: false
@@ -24,7 +24,7 @@ ActiveAdmin.register CallRequest do
 
   controller do
     def permitted_params
-      params.permit call_request: [:mentor_id, :member_id, :status, :scheduled_at, :scheduled_at_date, :scheduled_at_time_hour, :scheduled_at_time_minute]
+      params.permit call_request: [:advisor_id, :member_id, :status, :scheduled_at, :scheduled_at_date, :scheduled_at_time_hour, :scheduled_at_time_minute]
     end
   end
 end

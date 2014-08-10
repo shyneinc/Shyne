@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/api/members/127",
+      "request_path": "/api/members/220",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -22,8 +22,8 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"id\":127,\"created_at\":\"2013-12-12T17:13:58.599-10:00\",\"updated_at\":\"2013-12-12T17:13:58.599-10:00\",\"user_id\":null,\"phone_number\":\"15626453725\"}",
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"c59ab57dbe7af0cdf21113ee0da6b667\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"d73a621a-18d8-4f6e-a329-6475823fb86a","X-Runtime":"0.064361","Content-Length":"144"},
+      "response_body": "{\"id\":220,\"created_at\":\"2014-08-09T10:11:47.458-08:00\",\"updated_at\":\"2014-08-09T10:11:47.458-08:00\",\"user_id\":null,\"phone_number\":\"15626453725\",\"industries\":\"enim\",\"city\":null,\"state\":null,\"user\":{\"id\":568,\"email\":\"user47_1407607907@shyne.io\",\"created_at\":\"2014-08-09T10:11:47.379-08:00\",\"updated_at\":\"2014-08-09T10:11:47.464-08:00\",\"role_id\":220,\"role_type\":\"Member\",\"first_name\":\"Myriam\",\"last_name\":\"Pfannerstill\",\"avatar\":{\"url\":\"/uploads/user/avatar/568/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/568/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/568/thumb_spongebob.jpeg\"}},\"username\":\"myriampfannerstill\",\"time_zone\":\"Hawaii\",\"customer_uri\":null,\"deleted_at\":null}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"c7127c8298d7264a4a5bd8af372f20fa\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"a5e7d46d-32dc-4620-87e9-ff282b98238b","X-Runtime":"0.022928","Content-Length":"698"},
       "response_content_type": "application/json; charset=utf-8",
       "curl": null
 }

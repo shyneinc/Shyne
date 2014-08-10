@@ -1,0 +1,31 @@
+{
+  "resource": "Advisor",
+  "http_method": "GET",
+  "route": "/api/advisors/:id",
+  "description": "Getting a specific advisor",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/advisors/248",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":248,\"created_at\":\"2014-08-09T14:11:21.115-04:00\",\"updated_at\":\"2014-08-09T14:11:21.115-04:00\",\"user_id\":null,\"headline\":\"Asperiores et omnis distinctio esse porro repellendus voluptates est et autem corrupti et delectus reiciendis.\",\"years_of_experience\":0,\"phone_number\":\"15626453725\",\"availability\":\"Et laborum eum cumque aliquam rerum dolor et omnis ut.\",\"status_changed_at\":null,\"featured\":false,\"linkedin\":\"http://www.linkedin.com/in/accusantium\",\"advisor_status\":\"applied\",\"location\":null,\"avg_call_duration\":null,\"avg_rating\":null,\"total_reviews\":0,\"city\":\"Oswaldborough\",\"state\":\"WY\",\"industries\":\"sapiente\",\"skills\":\"velit\",\"schools\":\"dolore\",\"full_name\":\"Scot Fritsch\",\"avatar\":\"/uploads/user/avatar/531/thumb_spongebob.jpeg\",\"rate_per_minute\":1,\"get_avg_rating\":\"0.0\",\"current_position\":null,\"current_company\":null,\"currently_working_at\":null,\"previously_worked_at\":null,\"total_calls\":0,\"user\":{\"id\":531,\"email\":\"user14_1407607880@shyne.io\",\"created_at\":\"2014-08-09T14:11:21.029-04:00\",\"updated_at\":\"2014-08-09T14:11:21.121-04:00\",\"role_id\":248,\"role_type\":\"Advisor\",\"first_name\":\"Scot\",\"last_name\":\"Fritsch\",\"avatar\":{\"url\":\"/uploads/user/avatar/531/spongebob.jpeg\",\"medium\":{\"url\":\"/uploads/user/avatar/531/medium_spongebob.jpeg\"},\"thumb\":{\"url\":\"/uploads/user/avatar/531/thumb_spongebob.jpeg\"}},\"username\":\"scotfritsch\",\"time_zone\":\"Indiana (East)\",\"customer_uri\":null,\"deleted_at\":null}}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"30a19dfaea3ea2acdaabb3b680467266\"","Cache-Control":"max-age=0, private, must-revalidate","X-Request-Id":"0095fb49-f640-4072-baae-ab132ac76f3c","X-Runtime":"0.141115","Content-Length":"1408"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

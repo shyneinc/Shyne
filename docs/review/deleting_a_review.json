@@ -1,7 +1,7 @@
 {
   "resource": "Review",
   "http_method": "DELETE",
-  "route": "/api/mentors/:mentor_id/reviews/:id",
+  "route": "/api/advisors/:advisor_id/reviews/:id",
   "description": "Deleting a review",
   "explanation": null,
   "parameters": [
@@ -12,14 +12,14 @@
     },
     {
       "required": true,
-      "name": "mentor_id",
-      "description": "Mentor ID"
+      "name": "advisor_id",
+      "description": "Advisor ID"
     }
   ],
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/mentors/93/reviews/4",
+      "request_path": "/api/advisors/250/reviews/25",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -33,7 +33,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dXJJZlpLTWpHY0txUHk1c2hpeHVsaHgwQTJtTDBRTHd0UmZxdERUS1RIWXlsS1ZPemIrTlU0dGgwaVEzWGlsOVBCT09aMVYzakxQYzdxWlo2OXdUdG5OdExHcndNUk1nMndkVnhMMnZub0NZdzgvRmlQNllSSEJhc0M5YlJDS1FETXBOeGpmS3VaNVZXalQyU3F6USt6VVhaSW51OExFbmQ2MlBtMTlWWFlnPS0tR0s0Qk1udHNpSFc5bXE4akRDaXY5UT09--7274536497738093bc079bd277c1ef650ca71806; path=/; HttpOnly","X-Request-Id":"6f7f2976-9bb9-4db3-9277-dbe715514602","X-Runtime":"0.070107"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=eUZrL0lNZk5nVEwxbFVaTGY3anBvKzN0K25PN2t5QnVjVWZUVVREc0lkR095Z21tcnJqem5JbHU2amU3TWRHMXkxNjdpL3RrSVBsQnVtWGI5Z2J0Y3lDcjNRZU1zR0g4RzBUY0NoU3JqMGVMVEZEOTEyVkh3alZZZXdST2E5UWhrVUFRTEs3czM1eVhqa1d2UGgwek1XeWNIa09HUm03QmtxVFBKekowYVRZPS0tTm1lVEJSWjZacFFWTFQ1Ty95amp4dz09--6deeb1d6a54c711b7e4285154c024784fd790a6a; path=/; HttpOnly","X-Request-Id":"38c692b3-dcb4-4fcd-979f-862bb8828912","X-Runtime":"0.026987"},
       "response_content_type": null,
       "curl": null
 }

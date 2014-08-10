@@ -10,7 +10,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/api/credit_cards/CC2fexKpFs3UJI9xnELw69dw",
+      "request_path": "/api/credit_cards/CC5Pxduy2f6aVdPvGC202gAt",
       "request_body": null,
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
@@ -24,7 +24,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=dGEwV1pqV2dQNFQrbEhQMW1nUG9kdHlZTmhpWUpXdmdFS1ZlUmZISlJYTnZGdUdTRnNodS9BckxERHV0UHdqWEZrSkxleUVZSGVSV043QTRCUGFvOGxmT21qL1BMZUc4NkhoQi9tZCtEeldJQVIwQ05yN2tOaGJ0dldOZ0JDWk12bC9GWWpXOHZ3WkVHSFNyVU96anZyQWxzZHI4TlpBMWswQ1pSWUowT1FzPS0tVVp0WlZxcGkvUW1UMHdLNUtnWnRvQT09--46f72cec369e7025b2117bf48861b867e8b59b52; path=/; HttpOnly","X-Request-Id":"2205f78e-e75b-4726-a2ef-4c143d1e5281","X-Runtime":"0.948216"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=MkV0eUQ5QXdKRXoxN0hzN2JIRUhZOXRMWmE3TnptR1I2YWZEenZFa1F6dzg3aWVzVlkwSUZ4N1hwcUZvNUR5Z0Yxa25ZS1h2cU83RGFIY2dvOEwrREE5R1RYbEszNkVPRWNLb1dySFZNUkx3L1hUMXlVL0t2SEt3OU5Mb2krSGJrbDFoZHI0dnhveXhBTlJWancvZDlwdVRLeUhjN3N5SHBCanZEeFBMenp3PS0tdUIweUlUcE1HblM1djJyM0U2aUZWdz09--9165292145c4dd023e8a3f8e033c70c04cb4224f; path=/; HttpOnly","X-Request-Id":"7c452566-003e-4585-b076-c69043cc0e89","X-Runtime":"0.650768"},
       "response_content_type": null,
       "curl": null
 }

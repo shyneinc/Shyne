@@ -30,8 +30,8 @@ class Api::V1::BankAccountsController < Api::V1::BaseController
   end
 
   def check_type
-    if current_user.role_type != 'Mentor'
-      render :json => {:error => 'Only mentors can use this end-point'}, :status => 401
+    if current_user.role_type != 'Advisor'
+      render :json => {:error => 'Only advisors can use this end-point'}, :status => 401
     end
   end
 end

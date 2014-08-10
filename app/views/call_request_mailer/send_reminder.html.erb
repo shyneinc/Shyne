@@ -11,7 +11,11 @@
         <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom: solid 1px #eeeded; width:482px; margin:14px 14px 0px 14px;">
           <tr>
             <td width="5%" valign="top" style="padding:4px 14px 14px 0px;">
-              <img style="border-radius: 110px;" width="54" height="54" src="<%= "#{root_url}#{@member.user.avatar.url}" %>" />
+              <% if @member.user.avatar.present? %>
+                <img style="border-radius: 110px;" width="54" height="54" src="<%= @member.user.avatar.url %>" />
+              <% else %>
+                <img style="border-radius: 110px;" width="54" height="54" src="<%= "#{root_url}assets/no_image.png" %>" />
+              <% end %>
             </td>
             <td width="95%" style="padding:0px 0px 14px 0px;">
               <h2 style=" font-family:Arial, Helvetica, sans-serif; font-size:20px; font-weight:bold; color:#393939; margin:0px 0px 5px 0px;"><%= @member.full_name %></h2>
@@ -35,7 +39,7 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ededed; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#4a4a4a; padding:2px 0px 2px 0px">
                 <tr>
                         <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Rate Per Minute</td>
-                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;">$<%= @mentor.rate_per_minute %></td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;">$<%= @advisor.rate_per_minute %></td>
                       </tr>
                       <tr>
                         <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Requested call length</td>
@@ -43,7 +47,7 @@
                       </tr>
                       <tr>
                         <td width="75%" align="left" style="padding:2px 8px; color:#9b9b9b;">Estimated Income</td>
-                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;"><%= number_to_currency(@call_request.proposed_duration * @mentor.rate_per_minute, :locale => :us) %></td>
+                        <td width="25%" align="right" style="padding:2px 8px; color:#4a4a4a;"><%= number_to_currency(@call_request.proposed_duration * @advisor.rate_per_minute, :locale => :us) %></td>
                       </tr>
                   </table>
               </td>

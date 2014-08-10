@@ -1,0 +1,35 @@
+{
+  "resource": "WorkHistory",
+  "http_method": "GET",
+  "route": "/api/advisors/:advisor_id/work_histories",
+  "description": "Getting advisor's work history",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "advisor_id",
+      "description": "Advisor ID"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/advisors/268/work_histories",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/vnd.shyne.v1",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[{\"id\":38,\"company\":\"Robel, Parker and Lockman\",\"date_started\":\"September 2013\",\"date_ended\":\"2014-12-10\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Legacy Intranet Executive\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2014-12-10\",\"ended_year\":null},{\"id\":37,\"company\":\"Thiel Inc\",\"date_started\":\"September 2013\",\"date_ended\":\"2013-11-22\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Global Applications Representative\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2013-11-22\",\"ended_year\":null},{\"id\":36,\"company\":\"Lubowitz, McDermott and Lueilwitz\",\"date_started\":\"September 2013\",\"date_ended\":\"2014-01-11\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Investor Identity Facilitator\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2014-01-11\",\"ended_year\":null},{\"id\":35,\"company\":\"Wintheiser, Steuber and Cummings\",\"date_started\":\"September 2013\",\"date_ended\":\"2015-02-10\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Investor Research Designer\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2015-02-10\",\"ended_year\":null},{\"id\":34,\"company\":\"Baumbach-Hickle\",\"date_started\":\"September 2013\",\"date_ended\":\"2015-05-14\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Legacy Research Manager\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2015-05-14\",\"ended_year\":null},{\"id\":33,\"company\":\"Heidenreich Group\",\"date_started\":\"September 2013\",\"date_ended\":\"2015-11-03\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Legacy Response Manager\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2015-11-03\",\"ended_year\":null},{\"id\":32,\"company\":\"Leffler, Veum and Osinski\",\"date_started\":\"September 2013\",\"date_ended\":\"2014-01-07\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Global Security Liason\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2014-01-07\",\"ended_year\":null},{\"id\":31,\"company\":\"Cummings, Lind and Connelly\",\"date_started\":\"September 2013\",\"date_ended\":\"2015-04-09\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Dynamic Assurance Engineer\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2015-04-09\",\"ended_year\":null},{\"id\":30,\"company\":\"Nitzsche LLC\",\"date_started\":\"September 2013\",\"date_ended\":\"2016-03-15\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Direct Assurance Engineer\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2016-03-15\",\"ended_year\":null},{\"id\":29,\"company\":\"Purdy LLC\",\"date_started\":\"September 2013\",\"date_ended\":\"2015-02-28\",\"current_work\":false,\"advisor_id\":268,\"title\":\"Lead Brand Liason\",\"started_month\":\"September\",\"started_year\":\"2013\",\"ended_month\":\"2015-02-28\",\"ended_year\":null}]",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","ETag":"\"446989063e57f6f15cc2910e384e68dc\"","Cache-Control":"max-age=0, private, must-revalidate","Set-Cookie":"_Shyne_session=cEkxUDFUUlB0RFUwTlN2Y1IvYTlJZm9GdkphMVI1bGtjcGVWSmxDVlc3L0MyaGZPOEswcXZLeGYwdXNmRlYwcmJIK05tandiR3ozV0VGcUt3MnBOTTBBSWhLc0Z6bkNvQ1A0eVdMaDRodk1XQUVQbjBLQjlKSWkydXBob0NOS092dS91TndzM05pT1VYM1JQWE5QRVZqWEtWSFhjQVdZalkxa2tHdDU0dFc4PS0tOWt1bUkyTCthc0RxQlRPUEJKSm53UT09--f5d016e62ff1c6c107284da5070fa0d781e0f334; path=/; HttpOnly","X-Request-Id":"79c1dd84-2114-4151-835d-1e40875caa77","X-Runtime":"0.057856","Content-Length":"2705"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}

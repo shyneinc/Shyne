@@ -18,7 +18,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  becomeMentor: (headline, city, state, years_of_experience, phone_number, availability, linkedin, industries, schools, skills) ->
+  becomeAdvisor: (headline, city, state, years_of_experience, phone_number, availability, linkedin, industries, schools, skills) ->
     deferred = $q.defer()
 
     if linkedin && !linkedin.match(/^http([s]?):\/\/.*/)
@@ -27,8 +27,8 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     if phone_number
       phone_number = "1#{phone_number}"
 
-    $http.post('/api/mentors',
-      mentor:
+    $http.post('/api/advisors',
+      advisor:
         headline: headline,
         city: city,
         state: state
@@ -41,7 +41,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
         schools: schools.join(", ")
     ).success((data)->
       if data.id
-        deferred.resolve(angular.extend(data, {role_type: 'Mentor'}))
+        deferred.resolve(angular.extend(data, {role_type: 'Advisor'}))
       else
         deferred.reject(data.errors)
     ).error((data)->
@@ -62,9 +62,9 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  getMentorInfo: (memberId) ->
+  getAdvisorInfo: (memberId) ->
     deferred = $q.defer()
-    $http.get('/api/mentors/' + memberId).success((data) ->
+    $http.get('/api/advisors/' + memberId).success((data) ->
       deferred.resolve(data)
     ).error((data)->
       deferred.reject(data)
@@ -126,14 +126,14 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  updateMentor: (user) ->
+  updateAdvisor: (user) ->
     deferred = $q.defer()
 
     if !user.linkedin.match(/^http([s]?):\/\/.*/)
       user.linkedin = "https://#{user.linkedin}"
 
-    $http.put('/api/mentors',
-      mentor:
+    $http.put('/api/advisors',
+      advisor:
         headline: user.headline,
         city: user.city,
         state: user.state
@@ -168,10 +168,10 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  updateMentorInfo: (user) ->
+  updateAdvisorInfo: (user) ->
     deferred = $q.defer()
-    $http.put('/api/mentors',
-      mentor:
+    $http.put('/api/advisors',
+      advisor:
         headline: user.headline,
         city: user.city,
         state: user.state
@@ -255,7 +255,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     )
     deferred.promise
 
-  createCallRequest: (callRequest, memberId, mentorId) ->
+  createCallRequest: (callRequest, memberId, advisorId) ->
     deferred = $q.defer()
     scheduled_date = callRequest.scheduled_at.split("-")
     scheduled_date = "#{scheduled_date[2]}-#{scheduled_date[0]}-#{scheduled_date[1]}"
@@ -263,7 +263,7 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
       call_request:
         agenda: callRequest.agenda,
         member_id: parseInt(memberId),
-        mentor_id: parseInt(mentorId),
+        advisor_id: parseInt(advisorId),
         scheduled_at: "#{scheduled_date} #{callRequest.scheduled_time} #{callRequest.am_pm}",
         proposed_duration: callRequest.proposed_duration.id,
         status: callRequest.status
@@ -300,9 +300,9 @@ ShyneService.factory('User', ['$location','$http','$q',($location, $http, $q) ->
     deferred.resolve(items)
     deferred.promise
 
-  getReviews: (mentorId) ->
+  getReviews: (advisorId) ->
     deferred = $q.defer()
-    $http.get('/api/mentors/' + mentorId + '/reviews').success((data) ->
+    $http.get('/api/advisors/' + advisorId + '/reviews').success((data) ->
       deferred.resolve(data)
     ).error((data)->
       deferred.reject(data)

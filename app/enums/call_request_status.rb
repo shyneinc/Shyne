@@ -7,29 +7,29 @@ end
 class CallRequestStatus::Proposed < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_proposed(owner)
-    #Twilio::Sms.delay.send_sms("You have a new call request!", owner.mentor.phone_number.to_s)
+    #Twilio::Sms.delay.send_sms("You have a new call request!", owner.advisor.phone_number.to_s)
   end
 end
 
 class CallRequestStatus::ApprovedMember < CallRequestStatus
   def send_status
     CallRequestMailer.delay.send_approval_email_to_member(owner)
-    CallRequestMailer.delay.send_approval_email_to_mentor(owner)
+    CallRequestMailer.delay.send_approval_email_to_advisor(owner)
     #Twilio::Sms.delay.send_sms("Your call request is approved!", owner.member.phone_number.to_s)
   end
 end
 
-class CallRequestStatus::ApprovedMentor < CallRequestStatus
+class CallRequestStatus::ApprovedAdvisor < CallRequestStatus
   def send_status
     CallRequestMailer.delay.send_approval_email_to_member(owner)
-    CallRequestMailer.delay.send_approval_email_to_mentor(owner)
-    #Twilio::Sms.delay.send_sms("Your call request is approved!", owner.mentor.phone_number.to_s)
+    CallRequestMailer.delay.send_approval_email_to_advisor(owner)
+    #Twilio::Sms.delay.send_sms("Your call request is approved!", owner.advisor.phone_number.to_s)
   end
 end
 
-class CallRequestStatus::ChangedMentor < CallRequestStatus
+class CallRequestStatus::ChangedAdvisor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_changed_mentor(owner)
+    CallRequestMailer.delay.request_changed_advisor(owner)
     #Twilio::Sms.delay.send_sms("Your call request has been changed.", owner.member.phone_number.to_s)
   end
 end
@@ -37,13 +37,13 @@ end
 class CallRequestStatus::ChangedMember < CallRequestStatus
   def send_status
     CallRequestMailer.delay.request_changed_member(owner)
-    #Twilio::Sms.delay.send_sms("Your call request has been changed.", owner.mentor.phone_number.to_s)
+    #Twilio::Sms.delay.send_sms("Your call request has been changed.", owner.advisor.phone_number.to_s)
   end
 end
 
-class CallRequestStatus::DeclinedMentor < CallRequestStatus
+class CallRequestStatus::DeclinedAdvisor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_declined_mentor(owner)
+    CallRequestMailer.delay.request_declined_advisor(owner)
   end
 end
 
@@ -53,9 +53,9 @@ class CallRequestStatus::DeclinedMember < CallRequestStatus
   end
 end
 
-class CallRequestStatus::CancelledMentor < CallRequestStatus
+class CallRequestStatus::CancelledAdvisor < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.request_cancelled_mentor(owner)
+    CallRequestMailer.delay.request_cancelled_advisor(owner)
   end
 end
 
@@ -67,20 +67,20 @@ end
 
 class CallRequestStatus::Completed < CallRequestStatus
   def send_status
-    CallRequestMailer.delay.send_call_summary_to_mentor(owner)
+    CallRequestMailer.delay.send_call_summary_to_advisor(owner)
     CallRequestMailer.delay.send_call_summary_to_member(owner)
   end
 end
 
 class CallRequestStatus::ProcessedMember < CallRequestStatus
   def send_status
-    if owner.mentor.balanced_customer.bank_accounts.none?
-      CallRequestMailer.delay.send_bank_reminder_to_mentor(owner)
+    if owner.advisor.balanced_customer.bank_accounts.none?
+      CallRequestMailer.delay.send_bank_reminder_to_advisor(owner)
     end
   end
 end
 
-class CallRequestStatus::ProcessedMentor < CallRequestStatus
+class CallRequestStatus::ProcessedAdvisor < CallRequestStatus
   def send_status
     #Do nothing
   end

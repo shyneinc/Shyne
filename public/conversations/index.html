@@ -1,6 +1,6 @@
 <div data-extend-template="/layouts/layout.html">
   <div data-block="content">
-    <section ng-hide="user" class="applicationMentors">
+    <section ng-hide="user" class="applicationAdvisors">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
@@ -30,7 +30,7 @@
                           <div ng-switch-when="Member">
                             From: <span class="tcOrg">{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</span>
                           </div>
-                          <div ng-switch-when="Mentor">
+                          <div ng-switch-when="Advisor">
                             From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a>
                           </div>
                         </div>

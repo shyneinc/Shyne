@@ -2,15 +2,15 @@ Shyne.controller('HomeCtrl', ['$location', '$rootScope', '$scope','Session',($lo
 
   $rootScope.location = $location
   $scope.user = null
-  $scope.featured_mentors = null
+  $scope.featured_advisors = null
   $scope.searchModel = { search_text: '' }
 
   Session.getCurrentUser(false).then((user)->
     $scope.user = user
   )
 
-  Session.getFeaturedMentors().then((data)->
-    $scope.featured_mentors = _.shuffle(data).chunk(3)
+  Session.getFeaturedAdvisors().then((data)->
+    $scope.featured_advisors = _.shuffle(data).chunk(3)
   )
 
   #chunk array in multi dimensional array

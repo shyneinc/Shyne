@@ -3,7 +3,7 @@
   "http_method": "PUT",
   "route": "/api/call_requests/:id",
   "description": "Updating a call request",
-  "explanation": "Once the mentor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request",
+  "explanation": "Once the advisor/member is authenticated and has a bank account/credit card on file, they can approve or change a call request",
   "parameters": [
     {
       "required": true,
@@ -19,8 +19,8 @@
     {
       "required": true,
       "scope": "call_request",
-      "name": "mentor_id",
-      "description": "Mentor ID"
+      "name": "advisor_id",
+      "description": "Advisor ID"
     },
     {
       "required": true,
@@ -38,8 +38,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/api/call_requests/4",
-      "request_body": "call_request[passcode]=61925&call_request[status]=approved&call_request[scheduled_at]=2014-01-07+15%3A20%3A26&call_request[billable_duration]",
+      "request_path": "/api/call_requests/127",
+      "request_body": "call_request[agenda]=Officia+qui+quia+esse+veritatis+hic+est+sint+quae+voluptatibus+voluptatem+omnis+dolor+quod.&call_request[passcode]=58687&call_request[status]=approved_advisor&call_request[scheduled_at]=2014-08-15+15%3A33%3A33&call_request[billable_duration]&call_request[proposed_duration]=30",
       "request_headers": {
         "Accept": "application/vnd.shyne.v1",
         "Host": "example.org",
@@ -52,7 +52,7 @@
       "response_status": 204,
       "response_status_text": "No Content",
       "response_body": null,
-      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=Z3NMUnpsbUlrbTRuWG5UNFc4U1JySWdLendpajQ4enZ1NWU1OFBHVW51SWFLaE1qZ0hhZCtpdGt2RWtEYXFaYkdjVDFBZ2I4S3RBV2w5eXZiVTlPOWxkK2t0Wk9EYm9ILzc2WFFSdnR5U0ZvNDRhZ1hEWUhoOTdLQkF4Z2NwRHp2dFg1T0NxUTFTeUN5UHBWcmZvWUtDOXhqVG9ZZStWbUtaOHNTYmtKZHg0PS0tUk5lSmhsT2MwS25CWk1STEJLL083dz09--a56faa639c6f13639f2d759dbfab9c8d60a9ea62; path=/; HttpOnly","X-Request-Id":"3c96eca6-e8ca-49b1-8fe5-c054e6491508","X-Runtime":"17.903779"},
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Cache-Control":"no-cache","Set-Cookie":"_Shyne_session=Q01Ed0xYN2pRaHBVei8wNEhYV1lmUS9NMGNrTGJYYW1EOEl2RGxyOXp3M08rbDFRclNsLzFoK1hsc01ZNVRML3hRWC9FTDl5bVBuY1drWFZYMmR0U3FLbHdUZHFaaHNpVWNxUndCRGpNbHl5dUx3WER1MytoL3FMU1I0ZnFTR3BMT3MvTmJxY0NEREE1L0tXeGNCb1FhL3VRL2Q3d0lmL04rWnJNTzN1YWgwPS0tNzJoWk1rNDlGOG94bUc0VUh2dHVlUT09--31ae3603d9cf5a31eda5cc1a3771450eb7182c27; path=/; HttpOnly","X-Request-Id":"5fd118a5-e214-4b2c-93ea-d5bfb9272bfb","X-Runtime":"8.194421"},
       "response_content_type": null,
       "curl": null
 }

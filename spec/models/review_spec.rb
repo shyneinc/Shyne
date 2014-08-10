@@ -11,7 +11,7 @@ describe Review do
     context "Basic validations" do
       it { should validate_presence_of :review }
       it { should validate_presence_of :rating }
-      it { should validate_presence_of :mentor }
+      it { should validate_presence_of :advisor }
       it { should validate_presence_of :member }
       it { should ensure_inclusion_of(:rating).in_range(0..5) }
     end
@@ -19,7 +19,7 @@ describe Review do
 
   describe "ActiveRecord validations" do
     context "Associations" do
-      it { expect(review).to belong_to(:mentor) }
+      it { expect(review).to belong_to(:advisor) }
       it { expect(review).to belong_to(:member) }
       it { expect(review).to belong_to(:call) }
     end
