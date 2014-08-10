@@ -28,6 +28,7 @@ gem 'raddocs'
 gem 'kaminari'
 gem 'active_model_serializers'
 gem 'dalli'
+gem 'friendly_id', '~> 5.0.0'
 
 gem 'jquery-rails', '~> 3.0'
 gem 'bootstrap-sass-rails'
