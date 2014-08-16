@@ -19,7 +19,7 @@
           <div ng-show="search_advisors.length == 0" class="alert alert-danger">{{searchError.info}}</div>
           <div class="sResultBox" ng-hide="search_advisors.length == 0">
             <div class="sBoxRow" ng-repeat="advisor in search_advisors">
-              <a href="#/profile/{{advisor.user_id}}">
+              <a href="#/profile/{{advisor.slug}}">
                 <div class="resultImage">
                     <img ng-src="{{advisor.photo_url}}">
                     <span class="caretLT"></span>
@@ -28,7 +28,7 @@
               </a>
               <div class="row">
                 <div class="col-md-8">
-                  <div class="pb10 mb5"><a href="#/profile/{{advisor.user_id}}"><span class="R22R tcOrg">{{advisor.full_name}}</span></a> <span class="OC15BUG" ng-show="advisor.current_position">{{advisor.current_position}} at <span class="tcOrg">{{advisor.current_company}}</span></span></div>
+                  <div class="pb10 mb5"><a href="#/profile/{{advisor.slug}}"><span class="R22R tcOrg">{{advisor.full_name}}</span></a> <span class="OC15BUG" ng-show="advisor.current_position">{{advisor.current_position}} at <span class="tcOrg">{{advisor.current_company}}</span></span></div>
                   <ul class="searchInfo">
                     <li><span class="iconPro i_ribbon"></span>{{advisor.years_of_experience}} years work experience</li>
                     <li><span class="iconPro i_pin"></span>{{advisor.city}}, {{advisor.state}}</li>
@@ -37,7 +37,7 @@
                   </ul>
                 </div>
                 <div class="col-md-4">
-                  <a class="btn grd-org btnOrgLg full mb20" href="#/profile/{{advisor.user_id}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a>
+                  <a class="btn grd-org btnOrgLg full mb20" href="#/profile/{{advisor.slug}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a>
                   <div class="OC15BUG text-center">rate is ${{advisor.rate_per_minute}}/min</div>
                 </div>
               </div>
