@@ -21,7 +21,7 @@ describe User do
 
   describe "ActiveRecord validations" do
     context "Callbacks" do
-      it { expect(user).to callback(:generate_username).before(:validation).on(:create) }
+      it { expect(user).to callback(:set_default_username).before(:validation).on(:create) }
     end
   end
 
