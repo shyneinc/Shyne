@@ -77,7 +77,7 @@
               <div class="OC16BUB">Skills</div>
                 <div class="clAll bdb pt5 mb10"></div>
                 <div class="skills">
-                  <span ng-repeat="skill in user_profile_skills">{{ skill }}</span>
+                  <a ng-repeat="skill in user_profile_skills" ng-href="#/search/{{skill}}">{{ skill }}</a>
                 </div>
                 <div class="cl mb20">&nbsp;</div>
                 <div class="OC16BUB">industries worked in</div>
