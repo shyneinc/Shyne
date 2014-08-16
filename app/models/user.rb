@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :username, use: [:slugged, :finders]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +12,7 @@ class User < ActiveRecord::Base
   validates :time_zone, :inclusion => { :in => ActiveSupport::TimeZone.us_zones.map(&:name) << "UTC" }
   validates_uniqueness_of :email, :message => "Email address has already been taken"
 
-  after_validation :generate_username, :on => :create
+  before_validation :set_default_username, :on => :create
 
   mount_uploader :avatar, AvatarUploader
 
@@ -55,9 +57,13 @@ class User < ActiveRecord::Base
 
   private
 
-  def generate_username
+  def should_generate_new_friendly_id?
+    slug.blank? || username_changed?
+  end
+
+  def set_default_username
     tmp_username = "#{self.first_name}#{self.last_name}".gsub(/\s+/, "").to_s.downcase
-    iterator = User.where("username like ?", "%#{tmp_username}%").pluck(:username).count
+    iterator = User.where({:username => tmp_username}).count
     tmp_username += iterator.to_s if iterator > 0 #append count where there are similar usernames
     self.username = tmp_username
   end

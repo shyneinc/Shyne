@@ -14,7 +14,7 @@ class Api::V1::AdvisorsController < Api::V1::BaseController
     end
 
     respond_with :api, advisors.to_json(:only => [:id, :user_id, :city, :state, :rate_per_minute, :years_of_experience],
-                                       :methods => [:current_position, :current_company, :full_name, :photo_url, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at, :previous_companies, :total_reviews])
+                                       :methods => [:current_position, :current_company, :full_name, :photo_url, :rate_per_minute, :get_avg_rating, :currently_working_at, :previously_worked_at, :previous_companies, :total_reviews, :slug])
   end
 
   def show

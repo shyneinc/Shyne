@@ -160,6 +160,8 @@ GEM
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
     gravatar-ultimate (2.0.0)
       activesupport (>= 2.3.14)
       rack
@@ -434,6 +436,7 @@ DEPENDENCIES
   fog (~> 1.15.0)
   font_assets
   foreman
+  friendly_id (~> 5.0.0)
   gravatar-ultimate
   guard-rspec
   guard-spork
