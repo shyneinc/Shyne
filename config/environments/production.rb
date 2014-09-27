@@ -33,7 +33,7 @@ Shyne::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '0.4.2'
+  config.assets.version = '0.4.3'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -89,7 +89,7 @@ Shyne::Application.configure do
   ENV['TWILIO_TOKEN'] = "ba9cd06f9049217ad193da230e2918af"
   ENV['TWILIO_NUMBER'] = "+16503004838"
 
-  config.after_initialize do 
+  config.after_initialize do
     Delayed::Job.scaler = :heroku_cedar
   end
 
