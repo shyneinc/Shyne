@@ -145,7 +145,7 @@ Shyne.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationP
     templateUrl: "/footer/terms.html"
     controller: 'HomeCtrl'
   )
-
+  $locationProvider.html5Mode true
 ]
 
 Shyne.run ($rootScope, $route, $window) ->
