@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
             <div class="text-center">
-              <h3>Please <a class="tcOrg" href="#/login">log in</a> to access messages</h3>
-              <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+              <h3>Please <a class="tcOrg" href="/login">log in</a> to access messages</h3>
+              <p class="R20R">Don't have an account? <a class="tcOrg" href="/signup">sign up now</a> for free.</p>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
                             From: <span class="tcOrg">{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</span>
                           </div>
                           <div ng-switch-when="Advisor">
-                            From: <a class="tcOrg" href="#/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a>
+                            From: <a class="tcOrg" href="/profile/{{conversation.messages[0].sender.id}}" stop-event>{{conversation.messages[0].sender.first_name}} {{conversation.messages[0].sender.last_name}}</a>
                           </div>
                         </div>
                       </div>
@@ -44,7 +44,7 @@
                       </div>
                       <p ng-bind-html="stringToHTML(conversation.messages[0].body)"></p>
                       <div class="replyBtn">
-                        <a class="grd-org rplybtnOrgLg fr" href="#/conversation/{{conversation.id}}">View</a>
+                        <a class="grd-org rplybtnOrgLg fr" href="/conversation/{{conversation.id}}">View</a>
                       </div>
                       <div class="clAll mb5"></div>
                     </div>

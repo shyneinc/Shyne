@@ -7,7 +7,7 @@
                   <div class="text-center info-message" ng-show="user">
                       <h2>Welcome to Shyne, {{user.first_name}}</h2>
                       <p>
-                          To log in with a different account, please <a href="#/logout">log out</a> first.
+                          To log in with a different account, please <a href="/logout">log out</a> first.
                       </p>
                   </div>
                   <div ng-hide="user">
@@ -27,7 +27,7 @@
                           </div>
                           <div class="bottomBtn">
                               <input type="submit" class="btn grd-org btnOrgLg fr" ng-disabled="loginForm.$invalid" value="Log in" />
-                              <a href="#/resetpassword" class="O13SB tcOrg mt10 fl">Forgot your password?</a>
+                              <a href="/resetpassword" class="O13SB tcOrg mt10 fl">Forgot your password?</a>
                           </div>
                         </div>
                       </form>

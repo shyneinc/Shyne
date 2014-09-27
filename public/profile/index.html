@@ -17,8 +17,8 @@
         <div class="row">
           <div class="col-md-7 col-md-offset-2">
             <div class="text-center">
-              <h3>Please <a class="tcOrg" href="#/login">log in</a> to access your profile</h3>
-              <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+              <h3>Please <a class="tcOrg" href="/login">log in</a> to access your profile</h3>
+              <p class="R20R">Don't have an account? <a class="tcOrg" href="/signup">sign up now</a> for free.</p>
             </div>
           </div>
         </div>
@@ -639,7 +639,7 @@
                     <div class="posRel tc clAll" ng-show="edit_profile">
                       <div class="proEdit"><a href="javascript:void(0)" open-dialog modal-name="#callsettingModal"><span class="iconPro i_edit_r"></span>Edit Call settings</a></div>
                     </div>
-                    <a href="#/call_request/{{user.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule Call Now</a>
+                    <a href="/call_request/{{user.role_id}}" class="btn grd-org btnOrgLg full mb20"><span class="glyphicon glyphicon-earphone"></span> Schedule Call Now</a>
                     <div class="O12BU mb20 text-center">call rate is ${{ user.rate_per_minute }}/min</div>
                     <div class="darkBoxRight">
                       <div class="OC16BUB mb10 text-center">availability</div>
@@ -685,7 +685,7 @@
                   <div class="OC16BUB">Skills</div>
                     <div class="clAll bdb pt5 mb10"></div>
                     <div class="skills">
-                      <a ng-repeat="skill in user_skills" ng-href="#/search/{{skill}}">{{ skill }}</a>
+                      <a ng-repeat="skill in user_skills" ng-href="/search/{{skill}}">{{ skill }}</a>
                     </div>
                     <div class="cl mb20">&nbsp;</div>
                     <div class="OC16BUB">industries worked in</div>

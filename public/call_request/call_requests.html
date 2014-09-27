@@ -6,8 +6,8 @@
           <div class="row">
             <div class="col-md-7 col-md-offset-2">
               <div class="text-center">
-                <h2>Please <a href="#/login">log in</a> to your Shyne account to continue</h2>
-                <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+                <h2>Please <a href="/login">log in</a> to your Shyne account to continue</h2>
+                <p class="R20R">Don't have an account? <a class="tcOrg" href="/signup">sign up now</a> for free.</p>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
                     <th width="17%" class="text-center">Amount</th>
                   </tr>
                   <tr ng-repeat="call_request in call_requests">
-                    <td align="left"><a href="#/call_requests/{{call_request.id}}">{{ call_request.advisor.full_name }}</a></td>
+                    <td align="left"><a href="/call_requests/{{call_request.id}}">{{ call_request.advisor.full_name }}</a></td>
                     <td align="left">{{ call_request.created_at | date:'MMM dd, yyyy' }}</td>
                     <td align="left">
                       <div ng-if="call_request.status == 'proposed'">Pending</div>

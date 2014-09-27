@@ -6,8 +6,8 @@
           <div class="row">
             <div class="col-md-6 col-md-offset-3">
               <div class="text-center info-message">
-                <h2>Please <a href="#/login">log in</a> to access messages</h2>
-                <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+                <h2>Please <a href="/login">log in</a> to access messages</h2>
+                <p class="R20R">Don't have an account? <a class="tcOrg" href="/signup">sign up now</a> for free.</p>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@
                             From: <span class="tcOrg">{{message.sender.first_name}} {{message.sender.last_name}}</span>
                           </div>
                           <div ng-switch-when="Advisor">
-                            From: <a class="tcOrg" href="#/profile/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a>
+                            From: <a class="tcOrg" href="/profile/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a>
                           </div>
                         </div>
                       </div>
@@ -53,7 +53,7 @@
                         <textarea class="width65" rows="3" ng-model="conversationModel.body" required="" maxlength="280"></textarea>
                       </div>
                       <div>
-                        <a href="#/conversation" class="btn grd-blue btnBlueLg mt10">Go Back</a>
+                        <a href="/conversation" class="btn grd-blue btnBlueLg mt10">Go Back</a>
                         <button type="button" class="btn grd-org btnOrgLg fr mt10" type="submit" ng-disabled="conversationForm.$invalid" ng-click="replyOnConversation()">Send Message</button>
                       </div>
                     </form>

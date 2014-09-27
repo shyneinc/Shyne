@@ -7,8 +7,8 @@
             <div class="leftSide">
               <h1>Get personalized career advice. Quickly.</h1>
               <p>Talk to people that work at companies you're interested in. Schedule a call with any of our Advisors in just minutes.</p>
-              <a ng-hide="user" href="#/signup" class="btn grd-org btnOrgLg">Are you ready to Shyne? Let's get started!</a>
-              <a ng-show="user" href="#/profile" class="btn grd-org btnOrgLg">Are you ready to Shyne? Let's get started!</a>
+              <a ng-hide="user" href="/signup" class="btn grd-org btnOrgLg">Are you ready to Shyne? Let's get started!</a>
+              <a ng-show="user" href="/profile" class="btn grd-org btnOrgLg">Are you ready to Shyne? Let's get started!</a>
             </div>
           </div>
           <div class="col-sm-6">
@@ -18,12 +18,12 @@
                 <button class="btn"><span class="glyphicon glyphicon-search"></span></button>
               </form>
               <div class="socialLogo">
-                <a href="#/search/Facebook"><img src="/assets/facebook.png" alt=""></a>
-                <a href="#/search/Goldman Sachs"><img src="/assets/goldman.png" alt=""></a>
-                <a href="#/search/Dropbox"><img src="/assets/dropbox.png" alt=""></a>
-                <a href="#/search/Google"><img src="/assets/google.png" alt=""></a>
-                <a href="#/search/Square"><img src="/assets/square.png" alt=""></a>
-                <a href="#/search/KPMG"><img src="/assets/kpmg.png" alt=""></a>
+                <a href="/search/Facebook"><img src="/assets/facebook.png" alt=""></a>
+                <a href="/search/Goldman Sachs"><img src="/assets/goldman.png" alt=""></a>
+                <a href="/search/Dropbox"><img src="/assets/dropbox.png" alt=""></a>
+                <a href="/search/Google"><img src="/assets/google.png" alt=""></a>
+                <a href="/search/Square"><img src="/assets/square.png" alt=""></a>
+                <a href="/search/KPMG"><img src="/assets/kpmg.png" alt=""></a>
               </div>
               <p>We have Advisors from top tier companies around the globe. Ask them questions to figure out what you need to do to land your dream job.</p>
             </div>
@@ -47,7 +47,7 @@
                     <div class="fmCat">{{advisor.full_name}}</div>
                     <div class="fmDesc">{{advisor.current_position}}</div>
                     <div class="fmName">{{advisor.current_company}}</div>
-                    <div class="fmCall"><a class="btn grd-blue" href="#/profile/{{advisor.slug}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a></div>
+                    <div class="fmCall"><a class="btn grd-blue" href="/profile/{{advisor.slug}}"><span class="glyphicon glyphicon-earphone"></span> Schedule a Call</a></div>
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@
 
     <section class="ourAdvisors">
       <div class="container">
-        <div class="joinOurAdvisors">Our Advisors make $60-180/hr. Interested in joining? <a class="btn grd-org btnOrgLg" href="#/signup">Apply Now</a></div>
+        <div class="joinOurAdvisors">Our Advisors make $60-180/hr. Interested in joining? <a class="btn grd-org btnOrgLg" href="/signup">Apply Now</a></div>
       </div>
     </section>
   </div>

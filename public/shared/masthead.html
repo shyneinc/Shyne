@@ -8,26 +8,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="/assets/logo.png" alt=""></a>
+        <a class="navbar-brand" href="/"><img src="/assets/logo.png" alt=""></a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <!--<li><a href="#">Browse Advisors</a></li>-->
-          <li><a href="#/how" ng-class="{ 'signUp' : location.path() == '/how' }">How It Works</a></li>
-          <li><a href="#/our-mission" ng-class="{ 'signUp' : location.path() == '/our-mission' }">Our Mission</a></li>
-          <li ng-hide="user"><a href="#/login" ng-class="{ 'signUp' : location.path() == '/login' }">Log In</a></li>
-          <li ng-hide="user"><a href="#/signup" ng-class="{ 'signUp' : location.path() == '/signup' }">Sign Up</a></li>
+          <li><a href="/how" ng-class="{ 'signUp' : location.path() == '/how' }">How It Works</a></li>
+          <li><a href="/our-mission" ng-class="{ 'signUp' : location.path() == '/our-mission' }">Our Mission</a></li>
+          <li ng-hide="user"><a href="/login" ng-class="{ 'signUp' : location.path() == '/login' }">Log In</a></li>
+          <li ng-hide="user"><a href="/signup" ng-class="{ 'signUp' : location.path() == '/signup' }">Sign Up</a></li>
           <li ng-show="user">
             <ul class="userDropdown">
               <li class="dropdown">
                 <div class="userLogin"><img src="/assets/no_image.png" ng-src="{{ user.user.avatar.thumb.url }}" alt=""></div>
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#/profile">Profile</a></li>
-                  <li><a href="#/call_requests">Calls</a></li>
-                  <li><a href="#/conversation">Messages</a></li>
-                  <li><a href="#/settings">Settings</a></li>
-                  <li><a href="#/logout">Log out</a></li>
+                  <li><a href="/profile">Profile</a></li>
+                  <li><a href="/call_requests">Calls</a></li>
+                  <li><a href="/conversation">Messages</a></li>
+                  <li><a href="/settings">Settings</a></li>
+                  <li><a href="/logout">Log out</a></li>
                 </ul>
               </li>
             </ul>

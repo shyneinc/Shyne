@@ -6,8 +6,8 @@
           <div class="row">
             <div class="col-md-6 col-md-offset-3">
               <div class="text-center info-message">
-                <h2>Please <a href="#/login">log in</a> to access messages</h2>
-                <p class="R20R">Don't have an account? <a class="tcOrg" href="#/signup">sign up now</a> for free.</p>
+                <h2>Please <a href="/login">log in</a> to access messages</h2>
+                <p class="R20R">Don't have an account? <a class="tcOrg" href="/signup">sign up now</a> for free.</p>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
                         <textarea class="width65" rows="3" ng-model="conversationModel.body" required="" maxlength="280"></textarea>
                       </div>
                       <div>
-                        <a href="#/call_requests/{{ call_request.id }}" class="btn grd-blue btnBlueLg mt10">Go Back</a>
+                        <a href="/call_requests/{{ call_request.id }}" class="btn grd-blue btnBlueLg mt10">Go Back</a>
                         <button type="button" class="btn grd-org btnOrgLg fr mt10" type="submit" ng-disabled="conversationForm.$invalid" ng-click="createConversation()">Send Message</button>
                       </div>
                     </form>
