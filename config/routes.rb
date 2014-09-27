@@ -71,5 +71,6 @@ Shyne::Application.routes.draw do
     end
   end
 
+  # anything not matched by the above should be served the bootstrap
+  match "/*path" => "home#index", :via => :get
 end
-
